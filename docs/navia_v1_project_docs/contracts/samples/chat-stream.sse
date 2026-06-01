@@ -1,0 +1,8 @@
+event: state.transition
+data: {"event_id":"evt_01HZYT000000000000000001","session_id":"sess_01HZYT000000000000000001","turn_id":"turn_01HZYT000000000000000001","trace_id":"trace_01HZYT000000000000000001","request_id":"req_01HZYT000000000000000001","type":"state.transition","timestamp":"2026-06-01T00:00:00Z","data":{"from":"waiting_user","to":"detecting_intent"}}
+
+event: response.delta
+data: {"event_id":"evt_01HZYT000000000000000002","session_id":"sess_01HZYT000000000000000001","turn_id":"turn_01HZYT000000000000000001","trace_id":"trace_01HZYT000000000000000001","request_id":"req_01HZYT000000000000000001","type":"response.delta","timestamp":"2026-06-01T00:00:01Z","data":{"text":"This page explains browser extensions and their security model."}}
+
+event: response.done
+data: {"event_id":"evt_01HZYT000000000000000003","session_id":"sess_01HZYT000000000000000001","turn_id":"turn_01HZYT000000000000000001","trace_id":"trace_01HZYT000000000000000001","request_id":"req_01HZYT000000000000000001","type":"response.done","timestamp":"2026-06-01T00:00:02Z","data":{"message_id":"msg_01HZYT000000000000000001"}}

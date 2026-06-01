@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaviaPageContext",
+  "type": "object",
+  "required": ["page_id", "session_id", "url", "title", "domain", "captured_at", "content_hash", "headings"],
+  "properties": {
+    "page_id": { "type": "string", "pattern": "^page_" },
+    "session_id": { "type": "string", "pattern": "^sess_" },
+    "tab_id": { "type": "integer" },
+    "url": { "type": "string" },
+    "title": { "type": "string" },
+    "domain": { "type": "string" },
+    "captured_at": { "type": "string", "format": "date-time" },
+    "content_hash": { "type": "string", "pattern": "^sha256_" },
+    "headings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["level", "text"],
+        "properties": {
+          "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "text": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "selected_text": { "type": "string" },
+    "visible_text": { "type": "string" },
+    "cleaned_text": { "type": "string" },
+    "metadata": { "type": "object" }
+  },
+  "additionalProperties": false
+}

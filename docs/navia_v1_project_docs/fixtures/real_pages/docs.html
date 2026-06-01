@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Content scripts - derived technical docs fixture</title>
+    <meta name="source-url" content="https://developer.chrome.com/docs/extensions/develop/concepts/content-scripts" />
+    <meta name="fixture-kind" content="technical-docs" />
+    <meta name="license-note" content="Derived from a real Chrome Extensions documentation page structure; shortened and paraphrased for contract testing." />
+  </head>
+  <body>
+    <main>
+      <h1>Content scripts</h1>
+      <p>
+        Content scripts run in the context of web pages and can inspect or alter the DOM of pages
+        that match an extension's permissions and configuration.
+      </p>
+
+      <h2>Work in an isolated world</h2>
+      <p>
+        A content script uses an isolated JavaScript environment, which helps separate extension
+        logic from scripts that are loaded by the page itself.
+      </p>
+
+      <h2>Communicate with the extension</h2>
+      <p>
+        Content scripts use extension messaging to send page information to a service worker,
+        side panel, or another extension page.
+      </p>
+
+      <h2>Inject user interface</h2>
+      <p>
+        Extensions can add interface elements to the current page, but injected UI should avoid
+        style collisions and should not store core application state in the page.
+      </p>
+
+      <h2>Relevance to Navia</h2>
+      <p>
+        This fixture represents documentation-like pages with nested sections for heading-path,
+        cleaned-text, and chunk contract tests.
+      </p>
+    </main>
+  </body>
+</html>

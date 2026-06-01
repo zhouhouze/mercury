@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaviaAgentEvent",
+  "type": "object",
+  "required": ["event_id", "session_id", "type", "timestamp", "data"],
+  "properties": {
+    "event_id": { "type": "string", "pattern": "^evt_" },
+    "session_id": { "type": "string", "pattern": "^sess_" },
+    "turn_id": { "type": "string", "pattern": "^turn_" },
+    "trace_id": { "type": "string", "pattern": "^trace_" },
+    "request_id": { "type": "string", "pattern": "^req_" },
+    "type": {
+      "type": "string",
+      "enum": [
+        "state.transition",
+        "intent.detected",
+        "budget.checked",
+        "tool.started",
+        "tool.done",
+        "tool.denied",
+        "artifact.created",
+        "response.delta",
+        "response.done",
+        "error",
+        "page.context.received"
+      ]
+    },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "data": { "type": "object" }
+  },
+  "additionalProperties": false
+}

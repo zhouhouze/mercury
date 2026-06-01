@@ -1,0 +1,672 @@
+# Navia / 伴航 V1 开发计划大纲
+
+版本：V1.0 Development Plan Baseline  
+日期：2026-05-31
+
+---
+
+## 1. 开发总原则
+
+V1 开发必须坚持：
+
+```text
+先底座，后体验。
+先可控，后智能。
+先单 Session，后长期记忆。
+先 Headless Runtime，后多端 UI。
+先状态机和监督，后复杂任务执行。
+```
+
+V1 不允许在开发过程中临时扩大到：
+
+- MCP。
+- Skill。
+- 长期记忆。
+- 完整 RAG。
+- 多 Agent。
+- 浏览器自动操作。
+- 本地文件默认搜索。
+- 深度研究。
+- PPT 生成。
+- 桌面宠物。
+
+V1 后续开发必须执行阶段门禁：
+
+- 每个子阶段开始前，先基于总 PRD 制定单独开发计划和验收标准。
+- 每个子阶段开始前，必须输出审计意见，并闭环所有致命或重大规格偏差和 false-green 风险。
+- 每个子阶段完成后，必须使用真实数据完成端到端验收。
+- 每个子阶段完成后，必须做 PRD 规格复检。
+- 验收失败时不得进入下一阶段，必须打回开发计划阶段重新思考并执行。
+- Codex 自动完成开发、验收、审计和文档同步；人类只处理高风险确认。
+
+---
+
+## 2. 阶段总览
+
+```text
+V1.0-0：Contracts & Runtime Skeleton
+V1.0-A：AgentCore Baseline
+V1.0-B：状态机与可观测
+V1.0-C：Governance / Budget Supervisor
+V1.0-D：Chrome 插件与 PageContext
+V1.0-E：网页伴读工具
+V1.0-F：语音输入增强，可选
+V1.0-G：Session 质量与恢复
+V1.0-H：V1 Closure / Regression / Documentation
+```
+
+### 2.1 首轮规划落地范围
+
+当前项目仍处于规划阶段，第一轮只要求落盘设计文档，不创建工程代码。
+
+首轮底座实施计划锁定为 V1.0-0/A/B/C：
+
+- V1.0-0：Contracts & Runtime Skeleton，冻结 API / Event / State / Tool / Budget / Error / ID 合同。
+- V1.0-A：Contract-First Python Local Runtime + AgentCore 最小闭环。
+- V1.0-B：完整状态机、事件流、Trace、Mermaid 状态图。
+- V1.0-C：Budget / Permission / Context / File Query / Approval 的治理底座。
+
+这不是 V1 complete 的范围。V1 complete 必须继续完成 V1.0-D/E/G，并至少交付一个可在 Chrome 浏览器安装的插件形态，让用户可以打开 Side Panel Chatbox，基于当前网页进行基础文字对话。
+
+首轮底座暂不进入 V1.0-D/E/F/G：
+
+- 不创建 Chrome 插件工程，但记录 WXT + React + TypeScript 为 V1 插件基线。
+- 不接 FunASR；语音输入不阻塞 Chrome 文字对话主链路。
+- 不接真实本地模型。
+- 不实现 Mindmap 模型。
+- 不做长期记忆、RAG、MCP、Skill、多 Agent、浏览器自动操作、桌宠或云化。
+
+### 2.2 V1 complete 的用户可见目标
+
+V1 结束时，用户必须能在自己的 Chrome 浏览器中完成：
+
+```text
+安装 Navia Chrome 插件
+-> 打开任意网页
+-> 打开 Side Panel Chatbox
+-> 插件连接 127.0.0.1 Local Runtime
+-> Runtime 接收当前网页 PageContext
+-> 用户输入自然语言问题
+-> AgentCore 基于当前网页返回基础回答或摘要
+-> 对话、工具调用、事件和结果可在 Session Trace 中追踪
+```
+
+V1 的最低可演示能力：
+
+- Chrome 插件可通过 unpacked extension 方式安装。
+- Side Panel 可打开并展示 Runtime 连接状态。
+- Runtime 未启动时，插件必须给出明确提示。
+- 用户可以进行文字对话，不依赖语音。
+- 当前网页的 `title`、`url`、`domain`、`headings`、`cleanedText` 可进入 Runtime。
+- 至少支持“总结这篇文章”和“基于当前页面回答问题”两类对话。
+- 每次对话都产生 `session_id`、`turn_id`、AgentEvent、ToolCallRecord 和 Trace。
+- 默认不读取本地文件，不联网搜索，不执行浏览器自动操作。
+
+### 2.3 阶段门禁总流程
+
+每个 V1 子阶段都必须产生独立 stage-gate 文档：
+
+```text
+docs/navia_v1_project_docs/stage-gates/v1.0-x-<stage-name>.md
+```
+
+阶段执行顺序固定为：
+
+```text
+PRD 规格检视
+-> 单独制定开发计划和验收标准
+-> 预审计
+-> 闭环致命/重大审计意见
+-> 实质开发
+-> 真实数据端到端验收
+-> PRD 规格复检
+-> 阶段放行或打回
+```
+
+如果预审计或验收复检发现重大偏差、致命风险或虚假验收风险，必须停止进入下一阶段，并找人类确认或回到开发计划阶段修正。
+
+---
+
+## 3. V1.0-0：Contracts & Runtime Skeleton
+
+### 3.1 目标
+
+在写业务 loop 之前冻结 V1 最小合同，避免 V1.0-A 先写临时结构、V1.0-B/C 再返工。
+
+### 3.2 范围
+
+必须定义：
+
+- API response envelope。
+- ErrorCode enum。
+- State enum。
+- Transition table schema。
+- AgentEvent envelope。
+- Session / Turn / Message schema。
+- ToolSpec / ToolCallRecord / ToolResult schema。
+- BudgetLedger / BudgetCost / TurnBudget schema。
+- ID 生成与关联规则。
+- `/v1/chat/stream` SSE event protocol。
+- EventStore 与 EventStream 接口边界。
+- Store interface，包括 SessionStore、EventStore，可先有 InMemory 实现。
+
+必须明确：
+
+- 一个 user message 触发一个 turn。
+- 每个 turn 必须有 `turn_id`、`trace_id`、`request_id`。
+- 每个 tool call 必须关联 `session_id`、`turn_id`。
+- 每个 artifact 必须关联 `turn_id` 和 `tool_call_id`，并有 `source_page_id` 或明确 `source=null`。
+- 执行中事件必须关联 `turn_id`。
+- `/v1/chat/stream` 在 V1 使用 SSE，返回 `text/event-stream`。
+- `EventStore` 用于持久化 trace/replay，`EventStream` 用于实时推送 UI，二者不得合并成单一临时流。
+
+暂不实现：
+
+- 真实网页抽取。
+- 真实模型调用。
+- Chrome 插件。
+- 完整审批 workflow。
+- SQLite 复杂恢复。
+
+### 3.3 交付物
+
+- Contract definitions。
+- 最小 Runtime skeleton。
+- Schema validation tests。
+- State transition table 的最小可生成 Mermaid 输出。
+- API envelope / error / SSE 示例。
+
+### 3.4 验收
+
+- 所有 schema 有基础单测或 schema validation。
+- 示例 AgentEvent 可通过 schema validation。
+- 示例 ToolResult 可通过 schema validation。
+- 示例 API success/error envelope 可通过 schema validation。
+- Mermaid 状态图可由 transition table 生成空图或基础图。
+- `/v1/chat/stream` 的 SSE 事件格式被文档和测试固定。
+
+---
+
+## 4. V1.0-A：Contract-First AgentCore Baseline
+
+### 4.1 目标
+
+建立 Local Runtime 和 AgentCore 最小闭环。
+
+实现基线：
+
+- Runtime 主栈为 Python。
+- API Gateway 建议采用 FastAPI 风格实现。
+- V1.0-A 先用 rule-based IntentRouter，保留 ModelAdapter 接口。
+- 存储可先使用内存实现验证合同，但接口必须可替换为 SQLite / JSONL EventLog。
+- AgentCore 一轮最小 loop 必须通过 `StateMachine.transition()` 执行，不允许在 `TurnRunner` 里手写临时状态字符串。
+- ToolExecutor 从第一天就必须经过 `PreToolUse` / `PostToolUse` hook；A 阶段可用安全 mock tool 的 DefaultAllowPolicy 和高风险工具 DefaultDenyPolicy。
+- `EventStore` 和 `EventStream` 必须同时有接口；A 阶段实现可先用 InMemory / JSONL。
+
+### 4.2 范围
+
+必须实现：
+
+- Local Runtime 启动。
+- `/v1/health`。
+- `/v1/models/status`。
+- `/v1/sessions`。
+- `/v1/chat/stream` SSE。
+- SessionStore 最小实现。
+- MessageStore 最小实现。
+- EventStore 最小实现。
+- EventStream 最小实现。
+- ToolRegistry 最小实现。
+- StateMachine 主路径最小实现。
+- PreToolUse / PostToolUse 空实现。
+- IntentRouter mock / rule-based。
+- AgentCore 一轮最小 loop。
+- AgentEvent 最小输出。
+- Mock `summarize_page` / `answer_from_page` 工具。
+
+暂不实现：
+
+- Chrome 插件。
+- FunASR。
+- 真正本地模型。
+- Mindmap 模型。
+- 长页面 chunk。
+- 完整异常路径。
+- 完整 BudgetSupervisor。
+
+### 4.3 交付物
+
+- `services/local-runtime` 可运行。
+- `AgentRuntime`。
+- `AgentLoop`。
+- `SessionStore`。
+- `EventStore`。
+- `EventStream`。
+- `EventBus`。
+- 最小 `StateMachine`。
+- 最小 governance hooks。
+- 基础单元测试。
+
+### 4.4 验收
+
+- Runtime 可启动。
+- 可创建 session。
+- 可写入 user / assistant / tool / event message。
+- 可执行一轮 `user -> intent -> tool -> response`。
+- 可输出 AgentEvent 流。
+- 一轮 chat 必须产生 `turn_id`。
+- `/v1/chat/stream` 必须输出 `state.transition`、`intent.detected`、`tool.started`、`response.delta`、`response.done`。
+- Trace API 能看到同一个 turn 的事件。
+- ToolExecutor 不能绕过 PreToolUse。
+- `read_local_file`、`shell`、`browser_automation` 等高风险工具在 A 阶段默认 deny。
+
+---
+
+## 5. V1.0-B：状态机与可观测
+
+### 5.1 目标
+
+Agent 状态机成为正式 runtime contract。
+
+### 5.2 范围
+
+必须实现：
+
+- StateMachine。
+- TransitionTable。
+- Mermaid renderer。
+- 非法 transition 拒绝。
+- `INVALID_TRANSITION` error。
+- `state.transition` event。
+- AgentEvent schema validation。
+- Trace export。
+- Mermaid graph snapshot test。
+- `/v1/agent/state`。
+- `/v1/agent/state-machine/mermaid`。
+- `/v1/sessions/{session_id}/trace`。
+
+### 5.3 状态路径
+
+主路径：
+
+```text
+idle -> observing_page -> waiting_user -> detecting_intent -> planning -> budget_checking -> running_tool -> validating_result -> streaming_response -> persisting_turn -> waiting_user
+```
+
+异常路径：
+
+```text
+intent_unknown -> fallback_reply -> persisting_turn
+budget_exceeded -> budget_exhausted -> persisting_turn
+tool_failed -> error -> waiting_user
+result_invalid -> repairing_result -> streaming_response/error
+```
+
+### 5.4 交付物
+
+- 状态机代码。
+- Mermaid 状态图输出。
+- Event schema。
+- Trace API。
+- 状态机测试。
+- Event schema validation tests。
+- Trace export tests。
+
+### 5.5 验收
+
+- Transition table 存在。
+- 非法 transition 被拒绝。
+- 每个 transition 产生 event。
+- Mermaid 图由代码生成。
+- 测试覆盖主路径和异常路径。
+- 非法 transition 必须返回或抛出 `INVALID_TRANSITION`。
+- Mermaid 图和 transition table 一致。
+- Trace 可按 `turn_id` 过滤。
+
+---
+
+## 6. V1.0-C：Governance / Budget Supervisor
+
+### 6.1 目标
+
+先把 Agent 管住，防止工具、上下文、token 消耗失控。
+
+### 6.2 范围
+
+必须实现：
+
+- BudgetSupervisor。
+- ToolPermissionSupervisor。
+- ContextSupervisor。
+- FileQuerySupervisor 默认关闭。
+- ApprovalGate 最小实现。
+- PreToolUse hook。
+- PostToolUse hook。
+- BudgetLedger。
+- Budget check 必须发生在 `tool.started` 前。
+- Permission check 必须发生在 `tool.started` 前。
+- `approval_required` 只产生事件和记录，不执行工具 side effect。
+
+默认预算：
+
+```text
+maxModelCalls = 3
+maxToolCalls = 5
+maxInputTokens = 12000
+maxOutputTokens = 3000
+maxContextBytes = 256KB
+maxRuntimeMs = 60000
+maxRetries = 1
+```
+
+默认权限：
+
+```text
+allow: read_current_page, summarize_page, answer_from_page, explain_selection, generate_mindmap, asr_transcribe
+deny: read_local_file, search_local_workspace, shell, browser_click, browser_automation, network_crawl
+```
+
+### 6.3 交付物
+
+- Governance 模块。
+- BudgetLedger 存储。
+- Tool policy 配置。
+- Approval event。
+- 并发/幂等基础测试。
+
+### 6.4 验收
+
+- TurnBudget 生效。
+- 超预算进入 `budget_exhausted`。
+- `read_local_file` 默认禁用。
+- 工具调用前经过 policy check。
+- 工具调用后记录结果。
+- high-risk 工具审批前不得执行 side effect。
+- `maxToolCalls=1` 时第二个工具不得产生 `tool.started`。
+- `maxRetries=1` 时不得出现第三次重试。
+- `read_local_file` deny 时不得产生 side effect。
+- high-risk tool 审批前 `ToolCallRecord.status` 必须是 `denied` 或 `waiting_approval`，不得进入 `running`。
+
+---
+
+## 7. V1.0-D：Chrome 插件与 PageContext
+
+### 7.1 目标
+
+打通当前网页到 Local Runtime 的上下文链路，并交付 V1 用户可安装的 Chrome 插件外壳。
+
+### 7.2 范围
+
+必须实现：
+
+- Chrome extension scaffold。
+- Unpacked extension 安装说明。
+- Side Panel 基础 UI。
+- Background Worker 作为消息桥。
+- Content Script 页面抽取。
+- PageContext 合同。
+- `/v1/page/context`。
+- Runtime 记录 activePage。
+- Runtime detection：未启动、连接失败、Origin 被拒绝时 UI 可解释。
+
+### 7.3 PageContext 字段
+
+必须包含：
+
+- pageId。
+- url。
+- title。
+- domain。
+- capturedAt。
+- contentHash。
+- headings。
+- selectedText optional。
+- visibleText optional。
+- cleanedText optional。
+
+### 7.4 交付物
+
+- Chrome 插件可加载。
+- Chrome 插件可通过 unpacked extension 安装到开发者 Chrome。
+- Side Panel 可打开。
+- 当前网页信息可显示。
+- PageContext 可提交 Runtime。
+- Session activePage 可更新。
+- Runtime 未启动时，Side Panel 展示启动提示，不出现空白页。
+
+### 7.5 验收
+
+- 开发者可按 README 在 Chrome 中安装 unpacked extension。
+- 点击插件打开 Side Panel。
+- 可显示当前 tab title / url / domain。
+- Content Script 可抽取 headings / cleanedText。
+- 切换页面后 PageContext 更新。
+- Runtime 可记录 page.context.received event。
+- Runtime 未启动时 UI 给出明确提示；Runtime 启动后可重新连接。
+
+---
+
+## 8. V1.0-E：网页伴读工具
+
+### 8.1 目标
+
+实现 V1 用户可感知价值：摘要、问答、选区解释、Mindmap。
+
+### 8.2 工具
+
+必须实现：
+
+```text
+summarize_page
+answer_from_page
+explain_selection
+generate_mindmap
+```
+
+### 8.3 摘要能力
+
+支持：
+
+- TL;DR。
+- 结构化摘要。
+- 要点式摘要。
+- 项目启发摘要。
+
+### 8.4 问答能力
+
+要求：
+
+- 优先基于当前 PageContext。
+- 长页面按 chunk 检索相关上下文。
+- 不知道就说明信息不足。
+- 不默认联网搜索。
+- 不默认读取本地文件。
+
+### 8.5 Mindmap 能力
+
+流程：
+
+```text
+PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapter -> Mermaid Validator -> Repair Once -> Return
+```
+
+约束：
+
+- 使用 Mermaid mindmap。
+- 节点层级不超过 4。
+- 节点数量默认不超过 40。
+- 校验失败只修复一次。
+
+### 8.6 交付物
+
+- 伴读工具实现。
+- Prompt 模板。
+- Mermaid validator。
+- ArtifactRecord。
+- 前端预览。
+
+### 8.7 验收
+
+- “总结这篇文章”可用。
+- 用户在 Side Panel Chatbox 输入问题后可收到基于当前网页的回答。
+- “解释选中内容”可用。
+- “生成思维导图”可用。
+- Mermaid 可预览。
+- 每次 tool call 可在 trace 中看到。
+- Artifact 可追踪到 sourcePageId。
+
+---
+
+## 9. V1.0-F：语音输入增强，可选
+
+### 9.1 目标
+
+语音成为 Chatbox 输入，不做完整语音助手。
+
+本阶段是 V1.x 增强项，不作为 V1 complete 的阻塞条件。V1 complete 的输入方式以文字对话为准。
+
+### 9.2 范围
+
+必须实现：
+
+- 浏览器录音按钮。
+- 音频流发送 Runtime。
+- Runtime 调用 FunASR。
+- 返回 transcript。
+- transcript 写入 user message。
+- AgentCore 按文本处理。
+
+暂不做：
+
+- 唤醒词。
+- 全局监听。
+- 长时间后台录音。
+- 说话人分离。
+- 情绪 TTS。
+
+### 9.3 交付物
+
+- `/v1/asr/stream`。
+- FunASRAdapter。
+- Transcript Artifact。
+- Voice source message。
+
+### 9.4 验收
+
+- 用户点击录音。
+- 后端 FunASR 转写。
+- transcript 写入 Session。
+- AgentCore 按文本处理。
+- FunASR 不可用时 UI 禁用语音按钮或提示。
+
+---
+
+## 10. V1.0-G：Session 质量与恢复
+
+### 10.1 目标
+
+单 Session 历史做实，支撑后续 V2 Memory Plane。
+
+### 10.2 范围
+
+必须实现：
+
+- SQLite 持久化。
+- Message history。
+- ToolCallRecord。
+- ArtifactRecord。
+- BudgetLedger。
+- SessionCheckpoint。
+- Session trace export。
+- Side Panel refresh recovery。
+
+### 10.3 交付物
+
+- SQLite schema。
+- Session restore API。
+- Trace export。
+- Checkpoint mechanism。
+- Recovery tests。
+
+### 10.4 验收
+
+- 刷新侧边栏后 Session 不丢。
+- 对话、工具、Artifact、事件可追踪。
+- 可导出 Session Trace。
+- 长 Session 可 checkpoint。
+- EventLog 可重建一次 turn。
+
+---
+
+## 11. V1.0-H：Closure / Regression / Documentation
+
+### 11.1 目标
+
+收口 V1，不扩大 ready 声明。
+
+### 11.2 范围
+
+必须完成：
+
+- 全链路 smoke。
+- 状态机测试。
+- Governance 测试。
+- Chrome 插件基本验收。
+- API 文档同步。
+- README / 启动说明。
+- Known limitations。
+
+### 11.3 交付物
+
+- Final V1 report。
+- Acceptance evidence。
+- Test results。
+- Developer setup guide。
+- User-facing limitations。
+
+### 11.4 验收
+
+只能声明：
+
+```text
+V1 complete: installable Chrome Side Panel Chatbox and current-page companion reading with controlled single-session AgentCore are ready.
+```
+
+不能声明：
+
+```text
+personal knowledge base ready
+long-term memory ready
+RAG ready
+deep research ready
+PPT generation ready
+browser automation ready
+desktop pet ready
+cloud sync ready
+V2/V3/V4/V5 ready
+```
+
+---
+
+## 12. 推荐开发顺序
+
+最小可行顺序：
+
+```text
+1. contract freeze: API envelope / ErrorCode / State / Event / Tool / Budget / ID / SSE
+2. local-runtime health/session/event skeleton
+3. minimal StateMachine main path
+4. AgentCore loop through StateMachine.transition()
+5. PreToolUse / PostToolUse hooks
+6. EventStore + EventStream separation
+7. governance: budget / permission / context / file deny
+8. page context API
+9. Chrome side panel + content script
+10. summarize/ask tools
+11. Chrome 文字对话 E2E
+12. deterministic mindmap fallback, then model adapter
+13. session restore + trace export
+14. FunASR
+```
+
+不要先做 UI 细节，也不要先做本地知识库。V1 成败取决于 AgentCore 是否稳，以及 Chrome 插件是否能完成最小可用的当前网页基础对话闭环。

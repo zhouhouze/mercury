@@ -1,0 +1,161 @@
+<mxfile host="app.diagrams.net" modified="2026-05-31T00:00:00.000Z" agent="codex" version="24.7.17" type="device">
+  <diagram id="target-architecture" name="01 目标架构">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="Navia / 伴航 V1 目标架构&lt;br&gt;Chrome 侧边栏 + 本地 Headless Runtime + 可观测单 Session AgentCore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center;verticalAlign=middle" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1680" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="interface" value="交互层&lt;br&gt;&lt;br&gt;Chrome Side Panel&lt;br&gt;WXT + React + TypeScript&lt;br&gt;未来复用 Web / App Shell&lt;br&gt;&lt;br&gt;原则：UI 只是壳，不保存 Agent 核心状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="70" y="210" width="270" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="context" value="上下文层&lt;br&gt;&lt;br&gt;当前网页 title / url / domain&lt;br&gt;headings / cleanedText&lt;br&gt;selectedText&lt;br&gt;可选 voice transcript&lt;br&gt;contentHash / chunks&lt;br&gt;&lt;br&gt;原则：只处理当前网页上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="390" y="210" width="270" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="session" value="Session 层&lt;br&gt;&lt;br&gt;单 Session message history&lt;br&gt;activePage&lt;br&gt;ToolCallRecord&lt;br&gt;ArtifactRecord&lt;br&gt;Checkpoint&lt;br&gt;BudgetLedger&lt;br&gt;EventLog 引用&lt;br&gt;&lt;br&gt;原则：单轮可回放，Artifact 可追踪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="710" y="210" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="agent" value="Agent Runtime 层&lt;br&gt;&lt;br&gt;Python Runtime 基线&lt;br&gt;AgentCore Loop&lt;br&gt;状态机正式 contract&lt;br&gt;Intent routing&lt;br&gt;One-step planning&lt;br&gt;Tool dispatch&lt;br&gt;Result validation&lt;br&gt;Response streaming&lt;br&gt;&lt;br&gt;原则：AgentCore 是状态机，不是散乱 prompt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="1050" y="190" width="310" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="model" value="模型层&lt;br&gt;&lt;br&gt;IntentModelAdapter&lt;br&gt;MindmapModelAdapter&lt;br&gt;LLMAdapter&lt;br&gt;可选 FunASRAdapter&lt;br&gt;&lt;br&gt;原则：模型是 Adapter，不进入业务层" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="1420" y="200" width="280" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="governance" value="治理层&lt;br&gt;&lt;br&gt;BudgetSupervisor&lt;br&gt;ToolPermissionSupervisor&lt;br&gt;ContextSupervisor&lt;br&gt;FileQuerySupervisor 默认关闭&lt;br&gt;ApprovalGate&lt;br&gt;&lt;br&gt;原则：所有工具调用必须被监督&lt;br&gt;默认不读取本地文件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="1050" y="600" width="310" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="observability" value="可观测层&lt;br&gt;&lt;br&gt;AgentEvent&lt;br&gt;state.transition&lt;br&gt;Session trace&lt;br&gt;状态机 Mermaid&lt;br&gt;预算指标&lt;br&gt;工具调用指标&lt;br&gt;&lt;br&gt;原则：所有状态变化必须可见" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="710" y="620" width="290" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" value="存储基线&lt;br&gt;&lt;br&gt;SQLite Session Store&lt;br&gt;JSONL EventLog&lt;br&gt;Page cache&lt;br&gt;Mindmap cache&lt;br&gt;&lt;br&gt;原型可先用内存实现&lt;br&gt;但接口必须可替换" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#525252;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="390" y="620" width="270" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="boundaries" value="V1 硬边界&lt;br&gt;&lt;br&gt;不接 MCP / Skill&lt;br&gt;不做长期记忆&lt;br&gt;不做完整 RAG&lt;br&gt;不做多 Agent&lt;br&gt;不做浏览器自动操作&lt;br&gt;不默认读取本地文件&lt;br&gt;不做深度研究 / PPT / 桌宠&lt;br&gt;&lt;br&gt;目标：先把当前网页伴读闭环打穿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;align=left;spacingLeft=16;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="70" y="620" width="270" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" value="页面上下文采集" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="interface" target="context"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a2" value="写入 activePage" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="context" target="session"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a3" value="驱动单轮 turn" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="session" target="agent"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a4" value="模型适配调用" style="endArrow=block;html=1;rounded=0;strokeColor=#7C3AED;strokeWidth=2;fontSize=12" edge="1" parent="1" source="agent" target="model"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a5" value="工具前后治理" style="endArrow=block;html=1;rounded=0;strokeColor=#DC2626;strokeWidth=2;fontSize=12" edge="1" parent="1" source="agent" target="governance"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a6" value="事件 / Trace" style="endArrow=block;html=1;rounded=0;strokeColor=#64748B;strokeWidth=2;fontSize=12" edge="1" parent="1" source="agent" target="observability"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a7" value="持久化" style="endArrow=block;html=1;rounded=0;strokeColor=#525252;strokeWidth=2;fontSize=12" edge="1" parent="1" source="session" target="storage"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="a8" value="状态回传前端" style="endArrow=block;html=1;rounded=0;strokeColor=#64748B;strokeWidth=2;fontSize=12" edge="1" parent="1" source="observability" target="interface">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="530" y="970" /><mxPoint x="200" y="970" /></Array></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="development-plan" name="02 V1开发计划大纲">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="Navia V1 开发计划大纲&lt;br&gt;首轮底座做 V1.0-0/A/B/C；V1 complete 必须交付 Chrome 插件基础对话" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1680" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseA" value="V1.0-0 / A 合同优先 AgentCore&lt;br&gt;&lt;br&gt;0 先冻结合同：&lt;br&gt;API envelope / ErrorCode&lt;br&gt;State / Event / Tool / Budget schema&lt;br&gt;ID 规则 / SSE 协议&lt;br&gt;EventStore 与 EventStream 分离&lt;br&gt;&lt;br&gt;A 再实现：&lt;br&gt;Python Runtime&lt;br&gt;/v1/health / /v1/sessions&lt;br&gt;最小 StateMachine 主路径&lt;br&gt;PreToolUse / PostToolUse hook&lt;br&gt;rule-based IntentRouter&lt;br&gt;&lt;br&gt;验收：一轮 chat 有 turn_id，工具经过 hook" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="60" y="190" width="390" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseB" value="V1.0-B 状态机与可观测&lt;br&gt;&lt;br&gt;目标：Agent 状态机成为正式 runtime contract&lt;br&gt;&lt;br&gt;交付：&lt;br&gt;StateMachine&lt;br&gt;TransitionTable&lt;br&gt;Mermaid renderer&lt;br&gt;非法 transition 拒绝&lt;br&gt;state.transition event&lt;br&gt;/v1/agent/state&lt;br&gt;/v1/sessions/{id}/trace&lt;br&gt;&lt;br&gt;验收：状态图由代码生成，主路径和异常路径可测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="490" y="190" width="390" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseC" value="V1.0-C Governance / Budget&lt;br&gt;&lt;br&gt;目标：先把 Agent 管住，防止工具、上下文、token 消耗失控&lt;br&gt;&lt;br&gt;交付：&lt;br&gt;BudgetSupervisor&lt;br&gt;ToolPermissionSupervisor&lt;br&gt;ContextSupervisor&lt;br&gt;FileQuerySupervisor 默认关闭&lt;br&gt;ApprovalGate&lt;br&gt;PreToolUse / PostToolUse&lt;br&gt;BudgetLedger&lt;br&gt;&lt;br&gt;验收：超预算停止执行，本地文件默认 deny" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="920" y="190" width="390" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="firstScope" value="首轮底座边界&lt;br&gt;&lt;br&gt;只做 0/A/B/C：合同、Runtime、AgentCore、状态机、事件追踪、治理底座。&lt;br&gt;&lt;br&gt;禁止 false green：无 turn_id、无 EventStore、无 ToolResult、无 ErrorCode、无 SSE 协议、无 governance hooks 的实现不得通过。&lt;br&gt;&lt;br&gt;每阶段必须先做 stage-gate：PRD 检视、开发计划、验收标准、预审计；闭环致命/重大风险后才能开发。&lt;br&gt;&lt;br&gt;注意：首轮底座不等于 V1 complete。V1 结束必须能安装 Chrome 插件并完成当前网页文字对话。&lt;br&gt;&lt;br&gt;不接 FunASR；不接真实本地模型；不做 RAG / MCP / Skill / 多 Agent / 自动化 / 桌宠 / 云化。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=14;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="1350" y="190" width="370" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseD" value="V1.0-D Chrome 插件与 PageContext&lt;br&gt;&lt;br&gt;WXT Side Panel&lt;br&gt;Unpacked extension 安装&lt;br&gt;Background Worker&lt;br&gt;Content Script&lt;br&gt;PageContext 合同&lt;br&gt;/v1/page/context&lt;br&gt;Runtime detection&lt;br&gt;&lt;br&gt;验收：Chrome 可安装，Side Panel 可打开，当前 tab 上下文可提交" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="60" y="570" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseE" value="V1.0-E 网页伴读工具&lt;br&gt;&lt;br&gt;summarize_page&lt;br&gt;answer_from_page&lt;br&gt;explain_selection&lt;br&gt;generate_mindmap&lt;br&gt;Prompt 模板&lt;br&gt;Mermaid validator&lt;br&gt;ArtifactRecord&lt;br&gt;&lt;br&gt;验收：Side Panel 文字对话可基于当前网页回答，摘要、问答、思维导图可追踪来源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="390" y="570" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseF" value="V1.0-F 语音输入增强，可选&lt;br&gt;&lt;br&gt;浏览器录音按钮&lt;br&gt;音频流发送 Runtime&lt;br&gt;FunASRAdapter&lt;br&gt;transcript 写入 user message&lt;br&gt;AgentCore 按文本处理&lt;br&gt;&lt;br&gt;说明：不阻塞 V1 complete；文字对话是主链路" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="720" y="570" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseG" value="V1.0-G Session 质量与恢复&lt;br&gt;&lt;br&gt;SQLite schema&lt;br&gt;Message history&lt;br&gt;ToolCallRecord&lt;br&gt;ArtifactRecord&lt;br&gt;BudgetLedger&lt;br&gt;SessionCheckpoint&lt;br&gt;Trace export&lt;br&gt;Side Panel refresh recovery&lt;br&gt;&lt;br&gt;验收：刷新前端后 Session 不丢" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="1050" y="570" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="phaseH" value="V1.0-H Closure / Regression / Documentation&lt;br&gt;&lt;br&gt;全链路 smoke&lt;br&gt;状态机测试&lt;br&gt;Governance 测试&lt;br&gt;Chrome 插件基本验收&lt;br&gt;API 文档同步&lt;br&gt;README / 启动说明&lt;br&gt;Known limitations&lt;br&gt;Final V1 report&lt;br&gt;&lt;br&gt;验收：只声明当前网页伴读 MVP ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacingLeft=12" vertex="1" parent="1">
+          <mxGeometry x="1380" y="570" width="290" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseA" target="phaseB"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseB" target="phaseC"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" value="0/A/B/C 验收后进入体验链路" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="phaseC" target="phaseD"><mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1115" y="530" /><mxPoint x="205" y="530" /></Array></mxGeometry></mxCell>
+        <mxCell id="e4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseD" target="phaseE"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseE" target="phaseF"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseF" target="phaseG"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="phaseG" target="phaseH"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="acceptance-roadmap" name="03 V1验收计划">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="Navia V1 验收计划&lt;br&gt;V1 complete = Chrome 可安装 + 当前网页文字对话闭环可跑通、可追踪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1680" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="closedLoop" value="核心闭环&lt;br&gt;&lt;br&gt;当前网页 -&gt; PageContext -&gt; AgentCore -&gt; Intent -&gt; Tool -&gt; Response / Artifact -&gt; Session / Trace&lt;br&gt;&lt;br&gt;必须可跑通、可恢复、可追踪、可限制。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=16;align=center" vertex="1" parent="1">
+          <mxGeometry x="160" y="170" width="1480" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="go" value="Go 条件&lt;br&gt;&lt;br&gt;V1.0-0 合同冻结通过&lt;br&gt;每阶段有 stage-gate 文档和真实数据验收报告&lt;br&gt;Chrome 插件可 Load unpacked 安装&lt;br&gt;Chrome Side Panel 可打开&lt;br&gt;Side Panel Chatbox 可文字对话&lt;br&gt;当前页面上下文进入 Runtime&lt;br&gt;AgentCore 完成单 Session 对话&lt;br&gt;摘要 / 问答 / Mindmap 可用&lt;br&gt;状态机输出 Mermaid&lt;br&gt;EventStore 追踪完整 turn&lt;br&gt;每个 turn 有 turn_id&lt;br&gt;工具返回 ToolResult&lt;br&gt;Budget / Permission 生效&lt;br&gt;默认不读取本地文件&lt;br&gt;API / 数据模型 / 文档同步" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="70" y="350" width="330" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="module" value="模块验收&lt;br&gt;&lt;br&gt;Contracts：API envelope / ErrorCode / State / Event / Tool / Budget / ID / SSE&lt;br&gt;Runtime：health / models/status / sessions&lt;br&gt;Session：turn / message / tool / artifact / budget / trace&lt;br&gt;StateMachine：transition table / INVALID_TRANSITION&lt;br&gt;Observability：EventStore + EventStream 分离&lt;br&gt;Governance：budget / permission / approval&lt;br&gt;Chrome：Side Panel / Runtime 提示 / 状态展示&lt;br&gt;PageContext：title / url / domain / text / hash&lt;br&gt;Tools：摘要 / 问答 / 选区解释 / Mindmap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="440" y="350" width="360" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="e2e" value="E2E 验收场景&lt;br&gt;&lt;br&gt;0. 插件基础对话：Chrome 安装插件，Side Panel 文字对话基于当前网页回答&lt;br&gt;1. 网页摘要：展示 SummaryArtifact，Trace 完整&lt;br&gt;2. 网页问答：基于当前 PageContext，不联网、不读本地文件&lt;br&gt;3. 思维导图：Mermaid 可渲染，失败最多 repair once&lt;br&gt;4. 语音提问，可选：FunASR transcript 后续流程等同 typed message&lt;br&gt;5. 预算限制：超预算进入 budget_exhausted，不执行第二个工具&lt;br&gt;6. 本地文件访问拒绝：read_local_file 默认 deny，记录事件" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="840" y="350" width="390" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="nogo" value="No-Go 条件&lt;br&gt;&lt;br&gt;Agent 状态只存在前端或 extension background worker&lt;br&gt;工具调用绕过 Governance&lt;br&gt;本地文件读取默认开启&lt;br&gt;超预算后 Agent 继续自动执行&lt;br&gt;Mermaid 失败后无限重试&lt;br&gt;Session 无法恢复&lt;br&gt;只有实时事件，没有持久化 EventStore&lt;br&gt;工具直接返回自由文本&lt;br&gt;/v1/chat/stream 未固定为 SSE&lt;br&gt;状态机非法迁移不会报错&lt;br&gt;PR 引入 MCP / Skill / 长期记忆 / 多 Agent 作为 V1 必需项" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="1270" y="350" width="420" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="claim" value="最终允许声明&lt;br&gt;&lt;br&gt;V1 complete：Navia 可作为 Chrome unpacked extension 安装，并通过 Side Panel Chatbox + Local Headless Runtime 完成当前网页文字对话。单 Session AgentCore 基于状态机运行，可观测，并受预算、权限、上下文监督。摘要、问答、Mermaid 思维导图可用于 MVP 验证。&lt;br&gt;&lt;br&gt;禁止声明：个人知识库 ready、长期记忆 ready、RAG ready、深度研究 ready、PPT ready、浏览器自动化 ready、桌宠 ready、云同步 ready、V2-V5 ready。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="180" y="870" width="1440" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="closedLoop" target="go"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="closedLoop" target="module"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="closedLoop" target="e2e"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="f4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="closedLoop" target="nogo"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-v5-milestones" name="04 V1-V5里程碑">
+    <mxGraphModel dx="1800" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="Navia 全项目周期 V1-V5 里程碑总结&lt;br&gt;先验证可控本地伴随式 AI 底座，再扩展知识、媒体、任务执行和产品化体验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1680" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="v1" value="V1 网页伴读底座&lt;br&gt;&lt;br&gt;目标：Chrome 插件基础对话 + 当前网页伴读 + Headless Local AgentCore&lt;br&gt;&lt;br&gt;关键产物：&lt;br&gt;可安装 Chrome Side Panel&lt;br&gt;Local Runtime&lt;br&gt;单 Session AgentCore&lt;br&gt;文字对话&lt;br&gt;摘要 / 问答 / Mermaid Mindmap&lt;br&gt;预算 / 权限 / Trace&lt;br&gt;&lt;br&gt;成功标志：当前网页闭环可跑通、可恢复、可追踪、可限制" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" value="V2 本地备忘与个人知识库&lt;br&gt;&lt;br&gt;目标：把网页阅读沉淀为长期知识资产&lt;br&gt;&lt;br&gt;关键产物：&lt;br&gt;Memory Plane&lt;br&gt;Knowledge Store&lt;br&gt;网页标签化总结&lt;br&gt;Agent / 类 RAG 蒸馏&lt;br&gt;前端知识可视化&lt;br&gt;自然语言管理知识与提问&lt;br&gt;&lt;br&gt;依赖：复用 V1 Session、Artifact、Trace、治理边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="400" y="240" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" value="V3 观赛 / 观影 / 看直播陪伴&lt;br&gt;&lt;br&gt;目标：把伴随式 AI 从网页阅读扩展到媒体体验&lt;br&gt;&lt;br&gt;关键产物：&lt;br&gt;视频 / 直播上下文&lt;br&gt;字幕 / 时间轴 / 事件理解&lt;br&gt;实时伴随式问答&lt;br&gt;观赛 / 观影评论与总结&lt;br&gt;Session-aware media companion&lt;br&gt;&lt;br&gt;依赖：复用 V1 当前上下文链路和 V2 知识能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="740" y="240" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="v4" value="V4 个人秘书与 Manus-like Agent&lt;br&gt;&lt;br&gt;目标：从伴读走向可审批的任务执行&lt;br&gt;&lt;br&gt;关键产物：&lt;br&gt;个人秘书类 Agent&lt;br&gt;深度研究 workflow&lt;br&gt;PPT 生成&lt;br&gt;Research Artifact&lt;br&gt;任务计划与执行状态&lt;br&gt;审批与任务安全门&lt;br&gt;&lt;br&gt;依赖：复用 V1 Governance、V2 Memory、V3 上下文能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="1080" y="240" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="v5" value="V5 移动端 / 云化 / 产品化 / 桌宠&lt;br&gt;&lt;br&gt;目标：从本地 MVP 走向多端产品体验&lt;br&gt;&lt;br&gt;关键产物：&lt;br&gt;移动端迁移&lt;br&gt;云化部署&lt;br&gt;账号 / 同步 / 产品化改造&lt;br&gt;桌面宠物角色小航&lt;br&gt;情绪价值体验层&lt;br&gt;跨设备连续体验&lt;br&gt;&lt;br&gt;依赖：V1-V4 能力稳定后再产品化扩展" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=13;align=left;spacingLeft=14" vertex="1" parent="1">
+          <mxGeometry x="1420" y="240" width="310" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="principle" value="全周期演进原则&lt;br&gt;&lt;br&gt;V1 先证明可控 AgentCore 与当前网页伴读闭环；V2 再升级长期知识；V3 扩展到媒体陪伴；V4 扩展到任务执行和研究产出；V5 再做移动端、云化、多端同步和桌宠产品化。每一阶段都复用上一阶段的 Runtime API、Session / Trace、Governance、ModelAdapter 和 Artifact 合同。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=16;align=center" vertex="1" parent="1">
+          <mxGeometry x="180" y="760" width="1440" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" value="Session / Trace / Governance" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="v1" target="v2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g2" value="Knowledge + Context" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="v2" target="v3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g3" value="Memory + Governance" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="v3" target="v4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="g4" value="Productization" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=12" edge="1" parent="1" source="v4" target="v5"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
