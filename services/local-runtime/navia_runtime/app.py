@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 import hashlib
+import os
 from collections.abc import Iterable
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Request
@@ -12,7 +14,7 @@ from navia_runtime import __version__
 from navia_runtime.agent import TurnRunner
 from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, failure, new_id, success, utc_now
 from navia_runtime.state_machine import mermaid_graph
-from navia_runtime.stores import InMemoryEventStore, InMemoryEventStream, SessionStore
+from navia_runtime.stores import InMemoryEventStream, SQLiteEventStore, SQLiteSessionStore
 
 
 ALLOWED_ORIGINS = {
@@ -21,9 +23,18 @@ ALLOWED_ORIGINS = {
 }
 
 app = FastAPI(title="Navia Local Runtime", version=__version__)
-event_store = InMemoryEventStore()
+
+
+def default_db_path() -> Path:
+    configured = os.environ.get("NAVIA_DB_PATH")
+    if configured:
+        return Path(configured)
+    return Path(__file__).resolve().parents[3] / ".navia/navia.sqlite3"
+
+
+event_store = SQLiteEventStore(default_db_path())
 event_stream = InMemoryEventStream()
-session_store = SessionStore()
+session_store = SQLiteSessionStore(default_db_path())
 runtime_projection = {"state": "waiting_user"}
 
 
@@ -131,6 +142,41 @@ async def create_session(request: Request):
         {
             "session_id": session["session_id"],
             "created_at": session["created_at"],
+        },
+        request_id=request.headers.get("x-request-id"),
+    )
+
+
+@app.get("/v1/sessions/{session_id}")
+def get_session(session_id: str, request: Request):
+    record = session_store.get_session_record(session_id)
+    if not record:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.SESSION_NOT_FOUND, "Session not found.", request_id=request.headers.get("x-request-id")),
+        )
+    active_page = record.get("active_page") if isinstance(record.get("active_page"), dict) else None
+    return success(
+        {
+            "session_id": record["session_id"],
+            "created_at": record["created_at"],
+            "updated_at": record["updated_at"],
+            "metadata": record.get("metadata", {}),
+            "activePage": {
+                "page_id": active_page.get("page_id"),
+                "url": active_page.get("url"),
+                "title": active_page.get("title"),
+                "domain": active_page.get("domain"),
+                "content_hash": active_page.get("content_hash"),
+                "captured_at": active_page.get("captured_at"),
+            }
+            if active_page
+            else None,
+            "messages": record.get("messages", []),
+            "artifacts": record.get("artifacts", []),
+            "toolCalls": record.get("tool_calls", []),
+            "budgetLedger": record.get("budget_ledger", []),
+            "checkpoints": record.get("checkpoints", []),
         },
         request_id=request.headers.get("x-request-id"),
     )

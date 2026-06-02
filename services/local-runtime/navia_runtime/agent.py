@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable
 
-from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, new_id
+from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, new_id, utc_now
 from navia_runtime.governance import BudgetExceeded, GovernanceHooks, TurnBudget
 from navia_runtime.intent import RuleBasedIntentRouter
 from navia_runtime.state_machine import AgentState, StateMachine
@@ -39,6 +39,7 @@ class TurnRunner:
         turn_id = new_id("turn_")
         trace_id = new_id("trace_")
         message_id = new_id("msg_")
+        user_message_id = new_id("msg_")
         raw_budget = body.get("budget") if isinstance(body.get("budget"), dict) else {}
         budget = TurnBudget(
             max_tool_calls=int(raw_budget.get("max_tool_calls", 5)),
@@ -47,6 +48,19 @@ class TurnRunner:
         )
         sm = StateMachine()
         emitted: list[dict[str, Any]] = []
+
+        self.session_store.add_message(
+            session_id,
+            {
+                "message_id": user_message_id,
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "role": "user",
+                "content": str(message),
+                "created_at": utc_now(),
+                "metadata": {"source": body.get("source") or "typed", "request_id": request_id},
+            },
+        )
 
         def emit(event_type: AgentEventType, data: dict[str, Any]) -> None:
             emitted.append(
@@ -70,6 +84,33 @@ class TurnRunner:
             transition(AgentState.STREAMING_RESPONSE)
             emit(AgentEventType.RESPONSE_DELTA, {"text": text})
             emit(AgentEventType.RESPONSE_DONE, {"message_id": message_id})
+            self.session_store.add_message(
+                session_id,
+                {
+                    "message_id": message_id,
+                    "session_id": session_id,
+                    "turn_id": turn_id,
+                    "role": "assistant",
+                    "content": text,
+                    "created_at": utc_now(),
+                    "metadata": {"request_id": request_id},
+                },
+            )
+            self.session_store.upsert_checkpoint(
+                session_id,
+                {
+                    "checkpoint_id": new_id("ckpt_"),
+                    "session_id": session_id,
+                    "turn_id": turn_id,
+                    "created_at": utc_now(),
+                    "summary": text[:240],
+                    "metadata": {
+                        "trace_id": trace_id,
+                        "events_count": len(emitted),
+                        "strategy": "latest_turn_summary",
+                    },
+                },
+            )
             transition(AgentState.PERSISTING_TURN)
             transition(AgentState.WAITING_USER)
             return emitted
@@ -90,6 +131,19 @@ class TurnRunner:
         try:
             self.tool_executor.authorize(intent.tool_name, budget)
         except PermissionError as exc:
+            self.session_store.add_tool_call(
+                session_id,
+                {
+                    "tool_call_id": tool_call_id,
+                    "session_id": session_id,
+                    "turn_id": turn_id,
+                    "tool_name": intent.tool_name,
+                    "status": "denied",
+                    "created_at": utc_now(),
+                    "reason": "permission_denied",
+                    "message": str(exc),
+                },
+            )
             emit(
                 AgentEventType.TOOL_DENIED,
                 {"tool_call_id": tool_call_id, "tool_name": intent.tool_name, "reason": "permission_denied", "message": str(exc)},
@@ -97,6 +151,30 @@ class TurnRunner:
             return finish_with_response("该工具默认被权限策略拒绝，未执行任何本地文件或高风险操作。")
         except BudgetExceeded as exc:
             emit(AgentEventType.BUDGET_CHECKED, {"status": "exceeded", "max_tool_calls": budget.max_tool_calls})
+            self.session_store.add_tool_call(
+                session_id,
+                {
+                    "tool_call_id": tool_call_id,
+                    "session_id": session_id,
+                    "turn_id": turn_id,
+                    "tool_name": intent.tool_name,
+                    "status": "denied",
+                    "created_at": utc_now(),
+                    "reason": "budget_exceeded",
+                    "message": str(exc),
+                },
+            )
+            self.session_store.add_budget_entry(
+                session_id,
+                {
+                    "session_id": session_id,
+                    "turn_id": turn_id,
+                    "tool_call_id": tool_call_id,
+                    "created_at": utc_now(),
+                    "status": "exceeded",
+                    "max_tool_calls": budget.max_tool_calls,
+                },
+            )
             emit(
                 AgentEventType.TOOL_DENIED,
                 {"tool_call_id": tool_call_id, "tool_name": intent.tool_name, "reason": "budget_exceeded", "message": str(exc)},
@@ -136,6 +214,29 @@ class TurnRunner:
                 "tool_name": result["tool_name"],
                 "status": result["status"],
                 "tool_result": result,
+            },
+        )
+        self.session_store.add_tool_call(
+            session_id,
+            {
+                "tool_call_id": result["tool_call_id"],
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "tool_name": result["tool_name"],
+                "status": result["status"],
+                "created_at": utc_now(),
+                "tool_result": result,
+            },
+        )
+        self.session_store.add_budget_entry(
+            session_id,
+            {
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "tool_call_id": result["tool_call_id"],
+                "created_at": utc_now(),
+                "status": result["status"],
+                "budget_cost": result.get("budget_cost", {}),
             },
         )
         artifact = result.get("content", {}).get("artifact") if isinstance(result.get("content"), dict) else None

@@ -27,6 +27,8 @@ cd ../..
 uvicorn navia_runtime.app:app --host 127.0.0.1 --port 17861 --app-dir services/local-runtime
 ```
 
+Runtime state is persisted locally in SQLite at `.navia/navia.sqlite3` by default. Use `NAVIA_DB_PATH=/path/to/navia.sqlite3` to override it.
+
 Health check:
 
 ```bash
@@ -78,9 +80,9 @@ pnpm build
 services/local-runtime/       Python FastAPI local runtime and AgentCore baseline
 apps/chrome-extension/        WXT + React Chrome MV3 extension
 docs/navia_v1_project_docs/   PRD, architecture, contracts, stage gates, evidence
+.navia/                       Local SQLite runtime state, ignored by Git
 ```
 
 ## V1 Scope Boundaries
 
 V1 does not add RAG, long-term memory, MCP, Skills, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation.
-

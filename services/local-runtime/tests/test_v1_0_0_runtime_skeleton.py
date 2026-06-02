@@ -6,10 +6,12 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 from jsonschema import Draft202012Validator, FormatChecker
 
+from navia_runtime.agent import TurnRunner
 from navia_runtime.app import app, event_store, event_stream, runtime_projection, session_store
 from navia_runtime.governance import BudgetExceeded, GovernanceHooks, TurnBudget
 from navia_runtime.intent import RuleBasedIntentRouter
 from navia_runtime.state_machine import AgentState, InvalidTransition, StateMachine, mermaid_graph
+from navia_runtime.stores import SQLiteEventStore, SQLiteSessionStore
 from navia_runtime.tools import ToolExecutor, default_tool_registry
 
 
@@ -378,3 +380,69 @@ def test_v1_0_e_page_context_invalid_request_uses_api_envelope() -> None:
     assert body["ok"] is False
     assert body["error"]["code"] == "REQUEST_INVALID"
     assert "url" in body["error"]["details"]["missing_fields"]
+
+
+def test_v1_0_g_session_restore_api_returns_persisted_turn_records() -> None:
+    event_store.events.clear()
+    event_stream.published.clear()
+    client = TestClient(app)
+    session_id = create_session_with_page(client)
+    response = client.post(
+        "/v1/chat/stream",
+        json={
+            "session_id": session_id,
+            "message": "总结这篇文章",
+            "source": "typed",
+            "request_id": "req_000000000000000000000793",
+        },
+    )
+    events = [data for _, data in parse_sse(response.text)]
+    turn_id = events[0]["turn_id"]
+
+    restored = client.get(f"/v1/sessions/{session_id}").json()
+    validate("api-response.schema.json", restored)
+    data = restored["data"]
+    assert data["session_id"] == session_id
+    assert data["activePage"]["page_id"].startswith("page_")
+    assert any(message["role"] == "user" and message["turn_id"] == turn_id for message in data["messages"])
+    assert any(message["role"] == "assistant" and message["turn_id"] == turn_id for message in data["messages"])
+    assert any(tool_call["turn_id"] == turn_id and tool_call["status"] == "succeeded" for tool_call in data["toolCalls"])
+    assert any(artifact["turnId"] == turn_id for artifact in data["artifacts"])
+    assert any(entry["turn_id"] == turn_id for entry in data["budgetLedger"])
+    assert any(checkpoint["turn_id"] == turn_id for checkpoint in data["checkpoints"])
+
+
+def test_v1_0_g_sqlite_store_restores_session_trace_after_reopen(tmp_path: Path) -> None:
+    db_path = tmp_path / "navia.sqlite3"
+    sessions = SQLiteSessionStore(db_path)
+    events = SQLiteEventStore(db_path)
+    session_id = "sess_test_sqlite_restore"
+    sessions.create(session_id, "2026-06-02T00:00:00Z", metadata={"source": "test"})
+    sample = json.loads((CONTRACTS / "samples/page-context-article.json").read_text())
+    sample["session_id"] = session_id
+    sessions.set_active_page(session_id, sample)
+
+    runner = TurnRunner.create(lambda event: (events.append(event), event)[1], sessions)
+    emitted = runner.run(
+        {
+            "session_id": session_id,
+            "message": "总结这篇文章",
+            "source": "typed",
+            "request_id": "req_sqlite_restore",
+        }
+    )
+    turn_id = emitted[0]["turn_id"]
+
+    reopened_sessions = SQLiteSessionStore(db_path)
+    reopened_events = SQLiteEventStore(db_path)
+    record = reopened_sessions.get_session_record(session_id)
+    trace = reopened_events.list_by_session(session_id)
+
+    assert record is not None
+    assert record["active_page"]["page_id"] == sample["page_id"]
+    assert any(message["turn_id"] == turn_id and message["role"] == "assistant" for message in record["messages"])
+    assert any(tool_call["turn_id"] == turn_id for tool_call in record["tool_calls"])
+    assert any(artifact["turnId"] == turn_id for artifact in record["artifacts"])
+    assert any(entry["turn_id"] == turn_id for entry in record["budget_ledger"])
+    assert any(checkpoint["turn_id"] == turn_id for checkpoint in record["checkpoints"])
+    assert any(event["type"] == "artifact.created" for event in trace)

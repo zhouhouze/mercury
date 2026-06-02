@@ -33,3 +33,5 @@
 - `v1.0-c-governance-budget.md`：已完成。
 - `v1.0-d-chrome-pagecontext.md`：已完成，Chrome 手工验收已通过。
 - `v1.0-e-reading-tools.md`：实质开发与自动验收已完成；等待真实 Chrome Side Panel 人工验收。
+- `v1.0-g-session-recovery.md`：实质开发与自动验收已完成；等待最终 Chrome UI 联合验收。
+- `v1.0-h-closure.md`：自动回归与文档同步已完成；V1 complete 等待真实 Chrome UI 最终验收。

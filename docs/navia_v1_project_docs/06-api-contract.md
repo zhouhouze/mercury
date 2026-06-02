@@ -164,15 +164,27 @@ Response:
   "session_id": "sess_123",
   "created_at": "2026-05-31T10:00:00Z",
   "updated_at": "2026-05-31T10:05:00Z",
-  "active_page": {
+  "activePage": {
     "page_id": "page_123",
     "url": "https://example.com/article",
-    "title": "Example Article"
+    "title": "Example Article",
+    "domain": "example.com",
+    "content_hash": "sha256_...",
+    "captured_at": "2026-05-31T10:01:00Z"
   },
   "messages": [],
-  "artifacts": []
+  "artifacts": [],
+  "toolCalls": [],
+  "budgetLedger": [],
+  "checkpoints": []
 }
 ```
+
+Notes:
+
+- V1.0-G `GET /v1/sessions/{session_id}` is the Side Panel refresh recovery API.
+- `activePage` is a summary object; full page text remains in Runtime storage and is not returned by default.
+- The Side Panel may cache `session_id`, but AgentCore state remains owned by Runtime.
 
 ---
 

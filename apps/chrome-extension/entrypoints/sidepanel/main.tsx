@@ -13,6 +13,7 @@ type ChatMessage = {
   id: string;
   role: ChatRole;
   text: string;
+  turnId?: string;
   artifact?: ArtifactRecord;
 };
 type ArtifactRecord = {
@@ -24,6 +25,23 @@ type ArtifactRecord = {
   source?: string;
   content: string;
   metadata?: Record<string, unknown>;
+};
+type RestoredMessage = {
+  message_id: string;
+  turn_id?: string;
+  role: ChatRole;
+  content: string;
+};
+type RestoredSession = {
+  session_id: string;
+  activePage?: {
+    url: string;
+    title: string;
+    domain: string;
+    captured_at?: string;
+  } | null;
+  messages?: RestoredMessage[];
+  artifacts?: ArtifactRecord[];
 };
 mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
 
@@ -45,9 +63,13 @@ function App() {
     try {
       const response = await fetch(`${RUNTIME_URL}/v1/health`);
       const body = await response.json();
-      setRuntimeStatus(body.ok ? "online" : "offline");
+      const online = Boolean(body.ok);
+      setRuntimeStatus(online ? "online" : "offline");
+      if (online) await restoreLastSession();
+      return online;
     } catch {
       setRuntimeStatus("offline");
+      return false;
     }
   }
 
@@ -61,7 +83,50 @@ function App() {
     const body = await response.json();
     const id = body.data.session_id as string;
     setSessionId(id);
+    await chrome.storage.local.set({ navia_last_session_id: id });
     return id;
+  }
+
+  async function restoreLastSession() {
+    const stored = await chrome.storage.local.get("navia_last_session_id");
+    const lastSessionId = stored.navia_last_session_id;
+    if (typeof lastSessionId !== "string" || !lastSessionId.startsWith("sess_")) return;
+    try {
+      const response = await fetch(`${RUNTIME_URL}/v1/sessions/${lastSessionId}`);
+      const body = await response.json();
+      if (!body.ok) {
+        await chrome.storage.local.remove("navia_last_session_id");
+        return;
+      }
+      const restored = body.data as RestoredSession;
+      setSessionId(restored.session_id);
+      if (restored.activePage) {
+        setPageContext({
+          url: restored.activePage.url,
+          title: restored.activePage.title,
+          domain: restored.activePage.domain,
+          captured_at: restored.activePage.captured_at ?? new Date().toISOString(),
+          headings: [],
+          visible_text: "",
+          cleaned_text: ""
+        });
+        setPageSubmitted(true);
+        setSubmitStatus(`已恢复：${restored.activePage.title}`);
+      }
+      const artifactsByTurn = new Map((restored.artifacts ?? []).map((artifact) => [artifact.turnId, artifact]));
+      const restoredMessages = (restored.messages ?? [])
+        .filter((message) => message.role === "user" || message.role === "assistant" || message.role === "system")
+        .map((message) => ({
+          id: message.message_id,
+          role: message.role,
+          text: message.content,
+          turnId: message.turn_id,
+          artifact: message.turn_id ? artifactsByTurn.get(message.turn_id) : undefined
+        }));
+      if (restoredMessages.length > 0) setMessages(restoredMessages);
+    } catch {
+      await chrome.storage.local.remove("navia_last_session_id");
+    }
   }
 
   async function captureCurrentPage() {
@@ -120,6 +185,7 @@ function App() {
       const body = await response.json();
       setPageSubmitted(Boolean(body.ok));
       setSubmitStatus(body.ok ? `已提交：${body.data.page_id}` : body.error.message);
+      if (body.ok) await chrome.storage.local.set({ navia_last_session_id: id });
     } catch {
       setPageSubmitted(false);
       setSubmitStatus("Runtime 不可用，无法提交页面上下文");
