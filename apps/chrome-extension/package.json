@@ -1,0 +1,28 @@
+{
+  "name": "@navia/chrome-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "mermaid": "^11.15.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "wxt": "^0.20.11"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.1.33",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "jsdom": "^29.1.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.15"
+  }
+}

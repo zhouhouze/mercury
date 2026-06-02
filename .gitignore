@@ -1,50 +1,19 @@
-# macOS
 .DS_Store
-
-# Editors
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Environment and secrets
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-*.crt
-
-# Logs
-*.log
-logs/
-
-# Dependencies
-node_modules/
-vendor/
-.venv/
-venv/
 __pycache__/
 *.py[cod]
+.pytest_cache/
 
-# Build outputs
-dist/
-build/
-out/
-target/
-.next/
-.nuxt/
-coverage/
+.venv/
+venv/
+env/
 
-# Package manager caches
-.npm/
-.pnpm-store/
-.yarn/cache/
-
-# Local databases and temporary files
-*.sqlite
+*.log
+*.pid
+.navia/
 *.sqlite3
-*.db
-tmp/
-temp/
-.cache/
+*.sqlite3-shm
+*.sqlite3-wal
+
+node_modules/
+.output/
+.wxt/

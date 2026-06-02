@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaviaToolResult",
+  "type": "object",
+  "required": ["tool_call_id", "tool_name", "status", "content", "artifact_ids", "budget_cost", "warnings"],
+  "properties": {
+    "tool_call_id": { "type": "string", "pattern": "^tc_" },
+    "tool_name": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["succeeded", "failed", "denied", "waiting_approval", "budget_exceeded"]
+    },
+    "content": { "type": "object" },
+    "artifact_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^art_" }
+    },
+    "budget_cost": {
+      "type": "object",
+      "required": ["model_calls", "tool_calls", "input_tokens", "output_tokens", "context_bytes", "runtime_ms"],
+      "properties": {
+        "model_calls": { "type": "integer", "minimum": 0 },
+        "tool_calls": { "type": "integer", "minimum": 0 },
+        "input_tokens": { "type": "integer", "minimum": 0 },
+        "output_tokens": { "type": "integer", "minimum": 0 },
+        "context_bytes": { "type": "integer", "minimum": 0 },
+        "runtime_ms": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "error": { "type": "object" }
+  },
+  "additionalProperties": false
+}

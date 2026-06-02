@@ -1,18 +1,88 @@
-# Mercury
+# Navia / 伴航
 
-Mercury is a team project repository.
+Navia is a Chrome companion-reading MVP with a local headless runtime. V1 focuses on a Chrome Side Panel chatbox that reads the current page, summarizes it, answers page-grounded questions, and generates Mermaid mindmaps with traceable runtime events.
 
-## Getting Started
+## Requirements
 
-Project setup instructions will be added after the initial application stack is selected.
+- Python 3.11+
+- Node.js 20+
+- pnpm 10+
+- Chrome with Extension Developer Mode enabled
 
-## Collaboration
+## Install
 
-- Use `main` as the protected default branch.
-- Create feature branches for daily work, for example `feat/example`, `fix/example`, or `docs/example`.
-- Open a Pull Request before merging into `main`.
-- Keep secrets, local environment files, and generated artifacts out of Git.
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
 
-## Repository Status
+cd apps/chrome-extension
+pnpm install
+cd ../..
+```
 
-This repository has been initialized as a public GitHub-ready team workspace.
+## Run Local Runtime
+
+```bash
+uvicorn navia_runtime.app:app --host 127.0.0.1 --port 17861 --app-dir services/local-runtime
+```
+
+Runtime state is persisted locally in SQLite at `.navia/navia.sqlite3` by default. Use `NAVIA_DB_PATH=/path/to/navia.sqlite3` to override it.
+
+Health check:
+
+```bash
+curl http://127.0.0.1:17861/v1/health
+```
+
+## Build Chrome Extension
+
+```bash
+cd apps/chrome-extension
+pnpm build
+cd ../..
+```
+
+Load this directory in `chrome://extensions`:
+
+```text
+apps/chrome-extension/chrome-mv3-unpacked
+```
+
+If the unpacked directory is stale, rebuild and sync it:
+
+```bash
+cd apps/chrome-extension
+pnpm build
+cp -R .output/chrome-mv3/. chrome-mv3-unpacked/
+```
+
+## Verify
+
+Runtime tests:
+
+```bash
+PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests
+```
+
+Chrome extension tests:
+
+```bash
+cd apps/chrome-extension
+pnpm test
+pnpm run typecheck
+pnpm build
+```
+
+## Project Layout
+
+```text
+services/local-runtime/       Python FastAPI local runtime and AgentCore baseline
+apps/chrome-extension/        WXT + React Chrome MV3 extension
+docs/navia_v1_project_docs/   PRD, architecture, contracts, stage gates, evidence
+.navia/                       Local SQLite runtime state, ignored by Git
+```
+
+## V1 Scope Boundaries
+
+V1 does not add RAG, long-term memory, MCP, Skills, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation.

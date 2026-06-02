@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "entrypoints/**/*.ts", "entrypoints/**/*.tsx", ".wxt/wxt.d.ts"],
+  "exclude": ["vitest.config.ts", ".output", "chrome-mv3-unpacked", "node_modules"]
+}
