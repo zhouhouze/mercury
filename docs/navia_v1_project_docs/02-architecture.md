@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 架构设计文档
 
-版本：V1.0 Architecture Baseline  
+版本：V1.0 Architecture Baseline
 日期：2026-05-31
 
 ---
@@ -11,7 +11,7 @@ Navia V1 架构的目标是搭建一个可以长期演进的本地 Headless AI R
 
 V1 架构必须支持：
 
-- Chrome Side Panel 作为优先前端。
+- Chrome 插件通过 Content Script 注入网页内悬浮球与 AI 双轨面板，作为 V1 优先前端。
 - Web / App 未来复用同一 Runtime API。
 - 本地小参数模型做意图识别。
 - 已部署 FunASR 做语音转写。
@@ -26,7 +26,7 @@ V1 规划阶段已决定：
 
 - Local Runtime 使用 Python 快速原型实现，建议采用 FastAPI 风格的 HTTP / SSE / WebSocket API Gateway。
 - AgentCore、Session、Governance、Observability、ModelAdapter 必须保持清晰模块边界，便于后端团队按子系统分工。
-- Chrome 插件采用 WXT + React + TypeScript；插件只作为 Interface Plane，通过 Runtime API 访问后端能力。
+- Chrome 插件采用 WXT + React + TypeScript；插件通过 Content Script 注入页面内交互层，只作为 Interface Plane，通过 Runtime API 访问后端能力。
 - V1.0-0/A/B/C 不实现 Chrome UI，只先冻结合同并打通 Runtime、AgentCore、状态机、事件追踪和治理底座。
 - V1 结束后进入 V2 研讨时，必须重新评估 Python Runtime 是否继续作为长期主栈，或是否需要引入 TypeScript / sidecar / 服务拆分。
 
@@ -72,7 +72,7 @@ V1 按设计平面拆分，而不是按 UI 功能堆模块。
 
 ```mermaid
 flowchart TB
-    A[Interface Plane<br/>Chrome Side Panel / Web / App Shell]
+    A[Interface Plane<br/>Injected Web Panel / Debug Side Panel / Web / App Shell]
     B[Context Plane<br/>Page Context / Selection / Voice Transcript]
     C[Session Plane<br/>Single Session History / Artifacts / Checkpoints]
     D[Agent Runtime Plane<br/>AgentCore Loop / State Machine / Tool Dispatch]
@@ -94,7 +94,9 @@ flowchart TB
 
 职责：
 
-- Chrome Side Panel。
+- 网页内贴边悬浮球。
+- hover 小长条。
+- 网页内 AI 双轨聊天面板。
 - Chatbox。
 - 当前网页信息展示。
 - 摘要 / Mindmap Artifact 展示。
@@ -102,21 +104,58 @@ flowchart TB
 - Agent 状态展示。
 - Trace / Debug 面板。
 
-V1.x 扩展入口：
+V1 必须支持的页面内交互：
 
-- 网页内贴边悬浮球。
-- hover 小长条。
-- 站内嵌入式聊天面板。
-- 窄距 / 半屏挤压网页布局。
-- 宽工作区覆盖网页布局。
+- 悬浮球默认态。
+- 悬浮球 hover 预展开态。
+- 窄距展开态：默认约 `440px`，挤压网页。
+- 半屏展开态：约 `50vw`，继续挤压网页。
+- 宽工作区覆盖态：超过 `52vw` 覆盖网页，最大 `80vw`。
+- 收起态：点击悬浮球或收起按钮后恢复网页布局。
+- resize handle。
+- 小视口 `<900px` 时禁用挤压式，降级为覆盖式或全屏侧栏。
 
-说明：上述 V1.x 扩展入口来自 Mercury 远端窗口交互 PRD。V1.0 继续以 Chrome Side Panel 为优先前端形态，网页内悬浮球与挤压式面板需单独 stage-gate 审计后再实现。
+说明：上述交互来自仓库根目录 `PRD/窗口交互_PRD.md`，该文件是 V1 前端页面体验的 P0 权威来源。Chrome Side Panel 可保留为调试入口或兼容承载，但不得替代 V1 页面内交互验收。
 
 禁止：
 
 - 不直接调用模型。
 - 不保存 Agent 核心状态。
 - 不直接读取本地文件。
+
+#### V1.1 前端高保真目标架构
+
+V1.0 的页面内实现以 `Content Script -> Shadow DOM injectedPanel -> Runtime API -> AgentCore` 为主线，优先证明交互骨架和功能闭环。V1.1 在不改变 Runtime / AgentCore / API 合同的前提下，把 Interface Plane 细化为可设计验收的前端体验架构：
+
+```text
+Figma Prototype Semantics
+  MainLayout / MockPage / FloatingBall / Sidebar / ChatArea
+        |
+        v
+Injected Interface Plane
+  Floating Entry
+  Panel Shell
+  Left Rail
+  Chat Workspace
+  Tool Dock
+  Artifact Viewer
+  Visual Tokens
+        |
+        v
+Runtime API / PageContext / SSE / Session Restore
+```
+
+V1.1 当前架构与目标架构差异：
+
+| 维度 | V1.0 当前架构 | V1.1 目标架构 |
+|---|---|---|
+| 实现形态 | Shadow DOM 字符串模板与内联 CSS | 组件语义清晰的注入面板结构，可映射到 Figma `MainLayout / FloatingBall / Sidebar / ChatArea` |
+| 视觉系统 | 工程可用样式，token 分散 | 集中化视觉 token：颜色、阴影、圆角、间距、轨道宽度、动画 |
+| 原型语义 | 主要按功能区域命名 | 按 Figma 原型语义拆解并保留测试锚点 |
+| 验收方式 | DOM 状态、真实 Chrome 交互、E2E 功能 | 增加 Playwright 截图基线、Figma 对照、状态截图矩阵 |
+| Side Panel | 调试 / 兼容入口 | 仍为调试入口，不参与 V1.1 高保真验收 |
+
+V1.1 不新增设计平面，不改变 Runtime 依赖方向。所有模型、工具、治理、Session 与 Trace 仍由 Runtime 负责，前端只呈现状态并消费合同化事件。
 
 ### 3.2 Context Plane
 
@@ -227,7 +266,7 @@ V1 约束：
 ```mermaid
 flowchart TB
     subgraph UI[Interface Plane]
-      A[Chrome Side Panel<br/>Chatbox / Mindmap / Voice]
+      A[Injected Web Panel<br/>Floating Ball / Chatbox / Mindmap / Voice]
       B[Content Script<br/>Page Extractor]
       C[Background Worker<br/>Extension Event Bridge]
     end
@@ -594,7 +633,7 @@ type AgentEvent = {
 必须区分：
 
 - `EventStore`：持久化事件，用于 trace、replay、审计和 V2 异步蒸馏。
-- `EventStream`：实时推送事件，用于 Side Panel、Debug 面板和 streaming response。
+- `EventStream`：实时推送事件，用于网页内 AI 面板、Debug 面板和 streaming response。
 
 约束：
 

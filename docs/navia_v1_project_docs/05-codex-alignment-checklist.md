@@ -10,6 +10,7 @@ Codex 应先读取：
 
 ```text
 README.md
+PRD/窗口交互_PRD.md
 01-prd.md
 02-architecture.md
 03-development-plan.md
@@ -24,6 +25,19 @@ README.md
 
 ```text
 stage-gates/v1.0-x-<stage-name>.md
+```
+
+V1.1 前端高保真阶段还必须读取：
+
+```text
+PRD/窗口交互_PRD.md
+12-interaction-prd-authority-and-revised-plan.md
+stage-gates/v1.1-frontend-fidelity.md
+design/v1.1-frontend-fidelity-implementation-spec.md
+design/v1.1-figma-baseline/README.md
+design/v1.1-figma-baseline/capture-matrix.md
+design/v1.1-figma-baseline/capture-manifest.json
+design/v1.1-figma-baseline/manual-capture-runbook.md
 ```
 
 ---
@@ -73,6 +87,7 @@ stage-gates/v1.0-x-<stage-name>.md
 17. 是否闭环所有致命或重大审计意见？
 18. 是否使用真实数据完成端到端验收？
 19. 如果验收失败，是否已打回开发计划阶段而不是继续推进？
+20. 如果涉及前端页面体验，是否逐项对齐 `PRD/窗口交互_PRD.md`？
 ```
 
 ---
@@ -90,6 +105,22 @@ stage-gates/v1.0-x-<stage-name>.md
 - [ ] 没有未闭环的致命审计意见。
 - [ ] 没有未闭环的重大审计意见。
 - [ ] 已明确哪些情况需要人类确认。
+
+V1.1 进入实质前端实现前还必须确认：
+
+- [ ] 已执行 `node scripts/validate_v1_1_doc_readiness.mjs`。
+- [ ] 校验输出 `canStartV11B=true`。
+- [ ] `floating-default` 已登记用户提供 Image #2。
+- [ ] `floating-hover` 已登记用户提供 Image #1。
+- [ ] 3-6 状态已登记为 PRD 硬约束，不要求实际截图。
+- [ ] `runtime-offline` 已登记为独立设计验收。
+- [ ] `artifact-mindmap` 已登记为后续专项，不阻塞 V1.1-B/C。
+- [ ] 不把 `accepted_partial` 主窗口截图当作完整视觉基线。
+- [ ] `capture-manifest.json` 已登记截图状态、来源和审计结论。
+- [ ] 历史 `DEVELOPMENT_PLAN.md` 未被作为实现依据。
+- [ ] 仍以 `PRD/窗口交互_PRD.md` 为交互权威。
+- [ ] 未新增 Runtime API、AgentEvent、ToolResult 或 PageContext 合同变更。
+- [ ] V1.1-A stage-gate 已经 Go，才允许进入 V1.1-B。
 
 每个 V1 子阶段完成后必须确认：
 
@@ -237,7 +268,16 @@ AgentCore 不得：
 
 必须确认：
 
-- [ ] Side Panel 可打开。
+- [ ] 普通网页边缘可出现 AI 悬浮球。
+- [ ] 悬浮球可上下拖动并贴边。
+- [ ] hover 后出现高亮和小长条。
+- [ ] 点击小长条后展开网页内 AI 双轨面板。
+- [ ] 窄距展开态约 `440px` 并挤压网页。
+- [ ] 半屏展开态约 `50vw` 并继续挤压网页。
+- [ ] 超过 `52vw` 后进入覆盖态。
+- [ ] 拖回 `<48vw` 后恢复挤压式。
+- [ ] 点击悬浮球或收起按钮后面板收起，网页恢复原始布局。
+- [ ] Chrome Side Panel 仅可作为调试或兼容入口，不得替代 V1 前端体验验收。
 - [ ] Runtime 不可用时 UI 有提示。
 - [ ] title/url/domain 可展示。
 - [ ] headings/cleanedText 可提取。
@@ -289,6 +329,38 @@ V1 禁止默认启用：
 - [ ] CORS / Origin allowlist 只允许 Chrome extension origin 和明确配置的 localhost dev origin。
 - [ ] 高风险 API 不允许任意网页调用。
 - [ ] 普通日志不打印完整网页正文、选区全文或 transcript 全文。
+
+---
+
+## 9.2 V1.1 前端高保真对齐
+
+V1.1 开工前必须额外读取：
+
+- [ ] `design/v1.1-frontend-fidelity-architecture.md`。
+- [ ] `design/v1.1-frontend-fidelity-implementation-spec.md`。
+- [ ] `stage-gates/v1.1-frontend-fidelity.md`。
+- [ ] `design/v1.1-frontend-fidelity-gap.drawio`。
+- [ ] 用户提供 Image #1/#2、PRD 硬约束、design-only、deferred scope 均已登记；若只有 Figma Make 资源清单，不得声明最终视觉通过。
+
+V1.1 实现前必须确认：
+
+- [ ] 不新增 Runtime API。
+- [ ] 不修改 AgentEvent / ToolResult / PageContext 合同。
+- [ ] 不把 Chrome Side Panel 作为高保真验收对象。
+- [ ] 保留 PageContext、SSE Chat、Mermaid、Session restore、push / overlay / resize / collapse recovery。
+- [ ] 视觉 token 已集中定义：颜色、字体、圆角、阴影、间距、轨道宽度、动画时长。
+- [ ] Figma `MainLayout / MockPage / FloatingBall / Sidebar / ChatArea` 已映射到真实注入面板语义。
+- [ ] Playwright 截图验收覆盖默认态、hover 态、窄距、半屏、覆盖、小视口。
+- [ ] Runtime offline、PageContext missing、tool failure 有明确视觉状态；Mermaid / mindmap 后续专项。
+
+V1.1 false-green 防线：
+
+- [ ] 没有视觉基线不得声明高保真通过。
+- [ ] manifest 中仍有 blocking state 不得进入 V1.1 实质实现。
+- [ ] 只通过 DOM 测试不得声明高保真通过。
+- [ ] 只通过 Side Panel 不得声明高保真通过。
+- [ ] 截图偏离关键布局比例不得声明通过。
+- [ ] Runtime / Trace / Session 断链不得声明通过。
 
 ---
 

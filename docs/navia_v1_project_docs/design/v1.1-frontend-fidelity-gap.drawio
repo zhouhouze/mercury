@@ -1,0 +1,152 @@
+<mxfile host="app.diagrams.net" modified="2026-06-03T00:00:00.000Z" agent="codex" version="24.7.17" type="device">
+  <diagram id="v11-gap-current-target" name="01 当前架构 vs 目标架构差异">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="V1.1 当前架构 vs 目标架构差异&lt;br&gt;目标：从工程型注入面板升级为可对照 Figma 的高保真前端体验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="current" value="当前 V1.0 架构&lt;br&gt;&lt;br&gt;Content Script&lt;br&gt;- 注入普通网页&lt;br&gt;&lt;br&gt;Shadow DOM injectedPanel&lt;br&gt;- 字符串模板&lt;br&gt;- 内联 CSS&lt;br&gt;- 工程可用样式&lt;br&gt;&lt;br&gt;Runtime API&lt;br&gt;- PageContext&lt;br&gt;- SSE Chat&lt;br&gt;- Session restore&lt;br&gt;&lt;br&gt;AgentCore&lt;br&gt;- StateMachine&lt;br&gt;- Tool / Trace / Governance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="330" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="target" value="V1.1 目标架构&lt;br&gt;&lt;br&gt;Figma 组件语义&lt;br&gt;- MainLayout&lt;br&gt;- MockPage&lt;br&gt;- FloatingBall&lt;br&gt;- Sidebar&lt;br&gt;- ChatArea&lt;br&gt;&lt;br&gt;真实注入面板映射&lt;br&gt;- Floating Entry&lt;br&gt;- Panel Shell&lt;br&gt;- Left Rail&lt;br&gt;- Chat Workspace&lt;br&gt;- Tool Dock&lt;br&gt;- Artifact Viewer&lt;br&gt;- Visual Tokens&lt;br&gt;&lt;br&gt;Runtime / AgentCore 合同不变" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="980" y="160" width="330" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="gap" value="核心差异 / Gap&lt;br&gt;&lt;br&gt;1. 结构：工程模板 -&gt; 组件语义&lt;br&gt;2. 样式：分散 CSS -&gt; visual tokens&lt;br&gt;3. 状态：可用展示 -&gt; 高保真空态 / 错误态 / streaming&lt;br&gt;4. 验收：DOM/E2E -&gt; Figma 对照 + 截图基线 + 真实 Chrome&lt;br&gt;5. Side Panel：调试入口，不参与 V1.1 高保真验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="400" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1" value="保留功能链路&lt;br&gt;升级表现层" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=13" edge="1" parent="1" source="current" target="gap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2" value="映射到 Figma 语义" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2;fontSize=13" edge="1" parent="1" source="gap" target="target">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="guard1" value="不改变：Runtime API / AgentEvent / ToolResult / PageContext / Session / Governance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="260" y="660" width="880" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v11-target-architecture" name="02 V1.1 目标架构">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="V1.1 前端体验目标架构&lt;br&gt;Interface Plane 细化为可设计验收的前端模块" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="figma" value="Figma Prototype Semantics&lt;br&gt;&lt;br&gt;MainLayout&lt;br&gt;MockPage&lt;br&gt;FloatingBall&lt;br&gt;Sidebar&lt;br&gt;ChatArea" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF2F8;strokeColor=#DB2777;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="250" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="Injected Interface Plane&lt;br&gt;&lt;br&gt;Floating Entry&lt;br&gt;Panel Shell&lt;br&gt;Left Rail&lt;br&gt;Chat Workspace&lt;br&gt;Tool Dock&lt;br&gt;Artifact Viewer&lt;br&gt;Visual Tokens" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#16A34A;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="300" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime" value="Runtime Dependencies&lt;br&gt;&lt;br&gt;PageContext submit&lt;br&gt;Runtime health&lt;br&gt;/v1/chat/stream SSE&lt;br&gt;Session restore&lt;br&gt;Mermaid renderer&lt;br&gt;Trace / EventStore" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="830" y="170" width="270" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="gov" value="Governance / AgentCore&lt;br&gt;&lt;br&gt;StateMachine&lt;br&gt;Tool Registry&lt;br&gt;Budget Supervisor&lt;br&gt;Permission Supervisor&lt;br&gt;Artifact Records&lt;br&gt;Trace API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="1130" y="170" width="220" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="语义映射" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="figma" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="消费合同" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="ui" target="runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="状态源不变" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="runtime" target="gov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sidepanel" value="Debug Side Panel&lt;br&gt;&lt;br&gt;保留为工程调试 / 兼容入口&lt;br&gt;不得替代 V1.1 高保真验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;fontSize=15;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="430" y="520" width="560" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v11-plan" name="03 开发及验收计划">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="V1.1 开发及验收计划&lt;br&gt;先冻结视觉规格，再重构表现层，最后以截图和真实 Chrome 出门" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a" value="V1.1-A&lt;br&gt;Figma 视觉规格冻结&lt;br&gt;&lt;br&gt;截图或 /design 节点&lt;br&gt;组件语义确认&lt;br&gt;visual token 草案&lt;br&gt;覆盖态交互决策" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="70" y="190" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="b" value="V1.1-B&lt;br&gt;结构与 token 重构&lt;br&gt;&lt;br&gt;Floating Entry&lt;br&gt;Panel Shell&lt;br&gt;Left Rail&lt;br&gt;Chat Workspace&lt;br&gt;Tool Dock&lt;br&gt;Artifact Viewer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="330" y="190" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="c" value="V1.1-C&lt;br&gt;高保真样式与状态&lt;br&gt;&lt;br&gt;默认 / hover / 展开&lt;br&gt;半屏 / 覆盖 / 小视口&lt;br&gt;offline / missing / failure&lt;br&gt;Mermaid fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="590" y="190" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="d" value="V1.1-D&lt;br&gt;截图基线与 Chrome 复验&lt;br&gt;&lt;br&gt;Playwright screenshots&lt;br&gt;真实 Chrome 普通网页&lt;br&gt;PRD A-F&lt;br&gt;Runtime / Trace / Session" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="850" y="190" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="e" value="V1.1-E&lt;br&gt;文档收口与出门评审&lt;br&gt;&lt;br&gt;stage-gate 报告&lt;br&gt;gap drawio 更新&lt;br&gt;README / onboarding 同步&lt;br&gt;exit review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="1110" y="190" width="220" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="a" target="b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="b" target="c"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="c" target="d"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="p4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="d" target="e"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="gate" value="验收门禁&lt;br&gt;&lt;br&gt;没有 Figma 视觉基线：不得声明高保真通过。&lt;br&gt;截图只覆盖 mock：不得通过。&lt;br&gt;Side Panel 通过：不得替代页面内验收。&lt;br&gt;Runtime / Trace / Session 断链：不得通过。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;fontStyle=1;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="920" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v11-milestones" name="04 项目里程碑">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="Navia 项目里程碑：V1.0 到 V3-V5&lt;br&gt;V1.1 是 V1.0 后的前端体验质量阶段，不重开 AgentCore 合同" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m10" value="V1.0&lt;br&gt;功能闭环&lt;br&gt;&lt;br&gt;Chrome 可安装&lt;br&gt;页面内悬浮球&lt;br&gt;PRD A-F&lt;br&gt;PageContext&lt;br&gt;Runtime / SSE&lt;br&gt;摘要 / 问答 / Mindmap&lt;br&gt;Session / Trace / Governance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="80" y="200" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="m11" value="V1.1&lt;br&gt;高保真体验&lt;br&gt;&lt;br&gt;Figma 对照&lt;br&gt;visual tokens&lt;br&gt;组件语义&lt;br&gt;截图基线&lt;br&gt;真实 Chrome 视觉复验&lt;br&gt;gap drawio 出门" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="m12" value="V1.2&lt;br&gt;可选体验增强&lt;br&gt;&lt;br&gt;语音入口&lt;br&gt;多主题&lt;br&gt;更丰富工具入口&lt;br&gt;键盘快捷键&lt;br&gt;更强降级态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="V2&lt;br&gt;知识资产化&lt;br&gt;&lt;br&gt;Memory Plane&lt;br&gt;Knowledge Store&lt;br&gt;Tagging&lt;br&gt;摘要沉淀&lt;br&gt;类 RAG 蒸馏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="860" y="200" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="m35" value="V3-V5&lt;br&gt;媒体陪伴 / 秘书能力 / 多端产品化&lt;br&gt;&lt;br&gt;观影观赛&lt;br&gt;深度任务&lt;br&gt;多端云化&lt;br&gt;桌宠情绪价值" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="1120" y="200" width="220" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="me1" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="m10" target="m11"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="me2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="m11" target="m12"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="me3" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="m12" target="m2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="me4" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#334155;strokeWidth=2" edge="1" parent="1" source="m2" target="m35"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v11-exit" name="05 验收门槛及出门条件">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title5" value="V1.1 验收门槛及出门条件&lt;br&gt;高保真声明必须同时满足设计、交互、功能和证据门槛" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=22;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="1280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="go" value="Go 条件&lt;br&gt;&lt;br&gt;Figma 对照基线存在&lt;br&gt;PRD A-F 状态真实 Chrome 通过&lt;br&gt;Playwright 截图覆盖关键状态&lt;br&gt;Runtime / PageContext / SSE / Mermaid / Session 不回退&lt;br&gt;视觉 token 与组件语义完成&lt;br&gt;gap drawio 可打开且内容完整&lt;br&gt;出门评审记录完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDF4;strokeColor=#16A34A;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="90" y="170" width="360" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="nogo" value="No-Go 条件&lt;br&gt;&lt;br&gt;只能 Side Panel 通过&lt;br&gt;没有视觉基线&lt;br&gt;截图明显偏离设计&lt;br&gt;页面内交互断裂&lt;br&gt;网页布局无法恢复&lt;br&gt;Runtime / Trace / Session 断链&lt;br&gt;修改合同但未审计&lt;br&gt;只有 DOM 测试无截图证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="520" y="170" width="360" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="exit" value="出门产物&lt;br&gt;&lt;br&gt;Figma visual baseline reference&lt;br&gt;Playwright baseline screenshots&lt;br&gt;Current screenshots and diff conclusion&lt;br&gt;Real Chrome PRD A-F report&lt;br&gt;Runtime / Trace / Session regression evidence&lt;br&gt;Updated V1.1 stage-gate&lt;br&gt;Updated gap drawio&lt;br&gt;Frontend fidelity exit review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=15;align=left;spacingLeft=16" vertex="1" parent="1">
+          <mxGeometry x="950" y="170" width="360" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="guard" value="最终规则：只有功能链路、PRD 交互、Figma 视觉和证据文档同时通过，才能声明 V1.1 frontend fidelity ready。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=17;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="190" y="650" width="1020" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 数据模型文档
 
-版本：V1.0 Data Model Baseline  
+版本：V1.0 Data Model Baseline
 审计后策略：Contract-first，先冻结 Session / Turn / Event / Tool / Budget / Error 合同，再实现 AgentCore。
 
 ---

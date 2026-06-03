@@ -182,9 +182,9 @@ Response:
 
 Notes:
 
-- V1.0-G `GET /v1/sessions/{session_id}` is the Side Panel refresh recovery API.
+- V1.0-G `GET /v1/sessions/{session_id}` is the frontend refresh / reopen recovery API.
 - `activePage` is a summary object; full page text remains in Runtime storage and is not returned by default.
-- The Side Panel may cache `session_id`, but AgentCore state remains owned by Runtime.
+- The injected web panel or debug Side Panel may cache `session_id`, but AgentCore state remains owned by Runtime.
 
 ---
 
@@ -270,7 +270,7 @@ V1.0-0/A/B/C 不同时维护 SSE 和 WebSocket 两套 chat streaming 协议。
 
 V1.0-E 前端消费约束：
 
-- Side Panel 必须消费 `/v1/chat/stream` SSE。
+- 网页内 AI 面板必须消费 `/v1/chat/stream` SSE；调试 Side Panel 可复用同一协议。
 - 未识别 SSE event 必须安全忽略或记录为 debug，不得导致 UI 崩溃。
 - Runtime offline、`PAGE_CONTEXT_REQUIRED`、tool failure、Mermaid render failure 必须在 UI 可见。
 - Frontend 不得拥有 AgentCore 核心状态；session / turn / tool / artifact 状态以 Runtime 为准。

@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 开发计划大纲
 
-版本：V1.0 Development Plan Baseline  
+版本：V1.0 Development Plan Baseline
 日期：2026-05-31
 
 ---
@@ -10,7 +10,7 @@
 V1 开发必须坚持：
 
 ```text
-先底座，后体验。
+先底座，后 PRD 页面内体验。
 先可控，后智能。
 先单 Session，后长期记忆。
 先 Headless Runtime，后多端 UI。
@@ -48,9 +48,9 @@ V1.0-0：Contracts & Runtime Skeleton
 V1.0-A：AgentCore Baseline
 V1.0-B：状态机与可观测
 V1.0-C：Governance / Budget Supervisor
-V1.0-D：Chrome 插件与 PageContext
-V1.0-E：网页伴读工具
-V1.0-F：语音输入增强，可选
+V1.0-D：Chrome 插件页面内交互壳与 PageContext
+V1.0-E：网页内 AI 双轨面板与伴读工具
+V1.0-F：PRD A-F 布局状态与 Resize
 V1.0-G：Session 质量与恢复
 V1.0-H：V1 Closure / Regression / Documentation
 ```
@@ -66,11 +66,11 @@ V1.0-H：V1 Closure / Regression / Documentation
 - V1.0-B：完整状态机、事件流、Trace、Mermaid 状态图。
 - V1.0-C：Budget / Permission / Context / File Query / Approval 的治理底座。
 
-这不是 V1 complete 的范围。V1 complete 必须继续完成 V1.0-D/E/G，并至少交付一个可在 Chrome 浏览器安装的插件形态，让用户可以打开 Side Panel Chatbox，基于当前网页进行基础文字对话。
+这不是 V1 complete 的范围。V1 complete 必须继续完成 V1.0-D/E/F/G，并交付一个可在 Chrome 浏览器安装的插件形态，让用户在普通网页内通过悬浮球展开 AI 双轨面板，基于当前网页进行基础文字对话。
 
 首轮底座暂不进入 V1.0-D/E/F/G：
 
-- 不创建 Chrome 插件工程，但记录 WXT + React + TypeScript 为 V1 插件基线。
+- 不创建 Chrome 插件工程，但记录 WXT + React + TypeScript + Content Script 注入式页面内交互为 V1 插件基线。
 - 不接 FunASR；语音输入不阻塞 Chrome 文字对话主链路。
 - 不接真实本地模型。
 - 不实现 Mindmap 模型。
@@ -83,7 +83,9 @@ V1 结束时，用户必须能在自己的 Chrome 浏览器中完成：
 ```text
 安装 Navia Chrome 插件
 -> 打开任意网页
--> 打开 Side Panel Chatbox
+-> 页面边缘出现可移动悬浮球
+-> hover 悬浮球出现小长条
+-> 点击小长条展开网页内 AI 双轨面板
 -> 插件连接 127.0.0.1 Local Runtime
 -> Runtime 接收当前网页 PageContext
 -> 用户输入自然语言问题
@@ -94,8 +96,9 @@ V1 结束时，用户必须能在自己的 Chrome 浏览器中完成：
 V1 的最低可演示能力：
 
 - Chrome 插件可通过 unpacked extension 方式安装。
-- Side Panel 可打开并展示 Runtime 连接状态。
-- Runtime 未启动时，插件必须给出明确提示。
+- 页面内悬浮球默认态、hover 态、展开态、半屏态、覆盖态、收起态必须可验证。
+- 网页内 AI 面板可展示 Runtime 连接状态。
+- Runtime 未启动时，网页内 AI 面板必须给出明确提示。
 - 用户可以进行文字对话，不依赖语音。
 - 当前网页的 `title`、`url`、`domain`、`headings`、`cleanedText` 可进入 Runtime。
 - 至少支持“总结这篇文章”和“基于当前页面回答问题”两类对话。
@@ -389,11 +392,11 @@ deny: read_local_file, search_local_workspace, shell, browser_click, browser_aut
 
 ---
 
-## 7. V1.0-D：Chrome 插件与 PageContext
+## 7. V1.0-D：Chrome 插件页面内交互壳与 PageContext
 
 ### 7.1 目标
 
-打通当前网页到 Local Runtime 的上下文链路，并交付 V1 用户可安装的 Chrome 插件外壳。
+打通当前网页到 Local Runtime 的上下文链路，并交付符合 `PRD/窗口交互_PRD.md` 的页面内交互入口。
 
 ### 7.2 范围
 
@@ -401,13 +404,20 @@ deny: read_local_file, search_local_workspace, shell, browser_click, browser_aut
 
 - Chrome extension scaffold。
 - Unpacked extension 安装说明。
-- Side Panel 基础 UI。
 - Background Worker 作为消息桥。
 - Content Script 页面抽取。
+- Content Script 注入页面内交互容器。
+- Shadow DOM 或等价 CSS 隔离方案。
+- 页面边缘悬浮球默认态。
+- hover 高亮与伸出小长条。
+- 点击小长条展开网页内 AI 面板。
+- 默认窄距面板约 `440px`。
 - PageContext 合同。
 - `/v1/page/context`。
 - Runtime 记录 activePage。
 - Runtime detection：未启动、连接失败、Origin 被拒绝时 UI 可解释。
+
+Chrome Side Panel 可作为调试入口保留，但不得作为 V1.0-D 交互验收通过条件。
 
 ### 7.3 PageContext 字段
 
@@ -428,16 +438,21 @@ deny: read_local_file, search_local_workspace, shell, browser_click, browser_aut
 
 - Chrome 插件可加载。
 - Chrome 插件可通过 unpacked extension 安装到开发者 Chrome。
-- Side Panel 可打开。
+- 普通网页内可出现悬浮球。
+- 悬浮球 hover 后出现小长条。
+- 点击小长条后可展开网页内 AI 面板。
 - 当前网页信息可显示。
 - PageContext 可提交 Runtime。
 - Session activePage 可更新。
-- Runtime 未启动时，Side Panel 展示启动提示，不出现空白页。
+- Runtime 未启动时，网页内 AI 面板展示启动提示，不出现空白页。
 
 ### 7.5 验收
 
 - 开发者可按 README 在 Chrome 中安装 unpacked extension。
-- 点击插件打开 Side Panel。
+- 打开普通网页后，页面边缘出现悬浮球。
+- 悬浮球可上下拖动并贴边。
+- hover 后出现高亮和小长条。
+- 点击小长条展开网页内 AI 面板。
 - 可显示当前 tab title / url / domain。
 - Content Script 可抽取 headings / cleanedText。
 - 切换页面后 PageContext 更新。
@@ -446,11 +461,11 @@ deny: read_local_file, search_local_workspace, shell, browser_click, browser_aut
 
 ---
 
-## 8. V1.0-E：网页伴读工具
+## 8. V1.0-E：网页内 AI 双轨面板与网页伴读工具
 
 ### 8.1 目标
 
-实现 V1 用户可感知价值：摘要、问答、选区解释、Mindmap。
+实现 V1 用户可感知价值：在网页内 AI 双轨面板中完成摘要、问答、选区解释、Mindmap。
 
 ### 8.2 工具
 
@@ -499,6 +514,8 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 
 ### 8.6 交付物
 
+- 网页内双轨面板。
+- `/v1/chat/stream` SSE 消费。
 - 伴读工具实现。
 - Prompt 模板。
 - Mermaid validator。
@@ -508,7 +525,7 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 ### 8.7 验收
 
 - “总结这篇文章”可用。
-- 用户在 Side Panel Chatbox 输入问题后可收到基于当前网页的回答。
+- 用户在网页内 AI 面板输入问题后可收到基于当前网页的回答。
 - “解释选中内容”可用。
 - “生成思维导图”可用。
 - Mermaid 可预览。
@@ -517,47 +534,53 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 
 ---
 
-## 9. V1.0-F：语音输入增强，可选
+## 9. V1.0-F：PRD A-F 布局状态与 Resize
 
 ### 9.1 目标
 
-语音成为 Chatbox 输入，不做完整语音助手。
+完成 `PRD/窗口交互_PRD.md` 中 A-F 状态的真实 Chrome 验收能力，补齐 resize、挤压、覆盖、收起恢复和响应式降级。
 
-本阶段是 V1.x 增强项，不作为 V1 complete 的阻塞条件。V1 complete 的输入方式以文字对话为准。
+本阶段是 V1 complete 的前端体验硬门槛。
 
 ### 9.2 范围
 
 必须实现：
 
-- 浏览器录音按钮。
-- 音频流发送 Runtime。
-- Runtime 调用 FunASR。
-- 返回 transcript。
-- transcript 写入 user message。
-- AgentCore 按文本处理。
+- 状态 A：悬浮球默认态。
+- 状态 B：悬浮球 hover 预展开态。
+- 状态 C：窄距展开态，默认约 `440px`，挤压网页。
+- 状态 D：半屏展开态，约 `50vw`，继续挤压网页。
+- 状态 E：宽工作区覆盖态，超过 `52vw` 覆盖网页，最大 `80vw`。
+- 状态 F：点击悬浮球或收起按钮后收起，网页恢复原始布局。
+- 面板左边界 resize handle。
+- 拖回 `<48vw` 后恢复挤压式。
+- 记住最近吸附边和垂直位置。
+- 视口 `<900px` 时禁用挤压式，降级为覆盖式或全屏侧栏。
 
 暂不做：
 
-- 唤醒词。
-- 全局监听。
-- 长时间后台录音。
-- 说话人分离。
-- 情绪 TTS。
+- 划词菜单。
+- 网页内右键菜单。
+- 全局搜索框。
+- 多窗口停靠。
+- 站点级深度适配。
 
 ### 9.3 交付物
 
-- `/v1/asr/stream`。
-- FunASRAdapter。
-- Transcript Artifact。
-- Voice source message。
+- 布局状态机。
+- resize handle。
+- 挤压/覆盖切换逻辑。
+- 小视口降级逻辑。
+- 真实 Chrome 交互验收脚本或手工验收记录。
 
 ### 9.4 验收
 
-- 用户点击录音。
-- 后端 FunASR 转写。
-- transcript 写入 Session。
-- AgentCore 按文本处理。
-- FunASR 不可用时 UI 禁用语音按钮或提示。
+- 状态 A-F 全部可在真实 Chrome 普通网页复现。
+- 窄距和半屏挤压不破坏网页主内容可读性。
+- 覆盖态符合 `>52vw` 阈值，拖回 `<48vw` 后恢复挤压式。
+- 收起后网页恢复原始布局。
+- 面板拉伸或切换覆盖态时保持聊天滚动位置。
+- 小视口 `<900px` 正确降级。
 
 ---
 
@@ -578,7 +601,7 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 - BudgetLedger。
 - SessionCheckpoint。
 - Session trace export。
-- Side Panel refresh recovery。
+- 网页内面板 refresh / reopen recovery。
 
 ### 10.3 交付物
 
@@ -590,7 +613,7 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 
 ### 10.4 验收
 
-- 刷新侧边栏后 Session 不丢。
+- 刷新网页或重新展开网页内面板后 Session 不丢。
 - 对话、工具、Artifact、事件可追踪。
 - 可导出 Session Trace。
 - 长 Session 可 checkpoint。
@@ -611,7 +634,7 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 - 全链路 smoke。
 - 状态机测试。
 - Governance 测试。
-- Chrome 插件基本验收。
+- Chrome 插件页面内交互验收。
 - API 文档同步。
 - README / 启动说明。
 - Known limitations。
@@ -629,7 +652,7 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 只能声明：
 
 ```text
-V1 complete: installable Chrome Side Panel Chatbox and current-page companion reading with controlled single-session AgentCore are ready.
+V1 complete: installable Chrome extension with PRD-aligned floating ball, embedded dual-track AI panel, push/overlay/resize interaction, and current-page companion reading through controlled single-session AgentCore is ready.
 ```
 
 不能声明：
@@ -648,7 +671,63 @@ V2/V3/V4/V5 ready
 
 ---
 
-## 12. 推荐开发顺序
+## 12. V1.1：Frontend Fidelity / Figma Visual Alignment
+
+### 12.1 目标
+
+V1.1 是 V1.0 complete 之后的前端体验质量阶段。目标是在不重开 Runtime / AgentCore / API 合同的前提下，高保真还原 Figma Make 原型给出的“浏览器页面 + 浮动球 + 侧边插件面板 + 聊天区域”样式。
+
+V1.1 成功后，后续开发者应能用真实 Chrome 和截图基线判断：当前页面内悬浮球与 AI 面板是否既满足 `PRD/窗口交互_PRD.md` A-F 交互状态，又在视觉上对齐 Figma 原型。
+
+### 12.2 阶段拆分
+
+```text
+V1.1-A：Figma 视觉规格冻结
+V1.1-B：前端结构与 visual token 重构
+V1.1-C：高保真样式实现与状态补齐
+V1.1-D：Playwright 截图基线与真实 Chrome 复验
+V1.1-E：文档收口与出门评审
+```
+
+### 12.3 开发范围
+
+必须完成：
+
+- 将 Figma Make 资源清单中的 `MainLayout / MockPage / FloatingBall / Sidebar / ChatArea` 映射为真实注入面板的组件语义。
+- 统一视觉 token：颜色、字体、轨道宽度、面板宽度、阴影、圆角、状态色、动画时间。
+- 保留并高保真呈现 Runtime offline、PageContext missing、tool running、tool failure、Mermaid fallback、streaming response。
+- 新增截图验收矩阵：默认态、hover 态、`440px` 展开态、`50vw` 半屏态、`>52vw` 覆盖态、小视口态。
+- 更新 V1.1 stage-gate 与 gap drawio，记录当前架构、目标架构、差异、里程碑、验收门槛、出门条件。
+
+明确不做：
+
+- 不新增 Runtime API。
+- 不改 AgentEvent / ToolResult / PageContext 合同。
+- 不引入 MCP / Skill / RAG / 多 Agent / 浏览器自动操作。
+- 不用 Chrome Side Panel 替代页面内悬浮球验收。
+- 没有 Figma 截图或普通 Figma `/design` 节点时，不声明视觉高保真通过。
+
+### 12.4 验收
+
+V1.1 Go 条件：
+
+- PRD A-F 状态在真实 Chrome 普通网页中仍全部通过。
+- Playwright 截图基线覆盖关键状态并纳入验收记录。
+- Figma 对照验收有截图或普通 Figma `/design` 节点作为基线。
+- 页面内面板的 Runtime、PageContext、SSE、Mermaid、Session restore 链路不回退。
+- drawio gap 文档完整反映目标架构、当前差异、开发计划、里程碑、验收门槛和出门条件。
+
+V1.1 No-Go 条件：
+
+- 只能 Side Panel 通过。
+- 缺少视觉基线却声明高保真完成。
+- 截图明显偏离 Figma 关键布局比例。
+- 面板交互断裂，或网页布局无法恢复。
+- Runtime / Trace / Session 链路因视觉重构断开。
+
+---
+
+## 13. 推荐开发顺序
 
 最小可行顺序：
 
@@ -661,12 +740,13 @@ V2/V3/V4/V5 ready
 6. EventStore + EventStream separation
 7. governance: budget / permission / context / file deny
 8. page context API
-9. Chrome side panel + content script
-10. summarize/ask tools
-11. Chrome 文字对话 E2E
-12. deterministic mindmap fallback, then model adapter
-13. session restore + trace export
-14. FunASR
+9. Chrome content script + injected floating ball
+10. embedded dual-track AI panel + page context
+11. summarize/ask tools
+12. Chrome 网页内文字对话 E2E
+13. PRD A-F layout states + resize
+14. deterministic mindmap fallback, then model adapter
+15. session restore + trace export
 ```
 
 不要先做 UI 细节，也不要先做本地知识库。V1 成败取决于 AgentCore 是否稳，以及 Chrome 插件是否能完成最小可用的当前网页基础对话闭环。

@@ -9,6 +9,9 @@ env/
 
 *.log
 *.pid
+.env
+.env.local
+.env.*.local
 .navia/
 *.sqlite3
 *.sqlite3-shm
@@ -17,3 +20,7 @@ env/
 node_modules/
 .output/
 .wxt/
+chrome-mv3-unpacked/
+navia-v1-*-unpacked/
+.claude/
+.cursor/

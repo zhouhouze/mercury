@@ -180,26 +180,33 @@ PRD/窗口交互_PRD.md
 - 已将远端 README 与窗口交互 PRD 复制到 `remote-mercury/`。
 - 远端 PRD 描述的是网页内悬浮球 + 站内嵌入面板体验，不覆盖当前 V1.0 Side Panel 基线。
 
-建议阶段：
+当前决策：
 
 ```text
-V1.1：网页内悬浮球与站内嵌入面板体验
+V1.1：前端体验高保真阶段
 ```
 
-待决策：
+旧的“网页内悬浮球与站内嵌入面板体验”占位已升级为 V1.0 页面内交互主线；V1.1 不再解决“是否做悬浮球”的问题，而是解决“如何高保真还原 Figma 原型并建立视觉验收”的问题。
 
-- 是否将悬浮球作为 Side Panel 之外的第二入口。
-- 是否允许默认挤压网页内容，还是先只做覆盖式面板。
-- 是否使用 Shadow DOM 做样式隔离。
-- 是否支持左/右吸附与拖拽记忆。
-- 是否支持 `⌘M` 快捷键。
-- 右侧功能区第一版是否只做占位。
-- 强 CSP、iframe、`chrome://`、Chrome Web Store 页面如何降级。
+V1.1 仍待闭环的问题：
 
-V1.0 决策：
+- Figma Make 链接当前通过 MCP 读取不稳定；是否能通过 Chrome CLI 捕获真实 live preview 截图，或补充普通 Figma `/design` 节点作为视觉基线。
+- Chrome CLI 自动捕获已验证为 Figma WebGL unsupported error page，不能作为视觉基线；已登录 Chrome manual-auth 截图已获得一个真实 live preview 主窗口截图，但 `capture-matrix.md` 完整状态矩阵仍需补齐。
+- `design/v1.1-figma-baseline/reviewed/` 是否已覆盖 `floating-default`、`floating-hover`、`panel-440-push`、`panel-50vw-push`、`panel-overlay`、`mobile-overlay`、`runtime-offline`、`artifact-mindmap`。
+- Figma `MainLayout / MockPage / FloatingBall / Sidebar / ChatArea` 与真实注入面板 DOM 结构的最终映射。
+- 视觉 token 是否先落在 Shadow DOM CSS，还是引入更明确的前端组件层。
+- 强 CSP、iframe、`chrome://`、Chrome Web Store 页面如何展示高保真降级态。
+
+已转为 V1.1 默认决策：
+
+- 覆盖态下底层网页默认不可交互。
+- 右侧 ToolDock 第一版只做 disabled / placeholder 占位。
+- `⌘M` 只作为 hover 提示，不作为快捷键验收。
+
+V1.1 文档入口：
 
 ```text
-不并入 V1.0-E 实现。
-不改变 Chrome Side Panel 优先交付目标。
-待 V1.0 真实 Chrome 验收完成后，再以独立 stage-gate 进入 V1.1 体验增强评审。
+design/v1.1-frontend-fidelity-architecture.md
+stage-gates/v1.1-frontend-fidelity.md
+design/v1.1-frontend-fidelity-gap.drawio
 ```

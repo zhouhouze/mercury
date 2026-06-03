@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 目标验收文档
 
-版本：V1.0 Acceptance Plan Baseline  
+版本：V1.0 Acceptance Plan Baseline
 日期：2026-05-31
 
 ---
@@ -22,7 +22,7 @@ Go, but contract-first.
 V1 的成功定义：
 
 ```text
-当前网页 -> PageContext -> AgentCore -> Intent -> Tool -> Response/Artifact -> Session/Trace
+当前网页 -> 悬浮球/网页内AI面板 -> PageContext -> AgentCore -> Intent -> Tool -> Response/Artifact -> Session/Trace
 ```
 
 必须可跑通、可恢复、可追踪、可限制。
@@ -44,8 +44,10 @@ V1 的成功定义：
 全部满足才可声明 V1 complete：
 
 - Chrome 插件可通过 unpacked extension 安装到开发者 Chrome。
-- Chrome Side Panel 可打开。
-- Side Panel Chatbox 可完成文字对话。
+- 普通网页内出现 AI 悬浮球。
+- 悬浮球默认态、hover 预展开态、窄距展开态、半屏展开态、宽覆盖态、收起态全部通过。
+- 网页内 AI 双轨面板可完成文字对话。
+- 面板 resize、挤压网页、覆盖网页和收起恢复符合 `PRD/窗口交互_PRD.md`。
 - 当前页面上下文可进入 Runtime。
 - AgentCore 能完成单 Session 对话。
 - 用户可以在当前网页上提问，并收到基于当前网页的基础回答。
@@ -68,8 +70,12 @@ V1 的成功定义：
 
 任一出现即不能声明 V1 complete：
 
-- Chrome 插件不能安装或不能打开 Side Panel。
-- 用户无法在 Side Panel 完成文字对话。
+- Chrome 插件不能安装。
+- 只能打开 Chrome Side Panel，不能在真实网页内呈现悬浮球与 AI 面板。
+- `PRD/窗口交互_PRD.md` 的 A-F 状态任一缺失。
+- 用户无法在网页内 AI 面板完成文字对话。
+- 用普通 extension page、debug page 或 Side Panel 替代网页内交互验收。
+- 面板展开后网页布局无法恢复。
 - Agent 状态只存在前端或 extension background worker。
 - 工具调用绕过 Governance。
 - 本地文件读取默认开启。
@@ -111,7 +117,7 @@ V1 的成功定义：
 - [ ] 真实 SSE event stream。
 - [ ] 真实 EventStore / JSONL / SQLite trace。
 - [ ] 真实 Mermaid 渲染结果。
-- [ ] 真实 Chrome unpacked extension 安装与 Side Panel 操作。
+- [ ] 真实 Chrome unpacked extension 安装与网页内悬浮球 / AI 面板操作。
 
 以下验收不得通过：
 
@@ -299,8 +305,18 @@ idle
 
 - [ ] 插件可通过 Chrome `Load unpacked` 安装。
 - [ ] 插件可加载。
-- [ ] Side Panel 可打开。
-- [ ] Side Panel 有 Chatbox 输入框和消息列表。
+- [ ] 普通网页边缘出现 AI 悬浮球。
+- [ ] 悬浮球默认贴边，不遮挡主要内容。
+- [ ] 悬浮球可上下拖动。
+- [ ] 悬浮球 hover 后高亮并伸出小长条。
+- [ ] 点击小长条后展开网页内 AI 双轨面板。
+- [ ] 网页内 AI 面板有 Chatbox 输入框和消息列表。
+- [ ] 窄距展开态默认约 `440px` 并挤压网页。
+- [ ] 半屏展开态约 `50vw` 并继续挤压网页。
+- [ ] 超过 `52vw` 后进入覆盖态，最大不超过 `80vw`。
+- [ ] 拖回 `<48vw` 后恢复挤压式。
+- [ ] 点击悬浮球或收起按钮后，面板收起且网页恢复原始布局。
+- [ ] 视口 `<900px` 时禁用挤压式，降级为覆盖式或全屏侧栏。
 - [ ] UI 可连接 Local Runtime。
 - [ ] Runtime 不可用时展示提示。
 - [ ] Runtime 启动后 UI 可重新连接。
@@ -308,10 +324,12 @@ idle
 - [ ] 用户输入可发送到 `/v1/chat/stream`。
 - [ ] `/v1/chat/stream` 使用 SSE，Response Content-Type 为 `text/event-stream`。
 - [ ] 响应可流式展示或分段展示。
-- [ ] 用户可以在 Side Panel 输入“总结这篇文章”并看到回答。
-- [ ] 用户可以在 Side Panel 输入一个基于当前网页的问题并看到回答。
+- [ ] 用户可以在网页内 AI 面板输入“总结这篇文章”并看到回答。
+- [ ] 用户可以在网页内 AI 面板输入一个基于当前网页的问题并看到回答。
 - [ ] Agent 状态可展示。
 - [ ] 预算使用可展示。
+
+Chrome Side Panel 可保留为调试或兼容入口，但不能替代以上验收。
 
 ---
 
@@ -441,13 +459,15 @@ mindmap
 
 ## 4. 端到端验收场景
 
-### E2E-0：Chrome 插件安装与基础对话
+### E2E-0：Chrome 插件安装、悬浮球与基础对话
 
 ```text
 Given 开发者已启动 Local Runtime
 And 已在 Chrome 中通过 Load unpacked 安装 Navia 插件
 And 用户打开一篇普通文章
-When 用户打开 Side Panel Chatbox
+When 页面边缘出现 AI 悬浮球
+And 用户 hover 悬浮球
+And 点击小长条展开网页内 AI 面板
 And 输入“这篇文章主要讲什么？”
 Then 插件提交当前 PageContext
 And Runtime 创建或复用 active session
@@ -461,7 +481,7 @@ And Trace 可看到 state.transition、intent.detected、tool.started、tool.don
 
 ```text
 Given 用户打开一篇普通文章
-And Side Panel 已连接 Runtime
+And 网页内 AI 面板已连接 Runtime
 When 用户点击“总结”
 Then Runtime 收到 PageContext
 And AgentCore 进入 detecting_intent
@@ -501,6 +521,26 @@ Given FunASR 可用
 When 用户录音说“总结这篇文章”
 Then transcript 写入 user message
 And 后续流程与 typed message 一致
+```
+
+### E2E-7：PRD A-F 页面交互状态
+
+```text
+Given 用户在真实 Chrome 打开普通文章页
+And 插件已加载
+Then 页面边缘出现悬浮球默认态
+When 用户 hover 悬浮球
+Then 出现高亮和伸出小长条
+When 用户点击小长条
+Then 网页内 AI 面板以约 440px 窄距展开并挤压网页
+When 用户拖拽 resize handle 至约 50vw
+Then 面板进入半屏展开态并继续挤压网页
+When 用户继续拖拽超过 52vw
+Then 面板进入覆盖态
+When 用户拖回 48vw 以下
+Then 面板恢复挤压式
+When 用户点击悬浮球或收起按钮
+Then 面板收起且网页恢复原始布局
 ```
 
 ### E2E-5：预算限制
@@ -543,12 +583,136 @@ And 事件记录 tool.denied 或 approval.required
 
 ---
 
-## 6. V1 最终声明模板
+## 6. V1.1 前端高保真验收计划
+
+V1.1 不重新定义 V1 complete。V1.1 只验收前端体验是否从“功能闭环 + 页面内交互骨架”升级为可对照 Figma 原型的高保真产品界面。
+
+### 6.1 Go 条件
+
+全部满足才可声明 V1.1 frontend fidelity ready：
+
+- [ ] V1.1 证据策略已登记到 `docs/navia_v1_project_docs/design/v1.1-figma-baseline/capture-manifest.json`。
+- [ ] `floating-default` 使用用户提供 Image #2 作为视觉参考。
+- [ ] `floating-hover` 使用用户提供 Image #1 作为视觉参考。
+- [ ] `panel-440-push`、`panel-50vw-push`、`panel-overlay`、`mobile-overlay` 按 PRD 硬约束验收，不要求实际 Figma 截图。
+- [ ] `runtime-offline` 单独进行设计验收，无标准原型审计。
+- [ ] `artifact-mindmap` 已明确后续专项，不阻塞 V1.1-B/C。
+- [ ] `PRD/窗口交互_PRD.md` A-F 状态全部在真实 Chrome 普通网页中通过。
+- [ ] Playwright 截图覆盖默认态、hover 态、`440px` 展开态、`50vw` 半屏态、`>52vw` 覆盖态、小视口态。
+- [ ] 截图验收记录包含基线路径、当前截图路径、差异结论。
+- [ ] Runtime offline、PageContext missing、tool failure 均有高保真状态呈现；Mermaid / mindmap 后续专项。
+- [ ] PageContext、Runtime、SSE Chat、Mermaid、Session restore 链路不回退。
+- [ ] Side Panel 仍只作为调试入口，不参与高保真通过声明。
+- [ ] `design/v1.1-frontend-fidelity-gap.drawio` 可打开，且页面名与 Markdown 文档一致。
+
+### 6.2 No-Go 条件
+
+任一出现即不能声明 V1.1 frontend fidelity ready：
+
+- [ ] 没有 Figma 截图或普通 Figma `/design` 节点，却声明视觉高保真完成。
+- [ ] Chrome CLI 捕获的是登录页、权限页、空白页或错误页，却被当作视觉基线。
+- [ ] 用户提供 Image #1/#2 未被登记，却声明浮动球视觉基线完成。
+- [ ] 3-6 状态偏离 PRD 硬约束。
+- [ ] Runtime offline 没有独立设计验收。
+- [ ] Mindmap artifact 被误纳入 V1.1-B/C 必做项。
+- [ ] 只能 Chrome Side Panel 或普通 extension page 通过。
+- [ ] 页面内悬浮球、hover 小长条、双轨面板、resize、push、overlay、collapse 任一断裂。
+- [ ] 面板收起后网页布局无法恢复。
+- [ ] 截图明显偏离目标布局比例、轨道宽度、消息密度或输入区位置。
+- [ ] Runtime / Trace / Session 因前端重构断链。
+- [ ] 修改 Runtime API、AgentEvent、ToolResult 或 PageContext 合同但没有独立合同审计。
+
+### 6.3 V1.1 验收矩阵
+
+| 场景 | 必须验证 |
+|---|---|
+| 默认态 | 页面边缘浮动球位置、贴边、阴影、未遮挡主内容 |
+| Hover 态 | 高亮、伸出小长条、快捷提示、收回动画 |
+| 窄距展开 | `440px` 面板、左轨、聊天主区、右工具区、网页挤压 |
+| 半屏展开 | `50vw` 附近布局稳定、聊天区独立滚动、输入区固定 |
+| 覆盖态 | `>52vw` 后不继续挤压网页，最大 `80vw` |
+| 小视口 | `<900px` 覆盖式或全屏侧栏降级 |
+| 错误态 | offline、missing context、tool failure 可见且不空白；Mermaid / mindmap 后续专项 |
+
+### 6.4 Figma Make 截图硬切验收
+
+V1.1 进入实质前端开发前，必须完成：
+
+- [ ] 执行 `node scripts/capture_figma_make_baseline.mjs`。
+- [ ] 生成 `docs/navia_v1_project_docs/design/v1.1-figma-baseline/current/capture-report.json`。
+- [ ] 人工确认截图不是 Figma 登录页、权限页、空白页或错误页。
+- [ ] 将可作为视觉目标的截图登记到 `docs/navia_v1_project_docs/design/v1.1-figma-baseline/capture-manifest.json`。
+- [ ] 将已复核截图沉淀到 `docs/navia_v1_project_docs/design/v1.1-figma-baseline/reviewed/`。
+- [ ] 若自动捕获失败，使用已登录 Chrome 手工补采到 `manual-auth/`，再复核进入 `reviewed/`。
+
+验收结论：
+
+```text
+证据策略已登记且机器校验通过：Go for V1.1-B.
+用户图片或 PRD 硬约束未登记：No-Go.
+Mindmap 被误设为 V1.1-B/C 阻塞：No-Go.
+```
+
+当前记录：
+
+```text
+2026-06-03：已执行 Chrome CLI 自动捕获。
+结果：current/ 中 4 张截图均为 Figma WebGL unsupported error page。
+历史结论：自动捕获本身 No-Go；已被后续用户证据策略覆盖，不再阻塞 V1.1-B。
+
+2026-06-03：用户补充 Image #1 / Image #2，并确认 3-6 采用 PRD 硬约束、7 独立设计、8 后续专项。
+结果：V1.1-B 可进入；mindmap artifact 不纳入本轮阻塞。
+结论：Go for V1.1-B；Mindmap artifact deferred。
+```
+
+### 6.5 V1.1 子阶段验收入口
+
+V1.1 必须按以下顺序推进：
+
+| 阶段 | 文档 | 当前默认结论 |
+|---|---|---|
+| V1.1-A | `stage-gates/v1.1-a-visual-baseline-freeze.md` | Go for V1.1-B |
+| V1.1-B | `stage-gates/v1.1-b-ui-structure-token-refactor.md` | Ready after machine check passes |
+| V1.1-C | `stage-gates/v1.1-c-high-fidelity-states.md` | Blocked by V1.1-B |
+| V1.1-D | `stage-gates/v1.1-d-visual-e2e-regression.md` | Blocked by V1.1-C |
+| V1.1-E | `stage-gates/v1.1-e-exit-review.md` | Blocked by V1.1-D |
+
+不得跳过机器校验直接进入前端高保真实现。
+
+### 6.6 V1.1 文档就绪度机器检查
+
+V1.1-B 开工前必须执行：
+
+```bash
+node scripts/validate_v1_1_doc_readiness.mjs
+```
+
+通过条件：
+
+```text
+status=go
+canStartV11B=true
+blocking=[]
+missingFiles=[]
+```
+
+当前预期：
+
+```text
+status=go
+canStartV11B=true
+```
+
+只要该脚本失败，就必须先修复 manifest / evidence policy / 文档一致性，不得进入 V1.1-B/C/D/E。
+
+---
+
+## 7. V1 最终声明模板
 
 允许声明：
 
 ```text
-V1 complete: Navia can be installed as a Chrome unpacked extension and supports basic text chat in the Side Panel against the current page through Local Headless Runtime. The single-session AgentCore is observable, state-machine based, and guarded by budget/permission/context supervision. Current-page summary, Q&A, and Mermaid mindmap are ready for MVP validation.
+V1 complete: Navia can be installed as a Chrome unpacked extension and supports PRD-aligned in-page interaction: floating ball, hover strip, embedded dual-track AI panel, push layout, overlay layout, resize, and collapse recovery. Users can complete basic text chat against the current page through Local Headless Runtime. The single-session AgentCore is observable, state-machine based, and guarded by budget/permission/context supervision. Current-page summary, Q&A, and Mermaid mindmap are ready for MVP validation.
 ```
 
 禁止声明：
