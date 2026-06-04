@@ -236,6 +236,8 @@ Events:
 
 V1 决策：`/v1/chat/stream` 使用 SSE，Response Content-Type 必须是 `text/event-stream`。
 
+`/v1/chat/stream` 是 V1 AI 伴读的唯一 AgenticLoop 入口。摘要、基于网页问答、选区解释和 Mindmap 生成在默认用户链路中都应通过 chat turn 触发工具执行；direct artifact API 只能作为后续补充能力，不得绕过 turn / state / governance / trace。
+
 Request:
 
 ```json
@@ -274,6 +276,14 @@ V1.0-E 前端消费约束：
 - 未识别 SSE event 必须安全忽略或记录为 debug，不得导致 UI 崩溃。
 - Runtime offline、`PAGE_CONTEXT_REQUIRED`、tool failure、Mermaid render failure 必须在 UI 可见。
 - Frontend 不得拥有 AgentCore 核心状态；session / turn / tool / artifact 状态以 Runtime 为准。
+
+V1.2 AI 伴读模块约束：
+
+- 网页数据抓取模块只通过 `/v1/page/context` 写入或更新 `session.activePage`。
+- 流式渲染模块只消费 SSE AgentEvent，不直接执行工具。
+- Mindmap 模块的 Runtime 产物是 Mermaid source artifact，前端负责视觉渲染和 source fallback。
+- AgenticLoop ChatBox 模块必须为每个 user message 创建 turn，并确保工具调用经过 StateMachine、Budget、Permission 和 ToolResult envelope。
+- 缺少 `session.activePage` 时必须使用 `PAGE_CONTEXT_REQUIRED`，不得返回假 summary、answer 或 mindmap。
 
 ---
 

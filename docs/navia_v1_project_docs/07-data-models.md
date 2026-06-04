@@ -128,6 +128,13 @@ type PageContext = {
 }
 ```
 
+模块归属：
+
+- PageContext 属于“网页数据抓取与结构化总结”模块。
+- PageContext 是 V1 AI 伴读工具的页面事实源。
+- `summarize_page`、`answer_from_page`、`explain_selection`、`generate_mindmap` 不得使用前端自由文本替代 `session.activePage`。
+- 缺少 PageContext 时必须返回 `PAGE_CONTEXT_REQUIRED`，不得创建假 artifact。
+
 ---
 
 ## 6. PageChunk
@@ -269,6 +276,8 @@ type ArtifactRecord = {
 - Mermaid mindmap 使用 `metadata.format = "mermaid"`，`content` 存 Mermaid source。
 - `explain_selection` 产生 `type = "answer"`、`source = "selection"` 的 ArtifactRecord。
 - 成功工具必须创建 ArtifactRecord；失败、denied 或 budget_exceeded 不得创建假 artifact。
+- V1 AI 伴读中，summary / answer / mindmap artifact 必须能追溯到 `sourcePageId`、`turnId`、`toolCallId`。
+- Mindmap 视觉渲染状态不写入 ArtifactRecord 顶层字段；Runtime 只存 Mermaid source 和 validation metadata，Frontend 单独处理 renderer failure 与 source fallback。
 
 ---
 
@@ -449,6 +458,9 @@ type AgentEvent = {
 - EventStream 只负责实时推送，不替代 EventStore。
 - `state.transition` 事件必须由 StateMachine 产生。
 - 执行中事件必须包含 `turnId`。
+- V1 AI 伴读不得新增 ad-hoc event string。新增事件类型必须同步更新本文件、`06-api-contract.md`、AgentEvent schema 和测试。
+- Mermaid validation / repair 信息写入 `tool.done.data`、`artifact.created.data.metadata` 或 ArtifactRecord metadata。
+- 前端流式渲染模块必须安全忽略未知事件，不能把未知事件解释为 AgentCore 状态事实。
 
 ---
 

@@ -728,3 +728,100 @@ Navia desktop pet is ready.
 Navia cloud sync is ready.
 V2/V3/V4/V5 is ready.
 ```
+
+---
+
+## 8. V1.2 AI 伴读四模块验收
+
+V1.2 验收目标不是新增更多智能能力，而是确认 AI 伴读主链路被拆成可审计、可测试、可独立演进的四个模块：
+
+```text
+网页数据抓取与结构化总结
+基于网页内容的流式渲染
+基于网页内容的思维导图生成
+AgenticLoop 实现 ChatBox
+```
+
+### 8.1 总体验收链路
+
+必须使用真实 Chrome 页面或真实 HTML fixture：
+
+```text
+打开真实网页
+-> 点击读取网页
+-> Runtime 接收 PageContext
+-> session.activePage 写入真实 page_id / url / title / content_hash
+-> 用户发送“总结当前网页”
+-> /v1/chat/stream 返回 SSE
+-> 前端流式渲染 assistant response
+-> Runtime 创建 summary artifact
+-> 用户发送“生成思维导图”
+-> Runtime 创建 mindmap artifact
+-> 前端渲染 Mermaid 或展示 source fallback
+-> trace?turn_id 可还原 state / intent / budget / tool / artifact / response events
+```
+
+### 8.2 网页数据抓取与结构化总结
+
+必须通过：
+
+- [ ] PageContext 来自真实网页或真实 HTML fixture。
+- [ ] PageContext 包含 `pageId`、`url`、`title`、`domain`、`contentHash`、`headings`、`chunks`。
+- [ ] `summarize_page` 只读取 `session.activePage`，不得使用前端传入的自由摘要结果。
+- [ ] 缺少 activePage 时返回 `PAGE_CONTEXT_REQUIRED`。
+- [ ] 缺少 activePage 时不得产生 `tool.started`。
+- [ ] 缺少 activePage 时不得创建 summary / answer / mindmap artifact。
+- [ ] 成功总结必须创建 `ArtifactRecord(type="summary", source="page", metadata.format="markdown")`。
+
+### 8.3 基于网页内容的流式渲染
+
+必须通过：
+
+- [ ] 前端消费 `/v1/chat/stream` SSE。
+- [ ] `response.delta` 能逐步追加到 ChatBox。
+- [ ] `artifact.created` 能渲染为 artifact 卡片或内容块。
+- [ ] 未知 SSE event 不导致 UI 崩溃。
+- [ ] Runtime offline 可见。
+- [ ] PageContext missing 可见。
+- [ ] tool failure 可见。
+- [ ] 前端不得保存 AgentCore 状态作为事实源。
+
+### 8.4 基于网页内容的思维导图生成
+
+必须通过：
+
+- [ ] `generate_mindmap` 从真实 `session.activePage` 生成 Mermaid source。
+- [ ] Mermaid validation 结果写入 `tool.done.data` 或 artifact metadata。
+- [ ] repair 次数最多 1 次。
+- [ ] 成功时创建 `ArtifactRecord(type="mindmap", metadata.format="mermaid")`。
+- [ ] artifact 包含 `sourcePageId`、`turnId`、`toolCallId`。
+- [ ] 前端 Mermaid 渲染失败时展示 source fallback。
+- [ ] 不新增未登记的 `mermaid.*` ad-hoc event。
+
+### 8.5 AgenticLoop ChatBox
+
+必须通过：
+
+- [ ] 每个 user message 创建一个 `turn_id`。
+- [ ] 每个 turn 经过 StateMachine transition。
+- [ ] 每个 state transition 写入 EventStore。
+- [ ] 每个 tool call 经过 budget check 和 permission check。
+- [ ] ToolExecutor 必须执行 PreToolUse / PostToolUse hook。
+- [ ] 每个工具返回 ToolResult envelope。
+- [ ] trace 可按 `turn_id` 过滤。
+- [ ] trace 中可见 state、intent、budget、tool、artifact、response、error 事件。
+
+### 8.6 V1.2 false-green 防线
+
+以下情况不得通过验收：
+
+- [ ] 只检查前端有文字，不检查 trace。
+- [ ] 只使用 mock PageContext。
+- [ ] 直接在前端生成 summary、answer 或 Mermaid。
+- [ ] Runtime 缺少 activePage 仍返回成功。
+- [ ] 工具返回自由文本而非 ToolResult。
+- [ ] 成功工具未创建 ArtifactRecord。
+- [ ] artifact 缺少来源链路。
+- [ ] 只有 EventStream，没有 EventStore。
+- [ ] 新增事件类型但合同、schema、测试未更新。
+- [ ] 借 V1.2 引入 RAG、长期记忆、多 Agent、MCP、Skill 或浏览器自动操作。

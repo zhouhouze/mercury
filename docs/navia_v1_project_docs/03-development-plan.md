@@ -727,7 +727,85 @@ V1.1 No-Go 条件：
 
 ---
 
-## 13. 推荐开发顺序
+## 13. V1.2：AI 伴读四模块架构深化
+
+### 13.1 目标
+
+V1.2 是 V1.1 前端体验对齐后的 AI 伴读架构深化阶段。目标是把当前“聊天”功能拆成四个清晰模块：
+
+```text
+网页数据抓取与结构化总结
+基于网页内容的流式渲染
+基于网页内容的思维导图生成
+AgenticLoop 实现 ChatBox
+```
+
+V1.2 不改变 V1 外部 API 合同，不扩大到 V2 知识库、RAG、长期记忆、多 Agent、MCP、Skill、浏览器自动操作、联网搜索、语音、桌宠、深度研究或 PPT 生成。
+
+### 13.2 阶段拆分
+
+```text
+V1.2-0：AI 伴读模块合同冻结
+V1.2-A：网页数据抓取与结构化总结模块边界整理
+V1.2-B：SSE 流式渲染模块边界整理
+V1.2-C：Mindmap 生成与 Mermaid artifact 模块边界整理
+V1.2-D：AgenticLoop ChatBox 编排模块边界整理
+V1.2-E：真实网页端到端验收与文档收口
+```
+
+### 13.3 开发范围
+
+必须完成：
+
+- 新增并维护 `design/v1.2-ai-reading-modular-architecture.md`。
+- 明确四模块职责、输入输出、边界和 No-Go 条件。
+- 保持 `/v1/page/context`、`/v1/chat/stream`、trace API 作为 V1 伴读主链路。
+- 所有网页伴读工具必须消费真实 `session.activePage`。
+- 所有工具必须返回 `ToolResult` envelope。
+- 所有成功工具必须创建 `ArtifactRecord`。
+- 每个 artifact 必须关联 `sourcePageId`、`turnId`、`toolCallId`。
+- Mermaid validation / repair 详情必须写入 tool 或 artifact metadata，不新增 ad-hoc event。
+- 前端只维护展示态，不拥有 AgentCore 状态。
+
+建议完成：
+
+- 在不改变外部行为的前提下，逐步把 `tools.py` 拆分为阅读工具、Mindmap 工具、ToolExecutor。
+- 在不改变 public `TurnRunner` 入口的前提下，把 AgenticLoop 编排、SSE response 组织、artifact persistence 拆出内部边界。
+- 把前端 Chat 渲染、Debug 面板、Artifact 渲染继续拆成独立模块。
+
+明确不做：
+
+- 不新增 V2 Memory Plane。
+- 不新增 RAG 或知识库蒸馏。
+- 不新增 MCP / Skill / 多 Agent。
+- 不新增浏览器自动点击、自动导航或联网搜索。
+- 不把 Mindmap 视觉失败伪装成通过。
+
+### 13.4 验收
+
+V1.2 Go 条件：
+
+- 真实网页可完成读取、总结、基于网页问答、Mindmap artifact 生成。
+- `/v1/chat/stream` 可输出 state、intent、budget、tool、artifact、response、error 事件。
+- trace 可按 `turn_id` 还原一次完整伴读 turn。
+- 缺少 activePage 时返回 `PAGE_CONTEXT_REQUIRED`，且不产生 `tool.started` 或假 artifact。
+- 前端未知 SSE event 不崩溃。
+- Mermaid render failure 有 source fallback。
+- 四模块边界已在设计文档、开发计划和验收计划中同步。
+
+V1.2 No-Go 条件：
+
+- 工具未消费真实 `session.activePage`。
+- 前端绕过 Runtime 直接生成总结、回答或 Mindmap。
+- 成功工具没有 artifact。
+- artifact 缺少 `sourcePageId`、`turnId` 或 `toolCallId`。
+- 只有实时事件，没有 EventStore trace。
+- 新增事件类型但未更新合同和测试。
+- 引入 V1 禁止范围能力。
+
+---
+
+## 14. 推荐开发顺序
 
 最小可行顺序：
 
