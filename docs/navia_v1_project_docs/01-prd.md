@@ -91,8 +91,8 @@ V1 必须实现：
 6. 本地小参数模型实现用户意图识别。
 7. 网页内 AI 双轨面板支持基础文字对话，不依赖语音即可完成 V1 主流程。
 8. 本地可微调模型用于思维导图生成。
-9. AgentCore 使用 openHarness / PiAgent 源码思想裁剪实现。
-10. 不直接接 MCP / Skill / 长期记忆管理；V1.2 只允许通过 D 模块定义轻量 Adapter 合同，不允许绕过 AgenticLoop 和治理钩子。
+9. AgentCore 采用可替换 CoreProvider 策略，V1.2 首选 `piAgentProvider`，并以 `MockCoreProvider` 支撑合同测试和 fallback。
+10. 不直接接 MCP / Skill / 长期记忆管理；V1.2 只允许通过 D 模块定义轻量 Adapter 合同，不允许绕过 D Adapter Layer 和治理钩子。
 11. 单 Session 聊天历史高质量持久化。
 12. Agent 状态机可视化、可验证、可观测、可扩展。
 13. Agent 具备预算、权限、上下文和本地文件访问监督机制。
@@ -139,7 +139,7 @@ V1.2 仍处于文档开发阶段，目标是冻结“聊天”页签的 A/B/C/D 
 - A：网页信息提取、过滤、蒸馏与结构化总结。
 - B：结构化数据、流式文本和 Mindmap 前端实时渲染。
 - C：基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
-- D：AgenticLoop ChatBox Core 与 MCP / Skill / API Adapter 编排。
+- D：CoreProvider + Adapter Layer，负责可替换 Agent Core 适配、MCP / Skill / API Adapter 编排、治理桥和 ToolResult / Artifact / Event / Trace 映射。
 
 V1.2 允许：
 
@@ -147,6 +147,8 @@ V1.2 允许：
 - 单 Session 连续上下文和 checkpoint。
 - 结构化网页 JSON、段落标注和 source map。
 - Mindmap 节点反跳到源 paragraph/chunk。
+- 使用 `MockCoreProvider` 做合同测试和自动化 fallback。
+- 将 `piAgentProvider` 作为首选 Agent Core Provider，但真实接入前必须锁定 piAgent 仓库、版本或 commit、license、运行时和工具调用模型。
 
 V1.2 明确不做：
 
@@ -157,6 +159,7 @@ V1.2 明确不做：
 - 浏览器自动操作。
 - 默认本地文件读取。
 - 前端绕过 D 直接调用外部服务。
+- piAgent 或其他 CoreProvider 直接写 `ArtifactRecord`、SSE、EventStore、Trace 或 UI。
 
 ---
 
@@ -407,7 +410,7 @@ GET  /v1/sessions/{session_id}/trace
 
 ### 9.3 AgentCore
 
-V1 AgentCore 使用 openHarness / PiAgent 的源码思想裁剪实现。
+V1 AgentCore 采用可替换 CoreProvider 策略。V1.2 首选 `piAgentProvider`，但 piAgent 不得直接写 Navia 的 Artifact、SSE、EventStore、Trace 或 UI；所有 Core 输出必须经 D Adapter Layer 映射为 Navia 合同。真实接入前必须完成 piAgent 仓库、版本或 commit、license、运行时和工具调用模型锁定。
 
 保留：
 

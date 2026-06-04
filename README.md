@@ -4,6 +4,30 @@ Navia is a Chrome companion-reading MVP with a local headless runtime. V1 fronte
 
 V1.0 focuses on the functional loop and PRD-aligned in-page interaction skeleton. V1.1 is the frontend fidelity stage: it aligns the injected panel with the Figma Make prototype shape and visual-regression acceptance. V1.2 is currently a documentation-first architecture stage: it freezes the AI reading A/B/C/D module split, service/app workspace boundaries, and lightweight Adapter contracts before any parallel Codex implementation starts.
 
+## External Agent Quick Start
+
+If you are an external coding agent or a developer joining one module, start with:
+
+```text
+AGENTS.md
+docs/navia_v1_project_docs/AGENT_ONBOARDING.md
+docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md
+```
+
+These documents define the V1.2 module workpacks, allowed edit directories, required contracts, evidence expectations, and Integration handoff rules.
+
+Short version:
+
+| Workpack | Directory |
+|---|---|
+| A Page Reading | `services/local-runtime/navia_runtime/modules/page_reading/` |
+| B Renderer | `apps/chrome-extension/src/modules/*_renderer/` |
+| C Mindmap | `services/local-runtime/navia_runtime/modules/mindmap/` |
+| D CoreProvider / Adapter | `services/local-runtime/navia_runtime/modules/agent_loop/`, `services/local-runtime/navia_runtime/modules/adapters/` |
+| Integration | existing entrypoints listed in `docs/navia_v1_project_docs/stage-gates/v1.2-e-integration.md` |
+
+Do not start implementation before reading your module README and stage gate.
+
 ## Requirements
 
 - Python 3.11+
@@ -140,8 +164,15 @@ The V1.2 AI reading architecture and workspace partition plan lives in:
 - `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md`
 - `docs/navia_v1_project_docs/stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`
 
-V1.2 allows lightweight MCP / Skill / External API Adapter contracts only through the AgenticLoop Core. It does not allow long-term memory, RAG, multi-agent orchestration, browser automation, or high-risk side effects by default.
+V1.2 allows lightweight MCP / Skill / External API Adapter contracts only through D Adapter Layer and governance hooks. It does not allow long-term memory, RAG, multi-agent orchestration, browser automation, or high-risk side effects by default.
+
+Additional external-agent onboarding docs:
+
+- `AGENTS.md`
+- `docs/navia_v1_project_docs/AGENT_ONBOARDING.md`
+- `docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md`
+- `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md`
 
 ## V1 Scope Boundaries
 
-V1 does not add RAG, long-term memory, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation. V1.2 may define MCP / Skill Adapter contracts for future controlled integration, but all such calls must be routed through the Runtime AgenticLoop and governance hooks.
+V1 does not add RAG, long-term memory, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation. V1.2 may define MCP / Skill Adapter contracts for future controlled integration, but all such calls must be routed through D Adapter Layer and governance hooks.

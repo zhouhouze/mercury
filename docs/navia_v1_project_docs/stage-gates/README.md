@@ -58,10 +58,11 @@ V1.0-H：真实 Chrome UI 最终验收与文档收口
 - `v1.1-d-visual-e2e-regression.md`：V1.1-D 视觉 E2E 回归；已完成。
 - `v1.1-e-exit-review.md`：V1.1-E 出门评审；已完成，允许声明 `V1.1 frontend fidelity ready`。
 - `v1.2-0-ai-reading-contract-and-workspace-freeze.md`：V1.2-0 AI 伴读合同与工作区冻结；当前用于文档开发阶段，冻结 A/B/C/D 独立 Codex 工作区、Adapter 合同和 Integration Codex 验收职责。
+- V1.2-0 还必须读取 `design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md` 和 `design/v1.2-ai-reading-automation-gap.drawio`，确认自动化开发 readiness gate。
 - `v1.2-a-page-reading.md`：A 模块工作区门禁；网页信息提取、过滤、蒸馏与结构化总结。
 - `v1.2-b-chat-renderer.md`：B 模块工作区门禁；结构化数据、流式文本和 Mindmap 前端实时渲染。
 - `v1.2-c-mindmap.md`：C 模块工作区门禁；基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
-- `v1.2-d-agentic-loop.md`：D 模块工作区门禁；AgenticLoop ChatBox Core 与 Adapter 编排。
+- `v1.2-d-agentic-loop.md`：D 模块工作区门禁；CoreProvider + Adapter Layer、piAgentProvider 合同与 Adapter 编排。
 - `v1.2-e-integration.md`：Integration Codex 门禁；wiring、E2E、trace、PRD 复检。
 
 V1.1-B 开工前必须执行：

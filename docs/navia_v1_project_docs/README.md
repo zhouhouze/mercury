@@ -23,6 +23,7 @@
 - V1 complete 的用户可见门槛是：开发者能在 Chrome 中安装 unpacked extension，在普通网页内看到贴边悬浮球，完成 hover 预展开、网页内 AI 双轨面板展开、挤压/覆盖/resize、收起恢复，并基于当前网页完成基础文字对话。
 - V1.1 阶段目标是前端体验高保真：在不重开 Runtime / AgentCore / API 合同的前提下，将 V1.0 页面内交互骨架升级为可对照 Figma 原型、可截图回归、可真实 Chrome 复验的产品级界面。
 - V1.2 阶段当前仍是文档开发阶段：先冻结 AI 伴读 A/B/C/D 模块分工、工作区边界、Adapter 合同和独立 Codex 终端开发规则，再进入实质开发。
+- V1.2 D 模块采用 CoreProvider 可替换策略：piAgentProvider 为首选实现目标，MockCoreProvider 用于测试 fallback，D 重点开发适配层、治理桥、ToolResult / Artifact / Event / Trace 映射。
 - 审计后采用 `Go, but contract-first`：先冻结 API/Event/State/Tool/Budget/Error/ID/SSE 合同，再写 AgentCore。
 - 后续 V1 子阶段采用阶段门禁执行：每阶段开发前必须单独形成开发计划、验收标准和审计意见；闭环所有致命或重大风险后才能进入实质开发；阶段完成后必须使用真实数据完成端到端验收和 PRD 规格复检。
 - V1 结束后，在进入 V2 研讨前重新评估 Runtime 语言栈、插件框架和长期架构是否需要调整。
@@ -44,6 +45,9 @@
 | `10-v1-stage-gate-execution-protocol.md` | V1 阶段门禁执行协议：阶段计划、审计、真实数据验收、PRD 复检和人类确认边界 |
 | `11-mercury-remote-doc-merge-report.md` | Mercury 远端 README / PRD 与本地 Navia 文档的合并报告 |
 | `12-interaction-prd-authority-and-revised-plan.md` | 交互 PRD 权威口径：声明 `PRD/窗口交互_PRD.md` 为前端体验 P0 来源，并给出修订后开发与验收计划 |
+| `AGENT_ONBOARDING.md` | 外部 Agent 上手指南：环境、阅读顺序、模块选择、停止条件和证据要求 |
+| `V1_2_AGENT_WORKPACKS.md` | V1.2 A/B/C/D/Integration 可复制任务包 |
+| `MODULE_HANDOFF_TEMPLATE.md` | 模块完成后交给审计或 Integration 的交接模板 |
 | `design/` | 子阶段目标架构设计文档 |
 | `stage-gates/` | 每个 V1 子阶段的独立开发计划、验收标准、审计意见和验收报告 |
 | `remote-mercury/` | 从 `github.com/zhouhouze/mercury` 并入的远端原始文档副本 |
@@ -73,6 +77,13 @@ V1.2 新增文档：
 |---|---|
 | `design/v1.2-ai-reading-modular-architecture.md` | V1.2 AI 伴读四模块目标架构：A/B/C/D 职责、数据流、验收和 No-Go |
 | `design/v1.2-ai-reading-workspace-partition.md` | V1.2 工作区划分：A/C/D service 工作区、B app 工作区、Integration Codex、输入输出和跨模块变更规则 |
+| `design/v1.2-module-local-design-package.md` | V1.2 模块内深度设计文档包：各工作区 architecture / implementation / mock validation / PRD coverage / integration boundary 索引与审计结论 |
+| `design/v1.2-automation-readiness-gap.md` | V1.2 自动化开发就绪度 Gap：P0/P1/P2 缺口、Go / No-Go 和审计意见 |
+| `design/v1.2-prd-coverage-matrix.md` | V1.2 PRD 覆盖矩阵：需求、模块、合同、测试和证据路径映射 |
+| `design/v1.2-integration-contract-matrix.md` | V1.2 Integration 合同矩阵：A→D、D→C、D→B、B→Debug 字段所有权和接线规则 |
+| `design/v1.2-ai-reading-automation-gap.md` | V1.2 Draw.io companion：图谱页面说明、架构口径和验收口径 |
+| `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 自动化开发 gap 图谱：当前/目标架构差异、模块内部架构、公共 API、关键体验路径、开发验收、里程碑和出门条件 |
+| `design/adr-v1.2-agent-core-provider-piagent.md` | V1.2 ADR：piAgent 作为首选 CoreProvider，D 以可替换 Core 适配层为主 |
 | `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
 
@@ -83,7 +94,7 @@ V1.2 代码工作区：
 | `services/local-runtime/navia_runtime/modules/page_reading/` | A 模块 service 工作区：网页信息提取、过滤、蒸馏与结构化总结 |
 | `apps/chrome-extension/src/modules/*_renderer/` | B 模块 app 工作区：结构化数据、流式文本和 Mindmap 前端实时渲染 |
 | `services/local-runtime/navia_runtime/modules/mindmap/` | C 模块 service 工作区：基于结构化网页 JSON 的 Mindmap 生成与反跳来源 |
-| `services/local-runtime/navia_runtime/modules/agent_loop/` | D 模块 service 工作区：AgenticLoop ChatBox Core |
+| `services/local-runtime/navia_runtime/modules/agent_loop/` | D 模块 service 工作区：CoreProvider 适配层、AgenticLoop 边界与 piAgentProvider / MockCoreProvider |
 | `services/local-runtime/navia_runtime/modules/adapters/` | D 模块 service 工作区：MCP / Skill / API Adapter 编排 |
 | `apps/` 与 `services/` 既有入口文件 | Integration Codex 工作区：既有入口 wiring、E2E、trace 与 PRD 复检 |
 
@@ -97,11 +108,12 @@ V1.2 代码工作区：
 6. API、事件、数据结构发生改动时，同步更新 `06-api-contract.md` 与 `07-data-models.md`。
 7. 进入 V1.1 前端高保真阶段前，先读 `design/v1.1-frontend-fidelity-architecture.md`、`design/v1.1-frontend-fidelity-implementation-spec.md`、`design/v1.1-figma-baseline/README.md`、`design/v1.1-figma-baseline/capture-matrix.md`、`design/v1.1-figma-baseline/capture-manifest.json`、`design/v1.1-doc-readiness-audit.md` 和 `stage-gates/v1.1-frontend-fidelity.md`；本轮 V1.1 证据策略以用户提供 Image #1/#2、PRD 硬约束、runtime-offline 独立设计和 mindmap 后续专项为准。
 8. V1.1-B 开工前必须执行 `node scripts/validate_v1_1_doc_readiness.mjs`，只有输出 `canStartV11B=true` 才允许进入实质前端开发。
-9. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
+9. 外部 Agent 进入仓库后先读根目录 `AGENTS.md`、`AGENT_ONBOARDING.md` 和 `V1_2_AGENT_WORKPACKS.md`，再选择 A/B/C/D/Integration 工作包。
+10. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`design/v1.2-module-local-design-package.md`、`design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md`、`design/v1.2-ai-reading-automation-gap.drawio`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
 
 ## V1 硬边界
 
-V1 必须保持克制。V1.2 扩展允许轻量 MCP / Skill / API Adapter 合同，但只作为 D 模块的受控接入方式，不允许绕过 Runtime AgenticLoop 和治理钩子。
+V1 必须保持克制。V1.2 扩展允许轻量 MCP / Skill / API Adapter 合同，但只作为 D 模块的受控接入方式，不允许绕过 D Adapter Layer 和治理钩子。
 
 - 不直接接 MCP；V1.2 只允许通过 D 模块定义受控 Adapter 合同。
 - 不直接接 Skill 系统；V1.2 只允许通过 D 模块定义受控 Adapter 合同。

@@ -571,3 +571,17 @@ V1.0-E 错误码约束：
 - Missing activePage 使用 `PAGE_CONTEXT_REQUIRED`。
 - 不引入 `PAGE_CONTEXT_MISSING`，除非同步更新本文件、`07-data-models.md`、AgentEvent schema 和测试。
 - Missing activePage 不得生成假 summary、answer 或 artifact。
+
+---
+
+## 15. V1.2 Module API Boundary
+
+V1.2 AI 伴读模块约束：
+
+- 外部 HTTP API 不新增，仍通过 `/v1/page/context`、`/v1/chat/stream` 和 trace API 串联。
+- A/C/D service 模块只能通过 Runtime 内部 wiring 接入。
+- B frontend renderer 只能消费 SSE、ArtifactRecord、Runtime status 和 session restore 数据。
+- MCP / Skill / External API 在 V1.2 只能作为内部 Adapter 注册到 AgenticLoop，不新增前端直连 API。
+- V1.2 module public API 以各工作区 `docs/public-api.md` 为准。
+- V1.2 Integration wiring 以 `design/v1.2-integration-contract-matrix.md` 为准。
+- 若 A/B/C/D 任一模块需要新增外部 API 或新增 SSE event type，必须停止并回到 V1.2-0 合同冻结。

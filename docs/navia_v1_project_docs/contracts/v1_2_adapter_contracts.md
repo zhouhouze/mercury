@@ -314,3 +314,67 @@ stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md
 07-data-models.md 如果影响数据模型
 contracts/*.schema.json 如果进入机器校验阶段
 ```
+
+---
+
+## 14. Field Ownership
+
+| Field | Owner | Consumers | Rule |
+|---|---|---|---|
+| `pageId` | A / Integration input | D, C, B via artifact metadata | Stable per captured page version. |
+| `contentHash` | A | D, Integration | Changes when meaningful page content changes. |
+| `headingId` | A | C | Stable within one `StructuredPageContext`. |
+| `paragraphId` | A | C, B via `nodeSourceMap` | Source fallback and jump-back key. |
+| `chunkId` | A | D, C, B via artifacts | Source trace key. |
+| `turnId` | D | Adapter, B, Trace, Artifact | One user message creates one turn. |
+| `toolCallId` | D | Adapter, Artifact, Trace | One adapter/tool call creates one ID. |
+| `nodeSourceMap` | C | B | Stored under `ArtifactRecord.metadata.nodeSourceMap`. |
+| `ArtifactRecord` | D / Store | B, Trace | Successful artifact-producing tools only. |
+| `AgentEvent` | D / Runtime | B, EventStore | Existing event types only unless V1.2-0 reopens. |
+
+## 15. Module Public API Contract
+
+V1.2 module implementation must follow the module-local public API documents:
+
+```text
+services/local-runtime/navia_runtime/modules/page_reading/docs/public-api.md
+services/local-runtime/navia_runtime/modules/mindmap/docs/public-api.md
+services/local-runtime/navia_runtime/modules/agent_loop/docs/public-api.md
+services/local-runtime/navia_runtime/modules/adapters/docs/public-api.md
+apps/chrome-extension/src/modules/*_renderer/docs/public-api.md
+```
+
+Any implementation that changes these module entry contracts must update this contract document and return to V1.2-0 review before integration.
+
+## 16. CoreProvider Contract
+
+V1.2 D 模块采用可替换 CoreProvider 抽象：
+
+```text
+CoreProvider.run_turn(CoreTurnInput) -> CoreTurnResult
+```
+
+默认 provider 策略：
+
+```text
+mock      用于本地测试和 fallback
+piagent   V1.2 首选实现目标
+custom    后续扩展点
+```
+
+约束：
+
+- piAgentProvider 必须实现 CoreProvider，不得绕过 D Adapter Layer。
+- CoreProvider 输出不得直接写 ArtifactRecord、SSE、EventStore 或 UI。
+- CoreProvider 请求工具时必须转换为 `AdapterInvocation`，并经过 D governance。
+- A/C/B 不直接依赖 piAgent 或其他 CoreProvider。
+
+## 17. Integration Contract Matrix
+
+Field-level wiring is governed by:
+
+```text
+docs/navia_v1_project_docs/design/v1.2-integration-contract-matrix.md
+```
+
+Integration Codex may adapt old entrypoints to new module APIs, but must not rewrite A/B/C/D module business logic.

@@ -202,6 +202,8 @@ type StructuredPageContext = {
 - `paragraphs` 与 `chunks` 必须可追溯。
 - Mindmap source map 必须能回指 paragraph 或 chunk。
 - B 不直接生成或修改 `StructuredPageContext`。
+- A 拥有 `paragraphId`、`chunkId`、`headingId` 和 `contentHash` 的生成规则。
+- Integration Codex 只能把 A 输出写入 `session.activePage`，不得重写结构化内容。
 
 ---
 
@@ -358,6 +360,12 @@ type MindmapNodeSourceMap = Record<
   }
 >
 ```
+
+约束：
+
+- `nodeSourceMap` 由 C 模块生成并写入 `ArtifactRecord.metadata.nodeSourceMap`。
+- B 只读取 `nodeSourceMap` 做视觉反跳或 excerpt fallback，不修改 ArtifactRecord。
+- Integration Codex 只负责把 C 输出映射进 D 创建的 ArtifactRecord。
 
 ---
 
