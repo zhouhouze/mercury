@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 数据模型文档
 
-版本：V1.0 Data Model Baseline  
+版本：V1.0 Data Model Baseline
 审计后策略：Contract-first，先冻结 Session / Turn / Event / Tool / Budget / Error 合同，再实现 AgentCore。
 
 ---
@@ -128,6 +128,14 @@ type PageContext = {
 }
 ```
 
+模块归属：
+
+- PageContext 属于“网页数据抓取与结构化总结”模块。
+- PageContext 是 V1 AI 伴读工具的页面事实源。
+- `summarize_page`、`answer_from_page`、`explain_selection`、`generate_mindmap` 不得使用前端自由文本替代 `session.activePage`。
+- 缺少 PageContext 时必须返回 `PAGE_CONTEXT_REQUIRED`，不得创建假 artifact。
+- V1.2 扩展阶段，A 模块应将 PageContext 升级为 `StructuredPageContext`，补充 paragraphs、paragraph annotations、heading tree 和 chunk/source 关联。
+
 ---
 
 ## 6. PageChunk
@@ -163,6 +171,39 @@ type PageContextRef = {
   capturedAt: string
 }
 ```
+
+---
+
+## 7.1 V1.2 StructuredPageContext
+
+详细合同见 `contracts/v1_2_adapter_contracts.md`。核心类型：
+
+```ts
+type StructuredPageContext = {
+  pageId: string
+  sessionId: string
+  url: string
+  title: string
+  domain: string
+  capturedAt: string
+  contentHash: string
+  metadata: Record<string, unknown>
+  headingTree: HeadingNode[]
+  paragraphs: ParagraphBlock[]
+  chunks: PageChunk[]
+  annotations: ParagraphAnnotation[]
+  summaryDraft?: Record<string, unknown>
+}
+```
+
+约束：
+
+- `StructuredPageContext` 是 A 输出给 C/D 的事实源。
+- `paragraphs` 与 `chunks` 必须可追溯。
+- Mindmap source map 必须能回指 paragraph 或 chunk。
+- B 不直接生成或修改 `StructuredPageContext`。
+- A 拥有 `paragraphId`、`chunkId`、`headingId` 和 `contentHash` 的生成规则。
+- Integration Codex 只能把 A 输出写入 `session.activePage`，不得重写结构化内容。
 
 ---
 
@@ -269,6 +310,9 @@ type ArtifactRecord = {
 - Mermaid mindmap 使用 `metadata.format = "mermaid"`，`content` 存 Mermaid source。
 - `explain_selection` 产生 `type = "answer"`、`source = "selection"` 的 ArtifactRecord。
 - 成功工具必须创建 ArtifactRecord；失败、denied 或 budget_exceeded 不得创建假 artifact。
+- V1 AI 伴读中，summary / answer / mindmap artifact 必须能追溯到 `sourcePageId`、`turnId`、`toolCallId`。
+- Mindmap 视觉渲染状态不写入 ArtifactRecord 顶层字段；Runtime 只存 Mermaid source 和 validation metadata，Frontend 单独处理 renderer failure 与 source fallback。
+- V1.2 Mindmap artifact 必须在 metadata 中记录 `nodeSourceMap`，用于节点反跳或 source excerpt fallback。
 
 ---
 
@@ -302,6 +346,26 @@ type MindmapArtifactMetadata = {
 ```
 
 Mindmap `content` 字段存 Mermaid 源码。
+
+V1.2 Mindmap metadata 扩展：
+
+```ts
+type MindmapNodeSourceMap = Record<
+  string,
+  {
+    nodeLabel: string
+    paragraphIds: string[]
+    chunkIds: string[]
+    excerpt: string
+  }
+>
+```
+
+约束：
+
+- `nodeSourceMap` 由 C 模块生成并写入 `ArtifactRecord.metadata.nodeSourceMap`。
+- B 只读取 `nodeSourceMap` 做视觉反跳或 excerpt fallback，不修改 ArtifactRecord。
+- Integration Codex 只负责把 C 输出映射进 D 创建的 ArtifactRecord。
 
 ---
 
@@ -449,6 +513,9 @@ type AgentEvent = {
 - EventStream 只负责实时推送，不替代 EventStore。
 - `state.transition` 事件必须由 StateMachine 产生。
 - 执行中事件必须包含 `turnId`。
+- V1 AI 伴读不得新增 ad-hoc event string。新增事件类型必须同步更新本文件、`06-api-contract.md`、AgentEvent schema 和测试。
+- Mermaid validation / repair 信息写入 `tool.done.data`、`artifact.created.data.metadata` 或 ArtifactRecord metadata。
+- 前端流式渲染模块必须安全忽略未知事件，不能把未知事件解释为 AgentCore 状态事实。
 
 ---
 

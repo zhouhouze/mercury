@@ -1,7 +1,7 @@
 # Mercury 远端文档合并报告
 
-日期：2026-06-01  
-远端仓库：https://github.com/zhouhouze/mercury  
+日期：2026-06-01
+远端仓库：https://github.com/zhouhouze/mercury
 远端提交：`a0c8be2004149d92130ec7cf050f936c0c9ab230`
 
 ---
@@ -57,29 +57,30 @@ docs/navia_v1_project_docs/remote-mercury/PRD/window-interaction-prd.md
 -> 点击悬浮球收起
 ```
 
-本地 Navia V1 当前基线是：
+本地 Navia V1 技术基线是：
 
 ```text
-Chrome Extension Side Panel
+Chrome Extension
 -> PageContext
 -> Local Runtime
 -> /v1/chat/stream
 -> 摘要 / 问答 / Mermaid mindmap
 ```
 
-两者不是冲突关系，而是前端形态层级不同：
+经 2026-06-02 用户确认，二者关系调整为：
 
-- 本地 V1.0-D/E 已优先交付 Chrome Side Panel 主链路。
-- 远端 Mercury PRD 更接近 V1.x / V2 前端体验增强，尤其是“网页贴边悬浮球”和“Monica-like 站内嵌入面板”。
-- 远端 PRD 不应覆盖 V1.0-E 的验收基线，否则会导致 scope creep 和 false green。
+- `PRD/窗口交互_PRD.md` 升级为 V1 前端页面体验的 P0 权威来源。
+- 本地 Navia Runtime / AgentCore / API / Event / Governance 仍作为 V1 技术底座。
+- Chrome Side Panel 只保留为工程调试入口、兼容承载或过渡实现，不再作为 V1 前端体验验收口径。
+- V1 complete 必须覆盖 `PRD/窗口交互_PRD.md` 的悬浮球、hover、小长条、网页内双轨面板、挤压/覆盖/resize 和收起恢复。
 
 ---
 
 ## 4. 合并决策
 
-### 4.1 纳入本地 PRD 的内容
+### 4.1 纳入本地 V1 PRD 的内容
 
-已将远端交互方案纳入本地 PRD 的 V1.x 体验增强方向：
+已将远端交互方案纳入本地 V1 前端体验主线：
 
 - 网页贴边悬浮球。
 - hover 预展开小长条。
@@ -89,43 +90,40 @@ Chrome Extension Side Panel
 - 面板左边界 resize。
 - 聊天区独立滚动。
 
-### 4.2 暂不进入 V1.0-E 的内容
+### 4.2 Side Panel 的新定位
 
-以下能力不进入当前 V1.0-E：
+以下能力不得再作为 V1 前端体验通过条件：
 
-- 网页内悬浮球默认态。
-- 挤压网页布局。
-- 覆盖式宽工作区。
-- 双轨面板功能区。
-- 面板 resize handle。
-- 快捷键 `⌘M`。
-- 网页内容可交互背景策略。
+- Chrome Side Panel 可打开。
+- Side Panel Chatbox 可对话。
+- 普通 extension page 可对话。
+- Debug page 可对话。
 
-原因：
-
-- V1.0-E 正在收口 Chrome Side Panel + Runtime 主链路。
-- 站内注入 UI 会增加 CSS 隔离、页面布局兼容、权限、安全和真实网页验收成本。
-- 当前阶段若强行并入，会显著提高 false-green 风险。
+这些能力可以作为调试或兼容入口存在，但不能替代真实网页内交互验收。
 
 ### 4.3 推荐后续阶段
 
-建议将远端 Mercury PRD 拆为一个独立阶段：
+建议将后续 V1 阶段调整为：
 
 ```text
-V1.1：网页内悬浮球与站内嵌入面板体验
+V1.0-D：Chrome 插件页面内交互壳与 PageContext
+V1.0-E：网页内 AI 双轨面板与伴读工具
+V1.0-F：PRD A-F 布局状态与 Resize
+V1.0-G：Session 质量与恢复
+V1.0-H：真实 Chrome UI 最终验收与文档收口
 ```
 
 前置条件：
 
-- V1.0 Side Panel 主链路通过真实 Chrome 验收。
 - Runtime API / SSE / Artifact / Trace 已稳定。
-- 前端已有足够 Chatbox 状态管理和错误展示能力。
+- `docs/navia_v1_project_docs/12-interaction-prd-authority-and-revised-plan.md` 已被纳入阶段门禁读取清单。
+- V1.0-D/E/F stage-gate 必须重新按 `PRD/窗口交互_PRD.md` 制定开发计划、验收标准和预审计意见。
 
 ---
 
 ## 5. 需要后续审计的问题
 
-远端 PRD 中仍有以下待确认项，需要在 V1.1 开始前单独 stage-gate 审计：
+远端 PRD 中仍有以下待确认项，需要在 V1.0-D/E/F stage-gate 中单独审计：
 
 1. 右侧功能区第一版只做入口占位，还是至少实现聊天 / 历史 / 新建会话？
 2. 悬浮球默认贴右侧，是否允许用户切换到左侧？
@@ -143,7 +141,7 @@ V1.1：网页内悬浮球与站内嵌入面板体验
 ```text
 远端 Mercury 当前没有 docs/ 目录。
 已将远端 README 与窗口交互 PRD 作为来源文档并入本地 Navia 文档包。
-远端交互方案已被归档为 V1.x / V1.1 前端体验增强方向。
-当前 V1.0-E Side Panel 主线不被覆盖，不新增站内悬浮球为验收目标。
+远端交互方案已升级为 V1 前端体验权威口径。
+当前 V1.0 后续开发不得再以 Side Panel 主线声明前端体验通过。
+V1 complete 必须以 PRD A-F 状态和网页内 AI 双轨面板为验收标准。
 ```
-

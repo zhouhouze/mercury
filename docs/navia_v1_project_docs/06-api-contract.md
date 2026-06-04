@@ -182,9 +182,9 @@ Response:
 
 Notes:
 
-- V1.0-G `GET /v1/sessions/{session_id}` is the Side Panel refresh recovery API.
+- V1.0-G `GET /v1/sessions/{session_id}` is the frontend refresh / reopen recovery API.
 - `activePage` is a summary object; full page text remains in Runtime storage and is not returned by default.
-- The Side Panel may cache `session_id`, but AgentCore state remains owned by Runtime.
+- The injected web panel or debug Side Panel may cache `session_id`, but AgentCore state remains owned by Runtime.
 
 ---
 
@@ -236,6 +236,8 @@ Events:
 
 V1 决策：`/v1/chat/stream` 使用 SSE，Response Content-Type 必须是 `text/event-stream`。
 
+`/v1/chat/stream` 是 V1 AI 伴读的唯一 AgenticLoop 入口。摘要、基于网页问答、选区解释和 Mindmap 生成在默认用户链路中都应通过 chat turn 触发工具执行；direct artifact API 只能作为后续补充能力，不得绕过 turn / state / governance / trace。
+
 Request:
 
 ```json
@@ -270,10 +272,20 @@ V1.0-0/A/B/C 不同时维护 SSE 和 WebSocket 两套 chat streaming 协议。
 
 V1.0-E 前端消费约束：
 
-- Side Panel 必须消费 `/v1/chat/stream` SSE。
+- 网页内 AI 面板必须消费 `/v1/chat/stream` SSE；调试 Side Panel 可复用同一协议。
 - 未识别 SSE event 必须安全忽略或记录为 debug，不得导致 UI 崩溃。
 - Runtime offline、`PAGE_CONTEXT_REQUIRED`、tool failure、Mermaid render failure 必须在 UI 可见。
 - Frontend 不得拥有 AgentCore 核心状态；session / turn / tool / artifact 状态以 Runtime 为准。
+
+V1.2 AI 伴读模块约束：
+
+- 网页数据抓取模块只通过 `/v1/page/context` 写入或更新 `session.activePage`。
+- 流式渲染模块只消费 SSE AgentEvent，不直接执行工具。
+- Mindmap 模块的 Runtime 产物是 Mermaid source artifact，前端负责视觉渲染和 source fallback。
+- AgenticLoop ChatBox 模块必须为每个 user message 创建 turn，并确保工具调用经过 StateMachine、Budget、Permission 和 ToolResult envelope。
+- MCP / Skill / External API 在 V1.2 只能作为内部 Adapter 注册到 AgenticLoop，不新增前端直连 API。
+- Adapter 调用必须映射为既有 ToolResult、ToolCallRecord、ArtifactRecord 和 AgentEvent，不新增自由格式响应。
+- 缺少 `session.activePage` 时必须使用 `PAGE_CONTEXT_REQUIRED`，不得返回假 summary、answer 或 mindmap。
 
 ---
 
@@ -559,3 +571,17 @@ V1.0-E 错误码约束：
 - Missing activePage 使用 `PAGE_CONTEXT_REQUIRED`。
 - 不引入 `PAGE_CONTEXT_MISSING`，除非同步更新本文件、`07-data-models.md`、AgentEvent schema 和测试。
 - Missing activePage 不得生成假 summary、answer 或 artifact。
+
+---
+
+## 15. V1.2 Module API Boundary
+
+V1.2 AI 伴读模块约束：
+
+- 外部 HTTP API 不新增，仍通过 `/v1/page/context`、`/v1/chat/stream` 和 trace API 串联。
+- A/C/D service 模块只能通过 Runtime 内部 wiring 接入。
+- B frontend renderer 只能消费 SSE、ArtifactRecord、Runtime status 和 session restore 数据。
+- MCP / Skill / External API 在 V1.2 只能作为内部 Adapter 注册到 AgenticLoop，不新增前端直连 API。
+- V1.2 module public API 以各工作区 `docs/public-api.md` 为准。
+- V1.2 Integration wiring 以 `design/v1.2-integration-contract-matrix.md` 为准。
+- 若 A/B/C/D 任一模块需要新增外部 API 或新增 SSE event type，必须停止并回到 V1.2-0 合同冻结。

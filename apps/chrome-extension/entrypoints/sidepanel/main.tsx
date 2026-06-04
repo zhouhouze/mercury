@@ -3,46 +3,20 @@ import { createRoot } from "react-dom/client";
 import mermaid from "mermaid";
 import "./style.css";
 import type { ExtractedPageContext } from "../../src/pageContext";
-import { parseSseBlocks, type AgentEvent } from "../../src/sse";
-
-const RUNTIME_URL = "http://127.0.0.1:17861";
-
-type RuntimeStatus = "checking" | "online" | "offline";
-type ChatRole = "user" | "assistant" | "system";
-type ChatMessage = {
-  id: string;
-  role: ChatRole;
-  text: string;
-  turnId?: string;
-  artifact?: ArtifactRecord;
-};
-type ArtifactRecord = {
-  artifactId: string;
-  type: string;
-  sourcePageId?: string;
-  turnId: string;
-  toolCallId: string;
-  source?: string;
-  content: string;
-  metadata?: Record<string, unknown>;
-};
-type RestoredMessage = {
-  message_id: string;
-  turn_id?: string;
-  role: ChatRole;
-  content: string;
-};
-type RestoredSession = {
-  session_id: string;
-  activePage?: {
-    url: string;
-    title: string;
-    domain: string;
-    captured_at?: string;
-  } | null;
-  messages?: RestoredMessage[];
-  artifacts?: ArtifactRecord[];
-};
+import type { AgentEvent } from "../../src/sse";
+import {
+  checkRuntimeHealth,
+  clearLastSessionId,
+  createRuntimeSession,
+  getLastSessionId,
+  restoreMessages,
+  restoreRuntimeSession,
+  streamRuntimeChat,
+  submitRuntimePageContext,
+  type ArtifactRecord,
+  type ChatMessage,
+  type RuntimeStatus
+} from "../../src/runtimeClient";
 mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
 
 function App() {
@@ -61,9 +35,7 @@ function App() {
   async function checkRuntime() {
     setRuntimeStatus("checking");
     try {
-      const response = await fetch(`${RUNTIME_URL}/v1/health`);
-      const body = await response.json();
-      const online = Boolean(body.ok);
+      const online = await checkRuntimeHealth();
       setRuntimeStatus(online ? "online" : "offline");
       if (online) await restoreLastSession();
       return online;
@@ -75,30 +47,17 @@ function App() {
 
   async function ensureSession() {
     if (sessionId) return sessionId;
-    const response = await fetch(`${RUNTIME_URL}/v1/sessions`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ client: "chrome-extension", metadata: { source: "sidepanel" } })
-    });
-    const body = await response.json();
-    const id = body.data.session_id as string;
+    const id = await createRuntimeSession("sidepanel");
     setSessionId(id);
-    await chrome.storage.local.set({ navia_last_session_id: id });
     return id;
   }
 
   async function restoreLastSession() {
-    const stored = await chrome.storage.local.get("navia_last_session_id");
-    const lastSessionId = stored.navia_last_session_id;
-    if (typeof lastSessionId !== "string" || !lastSessionId.startsWith("sess_")) return;
+    const lastSessionId = await getLastSessionId();
+    if (!lastSessionId) return;
     try {
-      const response = await fetch(`${RUNTIME_URL}/v1/sessions/${lastSessionId}`);
-      const body = await response.json();
-      if (!body.ok) {
-        await chrome.storage.local.remove("navia_last_session_id");
-        return;
-      }
-      const restored = body.data as RestoredSession;
+      const restored = await restoreRuntimeSession(lastSessionId);
+      if (!restored) return;
       setSessionId(restored.session_id);
       if (restored.activePage) {
         setPageContext({
@@ -113,19 +72,10 @@ function App() {
         setPageSubmitted(true);
         setSubmitStatus(`已恢复：${restored.activePage.title}`);
       }
-      const artifactsByTurn = new Map((restored.artifacts ?? []).map((artifact) => [artifact.turnId, artifact]));
-      const restoredMessages = (restored.messages ?? [])
-        .filter((message) => message.role === "user" || message.role === "assistant" || message.role === "system")
-        .map((message) => ({
-          id: message.message_id,
-          role: message.role,
-          text: message.content,
-          turnId: message.turn_id,
-          artifact: message.turn_id ? artifactsByTurn.get(message.turn_id) : undefined
-        }));
+      const restoredMessages = restoreMessages(restored);
       if (restoredMessages.length > 0) setMessages(restoredMessages);
     } catch {
-      await chrome.storage.local.remove("navia_last_session_id");
+      await clearLastSessionId();
     }
   }
 
@@ -177,15 +127,9 @@ function App() {
     }
     try {
       const id = await ensureSession();
-      const response = await fetch(`${RUNTIME_URL}/v1/page/context`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...pageContext, session_id: id })
-      });
-      const body = await response.json();
-      setPageSubmitted(Boolean(body.ok));
-      setSubmitStatus(body.ok ? `已提交：${body.data.page_id}` : body.error.message);
-      if (body.ok) await chrome.storage.local.set({ navia_last_session_id: id });
+      const result = await submitRuntimePageContext(pageContext, id);
+      setPageSubmitted(result.ok);
+      setSubmitStatus(result.ok ? `已提交：${result.pageId}` : result.message ?? "提交失败");
     } catch {
       setPageSubmitted(false);
       setSubmitStatus("Runtime 不可用，无法提交页面上下文");
@@ -213,18 +157,7 @@ function App() {
     setInput("");
     setStreamStatus("streaming");
     try {
-      const response = await fetch(`${RUNTIME_URL}/v1/chat/stream`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          session_id: id,
-          message: trimmed,
-          source: "typed",
-          request_id: `req_${crypto.randomUUID().replace(/-/g, "")}`
-        })
-      });
-      if (!response.body) throw new Error("SSE response body is empty.");
-      await readSse(response.body, (event) => handleAgentEvent(event, assistantId));
+      await streamRuntimeChat(id, trimmed, (event) => handleAgentEvent(event, assistantId));
       setStreamStatus("done");
     } catch (error) {
       setRuntimeStatus("offline");
@@ -233,7 +166,7 @@ function App() {
     }
   }
 
-  function appendMessage(role: ChatRole, text: string) {
+  function appendMessage(role: ChatMessage["role"], text: string) {
     setMessages((current) => [...current, { id: crypto.randomUUID(), role, text }]);
   }
 
@@ -347,22 +280,6 @@ function App() {
       <footer>{submitStatus} · {streamStatus}</footer>
     </main>
   );
-}
-
-async function readSse(stream: ReadableStream<Uint8Array>, onEvent: (event: AgentEvent) => void) {
-  const reader = stream.getReader();
-  const decoder = new TextDecoder();
-  let buffer = "";
-  while (true) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
-    const parsed = parseSseBlocks(buffer);
-    buffer = parsed.remainder;
-    for (const event of parsed.events) {
-      onEvent(event);
-    }
-  }
 }
 
 function MermaidArtifact({ artifact }: { artifact: ArtifactRecord }) {

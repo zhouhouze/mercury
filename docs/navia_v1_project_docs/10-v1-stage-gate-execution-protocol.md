@@ -1,6 +1,6 @@
 # Navia / 伴航 V1 阶段门禁执行协议
 
-版本：V1.0 Stage Gate Baseline  
+版本：V1.0 Stage Gate Baseline
 日期：2026-06-01
 
 ---
@@ -28,22 +28,38 @@ V1.0-0：Contracts & Runtime Skeleton
 V1.0-A：AgentCore Baseline
 V1.0-B：状态机与可观测
 V1.0-C：Governance / Budget Supervisor
-V1.0-D：Chrome 插件与 PageContext
-V1.0-E：网页伴读工具
-V1.0-F：语音输入增强，可选
+V1.0-D：Chrome 插件页面内交互壳与 PageContext
+V1.0-E：网页内 AI 双轨面板与伴读工具
+V1.0-F：PRD A-F 布局状态与 Resize
 V1.0-G：Session 质量与恢复
 V1.0-H：V1 Closure / Regression / Documentation
+V1.1：Frontend Fidelity / Figma Visual Alignment
+V1.2：AI 伴读合同、工作区与 Adapter 架构扩展
 ```
 
 其中 V1 complete 的硬门槛仍是：
 
 ```text
 Chrome 插件可安装
--> Side Panel Chatbox 可打开
+-> 页面边缘悬浮球可出现
+-> hover 小长条可出现
+-> 网页内 AI 双轨面板可打开
+-> 窄距/半屏挤压、宽覆盖、resize、收起恢复可验收
 -> 连接 127.0.0.1 Local Runtime
 -> 当前网页 PageContext 进入 Runtime
 -> 用户可完成基础文字对话
 -> Session / Turn / Tool / Event / Trace 可审计
+```
+
+V1.1 不重新定义 V1 complete。V1.1 的硬门槛是：
+
+```text
+V1.0 功能闭环保持不回退
+-> Figma 视觉规格有可验收基线
+-> 页面内悬浮球与双轨面板按 Figma 语义重构表现层
+-> PRD A-F 状态全部截图验收
+-> 真实 Chrome 复验通过
+-> Runtime / Trace / Session 链路保持可审计
 ```
 
 ---
@@ -58,6 +74,7 @@ Codex 必须重新读取：
 
 ```text
 README.md
+PRD/窗口交互_PRD.md
 01-prd.md
 02-architecture.md
 03-development-plan.md
@@ -71,6 +88,7 @@ README.md
 并输出阶段 PRD 规格检视：
 
 - 本阶段对应的 PRD 目标。
+- 如果涉及前端页面体验，必须逐项对照 `PRD/窗口交互_PRD.md`。
 - 本阶段不得触碰的非目标。
 - 本阶段依赖的 API / Event / Data / State / Tool 合同。
 - 本阶段必须保留的 V1 complete 用户可见目标。
@@ -136,6 +154,12 @@ Codex 必须自动完成：
 - 需要放宽 Runtime 安全约束。
 - 真实数据验收无法实现，必须降级为 mock。
 
+V1.2 例外：
+
+- 文档阶段允许定义轻量 MCP / Skill / API Adapter 合同。
+- 只有当实质开发要调用真实 MCP / Skill 服务、执行 side effect、联网搜索、读取本地文件或绕过 D 模块 governance 时，才视为高风险流程并必须停止确认。
+- Adapter 合同本身不得被解释为 V2 长期记忆、RAG 或多 Agent 放行。
+
 ### 3.5 阶段完成后：端到端验收
 
 每个阶段完成后必须执行端到端验收。验收报告必须写入同一个 stage-gate 文档，包含：
@@ -190,7 +214,7 @@ V1 不允许只靠 mock 或空数据声明阶段完成。
 - 本地 Runtime 实际产生的 SSE event stream。
 - 实际 SQLite / JSONL event log。
 - 实际 Mermaid 渲染结果。
-- 实际 Chrome unpacked extension 安装和 Side Panel 交互。
+- 实际 Chrome unpacked extension 安装和网页内悬浮球 / AI 面板交互。
 
 ### 4.2 可接受的 fixture
 
@@ -212,6 +236,8 @@ V1 允许使用本地 fixture，但必须满足：
 - 只看摘要生成，不检查是否来自当前网页。
 - Mermaid 源码存在但无法渲染。
 - Runtime 未启动时插件空白或静默失败。
+- 用 Chrome Side Panel、普通 extension page 或 debug page 替代网页内交互验收。
+- `PRD/窗口交互_PRD.md` 的 A-F 状态没有全部覆盖。
 
 ---
 
@@ -221,6 +247,12 @@ V1 允许使用本地 fixture，但必须满足：
 
 ```text
 stage-gates/v1.0-x-<stage-name>.md
+```
+
+V1.1 阶段使用：
+
+```text
+stage-gates/v1.1-frontend-fidelity.md
 ```
 
 其中至少包含：
@@ -247,6 +279,16 @@ Known limitations
 Developer setup guide
 Chrome extension installation guide
 V2 readiness review
+```
+
+V1.1 完成时，还必须形成：
+
+```text
+Figma visual baseline reference
+Playwright screenshot baseline and current evidence
+Real Chrome PRD A-F visual acceptance report
+V1.1 gap drawio updated and openable
+Frontend fidelity exit review
 ```
 
 ---

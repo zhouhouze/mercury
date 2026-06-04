@@ -1,7 +1,7 @@
 # V1.0-0 Contract Freeze
 
-版本：V1.0-0 Contract Freeze  
-日期：2026-06-01  
+版本：V1.0-0 Contract Freeze
+日期：2026-06-01
 状态：P0 前置闭环合同冻结
 
 ---
@@ -225,7 +225,7 @@ EventStore：
 
 EventStream：
 
-- 负责实时推送给 Side Panel 或 Debug UI。
+- 负责实时推送给网页内 AI 面板或 Debug UI。
 - 可以复用 AgentEvent envelope。
 - 不能作为 trace 的唯一数据源。
 

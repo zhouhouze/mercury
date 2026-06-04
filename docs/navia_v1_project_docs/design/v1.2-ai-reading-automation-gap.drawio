@@ -1,0 +1,271 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="7">
+  <diagram id="v12-gap-01" name="01 当前架构 vs 目标架构差异">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" value="V1.2 当前架构 vs 目标架构差异" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="360" y="30" width="680" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="current" value="当前架构&#xa;网页读取、总结、问答、Mindmap、流式渲染集中在大 ChatBox / 既有入口中&#xa;&#xa;风险：职责混合、mock 难隔离、联调返工、PRD 覆盖难审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="500" height="250" as="geometry" />
+        </mxCell>
+        <mxCell id="target" value="目标架构&#xa;A Page Reading：结构化网页事实&#xa;D CoreProvider + Adapter Layer：piAgent 可插拔、治理与映射&#xa;C Mindmap：Mermaid + source map&#xa;B Renderer：SSE / Artifact / Debug / Mindmap UI&#xa;&#xa;收益：模块可独立实现、mock 验证、少量 wiring 联调" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+          <mxGeometry x="820" y="140" width="500" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="gap" value="需要补齐&#xa;public-api.md&#xa;executable-contract.md&#xa;fixture-spec.md&#xa;test-and-evidence-plan.md&#xa;PRD coverage matrix&#xa;Integration contract matrix" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+          <mxGeometry x="445" y="520" width="510" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="current" target="gap" style="endArrow=block;html=1;strokeColor=#64748B">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" edge="1" parent="1" source="gap" target="target" style="endArrow=block;html=1;strokeColor=#64748B">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-02" name="02 V1.2 目标架构总览">
+    <mxGraphModel dx="1404" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" parent="1" style="text;html=1;fontSize=28;fontStyle=1;align=center" value="V1.2 目标架构总览" vertex="1">
+          <mxGeometry height="50" width="500" x="450" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="chrome" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14" value="Chrome Extension&#xa;悬浮球 / 网页内 AI 面板&#xa;content script / injected panel" vertex="1">
+          <mxGeometry height="110" width="230" x="70" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#334155;fontSize=14" value="Local Runtime&#xa;FastAPI / Session / EventStore&#xa;/v1/page/context /v1/chat/stream / trace" vertex="1">
+          <mxGeometry height="150" width="280" x="390" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=14" value="A Page Reading&#xa;StructuredPageContext&#xa;paragraphs / chunks / annotations" vertex="1">
+          <mxGeometry height="120" width="230" x="880" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="d" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14" value="D CoreProvider + Adapter Layer&#xa;piAgentProvider / MockCoreProvider&#xa;GovernanceBridge / AdapterRegistry&#xa;ToolResult / Artifact / Event mapping" vertex="1">
+          <mxGeometry height="150" width="270" x="770" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14" value="C Mindmap&#xa;Mermaid source&#xa;validation / repair once&#xa;nodeSourceMap" vertex="1">
+          <mxGeometry height="140" width="220" x="1120" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14" value="B Frontend Renderer&#xa;Chat / Artifact / Mindmap / Debug&#xa;SSE presentation only" vertex="1">
+          <mxGeometry height="130" width="290" x="390" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="stores" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" value="Stores&#xa;Session.activePage&#xa;ArtifactRecord&#xa;EventStore / Trace" vertex="1">
+          <mxGeometry height="130" width="250" x="790" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="chrome" style="endArrow=block;html=1;strokeColor=#2563EB" target="runtime" value="/v1/page/context">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="runtime" style="endArrow=block;html=1;strokeColor=#0891B2" target="a" value="PageReadingInput">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e23" edge="1" parent="1" source="a" style="endArrow=block;html=1;strokeColor=#0891B2" target="d" value="StructuredPageContext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e24" edge="1" parent="1" source="d" style="endArrow=block;html=1;strokeColor=#7C3AED" target="c" value="MindmapInput via adapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e25" edge="1" parent="1" source="c" style="endArrow=block;html=1;strokeColor=#7C3AED" target="d" value="MindmapResult">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="1" source="d" style="endArrow=block;html=1;strokeColor=#059669" target="b" value="SSE AgentEvent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e27" edge="1" parent="1" source="d" style="endArrow=block;html=1;strokeColor=#475569" target="stores" value="Artifact / Trace">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-03" name="03 A/B/C/D 模块内部架构">
+    <mxGraphModel dx="1478" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center" value="A/B/C/D 模块内部架构：D = CoreProvider + Adapter Layer" vertex="1">
+          <mxGeometry height="50" width="540" x="430" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=13;align=left;spacing=12" value="A Page Reading Pipeline&#xa;PageContextInput&#xa;→ normalizer&#xa;→ heading tree&#xa;→ paragraph splitter&#xa;→ chunk builder&#xa;→ annotation engine&#xa;→ StructuredPageContext" vertex="1">
+          <mxGeometry height="230" width="250" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="dcore3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;fontSize=13;align=left;spacing=12" value="D Core Provider Layer&#xa;CoreProvider interface&#xa;piAgentProvider 默认首选&#xa;MockCoreProvider 测试回退&#xa;FutureCoreProvider 可替换&#xa;&#xa;输入：CoreTurnInput&#xa;输出：CoreTurnResult / AdapterIntent" vertex="1">
+          <mxGeometry height="190" width="300" x="380" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="dadapter3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=13;align=left;spacing=12" value="D Adapter Layer&#xa;ContextBuilder&#xa;GovernanceBridge&#xa;AdapterRegistry&#xa;InternalToolAdapter&#xa;MCP / Skill / API placeholder&#xa;ToolResultMapper&#xa;ArtifactMapper&#xa;EventMapper / TraceMapper" vertex="1">
+          <mxGeometry height="250" width="300" x="470" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=13;align=left;spacing=12" value="C Mindmap Pipeline&#xa;StructuredPageContext&#xa;→ source selector&#xa;→ tree builder&#xa;→ Mermaid generator&#xa;→ validator / repair once&#xa;→ nodeSourceMap&#xa;→ MindmapResult" vertex="1">
+          <mxGeometry height="230" width="260" x="770" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=13;align=left;spacing=12" value="B Renderer Pipeline&#xa;AgentEvent / ArtifactRecord&#xa;→ chat renderer&#xa;→ artifact renderer&#xa;→ mindmap renderer&#xa;→ debug renderer&#xa;→ presentation state only" vertex="1">
+          <mxGeometry height="230" width="250" x="1030" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="api3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="公共模块 API&#xa;A: build_structured_page_context(PageReadingInput)&#xa;D: run_agentic_turn(AgenticTurnInput)&#xa;Core: run_turn(CoreTurnInput)&#xa;C: generate_mindmap_payload(MindmapInput)&#xa;B: apply events / render view models" vertex="1">
+          <mxGeometry height="120" width="1280" x="60" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3a" edge="1" parent="1" source="a3" style="endArrow=block;html=1;strokeColor=#0891B2;fontSize=12" target="dadapter3" value="StructuredPageContext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3b" edge="1" parent="1" source="dadapter3" style="endArrow=block;html=1;strokeColor=#D97706;fontSize=12" target="dcore3" value="CoreTurnInput">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3c" edge="1" parent="1" source="dcore3" style="endArrow=block;html=1;strokeColor=#D97706;fontSize=12" target="dadapter3" value="CoreTurnResult / AdapterIntent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3d" edge="1" parent="1" source="dadapter3" style="endArrow=block;html=1;strokeColor=#7C3AED;fontSize=12" target="c3" value="MindmapInput via internal adapter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3e" edge="1" parent="1" source="c3" style="endArrow=block;html=1;strokeColor=#7C3AED;fontSize=12" target="dadapter3" value="MindmapResult">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3f" edge="1" parent="1" source="dadapter3" style="endArrow=block;html=1;strokeColor=#059669;fontSize=12" target="b3" value="AgentEvent / ArtifactRecord">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-04" name="04 公共API与模块调用关系">
+    <mxGraphModel dx="1478" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center" value="公共 API、内部模块 API 与 CoreProvider 调用关系" vertex="1">
+          <mxGeometry height="50" width="540" x="430" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="http4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="外部 HTTP API 不新增&#xa;POST /v1/page/context&#xa;POST /v1/chat/stream (SSE)&#xa;GET trace by session/turn" vertex="1">
+          <mxGeometry height="160" width="260" x="80" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="internal4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#334155;fontSize=14;align=left;spacing=12" value="内部模块 API&#xa;Runtime -&gt; A: build_structured_page_context&#xa;D AdapterLayer -&gt; C: generate_mindmap_payload&#xa;D -&gt; B: AgentEvent SSE / ArtifactRecord&#xa;B -&gt; Debug: DebugSignal" vertex="1">
+          <mxGeometry height="190" width="340" x="460" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="core4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFBEB;strokeColor=#D97706;fontSize=14;align=left;spacing=12" value="Core Provider API&#xa;D -&gt; CoreProvider.run_turn(CoreTurnInput)&#xa;piAgentProvider implements CoreProvider&#xa;MockCoreProvider for tests&#xa;FutureCoreProvider for replacement&#xa;Core output returns to D only" vertex="1">
+          <mxGeometry height="190" width="330" x="990" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="rules4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=14;align=left;spacing=12" value="硬约束&#xa;B 不直接调用 A/C/Core/MCP/Skill/API&#xa;A/C 不调用 piAgent&#xa;piAgent 不直接写 Artifact / SSE / EventStore&#xa;Core 输出必须经 D Adapter Layer 映射为 ToolResult / ArtifactRecord / AgentEvent&#xa;新增 API / 事件必须回到 V1.2-0" vertex="1">
+          <mxGeometry height="160" width="960" x="220" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="matrix4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" value="字段所有权&#xa;paragraphId / chunkId / contentHash: A&#xa;turnId / toolCallId / ArtifactRecord / AgentEvent: D Adapter Layer&#xa;CoreTurnInput / CoreTurnResult: D CoreProvider boundary&#xa;nodeSourceMap: C&#xa;presentation state: B" vertex="1">
+          <mxGeometry height="130" width="860" x="270" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4a" edge="1" parent="1" source="http4" style="endArrow=block;html=1;strokeColor=#2563EB;fontSize=12" target="internal4" value="Runtime wiring">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4b" edge="1" parent="1" source="internal4" style="endArrow=block;html=1;strokeColor=#D97706;fontSize=12" target="core4" value="D builds CoreTurnInput">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4c" edge="1" parent="1" source="core4" style="endArrow=block;html=1;strokeColor=#D97706;fontSize=12" target="internal4" value="CoreTurnResult / AdapterIntent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-05" name="05 关键体验路径信息流转">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title5" value="关键体验路径信息流转：泳道 + 调用路径 + 数据对象" style="text;html=1;fontSize=26;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="540" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lanes5" value="泳道：Chrome / Runtime / A / D Adapter Layer / CoreProvider(piAgent) / C / B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#334155;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="90" y="95" width="1220" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="path1" value="1 读取当前页面&#xa;Chrome DOM → /v1/page/context → A build_structured_page_context → StructuredPageContext → session.activePage&#xa;关键对象：PageReadingInput / StructuredPageContext / contentHash / paragraphId / chunkId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="1220" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="path2" value="2 总结网页&#xa;User → /v1/chat/stream → D Adapter Layer builds CoreTurnInput → piAgentProvider.run_turn → summary AdapterInvocation → ToolResult → ArtifactRecord → AgentEvent SSE → B Chat + Artifact Renderer&#xa;关键对象：CoreTurnInput / AdapterInvocation / ToolResult / ArtifactRecord / AgentEvent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+          <mxGeometry x="90" y="315" width="1220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="path3" value="3 连续问答&#xa;User follow-up → D builds CoreTurnInput(activePage + recentMessages) → piAgentProvider → answer AdapterInvocation → ToolResult → response.delta / response.done → B Chat Renderer&#xa;关键对象：recentMessages / StructuredPageContext / CoreTurnResult / AgentEvent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+          <mxGeometry x="90" y="465" width="1220" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="path4" value="4 Mindmap 与反跳&#xa;User asks mindmap → D Adapter Layer → C generate_mindmap_payload → MindmapResult(nodeSourceMap) → D maps ArtifactRecord → B Mindmap Renderer → node click → source paragraph / excerpt fallback&#xa;关键对象：MindmapInput / MindmapResult / nodeSourceMap / ArtifactRecord.metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+          <mxGeometry x="90" y="610" width="1220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="trace5" value="所有路径都必须写入 Trace：state / intent / budget / adapter / tool / artifact / response / error；trace?turn_id 可还原主路径" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14;align=center" vertex="1" parent="1">
+          <mxGeometry x="250" y="775" width="900" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-06" name="06 开发及验收计划">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title6" value="V1.2 开发及验收计划" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="430" y="30" width="540" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="s0" value="V1.2-0&#xa;合同 / 工作区 / public API / fixture / PRD matrix / drawio freeze" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="90" y="160" width="230" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sa" value="V1.2-A&#xa;Page Reading&#xa;real HTML fixture -&gt; StructuredPageContext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="390" y="110" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sd" value="V1.2-D&#xa;CoreProvider / Adapter Layer&#xa;piAgentProvider contract + fake adapters -&gt; traceable turn" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="390" y="290" width="220" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sc" value="V1.2-C&#xa;Mindmap&#xa;structured JSON -&gt; Mermaid + nodeSourceMap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="700" y="110" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sb" value="V1.2-B&#xa;Renderers&#xa;recorded SSE / artifact fixture -&gt; UI view models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="700" y="290" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="se" value="V1.2-E&#xa;Integration / E2E / PRD Review&#xa;真实 Chrome + Runtime + fixture + trace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="1030" y="200" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" edge="1" parent="1" source="s0" target="sa" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" edge="1" parent="1" source="s0" target="sd" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g3" edge="1" parent="1" source="sa" target="sc" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g4" edge="1" parent="1" source="sd" target="sb" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g5" edge="1" parent="1" source="sc" target="se" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g6" edge="1" parent="1" source="sb" target="se" style="endArrow=block;html=1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="accept6" value="每阶段门禁&#xa;开发计划 -&gt; 预审计 -&gt; mock 验收 -&gt; evidence -&gt; PRD 复检 -&gt; Go / No-Go" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=center" vertex="1" parent="1">
+          <mxGeometry x="350" y="600" width="700" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-gap-07" name="07 项目里程碑与出门条件">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title7" value="项目里程碑与 V1.2 出门条件" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
+          <mxGeometry x="390" y="30" width="620" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="V1.0&#xa;功能闭环&#xa;Chrome 插件 + Runtime + 基础伴读工具" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="80" y="130" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="V1.1&#xa;前端高保真&#xa;Figma / PRD A-F / 页面内体验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="330" y="130" width="210" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="V1.2&#xa;AI 伴读深化&#xa;A/B/C/D 模块化 + 自动化开发支撑" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="580" y="130" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="V2-V5&#xa;知识库 / 观赛观影 / 个人秘书 / 多端云化 / 桌宠&#xa;均不进入 V1.2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" vertex="1" parent="1">
+          <mxGeometry x="880" y="130" width="360" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="go7" value="V1.2 Complete&#xa;真实网页可读取、总结、连续问答、生成 Mindmap artifact&#xa;B 可流式渲染和 source fallback&#xa;trace?turn_id 可审计完整路径&#xa;PRD A-F 不回退" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+          <mxGeometry x="170" y="420" width="460" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="nogo7" value="No-Go&#xa;缺 public API / fixture / evidence&#xa;B 直连 A/C/MCP/Skill/API&#xa;D 绕过 governance&#xa;只有 mock 声明真实 E2E&#xa;artifact 缺 sourcePageId/turnId/toolCallId&#xa;trace 断链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+          <mxGeometry x="760" y="420" width="460" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

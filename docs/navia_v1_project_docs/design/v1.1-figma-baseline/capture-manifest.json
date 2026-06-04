@@ -1,0 +1,192 @@
+{
+  "version": "v1.1-figma-make-baseline",
+  "updatedAt": "2026-06-03",
+  "source": {
+    "kind": "figma_make_live_preview_plus_user_prompt_images",
+    "url": "https://www.figma.com/make/GQTyaHmZoYpsBUQCIda2QP/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E6%A1%86%E6%9E%B6%E5%BC%80%E5%8F%91?p=f&t=lrqXaHNloFyLsXl3-0&preview-route=%2Flive",
+    "authority": "visual_reference_only",
+    "prdAuthority": "PRD/窗口交互_PRD.md"
+  },
+  "status": "v1_1_documentation_ready_with_mindmap_deferred",
+  "reviewConclusion": "Go for V1.1-B documentation readiness. Floating states use user-provided prompt images; panel layout states use PRD hard constraints; runtime-offline is design-only; artifact-mindmap is deferred to a later dedicated mindmap stage.",
+  "viewports": [
+    {"name": "desktop-wide", "width": 1440, "height": 960},
+    {"name": "desktop-main", "width": 1280, "height": 900},
+    {"name": "compact", "width": 800, "height": 900},
+    {"name": "mobile", "width": 390, "height": 844}
+  ],
+  "requiredStates": [
+    {
+      "state": "floating-default",
+      "prdState": "A",
+      "requiredViewports": ["1280x900", "1440x960"],
+      "status": "accepted",
+      "blocking": false,
+      "evidenceType": "user_provided_prompt_image",
+      "evidenceRef": "Image #2 in user message on 2026-06-03",
+      "reviewConclusion": "Accepted as floating default visual reference. Shows edge-attached circular AI ball with partial visible state."
+    },
+    {
+      "state": "floating-hover",
+      "prdState": "B",
+      "requiredViewports": ["1280x900"],
+      "status": "accepted",
+      "blocking": false,
+      "evidenceType": "user_provided_prompt_image",
+      "evidenceRef": "Image #1 in user message on 2026-06-03",
+      "reviewConclusion": "Accepted as hover strip visual reference. Shows Ask AI strip, shortcut icon, AI pill, border, radius, and shadow."
+    },
+    {
+      "state": "panel-440-push",
+      "prdState": "C",
+      "requiredViewports": ["1280x900"],
+      "status": "accepted_by_prd_hard_constraint",
+      "blocking": false,
+      "evidenceType": "prd_hard_constraint",
+      "evidenceRef": "PRD/窗口交互_PRD.md 状态 C",
+      "reviewConclusion": "No prototype screenshot required. Implementation must follow PRD: 440px minimum panel, push layout, left rail/chat/tool dock."
+    },
+    {
+      "state": "panel-50vw-push",
+      "prdState": "D",
+      "requiredViewports": ["1280x900"],
+      "status": "accepted_by_prd_hard_constraint",
+      "blocking": false,
+      "evidenceType": "prd_hard_constraint",
+      "evidenceRef": "PRD/窗口交互_PRD.md 状态 D",
+      "reviewConclusion": "No prototype screenshot required. Implementation must follow PRD: near 50vw, still push, stable independent chat scroll and fixed composer."
+    },
+    {
+      "state": "panel-overlay",
+      "prdState": "E",
+      "requiredViewports": ["1280x900", "1440x960"],
+      "status": "accepted_by_prd_hard_constraint",
+      "blocking": false,
+      "evidenceType": "prd_hard_constraint",
+      "evidenceRef": "PRD/窗口交互_PRD.md 状态 E",
+      "reviewConclusion": "No prototype screenshot required. Implementation must follow PRD: enter overlay above 52vw, return push below 48vw, max width 80vw."
+    },
+    {
+      "state": "mobile-overlay",
+      "prdState": "small-viewport",
+      "requiredViewports": ["390x844", "800x900"],
+      "status": "accepted_by_prd_hard_constraint",
+      "blocking": false,
+      "evidenceType": "prd_hard_constraint",
+      "evidenceRef": "PRD/窗口交互_PRD.md 小屏兼容",
+      "reviewConclusion": "No prototype screenshot required. Implementation must follow PRD: viewport below 900px uses overlay/fullscreen side panel fallback."
+    },
+    {
+      "state": "runtime-offline",
+      "prdState": "error-state",
+      "requiredViewports": ["1280x900"],
+      "status": "accepted_design_only",
+      "blocking": false,
+      "evidenceType": "design_only_no_standard_prototype_audit",
+      "evidenceRef": "User instruction on 2026-06-03",
+      "reviewConclusion": "No standard prototype audit required. V1.1 implementation must design a visible offline state with reconnect guidance and disabled normal chat send."
+    },
+    {
+      "state": "artifact-mindmap",
+      "prdState": "artifact-state",
+      "requiredViewports": ["1280x900"],
+      "status": "deferred_to_mindmap_stage",
+      "blocking": false,
+      "evidenceType": "deferred_scope",
+      "evidenceRef": "User instruction on 2026-06-03",
+      "reviewConclusion": "Mindmap visual implementation is deferred to a later dedicated development stage and must not block V1.1-B/C UI fidelity work."
+    }
+  ],
+  "captures": [
+    {
+      "state": "user-prompt-floating-default",
+      "viewport": "prompt-image",
+      "status": "accepted",
+      "blocking": false,
+      "coveredStates": ["floating-default"],
+      "evidenceRef": "Image #2 in user message on 2026-06-03",
+      "reviewConclusion": "Accepted prompt image evidence for floating default state."
+    },
+    {
+      "state": "user-prompt-floating-hover",
+      "viewport": "prompt-image",
+      "status": "accepted",
+      "blocking": false,
+      "coveredStates": ["floating-hover"],
+      "evidenceRef": "Image #1 in user message on 2026-06-03",
+      "reviewConclusion": "Accepted prompt image evidence for floating hover state."
+    },
+    {
+      "state": "auto-headless-1440x960",
+      "viewport": "1440x960",
+      "sourceFile": "current/figma-live-1440x960.png",
+      "status": "rejected",
+      "blocking": false,
+      "reason": "Captured Figma WebGL unsupported error page."
+    },
+    {
+      "state": "auto-headless-1280x900",
+      "viewport": "1280x900",
+      "sourceFile": "current/figma-live-1280x900.png",
+      "status": "rejected",
+      "blocking": false,
+      "reason": "Captured Figma WebGL unsupported error page."
+    },
+    {
+      "state": "auto-headless-800x900",
+      "viewport": "800x900",
+      "sourceFile": "current/figma-live-800x900.png",
+      "status": "rejected",
+      "blocking": false,
+      "reason": "Captured Figma WebGL unsupported error page."
+    },
+    {
+      "state": "auto-headless-390x844",
+      "viewport": "390x844",
+      "sourceFile": "current/figma-live-390x844.png",
+      "status": "rejected",
+      "blocking": false,
+      "reason": "Captured Figma WebGL unsupported error page."
+    },
+    {
+      "state": "figma-make-live-main-window",
+      "viewport": "chrome-window-791x779",
+      "sourceFile": "manual-auth/figma-live-manual-window.png",
+      "reviewedFile": "reviewed/figma-live-reviewed-main-window.png",
+      "status": "accepted_partial",
+      "blocking": false,
+      "coveredStates": ["figma-make-live-main-window"],
+      "reviewConclusion": "Manual-auth screenshot shows logged-in Figma Make page with live preview visible. It is usable as partial visual reference."
+    },
+    {
+      "state": "manual-crop-wrong-area",
+      "viewport": "manual-crop",
+      "sourceFile": "manual-auth/figma-live-manual-preview.png",
+      "status": "rejected",
+      "blocking": false,
+      "reason": "Manual region crop captured the wrong page area and must not be used as visual baseline."
+    }
+  ],
+  "readinessGate": {
+    "goForImplementation": true,
+    "goWhen": "V1.1-B may start after this manifest, V1.1-A stage-gate, acceptance plan, and Codex checklist all reflect the user-approved evidence policy.",
+    "currentBlockingReason": "none",
+    "scopeCaveat": "Mindmap artifact visual implementation is deferred to a later dedicated stage."
+  },
+  "figmaMcp": {
+    "makeResourceEnumeration": "available",
+    "resourceContentRead": "unavailable_in_current_session",
+    "ordinaryDesignNode": "not_provided",
+    "reviewConclusion": "Figma Make resources can be enumerated for planning, but user-provided prompt images and PRD hard constraints now define the V1.1 evidence policy."
+  },
+  "notes": [
+    "User-provided prompt images are accepted for floating-default and floating-hover visual references.",
+    "Panel layout states 3-6 are governed by PRD hard constraints and do not require actual Figma screenshots.",
+    "Runtime offline state is design-only and does not require standard prototype audit.",
+    "Mindmap artifact state is deferred to a later dedicated mindmap implementation stage.",
+    "Figma Make visual evidence does not override PRD/窗口交互_PRD.md interaction rules.",
+    "2026-06-03 automatic Chrome headless capture produced WebGL unsupported error pages.",
+    "2026-06-03 manual-auth window screenshot produced a real Figma Make prototype page and was copied to reviewed/ as partial visual reference.",
+    "2026-06-03 Figma MCP get_design_context can enumerate Make source resources, but resource contents were not readable through read_mcp_resource in this session."
+  ]
+}

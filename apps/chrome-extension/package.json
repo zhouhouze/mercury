@@ -8,7 +8,10 @@
     "build": "wxt build",
     "zip": "wxt zip",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json"
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
+    "e2e:chrome": "node e2e/chrome-sidepanel-e2e.mjs",
+    "e2e:inpage": "node e2e/chrome-inpage-e2e.mjs",
+    "e2e:visual": "node e2e/chrome-inpage-visual-e2e.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",
@@ -22,6 +25,7 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "jsdom": "^29.1.1",
+    "playwright": "^1.60.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.15"
   }
