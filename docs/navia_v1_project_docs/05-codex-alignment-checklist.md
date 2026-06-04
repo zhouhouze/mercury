@@ -44,10 +44,10 @@ design/v1.1-figma-baseline/manual-capture-runbook.md
 
 ## 2. V1 硬边界确认
 
-实现前必须确认：
+实现前必须确认。V1.2 例外：文档阶段允许定义轻量 MCP / Skill / API Adapter 合同，但真实服务调用、side effect、联网搜索、本地文件读取或绕过 D 模块 governance 的实现仍然禁止。
 
-- [ ] 本阶段不接 MCP。
-- [ ] 本阶段不接 Skill 系统。
+- [ ] 本阶段不直连 MCP；如为 V1.2 Adapter 合同，必须只通过 D 模块。
+- [ ] 本阶段不直连 Skill 系统；如为 V1.2 Adapter 合同，必须只通过 D 模块。
 - [ ] 本阶段不做长期记忆。
 - [ ] 本阶段不做完整知识库。
 - [ ] 本阶段不做 RAG。

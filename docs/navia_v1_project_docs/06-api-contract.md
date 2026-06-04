@@ -283,6 +283,8 @@ V1.2 AI 伴读模块约束：
 - 流式渲染模块只消费 SSE AgentEvent，不直接执行工具。
 - Mindmap 模块的 Runtime 产物是 Mermaid source artifact，前端负责视觉渲染和 source fallback。
 - AgenticLoop ChatBox 模块必须为每个 user message 创建 turn，并确保工具调用经过 StateMachine、Budget、Permission 和 ToolResult envelope。
+- MCP / Skill / External API 在 V1.2 只能作为内部 Adapter 注册到 AgenticLoop，不新增前端直连 API。
+- Adapter 调用必须映射为既有 ToolResult、ToolCallRecord、ArtifactRecord 和 AgentEvent，不新增自由格式响应。
 - 缺少 `session.activePage` 时必须使用 `PAGE_CONTEXT_REQUIRED`，不得返回假 summary、answer 或 mindmap。
 
 ---

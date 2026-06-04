@@ -92,7 +92,7 @@ V1 必须实现：
 7. 网页内 AI 双轨面板支持基础文字对话，不依赖语音即可完成 V1 主流程。
 8. 本地可微调模型用于思维导图生成。
 9. AgentCore 使用 openHarness / PiAgent 源码思想裁剪实现。
-10. 不接 MCP / Skill / 长期记忆管理。
+10. 不直接接 MCP / Skill / 长期记忆管理；V1.2 只允许通过 D 模块定义轻量 Adapter 合同，不允许绕过 AgenticLoop 和治理钩子。
 11. 单 Session 聊天历史高质量持久化。
 12. Agent 状态机可视化、可验证、可观测、可扩展。
 13. Agent 具备预算、权限、上下文和本地文件访问监督机制。
@@ -132,6 +132,32 @@ V1.1 明确不做：
 - 不用 Chrome Side Panel 替代页面内悬浮球与网页内面板验收。
 - 不在缺少 Figma 截图或普通 Figma `/design/` 节点基线时声明“视觉高保真通过”。
 
+### 5.2 V1.2 AI 伴读架构分工目标
+
+V1.2 仍处于文档开发阶段，目标是冻结“聊天”页签的 A/B/C/D 模块分工、工作区边界和 Adapter 合同，使后续多个 Codex 终端可以独立开发：
+
+- A：网页信息提取、过滤、蒸馏与结构化总结。
+- B：结构化数据、流式文本和 Mindmap 前端实时渲染。
+- C：基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
+- D：AgenticLoop ChatBox Core 与 MCP / Skill / API Adapter 编排。
+
+V1.2 允许：
+
+- 定义轻量 MCP / Skill / API Adapter 合同。
+- 单 Session 连续上下文和 checkpoint。
+- 结构化网页 JSON、段落标注和 source map。
+- Mindmap 节点反跳到源 paragraph/chunk。
+
+V1.2 明确不做：
+
+- 真实高风险 MCP / Skill side effect 默认执行。
+- 长期记忆。
+- RAG。
+- 多 Agent。
+- 浏览器自动操作。
+- 默认本地文件读取。
+- 前端绕过 D 直接调用外部服务。
+
 ---
 
 ## 6. V1 非目标
@@ -142,8 +168,8 @@ V1 明确不做：
 - 自动保存所有网页。
 - 多网页 RAG。
 - 长期记忆管理。
-- MCP 接入。
-- Skills 系统。
+- MCP 直连；V1.2 仅允许通过 D 模块定义受控 Adapter 合同。
+- Skills 直连；V1.2 仅允许通过 D 模块定义受控 Adapter 合同。
 - 多 Agent 编排。
 - 浏览器自动点击和自动操作。
 - 深度研究。

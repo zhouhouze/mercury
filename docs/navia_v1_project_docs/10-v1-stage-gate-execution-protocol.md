@@ -34,6 +34,7 @@ V1.0-F：PRD A-F 布局状态与 Resize
 V1.0-G：Session 质量与恢复
 V1.0-H：V1 Closure / Regression / Documentation
 V1.1：Frontend Fidelity / Figma Visual Alignment
+V1.2：AI 伴读合同、工作区与 Adapter 架构扩展
 ```
 
 其中 V1 complete 的硬门槛仍是：
@@ -152,6 +153,12 @@ Codex 必须自动完成：
 - 需要外部账号、付费服务、云端部署或敏感权限。
 - 需要放宽 Runtime 安全约束。
 - 真实数据验收无法实现，必须降级为 mock。
+
+V1.2 例外：
+
+- 文档阶段允许定义轻量 MCP / Skill / API Adapter 合同。
+- 只有当实质开发要调用真实 MCP / Skill 服务、执行 side effect、联网搜索、读取本地文件或绕过 D 模块 governance 时，才视为高风险流程并必须停止确认。
+- Adapter 合同本身不得被解释为 V2 长期记忆、RAG 或多 Agent 放行。
 
 ### 3.5 阶段完成后：端到端验收
 

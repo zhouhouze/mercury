@@ -134,6 +134,7 @@ type PageContext = {
 - PageContext 是 V1 AI 伴读工具的页面事实源。
 - `summarize_page`、`answer_from_page`、`explain_selection`、`generate_mindmap` 不得使用前端自由文本替代 `session.activePage`。
 - 缺少 PageContext 时必须返回 `PAGE_CONTEXT_REQUIRED`，不得创建假 artifact。
+- V1.2 扩展阶段，A 模块应将 PageContext 升级为 `StructuredPageContext`，补充 paragraphs、paragraph annotations、heading tree 和 chunk/source 关联。
 
 ---
 
@@ -170,6 +171,37 @@ type PageContextRef = {
   capturedAt: string
 }
 ```
+
+---
+
+## 7.1 V1.2 StructuredPageContext
+
+详细合同见 `contracts/v1_2_adapter_contracts.md`。核心类型：
+
+```ts
+type StructuredPageContext = {
+  pageId: string
+  sessionId: string
+  url: string
+  title: string
+  domain: string
+  capturedAt: string
+  contentHash: string
+  metadata: Record<string, unknown>
+  headingTree: HeadingNode[]
+  paragraphs: ParagraphBlock[]
+  chunks: PageChunk[]
+  annotations: ParagraphAnnotation[]
+  summaryDraft?: Record<string, unknown>
+}
+```
+
+约束：
+
+- `StructuredPageContext` 是 A 输出给 C/D 的事实源。
+- `paragraphs` 与 `chunks` 必须可追溯。
+- Mindmap source map 必须能回指 paragraph 或 chunk。
+- B 不直接生成或修改 `StructuredPageContext`。
 
 ---
 
@@ -278,6 +310,7 @@ type ArtifactRecord = {
 - 成功工具必须创建 ArtifactRecord；失败、denied 或 budget_exceeded 不得创建假 artifact。
 - V1 AI 伴读中，summary / answer / mindmap artifact 必须能追溯到 `sourcePageId`、`turnId`、`toolCallId`。
 - Mindmap 视觉渲染状态不写入 ArtifactRecord 顶层字段；Runtime 只存 Mermaid source 和 validation metadata，Frontend 单独处理 renderer failure 与 source fallback。
+- V1.2 Mindmap artifact 必须在 metadata 中记录 `nodeSourceMap`，用于节点反跳或 source excerpt fallback。
 
 ---
 
@@ -311,6 +344,20 @@ type MindmapArtifactMetadata = {
 ```
 
 Mindmap `content` 字段存 Mermaid 源码。
+
+V1.2 Mindmap metadata 扩展：
+
+```ts
+type MindmapNodeSourceMap = Record<
+  string,
+  {
+    nodeLabel: string
+    paragraphIds: string[]
+    chunkIds: string[]
+    excerpt: string
+  }
+>
+```
 
 ---
 

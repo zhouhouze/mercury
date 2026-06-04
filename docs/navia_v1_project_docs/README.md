@@ -22,6 +22,7 @@
 - 既有 Chrome Side Panel 只作为工程调试入口 / 兼容承载 / 过渡实现，不再作为 V1 前端体验验收口径。
 - V1 complete 的用户可见门槛是：开发者能在 Chrome 中安装 unpacked extension，在普通网页内看到贴边悬浮球，完成 hover 预展开、网页内 AI 双轨面板展开、挤压/覆盖/resize、收起恢复，并基于当前网页完成基础文字对话。
 - V1.1 阶段目标是前端体验高保真：在不重开 Runtime / AgentCore / API 合同的前提下，将 V1.0 页面内交互骨架升级为可对照 Figma 原型、可截图回归、可真实 Chrome 复验的产品级界面。
+- V1.2 阶段当前仍是文档开发阶段：先冻结 AI 伴读 A/B/C/D 模块分工、工作区边界、Adapter 合同和独立 Codex 终端开发规则，再进入实质开发。
 - 审计后采用 `Go, but contract-first`：先冻结 API/Event/State/Tool/Budget/Error/ID/SSE 合同，再写 AgentCore。
 - 后续 V1 子阶段采用阶段门禁执行：每阶段开发前必须单独形成开发计划、验收标准和审计意见；闭环所有致命或重大风险后才能进入实质开发；阶段完成后必须使用真实数据完成端到端验收和 PRD 规格复检。
 - V1 结束后，在进入 V2 研讨前重新评估 Runtime 语言栈、插件框架和长期架构是否需要调整。
@@ -66,6 +67,26 @@ V1.1 新增文档：
 | `stage-gates/v1.1-e-exit-review.md` | V1.1-E：出门评审门禁 |
 | `design/v1.1-frontend-fidelity-gap.drawio` | V1.1 gap 图谱：当前/目标架构差异、开发及验收计划、里程碑、验收门槛、出门条件 |
 
+V1.2 新增文档：
+
+| 文件 | 用途 |
+|---|---|
+| `design/v1.2-ai-reading-modular-architecture.md` | V1.2 AI 伴读四模块目标架构：A/B/C/D 职责、数据流、验收和 No-Go |
+| `design/v1.2-ai-reading-workspace-partition.md` | V1.2 工作区划分：A/C/D service 工作区、B app 工作区、Integration Codex、输入输出和跨模块变更规则 |
+| `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
+| `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
+
+V1.2 代码工作区：
+
+| 目录 | 用途 |
+|---|---|
+| `services/local-runtime/navia_runtime/modules/page_reading/` | A 模块 service 工作区：网页信息提取、过滤、蒸馏与结构化总结 |
+| `apps/chrome-extension/src/modules/*_renderer/` | B 模块 app 工作区：结构化数据、流式文本和 Mindmap 前端实时渲染 |
+| `services/local-runtime/navia_runtime/modules/mindmap/` | C 模块 service 工作区：基于结构化网页 JSON 的 Mindmap 生成与反跳来源 |
+| `services/local-runtime/navia_runtime/modules/agent_loop/` | D 模块 service 工作区：AgenticLoop ChatBox Core |
+| `services/local-runtime/navia_runtime/modules/adapters/` | D 模块 service 工作区：MCP / Skill / API Adapter 编排 |
+| `apps/` 与 `services/` 既有入口文件 | Integration Codex 工作区：既有入口 wiring、E2E、trace 与 PRD 复检 |
+
 ## 使用建议
 
 1. 先让 Codex 读取 `01-prd.md` 和 `02-architecture.md`，确认范围边界。
@@ -76,13 +97,14 @@ V1.1 新增文档：
 6. API、事件、数据结构发生改动时，同步更新 `06-api-contract.md` 与 `07-data-models.md`。
 7. 进入 V1.1 前端高保真阶段前，先读 `design/v1.1-frontend-fidelity-architecture.md`、`design/v1.1-frontend-fidelity-implementation-spec.md`、`design/v1.1-figma-baseline/README.md`、`design/v1.1-figma-baseline/capture-matrix.md`、`design/v1.1-figma-baseline/capture-manifest.json`、`design/v1.1-doc-readiness-audit.md` 和 `stage-gates/v1.1-frontend-fidelity.md`；本轮 V1.1 证据策略以用户提供 Image #1/#2、PRD 硬约束、runtime-offline 独立设计和 mindmap 后续专项为准。
 8. V1.1-B 开工前必须执行 `node scripts/validate_v1_1_doc_readiness.mjs`，只有输出 `canStartV11B=true` 才允许进入实质前端开发。
+9. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
 
 ## V1 硬边界
 
-V1 必须保持克制：
+V1 必须保持克制。V1.2 扩展允许轻量 MCP / Skill / API Adapter 合同，但只作为 D 模块的受控接入方式，不允许绕过 Runtime AgenticLoop 和治理钩子。
 
-- 不接 MCP。
-- 不接 Skill 系统。
+- 不直接接 MCP；V1.2 只允许通过 D 模块定义受控 Adapter 合同。
+- 不直接接 Skill 系统；V1.2 只允许通过 D 模块定义受控 Adapter 合同。
 - 不做长期记忆管理。
 - 不做完整个人知识库。
 - 不做多 Agent。

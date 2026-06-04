@@ -57,6 +57,12 @@ V1.0-H：真实 Chrome UI 最终验收与文档收口
 - `v1.1-c-high-fidelity-states.md`：V1.1-C 高保真状态补齐；已完成。
 - `v1.1-d-visual-e2e-regression.md`：V1.1-D 视觉 E2E 回归；已完成。
 - `v1.1-e-exit-review.md`：V1.1-E 出门评审；已完成，允许声明 `V1.1 frontend fidelity ready`。
+- `v1.2-0-ai-reading-contract-and-workspace-freeze.md`：V1.2-0 AI 伴读合同与工作区冻结；当前用于文档开发阶段，冻结 A/B/C/D 独立 Codex 工作区、Adapter 合同和 Integration Codex 验收职责。
+- `v1.2-a-page-reading.md`：A 模块工作区门禁；网页信息提取、过滤、蒸馏与结构化总结。
+- `v1.2-b-chat-renderer.md`：B 模块工作区门禁；结构化数据、流式文本和 Mindmap 前端实时渲染。
+- `v1.2-c-mindmap.md`：C 模块工作区门禁；基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
+- `v1.2-d-agentic-loop.md`：D 模块工作区门禁；AgenticLoop ChatBox Core 与 Adapter 编排。
+- `v1.2-e-integration.md`：Integration Codex 门禁；wiring、E2E、trace、PRD 复检。
 
 V1.1-B 开工前必须执行：
 
@@ -65,6 +71,14 @@ node scripts/validate_v1_1_doc_readiness.mjs
 ```
 
 只有输出 `canStartV11B=true`，才允许进入 `v1.1-b-ui-structure-token-refactor.md`。
+
+V1.2 实质开发前必须先通过：
+
+```text
+v1.2-0-ai-reading-contract-and-workspace-freeze.md
+```
+
+只有 A/B/C/D 工作区、Adapter 合同、跨模块变更流程和 Integration Codex 职责全部冻结，且对应子阶段门禁已生成，才允许四个 Codex 终端按模块独立开发。
 - `v1.0-g-session-recovery.md`：历史 Side Panel 恢复记录；不能用于声明新口径 V1 complete。
 - `v1.0-h-closure.md`：历史 Side Panel closure 记录；不能用于声明新口径 V1 complete。
 - `v1.0-i-final-chrome-acceptance.md`：历史 Side Panel 自动化边界记录；后续真实 Chrome UI 验收必须覆盖 `PRD/窗口交互_PRD.md` A-F 状态。

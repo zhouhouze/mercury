@@ -2,7 +2,7 @@
 
 Navia is a Chrome companion-reading MVP with a local headless runtime. V1 frontend interaction follows `PRD/窗口交互_PRD.md`: an in-page floating ball opens an embedded dual-track AI panel that can read the current page, summarize it, answer page-grounded questions, and generate Mermaid mindmaps with traceable runtime events.
 
-V1.0 focuses on the functional loop and PRD-aligned in-page interaction skeleton. V1.1 is the frontend fidelity stage: it will align the injected panel with the Figma Make prototype shape, add visual-regression acceptance, and close the architecture gap between the current Shadow DOM implementation and the target `MainLayout / MockPage / FloatingBall / Sidebar / ChatArea` design model.
+V1.0 focuses on the functional loop and PRD-aligned in-page interaction skeleton. V1.1 is the frontend fidelity stage: it aligns the injected panel with the Figma Make prototype shape and visual-regression acceptance. V1.2 is currently a documentation-first architecture stage: it freezes the AI reading A/B/C/D module split, service/app workspace boundaries, and lightweight Adapter contracts before any parallel Codex implementation starts.
 
 ## Requirements
 
@@ -113,10 +113,12 @@ apps/chrome-extension/chrome-mv3-unpacked
 ## Project Layout
 
 ```text
-services/local-runtime/       Python FastAPI local runtime and AgentCore baseline
-apps/chrome-extension/        WXT + React Chrome MV3 extension
-docs/navia_v1_project_docs/   PRD, architecture, contracts, stage gates, evidence
-.navia/                       Local SQLite runtime state, ignored by Git
+services/local-runtime/                       Python FastAPI local runtime and AgentCore baseline
+services/local-runtime/navia_runtime/modules/ V1.2 service modules for A/C/D
+apps/chrome-extension/                        WXT + React Chrome MV3 extension
+apps/chrome-extension/src/modules/            V1.2 frontend renderer modules for B
+docs/navia_v1_project_docs/                   PRD, architecture, contracts, stage gates, evidence
+.navia/                                       Local SQLite runtime state, ignored by Git
 ```
 
 ## V1.1 Documentation
@@ -129,6 +131,17 @@ The V1.1 frontend fidelity plan lives in:
 
 V1.1 does not reopen Runtime, AgentEvent, ToolResult, or PageContext contracts. It is a high-fidelity frontend experience stage that requires a Figma screenshot or normal Figma `/design/` node before final visual acceptance can be claimed.
 
+## V1.2 Documentation
+
+The V1.2 AI reading architecture and workspace partition plan lives in:
+
+- `docs/navia_v1_project_docs/design/v1.2-ai-reading-modular-architecture.md`
+- `docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md`
+- `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md`
+- `docs/navia_v1_project_docs/stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`
+
+V1.2 allows lightweight MCP / Skill / External API Adapter contracts only through the AgenticLoop Core. It does not allow long-term memory, RAG, multi-agent orchestration, browser automation, or high-risk side effects by default.
+
 ## V1 Scope Boundaries
 
-V1 does not add RAG, long-term memory, MCP, Skills, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation.
+V1 does not add RAG, long-term memory, multi-agent orchestration, browser automation, network search, local file access by default, voice, desktop pet, deep research, or PPT generation. V1.2 may define MCP / Skill Adapter contracts for future controlled integration, but all such calls must be routed through the Runtime AgenticLoop and governance hooks.
