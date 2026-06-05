@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+  <head><title>Developer Validation Guide</title></head>
+  <body>
+    <article>
+      <h1>Developer Validation Guide</h1>
+      <p>Developers validate the page perception module with schema checks, fixture tests, and runtime boundary tests.</p>
+      <pre>PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests</pre>
+      <p>The command is a code fact because it verifies the A module contract without invoking D, C, B, MCP, Skill, or external APIs.</p>
+      <p>If validation fails, the stage returns to planning and implementation must not move forward.</p>
+    </article>
+  </body>
+</html>

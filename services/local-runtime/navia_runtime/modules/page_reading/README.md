@@ -22,6 +22,8 @@ A-V1.0-2 image-rich web page recognition
 A-V1.0-3 OCR recognition planning
 A-V1.0-4 table / list / code block recognition
 A-V1.0-5 page region and information density recognition
+A-V1.1-* high-signal page perception
+A-V1.2-* production-grade page perception planning and 100-page evaluation
 A-V2.0-1 video perception planning
 A-V2.0-2 live perception planning
 ```
@@ -67,10 +69,13 @@ docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md
 docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.md
 docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.drawio
 docs/navia_v1_project_docs/stage-gates/v1.2-a-page-reading.md
+docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.1-high-signal-page-perception.md
+docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.2-production-page-perception.md
 docs/public-api.md
 docs/executable-contract.md
 docs/fixture-spec.md
 docs/test-and-evidence-plan.md
+docs/a-v1.2-100-page-evaluation-plan.md
 ```
 
 ## Validation Evidence
@@ -79,6 +84,7 @@ docs/test-and-evidence-plan.md
 - paragraph IDs are stable within one captured page version.
 - chunks trace back to paragraphs or heading path.
 - invalid or missing page content returns `PAGE_CONTEXT_REQUIRED` through Integration; A does not create fake artifacts.
+- A-V1.2 final acceptance requires at least 100 complex real webpages or reproducible snapshots across diverse categories.
 - OCR, video, and live recognition remain planning-only until governed Adapter contracts are approved.
 
 Use `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md` for handoff.

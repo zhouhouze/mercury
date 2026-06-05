@@ -1,0 +1,220 @@
+{
+  "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+  "digestRef": "digest_page_f347d259d6d9c70e",
+  "filteredBlocks": [],
+  "highSignalBlocks": [
+    {
+      "blockId": "block_pg_page_f347d259d6d9c70e_0001",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "confidence": 0.812,
+      "contentDensityScore": 0.689,
+      "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+      "importance": 0.801,
+      "noiseScore": 0.08,
+      "order": 0,
+      "pageId": "page_f347d259d6d9c70e",
+      "paragraphIds": [
+        "pg_page_f347d259d6d9c70e_0001"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0001",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Image content is only represented when the DOM exposes alt text, title, aria label, caption, or nearby text.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 0,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0001",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0001",
+          "textHash": "sha256_aab5b7ac1d4c143af38d139d44aa92b0",
+          "textQuote": "Image content is only represented when the DOM exposes alt text, title, aria label, caption, or nearby text."
+        }
+      ],
+      "text": "Image content is only represented when the DOM exposes alt text, title, aria label, caption, or nearby text.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_f347d259d6d9c70e_0002",
+      "blockType": "image",
+      "chunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "confidence": 0.789,
+      "contentDensityScore": 0.701,
+      "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+      "importance": 0.773,
+      "noiseScore": 0.18,
+      "order": 1,
+      "pageId": "page_f347d259d6d9c70e",
+      "paragraphIds": [
+        "pg_page_f347d259d6d9c70e_0002"
+      ],
+      "regionType": "metadata",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0002",
+          "blockType": "image",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Image metadata: Floating Ask AI toolbar attached to the browser page edge",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 1,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0002",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0002",
+          "textHash": "sha256_ca6fdf06d5a6e30e97f08087149ed663",
+          "textQuote": "Image metadata: Floating Ask AI toolbar attached to the browser page edge"
+        }
+      ],
+      "text": "Image metadata: Floating Ask AI toolbar attached to the browser page edge",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_f347d259d6d9c70e_0003",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "confidence": 0.82,
+      "contentDensityScore": 0.726,
+      "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+      "importance": 0.821,
+      "noiseScore": 0.08,
+      "order": 2,
+      "pageId": "page_f347d259d6d9c70e",
+      "paragraphIds": [
+        "pg_page_f347d259d6d9c70e_0003"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0003",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "The image metadata above is grounded because it comes from DOM-readable attributes, not a vision model guess.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 2,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0003",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0003",
+          "textHash": "sha256_d1208a50541191632a68b351b07bfa48",
+          "textQuote": "The image metadata above is grounded because it comes from DOM-readable attributes, not a vision model guess."
+        }
+      ],
+      "text": "The image metadata above is grounded because it comes from DOM-readable attributes, not a vision model guess.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_f347d259d6d9c70e_0004",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "confidence": 0.81,
+      "contentDensityScore": 0.68,
+      "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+      "importance": 0.796,
+      "noiseScore": 0.08,
+      "order": 3,
+      "pageId": "page_f347d259d6d9c70e",
+      "paragraphIds": [
+        "pg_page_f347d259d6d9c70e_0004"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0004",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 3,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0004",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0004",
+          "textHash": "sha256_aaf96dc11ffee6ad8d3750cfe4b20d42",
+          "textQuote": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims."
+        }
+      ],
+      "text": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_f347d259d6d9c70e_0005",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "confidence": 0.8,
+      "contentDensityScore": 0.637,
+      "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+      "importance": 0.772,
+      "noiseScore": 0.08,
+      "order": 4,
+      "pageId": "page_f347d259d6d9c70e",
+      "paragraphIds": [
+        "pg_page_f347d259d6d9c70e_0005"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "OCR is a future governed input contract and is not executed by the A module in V1.1.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 4,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0005",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0005",
+          "textHash": "sha256_3ad082561ab41858dd7967ea39d6be8c",
+          "textQuote": "OCR is a future governed input contract and is not executed by the A module in V1.1."
+        }
+      ],
+      "text": "OCR is a future governed input contract and is not executed by the A module in V1.1.",
+      "warnings": []
+    }
+  ],
+  "metadata": {
+    "contentType": "article",
+    "headingCount": 1,
+    "language": "en",
+    "paragraphCount": 5,
+    "wordCount": 87
+  },
+  "pageId": "page_f347d259d6d9c70e",
+  "qualityReportRef": "q_page_f347d259d6d9c70e",
+  "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+  "sessionId": "evidence_image_rich_article",
+  "sourceMapRef": "smap_page_f347d259d6d9c70e",
+  "sourceStructuredPageRef": {
+    "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+    "pageId": "page_f347d259d6d9c70e"
+  },
+  "status": "ready",
+  "warnings": []
+}

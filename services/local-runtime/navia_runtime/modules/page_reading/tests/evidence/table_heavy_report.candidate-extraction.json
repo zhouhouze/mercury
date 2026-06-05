@@ -1,0 +1,81 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0001",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 0,
+      "text": "The report compares deterministic quality metrics used to decide whether high-signal perception can be consumed downstream."
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0002",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 1,
+      "text": "Ensures every high-signal block has source references."
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0003",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 2,
+      "text": "groundingCompleteness"
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0004",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 3,
+      "text": "Ensures every digest item is grounded."
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0005",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 4,
+      "text": "Prevents navigation and recommendation text from dominating output."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9c0d4e13f1bae834_0006",
+      "metadata": {
+        "headingPath": [
+          "Quality Metrics Report"
+        ]
+      },
+      "order": 5,
+      "text": "These table facts must be preserved as structured evidence rather than flattened into unrelated prose."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_9c0d4e13f1bae834e9e6c6de344da3e0259acde6f28159ccb77e94e45d97bca4",
+    "pageId": "page_9c0d4e13f1bae834",
+    "paragraphCount": 6
+  },
+  "text": "The report compares deterministic quality metrics used to decide whether high-signal perception can be consumed downstream.\nEnsures every high-signal block has source references.\ngroundingCompleteness\nEnsures every digest item is grounded.\nPrevents navigation and recommendation text from dominating output.\nThese table facts must be preserved as structured evidence rather than flattened into unrelated prose.",
+  "title": "table_heavy_report",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

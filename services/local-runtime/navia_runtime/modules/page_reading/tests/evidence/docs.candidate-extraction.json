@@ -1,0 +1,52 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_d0d02a03bb197392_0001",
+      "metadata": {
+        "headingPath": [
+          "Runtime API Documentation",
+          "Sessions"
+        ]
+      },
+      "order": 0,
+      "text": "The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_d0d02a03bb197392_0002",
+      "metadata": {
+        "headingPath": [
+          "Runtime API Documentation",
+          "Sessions",
+          "Create Session"
+        ]
+      },
+      "order": 1,
+      "text": "Clients call the sessions endpoint before streaming chat turns so every event can reference a session id."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_d0d02a03bb197392_0003",
+      "metadata": {
+        "headingPath": [
+          "Runtime API Documentation",
+          "Streaming"
+        ]
+      },
+      "order": 2,
+      "text": "The chat stream uses server sent events and emits state, intent, budget, tool, artifact, response, and error events."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_d0d02a03bb197392b3cadee236f568ba0f0d4a2ab0b2093fdb7c05b1ef5f3ac4",
+    "pageId": "page_d0d02a03bb197392",
+    "paragraphCount": 3
+  },
+  "text": "The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state.\nClients call the sessions endpoint before streaming chat turns so every event can reference a session id.\nThe chat stream uses server sent events and emits state, intent, budget, tool, artifact, response, and error events.",
+  "title": "docs",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

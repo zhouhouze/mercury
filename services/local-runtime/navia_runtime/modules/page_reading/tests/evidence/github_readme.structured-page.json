@@ -1,6 +1,659 @@
 {
+  "candidateExtraction": {
+    "blocks": [
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_4a86529dde4aaa4d_0001",
+        "metadata": {
+          "headingPath": [
+            "navia-runtime"
+          ]
+        },
+        "order": 0,
+        "text": "A local companion reading runtime for extracting page context and serving governed chat streams."
+      },
+      {
+        "blockType": "list_item",
+        "candidateBlockId": "cand_page_4a86529dde4aaa4d_0002",
+        "metadata": {
+          "headingPath": [
+            "navia-runtime",
+            "Install"
+          ]
+        },
+        "order": 1,
+        "text": "Create a virtual environment before running the FastAPI runtime."
+      },
+      {
+        "blockType": "list_item",
+        "candidateBlockId": "cand_page_4a86529dde4aaa4d_0003",
+        "metadata": {
+          "headingPath": [
+            "navia-runtime",
+            "Install"
+          ]
+        },
+        "order": 2,
+        "text": "Install runtime dependencies from the repository requirement files."
+      },
+      {
+        "blockType": "code",
+        "candidateBlockId": "cand_page_4a86529dde4aaa4d_0004",
+        "metadata": {
+          "headingPath": [
+            "navia-runtime",
+            "Smoke Test"
+          ]
+        },
+        "order": 3,
+        "text": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_4a86529dde4aaa4d_0005",
+        "metadata": {
+          "headingPath": [
+            "navia-runtime",
+            "Smoke Test"
+          ]
+        },
+        "order": 4,
+        "text": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+      }
+    ],
+    "confidence": 0.76,
+    "extractorName": "dom_baseline",
+    "metadata": {
+      "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+      "pageId": "page_4a86529dde4aaa4d",
+      "paragraphCount": 5
+    },
+    "text": "A local companion reading runtime for extracting page context and serving governed chat streams.\nCreate a virtual environment before running the FastAPI runtime.\nInstall runtime dependencies from the repository requirement files.\nPYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests\nThe README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+    "title": "github_readme",
+    "version": "a-v1.1-dom-baseline",
+    "warnings": []
+  },
   "error": null,
+  "highSignalPage": {
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "digestRef": "digest_page_4a86529dde4aaa4d",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "confidence": 0.818,
+        "contentDensityScore": 0.717,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "importance": 0.816,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "A local companion reading runtime for extracting page context and serving governed chat streams.",
+            "headingPath": [
+              "navia-runtime"
+            ],
+            "order": 0,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0001",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0001",
+            "textHash": "sha256_09374c696639e135cae33677412442b7",
+            "textQuote": "A local companion reading runtime for extracting page context and serving governed chat streams."
+          }
+        ],
+        "text": "A local companion reading runtime for extracting page context and serving governed chat streams.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0002",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.695,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "importance": 0.79,
+        "noiseScore": 0.12,
+        "order": 1,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0002"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0002",
+            "blockType": "list_item",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "Create a virtual environment before running the FastAPI runtime.",
+            "headingPath": [
+              "navia-runtime",
+              "Install"
+            ],
+            "order": 1,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0002",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0002",
+            "textHash": "sha256_62af95ebfad6b2325f8d4cd8f619eca0",
+            "textQuote": "Create a virtual environment before running the FastAPI runtime."
+          }
+        ],
+        "text": "Create a virtual environment before running the FastAPI runtime.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0003",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.697,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "importance": 0.791,
+        "noiseScore": 0.12,
+        "order": 2,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0003"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0003",
+            "blockType": "list_item",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "Install runtime dependencies from the repository requirement files.",
+            "headingPath": [
+              "navia-runtime",
+              "Install"
+            ],
+            "order": 2,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0003",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0003",
+            "textHash": "sha256_eccbcc0853b3da4959a3010507f34812",
+            "textQuote": "Install runtime dependencies from the repository requirement files."
+          }
+        ],
+        "text": "Install runtime dependencies from the repository requirement files.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0004",
+        "blockType": "code",
+        "chunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "confidence": 0.77,
+        "contentDensityScore": 0.546,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "importance": 0.708,
+        "noiseScore": 0.12,
+        "order": 3,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0004"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0004",
+            "blockType": "code",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests",
+            "headingPath": [
+              "navia-runtime",
+              "Smoke Test"
+            ],
+            "order": 3,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0004",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0004",
+            "textHash": "sha256_eca0ba49d67a636e0765b72e1d072527",
+            "textQuote": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+          }
+        ],
+        "text": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0005",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.725,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "importance": 0.821,
+        "noiseScore": 0.08,
+        "order": 4,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0005"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+            "headingPath": [
+              "navia-runtime",
+              "Smoke Test"
+            ],
+            "order": 4,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0005",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0005",
+            "textHash": "sha256_da3b4cb604ce198103f9b352b44121c4",
+            "textQuote": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+          }
+        ],
+        "text": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 3,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 67
+    },
+    "pageId": "page_4a86529dde4aaa4d",
+    "qualityReportRef": "q_page_4a86529dde4aaa4d",
+    "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+    "sessionId": "evidence_github_readme",
+    "sourceMapRef": "smap_page_4a86529dde4aaa4d",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+      "pageId": "page_4a86529dde4aaa4d"
+    },
+    "status": "ready",
+    "warnings": []
+  },
   "ok": true,
+  "perceptionDigest": {
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "digestId": "digest_page_4a86529dde4aaa4d",
+    "items": [
+      {
+        "confidence": 0.82,
+        "importance": 0.821,
+        "itemId": "item_block_pg_page_4a86529dde4aaa4d_0005",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_4a86529dde4aaa4d_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+            "headingPath": [
+              "navia-runtime",
+              "Smoke Test"
+            ],
+            "order": 4,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0005",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0005",
+            "textHash": "sha256_da3b4cb604ce198103f9b352b44121c4",
+            "textQuote": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+          }
+        ],
+        "text": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks",
+        "warnings": []
+      },
+      {
+        "confidence": 0.818,
+        "importance": 0.816,
+        "itemId": "item_block_pg_page_4a86529dde4aaa4d_0001",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_4a86529dde4aaa4d_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "A local companion reading runtime for extracting page context and serving governed chat streams.",
+            "headingPath": [
+              "navia-runtime"
+            ],
+            "order": 0,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0001",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0001",
+            "textHash": "sha256_09374c696639e135cae33677412442b7",
+            "textQuote": "A local companion reading runtime for extracting page context and serving governed chat streams."
+          }
+        ],
+        "text": "A local companion reading runtime for extracting page context and serving governed chat streams .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.803,
+        "importance": 0.791,
+        "itemId": "item_block_pg_page_4a86529dde4aaa4d_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_4a86529dde4aaa4d_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0003",
+            "blockType": "list_item",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "Install runtime dependencies from the repository requirement files.",
+            "headingPath": [
+              "navia-runtime",
+              "Install"
+            ],
+            "order": 2,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0003",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0003",
+            "textHash": "sha256_eccbcc0853b3da4959a3010507f34812",
+            "textQuote": "Install runtime dependencies from the repository requirement files."
+          }
+        ],
+        "text": "Install runtime dependencies from the repository requirement files .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.803,
+        "importance": 0.79,
+        "itemId": "item_block_pg_page_4a86529dde4aaa4d_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_4a86529dde4aaa4d_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0002",
+            "blockType": "list_item",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "Create a virtual environment before running the FastAPI runtime.",
+            "headingPath": [
+              "navia-runtime",
+              "Install"
+            ],
+            "order": 1,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0002",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0002",
+            "textHash": "sha256_62af95ebfad6b2325f8d4cd8f619eca0",
+            "textQuote": "Create a virtual environment before running the FastAPI runtime."
+          }
+        ],
+        "text": "Create a virtual environment before running the FastAPI runtime .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.77,
+        "importance": 0.708,
+        "itemId": "item_block_pg_page_4a86529dde4aaa4d_0004",
+        "kind": "code_fact",
+        "relatedChunkIds": [
+          "ck_page_4a86529dde4aaa4d_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_4a86529dde4aaa4d_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_4a86529dde4aaa4d_0004",
+            "blockType": "code",
+            "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+            "fallbackText": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests",
+            "headingPath": [
+              "navia-runtime",
+              "Smoke Test"
+            ],
+            "order": 3,
+            "pageId": "page_4a86529dde4aaa4d",
+            "paragraphId": "pg_page_4a86529dde4aaa4d_0004",
+            "sourceRefId": "src_page_4a86529dde4aaa4d_0004",
+            "textHash": "sha256_eca0ba49d67a636e0765b72e1d072527",
+            "textQuote": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+          }
+        ],
+        "text": "PYTHONPATH = services / local - runtime python3 - m pytest - q services / local",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_4a86529dde4aaa4d",
+    "rejectedItems": [],
+    "stats": {
+      "compressionRatio": 0.966,
+      "itemCount": 5,
+      "sourceRefCount": 5
+    },
+    "summary": {
+      "keyTakeaways": [
+        "The README fixture preserves list and code content so downstream modules can consume source ordered chunks",
+        "A local companion reading runtime for extracting page context and serving governed chat streams .",
+        "Install runtime dependencies from the repository requirement files .",
+        "Create a virtual environment before running the FastAPI runtime .",
+        "PYTHONPATH = services / local - runtime python3 - m pytest - q services / local"
+      ],
+      "tldr": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 5.0,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 2.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.4
+      },
+      "contentCoverage": {
+        "denominator": 417.0,
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 417.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 59.0,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 57.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.966
+      },
+      "groundingCompleteness": {
+        "denominator": 5.0,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 5.0,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 5.0,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 5.0,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallScore": 0.855,
+    "pageId": "page_4a86529dde4aaa4d",
+    "reportId": "q_page_4a86529dde4aaa4d",
+    "warnings": []
+  },
+  "sourceMap": {
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "pageId": "page_4a86529dde4aaa4d",
+    "sourceMapId": "smap_page_4a86529dde4aaa4d",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "fallbackText": "A local companion reading runtime for extracting page context and serving governed chat streams.",
+        "headingPath": [
+          "navia-runtime"
+        ],
+        "order": 0,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0001",
+        "sourceRefId": "src_page_4a86529dde4aaa4d_0001",
+        "textHash": "sha256_09374c696639e135cae33677412442b7",
+        "textQuote": "A local companion reading runtime for extracting page context and serving governed chat streams."
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0002",
+        "blockType": "list_item",
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "fallbackText": "Create a virtual environment before running the FastAPI runtime.",
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ],
+        "order": 1,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0002",
+        "sourceRefId": "src_page_4a86529dde4aaa4d_0002",
+        "textHash": "sha256_62af95ebfad6b2325f8d4cd8f619eca0",
+        "textQuote": "Create a virtual environment before running the FastAPI runtime."
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0003",
+        "blockType": "list_item",
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "fallbackText": "Install runtime dependencies from the repository requirement files.",
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ],
+        "order": 2,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0003",
+        "sourceRefId": "src_page_4a86529dde4aaa4d_0003",
+        "textHash": "sha256_eccbcc0853b3da4959a3010507f34812",
+        "textQuote": "Install runtime dependencies from the repository requirement files."
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0004",
+        "blockType": "code",
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "fallbackText": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests",
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ],
+        "order": 3,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0004",
+        "sourceRefId": "src_page_4a86529dde4aaa4d_0004",
+        "textHash": "sha256_eca0ba49d67a636e0765b72e1d072527",
+        "textQuote": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+      },
+      {
+        "blockId": "block_pg_page_4a86529dde4aaa4d_0005",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+        "fallbackText": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ],
+        "order": 4,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0005",
+        "sourceRefId": "src_page_4a86529dde4aaa4d_0005",
+        "textHash": "sha256_da3b4cb604ce198103f9b352b44121c4",
+        "textQuote": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+      }
+    ]
+  },
   "structuredPage": {
     "annotations": [
       {

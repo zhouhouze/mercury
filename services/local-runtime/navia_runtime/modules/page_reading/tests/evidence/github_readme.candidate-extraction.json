@@ -1,0 +1,74 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_4a86529dde4aaa4d_0001",
+      "metadata": {
+        "headingPath": [
+          "navia-runtime"
+        ]
+      },
+      "order": 0,
+      "text": "A local companion reading runtime for extracting page context and serving governed chat streams."
+    },
+    {
+      "blockType": "list_item",
+      "candidateBlockId": "cand_page_4a86529dde4aaa4d_0002",
+      "metadata": {
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ]
+      },
+      "order": 1,
+      "text": "Create a virtual environment before running the FastAPI runtime."
+    },
+    {
+      "blockType": "list_item",
+      "candidateBlockId": "cand_page_4a86529dde4aaa4d_0003",
+      "metadata": {
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ]
+      },
+      "order": 2,
+      "text": "Install runtime dependencies from the repository requirement files."
+    },
+    {
+      "blockType": "code",
+      "candidateBlockId": "cand_page_4a86529dde4aaa4d_0004",
+      "metadata": {
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ]
+      },
+      "order": 3,
+      "text": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_4a86529dde4aaa4d_0005",
+      "metadata": {
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ]
+      },
+      "order": 4,
+      "text": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "pageId": "page_4a86529dde4aaa4d",
+    "paragraphCount": 5
+  },
+  "text": "A local companion reading runtime for extracting page context and serving governed chat streams.\nCreate a virtual environment before running the FastAPI runtime.\nInstall runtime dependencies from the repository requirement files.\nPYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests\nThe README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+  "title": "github_readme",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

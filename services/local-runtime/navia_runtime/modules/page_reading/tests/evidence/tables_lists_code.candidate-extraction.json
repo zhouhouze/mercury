@@ -1,0 +1,122 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0001",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture"
+        ]
+      },
+      "order": 0,
+      "text": "This fixture checks that tables, lists, and code-like content remain in source order."
+    },
+    {
+      "blockType": "list_item",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0002",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Checklist"
+        ]
+      },
+      "order": 1,
+      "text": "Extract visible headings and paragraphs."
+    },
+    {
+      "blockType": "list_item",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0003",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Checklist"
+        ]
+      },
+      "order": 2,
+      "text": "Preserve list items as readable source blocks."
+    },
+    {
+      "blockType": "table_header",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0004",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Contract Table"
+        ]
+      },
+      "order": 3,
+      "text": "Contract Field Name"
+    },
+    {
+      "blockType": "table_header",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0005",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Contract Table"
+        ]
+      },
+      "order": 4,
+      "text": "Validation Rule Summary"
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0006",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Contract Table"
+        ]
+      },
+      "order": 5,
+      "text": "Must be stable for identical content."
+    },
+    {
+      "blockType": "table_cell",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0007",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Contract Table"
+        ]
+      },
+      "order": 6,
+      "text": "Must reference paragraph identifiers."
+    },
+    {
+      "blockType": "code",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0008",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Command"
+        ]
+      },
+      "order": 7,
+      "text": "pnpm --filter chrome-extension build"
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_2f98bb8e9e974adb_0009",
+      "metadata": {
+        "headingPath": [
+          "Structured Blocks Fixture",
+          "Command"
+        ]
+      },
+      "order": 8,
+      "text": "The parser should not collapse the page into one giant paragraph."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+    "pageId": "page_2f98bb8e9e974adb",
+    "paragraphCount": 9
+  },
+  "text": "This fixture checks that tables, lists, and code-like content remain in source order.\nExtract visible headings and paragraphs.\nPreserve list items as readable source blocks.\nContract Field Name\nValidation Rule Summary\nMust be stable for identical content.\nMust reference paragraph identifiers.\npnpm --filter chrome-extension build\nThe parser should not collapse the page into one giant paragraph.",
+  "title": "tables_lists_code",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

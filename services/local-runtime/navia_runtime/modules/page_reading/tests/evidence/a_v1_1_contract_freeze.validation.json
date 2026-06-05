@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "a-v1.1-contract-freeze-evidence-2026-06-05",
+  "stage": "A-V1.1-0",
+  "module": "page_reading",
+  "generatedAt": "2026-06-05T00:00:00+08:00",
+  "contractFiles": [
+    "docs/navia_v1_project_docs/contracts/a_v1_1_high_signal.schema.json",
+    "docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md"
+  ],
+  "validation": {
+    "schemaValid": true,
+    "testFile": "services/local-runtime/navia_runtime/modules/page_reading/tests/test_a_v1_1_contract_freeze.py",
+    "assertions": [
+      "HighSignalPageContext validates as a public A-V1.1 contract.",
+      "PerceptionDigest validates and rejects digest items without sourceRefs.",
+      "SourceMap validates SourceRef records with fallbackText/textQuote even when selector/domPath are absent.",
+      "PagePerceptionQualityReport metrics include method, numerator, denominator, threshold, and passed fields.",
+      "CandidateExtractionResult validates as candidate-only evidence and is not exposed in final A outputs.",
+      "valid_content is allowed to pass, empty_or_low_signal must fail or degrade, and video_page_stub must not be ready.",
+      "A runtime remains isolated from ArtifactRecord, SSE, EventStore, CoreProvider, MCP, Skill, OCR, VLM, ASR, video, and live engines."
+    ],
+    "warnings": [
+      "A-V1.1-0 does not implement real high-signal extraction, digest generation, source-map generation, or quality scoring.",
+      "Fixture payloads are contract samples used to freeze shape and false-green gates."
+    ],
+    "fatalIssues": []
+  },
+  "prdSpecReview": {
+    "result": "go_for_a_v1_1_1_after_tests_pass",
+    "coveredP0Items": [
+      "public_vs_module_local_decision",
+      "schema_freeze",
+      "source_ref_contract",
+      "quality_metric_formulas",
+      "candidate_extractor_isolation",
+      "fixture_class_gates",
+      "module_boundaries"
+    ],
+    "scopeBoundaries": [
+      "No RAG, memory, MCP, Skill, multi-agent, browser automation, local file access, network search, voice, desktop pet, deep research, or PPT generation.",
+      "No OCR, VLM, ASR, video, or live engine execution in A-V1.1-0.",
+      "No ArtifactRecord, SSE, EventStore, Trace, D/C/B calls, or final assistant response generation from A."
+    ]
+  }
+}

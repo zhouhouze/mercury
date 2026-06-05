@@ -1,0 +1,70 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_16e9c1aaf43988fb_0001",
+      "metadata": {
+        "headingPath": [
+          "Visual Reading Fixture"
+        ]
+      },
+      "order": 0,
+      "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+    },
+    {
+      "blockType": "image_metadata",
+      "candidateBlockId": "cand_page_16e9c1aaf43988fb_0002",
+      "metadata": {
+        "headingPath": [
+          "Visual Reading Fixture"
+        ]
+      },
+      "order": 1,
+      "text": "Image metadata: Floating AI toolbar attached to the right page edge"
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_16e9c1aaf43988fb_0003",
+      "metadata": {
+        "headingPath": [
+          "Visual Reading Fixture"
+        ]
+      },
+      "order": 2,
+      "text": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+    },
+    {
+      "blockType": "image_metadata",
+      "candidateBlockId": "cand_page_16e9c1aaf43988fb_0004",
+      "metadata": {
+        "headingPath": [
+          "Visual Reading Fixture"
+        ]
+      },
+      "order": 3,
+      "text": "Image metadata: Side panel chat with structured summary cards"
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_16e9c1aaf43988fb_0005",
+      "metadata": {
+        "headingPath": [
+          "Visual Reading Fixture"
+        ]
+      },
+      "order": 4,
+      "text": "The final image intentionally has no readable metadata and must not be described by the parser."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "pageId": "page_16e9c1aaf43988fb",
+    "paragraphCount": 5
+  },
+  "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.\nImage metadata: Floating AI toolbar attached to the right page edge\nThe next screenshot has a label supplied through aria metadata for accessibility tooling.\nImage metadata: Side panel chat with structured summary cards\nThe final image intentionally has no readable metadata and must not be described by the parser.",
+  "title": "image_rich",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

@@ -1,0 +1,70 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9ef74fb3f9cfb0df_0001",
+      "metadata": {
+        "headingPath": [
+          "Adapter Contract"
+        ]
+      },
+      "order": 0,
+      "text": "The adapter contract is a stable interface between page perception, mindmap generation, renderer output, and agentic loop orchestration."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9ef74fb3f9cfb0df_0002",
+      "metadata": {
+        "headingPath": [
+          "Adapter Contract"
+        ]
+      },
+      "order": 1,
+      "text": "HighSignalPageContext means a structured high-density page view with filtered blocks, source map reference, digest reference, quality report reference, and readiness status."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9ef74fb3f9cfb0df_0003",
+      "metadata": {
+        "headingPath": [
+          "Adapter Contract"
+        ]
+      },
+      "order": 2,
+      "text": "SourceRef is defined as a jumpback record containing pageId, contentHash, blockId, blockType, order, textQuote, textHash, fallbackText, and confidence."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9ef74fb3f9cfb0df_0004",
+      "metadata": {
+        "headingPath": [
+          "Adapter Contract"
+        ]
+      },
+      "order": 3,
+      "text": "Procedure: validate JSON schema, run fixture gates, reject ungrounded digest items, and hand off only pass or explicitly degraded evidence."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_9ef74fb3f9cfb0df_0005",
+      "metadata": {
+        "headingPath": [
+          "Adapter Contract"
+        ]
+      },
+      "order": 4,
+      "text": "Because D and C consume these contracts, candidate extractor output must stay isolated and cannot become the public Navia data model."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_9ef74fb3f9cfb0dff5373d97f62ca6945d580117aa0641acb21c7cab734428b0",
+    "pageId": "page_9ef74fb3f9cfb0df",
+    "paragraphCount": 5
+  },
+  "text": "The adapter contract is a stable interface between page perception, mindmap generation, renderer output, and agentic loop orchestration.\nHighSignalPageContext means a structured high-density page view with filtered blocks, source map reference, digest reference, quality report reference, and readiness status.\nSourceRef is defined as a jumpback record containing pageId, contentHash, blockId, blockType, order, textQuote, textHash, fallbackText, and confidence.\nProcedure: validate JSON schema, run fixture gates, reject ungrounded digest items, and hand off only pass or explicitly degraded evidence.\nBecause D and C consume these contracts, candidate extractor output must stay isolated and cannot become the public Navia data model.",
+  "title": "product_doc",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

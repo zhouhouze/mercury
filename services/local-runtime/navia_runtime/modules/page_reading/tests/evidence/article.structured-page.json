@@ -1,6 +1,554 @@
 {
+  "candidateExtraction": {
+    "blocks": [
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_772875a1f6fc8c9a_0001",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture"
+          ]
+        },
+        "order": 0,
+        "text": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_772875a1f6fc8c9a_0002",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture",
+            "Structured Page Facts"
+          ]
+        },
+        "order": 1,
+        "text": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_772875a1f6fc8c9a_0003",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture",
+            "Structured Page Facts"
+          ]
+        },
+        "order": 2,
+        "text": "For example, a mindmap node can point back to the paragraph and chunk that produced it."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_772875a1f6fc8c9a_0004",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture",
+            "Governed Runtime"
+          ]
+        },
+        "order": 3,
+        "text": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references."
+      }
+    ],
+    "confidence": 0.76,
+    "extractorName": "dom_baseline",
+    "metadata": {
+      "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+      "pageId": "page_772875a1f6fc8c9a",
+      "paragraphCount": 4
+    },
+    "text": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.\nThe page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.\nFor example, a mindmap node can point back to the paragraph and chunk that produced it.\nBecause tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+    "title": "article",
+    "version": "a-v1.1-dom-baseline",
+    "warnings": []
+  },
   "error": null,
+  "highSignalPage": {
+    "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+    "digestRef": "digest_page_772875a1f6fc8c9a",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "confidence": 0.821,
+        "contentDensityScore": 0.731,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "importance": 0.824,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 0,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0001",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0001",
+            "textHash": "sha256_db450faece3c5097c6a89b2a5dcc2b85",
+            "textQuote": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents."
+          }
+        ],
+        "text": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "confidence": 0.822,
+        "contentDensityScore": 0.735,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "importance": 0.826,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Structured Page Facts"
+            ],
+            "order": 1,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0002",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0002",
+            "textHash": "sha256_ac05baceffbfb73d307fcf31b0b52d2f",
+            "textQuote": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools."
+          }
+        ],
+        "text": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "confidence": 0.816,
+        "contentDensityScore": 0.711,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "importance": 0.813,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "For example, a mindmap node can point back to the paragraph and chunk that produced it.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Structured Page Facts"
+            ],
+            "order": 2,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0003",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0003",
+            "textHash": "sha256_d266c6d8da0236ec63ef95f897e4a6fb",
+            "textQuote": "For example, a mindmap node can point back to the paragraph and chunk that produced it."
+          }
+        ],
+        "text": "For example, a mindmap node can point back to the paragraph and chunk that produced it.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0004",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "confidence": 0.821,
+        "contentDensityScore": 0.734,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "importance": 0.826,
+        "noiseScore": 0.08,
+        "order": 3,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0004"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Governed Runtime"
+            ],
+            "order": 3,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0004",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0004",
+            "textHash": "sha256_bee9d4d64289094340054f69cc7a29d2",
+            "textQuote": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references."
+          }
+        ],
+        "text": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 3,
+      "language": "en",
+      "paragraphCount": 4,
+      "wordCount": 78
+    },
+    "pageId": "page_772875a1f6fc8c9a",
+    "qualityReportRef": "q_page_772875a1f6fc8c9a",
+    "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+    "sessionId": "evidence_article",
+    "sourceMapRef": "smap_page_772875a1f6fc8c9a",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+      "pageId": "page_772875a1f6fc8c9a"
+    },
+    "status": "ready",
+    "warnings": []
+  },
   "ok": true,
+  "perceptionDigest": {
+    "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+    "digestId": "digest_page_772875a1f6fc8c9a",
+    "items": [
+      {
+        "confidence": 0.822,
+        "importance": 0.826,
+        "itemId": "item_block_pg_page_772875a1f6fc8c9a_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_772875a1f6fc8c9a_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Structured Page Facts"
+            ],
+            "order": 1,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0002",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0002",
+            "textHash": "sha256_ac05baceffbfb73d307fcf31b0b52d2f",
+            "textQuote": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools."
+          }
+        ],
+        "text": "The page reading module creates paragraphs , chunks , headings , annotations , and a stable",
+        "warnings": []
+      },
+      {
+        "confidence": 0.821,
+        "importance": 0.826,
+        "itemId": "item_block_pg_page_772875a1f6fc8c9a_0004",
+        "kind": "claim",
+        "relatedChunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_772875a1f6fc8c9a_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Governed Runtime"
+            ],
+            "order": 3,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0004",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0004",
+            "textHash": "sha256_bee9d4d64289094340054f69cc7a29d2",
+            "textQuote": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references."
+          }
+        ],
+        "text": "Because tool calls are governed , adapters cannot bypass the runtime trace or create artifacts without",
+        "warnings": []
+      },
+      {
+        "confidence": 0.821,
+        "importance": 0.824,
+        "itemId": "item_block_pg_page_772875a1f6fc8c9a_0001",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_772875a1f6fc8c9a_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 0,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0001",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0001",
+            "textHash": "sha256_db450faece3c5097c6a89b2a5dcc2b85",
+            "textQuote": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents."
+          }
+        ],
+        "text": "Navia is a local companion reading assistant that extracts page context and helps readers understand long",
+        "warnings": []
+      },
+      {
+        "confidence": 0.816,
+        "importance": 0.813,
+        "itemId": "item_block_pg_page_772875a1f6fc8c9a_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_772875a1f6fc8c9a_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_772875a1f6fc8c9a_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+            "fallbackText": "For example, a mindmap node can point back to the paragraph and chunk that produced it.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Structured Page Facts"
+            ],
+            "order": 2,
+            "pageId": "page_772875a1f6fc8c9a",
+            "paragraphId": "pg_page_772875a1f6fc8c9a_0003",
+            "sourceRefId": "src_page_772875a1f6fc8c9a_0003",
+            "textHash": "sha256_d266c6d8da0236ec63ef95f897e4a6fb",
+            "textQuote": "For example, a mindmap node can point back to the paragraph and chunk that produced it."
+          }
+        ],
+        "text": "For example , a mindmap node can point back to the paragraph and chunk that produced",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_772875a1f6fc8c9a",
+    "rejectedItems": [],
+    "stats": {
+      "compressionRatio": 0.866,
+      "itemCount": 4,
+      "sourceRefCount": 4
+    },
+    "summary": {
+      "keyTakeaways": [
+        "The page reading module creates paragraphs , chunks , headings , annotations , and a stable",
+        "Because tool calls are governed , adapters cannot bypass the runtime trace or create artifacts without",
+        "Navia is a local companion reading assistant that extracts page context and helps readers understand long",
+        "For example , a mindmap node can point back to the paragraph and chunk that produced"
+      ],
+      "tldr": "The page reading module creates paragraphs , chunks , headings , annotations , and a stable"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 4.0,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.5
+      },
+      "contentCoverage": {
+        "denominator": 445.0,
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 445.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 67.0,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 58.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.866
+      },
+      "groundingCompleteness": {
+        "denominator": 4.0,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 4.0,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 4.0,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 4.0,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallScore": 0.873,
+    "pageId": "page_772875a1f6fc8c9a",
+    "reportId": "q_page_772875a1f6fc8c9a",
+    "warnings": []
+  },
+  "sourceMap": {
+    "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+    "pageId": "page_772875a1f6fc8c9a",
+    "sourceMapId": "smap_page_772875a1f6fc8c9a",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "fallbackText": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 0,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphId": "pg_page_772875a1f6fc8c9a_0001",
+        "sourceRefId": "src_page_772875a1f6fc8c9a_0001",
+        "textHash": "sha256_db450faece3c5097c6a89b2a5dcc2b85",
+        "textQuote": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents."
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "fallbackText": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Structured Page Facts"
+        ],
+        "order": 1,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphId": "pg_page_772875a1f6fc8c9a_0002",
+        "sourceRefId": "src_page_772875a1f6fc8c9a_0002",
+        "textHash": "sha256_ac05baceffbfb73d307fcf31b0b52d2f",
+        "textQuote": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools."
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "fallbackText": "For example, a mindmap node can point back to the paragraph and chunk that produced it.",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Structured Page Facts"
+        ],
+        "order": 2,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphId": "pg_page_772875a1f6fc8c9a_0003",
+        "sourceRefId": "src_page_772875a1f6fc8c9a_0003",
+        "textHash": "sha256_d266c6d8da0236ec63ef95f897e4a6fb",
+        "textQuote": "For example, a mindmap node can point back to the paragraph and chunk that produced it."
+      },
+      {
+        "blockId": "block_pg_page_772875a1f6fc8c9a_0004",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_772875a1f6fc8c9a_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_772875a1f6fc8c9af199c016b1d3ac89178d97b50d1627a5851467ceed7ff8d0",
+        "fallbackText": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Governed Runtime"
+        ],
+        "order": 3,
+        "pageId": "page_772875a1f6fc8c9a",
+        "paragraphId": "pg_page_772875a1f6fc8c9a_0004",
+        "sourceRefId": "src_page_772875a1f6fc8c9a_0004",
+        "textHash": "sha256_bee9d4d64289094340054f69cc7a29d2",
+        "textQuote": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references."
+      }
+    ]
+  },
   "structuredPage": {
     "annotations": [
       {

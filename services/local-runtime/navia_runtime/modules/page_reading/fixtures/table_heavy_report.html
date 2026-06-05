@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head><title>Quality Metrics Report</title></head>
+  <body>
+    <article>
+      <h1>Quality Metrics Report</h1>
+      <p>The report compares deterministic quality metrics used to decide whether high-signal perception can be consumed downstream.</p>
+      <table>
+        <tr><th>Metric</th><th>Threshold</th><th>Purpose</th></tr>
+        <tr><td>sourceCoverage</td><td>0.95</td><td>Ensures every high-signal block has source references.</td></tr>
+        <tr><td>groundingCompleteness</td><td>0.95</td><td>Ensures every digest item is grounded.</td></tr>
+        <tr><td>noiseRatio</td><td>0.25</td><td>Prevents navigation and recommendation text from dominating output.</td></tr>
+      </table>
+      <p>These table facts must be preserved as structured evidence rather than flattened into unrelated prose.</p>
+    </article>
+  </body>
+</html>

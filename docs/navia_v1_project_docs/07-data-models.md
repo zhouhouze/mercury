@@ -207,6 +207,67 @@ type StructuredPageContext = {
 
 ---
 
+## 7.2 A-V1.1 High-Signal Page Models
+
+详细合同见 `contracts/v1_2_adapter_contracts.md`。A-V1.1 在 `StructuredPageContext` 之上增加高信号视图和质量评估：
+
+```ts
+type HighSignalPageContext = {
+  schemaVersion: string
+  pageId: string
+  sessionId: string
+  contentHash: string
+  sourceStructuredPageRef: { pageId: string; contentHash: string }
+  highSignalBlocks: unknown[]
+  filteredBlocks: unknown[]
+  sourceMapRef: string
+  digestRef?: string
+  qualityReportRef: string
+  status: "ready" | "degraded" | "failed"
+  warnings: string[]
+}
+
+type PerceptionDigest = {
+  digestId: string
+  pageId: string
+  contentHash: string
+  items: unknown[]
+  rejectedItems: unknown[]
+  summary: { tldr: string; keyTakeaways: string[] }
+}
+
+type SourceRef = {
+  sourceRefId: string
+  pageId: string
+  contentHash: string
+  blockId: string
+  blockType: string
+  order: number
+  textQuote: string
+  textHash: string
+  fallbackText: string
+  confidence: number
+}
+
+type PagePerceptionQualityReport = {
+  reportId: string
+  pageId: string
+  contentHash: string
+  overallScore: number
+  downstreamReadiness: "pass" | "degraded" | "fail"
+}
+```
+
+约束：
+
+- A-V1.1 模型是公共合同后才能被 D/C 依赖 exact shape。
+- `SourceRef.selector` / `domPath` 可选，不能作为唯一反跳机制。
+- `PerceptionDigest.items[]` 中每个 item 必须有 source refs。
+- `PagePerceptionQualityReport` 必须按冻结公式计算，不能写死通过。
+- 第三方 `CandidateExtractionResult` 只能是 A 内部候选输入，不得暴露给 D/C/B。
+
+---
+
 ## 8. IntentResult
 
 ```ts

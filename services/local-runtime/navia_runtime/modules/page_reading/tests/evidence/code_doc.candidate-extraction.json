@@ -1,0 +1,59 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_c749cfb077399025_0001",
+      "metadata": {
+        "headingPath": [
+          "Developer Validation Guide"
+        ]
+      },
+      "order": 0,
+      "text": "Developers validate the page perception module with schema checks, fixture tests, and runtime boundary tests."
+    },
+    {
+      "blockType": "code",
+      "candidateBlockId": "cand_page_c749cfb077399025_0002",
+      "metadata": {
+        "headingPath": [
+          "Developer Validation Guide"
+        ]
+      },
+      "order": 1,
+      "text": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests"
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_c749cfb077399025_0003",
+      "metadata": {
+        "headingPath": [
+          "Developer Validation Guide"
+        ]
+      },
+      "order": 2,
+      "text": "The command is a code fact because it verifies the A module contract without invoking D, C, B, MCP, Skill, or external APIs."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_c749cfb077399025_0004",
+      "metadata": {
+        "headingPath": [
+          "Developer Validation Guide"
+        ]
+      },
+      "order": 3,
+      "text": "If validation fails, the stage returns to planning and implementation must not move forward."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+    "pageId": "page_c749cfb077399025",
+    "paragraphCount": 4
+  },
+  "text": "Developers validate the page perception module with schema checks, fixture tests, and runtime boundary tests.\nPYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests\nThe command is a code fact because it verifies the A module contract without invoking D, C, B, MCP, Skill, or external APIs.\nIf validation fails, the stage returns to planning and implementation must not move forward.",
+  "title": "code_doc",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}

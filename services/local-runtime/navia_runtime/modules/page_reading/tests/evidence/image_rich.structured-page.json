@@ -1,6 +1,643 @@
 {
+  "candidateExtraction": {
+    "blocks": [
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_16e9c1aaf43988fb_0001",
+        "metadata": {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ]
+        },
+        "order": 0,
+        "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+      },
+      {
+        "blockType": "image_metadata",
+        "candidateBlockId": "cand_page_16e9c1aaf43988fb_0002",
+        "metadata": {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ]
+        },
+        "order": 1,
+        "text": "Image metadata: Floating AI toolbar attached to the right page edge"
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_16e9c1aaf43988fb_0003",
+        "metadata": {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ]
+        },
+        "order": 2,
+        "text": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+      },
+      {
+        "blockType": "image_metadata",
+        "candidateBlockId": "cand_page_16e9c1aaf43988fb_0004",
+        "metadata": {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ]
+        },
+        "order": 3,
+        "text": "Image metadata: Side panel chat with structured summary cards"
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_16e9c1aaf43988fb_0005",
+        "metadata": {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ]
+        },
+        "order": 4,
+        "text": "The final image intentionally has no readable metadata and must not be described by the parser."
+      }
+    ],
+    "confidence": 0.76,
+    "extractorName": "dom_baseline",
+    "metadata": {
+      "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+      "pageId": "page_16e9c1aaf43988fb",
+      "paragraphCount": 5
+    },
+    "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.\nImage metadata: Floating AI toolbar attached to the right page edge\nThe next screenshot has a label supplied through aria metadata for accessibility tooling.\nImage metadata: Side panel chat with structured summary cards\nThe final image intentionally has no readable metadata and must not be described by the parser.",
+    "title": "image_rich",
+    "version": "a-v1.1-dom-baseline",
+    "warnings": []
+  },
   "error": null,
+  "highSignalPage": {
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "digestRef": "digest_page_16e9c1aaf43988fb",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.725,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "importance": 0.821,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 0,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0001",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0001",
+            "textHash": "sha256_bf16264836f05a2beaef624a2985c3e9",
+            "textQuote": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+          }
+        ],
+        "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0002",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "confidence": 0.788,
+        "contentDensityScore": 0.697,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "importance": 0.77,
+        "noiseScore": 0.18,
+        "order": 1,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0002"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "Image metadata: Floating AI toolbar attached to the right page edge",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 1,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0002",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0002",
+            "textHash": "sha256_86d5f3c908fb8230aef69fec10b66832",
+            "textQuote": "Image metadata: Floating AI toolbar attached to the right page edge"
+          }
+        ],
+        "text": "Image metadata: Floating AI toolbar attached to the right page edge",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "confidence": 0.817,
+        "contentDensityScore": 0.712,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "importance": 0.814,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 2,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0003",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0003",
+            "textHash": "sha256_d76faf1dd0fcde18f7763ff0962532a1",
+            "textQuote": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+          }
+        ],
+        "text": "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0004",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "confidence": 0.787,
+        "contentDensityScore": 0.693,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "importance": 0.768,
+        "noiseScore": 0.18,
+        "order": 3,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0004"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0004",
+            "blockType": "image",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "Image metadata: Side panel chat with structured summary cards",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 3,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0004",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0004",
+            "textHash": "sha256_8acdc644cc1c104ce17643240a7d4d94",
+            "textQuote": "Image metadata: Side panel chat with structured summary cards"
+          }
+        ],
+        "text": "Image metadata: Side panel chat with structured summary cards",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0005",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.676,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "importance": 0.794,
+        "noiseScore": 0.08,
+        "order": 4,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0005"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The final image intentionally has no readable metadata and must not be described by the parser.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 4,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0005",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0005",
+            "textHash": "sha256_436c7975ed0e0ac00593cc65413e65d2",
+            "textQuote": "The final image intentionally has no readable metadata and must not be described by the parser."
+          }
+        ],
+        "text": "The final image intentionally has no readable metadata and must not be described by the parser.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 84
+    },
+    "pageId": "page_16e9c1aaf43988fb",
+    "qualityReportRef": "q_page_16e9c1aaf43988fb",
+    "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+    "sessionId": "evidence_image_rich",
+    "sourceMapRef": "smap_page_16e9c1aaf43988fb",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+      "pageId": "page_16e9c1aaf43988fb"
+    },
+    "status": "ready",
+    "warnings": []
+  },
   "ok": true,
+  "perceptionDigest": {
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "digestId": "digest_page_16e9c1aaf43988fb",
+    "items": [
+      {
+        "confidence": 0.82,
+        "importance": 0.821,
+        "itemId": "item_block_pg_page_16e9c1aaf43988fb_0001",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_16e9c1aaf43988fb_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 0,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0001",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0001",
+            "textHash": "sha256_bf16264836f05a2beaef624a2985c3e9",
+            "textQuote": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+          }
+        ],
+        "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.817,
+        "importance": 0.814,
+        "itemId": "item_block_pg_page_16e9c1aaf43988fb_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_16e9c1aaf43988fb_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 2,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0003",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0003",
+            "textHash": "sha256_d76faf1dd0fcde18f7763ff0962532a1",
+            "textQuote": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+          }
+        ],
+        "text": "The next screenshot has a label supplied through aria metadata for accessibility tooling .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.809,
+        "importance": 0.794,
+        "itemId": "item_block_pg_page_16e9c1aaf43988fb_0005",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_16e9c1aaf43988fb_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "The final image intentionally has no readable metadata and must not be described by the parser.",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 4,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0005",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0005",
+            "textHash": "sha256_436c7975ed0e0ac00593cc65413e65d2",
+            "textQuote": "The final image intentionally has no readable metadata and must not be described by the parser."
+          }
+        ],
+        "text": "The final image intentionally has no readable metadata and must not be described by the parser",
+        "warnings": []
+      },
+      {
+        "confidence": 0.788,
+        "importance": 0.77,
+        "itemId": "item_block_pg_page_16e9c1aaf43988fb_0002",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_16e9c1aaf43988fb_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "Image metadata: Floating AI toolbar attached to the right page edge",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 1,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0002",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0002",
+            "textHash": "sha256_86d5f3c908fb8230aef69fec10b66832",
+            "textQuote": "Image metadata: Floating AI toolbar attached to the right page edge"
+          }
+        ],
+        "text": "Image metadata : Floating AI toolbar attached to the right page edge",
+        "warnings": []
+      },
+      {
+        "confidence": 0.787,
+        "importance": 0.768,
+        "itemId": "item_block_pg_page_16e9c1aaf43988fb_0004",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_16e9c1aaf43988fb_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_16e9c1aaf43988fb_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_16e9c1aaf43988fb_0004",
+            "blockType": "image",
+            "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+            "fallbackText": "Image metadata: Side panel chat with structured summary cards",
+            "headingPath": [
+              "Visual Reading Fixture"
+            ],
+            "order": 3,
+            "pageId": "page_16e9c1aaf43988fb",
+            "paragraphId": "pg_page_16e9c1aaf43988fb_0004",
+            "sourceRefId": "src_page_16e9c1aaf43988fb_0004",
+            "textHash": "sha256_8acdc644cc1c104ce17643240a7d4d94",
+            "textQuote": "Image metadata: Side panel chat with structured summary cards"
+          }
+        ],
+        "text": "Image metadata : Side panel chat with structured summary cards",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_16e9c1aaf43988fb",
+    "rejectedItems": [],
+    "stats": {
+      "compressionRatio": 1.0,
+      "itemCount": 5,
+      "sourceRefCount": 5
+    },
+    "summary": {
+      "keyTakeaways": [
+        "The report compares two product screenshots and keeps visual metadata separate from inferred image content .",
+        "The next screenshot has a label supplied through aria metadata for accessibility tooling .",
+        "The final image intentionally has no readable metadata and must not be described by the parser",
+        "Image metadata : Floating AI toolbar attached to the right page edge",
+        "Image metadata : Side panel chat with structured summary cards"
+      ],
+      "tldr": "The report compares two product screenshots and keeps visual metadata separate from inferred image content ."
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 5.0,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 419.0,
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 419.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 64.0,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 64.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 1.0
+      },
+      "groundingCompleteness": {
+        "denominator": 5.0,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 5.0,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 5.0,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 5.0,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallScore": 0.82,
+    "pageId": "page_16e9c1aaf43988fb",
+    "reportId": "q_page_16e9c1aaf43988fb",
+    "warnings": []
+  },
+  "sourceMap": {
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "pageId": "page_16e9c1aaf43988fb",
+    "sourceMapId": "smap_page_16e9c1aaf43988fb",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "fallbackText": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 0,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0001",
+        "sourceRefId": "src_page_16e9c1aaf43988fb_0001",
+        "textHash": "sha256_bf16264836f05a2beaef624a2985c3e9",
+        "textQuote": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0002",
+        "blockType": "image",
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "fallbackText": "Image metadata: Floating AI toolbar attached to the right page edge",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 1,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0002",
+        "sourceRefId": "src_page_16e9c1aaf43988fb_0002",
+        "textHash": "sha256_86d5f3c908fb8230aef69fec10b66832",
+        "textQuote": "Image metadata: Floating AI toolbar attached to the right page edge"
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "fallbackText": "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 2,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0003",
+        "sourceRefId": "src_page_16e9c1aaf43988fb_0003",
+        "textHash": "sha256_d76faf1dd0fcde18f7763ff0962532a1",
+        "textQuote": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0004",
+        "blockType": "image",
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "fallbackText": "Image metadata: Side panel chat with structured summary cards",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 3,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0004",
+        "sourceRefId": "src_page_16e9c1aaf43988fb_0004",
+        "textHash": "sha256_8acdc644cc1c104ce17643240a7d4d94",
+        "textQuote": "Image metadata: Side panel chat with structured summary cards"
+      },
+      {
+        "blockId": "block_pg_page_16e9c1aaf43988fb_0005",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+        "fallbackText": "The final image intentionally has no readable metadata and must not be described by the parser.",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 4,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0005",
+        "sourceRefId": "src_page_16e9c1aaf43988fb_0005",
+        "textHash": "sha256_436c7975ed0e0ac00593cc65413e65d2",
+        "textQuote": "The final image intentionally has no readable metadata and must not be described by the parser."
+      }
+    ]
+  },
   "structuredPage": {
     "annotations": [
       {

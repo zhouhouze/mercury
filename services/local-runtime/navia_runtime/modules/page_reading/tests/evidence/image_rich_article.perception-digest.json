@@ -1,0 +1,188 @@
+{
+  "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+  "digestId": "digest_page_f347d259d6d9c70e",
+  "items": [
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_f347d259d6d9c70e_0003",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_f347d259d6d9c70e_0003"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0003",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "The image metadata above is grounded because it comes from DOM-readable attributes, not a vision model guess.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 2,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0003",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0003",
+          "textHash": "sha256_d1208a50541191632a68b351b07bfa48",
+          "textQuote": "The image metadata above is grounded because it comes from DOM-readable attributes, not a vision model guess."
+        }
+      ],
+      "text": "The image metadata above is grounded because it comes from DOM - readable attributes , not",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_f347d259d6d9c70e_0001",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_f347d259d6d9c70e_0001"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0001",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Image content is only represented when the DOM exposes alt text, title, aria label, caption, or nearby text.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 0,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0001",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0001",
+          "textHash": "sha256_aab5b7ac1d4c143af38d139d44aa92b0",
+          "textQuote": "Image content is only represented when the DOM exposes alt text, title, aria label, caption, or nearby text."
+        }
+      ],
+      "text": "Image content is only represented when the DOM exposes alt text , title , aria label",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.796,
+      "itemId": "item_block_pg_page_f347d259d6d9c70e_0004",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_f347d259d6d9c70e_0004"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0004",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 3,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0004",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0004",
+          "textHash": "sha256_aaf96dc11ffee6ad8d3750cfe4b20d42",
+          "textQuote": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims."
+        }
+      ],
+      "text": "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.789,
+      "importance": 0.773,
+      "itemId": "item_block_pg_page_f347d259d6d9c70e_0002",
+      "kind": "image_metadata",
+      "relatedChunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_f347d259d6d9c70e_0002"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0002",
+          "blockType": "image",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "Image metadata: Floating Ask AI toolbar attached to the browser page edge",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 1,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0002",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0002",
+          "textHash": "sha256_ca6fdf06d5a6e30e97f08087149ed663",
+          "textQuote": "Image metadata: Floating Ask AI toolbar attached to the browser page edge"
+        }
+      ],
+      "text": "Image metadata : Floating Ask AI toolbar attached to the browser page edge",
+      "warnings": []
+    },
+    {
+      "confidence": 0.8,
+      "importance": 0.772,
+      "itemId": "item_block_pg_page_f347d259d6d9c70e_0005",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_f347d259d6d9c70e_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_f347d259d6d9c70e_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_f347d259d6d9c70e_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_f347d259d6d9c70e_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f347d259d6d9c70e151d012b987d4ef8765cfa2ca55127bfc720f2ff32fa55cb",
+          "fallbackText": "OCR is a future governed input contract and is not executed by the A module in V1.1.",
+          "headingPath": [
+            "Visual Evidence Handling"
+          ],
+          "order": 4,
+          "pageId": "page_f347d259d6d9c70e",
+          "paragraphId": "pg_page_f347d259d6d9c70e_0005",
+          "sourceRefId": "src_page_f347d259d6d9c70e_0005",
+          "textHash": "sha256_3ad082561ab41858dd7967ea39d6be8c",
+          "textQuote": "OCR is a future governed input contract and is not executed by the A module in V1.1."
+        }
+      ],
+      "text": "OCR is a future governed input contract and is not executed by the A module in",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_f347d259d6d9c70e",
+  "rejectedItems": [],
+  "stats": {
+    "compressionRatio": 0.877,
+    "itemCount": 5,
+    "sourceRefCount": 5
+  },
+  "summary": {
+    "keyTakeaways": [
+      "The image metadata above is grounded because it comes from DOM - readable attributes , not",
+      "Image content is only represented when the DOM exposes alt text , title , aria label",
+      "Unknown images must remain unknown and may lower readiness instead of creating unsupported visual claims .",
+      "Image metadata : Floating Ask AI toolbar attached to the browser page edge",
+      "OCR is a future governed input contract and is not executed by the A module in"
+    ],
+    "tldr": "The image metadata above is grounded because it comes from DOM - readable attributes , not"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_9c0d4e13f1bae834e9e6c6de344da3e0259acde6f28159ccb77e94e45d97bca4",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 5.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 4.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.8
+    },
+    "contentCoverage": {
+      "denominator": 405.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 303.0,
+      "passed": false,
+      "threshold": 0.75,
+      "value": 0.748
+    },
+    "digestCompressionRatio": {
+      "denominator": 55.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 38.0,
+      "passed": false,
+      "threshold": 0.35,
+      "value": 0.691
+    },
+    "groundingCompleteness": {
+      "denominator": 5.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 5.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 6.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 6.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 6.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 1.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.167
+    },
+    "sourceCoverage": {
+      "denominator": 5.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 5.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.877,
+  "pageId": "page_9c0d4e13f1bae834",
+  "reportId": "q_page_9c0d4e13f1bae834",
+  "warnings": []
+}

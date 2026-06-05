@@ -97,6 +97,9 @@ Pass criteria:
 - Every digest item has source reference.
 - Quality report fails low-signal pages instead of marking them ready.
 - OCR / video / live evidence remains mock or planning-only.
+- valid_content fixtures pass thresholds.
+- no_signal fixtures fail or return `PAGE_CONTEXT_REQUIRED`.
+- planning_only fixtures never report real perception readiness.
 
 Fail criteria:
 
@@ -104,3 +107,5 @@ Fail criteria:
 - Quality report always returns pass.
 - Digest items lack grounding.
 - A directly calls OCR, VLM, ASR, video, live stream, MCP, Skill, or external API.
+- D/C/B consume A-V1.1 exact shapes before public contract promotion.
+- SourceRef relies only on selector/domPath without textQuote or fallbackText.

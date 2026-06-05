@@ -70,6 +70,7 @@ V1.1 新增文档：
 | `stage-gates/v1.1-c-high-fidelity-states.md` | V1.1-C：高保真状态实现门禁 |
 | `stage-gates/v1.1-d-visual-e2e-regression.md` | V1.1-D：视觉 E2E 回归门禁 |
 | `stage-gates/v1.1-e-exit-review.md` | V1.1-E：出门评审门禁 |
+| `stage-gates/v1.1-current-baseline-revalidation.md` | V1.1 当前基线复验：2026-06-05 真实 Chrome、Runtime、截图、A 模块回归结论 |
 | `design/v1.1-frontend-fidelity-gap.drawio` | V1.1 gap 图谱：当前/目标架构差异、开发及验收计划、里程碑、验收门槛、出门条件 |
 
 V1.2 新增文档：
@@ -86,11 +87,15 @@ V1.2 新增文档：
 | `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 自动化开发 gap 图谱：当前/目标架构差异、模块内部架构、公共 API、关键体验路径、开发验收、里程碑和出门条件 |
 | `design/v1.2-a-page-perception-gap.md` | A 模块 Draw.io companion：Page Perception / AgentCore Eyes 当前差异、目标架构、合同、里程碑和验收说明 |
 | `design/v1.2-a-page-perception-gap.drawio` | A 模块专属 gap 图谱：当前/目标差异、A 内部架构、A 与 B/C/D 调用关系、关键路径、开发验收和出门条件 |
+| `design/a-v1.1-contract-freeze-readiness-audit.md` | A-V1.1-0 合同冻结 readiness 审计：Go / No-Go、剩余 P0、ChatGPT 审计路径 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2-0R readiness 收口审计：当前文档是否足以支撑全量 V1.2 开发、剩余开发验收计划和 ChatGPT 审计路径 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | V1.2 ADR：piAgent 作为首选 CoreProvider，D 以可替换 Core 适配层为主 |
 | `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
+| `contracts/a_v1_1_high_signal.schema.json` | A-V1.1 高信号感知 JSON Schema：HighSignalPageContext、Digest、SourceMap、QualityReport、CandidateExtractionResult |
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
 | `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md` | A-V1.1 高信号网页感知门禁：Hybrid Extraction、正文降噪、sourceMap、digest、质量评估和 OCR/视频合同规划 |
+| `stage-gates/v1.2-a-v1.2-production-page-perception.md` | A-V1.2 生产级网页感知规划门禁：组合技术路线、100 个复杂网页验收、里程碑和出门条件 |
+| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-100-page-evaluation-plan.md` | A-V1.2 100-page evaluation corpus 规划：类别、evidence、质量门槛、false-green 防线 |
 
 V1.2 代码工作区：
 
@@ -115,7 +120,7 @@ V1.2 代码工作区：
 8. V1.1-B 开工前必须执行 `node scripts/validate_v1_1_doc_readiness.mjs`，只有输出 `canStartV11B=true` 才允许进入实质前端开发。
 9. 外部 Agent 进入仓库后先读根目录 `AGENTS.md`、`AGENT_ONBOARDING.md` 和 `V1_2_AGENT_WORKPACKS.md`，再选择 A/B/C/D/Integration 工作包。
 10. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`design/v1.2-module-local-design-package.md`、`design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md`、`design/v1.2-ai-reading-automation-gap.drawio`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
-11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md`、`stage-gates/v1.2-a-page-reading.md` 和 `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。
+11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md`、`stage-gates/v1.2-a-page-reading.md` 和 `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。A-V1.1-0 开工前还必须读取 `contracts/a_v1_1_high_signal.schema.json`、`design/a-v1.1-contract-freeze-readiness-audit.md` 和 `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.1-evidence-spec.md`。
 12. V1.2 全量开工前必须读取 `design/v1.2-readiness-closure-audit.md`。ChatGPT 审计文档路径以该文件第 5 节为准，且审计无致命或重大规格偏差后才能进入 staged mock-first implementation。
 
 ## V1 硬边界

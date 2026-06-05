@@ -163,7 +163,328 @@ type StructuredSummaryDraft = {
 
 ---
 
-## 8. AgenticLoopContext
+## 8. A-V1.1 High-Signal Public Contracts
+
+A-V1.1 审计结论：
+
+```text
+HighSignalPageContext / PerceptionDigest / SourceMap / PagePerceptionQualityReport
+must be public contracts before D/C can consume them.
+```
+
+这些合同是 `StructuredPageContext` 的高信号视图和评估层，不替代 `StructuredPageContext`。A 必须继续保留完整结构化上下文；D/C 可在 `qualityReport.downstreamReadiness = "pass"` 时优先消费 high-signal 视图。
+
+### 8.1 HighSignalPageContext
+
+```ts
+type HighSignalPageContext = {
+  schemaVersion: "a-v1.1-high-signal-2026-06-05"
+  pageId: string
+  sessionId: string
+  contentHash: string
+  sourceStructuredPageRef: {
+    pageId: string
+    contentHash: string
+  }
+  metadata: PageMetadata
+  highSignalBlocks: HighSignalBlock[]
+  filteredBlocks: FilteredBlockEvidence[]
+  sourceMapRef: string
+  digestRef?: string
+  qualityReportRef: string
+  status: "ready" | "degraded" | "failed"
+  warnings: string[]
+}
+```
+
+约束：
+
+- `ready`：D/C 可作为高信号上下文消费。
+- `degraded`：只能作为 fallback 或 Debug evidence，D/C 不得作为主上下文。
+- `failed`：不得进入 D/C high-signal consumption。
+- `HighSignalPageContext` 必须回指同一 `pageId` / `contentHash` 的 `StructuredPageContext`。
+
+### 8.2 HighSignalBlock
+
+```ts
+type HighSignalBlock = {
+  blockId: string
+  pageId: string
+  contentHash: string
+  blockType:
+    | "paragraph"
+    | "chunk"
+    | "heading"
+    | "image"
+    | "table"
+    | "table_cell"
+    | "code"
+    | "list_item"
+    | "quote"
+  order: number
+  text: string
+  paragraphIds: string[]
+  chunkIds: string[]
+  sourceRefs: SourceRef[]
+  regionType:
+    | "main"
+    | "article"
+    | "section"
+    | "metadata"
+    | "aside"
+    | "nav"
+    | "footer"
+    | "recommendation"
+    | "comment"
+    | "ad_like"
+    | "unknown"
+  contentDensityScore: number
+  noiseScore: number
+  importance: number
+  confidence: number
+  warnings: string[]
+}
+```
+
+约束：
+
+- `contentDensityScore`、`noiseScore`、`importance`、`confidence` 范围为 `0..1`。
+- `highSignalBlocks` 不得只是 `cleanedText` 的复制。
+- 任一 block 进入 high-signal 输出时必须至少有一个 `SourceRef`。
+
+### 8.3 FilteredBlockEvidence
+
+```ts
+type FilteredBlockEvidence = {
+  blockId: string
+  pageId: string
+  contentHash: string
+  blockType: HighSignalBlock["blockType"]
+  order: number
+  textQuote: string
+  textHash: string
+  regionType: HighSignalBlock["regionType"]
+  noiseScore: number
+  reason:
+    | "navigation"
+    | "footer"
+    | "aside"
+    | "recommendation"
+    | "comment"
+    | "ad_like"
+    | "duplicate"
+    | "low_signal"
+    | "unknown"
+  sourceRefs: SourceRef[]
+}
+```
+
+约束：
+
+- 被过滤或降权内容必须留下 evidence，避免不可审计删除。
+- `filteredBlocks` 只能用于 Debug / audit，不得作为 D/C 主输入。
+
+### 8.4 SourceMap and SourceRef
+
+```ts
+type SourceMap = {
+  sourceMapId: string
+  pageId: string
+  contentHash: string
+  sourceRefs: SourceRef[]
+}
+
+type SourceRef = {
+  sourceRefId: string
+  pageId: string
+  contentHash: string
+  blockId: string
+  blockType:
+    | "paragraph"
+    | "chunk"
+    | "heading"
+    | "image"
+    | "table"
+    | "table_cell"
+    | "code"
+    | "list_item"
+    | "quote"
+  order: number
+  paragraphId?: string
+  chunkId?: string
+  headingPath?: string[]
+  textQuote: string
+  textHash: string
+  selector?: string
+  domPath?: string
+  startOffset?: number
+  endOffset?: number
+  fallbackText: string
+  confidence: number
+}
+```
+
+约束：
+
+- DOM selector / `domPath` 不得作为唯一反跳机制。
+- 每个 `SourceRef` 必须有 `textQuote` 或 `fallbackText`。
+- B 回跳失败时必须能展示 `fallbackText` / `textQuote` 证据卡片。
+- `confidence` 范围为 `0..1`。
+
+### 8.5 PerceptionDigest
+
+```ts
+type PerceptionDigest = {
+  digestId: string
+  pageId: string
+  contentHash: string
+  items: PerceptionDigestItem[]
+  rejectedItems: Array<{
+    itemId: string
+    text: string
+    reason: "missing_source_ref" | "low_confidence" | "duplicate" | "low_signal"
+    warnings: string[]
+  }>
+  summary: {
+    tldr: string
+    keyTakeaways: string[]
+  }
+  stats: {
+    itemCount: number
+    sourceRefCount: number
+    compressionRatio: number
+  }
+}
+
+type PerceptionDigestItem = {
+  itemId: string
+  kind:
+    | "key_fact"
+    | "entity"
+    | "claim"
+    | "evidence"
+    | "definition"
+    | "procedure"
+    | "open_question"
+    | "table_fact"
+    | "code_fact"
+    | "image_metadata"
+  text: string
+  importance: number
+  confidence: number
+  sourceRefs: SourceRef[]
+  relatedParagraphIds: string[]
+  relatedChunkIds: string[]
+  warnings: string[]
+}
+```
+
+约束：
+
+- 每个 `PerceptionDigestItem` 必须有 `sourceRefs`。
+- 没有来源的候选条目只能进入 `rejectedItems`，不得进入 `items`。
+- A 不得把 digest 当作最终 assistant answer。
+
+### 8.6 PagePerceptionQualityReport
+
+```ts
+type PagePerceptionQualityReport = {
+  reportId: string
+  pageId: string
+  contentHash: string
+  overallScore: number
+  metrics: {
+    noiseRatio: QualityMetric
+    contentCoverage: QualityMetric
+    sourceCoverage: QualityMetric
+    groundingCompleteness: QualityMetric
+    jumpbackCoverage: QualityMetric
+    digestCompressionRatio: QualityMetric
+    candidateFactDensity: QualityMetric
+  }
+  downstreamReadiness: "pass" | "degraded" | "fail"
+  fatalIssues: QualityIssue[]
+  warnings: QualityIssue[]
+}
+
+type QualityMetric = {
+  value: number
+  numerator?: number
+  denominator?: number
+  method: string
+  threshold?: number
+  passed: boolean
+}
+
+type QualityIssue = {
+  code: string
+  message: string
+  severity: "warning" | "major" | "fatal"
+  relatedIds: string[]
+}
+```
+
+Metric formulas:
+
+| Metric | Formula |
+|---|---|
+| `noiseRatio` | `filteredOrDowngradedNoiseBlocks / allDetectedBlocks` |
+| `contentCoverage` | `highSignalContentChars / readableContentChars` |
+| `sourceCoverage` | `highSignalBlocksWithSourceRef / highSignalBlocksTotal` |
+| `groundingCompleteness` | `digestItemsWithSourceRefs / digestItemsTotal` |
+| `jumpbackCoverage` | `sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal` |
+| `digestCompressionRatio` | `digestTextTokenEstimate / structuredPageTextTokenEstimate` |
+| `candidateFactDensity` | `digestCandidateFactItems / digestTokenEstimate` |
+| `overallScore` | deterministic weighted score: sourceCoverage 0.25, groundingCompleteness 0.25, jumpbackCoverage 0.2, inverse noiseRatio 0.2, contentCoverage 0.1 |
+
+Default thresholds:
+
+```text
+overallScore >= 0.75
+sourceCoverage >= 0.95
+groundingCompleteness >= 0.95
+jumpbackCoverage >= 0.95
+noiseRatio <= 0.25
+downstreamReadiness = pass
+```
+
+约束：
+
+- `QualityReport` 不得写死 pass。
+- 每个参与 `overallScore` 的 metric 必须提供 `method`，并尽量提供 numerator / denominator。
+- `candidateFactDensity` 是 deterministic proxy，不代表事实真伪验证。
+
+### 8.7 CandidateExtractionResult
+
+```ts
+type CandidateExtractionResult = {
+  extractorName: "trafilatura" | "readabilipy" | "readability_lxml" | "dom_baseline"
+  version?: string
+  title?: string
+  text?: string
+  metadata?: Record<string, unknown>
+  blocks?: CandidateBlock[]
+  confidence?: number
+  warnings: string[]
+}
+
+type CandidateBlock = {
+  candidateBlockId: string
+  order: number
+  text: string
+  blockType?: string
+  metadata?: Record<string, unknown>
+}
+```
+
+约束：
+
+- Candidate extractor 输出不得直接暴露给 D/C/B。
+- Candidate extractor 输出不得直接写入 final `HighSignalPageContext`。
+- A Pipeline 必须把 candidate output 映射回 A-owned block graph 和 `SourceMap`。
+- 第三方库不可用时，A 必须 fallback 到 `dom_baseline`。
+
+## 9. AgenticLoopContext
 
 ```ts
 type AgenticLoopContext = {
@@ -173,6 +494,10 @@ type AgenticLoopContext = {
   requestId: string
   userMessage: string
   activePage?: StructuredPageContext
+  highSignalPage?: HighSignalPageContext
+  perceptionDigest?: PerceptionDigest
+  sourceMap?: SourceMap
+  qualityReport?: PagePerceptionQualityReport
   recentMessages: Array<{
     messageId: string
     role: "user" | "assistant" | "tool" | "system"
@@ -197,7 +522,7 @@ type AgenticLoopContext = {
 
 ---
 
-## 9. AdapterSpec
+## 10. AdapterSpec
 
 ```ts
 type AdapterSpec = {
@@ -227,7 +552,7 @@ type AdapterSpec = {
 
 ---
 
-## 10. AdapterInvocation
+## 11. AdapterInvocation
 
 ```ts
 type AdapterInvocation = {
@@ -249,7 +574,7 @@ type AdapterInvocation = {
 
 ---
 
-## 11. AdapterResult
+## 12. AdapterResult
 
 ```ts
 type AdapterResult = {
@@ -276,7 +601,7 @@ AdapterResult
 
 ---
 
-## 12. Mindmap Node Source Map
+## 13. Mindmap Node Source Map
 
 ```ts
 type MindmapNodeSourceMap = Record<
@@ -298,7 +623,7 @@ type MindmapNodeSourceMap = Record<
 
 ---
 
-## 13. 合同版本
+## 14. 合同版本
 
 V1.2 Adapter 合同版本：
 
@@ -317,7 +642,7 @@ contracts/*.schema.json 如果进入机器校验阶段
 
 ---
 
-## 14. Field Ownership
+## 15. Field Ownership
 
 | Field | Owner | Consumers | Rule |
 |---|---|---|---|
@@ -329,10 +654,15 @@ contracts/*.schema.json 如果进入机器校验阶段
 | `turnId` | D | Adapter, B, Trace, Artifact | One user message creates one turn. |
 | `toolCallId` | D | Adapter, Artifact, Trace | One adapter/tool call creates one ID. |
 | `nodeSourceMap` | C | B | Stored under `ArtifactRecord.metadata.nodeSourceMap`. |
+| `HighSignalPageContext` | A | D, C, Integration, B Debug | Public only after A-V1.1-0 freeze; D/C consume only when quality readiness passes. |
+| `PerceptionDigest` | A | D, C, B Debug | Every item must have source refs. |
+| `SourceMap` / `SourceRef` | A | C, B, D | DOM selector is optional; text fallback is mandatory. |
+| `PagePerceptionQualityReport` | A | D, Integration, B Debug | Must be computed, not hard-coded pass. |
+| `CandidateExtractionResult` | A internal | A only | Must not be exposed as final Navia contract. |
 | `ArtifactRecord` | D / Store | B, Trace | Successful artifact-producing tools only. |
 | `AgentEvent` | D / Runtime | B, EventStore | Existing event types only unless V1.2-0 reopens. |
 
-## 15. Module Public API Contract
+## 16. Module Public API Contract
 
 V1.2 module implementation must follow the module-local public API documents:
 
@@ -346,7 +676,7 @@ apps/chrome-extension/src/modules/*_renderer/docs/public-api.md
 
 Any implementation that changes these module entry contracts must update this contract document and return to V1.2-0 review before integration.
 
-## 16. CoreProvider Contract
+## 17. CoreProvider Contract
 
 V1.2 D 模块采用可替换 CoreProvider 抽象：
 
@@ -369,7 +699,7 @@ custom    后续扩展点
 - CoreProvider 请求工具时必须转换为 `AdapterInvocation`，并经过 D governance。
 - A/C/B 不直接依赖 piAgent 或其他 CoreProvider。
 
-## 17. Integration Contract Matrix
+## 18. Integration Contract Matrix
 
 Field-level wiring is governed by:
 

@@ -1,0 +1,864 @@
+{
+  "candidateExtraction": {
+    "blocks": [
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_5136d7f047d6b4c5_0001",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture"
+          ]
+        },
+        "order": 0,
+        "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_5136d7f047d6b4c5_0002",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture"
+          ]
+        },
+        "order": 1,
+        "text": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_5136d7f047d6b4c5_0003",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture"
+          ]
+        },
+        "order": 2,
+        "text": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_5136d7f047d6b4c5_0004",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture",
+            "Implementation Steps"
+          ]
+        },
+        "order": 3,
+        "text": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_5136d7f047d6b4c5_0005",
+        "metadata": {
+          "headingPath": [
+            "Companion Reading Architecture",
+            "Implementation Steps"
+          ]
+        },
+        "order": 4,
+        "text": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+      }
+    ],
+    "confidence": 0.76,
+    "extractorName": "dom_baseline",
+    "metadata": {
+      "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+      "pageId": "page_5136d7f047d6b4c5",
+      "paragraphCount": 5
+    },
+    "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.\nThe A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.\nAccording to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.\nFirst, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.\nEvidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+    "title": "article_noise",
+    "version": "a-v1.1-dom-baseline",
+    "warnings": []
+  },
+  "error": null,
+  "highSignalPage": {
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "digestRef": "digest_page_5136d7f047d6b4c5",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "confidence": 0.819,
+        "contentDensityScore": 0.723,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "importance": 0.82,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 0,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0001",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0001",
+            "textHash": "sha256_021741b2265adaac572649cbdc7122e1",
+            "textQuote": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+          }
+        ],
+        "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "confidence": 0.821,
+        "contentDensityScore": 0.731,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "importance": 0.824,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 1,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0002",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0002",
+            "textHash": "sha256_9d6c5f5a0653034e48b140c96d232c97",
+            "textQuote": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+          }
+        ],
+        "text": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.729,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "importance": 0.823,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 2,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0003",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0003",
+            "textHash": "sha256_f363250c0a69af2c7d1b30c55178c132",
+            "textQuote": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+          }
+        ],
+        "text": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0004",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.725,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "importance": 0.821,
+        "noiseScore": 0.08,
+        "order": 3,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0004"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Implementation Steps"
+            ],
+            "order": 3,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0004",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0004",
+            "textHash": "sha256_6c0548102031ca84ed93c2e46b099e9e",
+            "textQuote": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+          }
+        ],
+        "text": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0005",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "confidence": 0.822,
+        "contentDensityScore": 0.738,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "importance": 0.828,
+        "noiseScore": 0.08,
+        "order": 4,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0005"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Implementation Steps"
+            ],
+            "order": 4,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0005",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0005",
+            "textHash": "sha256_cfa5b939a38c454b34e9d8eb53dccf2f",
+            "textQuote": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+          }
+        ],
+        "text": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 2,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 129
+    },
+    "pageId": "page_5136d7f047d6b4c5",
+    "qualityReportRef": "q_page_5136d7f047d6b4c5",
+    "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+    "sessionId": "evidence_article_noise",
+    "sourceMapRef": "smap_page_5136d7f047d6b4c5",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+      "pageId": "page_5136d7f047d6b4c5"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "ok": true,
+  "perceptionDigest": {
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "digestId": "digest_page_5136d7f047d6b4c5",
+    "items": [
+      {
+        "confidence": 0.822,
+        "importance": 0.828,
+        "itemId": "item_block_pg_page_5136d7f047d6b4c5_0005",
+        "kind": "evidence",
+        "relatedChunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_5136d7f047d6b4c5_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Implementation Steps"
+            ],
+            "order": 4,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0005",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0005",
+            "textHash": "sha256_cfa5b939a38c454b34e9d8eb53dccf2f",
+            "textQuote": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+          }
+        ],
+        "text": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM",
+        "warnings": []
+      },
+      {
+        "confidence": 0.821,
+        "importance": 0.824,
+        "itemId": "item_block_pg_page_5136d7f047d6b4c5_0002",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_5136d7f047d6b4c5_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 1,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0002",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0002",
+            "textHash": "sha256_9d6c5f5a0653034e48b140c96d232c97",
+            "textQuote": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+          }
+        ],
+        "text": "The A module is the perception layer . It cleans visible text , preserves paragraph identifiers",
+        "warnings": []
+      },
+      {
+        "confidence": 0.82,
+        "importance": 0.823,
+        "itemId": "item_block_pg_page_5136d7f047d6b4c5_0003",
+        "kind": "evidence",
+        "relatedChunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_5136d7f047d6b4c5_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 2,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0003",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0003",
+            "textHash": "sha256_f363250c0a69af2c7d1b30c55178c132",
+            "textQuote": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+          }
+        ],
+        "text": "According to the V1 . 2 plan , high - signal output must include source coverage",
+        "warnings": []
+      },
+      {
+        "confidence": 0.82,
+        "importance": 0.821,
+        "itemId": "item_block_pg_page_5136d7f047d6b4c5_0004",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_5136d7f047d6b4c5_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.",
+            "headingPath": [
+              "Companion Reading Architecture",
+              "Implementation Steps"
+            ],
+            "order": 3,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0004",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0004",
+            "textHash": "sha256_6c0548102031ca84ed93c2e46b099e9e",
+            "textQuote": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+          }
+        ],
+        "text": "First , the page is converted into structured paragraphs . Second , noisy navigation and recommendation",
+        "warnings": []
+      },
+      {
+        "confidence": 0.819,
+        "importance": 0.82,
+        "itemId": "item_block_pg_page_5136d7f047d6b4c5_0001",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_5136d7f047d6b4c5_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_5136d7f047d6b4c5_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_5136d7f047d6b4c5_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+            "fallbackText": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.",
+            "headingPath": [
+              "Companion Reading Architecture"
+            ],
+            "order": 0,
+            "pageId": "page_5136d7f047d6b4c5",
+            "paragraphId": "pg_page_5136d7f047d6b4c5_0001",
+            "sourceRefId": "src_page_5136d7f047d6b4c5_0001",
+            "textHash": "sha256_021741b2265adaac572649cbdc7122e1",
+            "textQuote": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+          }
+        ],
+        "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_5136d7f047d6b4c5",
+    "rejectedItems": [],
+    "stats": {
+      "compressionRatio": 0.673,
+      "itemCount": 5,
+      "sourceRefCount": 5
+    },
+    "summary": {
+      "keyTakeaways": [
+        "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM",
+        "The A module is the perception layer . It cleans visible text , preserves paragraph identifiers",
+        "According to the V1 . 2 plan , high - signal output must include source coverage",
+        "First , the page is converted into structured paragraphs . Second , noisy navigation and recommendation",
+        "Navia is a browser companion reading runtime that extracts page facts before the agent writes an"
+      ],
+      "tldr": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 5.0,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 1.0
+      },
+      "contentCoverage": {
+        "denominator": 719.0,
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 719.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 107.0,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 72.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.673
+      },
+      "groundingCompleteness": {
+        "denominator": 5.0,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 5.0,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 5.0,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 5.0,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 5.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallScore": 0.933,
+    "pageId": "page_5136d7f047d6b4c5",
+    "reportId": "q_page_5136d7f047d6b4c5",
+    "warnings": []
+  },
+  "sourceMap": {
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "pageId": "page_5136d7f047d6b4c5",
+    "sourceMapId": "smap_page_5136d7f047d6b4c5",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "fallbackText": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 0,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0001",
+        "sourceRefId": "src_page_5136d7f047d6b4c5_0001",
+        "textHash": "sha256_021741b2265adaac572649cbdc7122e1",
+        "textQuote": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "fallbackText": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 1,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0002",
+        "sourceRefId": "src_page_5136d7f047d6b4c5_0002",
+        "textHash": "sha256_9d6c5f5a0653034e48b140c96d232c97",
+        "textQuote": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "fallbackText": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 2,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0003",
+        "sourceRefId": "src_page_5136d7f047d6b4c5_0003",
+        "textHash": "sha256_f363250c0a69af2c7d1b30c55178c132",
+        "textQuote": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0004",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "fallbackText": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ],
+        "order": 3,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0004",
+        "sourceRefId": "src_page_5136d7f047d6b4c5_0004",
+        "textHash": "sha256_6c0548102031ca84ed93c2e46b099e9e",
+        "textQuote": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+      },
+      {
+        "blockId": "block_pg_page_5136d7f047d6b4c5_0005",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+        "fallbackText": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ],
+        "order": 4,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0005",
+        "sourceRefId": "src_page_5136d7f047d6b4c5_0005",
+        "textHash": "sha256_cfa5b939a38c454b34e9d8eb53dccf2f",
+        "textQuote": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+      }
+    ]
+  },
+  "structuredPage": {
+    "annotations": [
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.72,
+        "densityScore": 0.723,
+        "importance": "medium",
+        "labels": [
+          "definition",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0001",
+        "role": "definition"
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.72,
+        "densityScore": 0.731,
+        "importance": "high",
+        "labels": [
+          "definition",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0002",
+        "role": "definition"
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.72,
+        "densityScore": 0.729,
+        "importance": "high",
+        "labels": [
+          "evidence",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0003",
+        "role": "evidence"
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.72,
+        "densityScore": 0.725,
+        "importance": "high",
+        "labels": [
+          "procedure",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0004",
+        "role": "procedure"
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "confidence": 0.72,
+        "densityScore": 0.738,
+        "importance": "high",
+        "labels": [
+          "evidence",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0005",
+        "role": "evidence"
+      }
+    ],
+    "capturedAt": "2026-06-04T00:00:00Z",
+    "chunks": [
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 0,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0001",
+          "pg_page_5136d7f047d6b4c5_0002",
+          "pg_page_5136d7f047d6b4c5_0003",
+          "pg_page_5136d7f047d6b4c5_0004",
+          "pg_page_5136d7f047d6b4c5_0005"
+        ],
+        "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.\nThe A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.\nAccording to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.\nFirst, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.\nEvidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+        "tokenEstimate": 180
+      }
+    ],
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "domain": "module-fixtures.example",
+    "headingTree": [
+      {
+        "headingId": "hd_0001",
+        "level": 1,
+        "order": 0,
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0001",
+          "pg_page_5136d7f047d6b4c5_0002",
+          "pg_page_5136d7f047d6b4c5_0003",
+          "pg_page_5136d7f047d6b4c5_0004",
+          "pg_page_5136d7f047d6b4c5_0005"
+        ],
+        "text": "Companion Reading Architecture"
+      },
+      {
+        "headingId": "hd_0002",
+        "level": 2,
+        "order": 1,
+        "paragraphIds": [
+          "pg_page_5136d7f047d6b4c5_0004",
+          "pg_page_5136d7f047d6b4c5_0005"
+        ],
+        "parentHeadingId": "hd_0001",
+        "text": "Implementation Steps"
+      }
+    ],
+    "imageMetadata": [],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 2,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 129
+    },
+    "pageId": "page_5136d7f047d6b4c5",
+    "paragraphs": [
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 0,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0001",
+        "sourceBlockType": "paragraph",
+        "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 1,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0002",
+        "sourceBlockType": "paragraph",
+        "text": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture"
+        ],
+        "order": 2,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0003",
+        "sourceBlockType": "paragraph",
+        "text": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ],
+        "order": 3,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0004",
+        "sourceBlockType": "paragraph",
+        "text": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+      },
+      {
+        "chunkId": "ck_page_5136d7f047d6b4c5_0001",
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ],
+        "order": 4,
+        "pageId": "page_5136d7f047d6b4c5",
+        "paragraphId": "pg_page_5136d7f047d6b4c5_0005",
+        "sourceBlockType": "paragraph",
+        "text": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+      }
+    ],
+    "sessionId": "evidence_article_noise",
+    "summaryDraft": {
+      "format": "json",
+      "keyPoints": [
+        "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+        "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.",
+        "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.",
+        "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+      ],
+      "structure": [
+        {
+          "headingPath": [
+            "Companion Reading Architecture"
+          ],
+          "paragraphIds": [
+            "pg_page_5136d7f047d6b4c5_0001",
+            "pg_page_5136d7f047d6b4c5_0002",
+            "pg_page_5136d7f047d6b4c5_0003",
+            "pg_page_5136d7f047d6b4c5_0004",
+            "pg_page_5136d7f047d6b4c5_0005"
+          ],
+          "summary": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.\nThe A module is the perception layer. It cleans visible text, preserves par"
+        }
+      ],
+      "suggestedQuestions": [
+        "这篇内容的核心观点是什么？",
+        "哪些段落最值得深入阅读？",
+        "可以把这篇内容整理成思维导图吗？"
+      ],
+      "title": "article_noise",
+      "tldr": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+    },
+    "title": "article_noise",
+    "url": "https://module-fixtures.example/article_noise"
+  },
+  "warnings": []
+}

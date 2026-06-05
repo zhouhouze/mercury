@@ -1,0 +1,498 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/a_v1_1_high_signal.schema.json",
+  "title": "Navia A-V1.1 High Signal Contracts",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/HighSignalPageContext" },
+    { "$ref": "#/$defs/PerceptionDigest" },
+    { "$ref": "#/$defs/SourceMap" },
+    { "$ref": "#/$defs/PagePerceptionQualityReport" },
+    { "$ref": "#/$defs/CandidateExtractionResult" }
+  ],
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "Hash": {
+      "type": "string",
+      "pattern": "^sha256_[a-f0-9]{16,64}$"
+    },
+    "Score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "PageMetadata": {
+      "type": "object",
+      "required": ["wordCount", "paragraphCount", "headingCount"],
+      "properties": {
+        "language": { "type": "string" },
+        "contentType": {
+          "type": "string",
+          "enum": ["article", "documentation", "readme", "search_result", "unknown"]
+        },
+        "author": { "type": "string" },
+        "publishedAt": { "type": "string" },
+        "siteName": { "type": "string" },
+        "canonicalUrl": { "type": "string" },
+        "wordCount": { "type": "integer", "minimum": 0 },
+        "paragraphCount": { "type": "integer", "minimum": 0 },
+        "headingCount": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": true
+    },
+    "BlockType": {
+      "type": "string",
+      "enum": [
+        "paragraph",
+        "chunk",
+        "heading",
+        "image",
+        "table",
+        "table_cell",
+        "code",
+        "list_item",
+        "quote"
+      ]
+    },
+    "RegionType": {
+      "type": "string",
+      "enum": [
+        "main",
+        "article",
+        "section",
+        "metadata",
+        "aside",
+        "nav",
+        "footer",
+        "recommendation",
+        "comment",
+        "ad_like",
+        "unknown"
+      ]
+    },
+    "SourceRef": {
+      "type": "object",
+      "required": [
+        "sourceRefId",
+        "pageId",
+        "contentHash",
+        "blockId",
+        "blockType",
+        "order",
+        "textQuote",
+        "textHash",
+        "fallbackText",
+        "confidence"
+      ],
+      "properties": {
+        "sourceRefId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "blockId": { "$ref": "#/$defs/Id" },
+        "blockType": { "$ref": "#/$defs/BlockType" },
+        "order": { "type": "integer", "minimum": 0 },
+        "paragraphId": { "$ref": "#/$defs/Id" },
+        "chunkId": { "$ref": "#/$defs/Id" },
+        "headingPath": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "textQuote": { "type": "string", "minLength": 1 },
+        "textHash": { "$ref": "#/$defs/Hash" },
+        "selector": { "type": "string" },
+        "domPath": { "type": "string" },
+        "startOffset": { "type": "integer", "minimum": 0 },
+        "endOffset": { "type": "integer", "minimum": 0 },
+        "fallbackText": { "type": "string", "minLength": 1 },
+        "confidence": { "$ref": "#/$defs/Score" }
+      },
+      "additionalProperties": false
+    },
+    "SourceMap": {
+      "type": "object",
+      "required": ["sourceMapId", "pageId", "contentHash", "sourceRefs"],
+      "properties": {
+        "sourceMapId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "sourceRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/SourceRef" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "HighSignalBlock": {
+      "type": "object",
+      "required": [
+        "blockId",
+        "pageId",
+        "contentHash",
+        "blockType",
+        "order",
+        "text",
+        "paragraphIds",
+        "chunkIds",
+        "sourceRefs",
+        "regionType",
+        "contentDensityScore",
+        "noiseScore",
+        "importance",
+        "confidence",
+        "warnings"
+      ],
+      "properties": {
+        "blockId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "blockType": { "$ref": "#/$defs/BlockType" },
+        "order": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string", "minLength": 1 },
+        "paragraphIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Id" }
+        },
+        "chunkIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Id" }
+        },
+        "sourceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/SourceRef" }
+        },
+        "regionType": { "$ref": "#/$defs/RegionType" },
+        "contentDensityScore": { "$ref": "#/$defs/Score" },
+        "noiseScore": { "$ref": "#/$defs/Score" },
+        "importance": { "$ref": "#/$defs/Score" },
+        "confidence": { "$ref": "#/$defs/Score" },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "FilteredBlockEvidence": {
+      "type": "object",
+      "required": [
+        "blockId",
+        "pageId",
+        "contentHash",
+        "blockType",
+        "order",
+        "textQuote",
+        "textHash",
+        "regionType",
+        "noiseScore",
+        "reason",
+        "sourceRefs"
+      ],
+      "properties": {
+        "blockId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "blockType": { "$ref": "#/$defs/BlockType" },
+        "order": { "type": "integer", "minimum": 0 },
+        "textQuote": { "type": "string", "minLength": 1 },
+        "textHash": { "$ref": "#/$defs/Hash" },
+        "regionType": { "$ref": "#/$defs/RegionType" },
+        "noiseScore": { "$ref": "#/$defs/Score" },
+        "reason": {
+          "type": "string",
+          "enum": [
+            "navigation",
+            "footer",
+            "aside",
+            "recommendation",
+            "comment",
+            "ad_like",
+            "duplicate",
+            "low_signal",
+            "unknown"
+          ]
+        },
+        "sourceRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/SourceRef" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "HighSignalPageContext": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "pageId",
+        "sessionId",
+        "contentHash",
+        "sourceStructuredPageRef",
+        "metadata",
+        "highSignalBlocks",
+        "filteredBlocks",
+        "sourceMapRef",
+        "qualityReportRef",
+        "status",
+        "warnings"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "a-v1.1-high-signal-2026-06-05" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "sessionId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "sourceStructuredPageRef": {
+          "type": "object",
+          "required": ["pageId", "contentHash"],
+          "properties": {
+            "pageId": { "$ref": "#/$defs/Id" },
+            "contentHash": { "$ref": "#/$defs/Hash" }
+          },
+          "additionalProperties": false
+        },
+        "metadata": { "$ref": "#/$defs/PageMetadata" },
+        "highSignalBlocks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/HighSignalBlock" }
+        },
+        "filteredBlocks": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/FilteredBlockEvidence" }
+        },
+        "sourceMapRef": { "$ref": "#/$defs/Id" },
+        "digestRef": { "$ref": "#/$defs/Id" },
+        "qualityReportRef": { "$ref": "#/$defs/Id" },
+        "status": { "type": "string", "enum": ["ready", "degraded", "failed"] },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PerceptionDigestItem": {
+      "type": "object",
+      "required": [
+        "itemId",
+        "kind",
+        "text",
+        "importance",
+        "confidence",
+        "sourceRefs",
+        "relatedParagraphIds",
+        "relatedChunkIds",
+        "warnings"
+      ],
+      "properties": {
+        "itemId": { "$ref": "#/$defs/Id" },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "key_fact",
+            "entity",
+            "claim",
+            "evidence",
+            "definition",
+            "procedure",
+            "open_question",
+            "table_fact",
+            "code_fact",
+            "image_metadata"
+          ]
+        },
+        "text": { "type": "string", "minLength": 1 },
+        "importance": { "$ref": "#/$defs/Score" },
+        "confidence": { "$ref": "#/$defs/Score" },
+        "sourceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/SourceRef" }
+        },
+        "relatedParagraphIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Id" }
+        },
+        "relatedChunkIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Id" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PerceptionDigest": {
+      "type": "object",
+      "required": ["digestId", "pageId", "contentHash", "items", "rejectedItems", "summary", "stats"],
+      "properties": {
+        "digestId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/PerceptionDigestItem" }
+        },
+        "rejectedItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["itemId", "text", "reason", "warnings"],
+            "properties": {
+              "itemId": { "$ref": "#/$defs/Id" },
+              "text": { "type": "string" },
+              "reason": {
+                "type": "string",
+                "enum": ["missing_source_ref", "low_confidence", "duplicate", "low_signal"]
+              },
+              "warnings": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "summary": {
+          "type": "object",
+          "required": ["tldr", "keyTakeaways"],
+          "properties": {
+            "tldr": { "type": "string" },
+            "keyTakeaways": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "stats": {
+          "type": "object",
+          "required": ["itemCount", "sourceRefCount", "compressionRatio"],
+          "properties": {
+            "itemCount": { "type": "integer", "minimum": 0 },
+            "sourceRefCount": { "type": "integer", "minimum": 0 },
+            "compressionRatio": { "$ref": "#/$defs/Score" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "QualityMetric": {
+      "type": "object",
+      "required": ["value", "method", "passed"],
+      "properties": {
+        "value": { "type": "number" },
+        "numerator": { "type": "number" },
+        "denominator": { "type": "number" },
+        "method": { "type": "string", "minLength": 1 },
+        "threshold": { "type": "number" },
+        "passed": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "QualityIssue": {
+      "type": "object",
+      "required": ["code", "message", "severity", "relatedIds"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "message": { "type": "string", "minLength": 1 },
+        "severity": { "type": "string", "enum": ["warning", "major", "fatal"] },
+        "relatedIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Id" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "PagePerceptionQualityReport": {
+      "type": "object",
+      "required": [
+        "reportId",
+        "pageId",
+        "contentHash",
+        "overallScore",
+        "metrics",
+        "downstreamReadiness",
+        "fatalIssues",
+        "warnings"
+      ],
+      "properties": {
+        "reportId": { "$ref": "#/$defs/Id" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "contentHash": { "$ref": "#/$defs/Hash" },
+        "overallScore": { "$ref": "#/$defs/Score" },
+        "metrics": {
+          "type": "object",
+          "required": [
+            "noiseRatio",
+            "contentCoverage",
+            "sourceCoverage",
+            "groundingCompleteness",
+            "jumpbackCoverage",
+            "digestCompressionRatio",
+            "candidateFactDensity"
+          ],
+          "properties": {
+            "noiseRatio": { "$ref": "#/$defs/QualityMetric" },
+            "contentCoverage": { "$ref": "#/$defs/QualityMetric" },
+            "sourceCoverage": { "$ref": "#/$defs/QualityMetric" },
+            "groundingCompleteness": { "$ref": "#/$defs/QualityMetric" },
+            "jumpbackCoverage": { "$ref": "#/$defs/QualityMetric" },
+            "digestCompressionRatio": { "$ref": "#/$defs/QualityMetric" },
+            "candidateFactDensity": { "$ref": "#/$defs/QualityMetric" }
+          },
+          "additionalProperties": false
+        },
+        "downstreamReadiness": { "type": "string", "enum": ["pass", "degraded", "fail"] },
+        "fatalIssues": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/QualityIssue" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/QualityIssue" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "CandidateExtractionResult": {
+      "type": "object",
+      "required": ["extractorName", "warnings"],
+      "properties": {
+        "extractorName": {
+          "type": "string",
+          "enum": ["trafilatura", "readabilipy", "readability_lxml", "dom_baseline"]
+        },
+        "version": { "type": "string" },
+        "title": { "type": "string" },
+        "text": { "type": "string" },
+        "metadata": { "type": "object" },
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["candidateBlockId", "order", "text"],
+            "properties": {
+              "candidateBlockId": { "$ref": "#/$defs/Id" },
+              "order": { "type": "integer", "minimum": 0 },
+              "text": { "type": "string" },
+              "blockType": { "type": "string" },
+              "metadata": { "type": "object" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "confidence": { "$ref": "#/$defs/Score" },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

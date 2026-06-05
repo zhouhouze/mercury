@@ -1,0 +1,75 @@
+{
+  "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+  "pageId": "page_c749cfb077399025",
+  "sourceMapId": "smap_page_c749cfb077399025",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_c749cfb077399025_0001",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_c749cfb077399025_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+      "fallbackText": "Developers validate the page perception module with schema checks, fixture tests, and runtime boundary tests.",
+      "headingPath": [
+        "Developer Validation Guide"
+      ],
+      "order": 0,
+      "pageId": "page_c749cfb077399025",
+      "paragraphId": "pg_page_c749cfb077399025_0001",
+      "sourceRefId": "src_page_c749cfb077399025_0001",
+      "textHash": "sha256_94e0b403464f5a13fe33df2d388208df",
+      "textQuote": "Developers validate the page perception module with schema checks, fixture tests, and runtime boundary tests."
+    },
+    {
+      "blockId": "block_pg_page_c749cfb077399025_0002",
+      "blockType": "code",
+      "chunkId": "ck_page_c749cfb077399025_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+      "fallbackText": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests",
+      "headingPath": [
+        "Developer Validation Guide"
+      ],
+      "order": 1,
+      "pageId": "page_c749cfb077399025",
+      "paragraphId": "pg_page_c749cfb077399025_0002",
+      "sourceRefId": "src_page_c749cfb077399025_0002",
+      "textHash": "sha256_3d75b37d32738c1f32a8bf95dd8c308f",
+      "textQuote": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests"
+    },
+    {
+      "blockId": "block_pg_page_c749cfb077399025_0003",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_c749cfb077399025_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+      "fallbackText": "The command is a code fact because it verifies the A module contract without invoking D, C, B, MCP, Skill, or external APIs.",
+      "headingPath": [
+        "Developer Validation Guide"
+      ],
+      "order": 2,
+      "pageId": "page_c749cfb077399025",
+      "paragraphId": "pg_page_c749cfb077399025_0003",
+      "sourceRefId": "src_page_c749cfb077399025_0003",
+      "textHash": "sha256_5a391b98e75c25986e4bf38b96373ebf",
+      "textQuote": "The command is a code fact because it verifies the A module contract without invoking D, C, B, MCP, Skill, or external APIs."
+    },
+    {
+      "blockId": "block_pg_page_c749cfb077399025_0004",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_c749cfb077399025_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_c749cfb07739902539e9fb8d48dd81e37e75eecd3c3fe87bde9c42556258a28d",
+      "fallbackText": "If validation fails, the stage returns to planning and implementation must not move forward.",
+      "headingPath": [
+        "Developer Validation Guide"
+      ],
+      "order": 3,
+      "pageId": "page_c749cfb077399025",
+      "paragraphId": "pg_page_c749cfb077399025_0004",
+      "sourceRefId": "src_page_c749cfb077399025_0004",
+      "textHash": "sha256_dc0c8a7a15b871e83ba109795cc58c77",
+      "textQuote": "If validation fails, the stage returns to planning and implementation must not move forward."
+    }
+  ]
+}

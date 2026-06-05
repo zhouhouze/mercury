@@ -1,0 +1,384 @@
+{
+  "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+  "digestRef": "digest_page_2f98bb8e9e974adb",
+  "filteredBlocks": [],
+  "highSignalBlocks": [
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0001",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.816,
+      "contentDensityScore": 0.71,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.812,
+      "noiseScore": 0.08,
+      "order": 0,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0001"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0001",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "This fixture checks that tables, lists, and code-like content remain in source order.",
+          "headingPath": [
+            "Structured Blocks Fixture"
+          ],
+          "order": 0,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0001",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0001",
+          "textHash": "sha256_077a60ef3ef92cd9c4b828edd12d5abf",
+          "textQuote": "This fixture checks that tables, lists, and code-like content remain in source order."
+        }
+      ],
+      "text": "This fixture checks that tables, lists, and code-like content remain in source order.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0002",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.799,
+      "contentDensityScore": 0.678,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.781,
+      "noiseScore": 0.12,
+      "order": 1,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0002"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0002",
+          "blockType": "list_item",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Extract visible headings and paragraphs.",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Checklist"
+          ],
+          "order": 1,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0002",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0002",
+          "textHash": "sha256_e08a72e370ec764d8a604139b19c9a16",
+          "textQuote": "Extract visible headings and paragraphs."
+        }
+      ],
+      "text": "Extract visible headings and paragraphs.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0003",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.8,
+      "contentDensityScore": 0.682,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.783,
+      "noiseScore": 0.12,
+      "order": 2,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0003"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0003",
+          "blockType": "list_item",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Preserve list items as readable source blocks.",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Checklist"
+          ],
+          "order": 2,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0003",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0003",
+          "textHash": "sha256_c6967690de277d53e9b9b1a8a54f1f95",
+          "textQuote": "Preserve list items as readable source blocks."
+        }
+      ],
+      "text": "Preserve list items as readable source blocks.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0004",
+      "blockType": "table_cell",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.663,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.773,
+      "noiseScore": 0.12,
+      "order": 3,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0004"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0004",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Contract Field Name",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Contract Table"
+          ],
+          "order": 3,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0004",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0004",
+          "textHash": "sha256_fba66e1510bfc024c930266b6b67ef97",
+          "textQuote": "Contract Field Name"
+        }
+      ],
+      "text": "Contract Field Name",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0005",
+      "blockType": "table_cell",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.666,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 4,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0005"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0005",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Validation Rule Summary",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Contract Table"
+          ],
+          "order": 4,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0005",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0005",
+          "textHash": "sha256_286aae20d3b8f20e1cf46617f3893925",
+          "textQuote": "Validation Rule Summary"
+        }
+      ],
+      "text": "Validation Rule Summary",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0006",
+      "blockType": "table_cell",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.799,
+      "contentDensityScore": 0.676,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.78,
+      "noiseScore": 0.12,
+      "order": 5,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0006"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0006",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Must be stable for identical content.",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Contract Table"
+          ],
+          "order": 5,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0006",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0006",
+          "textHash": "sha256_ae1b9b3f601166ca05e62ce05df14004",
+          "textQuote": "Must be stable for identical content."
+        }
+      ],
+      "text": "Must be stable for identical content.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0007",
+      "blockType": "table_cell",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.799,
+      "contentDensityScore": 0.676,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.78,
+      "noiseScore": 0.12,
+      "order": 6,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0007"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0007",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "Must reference paragraph identifiers.",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Contract Table"
+          ],
+          "order": 6,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0007",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0007",
+          "textHash": "sha256_9dd6c3e6ab87da9f2caaad2c5e56a982",
+          "textQuote": "Must reference paragraph identifiers."
+        }
+      ],
+      "text": "Must reference paragraph identifiers.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0008",
+      "blockType": "code",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.798,
+      "contentDensityScore": 0.675,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.779,
+      "noiseScore": 0.12,
+      "order": 7,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0008"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0008",
+          "blockType": "code",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "pnpm --filter chrome-extension build",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Command"
+          ],
+          "order": 7,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0008",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0008",
+          "textHash": "sha256_6d2f89e8e05ab859cfa0ba529be8996a",
+          "textQuote": "pnpm --filter chrome-extension build"
+        }
+      ],
+      "text": "pnpm --filter chrome-extension build",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_page_2f98bb8e9e974adb_0009",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_page_2f98bb8e9e974adb_0001"
+      ],
+      "confidence": 0.8,
+      "contentDensityScore": 0.636,
+      "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+      "importance": 0.772,
+      "noiseScore": 0.08,
+      "order": 8,
+      "pageId": "page_2f98bb8e9e974adb",
+      "paragraphIds": [
+        "pg_page_2f98bb8e9e974adb_0009"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_2f98bb8e9e974adb_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_2f98bb8e9e974adb_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+          "fallbackText": "The parser should not collapse the page into one giant paragraph.",
+          "headingPath": [
+            "Structured Blocks Fixture",
+            "Command"
+          ],
+          "order": 8,
+          "pageId": "page_2f98bb8e9e974adb",
+          "paragraphId": "pg_page_2f98bb8e9e974adb_0009",
+          "sourceRefId": "src_page_2f98bb8e9e974adb_0009",
+          "textHash": "sha256_13ea4dd93f75d1566f89bd1b8c496186",
+          "textQuote": "The parser should not collapse the page into one giant paragraph."
+        }
+      ],
+      "text": "The parser should not collapse the page into one giant paragraph.",
+      "warnings": []
+    }
+  ],
+  "metadata": {
+    "contentType": "article",
+    "headingCount": 4,
+    "language": "en",
+    "paragraphCount": 9,
+    "wordCount": 70
+  },
+  "pageId": "page_2f98bb8e9e974adb",
+  "qualityReportRef": "q_page_2f98bb8e9e974adb",
+  "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+  "sessionId": "evidence_tables_lists_code",
+  "sourceMapRef": "smap_page_2f98bb8e9e974adb",
+  "sourceStructuredPageRef": {
+    "contentHash": "sha256_2f98bb8e9e974adbf410be05a1af694b140b055e20e1f2684be9599cdeea0050",
+    "pageId": "page_2f98bb8e9e974adb"
+  },
+  "status": "ready",
+  "warnings": []
+}

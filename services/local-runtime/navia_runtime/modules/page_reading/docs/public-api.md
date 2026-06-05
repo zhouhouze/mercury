@@ -55,6 +55,28 @@ A-V1.1 module-local extension candidates:
 
 These fields must remain module-local until public contract review accepts them. Integration may display them in Debug evidence before promotion, but must not make D/C/B depend on their exact shape without contract freeze.
 
+ChatGPT audit closure:
+
+```text
+If D/C consume HighSignalPageContext, PerceptionDigest, SourceMap, or PagePerceptionQualityReport, these schemas must be promoted into v1_2_adapter_contracts.md or an equivalent public contract.
+Until then, they are evidence-only and exact shape dependency is forbidden.
+```
+
+A-V1.1-0 must freeze exact schemas for:
+
+- `HighSignalPageContext`
+- `HighSignalBlock`
+- `FilteredBlockEvidence`
+- `PerceptionDigest`
+- `PerceptionDigestItem`
+- `SourceMap`
+- `SourceRef`
+- `PagePerceptionQualityReport`
+- `QualityMetric`
+- `QualityIssue`
+- `CandidateExtractionResult`
+- `CandidateBlock`
+
 `StructuredPageContext` minimum shape:
 
 - `pageId`
@@ -120,10 +142,93 @@ Minimum quality report fields:
 - `warnings`
 - `fatalIssues`
 
+Each metric must include:
+
+- `value`
+- optional `numerator`
+- optional `denominator`
+- `method`
+- optional `threshold`
+- `passed`
+
 Default pass thresholds:
 
 - `overallScore >= 0.75`
 - `sourceCoverage >= 0.95`
 - `groundingCompleteness >= 0.95`
+- `jumpbackCoverage >= 0.95`
 - `noiseRatio <= 0.25`
 - `downstreamReadiness = "pass"`
+
+Formula freeze:
+
+- `noiseRatio = filteredOrDowngradedNoiseBlocks / allDetectedBlocks`.
+- `contentCoverage = highSignalContentChars / readableContentChars`.
+- `sourceCoverage = highSignalBlocksWithSourceRef / highSignalBlocksTotal`.
+- `groundingCompleteness = digestItemsWithSourceRefs / digestItemsTotal`.
+- `jumpbackCoverage = sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal`.
+- `digestCompressionRatio = digestTextTokenEstimate / structuredPageTextTokenEstimate`.
+- `candidateFactDensity = digestCandidateFactItems / digestTokenEstimate`.
+- `overallScore` is a frozen weighted deterministic score over passed metrics.
+
+SourceRef minimum shape:
+
+- `sourceRefId`
+- `pageId`
+- `contentHash`
+- `blockId`
+- `blockType`
+- `order`
+- optional `paragraphId`
+- optional `chunkId`
+- optional `headingPath`
+- `textQuote`
+- `textHash`
+- optional `selector`
+- optional `domPath`
+- optional `startOffset`
+- optional `endOffset`
+- `fallbackText`
+- `confidence`
+
+Rules:
+
+- Every `PerceptionDigestItem` must have `sourceRefs`.
+- DOM selector is optional and must not be the only jumpback mechanism.
+- Every `SourceRef` must include `textQuote` or `fallbackText`.
+- Quality reports must not hard-code pass.
+
+## A-V1.2 Public API Planning
+
+A-V1.2 defaults to preserving A-V1.1 public contracts:
+
+```text
+HighSignalPageContext
+SourceMap / SourceRef
+PerceptionDigest
+PagePerceptionQualityReport
+CandidateExtractionResult
+```
+
+Potential A-V1.2 additions require `A-V1.2-0` contract freeze before D/C/B can depend on exact shape:
+
+```text
+CorpusPageRecord
+ExtractorComparisonReport
+ExtractorCandidateScore
+GoldEvaluationRecord
+```
+
+Extractor rules:
+
+- `dom_baseline`, `trafilatura`, `readability_lxml`, and `readabilipy` are candidate extractors only.
+- Candidate extractor output must map into A-owned block graph before final output.
+- Third-party raw fields must not appear in `HighSignalPageContext`, `SourceMap`, `PerceptionDigest`, or `PagePerceptionQualityReport`.
+- `dom_baseline` remains the offline fallback.
+
+100-page acceptance rules:
+
+- final A-V1.2 acceptance must use at least 100 complex pages.
+- pages must include category, risk tags, URL or snapshot path, and evidence outputs.
+- low-signal / paywall-like pages must fail or degrade instead of passing.
+- A must not execute OCR, VLM, ASR, video, live engines, MCP, Skill, D/C/B, Artifact, SSE, or EventStore.

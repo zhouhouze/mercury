@@ -1,0 +1,74 @@
+{
+  "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+  "downstreamReadiness": "degraded",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 2.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 1.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.5
+    },
+    "contentCoverage": {
+      "denominator": 293.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 293.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 46.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 26.0,
+      "passed": false,
+      "threshold": 0.35,
+      "value": 0.565
+    },
+    "groundingCompleteness": {
+      "denominator": 2.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 2.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 2.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 2.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.903,
+  "pageId": "page_b420e882cf7a2b01",
+  "reportId": "q_page_b420e882cf7a2b01",
+  "warnings": [
+    {
+      "code": "PLANNING_ONLY_MEDIA",
+      "message": "Media fixture is planning-only and not real perception ready.",
+      "relatedIds": [],
+      "severity": "major"
+    }
+  ]
+}

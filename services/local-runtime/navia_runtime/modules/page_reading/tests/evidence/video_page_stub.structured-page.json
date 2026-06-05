@@ -1,0 +1,469 @@
+{
+  "candidateExtraction": {
+    "blocks": [
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_b420e882cf7a2b01_0001",
+        "metadata": {
+          "headingPath": [
+            "Video Perception Planning"
+          ]
+        },
+        "order": 0,
+        "text": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+      },
+      {
+        "blockType": "paragraph",
+        "candidateBlockId": "cand_page_b420e882cf7a2b01_0002",
+        "metadata": {
+          "headingPath": [
+            "Video Perception Planning"
+          ]
+        },
+        "order": 1,
+        "text": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+      }
+    ],
+    "confidence": 0.76,
+    "extractorName": "dom_baseline",
+    "metadata": {
+      "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+      "pageId": "page_b420e882cf7a2b01",
+      "paragraphCount": 2
+    },
+    "text": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.\nFuture media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+    "title": "video_page_stub",
+    "version": "a-v1.1-dom-baseline",
+    "warnings": []
+  },
+  "error": null,
+  "highSignalPage": {
+    "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+    "digestRef": "digest_page_b420e882cf7a2b01",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_b420e882cf7a2b01_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_b420e882cf7a2b01_0001"
+        ],
+        "confidence": 0.826,
+        "contentDensityScore": 0.756,
+        "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+        "importance": 0.838,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphIds": [
+          "pg_page_b420e882cf7a2b01_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_b420e882cf7a2b01_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_b420e882cf7a2b01_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+            "fallbackText": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.",
+            "headingPath": [
+              "Video Perception Planning"
+            ],
+            "order": 0,
+            "pageId": "page_b420e882cf7a2b01",
+            "paragraphId": "pg_page_b420e882cf7a2b01_0001",
+            "sourceRefId": "src_page_b420e882cf7a2b01_0001",
+            "textHash": "sha256_fd187eca6b40a5b4fa791b170375e5a7",
+            "textQuote": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+          }
+        ],
+        "text": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_b420e882cf7a2b01_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_b420e882cf7a2b01_0001"
+        ],
+        "confidence": 0.818,
+        "contentDensityScore": 0.719,
+        "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+        "importance": 0.817,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphIds": [
+          "pg_page_b420e882cf7a2b01_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_b420e882cf7a2b01_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_b420e882cf7a2b01_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+            "fallbackText": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+            "headingPath": [
+              "Video Perception Planning"
+            ],
+            "order": 1,
+            "pageId": "page_b420e882cf7a2b01",
+            "paragraphId": "pg_page_b420e882cf7a2b01_0002",
+            "sourceRefId": "src_page_b420e882cf7a2b01_0002",
+            "textHash": "sha256_5484f68e070ef92731722eadfd64a336",
+            "textQuote": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+          }
+        ],
+        "text": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 2,
+      "wordCount": 52
+    },
+    "pageId": "page_b420e882cf7a2b01",
+    "qualityReportRef": "q_page_b420e882cf7a2b01",
+    "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+    "sessionId": "evidence_video_page_stub",
+    "sourceMapRef": "smap_page_b420e882cf7a2b01",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+      "pageId": "page_b420e882cf7a2b01"
+    },
+    "status": "degraded",
+    "warnings": [
+      "quality report is not pass"
+    ]
+  },
+  "ok": true,
+  "perceptionDigest": {
+    "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+    "digestId": "digest_page_b420e882cf7a2b01",
+    "items": [
+      {
+        "confidence": 0.826,
+        "importance": 0.838,
+        "itemId": "item_block_pg_page_b420e882cf7a2b01_0001",
+        "kind": "evidence",
+        "relatedChunkIds": [
+          "ck_page_b420e882cf7a2b01_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_b420e882cf7a2b01_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_b420e882cf7a2b01_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_b420e882cf7a2b01_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+            "fallbackText": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.",
+            "headingPath": [
+              "Video Perception Planning"
+            ],
+            "order": 0,
+            "pageId": "page_b420e882cf7a2b01",
+            "paragraphId": "pg_page_b420e882cf7a2b01_0001",
+            "sourceRefId": "src_page_b420e882cf7a2b01_0001",
+            "textHash": "sha256_fd187eca6b40a5b4fa791b170375e5a7",
+            "textQuote": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+          }
+        ],
+        "text": "This page contains a video player placeholder . V1 . 1 records planning evidence only and",
+        "warnings": []
+      },
+      {
+        "confidence": 0.818,
+        "importance": 0.817,
+        "itemId": "item_block_pg_page_b420e882cf7a2b01_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_b420e882cf7a2b01_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_b420e882cf7a2b01_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_b420e882cf7a2b01_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_b420e882cf7a2b01_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+            "fallbackText": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+            "headingPath": [
+              "Video Perception Planning"
+            ],
+            "order": 1,
+            "pageId": "page_b420e882cf7a2b01",
+            "paragraphId": "pg_page_b420e882cf7a2b01_0002",
+            "sourceRefId": "src_page_b420e882cf7a2b01_0002",
+            "textHash": "sha256_5484f68e070ef92731722eadfd64a336",
+            "textQuote": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+          }
+        ],
+        "text": "Future media perception must go through governed OCR , VLM , ASR , video , or",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_b420e882cf7a2b01",
+    "rejectedItems": [],
+    "stats": {
+      "compressionRatio": 0.565,
+      "itemCount": 2,
+      "sourceRefCount": 2
+    },
+    "summary": {
+      "keyTakeaways": [
+        "This page contains a video player placeholder . V1 . 1 records planning evidence only and",
+        "Future media perception must go through governed OCR , VLM , ASR , video , or"
+      ],
+      "tldr": "This page contains a video player placeholder . V1 . 1 records planning evidence only and"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+    "downstreamReadiness": "degraded",
+    "fatalIssues": [],
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 2.0,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.5
+      },
+      "contentCoverage": {
+        "denominator": 293.0,
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 293.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 46.0,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 26.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.565
+      },
+      "groundingCompleteness": {
+        "denominator": 2.0,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 2.0,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 2.0,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 2.0,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallScore": 0.903,
+    "pageId": "page_b420e882cf7a2b01",
+    "reportId": "q_page_b420e882cf7a2b01",
+    "warnings": [
+      {
+        "code": "PLANNING_ONLY_MEDIA",
+        "message": "Media fixture is planning-only and not real perception ready.",
+        "relatedIds": [],
+        "severity": "major"
+      }
+    ]
+  },
+  "sourceMap": {
+    "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+    "pageId": "page_b420e882cf7a2b01",
+    "sourceMapId": "smap_page_b420e882cf7a2b01",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_b420e882cf7a2b01_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+        "fallbackText": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.",
+        "headingPath": [
+          "Video Perception Planning"
+        ],
+        "order": 0,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphId": "pg_page_b420e882cf7a2b01_0001",
+        "sourceRefId": "src_page_b420e882cf7a2b01_0001",
+        "textHash": "sha256_fd187eca6b40a5b4fa791b170375e5a7",
+        "textQuote": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+      },
+      {
+        "blockId": "block_pg_page_b420e882cf7a2b01_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+        "fallbackText": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+        "headingPath": [
+          "Video Perception Planning"
+        ],
+        "order": 1,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphId": "pg_page_b420e882cf7a2b01_0002",
+        "sourceRefId": "src_page_b420e882cf7a2b01_0002",
+        "textHash": "sha256_5484f68e070ef92731722eadfd64a336",
+        "textQuote": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+      }
+    ]
+  },
+  "structuredPage": {
+    "annotations": [
+      {
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "confidence": 0.72,
+        "densityScore": 0.756,
+        "importance": "high",
+        "labels": [
+          "evidence",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_b420e882cf7a2b01_0001",
+        "role": "evidence"
+      },
+      {
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "confidence": 0.45,
+        "densityScore": 0.719,
+        "importance": "high",
+        "labels": [
+          "unknown",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_b420e882cf7a2b01_0002",
+        "role": "unknown"
+      }
+    ],
+    "capturedAt": "2026-06-04T00:00:00Z",
+    "chunks": [
+      {
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "headingPath": [
+          "Video Perception Planning"
+        ],
+        "order": 0,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphIds": [
+          "pg_page_b420e882cf7a2b01_0001",
+          "pg_page_b420e882cf7a2b01_0002"
+        ],
+        "text": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.\nFuture media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output.",
+        "tokenEstimate": 73
+      }
+    ],
+    "contentHash": "sha256_b420e882cf7a2b01d98a8c68998223a8edb0d611537158882d11308e763468c3",
+    "domain": "module-fixtures.example",
+    "headingTree": [
+      {
+        "headingId": "hd_0001",
+        "level": 1,
+        "order": 0,
+        "paragraphIds": [
+          "pg_page_b420e882cf7a2b01_0001",
+          "pg_page_b420e882cf7a2b01_0002"
+        ],
+        "text": "Video Perception Planning"
+      }
+    ],
+    "imageMetadata": [],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 2,
+      "wordCount": 52
+    },
+    "pageId": "page_b420e882cf7a2b01",
+    "paragraphs": [
+      {
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "headingPath": [
+          "Video Perception Planning"
+        ],
+        "order": 0,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphId": "pg_page_b420e882cf7a2b01_0001",
+        "sourceBlockType": "paragraph",
+        "text": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+      },
+      {
+        "chunkId": "ck_page_b420e882cf7a2b01_0001",
+        "headingPath": [
+          "Video Perception Planning"
+        ],
+        "order": 1,
+        "pageId": "page_b420e882cf7a2b01",
+        "paragraphId": "pg_page_b420e882cf7a2b01_0002",
+        "sourceBlockType": "paragraph",
+        "text": "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+      }
+    ],
+    "sessionId": "evidence_video_page_stub",
+    "summaryDraft": {
+      "format": "json",
+      "keyPoints": [
+        "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.",
+        "Future media perception must go through governed OCR, VLM, ASR, video, or live adapter contracts before it can become real perception output."
+      ],
+      "structure": [
+        {
+          "headingPath": [
+            "Video Perception Planning"
+          ],
+          "paragraphIds": [
+            "pg_page_b420e882cf7a2b01_0001",
+            "pg_page_b420e882cf7a2b01_0002"
+          ],
+          "summary": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content.\nFuture media perception mus"
+        }
+      ],
+      "suggestedQuestions": [
+        "这篇内容的核心观点是什么？",
+        "哪些段落最值得深入阅读？",
+        "可以把这篇内容整理成思维导图吗？"
+      ],
+      "title": "video_page_stub",
+      "tldr": "This page contains a video player placeholder. V1.1 records planning evidence only and does not analyze frames, audio, captions, or live stream content."
+    },
+    "title": "video_page_stub",
+    "url": "https://module-fixtures.example/video_page_stub"
+  },
+  "warnings": []
+}

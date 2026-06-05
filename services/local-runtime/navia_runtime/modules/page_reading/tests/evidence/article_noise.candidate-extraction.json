@@ -1,0 +1,72 @@
+{
+  "blocks": [
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_5136d7f047d6b4c5_0001",
+      "metadata": {
+        "headingPath": [
+          "Companion Reading Architecture"
+        ]
+      },
+      "order": 0,
+      "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_5136d7f047d6b4c5_0002",
+      "metadata": {
+        "headingPath": [
+          "Companion Reading Architecture"
+        ]
+      },
+      "order": 1,
+      "text": "The A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_5136d7f047d6b4c5_0003",
+      "metadata": {
+        "headingPath": [
+          "Companion Reading Architecture"
+        ]
+      },
+      "order": 2,
+      "text": "According to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_5136d7f047d6b4c5_0004",
+      "metadata": {
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ]
+      },
+      "order": 3,
+      "text": "First, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules."
+    },
+    {
+      "blockType": "paragraph",
+      "candidateBlockId": "cand_page_5136d7f047d6b4c5_0005",
+      "metadata": {
+        "headingPath": [
+          "Companion Reading Architecture",
+          "Implementation Steps"
+        ]
+      },
+      "order": 4,
+      "text": "Evidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails."
+    }
+  ],
+  "confidence": 0.76,
+  "extractorName": "dom_baseline",
+  "metadata": {
+    "contentHash": "sha256_5136d7f047d6b4c5914f7087f3b0f8e63c9b5998e25708e579b327624e44edab",
+    "pageId": "page_5136d7f047d6b4c5",
+    "paragraphCount": 5
+  },
+  "text": "Navia is a browser companion reading runtime that extracts page facts before the agent writes an answer.\nThe A module is the perception layer. It cleans visible text, preserves paragraph identifiers, and marks source references for every downstream digest item.\nAccording to the V1.2 plan, high-signal output must include source coverage, grounding completeness, jumpback coverage, and a deterministic quality report.\nFirst, the page is converted into structured paragraphs. Second, noisy navigation and recommendation blocks are filtered. Third, grounded facts are distilled for D and C modules.\nEvidence matters because every key fact must be traceable back to textQuote and fallbackText when DOM selector jumpback fails.",
+  "title": "article_noise",
+  "version": "a-v1.1-dom-baseline",
+  "warnings": []
+}
