@@ -70,3 +70,37 @@ Current result:
 ```text
 8 passed
 ```
+
+## A-V1.1 Mock Validation Additions
+
+New fixture families:
+
+- `article_noise.html` verifies boilerplate and recommendation filtering.
+- `news_with_sidebar.html` verifies sidebar, footer, comment, and ad-like block downgrade.
+- `product_doc.html` verifies dense technical / product documentation extraction.
+- `image_rich_article.html` verifies image metadata grounding and unknown fallback.
+- `table_heavy_report.html` verifies table-heavy facts keep source references.
+- `code_doc.html` verifies code blocks and procedures are not flattened into noisy prose.
+- `video_page_stub.html` verifies media contracts without real video engine execution.
+- `empty_or_low_signal.html` verifies quality gate failure.
+
+Required A-V1.1 evidence:
+
+- `*.high-signal-page.json`
+- `*.perception-digest.json`
+- `*.quality-report.json`
+- `*.source-map.json`
+
+Pass criteria:
+
+- High-signal output is shorter and less noisy than raw structured output.
+- Every digest item has source reference.
+- Quality report fails low-signal pages instead of marking them ready.
+- OCR / video / live evidence remains mock or planning-only.
+
+Fail criteria:
+
+- Third-party extractor output is exposed as final Navia contract.
+- Quality report always returns pass.
+- Digest items lack grounding.
+- A directly calls OCR, VLM, ASR, video, live stream, MCP, Skill, or external API.

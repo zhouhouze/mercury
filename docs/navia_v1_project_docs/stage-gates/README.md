@@ -60,6 +60,7 @@ V1.0-H：真实 Chrome UI 最终验收与文档收口
 - `v1.2-0-ai-reading-contract-and-workspace-freeze.md`：V1.2-0 AI 伴读合同与工作区冻结；当前用于文档开发阶段，冻结 A/B/C/D 独立 Codex 工作区、Adapter 合同和 Integration Codex 验收职责。
 - V1.2-0 还必须读取 `design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md` 和 `design/v1.2-ai-reading-automation-gap.drawio`，确认自动化开发 readiness gate。
 - `v1.2-a-page-reading.md`：A 模块工作区门禁；网页信息提取、过滤、蒸馏与结构化总结。
+- `v1.2-a-v1.1-high-signal-page-perception.md`：A-V1.1 高信号网页感知门禁；正文降噪、sourceMap、digest、质量评估和多模态合同规划。
 - `v1.2-b-chat-renderer.md`：B 模块工作区门禁；结构化数据、流式文本和 Mindmap 前端实时渲染。
 - `v1.2-c-mindmap.md`：C 模块工作区门禁；基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
 - `v1.2-d-agentic-loop.md`：D 模块工作区门禁；CoreProvider + Adapter Layer、piAgentProvider 合同与 Adapter 编排。
