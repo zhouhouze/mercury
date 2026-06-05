@@ -90,6 +90,7 @@ V1.2 新增文档：
 | `design/adr-v1.2-agent-core-provider-piagent.md` | V1.2 ADR：piAgent 作为首选 CoreProvider，D 以可替换 Core 适配层为主 |
 | `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
+| `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md` | A-V1.1 高信号网页感知门禁：Hybrid Extraction、正文降噪、sourceMap、digest、质量评估和 OCR/视频合同规划 |
 
 V1.2 代码工作区：
 
@@ -114,7 +115,7 @@ V1.2 代码工作区：
 8. V1.1-B 开工前必须执行 `node scripts/validate_v1_1_doc_readiness.mjs`，只有输出 `canStartV11B=true` 才允许进入实质前端开发。
 9. 外部 Agent 进入仓库后先读根目录 `AGENTS.md`、`AGENT_ONBOARDING.md` 和 `V1_2_AGENT_WORKPACKS.md`，再选择 A/B/C/D/Integration 工作包。
 10. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`design/v1.2-module-local-design-package.md`、`design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md`、`design/v1.2-ai-reading-automation-gap.drawio`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
-11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md` 和 `stage-gates/v1.2-a-page-reading.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。
+11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md`、`stage-gates/v1.2-a-page-reading.md` 和 `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。
 12. V1.2 全量开工前必须读取 `design/v1.2-readiness-closure-audit.md`。ChatGPT 审计文档路径以该文件第 5 节为准，且审计无致命或重大规格偏差后才能进入 staged mock-first implementation。
 
 ## V1 硬边界

@@ -17,6 +17,18 @@ A module development is limited to `services/local-runtime/navia_runtime/modules
 | `A-V1.0-4` | Add table / list / code block recognition | table/list/code fixture produces first-class blocks without breaking paragraph/chunk order |
 | `A-V1.0-5` | Add page region and information density recognition | density, importance, confidence, and region hints are deterministic and auditable |
 
+## A-V1.1 Build Order
+
+| Stage | Build target | Acceptance |
+|---|---|---|
+| `A-V1.1-0` | Freeze module-local `HighSignalPageContext`, `PerceptionDigest`, `PagePerceptionQualityReport`, and `SourceMap` | Public vs module-local fields are explicit; third-party extractors are candidate-only |
+| `A-V1.1-1` | Add Hybrid Extraction candidate layer and deterministic noise filtering | main content enters high-signal output; nav/footer/aside/recommendation/ad-like/comment are filtered or downgraded |
+| `A-V1.1-2` | Add sourceMap and jumpback references | every digest item has source reference; missing references block high-signal readiness |
+| `A-V1.1-3` | Add deterministic perception digest | key facts, entities, claims, evidence, definitions, procedures, and open questions are shorter than raw context and grounded |
+| `A-V1.1-4` | Add quality evaluator | quality report enforces source coverage, noise ratio, grounding completeness, and downstream readiness |
+| `A-V1.1-5` | Add image/OCR contract enhancement | image metadata is grounded; OCR is mock/contract-only and does not call engines |
+| `A-V1.1-6` | Add video/live planning records | media contracts are documented; no real video/live engine is executed |
+
 ## Implementation Sequence
 
 1. Define module-local parser interfaces in `runtime/`.
@@ -30,6 +42,18 @@ A module development is limited to `services/local-runtime/navia_runtime/modules
 9. Add table/list/code block collectors.
 10. Implement optional `StructuredSummaryDraft` as downstream context only.
 11. Add contract tests using real fixtures.
+
+## A-V1.1 Implementation Sequence
+
+1. Add module-local types and fixtures for high-signal outputs.
+2. Add candidate extractor interface with `trafilatura` as preferred future baseline, Mozilla Readability / `readabilipy` as comparison, and `readability-lxml` as fallback.
+3. Keep third-party extractor output isolated from final Navia contracts.
+4. Implement block classifier and noise filter over DOM-derived blocks.
+5. Generate source references for paragraphs, chunks, images, tables, lists, and code blocks.
+6. Build deterministic `PerceptionDigest` from high-signal blocks.
+7. Add quality evaluator and block D/C high-signal readiness when thresholds fail.
+8. Add OCR mock contract and media planning fixtures without real engine calls.
+9. Write evidence JSON for structured page, high-signal page, digest, source map, and quality report.
 
 ## Deterministic Annotation Rules
 

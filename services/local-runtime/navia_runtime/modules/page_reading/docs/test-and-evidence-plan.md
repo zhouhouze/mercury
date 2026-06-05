@@ -24,10 +24,35 @@
 Each validation run writes:
 
 - structured JSON output.
+- high-signal JSON output for A-V1.1.
+- perception digest JSON for A-V1.1.
+- quality report JSON for A-V1.1.
+- source map JSON for A-V1.1.
 - assertion log.
 - fixture source path.
 - PRD coverage note.
 - false-green review note.
+
+## A-V1.1 Required Fixtures
+
+- `article_noise.html`
+- `news_with_sidebar.html`
+- `product_doc.html`
+- `image_rich_article.html`
+- `table_heavy_report.html`
+- `code_doc.html`
+- `video_page_stub.html`
+- `empty_or_low_signal.html`
+
+## A-V1.1 Quality Gates
+
+- `overallScore >= 0.75`.
+- `sourceCoverage >= 0.95`.
+- `groundingCompleteness >= 0.95`.
+- `noiseRatio <= 0.25`.
+- `downstreamReadiness = pass`.
+- Every digest item has a source reference.
+- Filtered blocks keep debug evidence.
 
 ## Module Exit Criteria
 

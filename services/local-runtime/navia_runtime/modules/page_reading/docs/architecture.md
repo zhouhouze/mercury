@@ -22,6 +22,32 @@ docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.md
 | Tables / lists / code | Not guaranteed as first-class blocks | Planned first-class block recognition in `A-V1.0-4` |
 | Video / live | Out of V1.2 implementation scope | `A-V2.0-*` planning records only |
 
+## A-V1.1 High-Signal Target
+
+A-V1.1 keeps the existing `StructuredPageContext` baseline and adds a high-signal layer for downstream D/C consumption:
+
+```text
+captured PageContext / HTML fixture
+-> candidate extraction baseline
+-> A-owned block classifier
+-> noise filter
+-> sourceMap builder
+-> perception digest builder
+-> quality evaluator
+-> HighSignalPageContext
+```
+
+Candidate extraction may use community libraries such as `trafilatura`, Mozilla Readability / `readabilipy`, or `readability-lxml`, but their output is never the final Navia contract. A owns the final block graph, source references, digest, and quality report.
+
+A-V1.1 target outputs are module-local unless contract review promotes them:
+
+- `HighSignalPageContext`
+- `PerceptionDigest`
+- `PagePerceptionQualityReport`
+- `SourceMap`
+
+Quality gates decide whether the page is ready for D/C high-signal consumption. Failed pages may still be shown in Debug, but must not be treated as high-quality context.
+
 ## Runtime Flow
 
 ```text
@@ -56,6 +82,8 @@ image / figure metadata
 -> table / list / code block recognition
 -> video / live perception planning
 ```
+
+A-V1.1 extends the planning boundary with OCR and media contracts, but still does not directly execute OCR, VLM, ASR, video frame extraction, or live stream analysis.
 
 ## Inputs
 
