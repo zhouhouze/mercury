@@ -1,0 +1,197 @@
+{
+  "artifacts": [],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000092",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "page.summarize",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000093",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000094",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000095",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 262144,
+        "maxRetries": 1,
+        "maxToolCalls": 0,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000096",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "maxContextBytes": 262144,
+        "maxRetries": 1,
+        "maxToolCalls": 0,
+        "status": "exceeded"
+      },
+      "event_id": "evt_00000000000000000000000098",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "message": "Tool budget exceeded: maxToolCalls=0",
+        "reason": "BUDGET_EXCEEDED",
+        "tool_call_id": "tc_00000000000000000000000097",
+        "tool_name": "page.summarize"
+      },
+      "event_id": "evt_00000000000000000000000099",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "tool.denied"
+    },
+    {
+      "data": {
+        "code": "BUDGET_EXCEEDED",
+        "details": {},
+        "message": "Tool budget exceeded: maxToolCalls=0",
+        "recoverable": true
+      },
+      "event_id": "evt_00000000000000000000000100",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "error"
+    },
+    {
+      "data": {
+        "text": "Tool budget exceeded: maxToolCalls=0"
+      },
+      "event_id": "evt_00000000000000000000000101",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000102"
+      },
+      "event_id": "evt_00000000000000000000000103",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000104",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000105",
+      "request_id": "req_budget_exceeded",
+      "session_id": "sess_budget_exceeded",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000091",
+      "turn_id": "turn_00000000000000000000000090",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_budget_exceeded",
+  "sessionId": "sess_budget_exceeded",
+  "status": "budget_exceeded",
+  "toolResults": [],
+  "trace": {
+    "artifactIds": [],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "budget.checked",
+      "tool.denied",
+      "error",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_budget_exceeded",
+    "sessionId": "sess_budget_exceeded",
+    "toolCallIds": [],
+    "traceId": "trace_00000000000000000000000091",
+    "turnId": "turn_00000000000000000000000090"
+  },
+  "traceId": "trace_00000000000000000000000091",
+  "turnId": "turn_00000000000000000000000090"
+}

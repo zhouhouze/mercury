@@ -76,6 +76,25 @@ def post_fixture(client: TestClient, fixture_name: str) -> str:
     return session_id
 
 
+def test_v1_2_page_context_returns_structured_page_for_debug_view() -> None:
+    event_store.events.clear()
+    event_stream.published.clear()
+    client = TestClient(app)
+    session = client.post("/v1/sessions", json={"client": "chrome-extension", "metadata": {"e2e": "v1.2-debug"}}).json()
+    session_id = session["data"]["session_id"]
+
+    response = client.post("/v1/page/context", json=page_context_from_fixture("article.html", session_id)).json()
+
+    assert response["ok"] is True
+    structured = response["data"]["structuredPage"]
+    assert structured["pageId"].startswith("page_")
+    assert structured["contentHash"].startswith("sha256_")
+    assert structured["metadata"]["paragraphCount"] >= 1
+    assert len(structured["paragraphs"]) >= 1
+    assert len(structured["chunks"]) >= 1
+    assert len(structured["annotations"]) == len(structured["paragraphs"])
+
+
 def chat(client: TestClient, session_id: str, message: str) -> list[dict[str, Any]]:
     response = client.post(
         "/v1/chat/stream",

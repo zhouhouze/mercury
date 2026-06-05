@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "date": "2026-06-04",
+  "fixtureUrl": "http://127.0.0.1:5173/article.html",
+  "extensionRoot": "apps/chrome-extension/chrome-mv3-unpacked",
+  "runtimeUrl": "http://127.0.0.1:17861",
+  "browserMode": "chromium",
+  "headless": true,
+  "notes": [
+    "Manifest and chrome.scripting injection were not visible in headless Chromium, so the E2E used an E2E-only direct content-script fallback on the allowed 127.0.0.1:5173 origin.",
+    "The fallback does not change production extension code or Runtime CORS policy."
+  ],
+  "checks": [
+    "floating ball",
+    "hover strip",
+    "in-page panel",
+    "page context",
+    "summary",
+    "question",
+    "mindmap",
+    "half push",
+    "overlay resize",
+    "mobile overlay",
+    "runtime offline",
+    "collapse recovery"
+  ]
+}

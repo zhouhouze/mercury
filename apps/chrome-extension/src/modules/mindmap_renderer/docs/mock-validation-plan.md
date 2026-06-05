@@ -22,3 +22,23 @@
 - Renderer calls backend generation.
 - Renderer changes artifact content.
 
+## Current Evidence
+
+Evidence file:
+
+- `tests/evidence/render_failure_fallback.json`
+
+Current validation command:
+
+```bash
+pnpm --dir apps/chrome-extension test
+pnpm --dir apps/chrome-extension run typecheck
+```
+
+Current result:
+
+```text
+5 test files passed
+26 tests passed
+typecheck passed
+```

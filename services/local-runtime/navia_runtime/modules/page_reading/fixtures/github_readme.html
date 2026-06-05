@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>navia-runtime README</title>
+  </head>
+  <body>
+    <article>
+      <h1>navia-runtime</h1>
+      <p>A local companion reading runtime for extracting page context and serving governed chat streams.</p>
+      <h2>Install</h2>
+      <ul>
+        <li>Create a virtual environment before running the FastAPI runtime.</li>
+        <li>Install runtime dependencies from the repository requirement files.</li>
+      </ul>
+      <h2>Smoke Test</h2>
+      <pre>PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests</pre>
+      <p>The README fixture preserves list and code content so downstream modules can consume source ordered chunks.</p>
+    </article>
+  </body>
+</html>

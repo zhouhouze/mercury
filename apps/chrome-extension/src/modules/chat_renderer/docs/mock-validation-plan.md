@@ -26,3 +26,24 @@ Use recorded SSE text fixtures:
 - Missing PageContext shows fake answer.
 - Chat Renderer directly invokes Runtime tools.
 
+## Current Evidence
+
+Evidence files:
+
+- `tests/evidence/chat_view_model.json`
+- `tests/evidence/debug_handoff.json`
+
+Current validation command:
+
+```bash
+pnpm --dir apps/chrome-extension test
+pnpm --dir apps/chrome-extension run typecheck
+```
+
+Current result:
+
+```text
+5 test files passed
+26 tests passed
+typecheck passed
+```

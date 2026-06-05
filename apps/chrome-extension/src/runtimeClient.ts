@@ -46,6 +46,8 @@ export type RestoredSession = {
   artifacts?: ArtifactRecord[];
 };
 
+export type StructuredPageDebug = Record<string, unknown>;
+
 type ApiResponse<T> = {
   ok: boolean;
   data: T;
@@ -91,8 +93,8 @@ export async function restoreRuntimeSession(sessionId: string): Promise<Restored
 export async function submitRuntimePageContext(
   context: ExtractedPageContext,
   sessionId: string
-): Promise<{ ok: boolean; pageId?: string; message?: string }> {
-  const body = await runtimeJson<{ page_id: string }>({
+): Promise<{ ok: boolean; pageId?: string; structuredPage?: StructuredPageDebug; message?: string }> {
+  const body = await runtimeJson<{ page_id: string; structuredPage?: StructuredPageDebug }>({
     path: "/v1/page/context",
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -100,7 +102,7 @@ export async function submitRuntimePageContext(
   });
   if (!body.ok) return { ok: false, message: body.error?.message ?? "PageContext submit failed." };
   await chrome.storage.local.set({ [LAST_SESSION_STORAGE_KEY]: sessionId });
-  return { ok: true, pageId: body.data.page_id };
+  return { ok: true, pageId: body.data.page_id, structuredPage: body.data.structuredPage };
 }
 
 export async function streamRuntimeChat(

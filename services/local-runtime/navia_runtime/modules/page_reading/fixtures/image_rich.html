@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Visual Reading Fixture</title>
+  </head>
+  <body>
+    <article>
+      <h1>Visual Reading Fixture</h1>
+      <p>The report compares two product screenshots and keeps visual metadata separate from inferred image content.</p>
+      <figure>
+        <img src="/assets/toolbar.png" alt="Floating AI toolbar attached to the right page edge" title="Toolbar collapsed state">
+        <figcaption>The toolbar can expand into a chat entry point without covering the article body.</figcaption>
+      </figure>
+      <p>The next screenshot has a label supplied through aria metadata for accessibility tooling.</p>
+      <img src="/assets/side-panel.png" aria-label="Side panel chat with structured summary cards">
+      <p>The final image intentionally has no readable metadata and must not be described by the parser.</p>
+      <img src="/assets/unknown-photo.png">
+    </article>
+  </body>
+</html>

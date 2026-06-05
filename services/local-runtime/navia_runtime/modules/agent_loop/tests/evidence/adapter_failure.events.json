@@ -1,0 +1,288 @@
+{
+  "artifacts": [],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000108",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "fixture.failure",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000109",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000110",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000111",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000112",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "running_tool"
+      },
+      "event_id": "evt_00000000000000000000000114",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter": {
+          "adapterId": "fixture.failure",
+          "budgetHint": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "capability": "utility",
+          "kind": "internal_tool",
+          "name": "Failure Fixture",
+          "requiredContext": [],
+          "riskLevel": "safe"
+        },
+        "tool_call_id": "tc_00000000000000000000000113",
+        "tool_name": "fixture.failure"
+      },
+      "event_id": "evt_00000000000000000000000115",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "tool.started"
+    },
+    {
+      "data": {
+        "status": "failed",
+        "tool_call_id": "tc_00000000000000000000000113",
+        "tool_name": "fixture.failure",
+        "tool_result": {
+          "adapter_capability": "utility",
+          "adapter_id": "fixture.failure",
+          "adapter_kind": "internal_tool",
+          "artifact_ids": [],
+          "budget_cost": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "content": {},
+          "error": {
+            "code": "RUNTIME_INTERNAL_ERROR",
+            "message": "Intentional fixture failure.",
+            "recoverable": true
+          },
+          "status": "failed",
+          "tool_call_id": "tc_00000000000000000000000113",
+          "tool_name": "fixture.failure",
+          "warnings": []
+        }
+      },
+      "event_id": "evt_00000000000000000000000116",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "tool.done"
+    },
+    {
+      "data": {
+        "code": "RUNTIME_INTERNAL_ERROR",
+        "message": "Intentional fixture failure.",
+        "recoverable": true
+      },
+      "event_id": "evt_00000000000000000000000117",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "error"
+    },
+    {
+      "data": {
+        "from": "running_tool",
+        "to": "streaming_response"
+      },
+      "event_id": "evt_00000000000000000000000118",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "text": "Intentional fixture failure."
+      },
+      "event_id": "evt_00000000000000000000000119",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000120"
+      },
+      "event_id": "evt_00000000000000000000000121",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "streaming_response",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000122",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000123",
+      "request_id": "req_adapter_failure",
+      "session_id": "sess_adapter_failure",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000107",
+      "turn_id": "turn_00000000000000000000000106",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_adapter_failure",
+  "sessionId": "sess_adapter_failure",
+  "status": "failed",
+  "toolResults": [
+    {
+      "adapter_capability": "utility",
+      "adapter_id": "fixture.failure",
+      "adapter_kind": "internal_tool",
+      "artifact_ids": [],
+      "budget_cost": {
+        "context_bytes": 0,
+        "input_tokens": 0,
+        "model_calls": 0,
+        "output_tokens": 0,
+        "runtime_ms": 1,
+        "tool_calls": 1
+      },
+      "content": {},
+      "error": {
+        "code": "RUNTIME_INTERNAL_ERROR",
+        "message": "Intentional fixture failure.",
+        "recoverable": true
+      },
+      "status": "failed",
+      "tool_call_id": "tc_00000000000000000000000113",
+      "tool_name": "fixture.failure",
+      "warnings": []
+    }
+  ],
+  "trace": {
+    "artifactIds": [],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "state.transition",
+      "tool.started",
+      "tool.done",
+      "error",
+      "state.transition",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_adapter_failure",
+    "sessionId": "sess_adapter_failure",
+    "toolCallIds": [
+      "tc_00000000000000000000000113"
+    ],
+    "traceId": "trace_00000000000000000000000107",
+    "turnId": "turn_00000000000000000000000106"
+  },
+  "traceId": "trace_00000000000000000000000107",
+  "turnId": "turn_00000000000000000000000106"
+}

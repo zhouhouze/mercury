@@ -1,0 +1,244 @@
+{
+  "error": null,
+  "ok": true,
+  "structuredPage": {
+    "annotations": [
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.45,
+        "densityScore": 0.725,
+        "importance": "medium",
+        "labels": [
+          "unknown",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0001",
+        "role": "unknown"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.72,
+        "densityScore": 0.697,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0002",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.72,
+        "densityScore": 0.712,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0003",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.72,
+        "densityScore": 0.693,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0004",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "confidence": 0.45,
+        "densityScore": 0.676,
+        "importance": "medium",
+        "labels": [
+          "unknown",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0005",
+        "role": "unknown"
+      }
+    ],
+    "capturedAt": "2026-06-04T00:00:00Z",
+    "chunks": [
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 0,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0001",
+          "pg_page_16e9c1aaf43988fb_0002",
+          "pg_page_16e9c1aaf43988fb_0003",
+          "pg_page_16e9c1aaf43988fb_0004",
+          "pg_page_16e9c1aaf43988fb_0005"
+        ],
+        "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.\nImage metadata: Floating AI toolbar attached to the right page edge\nThe next screenshot has a label supplied through aria metadata for accessibility tooling.\nImage metadata: Side panel chat with structured summary cards\nThe final image intentionally has no readable metadata and must not be described by the parser.",
+        "tokenEstimate": 105
+      }
+    ],
+    "contentHash": "sha256_16e9c1aaf43988fbe5595e5c406703ed9b5a5422661800dd817d3b0acfefe0b0",
+    "domain": "module-fixtures.example",
+    "headingTree": [
+      {
+        "headingId": "hd_0001",
+        "level": 1,
+        "order": 0,
+        "paragraphIds": [
+          "pg_page_16e9c1aaf43988fb_0001",
+          "pg_page_16e9c1aaf43988fb_0002",
+          "pg_page_16e9c1aaf43988fb_0003",
+          "pg_page_16e9c1aaf43988fb_0004",
+          "pg_page_16e9c1aaf43988fb_0005"
+        ],
+        "text": "Visual Reading Fixture"
+      }
+    ],
+    "imageMetadata": [
+      {
+        "alt": "Floating AI toolbar attached to the right page edge",
+        "ariaLabel": null,
+        "caption": null,
+        "nearbyText": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+        "order": 0,
+        "src": "/assets/toolbar.png",
+        "status": "metadata_available",
+        "title": "Toolbar collapsed state"
+      },
+      {
+        "alt": null,
+        "ariaLabel": "Side panel chat with structured summary cards",
+        "caption": null,
+        "nearbyText": "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+        "order": 1,
+        "src": "/assets/side-panel.png",
+        "status": "metadata_available",
+        "title": null
+      },
+      {
+        "alt": null,
+        "ariaLabel": null,
+        "caption": null,
+        "nearbyText": "The final image intentionally has no readable metadata and must not be described by the parser.",
+        "order": 2,
+        "src": "/assets/unknown-photo.png",
+        "status": "unknown_metadata",
+        "title": null
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 84
+    },
+    "pageId": "page_16e9c1aaf43988fb",
+    "paragraphs": [
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 0,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0001",
+        "sourceBlockType": "paragraph",
+        "text": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 1,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0002",
+        "sourceBlockType": "image_metadata",
+        "text": "Image metadata: Floating AI toolbar attached to the right page edge"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 2,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0003",
+        "sourceBlockType": "paragraph",
+        "text": "The next screenshot has a label supplied through aria metadata for accessibility tooling."
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 3,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0004",
+        "sourceBlockType": "image_metadata",
+        "text": "Image metadata: Side panel chat with structured summary cards"
+      },
+      {
+        "chunkId": "ck_page_16e9c1aaf43988fb_0001",
+        "headingPath": [
+          "Visual Reading Fixture"
+        ],
+        "order": 4,
+        "pageId": "page_16e9c1aaf43988fb",
+        "paragraphId": "pg_page_16e9c1aaf43988fb_0005",
+        "sourceBlockType": "paragraph",
+        "text": "The final image intentionally has no readable metadata and must not be described by the parser."
+      }
+    ],
+    "sessionId": "evidence_image_rich",
+    "summaryDraft": {
+      "format": "json",
+      "keyPoints": [
+        "The report compares two product screenshots and keeps visual metadata separate from inferred image content.",
+        "The next screenshot has a label supplied through aria metadata for accessibility tooling.",
+        "Image metadata: Floating AI toolbar attached to the right page edge",
+        "Image metadata: Side panel chat with structured summary cards"
+      ],
+      "structure": [
+        {
+          "headingPath": [
+            "Visual Reading Fixture"
+          ],
+          "paragraphIds": [
+            "pg_page_16e9c1aaf43988fb_0001",
+            "pg_page_16e9c1aaf43988fb_0002",
+            "pg_page_16e9c1aaf43988fb_0003",
+            "pg_page_16e9c1aaf43988fb_0004",
+            "pg_page_16e9c1aaf43988fb_0005"
+          ],
+          "summary": "The report compares two product screenshots and keeps visual metadata separate from inferred image content.\nImage metadata: Floating AI toolbar attached to the right page edge\nThe "
+        }
+      ],
+      "suggestedQuestions": [
+        "这篇内容的核心观点是什么？",
+        "哪些段落最值得深入阅读？",
+        "可以把这篇内容整理成思维导图吗？"
+      ],
+      "title": "image_rich",
+      "tldr": "The report compares two product screenshots and keeps visual metadata separate from inferred image content."
+    },
+    "title": "image_rich",
+    "url": "https://module-fixtures.example/image_rich"
+  },
+  "warnings": [
+    {
+      "code": "IMAGE_METADATA_UNKNOWN",
+      "message": "Image has no DOM-readable alt, title, or aria-label metadata.",
+      "order": 2,
+      "recoverable": true
+    }
+  ]
+}

@@ -31,3 +31,24 @@ Use structured JSON fixtures derived from A:
 - C creates UI state.
 - C relies on live network or live browser state for module tests.
 
+## Current Evidence
+
+Evidence files:
+
+- `tests/evidence/article.mindmap.json`
+- `tests/evidence/docs.mindmap.json`
+- `tests/evidence/github_readme.mindmap.json`
+- `tests/evidence/repair_once.mindmap.json`
+- `tests/evidence/missing_structured_page.error.json`
+
+Current validation command:
+
+```bash
+PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/mindmap/tests
+```
+
+Current result:
+
+```text
+4 passed
+```

@@ -41,7 +41,6 @@ Build extension:
 ```bash
 cd apps/chrome-extension
 pnpm build
-cp -R .output/chrome-mv3/. chrome-mv3-unpacked/
 cd ../..
 ```
 
@@ -106,4 +105,3 @@ pnpm run e2e:inpage
 ```
 
 Do not claim E2E pass if the browser automation cannot observe the extension behavior.
-

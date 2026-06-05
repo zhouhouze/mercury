@@ -1,0 +1,30 @@
+{
+  "runtime": {
+    "status": "offline",
+    "message": "Runtime offline"
+  },
+  "visibleErrors": [
+    "Runtime offline",
+    "请先读取当前页面"
+  ],
+  "tools": [
+    {
+      "toolCallId": "tc_fail",
+      "toolName": "fixture.failure",
+      "status": "failed",
+      "message": "failed"
+    }
+  ],
+  "debug": [
+    {
+      "type": "error",
+      "level": "error",
+      "message": "请先读取当前页面"
+    },
+    {
+      "type": "future.event",
+      "level": "warning",
+      "message": "Unknown SSE event ignored by chat renderer."
+    }
+  ]
+}

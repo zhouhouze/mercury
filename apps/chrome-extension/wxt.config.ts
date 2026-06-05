@@ -1,6 +1,8 @@
 import { defineConfig } from "wxt";
 
 export default defineConfig({
+  outDir: "chrome-mv3-unpacked",
+  outDirTemplate: ".",
   manifest: {
     name: "Navia",
     description: "In-page companion reading with a local headless runtime.",

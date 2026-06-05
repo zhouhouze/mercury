@@ -35,3 +35,26 @@
 - Missing activePage still producing fake answer.
 - D stores cross-session long-term memory.
 
+## Current Evidence
+
+Evidence files:
+
+- `tests/evidence/summary_turn.events.json`
+- `tests/evidence/qa_turn.events.json`
+- `tests/evidence/mindmap_turn.events.json`
+- `tests/evidence/denied_adapter.events.json`
+- `tests/evidence/missing_active_page.events.json`
+- `tests/evidence/budget_exceeded.events.json`
+- `tests/evidence/adapter_failure.events.json`
+
+Current validation command:
+
+```bash
+PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/agent_loop/tests services/local-runtime/navia_runtime/modules/adapters/tests
+```
+
+Current result:
+
+```text
+8 passed
+```

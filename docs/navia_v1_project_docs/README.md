@@ -45,6 +45,7 @@
 | `10-v1-stage-gate-execution-protocol.md` | V1 阶段门禁执行协议：阶段计划、审计、真实数据验收、PRD 复检和人类确认边界 |
 | `11-mercury-remote-doc-merge-report.md` | Mercury 远端 README / PRD 与本地 Navia 文档的合并报告 |
 | `12-interaction-prd-authority-and-revised-plan.md` | 交互 PRD 权威口径：声明 `PRD/窗口交互_PRD.md` 为前端体验 P0 来源，并给出修订后开发与验收计划 |
+| `MODULE_VERSIONING.md` | 模块内部编号规则：`A-V1.0-1` 等编号、项目阶段与模块内部路线关系 |
 | `AGENT_ONBOARDING.md` | 外部 Agent 上手指南：环境、阅读顺序、模块选择、停止条件和证据要求 |
 | `V1_2_AGENT_WORKPACKS.md` | V1.2 A/B/C/D/Integration 可复制任务包 |
 | `MODULE_HANDOFF_TEMPLATE.md` | 模块完成后交给审计或 Integration 的交接模板 |
@@ -83,6 +84,9 @@ V1.2 新增文档：
 | `design/v1.2-integration-contract-matrix.md` | V1.2 Integration 合同矩阵：A→D、D→C、D→B、B→Debug 字段所有权和接线规则 |
 | `design/v1.2-ai-reading-automation-gap.md` | V1.2 Draw.io companion：图谱页面说明、架构口径和验收口径 |
 | `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 自动化开发 gap 图谱：当前/目标架构差异、模块内部架构、公共 API、关键体验路径、开发验收、里程碑和出门条件 |
+| `design/v1.2-a-page-perception-gap.md` | A 模块 Draw.io companion：Page Perception / AgentCore Eyes 当前差异、目标架构、合同、里程碑和验收说明 |
+| `design/v1.2-a-page-perception-gap.drawio` | A 模块专属 gap 图谱：当前/目标差异、A 内部架构、A 与 B/C/D 调用关系、关键路径、开发验收和出门条件 |
+| `design/v1.2-readiness-closure-audit.md` | V1.2-0R readiness 收口审计：当前文档是否足以支撑全量 V1.2 开发、剩余开发验收计划和 ChatGPT 审计路径 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | V1.2 ADR：piAgent 作为首选 CoreProvider，D 以可替换 Core 适配层为主 |
 | `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
@@ -91,7 +95,7 @@ V1.2 代码工作区：
 
 | 目录 | 用途 |
 |---|---|
-| `services/local-runtime/navia_runtime/modules/page_reading/` | A 模块 service 工作区：网页信息提取、过滤、蒸馏与结构化总结 |
+| `services/local-runtime/navia_runtime/modules/page_reading/` | A 模块 service 工作区：Page Perception / AgentCore Eyes，网页、OCR 与未来媒体感知规划 |
 | `apps/chrome-extension/src/modules/*_renderer/` | B 模块 app 工作区：结构化数据、流式文本和 Mindmap 前端实时渲染 |
 | `services/local-runtime/navia_runtime/modules/mindmap/` | C 模块 service 工作区：基于结构化网页 JSON 的 Mindmap 生成与反跳来源 |
 | `services/local-runtime/navia_runtime/modules/agent_loop/` | D 模块 service 工作区：CoreProvider 适配层、AgenticLoop 边界与 piAgentProvider / MockCoreProvider |
@@ -110,6 +114,8 @@ V1.2 代码工作区：
 8. V1.1-B 开工前必须执行 `node scripts/validate_v1_1_doc_readiness.mjs`，只有输出 `canStartV11B=true` 才允许进入实质前端开发。
 9. 外部 Agent 进入仓库后先读根目录 `AGENTS.md`、`AGENT_ONBOARDING.md` 和 `V1_2_AGENT_WORKPACKS.md`，再选择 A/B/C/D/Integration 工作包。
 10. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`design/v1.2-module-local-design-package.md`、`design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md`、`design/v1.2-ai-reading-automation-gap.drawio`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
+11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md` 和 `stage-gates/v1.2-a-page-reading.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。
+12. V1.2 全量开工前必须读取 `design/v1.2-readiness-closure-audit.md`。ChatGPT 审计文档路径以该文件第 5 节为准，且审计无致命或重大规格偏差后才能进入 staged mock-first implementation。
 
 ## V1 硬边界
 

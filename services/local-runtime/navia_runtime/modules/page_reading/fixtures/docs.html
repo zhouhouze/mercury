@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Runtime API Documentation</title>
+  </head>
+  <body>
+    <main>
+      <h1>Runtime API Documentation</h1>
+      <section>
+        <h2>Sessions</h2>
+        <p>The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state.</p>
+        <h3>Create Session</h3>
+        <p>Clients call the sessions endpoint before streaming chat turns so every event can reference a session id.</p>
+      </section>
+      <section>
+        <h2>Streaming</h2>
+        <p>The chat stream uses server sent events and emits state, intent, budget, tool, artifact, response, and error events.</p>
+      </section>
+    </main>
+  </body>
+</html>
