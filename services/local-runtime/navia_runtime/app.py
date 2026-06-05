@@ -1,18 +1,20 @@
 from __future__ import annotations
 
 import json
-import hashlib
 import os
 from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import JSONResponse, Response, StreamingResponse
 
 from navia_runtime import __version__
-from navia_runtime.agent import TurnRunner
 from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, failure, new_id, success, utc_now
+from navia_runtime.modules.adapters.runtime import AdapterRegistry, default_adapter_registry
+from navia_runtime.modules.agent_loop.runtime import run_agentic_turn
+from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
+from navia_runtime.modules.page_reading.runtime import build_structured_page_context
 from navia_runtime.state_machine import mermaid_graph
 from navia_runtime.stores import InMemoryEventStream, SQLiteEventStore, SQLiteSessionStore
 
@@ -54,7 +56,7 @@ async def origin_allowlist(request: Request, call_next):
             ),
         )
     if request.method == "OPTIONS":
-        response = JSONResponse(status_code=204, content=None)
+        response = Response(status_code=204)
     else:
         response = await call_next(request)
     if allowed_origin and origin:
@@ -80,27 +82,6 @@ def persist_and_publish(event: dict[str, Any]) -> dict[str, Any]:
     if event["type"] == AgentEventType.STATE_TRANSITION.value:
         runtime_projection["state"] = event["data"]["to"]
     return event
-
-
-def build_chunks(page_id: str, text: str) -> list[dict[str, Any]]:
-    paragraphs = [part.strip() for part in text.split("\n") if part.strip()]
-    if not paragraphs:
-        paragraphs = [text[index : index + 1200].strip() for index in range(0, len(text), 1200)]
-    chunks: list[dict[str, Any]] = []
-    for index, paragraph in enumerate(paragraphs[:40]):
-        if not paragraph:
-            continue
-        chunks.append(
-            {
-                "chunk_id": new_id("chunk_"),
-                "page_id": page_id,
-                "heading_path": [],
-                "text": paragraph[:1600],
-                "token_estimate": max(1, len(paragraph) // 4),
-                "order": index,
-            }
-        )
-    return chunks
 
 
 def sse(events: Iterable[dict[str, Any]]) -> Iterable[str]:
@@ -210,25 +191,35 @@ async def page_context(request: Request):
             ),
         )
 
-    cleaned_text = body.get("cleaned_text") or body.get("visible_text") or ""
-    content_hash = "sha256_" + hashlib.sha256(cleaned_text.encode("utf-8")).hexdigest()
-    page_id = body.get("page_id") if isinstance(body.get("page_id"), str) else new_id("page_")
-    page = {
-        "page_id": page_id,
-        "session_id": session_id,
-        "tab_id": body.get("tab_id"),
-        "url": body["url"],
-        "title": body["title"],
-        "domain": body["domain"],
-        "captured_at": body.get("captured_at") or utc_now(),
-        "content_hash": content_hash,
-        "headings": body.get("headings", []),
-        "selected_text": body.get("selected_text"),
-        "visible_text": body.get("visible_text"),
-        "cleaned_text": cleaned_text,
-        "chunks": body.get("chunks") if isinstance(body.get("chunks"), list) else build_chunks(page_id, cleaned_text),
-        "metadata": body.get("metadata", {}),
-    }
+    structured_result = build_structured_page_context(
+        {
+            "sessionId": session_id,
+            "pageId": body.get("page_id"),
+            "url": body["url"],
+            "title": body["title"],
+            "domain": body["domain"],
+            "capturedAt": body.get("captured_at") or utc_now(),
+            "headings": body.get("headings", []),
+            "selectedText": body.get("selected_text"),
+            "visibleText": body.get("visible_text"),
+            "cleanedText": body.get("cleaned_text") or body.get("visible_text") or "",
+            "metadata": body.get("metadata", {}),
+        }
+    )
+    if not structured_result["ok"]:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.PAGE_CONTEXT_REQUIRED,
+                structured_result["error"]["message"],
+                request_id=request_id,
+                recoverable=True,
+                details={"source": "page_reading"},
+            ),
+        )
+    page = with_legacy_page_aliases(structured_result["structuredPage"], body)
+    page_id = page["page_id"]
+    content_hash = page["content_hash"]
     session_store.set_active_page(session_id, page)
     persist_and_publish(
         agent_event(
@@ -238,7 +229,15 @@ async def page_context(request: Request):
             data={"page_id": page_id, "content_hash": content_hash, "url": page["url"]},
         )
     )
-    return success({"page_id": page_id, "content_hash": content_hash, "status": "accepted"}, request_id=request_id)
+    return success(
+        {
+            "page_id": page_id,
+            "content_hash": content_hash,
+            "status": "accepted",
+            "structuredPage": page,
+        },
+        request_id=request_id,
+    )
 
 
 @app.post("/v1/chat/stream")
@@ -266,8 +265,23 @@ async def chat_stream(request: Request):
         persist_and_publish(err)
         return StreamingResponse(sse([err]), media_type="text/event-stream")
 
-    emitted = TurnRunner.create(persist_and_publish, session_store).run(body)
-    return StreamingResponse(sse(emitted), media_type="text/event-stream")
+    active_page = session_store.get_active_page(session_id)
+    result = run_agentic_turn(
+        {
+            "sessionId": session_id,
+            "requestId": request_id,
+            "userMessage": body.get("message", ""),
+            "activePage": active_page,
+            "recentMessages": normalize_recent_messages(session_store.get_session_record(session_id)),
+            "budget": body.get("budget") if isinstance(body.get("budget"), dict) else {},
+            "adapterRegistry": integration_adapter_registry(),
+            "forceAdapterId": "fixture.denied" if is_high_risk_message(str(body.get("message") or "")) else body.get("forceAdapterId"),
+        }
+    )
+    persist_turn_result(session_id, str(body.get("message") or ""), result)
+    for event in result["events"]:
+        persist_and_publish(event)
+    return StreamingResponse(sse(result["events"]), media_type="text/event-stream")
 
 
 @app.get("/v1/sessions/{session_id}/trace")
@@ -293,3 +307,215 @@ def agent_state(request: Request):
 @app.get("/v1/agent/state-machine/mermaid")
 def state_machine_mermaid(request: Request):
     return success({"mermaid": mermaid_graph()}, request_id=request.headers.get("x-request-id"))
+
+
+def with_legacy_page_aliases(page: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:
+    page_id = str(page["pageId"])
+    content_hash = str(page["contentHash"])
+    captured_at = str(page["capturedAt"])
+    chunks = []
+    for chunk in page.get("chunks", []):
+        if isinstance(chunk, dict):
+            chunks.append(
+                {
+                    **chunk,
+                    "chunk_id": chunk.get("chunkId"),
+                    "page_id": chunk.get("pageId"),
+                    "heading_path": chunk.get("headingPath", []),
+                    "token_estimate": chunk.get("tokenEstimate"),
+                }
+            )
+    return {
+        **page,
+        "page_id": page_id,
+        "session_id": page.get("sessionId"),
+        "tab_id": body.get("tab_id"),
+        "content_hash": content_hash,
+        "captured_at": captured_at,
+        "selected_text": body.get("selected_text"),
+        "visible_text": body.get("visible_text"),
+        "cleaned_text": body.get("cleaned_text") or body.get("visible_text") or "",
+        "headings": body.get("headings", []),
+        "chunks": chunks,
+    }
+
+
+def normalize_recent_messages(record: dict[str, Any] | None) -> list[dict[str, Any]]:
+    if not record:
+        return []
+    messages = record.get("messages") if isinstance(record.get("messages"), list) else []
+    return [
+        {
+            "messageId": message.get("message_id"),
+            "role": message.get("role"),
+            "content": message.get("content"),
+            "turnId": message.get("turn_id"),
+        }
+        for message in messages[-12:]
+        if isinstance(message, dict)
+    ]
+
+
+def is_high_risk_message(message: str) -> bool:
+    lowered = message.lower()
+    return any(token in lowered for token in ["read_local_file", "/etc/passwd", "本地文件", "shell", "browser automation"])
+
+
+def persist_turn_result(session_id: str, user_message: str, result: dict[str, Any]) -> None:
+    turn_id = str(result["turnId"])
+    trace_id = str(result["traceId"])
+    request_id = str(result["requestId"])
+    session_store.add_message(
+        session_id,
+        {
+            "message_id": new_id("msg_"),
+            "session_id": session_id,
+            "turn_id": turn_id,
+            "role": "user",
+            "content": user_message,
+            "created_at": utc_now(),
+            "metadata": {"request_id": request_id, "trace_id": trace_id},
+        },
+    )
+    assistant_text = "".join(
+        str(event.get("data", {}).get("text") or "")
+        for event in result.get("events", [])
+        if isinstance(event, dict) and event.get("type") == AgentEventType.RESPONSE_DELTA.value
+    )
+    session_store.add_message(
+        session_id,
+        {
+            "message_id": new_id("msg_"),
+            "session_id": session_id,
+            "turn_id": turn_id,
+            "role": "assistant",
+            "content": assistant_text,
+            "created_at": utc_now(),
+            "metadata": {"request_id": request_id, "trace_id": trace_id},
+        },
+    )
+    for tool_result in result.get("toolResults", []):
+        if not isinstance(tool_result, dict):
+            continue
+        session_store.add_tool_call(
+            session_id,
+            {
+                "tool_call_id": tool_result["tool_call_id"],
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "tool_name": tool_result["tool_name"],
+                "status": tool_result["status"],
+                "created_at": utc_now(),
+                "tool_result": tool_result,
+            },
+        )
+        session_store.add_budget_entry(
+            session_id,
+            {
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "tool_call_id": tool_result["tool_call_id"],
+                "created_at": utc_now(),
+                "status": tool_result["status"],
+                "budget_cost": tool_result.get("budget_cost", {}),
+            },
+        )
+    for artifact in result.get("artifacts", []):
+        if isinstance(artifact, dict):
+            session_store.add_artifact(session_id, artifact)
+    if assistant_text:
+        session_store.upsert_checkpoint(
+            session_id,
+            {
+                "checkpoint_id": new_id("ckpt_"),
+                "session_id": session_id,
+                "turn_id": turn_id,
+                "created_at": utc_now(),
+                "summary": assistant_text[:240],
+                "metadata": {"request_id": request_id, "trace_id": trace_id, "strategy": "latest_turn_summary"},
+            },
+        )
+
+
+def integration_adapter_registry() -> AdapterRegistry:
+    registry = default_adapter_registry()
+    registry.register(
+        {
+            "adapterId": "mindmap.generate",
+            "name": "Generate Mindmap",
+            "kind": "internal_tool",
+            "capability": "mindmap_generation",
+            "requiredContext": ["activePage"],
+            "riskLevel": "safe",
+            "budgetHint": {
+                "model_calls": 0,
+                "tool_calls": 1,
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "context_bytes": 0,
+                "runtime_ms": 1,
+            },
+        },
+        c_mindmap_adapter,
+    )
+    return registry
+
+
+def c_mindmap_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
+    page = invocation.get("input", {}).get("activePage")
+    result = generate_mindmap_payload(
+        {
+            "sessionId": invocation["sessionId"],
+            "turnId": invocation["turnId"],
+            "toolCallId": invocation["toolCallId"],
+            "structuredPage": page,
+        }
+    )
+    if not result["ok"]:
+        return {
+            "adapterId": invocation["adapterId"],
+            "toolCallId": invocation["toolCallId"],
+            "status": "failed",
+            "content": {},
+            "artifacts": [],
+            "budgetCost": {
+                "model_calls": 0,
+                "tool_calls": 1,
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "context_bytes": 0,
+                "runtime_ms": 1,
+            },
+            "warnings": [],
+            "error": result["error"],
+        }
+    artifact = {
+        "artifactId": new_id("art_"),
+        "sessionId": invocation["sessionId"],
+        "turnId": invocation["turnId"],
+        "toolCallId": invocation["toolCallId"],
+        "type": "mindmap",
+        "sourcePageId": result["sourcePageId"],
+        "sourceChunkIds": result["sourceChunkIds"],
+        "source": "page",
+        "content": result["mermaidSource"],
+        "metadata": result["metadata"],
+        "createdAt": utc_now(),
+    }
+    return {
+        "adapterId": invocation["adapterId"],
+        "toolCallId": invocation["toolCallId"],
+        "status": "succeeded",
+        "content": {"answer": "已基于当前页面生成 Mermaid 思维导图。", "mermaid": result["mermaidSource"]},
+        "artifacts": [artifact],
+        "budgetCost": {
+            "model_calls": 0,
+            "tool_calls": 1,
+            "input_tokens": 0,
+            "output_tokens": max(1, len(str(result["mermaidSource"])) // 4),
+            "context_bytes": 0,
+            "runtime_ms": 1,
+        },
+        "warnings": result.get("warnings", []),
+        "error": None,
+    }

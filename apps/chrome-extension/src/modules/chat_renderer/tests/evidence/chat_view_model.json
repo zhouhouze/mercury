@@ -1,0 +1,43 @@
+{
+  "runtime": {
+    "status": "online",
+    "message": "Runtime online"
+  },
+  "messages": [
+    {
+      "role": "assistant",
+      "text": "Hello Navia",
+      "status": "done"
+    }
+  ],
+  "activeAssistantText": null,
+  "tools": [
+    {
+      "toolCallId": "tc_1",
+      "toolName": "page.summarize",
+      "status": "succeeded",
+      "message": "succeeded"
+    }
+  ],
+  "artifacts": [
+    {
+      "artifactId": "art_summary",
+      "kind": "summary",
+      "title": "Companion Reading Architecture",
+      "body": "## Summary\n- Navia extracts page context.",
+      "sourcePageId": "page_fixture",
+      "sourceChunkIds": ["ck_0001"],
+      "format": "markdown"
+    }
+  ],
+  "mindmaps": [
+    {
+      "artifactId": "art_mindmap",
+      "renderMode": "mermaid",
+      "sourceFallback": "mindmap\n  root((Companion Reading Architecture))\n    Structured Page Facts",
+      "errorMessage": null
+    }
+  ],
+  "debugCount": 0,
+  "visibleErrors": []
+}

@@ -197,7 +197,7 @@
         <mxCell id="title6" value="V1.2 开发及验收计划" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="430" y="30" width="540" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s0" value="V1.2-0&#xa;合同 / 工作区 / public API / fixture / PRD matrix / drawio freeze" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14" vertex="1" parent="1">
+        <mxCell id="s0" value="V1.2-0 / 0R&#xa;合同冻结 + readiness closure&#xa;public API / fixture / PRD matrix / drawio / ChatGPT audit package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14" vertex="1" parent="1">
           <mxGeometry x="90" y="160" width="230" height="120" as="geometry" />
         </mxCell>
         <mxCell id="sa" value="V1.2-A&#xa;Page Reading&#xa;real HTML fixture -&gt; StructuredPageContext" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFEFF;strokeColor=#0891B2;fontSize=14" vertex="1" parent="1">
@@ -212,7 +212,7 @@
         <mxCell id="sb" value="V1.2-B&#xa;Renderers&#xa;recorded SSE / artifact fixture -&gt; UI view models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14" vertex="1" parent="1">
           <mxGeometry x="700" y="290" width="240" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="se" value="V1.2-E&#xa;Integration / E2E / PRD Review&#xa;真实 Chrome + Runtime + fixture + trace" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" vertex="1" parent="1">
+        <mxCell id="se" value="V1.2-E&#xa;Integration / E2E / PRD Review&#xa;真实 Chrome + Runtime + fixture + trace&#xa;唯一 V1.2 complete 声明入口" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" vertex="1" parent="1">
           <mxGeometry x="1030" y="200" width="260" height="150" as="geometry" />
         </mxCell>
         <mxCell id="g1" edge="1" parent="1" source="s0" target="sa" style="endArrow=block;html=1">
@@ -233,7 +233,7 @@
         <mxCell id="g6" edge="1" parent="1" source="sb" target="se" style="endArrow=block;html=1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="accept6" value="每阶段门禁&#xa;开发计划 -&gt; 预审计 -&gt; mock 验收 -&gt; evidence -&gt; PRD 复检 -&gt; Go / No-Go" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=center" vertex="1" parent="1">
+        <mxCell id="accept6" value="每阶段门禁&#xa;开发计划 -&gt; ChatGPT / PRD 预审计 -&gt; fixture/mock 验收 -&gt; evidence -&gt; PRD 复检 -&gt; Go / No-Go&#xa;E 阶段必须补真实 Chrome E2E 与 PRD coverage evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=center" vertex="1" parent="1">
           <mxGeometry x="350" y="600" width="700" height="120" as="geometry" />
         </mxCell>
       </root>
@@ -259,10 +259,10 @@
         <mxCell id="m4" value="V2-V5&#xa;知识库 / 观赛观影 / 个人秘书 / 多端云化 / 桌宠&#xa;均不进入 V1.2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=14" vertex="1" parent="1">
           <mxGeometry x="880" y="130" width="360" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="go7" value="V1.2 Complete&#xa;真实网页可读取、总结、连续问答、生成 Mindmap artifact&#xa;B 可流式渲染和 source fallback&#xa;trace?turn_id 可审计完整路径&#xa;PRD A-F 不回退" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="go7" value="V1.2 Complete&#xa;只能由 E 阶段声明&#xa;真实网页可读取、总结、连续问答、生成 Mindmap artifact&#xa;B 可流式渲染和 source fallback&#xa;trace?turn_id 可审计完整路径&#xa;PRD coverage evidence 已填真实路径&#xa;PRD A-F 不回退" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="170" y="420" width="460" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="nogo7" value="No-Go&#xa;缺 public API / fixture / evidence&#xa;B 直连 A/C/MCP/Skill/API&#xa;D 绕过 governance&#xa;只有 mock 声明真实 E2E&#xa;artifact 缺 sourcePageId/turnId/toolCallId&#xa;trace 断链" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="nogo7" value="No-Go&#xa;缺 public API / fixture / evidence&#xa;B 直连 A/C/MCP/Skill/API&#xa;D 绕过 governance&#xa;只有 mock 声明真实 E2E&#xa;artifact 缺 sourcePageId/turnId/toolCallId&#xa;trace 断链&#xa;real piAgent 未完成 dependency lock 就接入&#xa;PRD coverage 仍是 placeholder" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="760" y="420" width="460" height="230" as="geometry" />
         </mxCell>
       </root>

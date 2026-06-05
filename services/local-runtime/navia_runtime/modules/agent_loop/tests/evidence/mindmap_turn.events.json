@@ -1,0 +1,407 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "art_00000000000000000000000049",
+      "content": "mindmap\n  root((Companion Reading Architecture))\n    Companion Reading Architecture\n    Structured Page Facts",
+      "createdAt": "2026-06-04T13:51:32Z",
+      "metadata": {
+        "format": "mermaid",
+        "model": "mock-core-provider",
+        "nodeSourceMap": {
+          "node_1": {
+            "chunkIds": [
+              "ck_0001"
+            ],
+            "excerpt": "Navia extracts page context for companion reading.",
+            "nodeLabel": "Companion Reading Architecture",
+            "paragraphIds": [
+              "pg_0001"
+            ]
+          },
+          "node_2": {
+            "chunkIds": [
+              "ck_0002"
+            ],
+            "excerpt": "The page reading module creates paragraphs, chunks, annotations, and stable hashes.",
+            "nodeLabel": "Structured Page Facts",
+            "paragraphIds": [
+              "pg_0002"
+            ]
+          }
+        },
+        "validation": {
+          "repairAttempts": 0,
+          "status": "mock-passed"
+        }
+      },
+      "sessionId": "sess_mindmap_turn",
+      "source": "page",
+      "sourceChunkIds": [],
+      "sourcePageId": "page_fixture",
+      "toolCallId": "tc_00000000000000000000000046",
+      "turnId": "turn_00000000000000000000000039",
+      "type": "mindmap"
+    }
+  ],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000041",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "mindmap.generate",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000042",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000043",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000044",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000045",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "running_tool"
+      },
+      "event_id": "evt_00000000000000000000000047",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter": {
+          "adapterId": "mindmap.generate",
+          "budgetHint": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "capability": "mindmap_generation",
+          "kind": "internal_tool",
+          "name": "Generate Mindmap",
+          "requiredContext": [
+            "activePage"
+          ],
+          "riskLevel": "safe"
+        },
+        "tool_call_id": "tc_00000000000000000000000046",
+        "tool_name": "mindmap.generate"
+      },
+      "event_id": "evt_00000000000000000000000048",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "tool.started"
+    },
+    {
+      "data": {
+        "status": "succeeded",
+        "tool_call_id": "tc_00000000000000000000000046",
+        "tool_name": "mindmap.generate",
+        "tool_result": {
+          "adapter_capability": "mindmap_generation",
+          "adapter_id": "mindmap.generate",
+          "adapter_kind": "internal_tool",
+          "artifact_ids": [
+            "art_00000000000000000000000049"
+          ],
+          "budget_cost": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 27,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "content": {
+            "answer": "已生成页面思维导图。",
+            "mermaid": "mindmap\n  root((Companion Reading Architecture))\n    Companion Reading Architecture\n    Structured Page Facts"
+          },
+          "error": null,
+          "status": "succeeded",
+          "tool_call_id": "tc_00000000000000000000000046",
+          "tool_name": "mindmap.generate",
+          "warnings": []
+        }
+      },
+      "event_id": "evt_00000000000000000000000050",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "tool.done"
+    },
+    {
+      "data": {
+        "artifact": {
+          "artifactId": "art_00000000000000000000000049",
+          "content": "mindmap\n  root((Companion Reading Architecture))\n    Companion Reading Architecture\n    Structured Page Facts",
+          "createdAt": "2026-06-04T13:51:32Z",
+          "metadata": {
+            "format": "mermaid",
+            "model": "mock-core-provider",
+            "nodeSourceMap": {
+              "node_1": {
+                "chunkIds": [
+                  "ck_0001"
+                ],
+                "excerpt": "Navia extracts page context for companion reading.",
+                "nodeLabel": "Companion Reading Architecture",
+                "paragraphIds": [
+                  "pg_0001"
+                ]
+              },
+              "node_2": {
+                "chunkIds": [
+                  "ck_0002"
+                ],
+                "excerpt": "The page reading module creates paragraphs, chunks, annotations, and stable hashes.",
+                "nodeLabel": "Structured Page Facts",
+                "paragraphIds": [
+                  "pg_0002"
+                ]
+              }
+            },
+            "validation": {
+              "repairAttempts": 0,
+              "status": "mock-passed"
+            }
+          },
+          "sessionId": "sess_mindmap_turn",
+          "source": "page",
+          "sourceChunkIds": [],
+          "sourcePageId": "page_fixture",
+          "toolCallId": "tc_00000000000000000000000046",
+          "turnId": "turn_00000000000000000000000039",
+          "type": "mindmap"
+        },
+        "artifact_id": "art_00000000000000000000000049",
+        "metadata": {
+          "format": "mermaid",
+          "model": "mock-core-provider",
+          "nodeSourceMap": {
+            "node_1": {
+              "chunkIds": [
+                "ck_0001"
+              ],
+              "excerpt": "Navia extracts page context for companion reading.",
+              "nodeLabel": "Companion Reading Architecture",
+              "paragraphIds": [
+                "pg_0001"
+              ]
+            },
+            "node_2": {
+              "chunkIds": [
+                "ck_0002"
+              ],
+              "excerpt": "The page reading module creates paragraphs, chunks, annotations, and stable hashes.",
+              "nodeLabel": "Structured Page Facts",
+              "paragraphIds": [
+                "pg_0002"
+              ]
+            }
+          },
+          "validation": {
+            "repairAttempts": 0,
+            "status": "mock-passed"
+          }
+        }
+      },
+      "event_id": "evt_00000000000000000000000051",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "artifact.created"
+    },
+    {
+      "data": {
+        "from": "running_tool",
+        "to": "streaming_response"
+      },
+      "event_id": "evt_00000000000000000000000052",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "text": "已生成页面思维导图。"
+      },
+      "event_id": "evt_00000000000000000000000053",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000054"
+      },
+      "event_id": "evt_00000000000000000000000055",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "streaming_response",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000056",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000057",
+      "request_id": "req_mindmap_turn",
+      "session_id": "sess_mindmap_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000040",
+      "turn_id": "turn_00000000000000000000000039",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_mindmap_turn",
+  "sessionId": "sess_mindmap_turn",
+  "status": "succeeded",
+  "toolResults": [
+    {
+      "adapter_capability": "mindmap_generation",
+      "adapter_id": "mindmap.generate",
+      "adapter_kind": "internal_tool",
+      "artifact_ids": [
+        "art_00000000000000000000000049"
+      ],
+      "budget_cost": {
+        "context_bytes": 0,
+        "input_tokens": 0,
+        "model_calls": 0,
+        "output_tokens": 27,
+        "runtime_ms": 1,
+        "tool_calls": 1
+      },
+      "content": {
+        "answer": "已生成页面思维导图。",
+        "mermaid": "mindmap\n  root((Companion Reading Architecture))\n    Companion Reading Architecture\n    Structured Page Facts"
+      },
+      "error": null,
+      "status": "succeeded",
+      "tool_call_id": "tc_00000000000000000000000046",
+      "tool_name": "mindmap.generate",
+      "warnings": []
+    }
+  ],
+  "trace": {
+    "artifactIds": [
+      "art_00000000000000000000000049"
+    ],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "state.transition",
+      "tool.started",
+      "tool.done",
+      "artifact.created",
+      "state.transition",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_mindmap_turn",
+    "sessionId": "sess_mindmap_turn",
+    "toolCallIds": [
+      "tc_00000000000000000000000046"
+    ],
+    "traceId": "trace_00000000000000000000000040",
+    "turnId": "turn_00000000000000000000000039"
+  },
+  "traceId": "trace_00000000000000000000000040",
+  "turnId": "turn_00000000000000000000000039"
+}

@@ -1,0 +1,75 @@
+{
+  "error": null,
+  "mermaidSource": "mindmap\n  root((article))\n    Companion Reading Architecture\n    Structured Page Facts\n    Governed Runtime",
+  "metadata": {
+    "format": "mermaid",
+    "nodeSourceMap": {
+      "node_1": {
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "excerpt": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+        "nodeLabel": "Companion Reading Architecture",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0001",
+          "pg_page_772875a1f6fc8c9a_0002",
+          "pg_page_772875a1f6fc8c9a_0003",
+          "pg_page_772875a1f6fc8c9a_0004"
+        ]
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "excerpt": "The page reading module creates paragraphs, chunks, headings, annotations, and a stable content hash for downstream tools.",
+        "nodeLabel": "Structured Page Facts",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0002",
+          "pg_page_772875a1f6fc8c9a_0003"
+        ]
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "excerpt": "Because tool calls are governed, adapters cannot bypass the runtime trace or create artifacts without source references.",
+        "nodeLabel": "Governed Runtime",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0004"
+        ]
+      },
+      "root": {
+        "chunkIds": [
+          "ck_page_772875a1f6fc8c9a_0001"
+        ],
+        "excerpt": "Navia is a local companion reading assistant that extracts page context and helps readers understand long documents.",
+        "nodeLabel": "article",
+        "paragraphIds": [
+          "pg_page_772875a1f6fc8c9a_0001",
+          "pg_page_772875a1f6fc8c9a_0002",
+          "pg_page_772875a1f6fc8c9a_0003",
+          "pg_page_772875a1f6fc8c9a_0004"
+        ]
+      }
+    },
+    "nodesCount": 4,
+    "repairCount": 1,
+    "sourcePageId": "page_772875a1f6fc8c9a",
+    "validation": {
+      "error": null,
+      "valid": true
+    }
+  },
+  "ok": true,
+  "paragraphIds": [
+    "pg_page_772875a1f6fc8c9a_0001",
+    "pg_page_772875a1f6fc8c9a_0002",
+    "pg_page_772875a1f6fc8c9a_0003",
+    "pg_page_772875a1f6fc8c9a_0004"
+  ],
+  "sourceChunkIds": [
+    "ck_page_772875a1f6fc8c9a_0001"
+  ],
+  "sourcePageId": "page_772875a1f6fc8c9a",
+  "warnings": []
+}

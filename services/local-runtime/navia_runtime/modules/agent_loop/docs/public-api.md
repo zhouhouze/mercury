@@ -40,15 +40,15 @@ run_turn(input: CoreTurnInput) -> CoreTurnResult
 - `state.transition`
 - `intent.detected`
 - `budget.checked`
-- `tool.requested`
 - `tool.denied`
 - `tool.started`
 - `tool.done`
-- `tool.failed`
 - `artifact.created`
 - `response.delta`
 - `response.done`
 - `error`
+
+Adapter failure must be represented as `tool.done(status="failed")` plus `error`. D must not introduce ad-hoc event strings without returning to V1.2-0.
 
 ## Integration Rules
 

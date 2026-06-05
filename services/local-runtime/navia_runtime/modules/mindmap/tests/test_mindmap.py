@@ -1,0 +1,89 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+from navia_runtime.contracts import ErrorCode
+from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload, validate_mermaid_source
+
+
+A_EVIDENCE_DIR = Path(__file__).resolve().parents[2] / "page_reading/tests/evidence"
+
+
+def structured_page(name: str) -> dict[str, object]:
+    evidence = json.loads((A_EVIDENCE_DIR / f"{name}.structured-page.json").read_text(encoding="utf-8"))
+    assert evidence["ok"] is True
+    return evidence["structuredPage"]
+
+
+def test_article_docs_and_readme_generate_valid_traceable_mindmaps() -> None:
+    for name in ["article", "docs", "github_readme"]:
+        result = generate_mindmap_payload(
+            {
+                "sessionId": "sess_c_test",
+                "turnId": "turn_c_test",
+                "toolCallId": "tc_c_test",
+                "structuredPage": structured_page(name),
+            }
+        )
+
+        assert result["ok"] is True, name
+        assert validate_mermaid_source(result["mermaidSource"])["valid"] is True
+        assert result["metadata"]["format"] == "mermaid"
+        assert result["metadata"]["validation"]["valid"] is True
+        assert result["metadata"]["repairCount"] <= 1
+        assert result["sourcePageId"]
+        assert result["paragraphIds"], name
+        assert result["sourceChunkIds"], name
+        source_map = result["metadata"]["nodeSourceMap"]
+        assert "root" in source_map
+        assert all(node["paragraphIds"] or node["chunkIds"] for node in source_map.values())
+
+
+def test_repair_happens_at_most_once_for_invalid_first_render() -> None:
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_repair",
+            "turnId": "turn_c_repair",
+            "toolCallId": "tc_c_repair",
+            "structuredPage": structured_page("article"),
+            "debugForceInvalidOnce": True,
+        }
+    )
+
+    assert result["ok"] is True
+    assert result["metadata"]["repairCount"] == 1
+    assert result["metadata"]["validation"]["valid"] is True
+
+
+def test_missing_structured_page_returns_error_without_fake_mermaid() -> None:
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_missing",
+            "turnId": "turn_c_missing",
+            "toolCallId": "tc_c_missing",
+        }
+    )
+
+    assert result["ok"] is False
+    assert result["mermaidSource"] is None
+    assert result["error"]["code"] == ErrorCode.PAGE_CONTEXT_REQUIRED.value
+
+
+def test_sparse_heading_tree_uses_paragraph_fallback_with_source_refs() -> None:
+    page = structured_page("article")
+    page = {**page, "headingTree": []}
+
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_sparse",
+            "turnId": "turn_c_sparse",
+            "toolCallId": "tc_c_sparse",
+            "structuredPage": page,
+        }
+    )
+
+    assert result["ok"] is True
+    assert result["paragraphIds"]
+    assert result["sourceChunkIds"]
+    assert len(result["metadata"]["nodeSourceMap"]) >= 2

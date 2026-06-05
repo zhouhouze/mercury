@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Structured Blocks Fixture</title>
+  </head>
+  <body>
+    <article>
+      <h1>Structured Blocks Fixture</h1>
+      <p>This fixture checks that tables, lists, and code-like content remain in source order.</p>
+      <h2>Checklist</h2>
+      <ol>
+        <li>Extract visible headings and paragraphs.</li>
+        <li>Preserve list items as readable source blocks.</li>
+      </ol>
+      <h2>Contract Table</h2>
+      <table>
+        <thead>
+          <tr><th>Contract Field Name</th><th>Validation Rule Summary</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>paragraphId</td><td>Must be stable for identical content.</td></tr>
+          <tr><td>chunkId</td><td>Must reference paragraph identifiers.</td></tr>
+        </tbody>
+      </table>
+      <h2>Command</h2>
+      <pre>pnpm --filter chrome-extension build</pre>
+      <p>The parser should not collapse the page into one giant paragraph.</p>
+    </article>
+  </body>
+</html>

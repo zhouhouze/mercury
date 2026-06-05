@@ -92,6 +92,7 @@ describe("injected panel layout", () => {
     expect(frame?.dataset.activeTool).toBe("debug");
     expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-page']")).not.toBeNull();
     expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-state-banner']")).not.toBeNull();
+    expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-structured-json']")?.textContent).toContain("StructuredPageContext");
     expect(root?.querySelector("[data-testid='navia-debug-read-page']")).not.toBeNull();
     expect(root?.querySelector("[data-testid='navia-tool-debug']")?.classList.contains("active")).toBe(true);
 

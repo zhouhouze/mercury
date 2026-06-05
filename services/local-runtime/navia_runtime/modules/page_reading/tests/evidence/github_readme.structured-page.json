@@ -1,0 +1,232 @@
+{
+  "error": null,
+  "ok": true,
+  "structuredPage": {
+    "annotations": [
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.45,
+        "densityScore": 0.717,
+        "importance": "medium",
+        "labels": [
+          "unknown",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0001",
+        "role": "unknown"
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.72,
+        "densityScore": 0.695,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0002",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.72,
+        "densityScore": 0.697,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0003",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.72,
+        "densityScore": 0.546,
+        "importance": "medium",
+        "labels": [
+          "summary",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0004",
+        "role": "summary"
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "confidence": 0.45,
+        "densityScore": 0.725,
+        "importance": "medium",
+        "labels": [
+          "unknown",
+          "sectioned"
+        ],
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0005",
+        "role": "unknown"
+      }
+    ],
+    "capturedAt": "2026-06-04T00:00:00Z",
+    "chunks": [
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime"
+        ],
+        "order": 0,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0001",
+          "pg_page_4a86529dde4aaa4d_0002",
+          "pg_page_4a86529dde4aaa4d_0003",
+          "pg_page_4a86529dde4aaa4d_0004",
+          "pg_page_4a86529dde4aaa4d_0005"
+        ],
+        "text": "A local companion reading runtime for extracting page context and serving governed chat streams.\nCreate a virtual environment before running the FastAPI runtime.\nInstall runtime dependencies from the repository requirement files.\nPYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests\nThe README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+        "tokenEstimate": 105
+      }
+    ],
+    "contentHash": "sha256_4a86529dde4aaa4dc83cf63154518c5aa615ac8bdef70f2d7d7e05d27553e393",
+    "domain": "module-fixtures.example",
+    "headingTree": [
+      {
+        "headingId": "hd_0001",
+        "level": 1,
+        "order": 0,
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0001",
+          "pg_page_4a86529dde4aaa4d_0002",
+          "pg_page_4a86529dde4aaa4d_0003",
+          "pg_page_4a86529dde4aaa4d_0004",
+          "pg_page_4a86529dde4aaa4d_0005"
+        ],
+        "text": "navia-runtime"
+      },
+      {
+        "headingId": "hd_0002",
+        "level": 2,
+        "order": 1,
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0002",
+          "pg_page_4a86529dde4aaa4d_0003"
+        ],
+        "parentHeadingId": "hd_0001",
+        "text": "Install"
+      },
+      {
+        "headingId": "hd_0003",
+        "level": 2,
+        "order": 2,
+        "paragraphIds": [
+          "pg_page_4a86529dde4aaa4d_0004",
+          "pg_page_4a86529dde4aaa4d_0005"
+        ],
+        "parentHeadingId": "hd_0001",
+        "text": "Smoke Test"
+      }
+    ],
+    "imageMetadata": [],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 3,
+      "language": "en",
+      "paragraphCount": 5,
+      "wordCount": 67
+    },
+    "pageId": "page_4a86529dde4aaa4d",
+    "paragraphs": [
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime"
+        ],
+        "order": 0,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0001",
+        "sourceBlockType": "paragraph",
+        "text": "A local companion reading runtime for extracting page context and serving governed chat streams."
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ],
+        "order": 1,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0002",
+        "sourceBlockType": "list_item",
+        "text": "Create a virtual environment before running the FastAPI runtime."
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime",
+          "Install"
+        ],
+        "order": 2,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0003",
+        "sourceBlockType": "list_item",
+        "text": "Install runtime dependencies from the repository requirement files."
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ],
+        "order": 3,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0004",
+        "sourceBlockType": "code",
+        "text": "PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/tests"
+      },
+      {
+        "chunkId": "ck_page_4a86529dde4aaa4d_0001",
+        "headingPath": [
+          "navia-runtime",
+          "Smoke Test"
+        ],
+        "order": 4,
+        "pageId": "page_4a86529dde4aaa4d",
+        "paragraphId": "pg_page_4a86529dde4aaa4d_0005",
+        "sourceBlockType": "paragraph",
+        "text": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+      }
+    ],
+    "sessionId": "evidence_github_readme",
+    "summaryDraft": {
+      "format": "json",
+      "keyPoints": [
+        "The README fixture preserves list and code content so downstream modules can consume source ordered chunks.",
+        "A local companion reading runtime for extracting page context and serving governed chat streams.",
+        "Install runtime dependencies from the repository requirement files.",
+        "Create a virtual environment before running the FastAPI runtime."
+      ],
+      "structure": [
+        {
+          "headingPath": [
+            "navia-runtime"
+          ],
+          "paragraphIds": [
+            "pg_page_4a86529dde4aaa4d_0001",
+            "pg_page_4a86529dde4aaa4d_0002",
+            "pg_page_4a86529dde4aaa4d_0003",
+            "pg_page_4a86529dde4aaa4d_0004",
+            "pg_page_4a86529dde4aaa4d_0005"
+          ],
+          "summary": "A local companion reading runtime for extracting page context and serving governed chat streams.\nCreate a virtual environment before running the FastAPI runtime.\nInstall runtime de"
+        }
+      ],
+      "suggestedQuestions": [
+        "这篇内容的核心观点是什么？",
+        "哪些段落最值得深入阅读？",
+        "可以把这篇内容整理成思维导图吗？"
+      ],
+      "title": "github_readme",
+      "tldr": "The README fixture preserves list and code content so downstream modules can consume source ordered chunks."
+    },
+    "title": "github_readme",
+    "url": "https://module-fixtures.example/github_readme"
+  },
+  "warnings": []
+}

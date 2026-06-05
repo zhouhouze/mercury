@@ -1,0 +1,197 @@
+{
+  "artifacts": [],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000060",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "fixture.denied",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000061",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000062",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000063",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000064",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "blocked"
+      },
+      "event_id": "evt_00000000000000000000000066",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "message": "Adapter denied by default policy: fixture.denied",
+        "reason": "TOOL_PERMISSION_DENIED",
+        "tool_call_id": "tc_00000000000000000000000065",
+        "tool_name": "fixture.denied"
+      },
+      "event_id": "evt_00000000000000000000000067",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "tool.denied"
+    },
+    {
+      "data": {
+        "code": "TOOL_PERMISSION_DENIED",
+        "details": {},
+        "message": "Adapter denied by default policy: fixture.denied",
+        "recoverable": true
+      },
+      "event_id": "evt_00000000000000000000000068",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "error"
+    },
+    {
+      "data": {
+        "text": "Adapter denied by default policy: fixture.denied"
+      },
+      "event_id": "evt_00000000000000000000000069",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000070"
+      },
+      "event_id": "evt_00000000000000000000000071",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000072",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000073",
+      "request_id": "req_denied_adapter",
+      "session_id": "sess_denied_adapter",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000059",
+      "turn_id": "turn_00000000000000000000000058",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_denied_adapter",
+  "sessionId": "sess_denied_adapter",
+  "status": "denied",
+  "toolResults": [],
+  "trace": {
+    "artifactIds": [],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "budget.checked",
+      "tool.denied",
+      "error",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_denied_adapter",
+    "sessionId": "sess_denied_adapter",
+    "toolCallIds": [],
+    "traceId": "trace_00000000000000000000000059",
+    "turnId": "turn_00000000000000000000000058"
+  },
+  "traceId": "trace_00000000000000000000000059",
+  "turnId": "turn_00000000000000000000000058"
+}

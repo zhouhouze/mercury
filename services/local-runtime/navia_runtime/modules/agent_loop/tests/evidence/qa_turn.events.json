@@ -1,0 +1,334 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "art_00000000000000000000000030",
+      "content": "基于《Companion Reading Architecture》回答：\n- Navia extracts page context for companion reading.\n- The page reading module creates paragraphs, chunks, annotations, and stable hashes.\n- Adapters must pass governance before producing artifacts or trace evidence.\n\n问题：这些适配器为什么需要治理？",
+      "createdAt": "2026-06-04T13:51:32Z",
+      "metadata": {
+        "format": "markdown",
+        "model": "mock-core-provider",
+        "question": "这些适配器为什么需要治理？",
+        "sourceUrl": "https://example.com/article"
+      },
+      "sessionId": "sess_qa_turn",
+      "source": "page",
+      "sourceChunkIds": [],
+      "sourcePageId": "page_fixture",
+      "toolCallId": "tc_00000000000000000000000027",
+      "turnId": "turn_00000000000000000000000020",
+      "type": "answer"
+    }
+  ],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000022",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "page.answer",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000023",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000024",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000025",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000026",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "running_tool"
+      },
+      "event_id": "evt_00000000000000000000000028",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter": {
+          "adapterId": "page.answer",
+          "budgetHint": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "capability": "question_answering",
+          "kind": "internal_tool",
+          "name": "Answer From Page",
+          "requiredContext": [
+            "activePage",
+            "recentMessages"
+          ],
+          "riskLevel": "safe"
+        },
+        "tool_call_id": "tc_00000000000000000000000027",
+        "tool_name": "page.answer"
+      },
+      "event_id": "evt_00000000000000000000000029",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "tool.started"
+    },
+    {
+      "data": {
+        "status": "succeeded",
+        "tool_call_id": "tc_00000000000000000000000027",
+        "tool_name": "page.answer",
+        "tool_result": {
+          "adapter_capability": "question_answering",
+          "adapter_id": "page.answer",
+          "adapter_kind": "internal_tool",
+          "artifact_ids": [
+            "art_00000000000000000000000030"
+          ],
+          "budget_cost": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 68,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "content": {
+            "answer": "基于《Companion Reading Architecture》回答：\n- Navia extracts page context for companion reading.\n- The page reading module creates paragraphs, chunks, annotations, and stable hashes.\n- Adapters must pass governance before producing artifacts or trace evidence.\n\n问题：这些适配器为什么需要治理？"
+          },
+          "error": null,
+          "status": "succeeded",
+          "tool_call_id": "tc_00000000000000000000000027",
+          "tool_name": "page.answer",
+          "warnings": []
+        }
+      },
+      "event_id": "evt_00000000000000000000000031",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "tool.done"
+    },
+    {
+      "data": {
+        "artifact": {
+          "artifactId": "art_00000000000000000000000030",
+          "content": "基于《Companion Reading Architecture》回答：\n- Navia extracts page context for companion reading.\n- The page reading module creates paragraphs, chunks, annotations, and stable hashes.\n- Adapters must pass governance before producing artifacts or trace evidence.\n\n问题：这些适配器为什么需要治理？",
+          "createdAt": "2026-06-04T13:51:32Z",
+          "metadata": {
+            "format": "markdown",
+            "model": "mock-core-provider",
+            "question": "这些适配器为什么需要治理？",
+            "sourceUrl": "https://example.com/article"
+          },
+          "sessionId": "sess_qa_turn",
+          "source": "page",
+          "sourceChunkIds": [],
+          "sourcePageId": "page_fixture",
+          "toolCallId": "tc_00000000000000000000000027",
+          "turnId": "turn_00000000000000000000000020",
+          "type": "answer"
+        },
+        "artifact_id": "art_00000000000000000000000030",
+        "metadata": {
+          "format": "markdown",
+          "model": "mock-core-provider",
+          "question": "这些适配器为什么需要治理？",
+          "sourceUrl": "https://example.com/article"
+        }
+      },
+      "event_id": "evt_00000000000000000000000032",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "artifact.created"
+    },
+    {
+      "data": {
+        "from": "running_tool",
+        "to": "streaming_response"
+      },
+      "event_id": "evt_00000000000000000000000033",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "text": "基于《Companion Reading Architecture》回答：\n- Navia extracts page context for companion reading.\n- The page reading module creates paragraphs, chunks, annotations, and stable hashes.\n- Adapters must pass governance before producing artifacts or trace evidence.\n\n问题：这些适配器为什么需要治理？"
+      },
+      "event_id": "evt_00000000000000000000000034",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000035"
+      },
+      "event_id": "evt_00000000000000000000000036",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "streaming_response",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000037",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000038",
+      "request_id": "req_qa_turn",
+      "session_id": "sess_qa_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000021",
+      "turn_id": "turn_00000000000000000000000020",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_qa_turn",
+  "sessionId": "sess_qa_turn",
+  "status": "succeeded",
+  "toolResults": [
+    {
+      "adapter_capability": "question_answering",
+      "adapter_id": "page.answer",
+      "adapter_kind": "internal_tool",
+      "artifact_ids": [
+        "art_00000000000000000000000030"
+      ],
+      "budget_cost": {
+        "context_bytes": 0,
+        "input_tokens": 0,
+        "model_calls": 0,
+        "output_tokens": 68,
+        "runtime_ms": 1,
+        "tool_calls": 1
+      },
+      "content": {
+        "answer": "基于《Companion Reading Architecture》回答：\n- Navia extracts page context for companion reading.\n- The page reading module creates paragraphs, chunks, annotations, and stable hashes.\n- Adapters must pass governance before producing artifacts or trace evidence.\n\n问题：这些适配器为什么需要治理？"
+      },
+      "error": null,
+      "status": "succeeded",
+      "tool_call_id": "tc_00000000000000000000000027",
+      "tool_name": "page.answer",
+      "warnings": []
+    }
+  ],
+  "trace": {
+    "artifactIds": [
+      "art_00000000000000000000000030"
+    ],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "state.transition",
+      "tool.started",
+      "tool.done",
+      "artifact.created",
+      "state.transition",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_qa_turn",
+    "sessionId": "sess_qa_turn",
+    "toolCallIds": [
+      "tc_00000000000000000000000027"
+    ],
+    "traceId": "trace_00000000000000000000000021",
+    "turnId": "turn_00000000000000000000000020"
+  },
+  "traceId": "trace_00000000000000000000000021",
+  "turnId": "turn_00000000000000000000000020"
+}

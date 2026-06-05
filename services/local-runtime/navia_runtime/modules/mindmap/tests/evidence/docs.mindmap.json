@@ -1,0 +1,82 @@
+{
+  "error": null,
+  "mermaidSource": "mindmap\n  root((docs))\n    Runtime API Documentation\n    Sessions\n      Create Session\n    Streaming",
+  "metadata": {
+    "format": "mermaid",
+    "nodeSourceMap": {
+      "node_1": {
+        "chunkIds": [
+          "ck_page_d0d02a03bb197392_0001"
+        ],
+        "excerpt": "The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state.",
+        "nodeLabel": "Runtime API Documentation",
+        "paragraphIds": [
+          "pg_page_d0d02a03bb197392_0001",
+          "pg_page_d0d02a03bb197392_0002",
+          "pg_page_d0d02a03bb197392_0003"
+        ]
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_page_d0d02a03bb197392_0001"
+        ],
+        "excerpt": "The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state.",
+        "nodeLabel": "Sessions",
+        "paragraphIds": [
+          "pg_page_d0d02a03bb197392_0001",
+          "pg_page_d0d02a03bb197392_0002"
+        ]
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_page_d0d02a03bb197392_0001"
+        ],
+        "excerpt": "Clients call the sessions endpoint before streaming chat turns so every event can reference a session id.",
+        "nodeLabel": "Create Session",
+        "paragraphIds": [
+          "pg_page_d0d02a03bb197392_0002"
+        ]
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_page_d0d02a03bb197392_0001"
+        ],
+        "excerpt": "The chat stream uses server sent events and emits state, intent, budget, tool, artifact, response, and error events.",
+        "nodeLabel": "Streaming",
+        "paragraphIds": [
+          "pg_page_d0d02a03bb197392_0003"
+        ]
+      },
+      "root": {
+        "chunkIds": [
+          "ck_page_d0d02a03bb197392_0001"
+        ],
+        "excerpt": "The runtime creates one session for a browser reading context and keeps active page data outside the Side Panel state.",
+        "nodeLabel": "docs",
+        "paragraphIds": [
+          "pg_page_d0d02a03bb197392_0001",
+          "pg_page_d0d02a03bb197392_0002",
+          "pg_page_d0d02a03bb197392_0003"
+        ]
+      }
+    },
+    "nodesCount": 5,
+    "repairCount": 0,
+    "sourcePageId": "page_d0d02a03bb197392",
+    "validation": {
+      "error": null,
+      "valid": true
+    }
+  },
+  "ok": true,
+  "paragraphIds": [
+    "pg_page_d0d02a03bb197392_0001",
+    "pg_page_d0d02a03bb197392_0002",
+    "pg_page_d0d02a03bb197392_0003"
+  ],
+  "sourceChunkIds": [
+    "ck_page_d0d02a03bb197392_0001"
+  ],
+  "sourcePageId": "page_d0d02a03bb197392",
+  "warnings": []
+}

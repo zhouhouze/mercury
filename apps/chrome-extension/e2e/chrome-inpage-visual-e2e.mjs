@@ -9,9 +9,9 @@ import { chromium } from "playwright";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
 const extensionRoot = fs.realpathSync(
-  fs.existsSync(path.join(__dirname, "../.output/chrome-mv3/manifest.json"))
-    ? path.join(__dirname, "../.output/chrome-mv3")
-    : path.join(__dirname, "../chrome-mv3-unpacked")
+  fs.existsSync(path.join(__dirname, "../chrome-mv3-unpacked/manifest.json"))
+    ? path.join(__dirname, "../chrome-mv3-unpacked")
+    : path.join(__dirname, "../.output/chrome-mv3")
 );
 const runtimeUrl = "http://127.0.0.1:17861";
 const fixturePath = path.join(repoRoot, "docs/navia_v1_project_docs/fixtures/real_pages/article.html");

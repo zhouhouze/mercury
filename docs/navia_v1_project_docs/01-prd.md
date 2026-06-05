@@ -141,12 +141,15 @@ V1.2 仍处于文档开发阶段，目标是冻结“聊天”页签的 A/B/C/D 
 - C：基于结构化网页 JSON 的 Mindmap 生成与反跳来源。
 - D：CoreProvider + Adapter Layer，负责可替换 Agent Core 适配、MCP / Skill / API Adapter 编排、治理桥和 ToolResult / Artifact / Event / Trace 映射。
 
+其中 A 模块定位为 `Page Perception / AgentCore Eyes`，即 AgentCore 的眼睛。A 负责识别网页和未来媒体环境中的可读事实，并把它们转成可追踪结构化上下文；A 不负责推理、最终回答、AgenticLoop、Artifact 创建、SSE 或外部工具执行。
+
 V1.2 允许：
 
 - 定义轻量 MCP / Skill / API Adapter 合同。
 - 单 Session 连续上下文和 checkpoint。
 - 结构化网页 JSON、段落标注和 source map。
 - Mindmap 节点反跳到源 paragraph/chunk。
+- 规划图文网页识别、OCR、表格/代码块识别、未来视频/直播识别的合同和路线。
 - 使用 `MockCoreProvider` 做合同测试和自动化 fallback。
 - 将 `piAgentProvider` 作为首选 Agent Core Provider，但真实接入前必须锁定 piAgent 仓库、版本或 commit、license、运行时和工具调用模型。
 
@@ -160,6 +163,42 @@ V1.2 明确不做：
 - 默认本地文件读取。
 - 前端绕过 D 直接调用外部服务。
 - piAgent 或其他 CoreProvider 直接写 `ArtifactRecord`、SSE、EventStore、Trace 或 UI。
+- A 模块默认调用 OCR、视觉模型、视频流分析、直播流分析、MCP、Skill 或外部 API。
+
+### 5.3 A 模块感知能力路线
+
+A 模块内部能力统一使用 `A-Vx.y-z` 编号，编号规则见 `MODULE_VERSIONING.md`。
+
+V1.2 阶段的 A 模块规划口径：
+
+```text
+A-V1.0-0：感知合同冻结
+A-V1.0-1：文本 / DOM 结构识别
+A-V1.0-2：图文网页识别
+A-V1.0-3：OCR 识别规划
+A-V1.0-4：表格 / 列表 / 代码块识别
+A-V1.0-5：页面区域与信息密度识别
+```
+
+后续媒体感知规划：
+
+```text
+A-V2.0-1：视频感知规划
+A-V2.0-2：直播实时感知规划
+```
+
+OCR 规划原则：
+
+- OCR 是感知能力，但 OCR engine 执行必须作为受控 Adapter 接入，不能由 A 模块直接绕过治理调用。
+- OCR 输出必须带来源、置信度、时间或区域信息。
+- 无 OCR 或视觉能力时，A 只能基于 DOM 中的 `alt`、`caption`、`title`、`aria-label`、nearby text 描述图片相关事实。
+- 不得把无法识别的图片内容伪装成已理解。
+
+视频 / 直播规划原则：
+
+- 视频和直播识别不进入当前 V1.2 实现，只做未来合同和架构路线规划。
+- 视频/直播感知必须有采样策略、延迟预算、用户授权、隐私边界和 EventStore 追踪。
+- 实时识别输出不能只存在 EventStream，必须可按时间轴和 session trace 回放。
 
 ---
 

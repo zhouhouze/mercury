@@ -19,7 +19,8 @@ import {
   type ArtifactRecord,
   type ChatMessage,
   type ChatRole,
-  type RuntimeStatus
+  type RuntimeStatus,
+  type StructuredPageDebug
 } from "./runtimeClient";
 
 const HOST_ID = "navia-injected-host";
@@ -38,6 +39,7 @@ type PanelState = {
   runtimeStatus: RuntimeStatus;
   sessionId: string | null;
   pageContext: ExtractedPageContext | null;
+  structuredPageDebug: StructuredPageDebug | null;
   pageSubmitted: boolean;
   statusText: string;
   streamStatus: string;
@@ -133,6 +135,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     runtimeStatus: "checking",
     sessionId: null,
     pageContext: null,
+    structuredPageDebug: null,
     pageSubmitted: false,
     statusText: "正在检查 Runtime...",
     streamStatus: "idle",
@@ -170,6 +173,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   const pageEl = root.querySelector<HTMLElement>("[data-testid='navia-page']")!;
   const stateBannerEl = root.querySelector<HTMLElement>("[data-testid='navia-state-banner']")!;
   const chatNoticeEl = root.querySelector<HTMLElement>("[data-testid='navia-chat-notice']")!;
+  const structuredJsonEl = root.querySelector<HTMLElement>("[data-testid='navia-structured-json']")!;
 
   ball.addEventListener("click", () => {
     if (state.open) closePanel();
@@ -234,6 +238,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   async function resetChat() {
     state.sessionId = null;
     state.pageContext = null;
+    state.structuredPageDebug = null;
     state.pageSubmitted = false;
     state.streamStatus = "idle";
     state.lastError = null;
@@ -314,6 +319,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
       const sessionId = await ensureSession();
       const result = await submitRuntimePageContext(context, sessionId);
       state.pageSubmitted = result.ok;
+      state.structuredPageDebug = result.structuredPage ?? null;
       state.statusText = result.ok ? `已提交页面：${context.title}` : result.message ?? "页面上下文提交失败";
     } catch (error) {
       state.pageSubmitted = false;
@@ -458,6 +464,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     pageEl.textContent = state.pageContext
       ? `${state.pageContext.title} · ${state.pageContext.domain} · headings ${state.pageContext.headings.length}`
       : "尚未读取页面";
+    structuredJsonEl.textContent = JSON.stringify(getStructuredDebugPayload(), null, 2);
     stateBannerEl.textContent = getStateBannerText();
     chatNoticeEl.textContent = getChatNoticeText();
     chatToolButton.classList.toggle("active", state.activeTool === "chat");
@@ -509,6 +516,17 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     if (state.streamStatus === "streaming") return "正在生成回复。";
     if (state.streamStatus.startsWith("running")) return `正在执行工具：${state.streamStatus.replace("running ", "")}`;
     return "当前页面已就绪。";
+  }
+
+  function getStructuredDebugPayload() {
+    if (!state.structuredPageDebug) {
+      return {
+        status: "missing",
+        message: "读取当前页面后，这里会显示 A 模块返回的 StructuredPageContext。",
+        expectedSignals: ["pageId", "contentHash", "metadata", "headingTree", "paragraphs", "chunks", "annotations", "summaryDraft"]
+      };
+    }
+    return state.structuredPageDebug;
   }
 
   function applyPagePush() {
@@ -627,6 +645,13 @@ function markup() {
             </header>
             <div class="navia-page" data-testid="navia-page"></div>
             <div class="navia-state-banner" data-testid="navia-state-banner" role="status"></div>
+            <section class="navia-debug-json-card" aria-label="A module structured extraction">
+              <header>
+                <strong>A 模块结构化提取</strong>
+                <span>StructuredPageContext JSON</span>
+              </header>
+              <pre data-testid="navia-structured-json"></pre>
+            </section>
             <div class="navia-actions">
               <button data-testid="navia-debug-read-page">读取当前页面</button>
               <button data-testid="navia-debug-summary">总结</button>
@@ -965,6 +990,44 @@ function styles() {
         border-color: #c7d2fe;
         background: var(--navia-info-bg);
         color: #3730a3;
+      }
+      .navia-debug-json-card {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        gap: 8px;
+        min-height: 0;
+        border: 1px solid var(--navia-border);
+        border-radius: var(--navia-radius-md);
+        background: var(--navia-surface);
+        padding: 10px;
+      }
+      .navia-debug-json-card header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .navia-debug-json-card strong {
+        color: var(--navia-text);
+        font-size: 13px;
+      }
+      .navia-debug-json-card span {
+        color: var(--navia-text-muted);
+        font-size: 11px;
+      }
+      .navia-debug-json-card pre {
+        box-sizing: border-box;
+        max-height: min(44vh, 460px);
+        margin: 0;
+        overflow: auto;
+        border-radius: var(--navia-radius-sm);
+        background: #0f172a;
+        color: #dbeafe;
+        padding: 10px;
+        font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+        white-space: pre;
+        tab-size: 2;
       }
       .navia-actions {
         position: relative;

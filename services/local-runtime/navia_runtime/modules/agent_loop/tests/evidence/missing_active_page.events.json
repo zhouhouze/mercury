@@ -1,0 +1,197 @@
+{
+  "artifacts": [],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000076",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "page.summarize",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000077",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000078",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000079",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000080",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "blocked"
+      },
+      "event_id": "evt_00000000000000000000000082",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "message": "Active page is required before this adapter can run.",
+        "reason": "PAGE_CONTEXT_REQUIRED",
+        "tool_call_id": "tc_00000000000000000000000081",
+        "tool_name": "page.summarize"
+      },
+      "event_id": "evt_00000000000000000000000083",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "tool.denied"
+    },
+    {
+      "data": {
+        "code": "PAGE_CONTEXT_REQUIRED",
+        "details": {},
+        "message": "Active page is required before this adapter can run.",
+        "recoverable": true
+      },
+      "event_id": "evt_00000000000000000000000084",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "error"
+    },
+    {
+      "data": {
+        "text": "Active page is required before this adapter can run."
+      },
+      "event_id": "evt_00000000000000000000000085",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000086"
+      },
+      "event_id": "evt_00000000000000000000000087",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000088",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000089",
+      "request_id": "req_missing_active_page",
+      "session_id": "sess_missing_active_page",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000075",
+      "turn_id": "turn_00000000000000000000000074",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_missing_active_page",
+  "sessionId": "sess_missing_active_page",
+  "status": "denied",
+  "toolResults": [],
+  "trace": {
+    "artifactIds": [],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "budget.checked",
+      "tool.denied",
+      "error",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_missing_active_page",
+    "sessionId": "sess_missing_active_page",
+    "toolCallIds": [],
+    "traceId": "trace_00000000000000000000000075",
+    "turnId": "turn_00000000000000000000000074"
+  },
+  "traceId": "trace_00000000000000000000000075",
+  "turnId": "turn_00000000000000000000000074"
+}

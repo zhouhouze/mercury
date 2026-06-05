@@ -1,0 +1,336 @@
+{
+  "artifacts": [
+    {
+      "artifactId": "art_00000000000000000000000011",
+      "content": "## Companion Reading Architecture\n\n- Navia extracts page context.\n- Adapters pass governance.\n- Artifacts keep source references.",
+      "createdAt": "2026-06-04T13:51:32Z",
+      "metadata": {
+        "format": "markdown",
+        "model": "mock-core-provider",
+        "sourceUrl": "https://example.com/article"
+      },
+      "sessionId": "sess_summary_turn",
+      "source": "page",
+      "sourceChunkIds": [
+        "ck_0001",
+        "ck_0002"
+      ],
+      "sourcePageId": "page_fixture",
+      "toolCallId": "tc_00000000000000000000000008",
+      "turnId": "turn_00000000000000000000000001",
+      "type": "summary"
+    }
+  ],
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000003",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "page.summarize",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000004",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000005",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000006",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 4096,
+        "maxRetries": 1,
+        "maxToolCalls": 2,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000007",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "running_tool"
+      },
+      "event_id": "evt_00000000000000000000000009",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter": {
+          "adapterId": "page.summarize",
+          "budgetHint": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "capability": "summarization",
+          "kind": "internal_tool",
+          "name": "Summarize Page",
+          "requiredContext": [
+            "activePage"
+          ],
+          "riskLevel": "safe"
+        },
+        "tool_call_id": "tc_00000000000000000000000008",
+        "tool_name": "page.summarize"
+      },
+      "event_id": "evt_00000000000000000000000010",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "tool.started"
+    },
+    {
+      "data": {
+        "status": "succeeded",
+        "tool_call_id": "tc_00000000000000000000000008",
+        "tool_name": "page.summarize",
+        "tool_result": {
+          "adapter_capability": "summarization",
+          "adapter_id": "page.summarize",
+          "adapter_kind": "internal_tool",
+          "artifact_ids": [
+            "art_00000000000000000000000011"
+          ],
+          "budget_cost": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 32,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "content": {
+            "summary": "## Companion Reading Architecture\n\n- Navia extracts page context.\n- Adapters pass governance.\n- Artifacts keep source references."
+          },
+          "error": null,
+          "status": "succeeded",
+          "tool_call_id": "tc_00000000000000000000000008",
+          "tool_name": "page.summarize",
+          "warnings": []
+        }
+      },
+      "event_id": "evt_00000000000000000000000012",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "tool.done"
+    },
+    {
+      "data": {
+        "artifact": {
+          "artifactId": "art_00000000000000000000000011",
+          "content": "## Companion Reading Architecture\n\n- Navia extracts page context.\n- Adapters pass governance.\n- Artifacts keep source references.",
+          "createdAt": "2026-06-04T13:51:32Z",
+          "metadata": {
+            "format": "markdown",
+            "model": "mock-core-provider",
+            "sourceUrl": "https://example.com/article"
+          },
+          "sessionId": "sess_summary_turn",
+          "source": "page",
+          "sourceChunkIds": [
+            "ck_0001",
+            "ck_0002"
+          ],
+          "sourcePageId": "page_fixture",
+          "toolCallId": "tc_00000000000000000000000008",
+          "turnId": "turn_00000000000000000000000001",
+          "type": "summary"
+        },
+        "artifact_id": "art_00000000000000000000000011",
+        "metadata": {
+          "format": "markdown",
+          "model": "mock-core-provider",
+          "sourceUrl": "https://example.com/article"
+        }
+      },
+      "event_id": "evt_00000000000000000000000013",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "artifact.created"
+    },
+    {
+      "data": {
+        "from": "running_tool",
+        "to": "streaming_response"
+      },
+      "event_id": "evt_00000000000000000000000014",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "text": "## Companion Reading Architecture\n\n- Navia extracts page context.\n- Adapters pass governance.\n- Artifacts keep source references."
+      },
+      "event_id": "evt_00000000000000000000000015",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000016"
+      },
+      "event_id": "evt_00000000000000000000000017",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "streaming_response",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000018",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000019",
+      "request_id": "req_summary_turn",
+      "session_id": "sess_summary_turn",
+      "timestamp": "2026-06-04T13:51:32Z",
+      "trace_id": "trace_00000000000000000000000002",
+      "turn_id": "turn_00000000000000000000000001",
+      "type": "state.transition"
+    }
+  ],
+  "requestId": "req_summary_turn",
+  "sessionId": "sess_summary_turn",
+  "status": "succeeded",
+  "toolResults": [
+    {
+      "adapter_capability": "summarization",
+      "adapter_id": "page.summarize",
+      "adapter_kind": "internal_tool",
+      "artifact_ids": [
+        "art_00000000000000000000000011"
+      ],
+      "budget_cost": {
+        "context_bytes": 0,
+        "input_tokens": 0,
+        "model_calls": 0,
+        "output_tokens": 32,
+        "runtime_ms": 1,
+        "tool_calls": 1
+      },
+      "content": {
+        "summary": "## Companion Reading Architecture\n\n- Navia extracts page context.\n- Adapters pass governance.\n- Artifacts keep source references."
+      },
+      "error": null,
+      "status": "succeeded",
+      "tool_call_id": "tc_00000000000000000000000008",
+      "tool_name": "page.summarize",
+      "warnings": []
+    }
+  ],
+  "trace": {
+    "artifactIds": [
+      "art_00000000000000000000000011"
+    ],
+    "createdAt": "2026-06-04T13:51:32Z",
+    "eventTypes": [
+      "state.transition",
+      "intent.detected",
+      "state.transition",
+      "state.transition",
+      "budget.checked",
+      "state.transition",
+      "tool.started",
+      "tool.done",
+      "artifact.created",
+      "state.transition",
+      "response.delta",
+      "response.done",
+      "state.transition",
+      "state.transition"
+    ],
+    "requestId": "req_summary_turn",
+    "sessionId": "sess_summary_turn",
+    "toolCallIds": [
+      "tc_00000000000000000000000008"
+    ],
+    "traceId": "trace_00000000000000000000000002",
+    "turnId": "turn_00000000000000000000000001"
+  },
+  "traceId": "trace_00000000000000000000000002",
+  "turnId": "turn_00000000000000000000000001"
+}

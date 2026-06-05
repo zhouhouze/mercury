@@ -9,11 +9,11 @@ import { chromium } from "playwright";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
-const builtExtensionRoot = path.resolve(__dirname, "../.output/chrome-mv3");
-const fallbackExtensionRoot = path.resolve(__dirname, "../chrome-mv3-unpacked");
-const extensionRoot = fs.existsSync(path.join(builtExtensionRoot, "manifest.json"))
-  ? fs.realpathSync(builtExtensionRoot)
-  : fs.realpathSync(fallbackExtensionRoot);
+const visibleExtensionRoot = path.resolve(__dirname, "../chrome-mv3-unpacked");
+const legacyHiddenExtensionRoot = path.resolve(__dirname, "../.output/chrome-mv3");
+const extensionRoot = fs.existsSync(path.join(visibleExtensionRoot, "manifest.json"))
+  ? fs.realpathSync(visibleExtensionRoot)
+  : fs.realpathSync(legacyHiddenExtensionRoot);
 const runtimeUrl = "http://127.0.0.1:17861";
 const fixturePath = path.join(repoRoot, "docs/navia_v1_project_docs/fixtures/real_pages/article.html");
 const browserMode = process.env.NAVIA_E2E_BROWSER || "chromium";
@@ -68,6 +68,73 @@ function startRuntime() {
 }
 
 function startFixtureServer() {
+  const html = fs.readFileSync(fixturePath);
+  const server = http.createServer((request, response) => {
+    if (request.url === "/article.html" || request.url === "/") {
+      response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      response.end(html);
+      return;
+    }
+    response.writeHead(404);
+    response.end("Not found");
+  });
+  return new Promise((resolve) => {
+    const listen = (port) => {
+      server.listen(port, "127.0.0.1", () => {
+        const address = server.address();
+        resolve({ server, url: `http://127.0.0.1:${address.port}/article.html` });
+      });
+    };
+    server.once("error", () => {
+      const fallback = http.createServer((request, response) => {
+        if (request.url === "/article.html" || request.url === "/") {
+          response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+          response.end(html);
+          return;
+        }
+        response.writeHead(404);
+        response.end("Not found");
+      });
+      fallback.listen(0, "127.0.0.1", () => {
+        const address = fallback.address();
+        resolve({ server: fallback, url: `http://127.0.0.1:${address.port}/article.html` });
+      });
+    });
+    listen(5173);
+  });
+}
+
+async function injectContentScriptDirectly(fixturePage) {
+  const contentScript = path.join(extensionRoot, "content-scripts/content.js");
+  await fixturePage.evaluate(() => {
+    const store = {};
+    window.chrome = {
+      runtime: {
+        onMessage: { addListener() {} },
+        sendMessage: undefined,
+        connect: undefined,
+        getURL: undefined
+      },
+      storage: {
+        local: {
+          async get(key) {
+            if (typeof key === "string") return { [key]: store[key] };
+            return { ...store };
+          },
+          async set(value) {
+            Object.assign(store, value);
+          },
+          async remove(key) {
+            delete store[key];
+          }
+        }
+      }
+    };
+  });
+  await fixturePage.addScriptTag({ path: contentScript });
+}
+
+async function startLegacyFixtureServer() {
   const html = fs.readFileSync(fixturePath);
   const server = http.createServer((request, response) => {
     if (request.url === "/article.html" || request.url === "/") {
@@ -165,7 +232,12 @@ async function injectContentScriptViaExtension(context, fixturePage) {
   try {
     serviceWorker = await findExtensionServiceWorker(context);
   } catch {
-    await injectContentScriptViaExtensionPage(context, fixturePage);
+    try {
+      await injectContentScriptViaExtensionPage(context, fixturePage);
+    } catch {
+      logStep("extension-page injection failed; using direct E2E-only content script injection");
+      await injectContentScriptDirectly(fixturePage);
+    }
     return;
   }
   const result = await serviceWorker.evaluate(async () => {
