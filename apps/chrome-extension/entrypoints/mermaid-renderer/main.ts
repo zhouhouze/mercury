@@ -30,8 +30,7 @@ async function renderMermaid(artifactId: string, source: string, targetOrigin: s
     );
   } catch (error) {
     root.dataset.rendered = "false";
-    root.innerHTML = `<p class="error">Mermaid 渲染失败，已显示源码。</p><pre></pre>`;
-    root.querySelector("pre")!.textContent = source;
+    root.innerHTML = `<p class="error">Mermaid 渲染失败</p>`;
     window.parent.postMessage(
       {
         type: "navia.mermaidRendered",
@@ -72,12 +71,6 @@ function injectStyles() {
     .error {
       margin: 0 0 8px;
       color: #52606d;
-    }
-    pre {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font: 12px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
   `;
   document.head.appendChild(style);

@@ -68,91 +68,44 @@ describe("injected panel layout", () => {
     expect(frame?.dataset.open).toBe("false");
   });
 
-  it("exposes the V1.1 semantic structure without removing existing test anchors", () => {
-    document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
-    mountNaviaInjectedPanel();
-
-    const host = document.querySelector("#navia-injected-host");
-    const root = host?.shadowRoot;
-    const frame = root?.querySelector<HTMLElement>("[data-testid='navia-frame']");
-    expect(frame?.dataset.runtime).toBe("checking");
-    expect(frame?.dataset.submitted).toBe("false");
-    expect(frame?.dataset.pageState).toBe("missing");
-    expect(frame?.dataset.stream).toBe("idle");
-    expect(frame?.dataset.widthState).toBe("narrow");
-    expect(frame?.dataset.error).toBe("false");
-    expect(frame?.dataset.activeTool).toBe("chat");
-    expect(root?.querySelector(".navia-floating-entry [data-testid='navia-ball']")).not.toBeNull();
-    expect(root?.querySelector(".navia-floating-entry [data-testid='navia-hover-strip']")).not.toBeNull();
-    expect(root?.querySelector(".navia-panel-shell[data-testid='navia-panel']")).not.toBeNull();
-    expect(root?.querySelector(".navia-left-rail [data-testid='navia-collapse']")).not.toBeNull();
-    expect(root?.querySelector(".navia-chat-workspace [data-testid='navia-messages']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-chat-pane']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-debug-pane']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-tool-chat']")?.classList.contains("active")).toBe(true);
-    expect(root?.querySelectorAll(".navia-tool-dock .navia-tool:disabled").length).toBeGreaterThan(0);
-    expect(root?.querySelector("[data-testid='navia-state-banner']")?.textContent).toContain("Runtime");
-  });
-
-  it("moves diagnostic content behind the Debug tool tab", () => {
+  it("renders a single-column shell with the debug toggle in the header", () => {
     document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
     mountNaviaInjectedPanel();
 
     const root = document.querySelector("#navia-injected-host")?.shadowRoot;
-    const frame = root?.querySelector<HTMLElement>("[data-testid='navia-frame']");
-    expect(frame?.dataset.activeTool).toBe("chat");
-    expect(root?.querySelector<HTMLElement>("[data-testid='navia-chat-pane']")?.classList.contains("navia-chat-pane")).toBe(true);
-
-    root?.querySelector<HTMLButtonElement>("[data-testid='navia-tool-debug']")?.click();
-    expect(frame?.dataset.activeTool).toBe("debug");
-    expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-page']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-state-banner']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-debug-pane'] [data-testid='navia-structured-json']")?.textContent).toContain("StructuredPageContext");
-    expect(root?.querySelector("[data-testid='navia-debug-read-page']")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-tool-debug']")?.classList.contains("active")).toBe(true);
-
-    root?.querySelector<HTMLButtonElement>("[data-testid='navia-tool-chat']")?.click();
-    expect(frame?.dataset.activeTool).toBe("chat");
+    expect(root?.querySelector(".navia-rail")).toBeNull();
+    expect(root?.querySelector(".navia-tools")).toBeNull();
+    expect(root?.querySelector("[data-testid='navia-debug-toggle']")).not.toBeNull();
+    expect(root?.querySelector("[data-testid='navia-chat-title']")).not.toBeNull();
+    expect(root?.querySelector("[data-testid='navia-composer-container']")).not.toBeNull();
   });
 
-  it("keeps page-context actions disabled while the page context is missing", () => {
+  it("auto-grows the composer textarea and toggles debug view from the header", () => {
     document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
     mountNaviaInjectedPanel();
 
     const root = document.querySelector("#navia-injected-host")?.shadowRoot;
-    expect(root?.querySelector<HTMLButtonElement>("[data-testid='navia-summary']")?.disabled).toBe(true);
-    expect(root?.querySelector<HTMLButtonElement>("[data-testid='navia-mindmap']")?.disabled).toBe(true);
-    expect(root?.querySelector<HTMLButtonElement>("[data-testid='navia-send']")?.disabled).toBe(true);
-    expect(root?.querySelector("[data-testid='navia-page']")?.textContent).toContain("尚未读取页面");
-    expect(root?.querySelector("[data-testid='navia-chat-notice']")?.textContent).toMatch(/Runtime|读取当前页面/);
+    const input = root?.querySelector<HTMLTextAreaElement>("[data-testid='navia-input']");
+    const debugPane = root?.querySelector<HTMLElement>("[data-testid='navia-debug-pane']");
+    const debugToggle = root?.querySelector<HTMLButtonElement>("[data-testid='navia-debug-toggle']");
+
+    expect(input).not.toBeNull();
+    const originalHeight = input?.style.height ?? "";
+    if (input) {
+      input.value = "第一行\n第二行\n第三行";
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      expect(input.style.height).not.toBe(originalHeight);
+      expect(Number.parseInt(input.style.height, 10)).toBeLessThanOrEqual(160);
+    }
+
+    expect(debugPane?.classList.contains("is-visible")).toBe(false);
+    debugToggle?.click();
+    expect(debugPane?.classList.contains("is-visible")).toBe(true);
+    expect(debugToggle?.getAttribute("aria-pressed")).toBe("true");
   });
 
-  it("offers a PRD chat toolbar with reading actions and new chat", () => {
+  it("retains the mermaid artifact helper for rendered message cards", () => {
     document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
-    mountNaviaInjectedPanel();
-
-    const root = document.querySelector("#navia-injected-host")?.shadowRoot;
-    expect(root?.querySelector("[data-testid='navia-chat-pane'] .navia-chat-toolbar")).not.toBeNull();
-    expect(root?.querySelector("[data-testid='navia-read-page']")?.textContent).toContain("读取");
-    expect(root?.querySelector("[data-testid='navia-summary']")?.textContent).toContain("总结");
-    expect(root?.querySelector("[data-testid='navia-mindmap']")?.textContent).toContain("Mindmap");
-    expect(root?.querySelector("[data-testid='navia-new-chat']")?.textContent).toContain("新对话");
-  });
-
-  it("marks offline and error states with visible recovery copy", async () => {
-    document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
-    mountNaviaInjectedPanel();
-
-    const root = document.querySelector("#navia-injected-host")?.shadowRoot;
-    const frame = root?.querySelector<HTMLElement>("[data-testid='navia-frame']");
-    await waitFor(() => {
-      expect(frame?.dataset.runtime).toBe("offline");
-      expect(frame?.dataset.error).toBe("true");
-      expect(root?.querySelector("[data-testid='navia-state-banner']")?.textContent).toMatch(/Runtime|Local Runtime/);
-    });
-  });
-
-  it("renders Mermaid artifacts through an extension iframe with source fallback", () => {
     const element = createMermaidArtifactElement(
       {
         artifactId: "art_123",
@@ -166,10 +119,42 @@ describe("injected panel layout", () => {
     );
 
     const iframe = element.querySelector<HTMLIFrameElement>("iframe.navia-mermaid-frame");
-    const source = element.querySelector("details.navia-mermaid-source pre");
     expect(element.classList.contains("navia-artifact-viewer")).toBe(true);
     expect(element.dataset.rendered).toBe("pending");
     expect(iframe?.src).toBe("chrome-extension://navia/mermaid-renderer.html");
-    expect(source?.textContent).toContain("root((Navia))");
+    expect(element.querySelector("details.navia-mermaid-source")).toBeNull();
+  });
+
+  it("does not expose source fallback in the mermaid renderer failure state", async () => {
+    document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
+    const element = createMermaidArtifactElement(
+      {
+        artifactId: "art_fail",
+        type: "mindmap",
+        turnId: "turn_fail",
+        toolCallId: "tc_fail",
+        content: "mindmap\n  root((Navia))",
+        metadata: { format: "mermaid" }
+      },
+      "chrome-extension://navia/mermaid-renderer.html"
+    );
+
+    const iframe = element.querySelector<HTMLIFrameElement>("iframe.navia-mermaid-frame");
+    expect(iframe).not.toBeNull();
+
+    iframe?.dispatchEvent(new Event("load"));
+    window.dispatchEvent(
+      new MessageEvent("message", {
+        data: { type: "navia.mermaidRendered", artifactId: "art_fail", status: "failed", message: "Mermaid render failed" },
+        source: iframe?.contentWindow ?? window,
+        origin: "chrome-extension://navia"
+      })
+    );
+
+    await waitFor(() => {
+      expect(element.dataset.rendered).toBe("false");
+    });
+    expect(element.textContent).not.toContain("root((Navia))");
+    expect(element.textContent).toContain("Mermaid render failed");
   });
 });

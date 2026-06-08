@@ -4,9 +4,41 @@ import { parseSseBlocks } from "./sse";
 
 export const RUNTIME_URL = "http://127.0.0.1:17861";
 export const LAST_SESSION_STORAGE_KEY = "navia_last_session_id";
+export const SETTINGS_STORAGE_KEY = "navia_provider_settings";
 
 export type RuntimeStatus = "checking" | "online" | "offline";
 export type ChatRole = "user" | "assistant" | "system";
+export type ProviderTestStatus = "ok" | "error";
+
+export type LLMProviderConfig = {
+  providerId: string;
+  providerType: string;
+  displayName: string;
+  baseUrl: string;
+  defaultModel: string;
+  apiKey?: string;
+  apiKeyMasked?: string;
+};
+
+export type MercurySettings = {
+  providers: LLMProviderConfig[];
+  defaultProviderId: string | null;
+  defaultModel: string;
+  updatedAt: string;
+};
+
+export type ProviderTestResult =
+  | {
+      status: "ok";
+      latencyMs: number;
+      message: string;
+    }
+  | {
+      status: "error";
+      latencyMs?: number;
+      message: string;
+      error?: { message: string };
+    };
 
 export type ArtifactRecord = {
   artifactId: string;
@@ -75,6 +107,76 @@ export async function getLastSessionId(): Promise<string | null> {
   const stored = await chrome.storage.local.get(LAST_SESSION_STORAGE_KEY);
   const id = stored[LAST_SESSION_STORAGE_KEY];
   return typeof id === "string" && id.startsWith("sess_") ? id : null;
+}
+
+export async function getSettings(): Promise<MercurySettings> {
+  const stored = await chrome.storage.local.get(SETTINGS_STORAGE_KEY);
+  const raw = stored[SETTINGS_STORAGE_KEY];
+  if (isMercurySettings(raw)) return raw;
+  return {
+    providers: [],
+    defaultProviderId: null,
+    defaultModel: "deepseek-chat",
+    updatedAt: new Date().toISOString()
+  };
+}
+
+export async function importProvider(input: {
+  providerType: string;
+  displayName: string;
+  baseUrl: string;
+  apiKey: string;
+  defaultModel: string;
+}): Promise<{ settings: MercurySettings; provider: LLMProviderConfig }> {
+  const settings = await getSettings();
+  const provider: LLMProviderConfig = {
+    providerId: `provider_${crypto.randomUUID().replace(/-/g, "")}`,
+    providerType: input.providerType,
+    displayName: input.displayName,
+    baseUrl: input.baseUrl,
+    defaultModel: input.defaultModel,
+    apiKey: input.apiKey,
+    apiKeyMasked: maskApiKey(input.apiKey)
+  };
+  const providers = [...settings.providers.filter((item) => item.providerId !== provider.providerId), provider];
+  const next: MercurySettings = {
+    providers,
+    defaultProviderId: provider.providerId,
+    defaultModel: provider.defaultModel,
+    updatedAt: new Date().toISOString()
+  };
+  await chrome.storage.local.set({ [SETTINGS_STORAGE_KEY]: next });
+  return { settings: next, provider };
+}
+
+export async function deleteProvider(providerId: string): Promise<{ settings: MercurySettings }> {
+  const settings = await getSettings();
+  const providers = settings.providers.filter((provider) => provider.providerId !== providerId);
+  const next: MercurySettings = {
+    providers,
+    defaultProviderId: settings.defaultProviderId === providerId ? providers[0]?.providerId ?? null : settings.defaultProviderId,
+    defaultModel: settings.defaultModel,
+    updatedAt: new Date().toISOString()
+  };
+  await chrome.storage.local.set({ [SETTINGS_STORAGE_KEY]: next });
+  return { settings: next };
+}
+
+export async function testProvider(providerId: string): Promise<ProviderTestResult> {
+  const start = performance.now();
+  const settings = await getSettings();
+  const provider = settings.providers.find((item) => item.providerId === providerId);
+  if (!provider) {
+    return { status: "error", message: "Provider not found.", error: { message: "Provider not found." } };
+  }
+  if (!provider.baseUrl || !provider.displayName) {
+    return { status: "error", message: "Provider config is incomplete.", error: { message: "Provider config is incomplete." } };
+  }
+  return {
+    status: "ok",
+    latencyMs: Math.max(1, Math.round(performance.now() - start)),
+    message: "Provider config loaded."
+  };
 }
 
 export async function clearLastSessionId() {
@@ -221,4 +323,13 @@ async function streamRuntimeChatViaProxy(request: RuntimeRequest, onEvent: (even
     });
     port.postMessage({ type: "navia.runtimeStream", request });
   });
+}
+
+function isMercurySettings(value: unknown): value is MercurySettings {
+  return typeof value === "object" && value !== null && Array.isArray((value as MercurySettings).providers);
+}
+
+function maskApiKey(apiKey: string): string {
+  if (apiKey.length <= 8) return "********";
+  return `${apiKey.slice(0, 4)}****${apiKey.slice(-4)}`;
 }

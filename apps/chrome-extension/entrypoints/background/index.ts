@@ -27,14 +27,6 @@ export default defineBackground(() => {
   });
 
   chrome.action.onClicked.addListener(async (tab) => {
-    if (tab.id !== undefined) {
-      try {
-        await chrome.tabs.sendMessage(tab.id, { type: "navia.openPanel" });
-        return;
-      } catch {
-        // Fall back to the debug Side Panel when the active page cannot host content scripts.
-      }
-    }
     if (tab.windowId !== undefined && chrome.sidePanel?.open) {
       await chrome.sidePanel.open({ windowId: tab.windowId });
     }

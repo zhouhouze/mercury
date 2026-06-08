@@ -1,10 +1,7 @@
 import { extractPageContext, type ExtractedPageContext } from "./pageContext";
 import {
-  clampBubbleTop,
   clampPanelWidth as clampPanelWidthByRule,
-  chooseDockEdge,
   resolveLayoutMode,
-  type DockEdge,
   type LayoutMode
 } from "./panelLayout";
 import type { AgentEvent } from "./sse";
@@ -25,16 +22,13 @@ import {
 } from "./runtimeClient";
 
 const HOST_ID = "navia-injected-host";
-const POSITION_KEY = "navia_panel_position";
 const MIN_PANEL_WIDTH = 440;
 const MERMAID_RENDERER_PAGE = "mermaid-renderer.html";
 
-type StoredPosition = { side: DockEdge; y: number };
 type ActiveTool = "chat" | "debug";
 type PanelState = {
   open: boolean;
-  side: DockEdge;
-  y: number;
+  side: "left" | "right";
   width: number;
   activeTool: ActiveTool;
   runtimeStatus: RuntimeStatus;
@@ -92,14 +86,7 @@ export function createMermaidArtifactElement(
     );
   });
 
-  const details = document.createElement("details");
-  details.className = "navia-mermaid-source";
-  const summary = document.createElement("summary");
-  summary.textContent = "Mermaid source";
-  const pre = document.createElement("pre");
-  pre.textContent = artifact.content;
-  details.append(summary, pre);
-  artifactEl.append(iframe, details);
+  artifactEl.append(iframe);
 
   const onMessage = (event: MessageEvent) => {
     if (event.source !== iframe.contentWindow) return;
@@ -107,7 +94,6 @@ export function createMermaidArtifactElement(
     if (data.type !== "navia.mermaidRendered" || data.artifactId !== artifact.artifactId) return;
     artifactEl.dataset.rendered = data.status === "succeeded" ? "true" : "false";
     if (data.status !== "succeeded") {
-      details.open = true;
       artifactEl.title = data.message ?? "Mermaid render failed";
     }
     window.removeEventListener("message", onMessage);
@@ -126,11 +112,9 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   document.documentElement.appendChild(host);
   const root = host.attachShadow({ mode: "open" });
 
-  const saved = readPosition();
   const state: PanelState = {
     open: false,
-    side: saved.side,
-    y: clampY(saved.y),
+    side: "right",
     width: clampPanelWidth(MIN_PANEL_WIDTH, window.innerWidth),
     activeTool: "chat",
     runtimeStatus: "checking",
@@ -152,15 +136,12 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   root.innerHTML = `${styles()}${markup()}`;
 
   const frame = root.querySelector<HTMLElement>("[data-testid='navia-frame']")!;
-  const ball = root.querySelector<HTMLButtonElement>("[data-testid='navia-ball']")!;
-  const strip = root.querySelector<HTMLButtonElement>("[data-testid='navia-hover-strip']")!;
   const panel = root.querySelector<HTMLElement>("[data-testid='navia-panel']")!;
   const resizeHandle = root.querySelector<HTMLElement>("[data-testid='navia-resize-handle']")!;
-  const collapseButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-collapse']")!;
   const reconnectButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-reconnect']")!;
   const debugReconnectButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-debug-reconnect']")!;
   const chatToolButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-tool-chat']")!;
-  const debugToolButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-tool-debug']")!;
+  const debugToggleButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-debug-toggle']")!;
   const pageButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-read-page']")!;
   const debugPageButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-debug-read-page']")!;
   const summaryButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-summary']")!;
@@ -177,15 +158,9 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   const chatNoticeEl = root.querySelector<HTMLElement>("[data-testid='navia-chat-notice']")!;
   const structuredJsonEl = root.querySelector<HTMLElement>("[data-testid='navia-structured-json']")!;
 
-  ball.addEventListener("click", () => {
-    if (state.open) closePanel();
-  });
-  strip.addEventListener("click", () => openPanel());
-  collapseButton.addEventListener("click", () => closePanel());
   reconnectButton.addEventListener("click", () => checkRuntime());
   debugReconnectButton.addEventListener("click", () => checkRuntime());
-  chatToolButton.addEventListener("click", () => setActiveTool("chat"));
-  debugToolButton.addEventListener("click", () => setActiveTool("debug"));
+  debugToggleButton.addEventListener("click", () => setActiveTool(state.activeTool === "debug" ? "chat" : "debug"));
   pageButton.addEventListener("click", () => captureAndSubmitPage());
   debugPageButton.addEventListener("click", () => captureAndSubmitPage());
   summaryButton.addEventListener("click", () => sendChat("总结这篇文章"));
@@ -194,6 +169,12 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   debugMindmapButton.addEventListener("click", () => sendChat("生成 Mermaid 思维导图"));
   newChatButton.addEventListener("click", () => resetChat());
   sendButton.addEventListener("click", () => sendChat(input.value));
+  const autoGrowInput = () => {
+    input.style.height = "auto";
+    input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
+  };
+  input.addEventListener("input", autoGrowInput);
+  autoGrowInput();
   input.addEventListener("keydown", (event) => {
     if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
       event.preventDefault();
@@ -201,10 +182,8 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     }
   });
 
-  installBallDrag();
   installResize();
   window.addEventListener("resize", () => {
-    state.y = clampY(state.y);
     state.width = clampPanelWidth(state.width, window.innerWidth);
     render();
   });
@@ -247,6 +226,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     state.statusText = state.runtimeStatus === "online" ? "已新建会话" : state.statusText;
     messages.splice(0, messages.length, { id: newId(), role: "system", text: "新会话已创建。读取当前页面后即可继续网页伴读。" });
     input.value = "";
+    autoGrowInput();
     if (state.runtimeStatus === "online") {
       state.sessionId = await createRuntimeSession("injected-panel");
     }
@@ -414,30 +394,6 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     render();
   }
 
-  function installBallDrag() {
-    let dragging = false;
-    let startY = 0;
-    let startTop = 0;
-    ball.addEventListener("pointerdown", (event) => {
-      dragging = true;
-      startY = event.clientY;
-      startTop = state.y;
-      ball.setPointerCapture(event.pointerId);
-    });
-    ball.addEventListener("pointermove", (event) => {
-      if (!dragging) return;
-      state.y = clampY(startTop + event.clientY - startY);
-      render();
-    });
-    ball.addEventListener("pointerup", (event) => {
-      if (!dragging) return;
-      dragging = false;
-      state.side = chooseDockEdge(event.clientX, window.innerWidth);
-      savePosition({ side: state.side, y: state.y });
-      render();
-    });
-  }
-
   function installResize() {
     let resizing = false;
     resizeHandle.addEventListener("pointerdown", (event) => {
@@ -459,7 +415,6 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   function render() {
     frame.dataset.open = String(state.open);
     frame.dataset.side = state.side;
-    frame.style.setProperty("--navia-y", `${state.y}px`);
     frame.style.setProperty("--navia-width", `${state.width}px`);
     layoutMode = getPanelLayoutMode(state.width, window.innerWidth, layoutMode);
     frame.dataset.mode = layoutMode;
@@ -478,9 +433,13 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     stateBannerEl.textContent = getStateBannerText();
     chatNoticeEl.textContent = getChatNoticeText();
     chatToolButton.classList.toggle("active", state.activeTool === "chat");
-    debugToolButton.classList.toggle("active", state.activeTool === "debug");
     chatToolButton.setAttribute("aria-current", state.activeTool === "chat" ? "true" : "false");
-    debugToolButton.setAttribute("aria-current", state.activeTool === "debug" ? "true" : "false");
+    debugToggleButton.setAttribute("aria-pressed", state.activeTool === "debug" ? "true" : "false");
+    debugToggleButton.classList.toggle("active", state.activeTool === "debug");
+    (root.querySelector("[data-testid='navia-debug-pane']") as HTMLElement | null)?.classList.toggle(
+      "is-visible",
+      state.activeTool === "debug"
+    );
     summaryButton.disabled = !canChat();
     debugSummaryButton.disabled = !canChat();
     mindmapButton.disabled = !canChat();
@@ -580,24 +539,6 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     container.appendChild(element);
   }
 
-  function readPosition(): StoredPosition {
-    try {
-      const raw = localStorage.getItem(POSITION_KEY);
-      if (!raw) return { side: "right", y: Math.floor(window.innerHeight * 0.55) };
-      const parsed = JSON.parse(raw) as StoredPosition;
-      return { side: parsed.side === "left" ? "left" : "right", y: clampY(Number(parsed.y) || 320) };
-    } catch {
-      return { side: "right", y: Math.floor(window.innerHeight * 0.55) };
-    }
-  }
-
-  function savePosition(position: StoredPosition) {
-    localStorage.setItem(POSITION_KEY, JSON.stringify(position));
-  }
-
-  function clampY(y: number) {
-    return clampBubbleTop(y, window.innerHeight);
-  }
 }
 
 function getPanelWidthState(width: number, viewportWidth: number, mode: LayoutMode): PanelWidthState {
@@ -622,34 +563,26 @@ function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
   }
 }
 
-function markup() {
+  function markup() {
   return `
     <section class="navia-frame" data-testid="navia-frame" data-open="false" data-side="right" data-mode="push">
-      <div class="navia-floating-entry" aria-label="Navia floating entry">
-        <button class="navia-ball" data-testid="navia-ball" aria-label="Navia"></button>
-        <button class="navia-hover-strip" data-testid="navia-hover-strip" aria-label="Open Navia">
-          <span class="navia-shortcut">⌘</span>
-          <span class="navia-ask-label">Ask AI</span>
-          <span class="navia-hover-divider"></span>
-          <span class="navia-hover-pill">AI</span>
-        </button>
-      </div>
       <aside class="navia-panel navia-panel-shell" data-testid="navia-panel" aria-label="Navia assistant">
         <div class="navia-resize" data-testid="navia-resize-handle" role="separator" aria-orientation="vertical"></div>
-        <nav class="navia-rail navia-left-rail">
-          <button class="navia-avatar" data-testid="navia-collapse" aria-label="Collapse Navia">N</button>
-          <span class="navia-dot"></span>
-        </nav>
         <main class="navia-workspace navia-chat-workspace">
           <section class="navia-pane navia-chat-pane" data-testid="navia-chat-pane" aria-label="Chat">
             <header class="navia-chat-header">
-              <div>
-                <strong>聊天</strong>
-                <span data-testid="navia-status"></span>
+              <div class="navia-chat-title" data-testid="navia-chat-title">
+                <div class="navia-avatar" aria-label="Navia">N</div>
+                <div class="navia-chat-title-copy">
+                  <strong>聊天</strong>
+                  <span data-testid="navia-status"></span>
+                </div>
+                <span class="navia-dot" aria-hidden="true"></span>
               </div>
-              <button data-testid="navia-reconnect">重连</button>
+              <div class="navia-chat-header-actions">
+                <button data-testid="navia-reconnect" class="navia-reconnect-button" type="button">重连</button>
+              </div>
             </header>
-            <div class="navia-chat-notice" data-testid="navia-chat-notice" role="status"></div>
             <section class="navia-messages" data-testid="navia-messages" aria-live="polite"></section>
             <footer class="navia-chat-footer">
               <div class="navia-chat-toolbar" aria-label="Chat actions">
@@ -658,9 +591,11 @@ function markup() {
                 <button data-testid="navia-mindmap">Mindmap</button>
                 <button data-testid="navia-new-chat">新对话</button>
               </div>
-              <div class="navia-composer">
-                <textarea data-testid="navia-input" placeholder="基于当前网页提问..."></textarea>
-                <button data-testid="navia-send">发送</button>
+              <div class="navia-composer-container" data-testid="navia-composer-container">
+                <div class="navia-composer">
+                  <textarea data-testid="navia-input" placeholder="基于当前网页提问..."></textarea>
+                  <button data-testid="navia-send">发送</button>
+                </div>
               </div>
             </footer>
           </section>
@@ -688,14 +623,9 @@ function markup() {
             </div>
           </section>
         </main>
-        <nav class="navia-tools navia-tool-dock" aria-label="Navia tools">
-          <button class="navia-tool active" type="button" aria-current="true" data-testid="navia-tool-chat">聊天</button>
-          <button class="navia-tool" type="button" disabled>画图</button>
-          <button class="navia-tool" type="button" disabled>视频</button>
-          <button class="navia-tool" type="button" disabled>音频</button>
-          <button class="navia-tool" type="button" disabled>发现</button>
-          <button class="navia-tool" type="button" disabled>更多</button>
-          <button class="navia-tool" type="button" data-testid="navia-tool-debug">Debug</button>
+        <nav class="navia-tool-dock" aria-label="Navia tools">
+          <button class="navia-tool-button active" data-testid="navia-tool-chat" type="button" aria-current="true" aria-label="聊天">聊天</button>
+          <button class="navia-tool-button" data-testid="navia-debug-toggle" type="button" aria-pressed="false" aria-label="切换 Debug">⚙</button>
         </nav>
       </aside>
     </section>
@@ -707,11 +637,8 @@ function styles() {
     <style>
       :host { all: initial; }
       .navia-frame {
-        --navia-y: 55vh;
         --navia-width: 440px;
         --navia-width-max: 80vw;
-        --navia-left-rail-width: 72px;
-        --navia-tool-dock-width: 80px;
         --navia-mobile-rail-width: 56px;
         --navia-resize-hit-width: 8px;
         --navia-panel-padding: 14px;
@@ -724,9 +651,9 @@ function styles() {
         --navia-brand-strong: #5146f4;
         --navia-brand-soft: #f4f6ff;
         --navia-surface: #ffffff;
-        --navia-shell: #f8fafc;
-        --navia-tool-bg: #f1f5f9;
-        --navia-border: #d9e2ec;
+        --navia-shell: #ffffff;
+        --navia-tool-bg: #ffffff;
+        --navia-border: #e5e7eb;
         --navia-border-strong: #b7b9ff;
         --navia-success: #2f9e44;
         --navia-error: #dc2626;
@@ -740,7 +667,7 @@ function styles() {
         --navia-radius-md: 8px;
         --navia-radius-pill: 999px;
         --navia-shadow-ball: 0 12px 28px rgba(15, 23, 42, 0.22);
-        --navia-shadow-panel: 0 0 36px rgba(15, 23, 42, 0.2);
+        --navia-shadow-panel: 0 12px 48px rgba(0, 0, 0, 0.08);
         --navia-shadow-overlay: 0 0 0 9999px rgba(15, 23, 42, 0.08), 0 0 36px rgba(15, 23, 42, 0.2);
         --navia-shadow-hover: 0 14px 28px rgba(15, 23, 42, 0.16);
         --navia-motion-fast: 160ms ease;
@@ -753,109 +680,7 @@ function styles() {
         z-index: 2147483647;
         pointer-events: none;
       }
-      .navia-ball, .navia-hover-strip, .navia-panel { pointer-events: auto; }
-      .navia-floating-entry {
-        position: fixed;
-        top: var(--navia-y);
-        width: 238px;
-        height: 62px;
-        pointer-events: auto;
-        z-index: 2147483647;
-      }
-      .navia-frame[data-side="right"] .navia-floating-entry { right: -28px; }
-      .navia-frame[data-side="left"] .navia-floating-entry { left: -28px; }
-      .navia-ball {
-        position: absolute;
-        top: 3px;
-        width: 56px;
-        height: 56px;
-        border: 1px solid var(--navia-border);
-        border-radius: var(--navia-radius-pill);
-        background: var(--navia-surface);
-        box-shadow: var(--navia-shadow-ball);
-        cursor: grab;
-        overflow: hidden;
-        z-index: 2;
-      }
-      .navia-frame[data-side="right"] .navia-ball { right: 0; }
-      .navia-frame[data-side="left"] .navia-ball { left: 0; }
-      .navia-ball::before {
-        content: "";
-        position: absolute;
-        top: 7px;
-        width: 42px;
-        height: 42px;
-        border-radius: var(--navia-radius-pill);
-        background: linear-gradient(135deg, #746cff, var(--navia-brand-strong));
-      }
-      .navia-frame[data-side="right"] .navia-ball::before { right: -10px; }
-      .navia-frame[data-side="left"] .navia-ball::before { left: -10px; }
-      .navia-ball::after {
-        content: "AI";
-        position: absolute;
-        top: 0;
-        color: white;
-        display: grid;
-        height: 100%;
-        width: 34px;
-        place-items: center;
-        font: 800 15px/1 var(--navia-font);
-      }
-      .navia-frame[data-side="right"] .navia-ball::after { right: 0; }
-      .navia-frame[data-side="left"] .navia-ball::after { left: 0; }
-      .navia-floating-entry:hover .navia-ball { outline: 3px solid rgba(99, 91, 255, 0.22); }
-      .navia-hover-strip {
-        position: absolute;
-        top: 0;
-        height: 62px;
-        box-sizing: border-box;
-        width: 238px;
-        border: 2px solid var(--navia-brand);
-        border-radius: 31px;
-        background: var(--navia-surface);
-        box-shadow: var(--navia-shadow-hover);
-        color: #2f3b52;
-        opacity: 0;
-        transform: scaleX(0.72);
-        transition: opacity var(--navia-motion-fast), transform var(--navia-motion-fast);
-        cursor: pointer;
-        pointer-events: none;
-        display: grid;
-        grid-template-columns: 26px auto 1px 52px;
-        align-items: center;
-        gap: 9px;
-        padding: 0 10px 0 26px;
-        font: 800 16px/1 var(--navia-font);
-        z-index: 1;
-      }
-      .navia-frame[data-side="right"] .navia-hover-strip { right: 0; transform-origin: right center; }
-      .navia-frame[data-side="left"] .navia-hover-strip { left: 0; transform-origin: left center; }
-      .navia-floating-entry:hover .navia-hover-strip, .navia-hover-strip:hover {
-        opacity: 1;
-        transform: scaleX(1);
-        pointer-events: auto;
-      }
-      .navia-shortcut {
-        color: #748098;
-        font-size: 20px;
-        font-weight: 500;
-      }
-      .navia-ask-label { white-space: nowrap; }
-      .navia-hover-divider {
-        width: 1px;
-        height: 30px;
-        background: #eef2ff;
-      }
-      .navia-hover-pill {
-        width: 52px;
-        height: 44px;
-        border-radius: var(--navia-radius-pill);
-        display: grid;
-        place-items: center;
-        color: white;
-        background: linear-gradient(135deg, #746cff, var(--navia-brand-strong));
-      }
-      .navia-frame[data-open="true"] .navia-hover-strip { display: none; }
+      .navia-panel { pointer-events: auto; }
       .navia-panel {
         position: fixed;
         top: 0;
@@ -864,20 +689,13 @@ function styles() {
         width: var(--navia-width);
         max-width: var(--navia-width-max);
         min-width: 440px;
-        display: grid;
-        grid-template-columns: var(--navia-left-rail-width) minmax(0, 1fr) var(--navia-tool-dock-width);
+        display: flex;
+        flex-direction: column;
         background: var(--navia-shell);
-        border: 1px solid var(--navia-border);
+        border: none;
         box-shadow: var(--navia-shadow-panel);
         transform: translateX(100%);
         transition: transform var(--navia-motion-panel);
-      }
-      .navia-frame[data-width-state="half"] .navia-panel {
-        --navia-left-rail-width: 76px;
-        --navia-tool-dock-width: 84px;
-      }
-      .navia-frame[data-width-state="overlay"] .navia-panel {
-        border-left-color: rgba(99, 91, 255, 0.32);
       }
       .navia-frame[data-side="right"] .navia-panel { right: 0; transform: translateX(100%); }
       .navia-frame[data-side="left"] .navia-panel { left: 0; transform: translateX(-100%); }
@@ -892,42 +710,38 @@ function styles() {
       }
       .navia-frame[data-side="right"] .navia-resize { left: -4px; }
       .navia-frame[data-side="left"] .navia-resize { right: -4px; }
-      .navia-rail {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: var(--navia-gap-lg);
-        padding-top: 18px;
-        border-right: 1px solid var(--navia-border);
-        background: var(--navia-brand-soft);
+      .navia-chat-workspace {
+        min-width: 0;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+        padding: 12px 12px 12px 14px;
       }
       .navia-avatar {
-        width: 44px;
-        height: 44px;
+        display: none;
+        width: 32px;
+        height: 32px;
         border: 0;
         border-radius: var(--navia-radius-pill);
         background: var(--navia-brand);
         color: white;
         font-weight: 700;
+        font-size: 13px;
         cursor: pointer;
+        flex: none;
       }
-      .navia-dot { width: 8px; height: 8px; border-radius: var(--navia-radius-pill); background: var(--navia-success); }
+      .navia-dot { width: 8px; height: 8px; border-radius: var(--navia-radius-pill); background: var(--navia-success); flex: none; }
       .navia-frame[data-runtime="offline"] .navia-dot { background: var(--navia-error); }
       .navia-frame[data-runtime="checking"] .navia-dot { background: #f59e0b; }
-      .navia-workspace {
-        min-width: 0;
-        min-height: 0;
-        display: block;
-        padding: var(--navia-panel-padding);
-      }
       .navia-pane {
         min-width: 0;
         min-height: 0;
         height: 100%;
+        display: grid;
       }
-      .navia-frame[data-active-tool="chat"] .navia-debug-pane { display: none; }
-      .navia-frame[data-active-tool="debug"] .navia-chat-pane { display: none; }
-      .navia-frame[data-active-tool="debug"] .navia-debug-pane {
+      .navia-frame[data-active-tool="debug"] .navia-debug-pane,
+      .navia-debug-pane.is-visible {
         display: grid;
         grid-template-rows: auto auto auto auto minmax(0, 1fr);
         gap: var(--navia-gap-md);
@@ -942,29 +756,45 @@ function styles() {
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        padding: 2px 0 0;
+      }
+      .navia-chat-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .navia-chat-title-copy {
+        display: grid;
+        gap: 3px;
+        min-width: 0;
       }
       .navia-chat-header strong { display: block; font-size: 16px; }
-      .navia-chat-header span { display: block; color: var(--navia-text-muted); font-size: 12px; margin-top: 4px; }
-      .navia-chat-notice {
-        min-height: 18px;
-        border: 1px solid var(--navia-border);
-        border-radius: var(--navia-radius-md);
-        background: var(--navia-surface);
+      .navia-chat-header span { display: block; color: var(--navia-text-muted); font-size: 12px; }
+      .navia-chat-header-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .navia-reconnect-button {
+        border: 1px solid #e5e7eb;
+        background: #fff;
         color: var(--navia-text-muted);
-        font: 12px/1.35 var(--navia-font);
-        padding: 8px 10px;
-        overflow-wrap: anywhere;
+        padding: 6px 10px;
+        border-radius: 999px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+      }
+      .navia-reconnect-button:hover:not(:disabled) {
+        background: #f9fafb;
+        color: var(--navia-text);
+      }
+      .navia-chat-notice {
+        display: none;
       }
       .navia-frame[data-runtime="offline"] .navia-chat-notice,
-      .navia-frame[data-error="true"] .navia-chat-notice {
-        border-color: #fecaca;
-        background: var(--navia-error-bg);
-        color: #991b1b;
-      }
+      .navia-frame[data-error="true"] .navia-chat-notice,
       .navia-frame[data-page-state="missing"][data-runtime="online"] .navia-chat-notice {
-        border-color: #fed7aa;
-        background: var(--navia-warning-bg);
-        color: #92400e;
+        display: none;
       }
       .navia-header {
         display: flex;
@@ -975,116 +805,43 @@ function styles() {
       .navia-header strong { display: block; font-size: 16px; }
       .navia-header span { display: block; color: var(--navia-text-muted); font-size: 12px; margin-top: 4px; }
       .navia-page {
-        position: relative;
-        z-index: 2;
-        min-height: 38px;
-        border: 1px solid var(--navia-border);
-        border-radius: var(--navia-radius-md);
-        background: var(--navia-surface);
-        color: #334e68;
-        font-size: 12px;
-        padding: 8px;
-        overflow: hidden;
-      }
-      .navia-frame[data-page-state="missing"] .navia-page {
-        border-style: dashed;
-        background: #fbfdff;
-        color: var(--navia-text-muted);
+        display: none;
       }
       .navia-state-banner {
-        position: relative;
-        z-index: 2;
-        min-height: 18px;
-        border: 1px solid var(--navia-border);
-        border-radius: var(--navia-radius-md);
-        background: var(--navia-info-bg);
-        color: #334155;
-        font: 12px/1.35 var(--navia-font);
-        padding: 8px 10px;
-        overflow-wrap: anywhere;
-      }
-      .navia-frame[data-runtime="offline"] .navia-state-banner,
-      .navia-frame[data-error="true"] .navia-state-banner {
-        border-color: #fecaca;
-        background: var(--navia-error-bg);
-        color: #991b1b;
-      }
-      .navia-frame[data-runtime="checking"] .navia-state-banner,
-      .navia-frame[data-page-state="missing"][data-runtime="online"] .navia-state-banner {
-        border-color: #fed7aa;
-        background: var(--navia-warning-bg);
-        color: #92400e;
-      }
-      .navia-frame[data-stream="streaming"] .navia-state-banner,
-      .navia-frame[data-stream^="running"] .navia-state-banner {
-        border-color: #c7d2fe;
-        background: var(--navia-info-bg);
-        color: #3730a3;
+        display: none;
       }
       .navia-debug-json-card {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        gap: 8px;
-        min-height: 0;
-        border: 1px solid var(--navia-border);
-        border-radius: var(--navia-radius-md);
-        background: var(--navia-surface);
-        padding: 10px;
-      }
-      .navia-debug-json-card header {
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        gap: 10px;
-      }
-      .navia-debug-json-card strong {
-        color: var(--navia-text);
-        font-size: 13px;
-      }
-      .navia-debug-json-card span {
-        color: var(--navia-text-muted);
-        font-size: 11px;
-      }
-      .navia-debug-json-card pre {
-        box-sizing: border-box;
-        max-height: min(44vh, 460px);
-        margin: 0;
-        overflow: auto;
-        border-radius: var(--navia-radius-sm);
-        background: #0f172a;
-        color: #dbeafe;
-        padding: 10px;
-        font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-        white-space: pre;
-        tab-size: 2;
-      }
-      .navia-actions {
-        position: relative;
-        z-index: 3;
-        display: flex;
-        gap: var(--navia-gap-sm);
-        flex-wrap: wrap;
+        display: none;
       }
       .navia-chat-footer {
-        display: grid;
-        gap: var(--navia-gap-sm);
-        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border-top: 1px solid #e5e7eb;
+        background: #fff;
+        padding: 12px 0 0;
+      }
+      .navia-chat-footer:focus-within {
+        border-color: var(--navia-brand);
+        box-shadow: 0 0 0 2px rgba(99, 91, 255, 0.08);
       }
       .navia-chat-toolbar {
         display: flex;
-        gap: var(--navia-gap-sm);
+        gap: 8px;
         flex-wrap: wrap;
         min-width: 0;
       }
       button {
-        border: 1px solid var(--navia-border-strong);
-        border-radius: var(--navia-radius-sm);
-        background: var(--navia-surface);
+        border: 1px solid #e5e7eb;
+        border-radius: 999px;
+        background: #fff;
         color: var(--navia-text);
-        font: 600 12px/1 var(--navia-font);
-        padding: 8px 10px;
+        font: 500 13px/1.2 var(--navia-font);
+        padding: 8px 12px;
         cursor: pointer;
+      }
+      .navia-chat-toolbar button:hover:not(:disabled) {
+        background: #f9fafb;
       }
       button:disabled { color: #9aa6b2; cursor: not-allowed; }
       .navia-messages {
@@ -1098,15 +855,24 @@ function styles() {
         padding-right: 4px;
       }
       .navia-message {
-        border-radius: var(--navia-radius-md);
+        border-radius: 12px;
         padding: 10px;
-        background: var(--navia-surface);
-        border: 1px solid var(--navia-border);
+        background: #fff;
+        border: 1px solid #f3f4f6;
         min-width: 0;
         max-width: 100%;
       }
-      .navia-message.user { background: var(--navia-user-bg); border-color: #c7d2fe; }
-      .navia-message.system { background: var(--navia-system-bg); }
+      .navia-message.user { background: #f4f6ff; border: none; color: #172033; }
+      .navia-message.assistant {
+        background: #ffffff;
+        border: 1px solid #f3f4f6;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
+      }
+      .navia-message.system {
+        background: #ffffff;
+        border: 1px solid #f3f4f6;
+        opacity: 0.9;
+      }
       .navia-frame[data-stream="error"] .navia-message.assistant:last-child {
         border-color: #fecaca;
         background: var(--navia-error-bg);
@@ -1139,51 +905,88 @@ function styles() {
         cursor: pointer;
         font-size: 12px;
       }
+      .navia-composer-container {
+        position: relative;
+      }
       .navia-composer {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: var(--navia-gap-sm);
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
         min-width: 0;
-        align-items: end;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 8px 12px;
       }
       .navia-composer textarea {
         box-sizing: border-box;
+        display: block;
         min-width: 0;
         width: 100%;
-        min-height: 52px;
-        max-height: 140px;
-        resize: vertical;
-        border: 1px solid #bcccdc;
-        border-radius: var(--navia-radius-md);
-        padding: 9px;
+        min-height: 44px;
+        resize: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        background: transparent;
         font: 13px/1.4 var(--navia-font);
+        outline: none;
+        overflow: hidden;
       }
-      .navia-tools {
-        border-left: 1px solid var(--navia-border);
-        background: var(--navia-tool-bg);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        color: var(--navia-text-muted);
-        font-size: 12px;
-      }
-      .navia-tool {
-        width: 52px;
-        min-height: 32px;
-        padding: 8px 4px;
-        border-color: transparent;
+      .navia-composer:focus-within textarea {
         background: transparent;
       }
-      .navia-tool.active {
-        background: var(--navia-surface);
-        border-color: var(--navia-border);
-        color: var(--navia-brand-strong);
+      .navia-composer button {
+        position: static;
+        flex: none;
+        border: none;
+        border-radius: 8px;
+        background: var(--navia-brand);
+        color: #fff;
+        padding: 6px 16px;
+        box-shadow: none;
       }
-      .navia-tool[data-testid="navia-tool-debug"] {
-        margin-top: auto;
+      .navia-composer button:hover:not(:disabled) {
+        background: var(--navia-brand-strong);
+      }
+      .navia-tool-dock {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(100%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 60px;
+        padding: 10px 8px;
+        border-left: 1px solid #e5e7eb;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+        background: #f8f9ff;
+        box-shadow: 8px 0 24px rgba(15, 23, 42, 0.04);
+        backdrop-filter: blur(10px);
+      }
+      .navia-tool-button {
+        width: 100%;
+        min-height: 36px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        padding: 0 8px;
+        color: var(--navia-text-muted);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+      }
+      .navia-tool-button.active {
+        background: #f4f6ff;
+        border-color: #dbe2ff;
+        color: var(--navia-brand-strong);
+        box-shadow: 0 4px 12px rgba(99, 91, 255, 0.12);
+      }
+      .navia-tool-button:hover:not(:disabled) {
+        background: #f9fafb;
       }
       .navia-frame[data-mode="overlay"] .navia-panel { box-shadow: var(--navia-shadow-overlay); }
       @media (max-width: 899px) {
@@ -1192,14 +995,28 @@ function styles() {
           min-width: 0;
           width: min(100vw, max(320px, var(--navia-width)));
           max-width: 100vw;
-          grid-template-columns: var(--navia-mobile-rail-width) minmax(0, 1fr);
+          display: flex;
         }
         .navia-workspace { padding: 10px; }
-        .navia-tools { display: none; }
-        .navia-hover-strip {
-          width: 206px;
-          grid-template-columns: 24px auto 1px 48px;
-          font-size: 15px;
+        .navia-chat-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .navia-chat-header-actions {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .navia-composer button {
+          padding-inline: 12px;
+        }
+        .navia-tool-dock {
+          top: auto;
+          right: 0;
+          bottom: 12px;
+          transform: translate(100%, 0);
+          flex-direction: row;
+          width: auto;
+          border-radius: 14px;
         }
       }
     </style>
