@@ -148,6 +148,42 @@ V1 的成功定义：
 - [ ] drawio 图谱未体现公共 API 调用关系和关键体验路径。
 - [ ] 只靠 Markdown 文字声明 PRD 覆盖，没有矩阵和证据路径。
 
+### 2.6 A-V1.2 高质量网页感知层 Gate
+
+A-V1.2 只能声明完成“高质量网页感知层”，不得声明完成学习产物、RAG、Notebook 或 AgenticLoop。
+
+必须通过：
+
+- [ ] A-V1.2 子阶段编号统一为 `A-V1.2-0` 到 `A-V1.2-8`。
+- [ ] 至少 `100` 个复杂真实网页或可复现 HTML snapshot 进入最终验收。
+- [ ] 100-page corpus 覆盖新闻、博客、技术文档、GitHub README、产品文档、电商页、论坛页、表格页、代码页、图片富集页、中文页和低信号页。
+- [ ] 每个最终计入验收的页面样本记录 category、complexityTags、expectedRisks、URL 和 snapshotPath；URL-only 记录只能 planning，不能计入最终通过率。
+- [ ] 每个最终计入验收的页面样本必须有 `goldStatus = "reviewed"` 或 `goldStatus = "semi_auto_accepted"`；`planned` / `annotated` 不得计入最终通过率。
+- [ ] 每个有效页面至少产出 `structured-page.json`、`high-signal-page.json`、`source-map.json`、`perception-digest.json`、`quality-report.json` 和 `debug-evidence.json`。
+- [ ] 通过页的 `sourceCoverage >= 0.95`。
+- [ ] 通过页的 `groundingCompleteness >= 0.95`。
+- [ ] 通过页的 `jumpbackCoverage >= 0.90`。
+- [ ] `noiseRatio <= 0.25`，或质量报告明确降级原因。
+- [ ] 每个 `PerceptionDigestItem` 必须有关联 `sourceRefs`。
+- [ ] 每个 `SourceRef` 必须有 `textQuote` 或 `fallbackText`，DOM selector 不得作为唯一反跳机制。
+- [ ] `PagePerceptionQualityReport` 每个指标包含 numerator / denominator / method / threshold / passed。
+- [ ] Debug JSON 能解释页面为什么 pass、degraded 或 fail。
+- [ ] 低信号、登录墙、付费墙、空内容页面必须 fail/degrade，不得 pass。
+- [ ] `HighSignalPageContext`、`PerceptionDigest`、`SourceMap / SourceRef` 和 `PagePerceptionQualityReport` 只能通过公共合同被 D/C/B 消费。
+- [ ] `downstreamReadiness = pass` 时 D/C 才能把 high-signal 输出作为主上下文；`degraded` 只能 fallback / Debug；`fail` 必须回退或返回 `PAGE_CONTEXT_REQUIRED`。
+- [ ] 第三方 extractor 原始输出必须映射回 A-owned block graph，不得暴露给 D/C/B。
+- [ ] `trafilatura`、`readability-lxml`、`readabilipy` 或等价依赖必须先完成 dependency audit 且 decision=approved，才能安装或成为可用 candidate。
+
+以下情况不得通过 A-V1.2：
+
+- [ ] 少于 100 个复杂网页就声明 A-V1.2 完成。
+- [ ] URL-only、`planned` 或 `annotated` gold 页面被计入最终通过率。
+- [ ] A 生成最终回答、Mindmap、Flashcards、Quiz、Podcast、Notebook 或 Artifact。
+- [ ] A 发 SSE、写 EventStore、写 Trace、调用 D/C/B、MCP、Skill 或外部 API。
+- [ ] A 默认执行 OCR、VLM、ASR、视频或直播 engine。
+- [ ] 第三方 extractor 原始输出直接暴露为 Navia 公共合同。
+- [ ] `quality-report.json` 写死 pass 或放宽 A-V1.1 核心 SourceRef / QualityGate。
+
 ---
 
 ## 3. 模块验收

@@ -20,6 +20,13 @@ Implemented V1 endpoints:
 - `GET /v1/agent/state`
 - `GET /v1/agent/state-machine/mermaid`
 
+Implemented V2 local evidence endpoints:
+
+- `POST /v2/runtime/evidence`
+- `GET /v2/artifacts/{artifact_id}`
+- `POST /v2/snapshots/diff`
+- `POST /v2/workbench`
+
 The runtime must only be bound to `127.0.0.1` in local development.
 
 Session, page, event, message, tool, artifact, budget, and checkpoint records are persisted to SQLite by default:

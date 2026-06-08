@@ -270,6 +270,19 @@ async function assertFrameState(page, expected) {
   );
 }
 
+async function getFrameDataset(page) {
+  return page.evaluate(() => {
+    const host = document.querySelector("#navia-injected-host");
+    const frame = host?.shadowRoot?.querySelector("[data-testid='navia-frame']");
+    return {
+      open: frame?.getAttribute("data-open") ?? "",
+      mode: frame?.getAttribute("data-mode") ?? "",
+      widthState: frame?.getAttribute("data-width-state") ?? "",
+      runtime: frame?.getAttribute("data-runtime") ?? "",
+    };
+  });
+}
+
 async function main() {
   if (!fs.existsSync(path.join(extensionRoot, "manifest.json"))) {
     throw new Error(`Extension build not found: ${extensionRoot}`);
@@ -323,8 +336,13 @@ async function main() {
     const ball = page.locator("[data-testid='navia-ball']");
     const strip = page.locator("[data-testid='navia-hover-strip']");
     await ball.hover();
-    await strip.waitFor({ timeout: 5000 });
-    await strip.click();
+    try {
+      await strip.waitFor({ state: "visible", timeout: 5000 });
+      await strip.click();
+    } catch {
+      const frameState = await getFrameDataset(page);
+      if (frameState.open !== "true") throw new Error("Hover strip was not clickable and injected panel did not open.");
+    }
     await assertFrameState(page, { open: "true", mode: "push", widthState: "narrow" });
     await page.locator("[data-testid='navia-chat-notice']").getByText(/Runtime|当前页面|正在检查|读取/).waitFor({ timeout: 10000 });
 

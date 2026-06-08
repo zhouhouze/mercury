@@ -435,7 +435,8 @@ Metric formulas:
 | `jumpbackCoverage` | `sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal` |
 | `digestCompressionRatio` | `digestTextTokenEstimate / structuredPageTextTokenEstimate` |
 | `candidateFactDensity` | `digestCandidateFactItems / digestTokenEstimate` |
-| `overallScore` | deterministic weighted score: sourceCoverage 0.25, groundingCompleteness 0.25, jumpbackCoverage 0.2, inverse noiseRatio 0.2, contentCoverage 0.1 |
+| `compressionScore` | `1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)` |
+| `overallScore` | `0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity` |
 
 Default thresholds:
 
@@ -483,6 +484,60 @@ type CandidateBlock = {
 - Candidate extractor 输出不得直接写入 final `HighSignalPageContext`。
 - A Pipeline 必须把 candidate output 映射回 A-owned block graph 和 `SourceMap`。
 - 第三方库不可用时，A 必须 fallback 到 `dom_baseline`。
+
+### 8.8 A-V1.2-0 Contract Freeze Closure
+
+Public vs module-local decision:
+
+```text
+HighSignalPageContext
+PerceptionDigest
+SourceMap / SourceRef
+PagePerceptionQualityReport
+```
+
+These are public A contracts. D/C/B may consume their exact shape only through this contract and only when `PagePerceptionQualityReport.downstreamReadiness = "pass"`. When readiness is `degraded`, D/C/B may use them only as fallback or Debug evidence. When readiness is `fail`, D/C/B must fall back to `StructuredPageContext` or return `PAGE_CONTEXT_REQUIRED`.
+
+A-V1.2 adds public evidence contracts for stage acceptance:
+
+```text
+DebugEvidenceBundle
+CorpusPageRecord
+GoldEvaluationRecord
+ExtractorComparisonReport
+ExtractorCandidateScore
+```
+
+These are validated by:
+
+```text
+docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json
+```
+
+A-V1.2 final corpus rules:
+
+- Final counted corpus pages must have `snapshotPath`; URL-only records are planning-only and cannot count toward A-V1.2 final acceptance.
+- Final counted corpus pages must have `goldStatus = "reviewed"` or `goldStatus = "semi_auto_accepted"`.
+- `planned` and `annotated` pages cannot count toward final pass rate.
+- Low-signal pages must be `degraded` or `fail`; they cannot be marked `pass`.
+
+Quality formula closure:
+
+- `QualityMetric.numerator`, `denominator`, `method`, `threshold`, `passed`, and `denominatorZeroBehavior` are required.
+- Denominator-zero behavior must be one of `pass_when_empty`, `fail_when_empty`, `degrade_when_empty`, or `not_applicable`.
+- `overallScore` formula and weights are frozen in the A-V1.2 schema and must not be adjusted to pass a corpus.
+
+Extractor selection closure:
+
+- Candidate score formula is `0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage`.
+- Winner selection is highest score.
+- Tie breaker is `highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars`.
+- Any unavailable, failed, unapproved, high-noise, low-source-coverage, or low-main-text candidate must be marked rejected.
+- If all non-DOM candidates fail or are rejected, `dom_baseline` is the required fallback.
+
+Dependency enforcement:
+
+- `trafilatura`, `readability-lxml`, `readabilipy`, or equivalent extractor dependencies must not be installed until `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-extractor-dependency-audit.md` exists and the relevant package has `decision=approved`.
 
 ## 9. AgenticLoopContext
 
@@ -654,7 +709,7 @@ contracts/*.schema.json 如果进入机器校验阶段
 | `turnId` | D | Adapter, B, Trace, Artifact | One user message creates one turn. |
 | `toolCallId` | D | Adapter, Artifact, Trace | One adapter/tool call creates one ID. |
 | `nodeSourceMap` | C | B | Stored under `ArtifactRecord.metadata.nodeSourceMap`. |
-| `HighSignalPageContext` | A | D, C, Integration, B Debug | Public only after A-V1.1-0 freeze; D/C consume only when quality readiness passes. |
+| `HighSignalPageContext` | A | D, C, Integration, B Debug | Public after A-V1.2-0 freeze; D/C consume only when quality readiness passes. |
 | `PerceptionDigest` | A | D, C, B Debug | Every item must have source refs. |
 | `SourceMap` / `SourceRef` | A | C, B, D | DOM selector is optional; text fallback is mandatory. |
 | `PagePerceptionQualityReport` | A | D, Integration, B Debug | Must be computed, not hard-coded pass. |

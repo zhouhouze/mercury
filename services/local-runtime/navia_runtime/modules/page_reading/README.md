@@ -23,7 +23,7 @@ A-V1.0-3 OCR recognition planning
 A-V1.0-4 table / list / code block recognition
 A-V1.0-5 page region and information density recognition
 A-V1.1-* high-signal page perception
-A-V1.2-* production-grade page perception planning and 100-page evaluation
+A-V1.2-* high-quality page perception, structured page summary, jumpback evidence, Debug JSON, and 100-page evaluation
 A-V2.0-1 video perception planning
 A-V2.0-2 live perception planning
 ```
@@ -37,6 +37,11 @@ A-V2.0-2 live perception planning
 ## Outputs
 
 - `StructuredPageContext`
+- `HighSignalPageContext`
+- `PerceptionDigest`
+- `SourceMap / SourceRef`
+- `PagePerceptionQualityReport`
+- `DebugEvidenceBundle` for A-V1.2 acceptance and Debug review
 - `ParagraphAnnotation[]`
 - `PageChunk[]`
 - optional `StructuredSummaryDraft`
@@ -71,11 +76,16 @@ docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.drawio
 docs/navia_v1_project_docs/stage-gates/v1.2-a-page-reading.md
 docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.1-high-signal-page-perception.md
 docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.2-production-page-perception.md
+docs/navia_v1_project_docs/design/a-v1.2-contract-freeze-readiness-audit.md
+docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json
 docs/public-api.md
 docs/executable-contract.md
 docs/fixture-spec.md
 docs/test-and-evidence-plan.md
 docs/a-v1.2-100-page-evaluation-plan.md
+docs/a-v1.2-0-contract-freeze-acceptance.md
+docs/a-v1.2-executable-development-spec.md
+docs/a-v1.2-extractor-dependency-audit.md
 ```
 
 ## Validation Evidence
@@ -85,6 +95,10 @@ docs/a-v1.2-100-page-evaluation-plan.md
 - chunks trace back to paragraphs or heading path.
 - invalid or missing page content returns `PAGE_CONTEXT_REQUIRED` through Integration; A does not create fake artifacts.
 - A-V1.2 final acceptance requires at least 100 complex real webpages or reproducible snapshots across diverse categories.
+- final counted A-V1.2 pages require `snapshotPath` and `goldStatus = reviewed` or `semi_auto_accepted`.
+- every valid A-V1.2 page must produce structured, high-signal, source-map, perception-digest, quality-report, and debug-evidence JSON.
+- `PagePerceptionQualityReport` must explain pass / degraded / fail with metric formulas, not hard-coded status.
+- `PerceptionDigestItem` must have `sourceRefs`; DOM selector cannot be the only jumpback mechanism.
 - OCR, video, and live recognition remain planning-only until governed Adapter contracts are approved.
 
 Use `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md` for handoff.

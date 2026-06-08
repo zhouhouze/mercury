@@ -6,6 +6,21 @@ import {
   mountNaviaInjectedPanel
 } from "./injectedPanel";
 
+async function waitFor(assertion: () => void, timeoutMs = 1000) {
+  const started = Date.now();
+  let lastError: unknown;
+  while (Date.now() - started < timeoutMs) {
+    try {
+      assertion();
+      return;
+    } catch (error) {
+      lastError = error;
+      await new Promise((resolve) => setTimeout(resolve, 20));
+    }
+  }
+  if (lastError) throw lastError;
+}
+
 describe("injected panel layout", () => {
   beforeEach(() => {
     document.documentElement.style.marginLeft = "";
@@ -128,13 +143,13 @@ describe("injected panel layout", () => {
     document.body.innerHTML = "<main><h1>Fixture</h1><p>Realistic page text.</p></main>";
     mountNaviaInjectedPanel();
 
-    await new Promise((resolve) => setTimeout(resolve, 0));
-
     const root = document.querySelector("#navia-injected-host")?.shadowRoot;
     const frame = root?.querySelector<HTMLElement>("[data-testid='navia-frame']");
-    expect(frame?.dataset.runtime).toBe("offline");
-    expect(frame?.dataset.error).toBe("true");
-    expect(root?.querySelector("[data-testid='navia-state-banner']")?.textContent).toMatch(/Runtime|Local Runtime/);
+    await waitFor(() => {
+      expect(frame?.dataset.runtime).toBe("offline");
+      expect(frame?.dataset.error).toBe("true");
+      expect(root?.querySelector("[data-testid='navia-state-banner']")?.textContent).toMatch(/Runtime|Local Runtime/);
+    });
   });
 
   it("renders Mermaid artifacts through an extension iframe with source fallback", () => {

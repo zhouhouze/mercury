@@ -175,6 +175,63 @@ V1.1 不新增设计平面，不改变 Runtime 依赖方向。所有模型、工
 - 不做全局本地文件索引。
 - 长页面必须 chunk，不得无脑整页塞入模型。
 
+#### A-V1.2 高质量网页感知层目标架构
+
+A 模块在 V1.2 中是 `Page Perception / AgentCore Eyes`，属于 Context Plane 的感知子系统。A-V1.2 的目标不是生成学习产物，而是把真实复杂网页转换成高密度、可验证、可反跳的结构化页面事实。
+
+目标流水线：
+
+```text
+Chrome PageContext / HTML snapshot
+  -> PageReadingInput
+  -> DOM baseline candidate
+  -> optional candidate extractor ensemble
+  -> A-owned block graph
+  -> noise filter and density ranking
+  -> StructuredPageContext
+  -> HighSignalPageContext
+  -> PerceptionDigest
+  -> SourceMap / SourceRef
+  -> PagePerceptionQualityReport
+  -> DebugEvidenceBundle
+```
+
+模块调用关系：
+
+```text
+A -> D：仅输出 quality-ready 页面上下文，供连续对话和工具编排使用
+A -> C：仅输出 source-grounded 结构化上下文，供 Mindmap 生成和节点反跳使用
+A -> B：仅输出 Debug JSON、source fallback 和质量状态，供前端展示
+```
+
+公共合同消费门槛：
+
+- A 的 `StructuredPageContext` 始终是基础事实源。
+- `HighSignalPageContext`、`PerceptionDigest`、`SourceMap / SourceRef` 和 `PagePerceptionQualityReport` 是 A-V1.2 公共合同。
+- D/C 只有在 `PagePerceptionQualityReport.downstreamReadiness = "pass"` 时才能把 high-signal 输出作为主上下文。
+- `degraded` 输出只能进入 fallback 或 Debug evidence；`fail` 输出不得作为 D/C 主输入。
+- B 只能渲染 A 的 Debug JSON、source fallback 和 quality state，不拥有 AgentCore state，也不直接调用 A/C/D 服务。
+
+A-V1.2 目标架构与当前架构差异：
+
+| 维度 | 当前基线 | A-V1.2 目标 |
+|---|---|---|
+| 内容抽取 | DOM baseline 与有限 fixture | DOM baseline + 审计后的 candidate extractor ensemble |
+| 数据模型 | StructuredPageContext / high-signal 合同雏形 | A-owned block graph 归一化后输出公共 high-signal / digest / source map / quality 合同 |
+| 质量判断 | 小规模 fixture 与人工判断 | 100-page corpus、gold review、可计算 metric、DebugEvidenceBundle |
+| 来源反跳 | paragraph/sourceRange fallback | SourceRef 必须包含 textQuote 或 fallbackText，selector/domPath 仅为增强 |
+| 下游消费 | D/C/B 容易依赖临时 shape | 只通过公共合同和 readiness gate 消费 |
+
+A-V1.2 边界：
+
+- A 不生成最终 assistant answer。
+- A 不生成 Mindmap、Flashcards、Quiz、Podcast 或 Notebook 产物。
+- A 不创建 `ArtifactRecord`。
+- A 不发 SSE。
+- A 不写 EventStore、Trace 或 Session state。
+- A 不直接调用 D/C/B、MCP、Skill、外部 API、OCR、VLM、ASR、视频或直播 engine。
+- 第三方正文抽取库只允许作为 candidate extractor，输出必须映射回 A-owned block graph 后才能进入 Navia 公共合同。
+
 ### 3.3 Session Plane
 
 职责：

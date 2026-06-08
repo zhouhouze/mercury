@@ -82,14 +82,14 @@ Disallowed A-V1.1 fixture behavior:
 
 ## A-V1.2 100-Page Corpus Spec
 
-A-V1.2 final acceptance must use at least `100` complex real webpages or reproducible HTML snapshots.
+A-V1.2 final acceptance must use at least `100` complex real webpages or reproducible HTML snapshots. The corpus validates high-quality page perception, structured page summary, jumpback evidence, and debug-verifiable JSON. It does not validate learning artifacts, mindmaps, RAG, Notebook, or AgenticLoop behavior.
 
 Each corpus item must have:
 
 ```text
 pageKey
 url
-snapshotPath?
+snapshotPath
 category
 language
 complexityTags[]
@@ -97,6 +97,8 @@ expectedRisks[]
 goldStatus
 sourceLicenseNote?
 ```
+
+For final counted A-V1.2 acceptance, `snapshotPath` is required and `goldStatus` must be `reviewed` or `semi_auto_accepted`. URL-only, `planned`, or `annotated` records are planning-only and cannot count toward final pass rate.
 
 Required category distribution:
 
@@ -108,27 +110,28 @@ Required category distribution:
 | `github_readme` | 8 |
 | `product_docs` | 8 |
 | `ecommerce_product` | 8 |
-| `search_result` | 8 |
 | `forum_thread` | 8 |
 | `academic_or_report` | 8 |
 | `table_heavy_page` | 8 |
 | `code_heavy_page` | 8 |
 | `image_rich_article` | 8 |
-| `multi_column_media_page` | 4 |
-| `localized_chinese_page` | 4 |
+| `localized_chinese_page` | 8 |
 | `low_signal_or_paywall_like` | 4 |
+
+Optional exploratory records may cover search result pages or multi-column media pages, but they cannot count toward final A-V1.2 acceptance unless their `category` is one of the public schema `CorpusCategory` values. Search result semantics belong in page metadata; multi-column media pages are planning-only boundary evidence and must not imply video or media understanding.
 
 Expected A-V1.2 evidence files:
 
 ```text
 tests/evidence/a_v1_2/<pageKey>.structured-page.json
-tests/evidence/a_v1_2/<pageKey>.candidate-extraction.json
 tests/evidence/a_v1_2/<pageKey>.high-signal-page.json
 tests/evidence/a_v1_2/<pageKey>.source-map.json
 tests/evidence/a_v1_2/<pageKey>.perception-digest.json
 tests/evidence/a_v1_2/<pageKey>.quality-report.json
-tests/evidence/a_v1_2/<pageKey>.comparison-report.json
+tests/evidence/a_v1_2/<pageKey>.debug-evidence.json
 ```
+
+Candidate extraction and comparison evidence may be added after `A-V1.2-2` if candidate extractors are selected and audited.
 
 Disallowed A-V1.2 corpus behavior:
 
@@ -137,3 +140,4 @@ Disallowed A-V1.2 corpus behavior:
 - low-signal or paywall-like pages pass as valid content.
 - generated toy HTML replaces complex real webpages.
 - third-party extractor raw output leaks into public A contracts.
+- A output is used to claim final answer, mindmap, flashcard, quiz, podcast, notebook, RAG, or AgenticLoop completion.

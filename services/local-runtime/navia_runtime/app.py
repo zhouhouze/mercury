@@ -17,6 +17,11 @@ from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
 from navia_runtime.modules.page_reading.runtime import build_structured_page_context
 from navia_runtime.state_machine import mermaid_graph
 from navia_runtime.stores import InMemoryEventStream, SQLiteEventStore, SQLiteSessionStore
+from navia_runtime.v2.artifacts import V2ArtifactStore
+from navia_runtime.v2.incremental import compute_snapshot_diff
+from navia_runtime.v2.runtime_evidence import run_controlled_runtime_evidence
+from navia_runtime.v2.schemas import SchemaValidationError
+from navia_runtime.v2.workbench import build_workbench
 
 
 ALLOWED_ORIGINS = {
@@ -37,6 +42,7 @@ def default_db_path() -> Path:
 event_store = SQLiteEventStore(default_db_path())
 event_stream = InMemoryEventStream()
 session_store = SQLiteSessionStore(default_db_path())
+v2_artifact_store = V2ArtifactStore(default_db_path())
 runtime_projection = {"state": "waiting_user"}
 
 
@@ -307,6 +313,77 @@ def agent_state(request: Request):
 @app.get("/v1/agent/state-machine/mermaid")
 def state_machine_mermaid(request: Request):
     return success({"mermaid": mermaid_graph()}, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v2/runtime/evidence")
+async def v2_runtime_evidence(request: Request):
+    body = await request.json()
+    try:
+        result = run_controlled_runtime_evidence(v2_artifact_store, body, source="http")
+    except SchemaValidationError as exc:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.SCHEMA_VALIDATION_FAILED,
+                str(exc),
+                request_id=request.headers.get("x-request-id"),
+                details={"path": exc.path},
+            ),
+        )
+    return success(
+        {
+            "status": "accepted" if result["ok"] else "denied_or_failed",
+            "artifact": result["artifact"],
+        },
+        request_id=request.headers.get("x-request-id"),
+    )
+
+
+@app.get("/v2/artifacts/{artifact_id}")
+def v2_get_artifact(artifact_id: str, request: Request):
+    artifact = v2_artifact_store.get(artifact_id)
+    if not artifact:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "V2 artifact not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success({"artifact": artifact}, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v2/snapshots/diff")
+async def v2_snapshot_diff(request: Request):
+    body = await request.json()
+    try:
+        result = compute_snapshot_diff(v2_artifact_store, body, source="http")
+    except SchemaValidationError as exc:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.SCHEMA_VALIDATION_FAILED,
+                str(exc),
+                request_id=request.headers.get("x-request-id"),
+                details={"path": exc.path},
+            ),
+        )
+    return success(result, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v2/workbench")
+async def v2_workbench(request: Request):
+    body = await request.json()
+    try:
+        result = build_workbench(v2_artifact_store, body, source="http")
+    except SchemaValidationError as exc:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.SCHEMA_VALIDATION_FAILED,
+                str(exc),
+                request_id=request.headers.get("x-request-id"),
+                details={"path": exc.path},
+            ),
+        )
+    return success(result, request_id=request.headers.get("x-request-id"))
 
 
 def with_legacy_page_aliases(page: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:

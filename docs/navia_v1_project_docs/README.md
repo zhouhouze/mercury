@@ -88,14 +88,19 @@ V1.2 新增文档：
 | `design/v1.2-a-page-perception-gap.md` | A 模块 Draw.io companion：Page Perception / AgentCore Eyes 当前差异、目标架构、合同、里程碑和验收说明 |
 | `design/v1.2-a-page-perception-gap.drawio` | A 模块专属 gap 图谱：当前/目标差异、A 内部架构、A 与 B/C/D 调用关系、关键路径、开发验收和出门条件 |
 | `design/a-v1.1-contract-freeze-readiness-audit.md` | A-V1.1-0 合同冻结 readiness 审计：Go / No-Go、剩余 P0、ChatGPT 审计路径 |
+| `design/a-v1.2-contract-freeze-readiness-audit.md` | A-V1.2-0 合同冻结 readiness 审计：P0 closure、目标架构、开发验收大纲、false-green gate 和 ChatGPT 审计路径 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2-0R readiness 收口审计：当前文档是否足以支撑全量 V1.2 开发、剩余开发验收计划和 ChatGPT 审计路径 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | V1.2 ADR：piAgent 作为首选 CoreProvider，D 以可替换 Core 适配层为主 |
 | `contracts/v1_2_adapter_contracts.md` | V1.2 Adapter 与结构化上下文合同：StructuredPageContext、ParagraphAnnotation、AdapterSpec、AdapterResult、MindmapNodeSourceMap |
 | `contracts/a_v1_1_high_signal.schema.json` | A-V1.1 高信号感知 JSON Schema：HighSignalPageContext、Digest、SourceMap、QualityReport、CandidateExtractionResult |
+| `contracts/a_v1_2_page_perception.schema.json` | A-V1.2 网页感知 JSON Schema：公共高信号合同、DebugEvidenceBundle、CorpusPageRecord、GoldEvaluationRecord、ExtractorComparisonReport |
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 文档冻结门禁：进入 A/B/C/D 实质开发前必须通过 |
 | `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md` | A-V1.1 高信号网页感知门禁：Hybrid Extraction、正文降噪、sourceMap、digest、质量评估和 OCR/视频合同规划 |
-| `stage-gates/v1.2-a-v1.2-production-page-perception.md` | A-V1.2 生产级网页感知规划门禁：组合技术路线、100 个复杂网页验收、里程碑和出门条件 |
-| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-100-page-evaluation-plan.md` | A-V1.2 100-page evaluation corpus 规划：类别、evidence、质量门槛、false-green 防线 |
+| `stage-gates/v1.2-a-v1.2-production-page-perception.md` | A-V1.2 高质量网页感知层门禁：结构化页面摘要、可反跳证据、Debug JSON、100 个复杂网页验收、里程碑和出门条件 |
+| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-100-page-evaluation-plan.md` | A-V1.2 100-page evaluation corpus 规划：类别、Debug evidence、质量门槛、false-green 防线 |
+| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-0-contract-freeze-acceptance.md` | A-V1.2-0 合同冻结验收：ChatGPT P0 closure、PRD 规格检视、验证命令、Go/No-Go 结论 |
+| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-executable-development-spec.md` | A-V1.2 可执行开发规格：DebugEvidenceBundle、CorpusPageRecord、GoldEvaluationRecord、gold rubric、算法规则、extractor 审计和验收命令 |
+| `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-extractor-dependency-audit.md` | A-V1.2 extractor 依赖审计：trafilatura/readability/readabilipy 默认 deferred，未 approved 前禁止安装 |
 
 V1.2 代码工作区：
 
@@ -107,6 +112,31 @@ V1.2 代码工作区：
 | `services/local-runtime/navia_runtime/modules/agent_loop/` | D 模块 service 工作区：CoreProvider 适配层、AgenticLoop 边界与 piAgentProvider / MockCoreProvider |
 | `services/local-runtime/navia_runtime/modules/adapters/` | D 模块 service 工作区：MCP / Skill / API Adapter 编排 |
 | `apps/` 与 `services/` 既有入口文件 | Integration Codex 工作区：既有入口 wiring、E2E、trace 与 PRD 复检 |
+
+V1.13+ Coding Evidence 新增文档：
+
+编号说明：`V2.13` / `V2.14` / `V2.15` / `V2.16` 是历史别名；正式编号以 `../V1.16/V1_16_NUMBERING_AND_RENAMING_PLAN.md` 为准，即从 `V1.13` 继续编号到 `V1.16`。`../V1.16/` 是当前阶段正式文档目录。
+
+| 文件 | 用途 |
+|---|---|
+| `../V1.16/README.md` | V1.13-V1.16 文档包入口 |
+| `../V1.16/V1_16_NUMBERING_AND_RENAMING_PLAN.md` | V1.13+ 正式编号与历史别名映射：V1.13/V1.14/V1.15/V1.16 对应 legacy V2.13/V2.14/V2.15/V2.16 |
+| `../V1.16/V1_12_16_CODING_AGENT_ROADMAP_PRD.md` | V1.12-V1.16 Coding Agent 路线 PRD：剩余阶段产品目标、用户体验和边界 |
+| `../V1.16/V1_12_16_TARGET_ARCHITECTURE.md` | V1.12-V1.16 目标架构：Data Service、Artifact Store、Runtime Evidence、Incremental Intelligence、Workbench |
+| `../V1.16/V1_12_16_DEVELOPMENT_AND_ACCEPTANCE_PLAN.md` | V1.13-V1.16 总开发和验收计划：pre-audit、focused tests、E2E、parity、false-green audit |
+| `../V1.16/V1_12_16_ARTIFACT_SCHEMA_AND_PUBLIC_CONTRACT.md` | Evidence artifact envelope、runtime evidence、snapshot diff、workbench payload 公共合同 |
+| `../V1.16/V1_12_16_REAL_REPO_E2E_ACCEPTANCE_MATRIX.md` | 真实仓库 E2E 验收矩阵和 structured blocker 标准 |
+| `../V1.16/V1_12_16_FULL_COVERAGE_MATRIX.md` | V1.12-V1.16 覆盖矩阵：需求、阶段、证据 |
+| `../V1.16/V1_13_15_TARGET_STATE.drawio` | V1.13-V1.15 目标状态图谱：目标架构、开发验收、出门条件、用户体验闭环 |
+| `../V1.16/V1_13_15_DOCUMENT_AUDIT_REPORT.md` | V1.13-V1.15 文档审计报告和 18 个以内 ChatGPT 审计路径 |
+| `../V1.16/V1_16_REAL_MCP_EXTERNAL_E2E_SCHEMA_PRD.md` | V1.16 PRD：真实 MCP Server、外部仓库 E2E、可执行 Schema Validation |
+| `../V1.16/V1_16_REAL_MCP_EXTERNAL_E2E_SCHEMA_TARGET_ARCHITECTURE.md` | V1.16 目标架构：HTTP / CLI / MCP 共享 Evidence Service、Schema Validator、External Repo Harness |
+| `../V1.16/V1_16_REAL_MCP_EXTERNAL_E2E_SCHEMA_DEVELOPMENT_AND_ACCEPTANCE_PLAN.md` | V1.16 开发及验收计划：V1.16-0 到 V1.16-4 子阶段、验收命令和 No-Go |
+| `../V1.16/V1_16_CONTRACT_FREEZE_SPEC.md` | V1.16 合同冻结规格：schema、MCP tools、parity、external E2E、structured blocker |
+| `../V1.16/V1_16_MILESTONE_AND_ACCEPTANCE_GATE.md` | V1.16 里程碑、验收门槛和出门条件 |
+| `../V1.16/V1_16_GAP.drawio` | V1.16 gap 图谱：当前/目标差异、目标架构、开发验收、里程碑、出门条件、用户体验路径 |
+| `../V1.16/V1_16_DOCUMENT_AUDIT_REPORT.md` | V1.16 文档审计报告和 ChatGPT 审计路径 |
+| `../V1.16/stage-gates/V1_16_PRE_IMPLEMENTATION_AUDIT.md` | V1.16 预实现审计：Go / No-Go、风险、外部审计要求 |
 
 ## 使用建议
 
@@ -121,7 +151,10 @@ V1.2 代码工作区：
 9. 外部 Agent 进入仓库后先读根目录 `AGENTS.md`、`AGENT_ONBOARDING.md` 和 `V1_2_AGENT_WORKPACKS.md`，再选择 A/B/C/D/Integration 工作包。
 10. 进入 V1.2 实质开发前，必须先读 `design/v1.2-ai-reading-workspace-partition.md`、`design/v1.2-module-local-design-package.md`、`design/v1.2-automation-readiness-gap.md`、`design/v1.2-prd-coverage-matrix.md`、`design/v1.2-integration-contract-matrix.md`、`design/v1.2-ai-reading-automation-gap.drawio`、`contracts/v1_2_adapter_contracts.md` 和 `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`；只有 V1.2-0 Go 后，A/B/C/D Codex 终端才能按各自工作区独立开发。
 11. A 模块单独开工前，还必须读取 `design/v1.2-a-page-perception-gap.drawio`、`design/v1.2-a-page-perception-gap.md`、`stage-gates/v1.2-a-page-reading.md` 和 `stage-gates/v1.2-a-v1.1-high-signal-page-perception.md`，确认 A 只做 AgentCore Eyes 感知事实，不直接实现 OCR / 视觉 / 视频 / 直播 engine。A-V1.1-0 开工前还必须读取 `contracts/a_v1_1_high_signal.schema.json`、`design/a-v1.1-contract-freeze-readiness-audit.md` 和 `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.1-evidence-spec.md`。
-12. V1.2 全量开工前必须读取 `design/v1.2-readiness-closure-audit.md`。ChatGPT 审计文档路径以该文件第 5 节为准，且审计无致命或重大规格偏差后才能进入 staged mock-first implementation。
+12. A-V1.2-0 外部审计前必须读取 `design/a-v1.2-contract-freeze-readiness-audit.md`、`contracts/a_v1_2_page_perception.schema.json`、`stage-gates/v1.2-a-v1.2-production-page-perception.md`、`services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-executable-development-spec.md` 和 `services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-extractor-dependency-audit.md`。外部审计未确认无 fatal / major risk 前，禁止进入 A-V1.2-1+ 实质实现。
+13. V1.2 全量开工前必须读取 `design/v1.2-readiness-closure-audit.md`。ChatGPT 审计文档路径以该文件第 5 节为准，且审计无致命或重大规格偏差后才能进入 staged mock-first implementation。
+14. V1.13-V1.15 规划审计前，先读取 `../V1.16/V1_13_15_DOCUMENT_AUDIT_REPORT.md`，再按该文件第 4 节列出的 18 个以内路径交给 ChatGPT 审计。旧文档中的 V2.13-V2.15 是历史别名。
+15. V1.16 开工前，先读取 `../V1.16/V1_16_DOCUMENT_AUDIT_REPORT.md`、`../V1.16/V1_16_CONTRACT_FREEZE_SPEC.md`、`../V1.16/stage-gates/V1_16_PRE_IMPLEMENTATION_AUDIT.md`、`../V1.16/V1_16_GAP.drawio` 和对应 PRD / 目标架构 / 开发验收计划。旧文档中的 V2.16 是历史别名。真实 MCP server、外部 repo E2E、allowlist 扩展和网络访问都属于高风险流程，必须在审计无重大风险且用户授权后进入实现。
 
 ## V1 硬边界
 

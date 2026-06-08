@@ -58,6 +58,15 @@ function App() {
     try {
       const restored = await restoreRuntimeSession(lastSessionId);
       if (!restored) return;
+      const currentUrl = await getActiveTabUrl();
+      if (restored.activePage && currentUrl && !isSamePageUrl(restored.activePage.url, currentUrl)) {
+        await clearLastSessionId();
+        setSessionId(null);
+        setPageContext(null);
+        setPageSubmitted(false);
+        setSubmitStatus("最近 session 与当前页面不匹配，请重新读取页面。");
+        return;
+      }
       setSessionId(restored.session_id);
       if (restored.activePage) {
         setPageContext({
@@ -347,6 +356,27 @@ function extractPageContextInTab(): ExtractedPageContext {
     visible_text: visibleText.slice(0, 24000),
     cleaned_text: visibleText.slice(0, 24000)
   };
+}
+
+async function getActiveTabUrl(): Promise<string | null> {
+  try {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    return typeof tab?.url === "string" ? tab.url : null;
+  } catch {
+    return null;
+  }
+}
+
+function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
+  try {
+    const restored = new URL(restoredUrl);
+    const current = new URL(currentUrl);
+    restored.hash = "";
+    current.hash = "";
+    return restored.toString() === current.toString();
+  } catch {
+    return restoredUrl === currentUrl;
+  }
 }
 
 createRoot(document.getElementById("root")!).render(<App />);

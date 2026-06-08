@@ -200,6 +200,55 @@ OCR 规划原则：
 - 视频/直播感知必须有采样策略、延迟预算、用户授权、隐私边界和 EventStore 追踪。
 - 实时识别输出不能只存在 EventStream，必须可按时间轴和 session trace 回放。
 
+### 5.4 A-V1.2 高质量网页感知层目标
+
+A-V1.2 的阶段定位收敛为网页感知层，不做学习产物生成。本阶段目标是让 A 模块稳定成为 AgentCore 的“眼睛”，为 B/C/D 提供高密度、可验证、可反跳的页面事实输入。
+
+A-V1.2 必须聚焦：
+
+```text
+高质量网页感知
++ 结构化页面摘要
++ 可反跳证据
++ Debug 可验证 JSON
+```
+
+A-V1.2 必须输出或规划输出：
+
+- `StructuredPageContext`：当前页面的结构化上下文。
+- `HighSignalPageContext`：过滤噪声后的高信号页面视图。
+- `PerceptionDigest`：面向下游消费的结构化页面摘要，不是最终 assistant answer。
+- `SourceMap / SourceRef`：每个关键内容项的来源证据和反跳 fallback。
+- `PagePerceptionQualityReport`：机器可测的质量评估。
+- `DebugEvidenceBundle`：用于 Debug 页和自动验收的可解释 JSON 证据包。
+
+A-V1.2 明确不做：
+
+- 不生成最终回答。
+- 不生成 Flashcards、Quiz、Podcast、Notebook 或学习工作台产物。
+- 不生成 Mindmap；C 模块基于 A 输出生成 Mindmap。
+- 不创建 `ArtifactRecord`。
+- 不发 SSE。
+- 不写 EventStore / Trace。
+- 不做 RAG、长期记忆、多 Agent、浏览器自动操作。
+- 不直接调用 MCP、Skill、外部 API、OCR、VLM、ASR、视频或直播 engine。
+
+A-V1.2 的最终验收必须使用至少 `100` 个复杂真实网页或可复现 HTML snapshot，覆盖新闻、博客、技术文档、GitHub README、产品文档、电商页、论坛页、表格页、代码页、图片富集页、中文页和低信号页等类别。低信号页必须正确 fail/degrade，不得为了通过率伪装为 pass。
+
+A-V1.2 的公共合同消费规则：
+
+- `HighSignalPageContext`、`PerceptionDigest`、`SourceMap / SourceRef` 和 `PagePerceptionQualityReport` 是 D/C/B 可消费的公共合同。
+- 只有 `PagePerceptionQualityReport.downstreamReadiness = "pass"` 时，D/C 才能把 high-signal 输出作为主上下文。
+- `degraded` 只能作为 fallback 或 Debug evidence。
+- `fail` 必须回退到 `StructuredPageContext` 或返回 `PAGE_CONTEXT_REQUIRED`，不得伪造摘要、问答或思维导图输入。
+
+A-V1.2 的最终 corpus 验收规则：
+
+- 最终计入的页面必须有 `snapshotPath` 或等价可复现 HTML evidence；URL-only 记录只能用于 planning。
+- 最终计入的页面必须有 `goldStatus = "reviewed"` 或 `goldStatus = "semi_auto_accepted"`。
+- `planned`、`annotated` 或未审阅页面不得计入最终通过率。
+- 第三方 extractor 依赖在 license、体积、性能、隐私、fallback 审计未批准前不得安装或成为必需依赖。
+
 ---
 
 ## 6. V1 非目标

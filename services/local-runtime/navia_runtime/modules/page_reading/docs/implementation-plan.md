@@ -37,15 +37,36 @@ A module development is limited to `services/local-runtime/navia_runtime/modules
 
 `A-V1.2` is documentation and contract planning until its stage gate is audited. It must not install extractor dependencies or implement production extraction before `A-V1.2-0` closes.
 
+`A-V1.2` is scoped to:
+
+```text
+high-quality page perception
++ structured page summary
++ jumpback evidence
++ debug-verifiable JSON
+```
+
+It is not a learning artifact, RAG, Notebook, mindmap, or AgenticLoop stage.
+
+Implementation decisions for schemas, corpus manifest, gold rubric, extractor dependency audit, deterministic algorithms, and stage acceptance commands are frozen in:
+
+```text
+docs/a-v1.2-executable-development-spec.md
+```
+
+If that document conflicts with older module notes, the executable development spec wins for A-V1.2.
+
 | Stage | Build target | Acceptance |
 |---|---|---|
-| `A-V1.2-0` | Freeze production-grade page perception scope, dependency policy, public contract changes, and 100-page corpus rules | Stage gate, drawio, fixture plan, and evidence plan align; no fatal or major audit issue remains |
-| `A-V1.2-1` | Design 100-page evaluation corpus | At least 100 pages, at least 10 categories, page records include URL/snapshot, category, risks, gold status, and expected evidence |
-| `A-V1.2-2` | Plan extractor candidate ensemble | `dom_baseline`, `trafilatura`, `readability_lxml`, and `readabilipy` are candidate-only; dependency and license review required before implementation |
-| `A-V1.2-3` | Plan A-owned block graph merge | Third-party output maps into A-owned blocks before final public contracts; raw extractor fields cannot leak |
-| `A-V1.2-4` | Plan digest quality upgrade | Digest quality is evaluated against gold key facts, claims, definitions, procedures, evidence, and source refs |
-| `A-V1.2-5` | Plan quality evaluator upgrade | Corpus pass rate, category pass rate, extractor comparison, and failure reasons are measurable |
-| `A-V1.2-6` | Plan Integration handoff and regression | D/C/B consume only quality-ready public contracts; regression reports are defined |
+| `A-V1.2-0` | Freeze contracts and stage target | Stage gate, PRD, architecture, drawio, public API, fixture plan, evidence plan, and 100-page rules align |
+| `A-V1.2-1` | Build 100-page evaluation corpus | At least 100 pages or snapshots, at least 10 categories, page records include URL/snapshot, category, risks, and expected evidence |
+| `A-V1.2-2` | Improve main content detection | Body text, headings, paragraphs, lists, tables, code, and image DOM metadata enter A-owned block graph |
+| `A-V1.2-3` | Add noise filtering and density ranking | nav/footer/sidebar/recommendation/ad/comment/share/cookie/banner are filtered or downgraded with evidence |
+| `A-V1.2-4` | Add structured page summary | TLDR, key paragraphs, key facts, terms, entities, procedures, table facts, and code facts are grounded by sourceRefs |
+| `A-V1.2-5` | Strengthen SourceMap and jumpback evidence | SourceRef has pageId, contentHash, blockId, blockType, order, textQuote, textHash, fallbackText, and confidence |
+| `A-V1.2-6` | Upgrade quality evaluator | noiseRatio, contentCoverage, sourceCoverage, groundingCompleteness, jumpbackCoverage, digestCompressionRatio, and overallScore have formulas and thresholds |
+| `A-V1.2-7` | Add DebugEvidenceBundle | raw signals, candidate extraction, filtered evidence, high-signal context, source map, and quality report are bundled for Debug UI |
+| `A-V1.2-8` | Run 100-page exit validation | Corpus-level report passes; failures are mapped back to the responsible A-V1.2 substage |
 
 ## Implementation Sequence
 

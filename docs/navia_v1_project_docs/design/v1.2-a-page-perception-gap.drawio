@@ -214,13 +214,13 @@
         <mxCell id="title10" value="A-V1.2 当前架构 vs 目标架构差异" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="220" y="40" width="960" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="current10" value="当前 A-V1.1&#xa;DOM baseline high-signal perception&#xa;手写 HTML fixtures + deterministic digest&#xa;SourceMap / QualityReport 已有合同&#xa;&#xa;限制&#xa;复杂真实网页覆盖不足&#xa;extractor ensemble 未实现&#xa;质量评估仍偏 contract-level&#xa;没有 100-page corpus 校准" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="current10" value="当前 A-V1.1 / A-V1.2-0&#xa;DOM baseline high-signal perception&#xa;手写 HTML fixtures + deterministic digest&#xa;HighSignal / Digest / SourceMap / QualityReport 合同已冻结&#xa;&#xa;限制&#xa;复杂真实网页覆盖不足&#xa;extractor ensemble 未实现&#xa;质量评估尚未经过 100-page 校准&#xa;A-V1.2-1+ 仍需外部复审后才能实现" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="80" y="150" width="430" height="360" as="geometry" />
         </mxCell>
-        <mxCell id="target10" value="目标 A-V1.2&#xa;Production-Grade Page Perception Upgrade&#xa;DOM baseline enhancement&#xa;+ extractor candidate ensemble&#xa;+ A-owned block graph merge&#xa;+ 100-page gold evaluation&#xa;+ category pass-rate gates&#xa;&#xa;收益&#xa;真实复杂网页质量可量化&#xa;D/C/B 获得更稳定上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="target10" value="目标 A-V1.2&#xa;高质量网页感知层&#xa;高质量网页感知&#xa;+ 结构化页面摘要&#xa;+ 可反跳证据&#xa;+ Debug 可验证 JSON&#xa;+ 100-page 真实验收&#xa;&#xa;收益&#xa;D/C/B 获得高密度、可验证、可反跳的页面事实输入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="890" y="150" width="430" height="360" as="geometry" />
         </mxCell>
-        <mxCell id="gap10" value="A-V1.2 必补 Gap&#xa;A-V1.2-0 规划与合同冻结&#xa;100 个复杂网页 corpus&#xa;trafilatura / readability candidate 隔离&#xa;comparison-report&#xa;gold digest / sourceRef 对照&#xa;质量指标大规模校准&#xa;依赖 / license / fallback 审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="gap10" value="A-V1.2 必补 Gap&#xa;A-V1.2-0 外部复审无 fatal / major risk&#xa;100 个复杂网页 corpus + snapshotPath&#xa;reviewed / semi_auto_accepted gold&#xa;主体内容识别&#xa;噪声过滤与密度提升&#xa;结构化页面摘要&#xa;SourceMap / SourceRef 反跳&#xa;QualityReport + DebugEvidenceBundle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="530" y="570" width="340" height="250" as="geometry" />
         </mxCell>
         <mxCell id="edge10a" edge="1" parent="1" source="current10" target="gap10" style="endArrow=block;html=1;strokeWidth=2;strokeColor=#64748B">
@@ -237,28 +237,28 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title11" value="A-V1.2 目标架构：Production Page Perception Pipeline" style="text;html=1;fontSize=27;fontStyle=1;align=center" vertex="1" parent="1">
+        <mxCell id="title11" value="A-V1.2 目标架构：高质量网页感知 Pipeline" style="text;html=1;fontSize=27;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="160" y="40" width="1080" height="50" as="geometry" />
         </mxCell>
         <mxCell id="input11" value="输入&#xa;PageReadingInput&#xa;real page snapshot&#xa;URL metadata&#xa;current DOM baseline output" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=center" vertex="1" parent="1">
           <mxGeometry x="40" y="180" width="170" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="cand11" value="Candidate Extractors&#xa;dom_baseline always available&#xa;trafilatura candidate&#xa;readability_lxml candidate&#xa;readabilipy candidate&#xa;&#xa;candidate-only, no public leak" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=14;align=center" vertex="1" parent="1">
+        <mxCell id="cand11" value="Candidate Extractors&#xa;dom_baseline always available&#xa;trafilatura candidate&#xa;readability_lxml candidate&#xa;readabilipy candidate&#xa;&#xa;candidate-only, no public leak&#xa;third-party deps require audit decision=approved" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=14;align=center" vertex="1" parent="1">
           <mxGeometry x="260" y="150" width="230" height="200" as="geometry" />
         </mxCell>
         <mxCell id="merge11" value="A-owned Block Graph Merge&#xa;normalize candidates&#xa;dedupe / overlap compare&#xa;region + noise scoring&#xa;preserve page order&#xa;sourceRef fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=14;align=center" vertex="1" parent="1">
           <mxGeometry x="540" y="150" width="220" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="output11" value="Public A Outputs&#xa;HighSignalPageContext&#xa;SourceMap / SourceRef&#xa;PerceptionDigest&#xa;QualityReport&#xa;ComparisonReport after freeze" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=center" vertex="1" parent="1">
+        <mxCell id="output11" value="A Outputs&#xa;StructuredPageContext&#xa;HighSignalPageContext&#xa;PerceptionDigest&#xa;SourceMap / SourceRef&#xa;QualityReport&#xa;DebugEvidenceBundle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=center" vertex="1" parent="1">
           <mxGeometry x="820" y="150" width="230" height="200" as="geometry" />
         </mxCell>
         <mxCell id="consumers11" value="Consumers&#xa;D consumes quality-ready context&#xa;C consumes source-grounded input&#xa;B Debug renders evidence&#xa;&#xa;A does not call D/C/B directly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14;align=center" vertex="1" parent="1">
           <mxGeometry x="1110" y="150" width="230" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="quality11" value="Quality Gate&#xa;100-page corpus&#xa;valid pass rate >= 85%&#xa;core category pass rate >= 70%&#xa;source / grounding / jumpback >= 0.95&#xa;low_signal never pass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="quality11" value="Quality Gate&#xa;100-page corpus with snapshotPath&#xa;goldStatus reviewed / semi_auto_accepted&#xa;sourceCoverage >= 0.95&#xa;groundingCompleteness >= 0.95&#xa;jumpbackCoverage >= 0.90&#xa;noiseRatio &lt;= 0.25 or degraded&#xa;low_signal never pass" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="230" y="520" width="430" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="boundary11" value="Boundary&#xa;No final answer&#xa;No ArtifactRecord&#xa;No SSE / EventStore&#xa;No MCP / Skill / external API direct call&#xa;No OCR / VLM / ASR / video / live engine execution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="boundary11" value="Boundary&#xa;No final answer / Notebook / RAG&#xa;No Mindmap / Flashcards / Quiz / Podcast&#xa;No ArtifactRecord&#xa;No SSE / EventStore / Trace&#xa;No D/C/B / MCP / Skill / external API direct call&#xa;No OCR / VLM / ASR / video / live engine execution" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="740" y="520" width="430" height="220" as="geometry" />
         </mxCell>
         <mxCell id="e11a" edge="1" parent="1" source="input11" target="cand11" style="endArrow=block;html=1;strokeWidth=2">
@@ -276,59 +276,59 @@
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="a-gap-12" name="12 A-V1.2 技术路线对比">
+  <diagram id="a-gap-12" name="12 A-V1.2 模块调用关系与信息流">
     <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title12" value="A-V1.2 技术路线对比与取舍" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
+        <mxCell id="title12" value="A-V1.2 模块调用关系与关键体验路径" style="text;html=1;fontSize=28;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="250" y="40" width="900" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="r12a" value="DOM baseline enhancement&#xa;定位：必做基础层&#xa;优点：离线、可控、兼容当前实现&#xa;风险：复杂网页上限有限" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="r12a" value="Chrome PageContext&#xa;url / title / domain&#xa;headings / visibleText&#xa;cleanedText / selection&#xa;HTML snapshot for tests" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="70" y="150" width="250" height="170" as="geometry" />
         </mxCell>
-        <mxCell id="r12b" value="Extractor ensemble&#xa;定位：主路线&#xa;候选：trafilatura / readability_lxml / readabilipy&#xa;优点：提升真实网页正文识别&#xa;风险：依赖、license、性能、输出隔离" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="r12b" value="A Page Perception&#xa;PageReadingInput&#xa;A-owned block graph&#xa;structured summary&#xa;SourceMap / QualityReport&#xa;DebugEvidenceBundle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="380" y="150" width="280" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="r12c" value="Gold fixture evaluation&#xa;定位：必做验收层&#xa;100-page corpus&#xa;gold blocks / digest / sourceRefs&#xa;优点：防止质量 false green&#xa;风险：标注成本高" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="r12c" value="D Agentic Adapter&#xa;Consumes only quality-ready A context&#xa;pass = primary context&#xa;degraded = fallback / debug&#xa;fail = fallback or PAGE_CONTEXT_REQUIRED&#xa;Maps ToolResult / Artifact / Event / Trace outside A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="720" y="150" width="280" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="r12d" value="LLM digest refinement&#xa;定位：规划 / mock only&#xa;优点：表达质量上限高&#xa;风险：成本、隐私、可复现、A 越界&#xa;A-V1.2 不默认启用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="r12d" value="C Mindmap&#xa;Consumes structured context + sourceRefs&#xa;Generates Mermaid + nodeSourceMap&#xa;A never generates Mindmap" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F3FF;strokeColor=#7C3AED;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="1060" y="150" width="260" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="r12e" value="Multimodal planning&#xa;OCR / VLM / ASR / video / live&#xa;定位：未来 adapter planning&#xa;A-V1.2 不执行 engine&#xa;必须经 D Adapter + governance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="r12e" value="B Renderer / Debug&#xa;Renders Debug JSON&#xa;Shows source fallback&#xa;Displays quality state&#xa;Does not own AgentCore state&#xa;Does not call A/C/D services directly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#EA580C;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="270" y="500" width="360" height="190" as="geometry" />
         </mxCell>
-        <mxCell id="decision12" value="推荐组合路线&#xa;DOM baseline enhancement + extractor candidate ensemble + gold 100-page evaluation&#xa;&#xa;实现前置&#xa;A-V1.2-0 合同冻结&#xa;依赖 / license / fallback 审计&#xa;100-page corpus 规则冻结" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="decision12" value="关键体验路径&#xa;用户点击读取当前页面&#xa;Chrome 捕获 PageContext&#xa;A 生成 structured / high-signal / sourceMap / quality / debug JSON&#xa;D 用 quality-ready context 对话&#xa;C 用 sourceRefs 生成可反跳 Mindmap&#xa;B 展示 Debug JSON 与 source fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#2563EB;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="710" y="500" width="430" height="190" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
-  <diagram id="a-gap-13" name="13 A-V1.2 100-page 验收矩阵">
+  <diagram id="a-gap-13" name="13 A-V1.2 开发及验收计划">
     <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title13" value="A-V1.2 100-page 验收矩阵与 Evidence Flow" style="text;html=1;fontSize=27;fontStyle=1;align=center" vertex="1" parent="1">
+        <mxCell id="title13" value="A-V1.2 开发及验收计划" style="text;html=1;fontSize=27;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="170" y="40" width="1060" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="corpus13" value="100-page Corpus&#xa;news / blog / docs / README&#xa;product / ecommerce / search&#xa;forum / report / table / code&#xa;image-rich / media shell&#xa;Chinese / low-signal&#xa;&#xa;每页：URL or snapshot + category + risk tags" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="corpus13" value="A-V1.2-0 / 1&#xa;合同与目标冻结&#xa;100-page 验收集&#xa;&#xa;验收&#xa;PRD / 架构 / drawio / API / fixture / evidence 对齐&#xa;external audit no fatal / major risk&#xa;>=100 reproducible snapshots&#xa;goldStatus reviewed / semi_auto_accepted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="60" y="150" width="260" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="run13" value="Run A Pipeline&#xa;structured page&#xa;candidate extraction&#xa;high-signal page&#xa;source map&#xa;perception digest&#xa;quality report&#xa;comparison report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="run13" value="A-V1.2-2 / 3&#xa;主体内容识别&#xa;噪声过滤与密度提升&#xa;&#xa;验收&#xa;main content enters A-owned graph&#xa;noise blocks filtered or downgraded with evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="390" y="150" width="240" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="gold13" value="Gold Evaluation&#xa;gold main blocks&#xa;gold rejected noise&#xa;gold digest items&#xa;gold source refs&#xa;review notes&#xa;&#xa;human or semi-auto reviewed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="gold13" value="A-V1.2-4 / 5&#xa;结构化页面摘要&#xa;SourceMap 与反跳证据&#xa;&#xa;验收&#xa;summary items have sourceRefs&#xa;SourceRef has textQuote or fallbackText" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="700" y="150" width="240" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="gate13" value="Corpus Quality Gate&#xa;valid pass rate >= 85%&#xa;core category >= 70%&#xa;source / grounding / jumpback >= 0.95&#xa;low_signal never pass&#xa;comparison report required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
+        <mxCell id="gate13" value="A-V1.2-6 / 7 / 8&#xa;质量评估模型&#xa;Debug JSON 证据包&#xa;100-page 出门验收&#xa;&#xa;验收&#xa;metrics have formulas&#xa;Debug explains pass/degrade/fail&#xa;corpus report passes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=14;align=left;spacing=12" vertex="1" parent="1">
           <mxGeometry x="1010" y="150" width="280" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="evidence13" value="Evidence outputs per page&#xa;structured-page.json&#xa;candidate-extraction.json&#xa;high-signal-page.json&#xa;source-map.json&#xa;perception-digest.json&#xa;quality-report.json&#xa;comparison-report.json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="evidence13" value="Evidence outputs per page&#xa;structured-page.json&#xa;high-signal-page.json&#xa;source-map.json&#xa;perception-digest.json&#xa;quality-report.json&#xa;debug-evidence.json&#xa;gold-evaluation.json&#xa;&#xa;candidate/comparison optional after extractor audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF2FF;strokeColor=#4F46E5;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="220" y="540" width="410" height="210" as="geometry" />
         </mxCell>
-        <mxCell id="nogo13" value="No-Go&#xa;少于 100 pages&#xa;单一类别占比过高&#xa;低信号页面 pass&#xa;第三方原始输出泄漏&#xa;只用手写 toy fixtures&#xa;把媒体壳声明为视频理解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="nogo13" value="打回条件&#xa;少于 100 pages&#xa;低信号页面 pass&#xa;summary item lacks sourceRefs&#xa;quality report hard-codes pass&#xa;Debug JSON 无法解释失败&#xa;A 生成回答 / Mindmap / Artifact / RAG" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="770" y="540" width="410" height="210" as="geometry" />
         </mxCell>
         <mxCell id="e13a" edge="1" parent="1" source="corpus13" target="run13" style="endArrow=block;html=1;strokeWidth=2">
@@ -351,31 +351,31 @@
         <mxCell id="title14" value="A-V1.2 里程碑、验收门槛与出门条件" style="text;html=1;fontSize=27;fontStyle=1;align=center" vertex="1" parent="1">
           <mxGeometry x="210" y="40" width="980" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="m140" value="A-V1.2-0&#xa;规划与合同冻结&#xa;scope / dependency / public contract / 100-page rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m140" value="A-V1.2-0 / 1&#xa;合同与目标冻结&#xa;100-page 验收集" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="40" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m141" value="A-V1.2-1&#xa;100-page corpus design&#xa;category / risk / gold rubric" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m141" value="A-V1.2-2&#xa;主体内容识别&#xa;main content graph" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="230" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m142" value="A-V1.2-2&#xa;Extractor ensemble plan&#xa;candidate-only + dependency audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m142" value="A-V1.2-3&#xa;噪声过滤与密度提升&#xa;filtered evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="420" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m143" value="A-V1.2-3&#xa;A-owned merge plan&#xa;dedupe / overlap / source refs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m143" value="A-V1.2-4&#xa;结构化页面摘要&#xa;grounded digest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="610" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m144" value="A-V1.2-4&#xa;Digest quality plan&#xa;gold facts / claims / evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m144" value="A-V1.2-5&#xa;SourceMap 反跳证据&#xa;text fallback required" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="800" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m145" value="A-V1.2-5&#xa;Quality evaluator upgrade&#xa;pass-rate + category gates" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m145" value="A-V1.2-6 / 7&#xa;质量评估模型&#xa;DebugEvidenceBundle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="990" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="m146" value="A-V1.2-6&#xa;Integration handoff&#xa;D/C/B readiness + regression" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
+        <mxCell id="m146" value="A-V1.2-8&#xa;100-page 出门验收&#xa;corpus report" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=13;align=center" vertex="1" parent="1">
           <mxGeometry x="1180" y="150" width="170" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="exit14" value="出门条件&#xa;100-page corpus 冻结并可复现&#xa;valid pass rate >= 85%&#xa;core category pass rate >= 70%&#xa;source / grounding / jumpback >= 0.95&#xa;comparison-report 覆盖所有页面&#xa;PRD / false-green 审计无重大风险" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="exit14" value="出门条件&#xa;100-page corpus 可复现&#xa;snapshotPath required for counted pages&#xa;goldStatus reviewed / semi_auto_accepted&#xa;sourceCoverage >= 0.95&#xa;groundingCompleteness >= 0.95&#xa;jumpbackCoverage >= 0.90&#xa;low_signal fail/degrade&#xa;Debug JSON 可解释&#xa;PRD / false-green 审计无重大风险" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ECFDF5;strokeColor=#059669;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="160" y="480" width="480" height="240" as="geometry" />
         </mxCell>
-        <mxCell id="nogo14" value="No-Go 条件&#xa;少于 100 pages&#xa;未冻结合同就实现新字段&#xa;未审计依赖就新增 extractor 包&#xa;第三方输出直接进公共合同&#xa;放宽质量门槛过关&#xa;A 执行 OCR / VLM / ASR / video / live engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
+        <mxCell id="nogo14" value="No-Go 条件&#xa;少于 100 pages&#xa;URL-only / planned gold 计入验收&#xa;未冻结合同就实现新字段&#xa;第三方输出直接进公共合同&#xa;未批准依赖审计就安装 extractor&#xa;放宽质量门槛过关&#xa;A 生成回答 / Mindmap / Artifact / RAG&#xa;A 执行 OCR / VLM / ASR / video / live engine" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF2F2;strokeColor=#DC2626;fontSize=15;align=left;spacing=14" vertex="1" parent="1">
           <mxGeometry x="760" y="480" width="480" height="240" as="geometry" />
         </mxCell>
       </root>

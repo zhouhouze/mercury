@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Navia V1.16 端到端验收报告</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fafc;
+        --panel: #ffffff;
+        --ink: #0f172a;
+        --muted: #475569;
+        --line: #dbe3ef;
+        --ok: #047857;
+        --warn: #b45309;
+        --fail: #b91c1c;
+        --accent: #4f46e5;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 14px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      header {
+        padding: 28px 36px 20px;
+        background: #111827;
+        color: #fff;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        letter-spacing: 0;
+      }
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+      h3 {
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+      main {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .meta {
+        color: #cbd5e1;
+        margin-top: 8px;
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 16px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-weight: 700;
+      }
+      .pass {
+        color: var(--ok);
+        background: #dcfce7;
+      }
+      .warn {
+        color: var(--warn);
+        background: #fef3c7;
+      }
+      .fail {
+        color: var(--fail);
+        background: #fee2e2;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border-bottom: 1px solid var(--line);
+        padding: 10px 8px;
+        vertical-align: top;
+        text-align: left;
+      }
+      th {
+        color: #334155;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+      code,
+      pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      pre {
+        white-space: pre-wrap;
+        background: #0f172a;
+        color: #e2e8f0;
+        border-radius: 8px;
+        padding: 12px;
+        overflow: auto;
+      }
+      img {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+      .shot {
+        display: grid;
+        gap: 8px;
+      }
+      .shot figcaption {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .summary-number {
+        font-size: 26px;
+        font-weight: 800;
+      }
+      .small {
+        font-size: 12px;
+      }
+      a {
+        color: var(--accent);
+      }
+      @media (max-width: 900px) {
+        .grid-3,
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+        main,
+        header {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Navia V1.16 端到端验收报告</h1>
+      <div class="meta">
+        验收时间：2026-06-08 · 验收对象：本地 Runtime、Chrome MV3 扩展、V1.16 Evidence Workflow、真实浏览器 in-page 体验
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="grid grid-3">
+        <div class="card">
+          <div class="status pass">通过</div>
+          <div class="summary-number">25</div>
+          <div>V1.16 + V1.13-V1.15 顺序验收测试通过</div>
+        </div>
+        <div class="card">
+          <div class="status pass">通过</div>
+          <div class="summary-number">48</div>
+          <div>local runtime 全量测试通过</div>
+        </div>
+        <div class="card">
+          <div class="status warn">有限通过</div>
+          <div class="summary-number">1</div>
+          <div>真实 headed Chrome/Chromium in-page 扩展路径通过；Side Panel 自动化仍需人工确认</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>给人的结论</h2>
+        <p>
+          本轮端到端验收显示：用户在普通网页中打开 Navia 悬浮球后，可以进入网页内伴读面板，Runtime 能上线，页面上下文可以提交，
+          并能完成总结、问答、Mindmap、resize、移动端 overlay、offline 恢复等核心路径。V1.16 的 Evidence Workflow 也已通过
+          schema 校验、真实 stdio MCP、外部仓库矩阵和 structured blocker 验收。
+        </p>
+        <p>
+          需要如实说明：本机没有安装 <code>chrome-cli</code> 命令；本报告中的 Chrome 用户视角操作由仓内 Playwright 脚本拉起
+          headed Chromium 并加载真实 <code>apps/chrome-extension/chrome-mv3-unpacked</code> 扩展完成。headless 路径因为 MV3
+          service worker 不可见会退回 direct injection，随后被 Runtime CORS 正确拒绝，因此不能作为通过证据。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>真实用户场景验收结果</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>场景</th>
+              <th>用户动作</th>
+              <th>结果</th>
+              <th>证据</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>普通网页伴读</td>
+              <td>打开 article fixture，等待右侧悬浮球出现，hover 后打开面板</td>
+              <td><span class="status pass">通过</span></td>
+              <td>floating-default / floating-hover / panel-440-push 截图</td>
+            </tr>
+            <tr>
+              <td>Runtime 联通</td>
+              <td>面板自动检测 Runtime，创建 session，提交 page context</td>
+              <td><span class="status pass">通过</span></td>
+              <td>Runtime 日志显示 <code>/v1/health</code>、<code>/v1/sessions</code>、<code>/v1/page/context</code> 200</td>
+            </tr>
+            <tr>
+              <td>网页问答能力</td>
+              <td>点击总结、基于页面提问、Mindmap</td>
+              <td><span class="status pass">通过</span></td>
+              <td>in-page E2E checks: summary / question / mindmap</td>
+            </tr>
+            <tr>
+              <td>布局状态</td>
+              <td>拖拽调整宽度，切换 440px、50vw、overlay 和移动端 overlay</td>
+              <td><span class="status pass">通过</span></td>
+              <td>panel-440-push / panel-50vw-push / panel-overlay / mobile-overlay 截图</td>
+            </tr>
+            <tr>
+              <td>Runtime offline</td>
+              <td>关闭 Runtime 后点击重连</td>
+              <td><span class="status pass">通过</span></td>
+              <td>runtime-offline 截图</td>
+            </tr>
+            <tr>
+              <td>Side Panel 自动化</td>
+              <td>运行 <code>e2e:chrome</code></td>
+              <td><span class="status warn">人工确认</span></td>
+              <td>自动化环境未暴露 extension service worker，脚本返回 <code>MANUAL_REQUIRED</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>执行命令与结果</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>命令</th>
+              <th>结果</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>command -v chrome-cli</code></td>
+              <td><span class="status warn">不可用</span></td>
+              <td>本机未安装 <code>chrome-cli</code>，因此未使用该命令。</td>
+            </tr>
+            <tr>
+              <td><code>pnpm --dir apps/chrome-extension run build</code></td>
+              <td><span class="status pass">通过</span></td>
+              <td>生成 <code>apps/chrome-extension/chrome-mv3-unpacked</code>；WXT 仅提示 Mermaid 相关 chunk 较大。</td>
+            </tr>
+            <tr>
+              <td><code>PYTHONPATH=services/local-runtime python3 -m pytest ...V1.16...</code></td>
+              <td><span class="status pass">25 passed</span></td>
+              <td>V1.16 schema、MCP、external E2E 与 V1.13-V1.15 回归。</td>
+            </tr>
+            <tr>
+              <td><code>NAVIA_E2E_HEADLESS=false pnpm --dir apps/chrome-extension run e2e:inpage</code></td>
+              <td><span class="status pass">通过</span></td>
+              <td>真实 headed Chromium 加载 unpacked extension 完成用户路径。</td>
+            </tr>
+            <tr>
+              <td><code>NAVIA_E2E_HEADLESS=false pnpm --dir apps/chrome-extension run e2e:visual</code></td>
+              <td><span class="status pass">通过</span></td>
+              <td>生成 7 张 UI 状态截图。</td>
+            </tr>
+            <tr>
+              <td><code>pnpm --dir apps/chrome-extension run e2e:chrome</code></td>
+              <td><span class="status warn">MANUAL_REQUIRED</span></td>
+              <td>自动化环境未暴露 extension service worker；未把 Side Panel 自动化声明为通过。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>Chrome 用户视角截图证据</h2>
+        <div class="grid grid-2">
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-floating-default.png" alt="Navia floating default" />
+            <figcaption>悬浮球默认态：网页右侧贴边出现 Navia 入口。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-floating-hover.png" alt="Navia floating hover" />
+            <figcaption>悬浮球 hover 态：展开 Ask AI 入口。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-panel-440-push.png" alt="Navia panel 440 push" />
+            <figcaption>聊天面板 440px push：网页内容被让位，面板显示 Runtime online 与页面已提交。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-panel-50vw-push.png" alt="Navia panel 50vw push" />
+            <figcaption>50vw push：拖拽后进入更宽阅读区域。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-panel-overlay.png" alt="Navia panel overlay" />
+            <figcaption>overlay：较宽面板覆盖页面右侧区域。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-390x844-mobile-overlay.png" alt="Navia mobile overlay" />
+            <figcaption>移动端 overlay：面板占据移动视口，底部输入区可见。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="../../../../../apps/chrome-extension/e2e/screenshots/current/v1.1-1280x900-runtime-offline.png" alt="Navia runtime offline" />
+            <figcaption>Runtime offline：本地服务关闭后 UI 能展示离线状态。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>V1.16 Evidence Workflow 结果</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>能力</th>
+              <th>结果</th>
+              <th>人类看什么</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Executable Schema</td>
+              <td><span class="status pass">通过</span></td>
+              <td>public evidence artifact 在持久化前校验；invalid artifact 不落库。</td>
+            </tr>
+            <tr>
+              <td>Real MCP Server</td>
+              <td><span class="status pass">通过</span></td>
+              <td><code>python -m navia_runtime.v2.mcp_server</code> 支持 runtime evidence、snapshot diff、workbench、artifact get。</td>
+            </tr>
+            <tr>
+              <td>External Repo E2E</td>
+              <td><span class="status pass">通过</span></td>
+              <td>4 类本地仓库快照：small Python 通过，3 类非 allowlist 命令生成 accepted structured blocker。</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          外部仓库矩阵：
+          <a href="./external-repo-matrix.md">external-repo-matrix.md</a> ·
+          <a href="./external-repo-matrix.json">external-repo-matrix.json</a> ·
+          <a href="./structured-blockers.json">structured-blockers.json</a>
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>发现的问题与限制</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>问题</th>
+              <th>等级</th>
+              <th>影响</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>本机没有 <code>chrome-cli</code></td>
+              <td><span class="status warn">中</span></td>
+              <td>无法严格按 chrome-cli 命令验收；本轮使用 Playwright headed Chromium 作为等价真实浏览器操作。</td>
+            </tr>
+            <tr>
+              <td>headless MV3 扩展不稳定</td>
+              <td><span class="status warn">中</span></td>
+              <td>headless 下 service worker 不可见，direct injection 被 CORS 拒绝；必须用 headed 模式作为真实验收。</td>
+            </tr>
+            <tr>
+              <td>Side Panel 自动化未通过</td>
+              <td><span class="status warn">中</span></td>
+              <td><code>e2e:chrome</code> 返回 <code>MANUAL_REQUIRED</code>；需要人工加载扩展确认 Side Panel。</td>
+            </tr>
+            <tr>
+              <td>构建存在大 chunk 警告</td>
+              <td><span class="status warn">低</span></td>
+              <td>Mermaid 相关 chunk 较大，不影响当前验收，但后续应考虑 code splitting。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h2>最终判断</h2>
+        <p>
+          <span class="status pass">V1.16 后端 Evidence Workflow：通过</span>
+          <span class="status pass">Chrome in-page 用户路径：通过</span>
+          <span class="status warn">Side Panel 自动化：需要人工确认</span>
+        </p>
+        <p class="muted">
+          这份报告是面向人类评审的证据页，重点帮助快速判断：开发内容是否真实运行、用户路径是否可见、哪些结果是通过、哪些仍受自动化环境限制。
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

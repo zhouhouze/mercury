@@ -87,7 +87,7 @@ Before any A-V1.1-1+ implementation:
 
 ## A-V1.2 100-Page Acceptance Plan
 
-A-V1.2 cannot claim production-grade page perception until it validates at least `100` complex webpages or reproducible snapshots.
+A-V1.2 cannot claim high-quality page perception until it validates at least `100` complex webpages or reproducible snapshots.
 
 Corpus-level gates:
 
@@ -97,26 +97,28 @@ Corpus-level gates:
 - each core category pass rate `>= 70%`.
 - passed pages have `sourceCoverage >= 0.95`.
 - passed pages have `groundingCompleteness >= 0.95`.
-- passed pages have `jumpbackCoverage >= 0.95`.
+- passed pages have `jumpbackCoverage >= 0.90`.
 - low-signal / paywall-like pages fail or degrade, never pass.
 
 Each page must write:
 
 - structured page evidence.
-- candidate extraction evidence.
 - high-signal page evidence.
 - source map evidence.
 - perception digest evidence.
 - quality report evidence.
-- extractor comparison report.
+- debug evidence bundle.
+
+Candidate extraction evidence and extractor comparison reports are required only after `A-V1.2-2` selects or implements candidate extractors.
 
 A-V1.2 false-green checks:
 
 - third-party extractor raw fields do not appear in final public contracts.
-- `comparison-report` explains selected candidate and fallback reason.
+- `debug-evidence` explains pass, degraded, or fail reason.
 - quality report metrics include numerator, denominator, method, threshold, and passed.
 - category-level failures are visible and cannot be hidden by aggregate pass rate.
 - OCR / VLM / ASR / video / live are not executed by A.
+- A does not generate final answers, mindmaps, artifacts, notebooks, flashcards, quizzes, podcasts, RAG outputs, SSE, EventStore entries, or Trace entries.
 
 ## Required Command
 

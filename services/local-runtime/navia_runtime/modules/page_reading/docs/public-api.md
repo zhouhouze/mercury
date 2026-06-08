@@ -46,23 +46,24 @@ Input rules:
 - `warnings[]`
 - future planned perception arrays such as image, OCR, table, and media blocks only after V1.2-0 contract review
 
-A-V1.1 module-local extension candidates:
+A-V1.2 public high-signal outputs:
 
 - `highSignalPage?: HighSignalPageContext`
 - `perceptionDigest?: PerceptionDigest`
 - `qualityReport?: PagePerceptionQualityReport`
 - `sourceMap?: SourceMap`
+- `debugEvidence?: DebugEvidenceBundle`
 
-These fields must remain module-local until public contract review accepts them. Integration may display them in Debug evidence before promotion, but must not make D/C/B depend on their exact shape without contract freeze.
+These fields are frozen as public A contracts through `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md` and `docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json`. D/C may consume high-signal outputs as primary context only when `PagePerceptionQualityReport.downstreamReadiness = "pass"`. `degraded` is fallback / Debug evidence only; `fail` must fall back to `StructuredPageContext` or return `PAGE_CONTEXT_REQUIRED`.
 
 ChatGPT audit closure:
 
 ```text
-If D/C consume HighSignalPageContext, PerceptionDigest, SourceMap, or PagePerceptionQualityReport, these schemas must be promoted into v1_2_adapter_contracts.md or an equivalent public contract.
-Until then, they are evidence-only and exact shape dependency is forbidden.
+HighSignalPageContext, PerceptionDigest, SourceMap, and PagePerceptionQualityReport are public contracts for A-V1.2.
+D/C/B must depend on their exact shape only through the frozen public contract and readiness gate.
 ```
 
-A-V1.1-0 must freeze exact schemas for:
+A-V1.2-0 freezes exact schemas for:
 
 - `HighSignalPageContext`
 - `HighSignalBlock`
@@ -200,9 +201,12 @@ Rules:
 
 ## A-V1.2 Public API Planning
 
+A-V1.2 is scoped to high-quality page perception, structured page summary, jumpback evidence, and debug-verifiable JSON. It is not a final-answer, learning artifact, RAG, Notebook, mindmap, or AgenticLoop API.
+
 A-V1.2 defaults to preserving A-V1.1 public contracts:
 
 ```text
+StructuredPageContext
 HighSignalPageContext
 SourceMap / SourceRef
 PerceptionDigest
@@ -210,14 +214,36 @@ PagePerceptionQualityReport
 CandidateExtractionResult
 ```
 
-Potential A-V1.2 additions require `A-V1.2-0` contract freeze before D/C/B can depend on exact shape:
+A-V1.2-0 freezes these additions as public evidence contracts for Debug review and acceptance:
 
 ```text
+DebugEvidenceBundle
 CorpusPageRecord
 ExtractorComparisonReport
 ExtractorCandidateScore
 GoldEvaluationRecord
 ```
+
+D/C/B may depend on the exact shape only through the public schema and only for the purpose defined by the contract:
+
+- D/C consume high-signal outputs as primary context only when `PagePerceptionQualityReport.downstreamReadiness = "pass"`.
+- B renders Debug evidence and source fallback but does not own AgentCore state.
+- Corpus and gold review records are acceptance evidence, not runtime session state.
+
+`PerceptionDigest` may contain structured page summary fields such as TLDR, key paragraphs, key facts, terms, entities, procedures, table facts, and code facts. These fields are downstream context only; they are not assistant messages and must not be treated as final answers.
+
+`DebugEvidenceBundle` planning shape:
+
+- `pageId`
+- `contentHash`
+- `rawSignals`
+- `candidateExtraction`
+- `filteredEvidence`
+- `highSignalPage`
+- `sourceMap`
+- `perceptionDigest`
+- `qualityReport`
+- `warnings`
 
 Extractor rules:
 
@@ -230,5 +256,6 @@ Extractor rules:
 
 - final A-V1.2 acceptance must use at least 100 complex pages.
 - pages must include category, risk tags, URL or snapshot path, and evidence outputs.
+- each valid page must produce structured-page, high-signal-page, source-map, perception-digest, quality-report, and debug-evidence outputs.
 - low-signal / paywall-like pages must fail or degrade instead of passing.
-- A must not execute OCR, VLM, ASR, video, live engines, MCP, Skill, D/C/B, Artifact, SSE, or EventStore.
+- A must not execute OCR, VLM, ASR, video, live engines, MCP, Skill, D/C/B, Artifact, SSE, EventStore, final answer generation, mindmap generation, RAG, Notebook, Flashcards, Quiz, or Podcast.

@@ -10,6 +10,7 @@ import {
 import type { AgentEvent } from "./sse";
 import {
   checkRuntimeHealth,
+  clearLastSessionId,
   createRuntimeSession,
   getLastSessionId,
   restoreMessages,
@@ -144,6 +145,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   const messages: ChatMessage[] = [
     { id: newId(), role: "system", text: "展开后读取当前页面，即可开始网页伴读。" }
   ];
+  const mermaidArtifactCache = new Map<string, { content: string; element: HTMLElement }>();
   let layoutMode: LayoutMode = "push";
   let restoreLayout: (() => void) | null = null;
 
@@ -282,6 +284,14 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     try {
       const restored = await restoreRuntimeSession(lastSessionId);
       if (!restored) return;
+      if (restored.activePage && !isSamePageUrl(restored.activePage.url, window.location.href)) {
+        await clearLastSessionId();
+        state.sessionId = null;
+        state.pageContext = null;
+        state.pageSubmitted = false;
+        state.statusText = "最近 session 与当前页面不匹配，请重新读取页面。";
+        return;
+      }
       state.sessionId = restored.session_id;
       if (restored.activePage) {
         state.pageContext = {
@@ -560,7 +570,14 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   }
 
   function renderMermaid(artifact: ArtifactRecord, container: HTMLElement) {
-    container.appendChild(createMermaidArtifactElement(artifact));
+    const cached = mermaidArtifactCache.get(artifact.artifactId);
+    if (cached && cached.content === artifact.content) {
+      container.appendChild(cached.element);
+      return;
+    }
+    const element = createMermaidArtifactElement(artifact);
+    mermaidArtifactCache.set(artifact.artifactId, { content: artifact.content, element });
+    container.appendChild(element);
   }
 
   function readPosition(): StoredPosition {
@@ -591,6 +608,18 @@ function getPanelWidthState(width: number, viewportWidth: number, mode: LayoutMo
 
 function newId() {
   return `ui_${crypto.randomUUID().replace(/-/g, "")}`;
+}
+
+function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
+  try {
+    const restored = new URL(restoredUrl);
+    const current = new URL(currentUrl);
+    restored.hash = "";
+    current.hash = "";
+    return restored.toString() === current.toString();
+  } catch {
+    return restoredUrl === currentUrl;
+  }
 }
 
 function markup() {
@@ -728,9 +757,10 @@ function styles() {
       .navia-floating-entry {
         position: fixed;
         top: var(--navia-y);
-        width: 148px;
+        width: 238px;
         height: 62px;
-        pointer-events: none;
+        pointer-events: auto;
+        z-index: 2147483647;
       }
       .navia-frame[data-side="right"] .navia-floating-entry { right: -28px; }
       .navia-frame[data-side="left"] .navia-floating-entry { left: -28px; }
