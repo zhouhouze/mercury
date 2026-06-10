@@ -9,7 +9,7 @@ from jsonschema import Draft202012Validator
 
 
 REPO_ROOT = Path(__file__).resolve().parents[6]
-SCHEMA_PATH = REPO_ROOT / "docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json"
+SCHEMA_PATH = REPO_ROOT / "docs/active/project/contracts/a_v1_2_page_perception.schema.json"
 
 
 def load_schema() -> dict[str, Any]:

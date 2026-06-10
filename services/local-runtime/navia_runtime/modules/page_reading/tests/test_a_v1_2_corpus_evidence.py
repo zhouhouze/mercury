@@ -10,7 +10,7 @@ from navia_runtime.modules.page_reading.corpus_evidence import generate_corpus_e
 
 
 REPO_ROOT = Path(__file__).resolve().parents[6]
-SCHEMA_PATH = REPO_ROOT / "docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json"
+SCHEMA_PATH = REPO_ROOT / "docs/active/project/contracts/a_v1_2_page_perception.schema.json"
 
 
 def test_generates_a_v1_2_debug_and_quality_evidence(tmp_path: Path) -> None:

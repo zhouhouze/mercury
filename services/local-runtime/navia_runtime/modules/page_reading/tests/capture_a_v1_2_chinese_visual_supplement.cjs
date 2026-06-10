@@ -4,7 +4,7 @@ const path = require("node:path");
 
 const scriptDir = __dirname;
 const root = path.resolve(scriptDir, "../../../../../..");
-const outputDir = path.join(root, "docs", "navia_v1_project_docs", "evidence", "a_v1_2_acceptance", "chinese-visual");
+const outputDir = path.join(root, "docs", "active", "project", "evidence", "a_v1_2_acceptance", "chinese-visual");
 const screenshotDir = path.join(outputDir, "screenshots");
 const snapshotDir = path.join(outputDir, "snapshots");
 const manifestPath = path.join(outputDir, "chinese-visual-manifest.json");

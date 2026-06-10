@@ -141,9 +141,12 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   root.innerHTML = `${styles()}${markup()}`;
 
   const frame = root.querySelector<HTMLElement>("[data-testid='navia-frame']")!;
+  const ballButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-ball']")!;
+  const hoverStripButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-hover-strip']")!;
   const panel = root.querySelector<HTMLElement>("[data-testid='navia-panel']")!;
   const resizeHandle = root.querySelector<HTMLElement>("[data-testid='navia-resize-handle']")!;
   const reconnectButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-reconnect']")!;
+  const collapseButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-collapse']")!;
   const debugReconnectButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-debug-reconnect']")!;
   const chatToolButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-tool-chat']")!;
   const debugToggleButton = root.querySelector<HTMLButtonElement>("[data-testid='navia-debug-toggle']")!;
@@ -163,7 +166,10 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   const chatNoticeEl = root.querySelector<HTMLElement>("[data-testid='navia-chat-notice']")!;
   const structuredJsonEl = root.querySelector<HTMLElement>("[data-testid='navia-structured-json']")!;
 
+  ballButton.addEventListener("click", () => openPanel());
+  hoverStripButton.addEventListener("click", () => openPanel());
   reconnectButton.addEventListener("click", () => checkRuntime());
+  collapseButton.addEventListener("click", () => closePanel());
   debugReconnectButton.addEventListener("click", () => checkRuntime());
   debugToggleButton.addEventListener("click", () => setActiveTool(state.activeTool === "debug" ? "chat" : "debug"));
   pageButton.addEventListener("click", () => captureAndSubmitPage());
@@ -572,6 +578,14 @@ function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
   function markup() {
   return `
     <section class="navia-frame" data-testid="navia-frame" data-open="false" data-side="right" data-mode="push">
+      <button class="navia-launcher-ball" data-testid="navia-ball" type="button" aria-label="打开 Navia">
+        <span>N</span>
+      </button>
+      <button class="navia-hover-strip" data-testid="navia-hover-strip" type="button" aria-label="打开 Navia 聊天">
+        <span>⌘</span>
+        <strong>Ask AI</strong>
+        <em>AI</em>
+      </button>
       <aside class="navia-panel navia-panel-shell" data-testid="navia-panel" aria-label="Navia assistant">
         <div class="navia-resize" data-testid="navia-resize-handle" role="separator" aria-orientation="vertical"></div>
         <main class="navia-workspace navia-chat-workspace">
@@ -587,6 +601,7 @@ function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
               </div>
               <div class="navia-chat-header-actions">
                 <button data-testid="navia-reconnect" class="navia-reconnect-button" type="button">重连</button>
+                <button data-testid="navia-collapse" class="navia-icon-button" type="button" aria-label="收起 Navia">‹</button>
               </div>
             </header>
             <section class="navia-messages" data-testid="navia-messages" aria-live="polite"></section>
@@ -688,6 +703,83 @@ function styles() {
         pointer-events: none;
       }
       .navia-panel { pointer-events: auto; }
+      .navia-launcher-ball,
+      .navia-hover-strip {
+        pointer-events: auto;
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        border: 1px solid #d8ddff;
+        background: #ffffff;
+        color: var(--navia-brand);
+        box-shadow: var(--navia-shadow-ball);
+        z-index: 2147483647;
+      }
+      .navia-launcher-ball {
+        width: 58px;
+        height: 70px;
+        border-right: 0;
+        border-top-left-radius: 999px;
+        border-bottom-left-radius: 999px;
+        padding: 0 0 0 7px;
+      }
+      .navia-launcher-ball span {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        background: var(--navia-brand);
+        color: #fff;
+        font: 800 18px/1 var(--navia-font);
+      }
+      .navia-hover-strip {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 58px;
+        min-width: 190px;
+        border-radius: 999px;
+        padding: 6px 12px 6px 18px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translate(18px, -50%);
+        transition: opacity var(--navia-motion-fast), transform var(--navia-motion-fast), visibility var(--navia-motion-fast);
+      }
+      .navia-hover-strip span {
+        color: #8791a5;
+        font: 700 20px/1 var(--navia-font);
+      }
+      .navia-hover-strip strong {
+        color: #263247;
+        font: 700 18px/1 var(--navia-font);
+        white-space: nowrap;
+      }
+      .navia-hover-strip em {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        background: var(--navia-brand);
+        color: #fff;
+        font: 800 16px/1 var(--navia-font);
+        font-style: normal;
+      }
+      .navia-frame:not([data-open="true"]) .navia-launcher-ball:hover + .navia-hover-strip,
+      .navia-frame:not([data-open="true"]) .navia-hover-strip:hover,
+      .navia-frame:not([data-open="true"]) .navia-hover-strip:focus-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%);
+      }
+      .navia-frame[data-open="true"] .navia-launcher-ball,
+      .navia-frame[data-open="true"] .navia-hover-strip {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
       .navia-panel {
         position: fixed;
         top: 0;
@@ -791,17 +883,35 @@ function styles() {
         border-radius: 999px;
         box-shadow: 0 1px 2px rgba(15, 23, 42, 0.02);
       }
+      .navia-icon-button {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 999px;
+        color: var(--navia-text-muted);
+        font: 700 18px/1 var(--navia-font);
+      }
       .navia-reconnect-button:hover:not(:disabled) {
         background: #f9fafb;
         color: var(--navia-text);
       }
+      .navia-icon-button:hover:not(:disabled) {
+        background: #f9fafb;
+        color: var(--navia-text);
+      }
       .navia-chat-notice {
-        display: none;
+        display: block;
+        min-height: 16px;
+        margin: 0;
+        color: var(--navia-text-muted);
+        font: 12px/1.35 var(--navia-font);
       }
       .navia-frame[data-runtime="offline"] .navia-chat-notice,
       .navia-frame[data-error="true"] .navia-chat-notice,
       .navia-frame[data-page-state="missing"][data-runtime="online"] .navia-chat-notice {
-        display: none;
+        color: var(--navia-warning);
       }
       .navia-header {
         display: flex;

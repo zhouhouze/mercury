@@ -11,7 +11,7 @@ from navia_runtime.app import app, event_store, event_stream
 
 
 ROOT = Path(__file__).resolve().parents[3]
-FIXTURES = ROOT / "docs/navia_v1_project_docs/fixtures/real_pages"
+FIXTURES = ROOT / "docs/active/project/fixtures/real_pages"
 
 
 class FixtureParser(HTMLParser):

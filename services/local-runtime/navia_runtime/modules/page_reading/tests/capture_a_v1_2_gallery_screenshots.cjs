@@ -6,9 +6,9 @@ const { pathToFileURL } = require("node:url");
 const scriptDir = __dirname;
 const evidenceDir = path.join(scriptDir, "evidence", "a_v1_2");
 const root = path.resolve(scriptDir, "../../../../../..");
-const screenshotDir = path.join(root, "docs", "navia_v1_project_docs", "evidence", "a_v1_2_acceptance", "screenshots", "all");
+const screenshotDir = path.join(root, "docs", "active", "project", "evidence", "a_v1_2_acceptance", "screenshots", "all");
 const manifestPath = path.join(evidenceDir, "corpus-manifest.json");
-const reportPath = path.join(root, "docs", "navia_v1_project_docs", "evidence", "a_v1_2_acceptance", "a-v1.2-screenshot-capture-report.json");
+const reportPath = path.join(root, "docs", "active", "project", "evidence", "a_v1_2_acceptance", "a-v1.2-screenshot-capture-report.json");
 
 function resolvePlaywright() {
   const npxRoot = path.join(os.homedir(), ".npm", "_npx");

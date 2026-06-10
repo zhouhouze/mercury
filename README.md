@@ -1,6 +1,6 @@
 # Navia / 伴航
 
-Navia is a Chrome companion-reading MVP with a local headless runtime. V1 frontend interaction follows `PRD/窗口交互_PRD.md`: an in-page floating ball opens an embedded dual-track AI panel that can read the current page, summarize it, answer page-grounded questions, and generate Mermaid mindmaps with traceable runtime events.
+Navia is a Chrome companion-reading MVP with a local headless runtime. V1 frontend interaction follows `docs/active/project/interaction-prd/窗口交互_PRD.md`: an in-page floating ball opens an embedded dual-track AI panel that can read the current page, summarize it, answer page-grounded questions, and generate Mermaid mindmaps with traceable runtime events.
 
 V1.0 focuses on the functional loop and PRD-aligned in-page interaction skeleton. V1.1 is the frontend fidelity stage: it aligns the injected panel with the Figma Make prototype shape and visual-regression acceptance. V1.2 is currently a documentation-first architecture stage: it freezes the AI reading A/B/C/D module split, service/app workspace boundaries, and lightweight Adapter contracts before any parallel Codex implementation starts.
 
@@ -10,8 +10,9 @@ If you are an external coding agent or a developer joining one module, start wit
 
 ```text
 AGENTS.md
-docs/navia_v1_project_docs/AGENT_ONBOARDING.md
-docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md
+docs/active/project/AGENT_ONBOARDING.md
+docs/active/project/V1_2_AGENT_WORKPACKS.md
+docs/active/README.md
 ```
 
 These documents define the V1.2 module workpacks, allowed edit directories, required contracts, evidence expectations, and Integration handoff rules.
@@ -24,9 +25,9 @@ Short version:
 | B Renderer | `apps/chrome-extension/src/modules/*_renderer/` |
 | C Mindmap | `services/local-runtime/navia_runtime/modules/mindmap/` |
 | D CoreProvider / Adapter | `services/local-runtime/navia_runtime/modules/agent_loop/`, `services/local-runtime/navia_runtime/modules/adapters/` |
-| Integration | existing entrypoints listed in `docs/navia_v1_project_docs/stage-gates/v1.2-e-integration.md` |
+| Integration | existing entrypoints listed in `docs/active/project/stage-gates/v1.2-e-integration.md` |
 
-Do not start implementation before reading your module README and stage gate.
+Do not start implementation before reading your module documentation under `docs/active/modules/` and the matching stage gate.
 
 ## Requirements
 
@@ -75,15 +76,9 @@ Load this directory in `chrome://extensions`:
 apps/chrome-extension/chrome-mv3-unpacked
 ```
 
-If the unpacked directory is stale, rebuild and sync it:
+The build writes the unpacked extension to `apps/chrome-extension/chrome-mv3-unpacked`.
 
-```bash
-cd apps/chrome-extension
-pnpm build
-cp -R .output/chrome-mv3/. chrome-mv3-unpacked/
-```
-
-The content script is intentionally small. Mermaid is rendered by the extension page `mermaid-renderer.html` through an iframe so the in-page content script does not bundle Mermaid directly.
+The content script mounts the in-page floating launcher and chat panel. Mermaid rendering still runs in the extension page `mermaid-renderer.html` through an iframe so Mermaid itself is not executed directly in the webpage context.
 
 ## Verify
 
@@ -141,7 +136,10 @@ services/local-runtime/                       Python FastAPI local runtime and A
 services/local-runtime/navia_runtime/modules/ V1.2 service modules for A/C/D
 apps/chrome-extension/                        WXT + React Chrome MV3 extension
 apps/chrome-extension/src/modules/            V1.2 frontend renderer modules for B
-docs/navia_v1_project_docs/                   PRD, architecture, contracts, stage gates, evidence
+docs/active/project/                          PRD, architecture, contracts, stage gates, evidence
+docs/active/modules/runtime/                  A/C/D runtime module development documents
+docs/active/modules/frontend/                 B frontend module development documents
+docs/history/                                 inactive and superseded documents
 .navia/                                       Local SQLite runtime state, ignored by Git
 ```
 
@@ -149,17 +147,18 @@ docs/navia_v1_project_docs/                   PRD, architecture, contracts, stag
 
 Current project documentation lives in:
 
-- `docs/navia_v1_project_docs/README.md`
+- `docs/active/README.md`
+- `docs/active/project/README.md`
 
 The current active stage is A-V1.2 page perception. Its development and audit package lives in:
 
-- `docs/navia_v1_project_docs/design/v1.2-ai-reading-modular-architecture.md`
-- `docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md`
-- `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md`
-- `docs/navia_v1_project_docs/stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`
-- `docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.drawio`
-- `docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.2-production-page-perception.md`
-- `docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json`
+- `docs/active/project/design/v1.2-ai-reading-modular-architecture.md`
+- `docs/active/project/design/v1.2-ai-reading-workspace-partition.md`
+- `docs/active/project/contracts/v1_2_adapter_contracts.md`
+- `docs/active/project/stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`
+- `docs/active/project/design/v1.2-a-page-perception-gap.drawio`
+- `docs/active/project/stage-gates/v1.2-a-v1.2-production-page-perception.md`
+- `docs/active/project/contracts/a_v1_2_page_perception.schema.json`
 
 V1.2 allows lightweight MCP / Skill / External API Adapter contracts only through D Adapter Layer and governance hooks. It does not allow long-term memory, RAG, multi-agent orchestration, browser automation, or high-risk side effects by default.
 
@@ -168,9 +167,14 @@ Historical V1.0, V1.1, A-V1.1, and V1.13-V1.16 documents have been moved to `doc
 Additional external-agent onboarding docs:
 
 - `AGENTS.md`
-- `docs/navia_v1_project_docs/AGENT_ONBOARDING.md`
-- `docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md`
-- `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md`
+- `docs/active/project/AGENT_ONBOARDING.md`
+- `docs/active/project/V1_2_AGENT_WORKPACKS.md`
+- `docs/active/project/MODULE_HANDOFF_TEMPLATE.md`
+
+Module-local development docs have been moved out of implementation directories and into:
+
+- `docs/active/modules/runtime/`
+- `docs/active/modules/frontend/`
 
 ## V1 Scope Boundaries
 

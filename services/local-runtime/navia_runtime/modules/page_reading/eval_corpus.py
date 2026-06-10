@@ -11,7 +11,7 @@ from typing import Any
 from jsonschema import Draft202012Validator
 
 
-SCHEMA_PATH = Path(__file__).resolve().parents[5] / "docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json"
+SCHEMA_PATH = Path(__file__).resolve().parents[5] / "docs/active/project/contracts/a_v1_2_page_perception.schema.json"
 CORE_CATEGORY_MINIMUM = 8
 REQUIRED_TOTAL_PAGES = 100
 REQUIRED_CATEGORY_COUNT = 10

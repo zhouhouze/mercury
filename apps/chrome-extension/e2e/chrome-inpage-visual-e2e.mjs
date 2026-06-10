@@ -14,7 +14,7 @@ const extensionRoot = fs.realpathSync(
     : path.join(__dirname, "../.output/chrome-mv3")
 );
 const runtimeUrl = "http://127.0.0.1:17861";
-const fixturePath = path.join(repoRoot, "docs/navia_v1_project_docs/fixtures/real_pages/article.html");
+const fixturePath = path.join(repoRoot, "docs/active/project/fixtures/real_pages/article.html");
 const screenshotRoot = path.join(__dirname, "screenshots/current");
 const headless = process.env.NAVIA_E2E_HEADLESS === "true";
 

@@ -16,7 +16,7 @@ from navia_runtime.tools import ToolExecutor, default_tool_registry
 
 
 ROOT = Path(__file__).resolve().parents[3]
-CONTRACTS = ROOT / "docs/navia_v1_project_docs/contracts"
+CONTRACTS = ROOT / "docs/active/project/contracts"
 
 
 def validate(schema_name: str, value: dict) -> None:

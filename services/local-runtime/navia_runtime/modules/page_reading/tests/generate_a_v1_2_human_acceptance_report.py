@@ -8,7 +8,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[6]
 EVIDENCE_DIR = Path(__file__).resolve().parent / "evidence" / "a_v1_2"
-REPORT_DIR = ROOT / "docs" / "navia_v1_project_docs" / "evidence" / "a_v1_2_acceptance"
+REPORT_DIR = ROOT / "docs" / "active" / "project" / "evidence" / "a_v1_2_acceptance"
 SCREENSHOT_DIR = REPORT_DIR / "screenshots"
 ALL_SCREENSHOT_DIR = SCREENSHOT_DIR / "all"
 REPORT_PATH = REPORT_DIR / "a-v1.2-human-acceptance-report.html"
@@ -396,11 +396,11 @@ def render_html(
         <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json</p>
         <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json</p>
         <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-evidence-generation-report.json</p>
-        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery.html</p>
-        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery-review.json</p>
-        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-chinese-visual-supplement.html</p>
-        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/chinese-visual/chinese-visual-capture-report.json</p>
-        <p>services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-2-8-final-acceptance-report.md</p>
+        <p>docs/active/project/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery.html</p>
+        <p>docs/active/project/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery-review.json</p>
+        <p>docs/active/project/evidence/a_v1_2_acceptance/a-v1.2-chinese-visual-supplement.html</p>
+        <p>docs/active/project/evidence/a_v1_2_acceptance/chinese-visual/chinese-visual-capture-report.json</p>
+        <p>docs/active/modules/runtime/page_reading/docs/a-v1.2-2-8-final-acceptance-report.md</p>
       </div>
     </section>
   </main>
