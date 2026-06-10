@@ -1,9 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { createRoot } from "react-dom/client";
-import mermaid from "mermaid";
 import "./style.css";
 import type { ExtractedPageContext } from "../../src/pageContext";
 import type { AgentEvent } from "../../src/sse";
+import { AssistantMessage } from "../../src/modules/chat_renderer/AssistantMessage";
+import { DeferredCapabilityNotice } from "../../src/modules/chat_renderer/DeferredCapabilityNotice";
+import { InlineStatusRow } from "../../src/modules/chat_renderer/InlineStatusRow";
+import { UserMessage } from "../../src/modules/chat_renderer/UserMessage";
+import { chatViewReducer, createChatViewState } from "../../src/modules/chat_renderer/chatViewReducer";
+import { createChatProviderTestCollector } from "../../src/settingsDiagnostics";
 import {
   checkRuntimeHealth,
   clearLastSessionId,
@@ -12,53 +17,80 @@ import {
   getLastSessionId,
   getSettings,
   importProvider,
+  patchSettings,
   restoreMessages,
   restoreRuntimeSession,
   streamRuntimeChat,
   submitRuntimePageContext,
   testProvider,
-  type ArtifactRecord,
-  type ChatMessage,
+  type ChatIntent,
+  type ChatProviderConfig,
+  type CoreProviderId,
   type LLMProviderConfig,
   type MercurySettings,
   type ProviderTestResult,
   type RuntimeStatus
 } from "../../src/runtimeClient";
-mermaid.initialize({ startOnLoad: false, securityLevel: "strict" });
 
-type SideView = "chat" | "debug" | "settings";
+type SideView = "chat" | "agent" | "debug" | "settings";
+type ModeState = "chat" | "agent_checking" | "agent_ready" | "agent_unavailable";
+type PageContextState = "unknown" | "capture_ready" | "capturing" | "captured" | "stale" | "unsupported" | "failed";
+type ChatTurnState =
+  | "idle"
+  | "user_submitted"
+  | "intent_detecting"
+  | "context_strategy_deciding"
+  | "context_resolving"
+  | "capability_boundary"
+  | "executing_chat"
+  | "streaming_response"
+  | "artifact_rendering"
+  | "done"
+  | "error";
+const DEFAULT_DEEPSEEK_MODELS = ["deepseek-v4-flash", "deepseek-v4-pro", "deepseek-chat", "deepseek-reasoner"];
+const CORE_PROVIDERS: CoreProviderId[] = ["llm_direct", "piagent", "mock"];
+const CHAT_PROVIDER_TEST_PROMPT = "请只用普通文本回复 pong，不调用任何工具。";
+const CHAT_PROVIDER_TEST_TIMEOUT_MS = 20_000;
 
 function App() {
   const [runtimeStatus, setRuntimeStatus] = useState<RuntimeStatus>("checking");
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [pageContext, setPageContext] = useState<ExtractedPageContext | null>(null);
+  const [pageContextState, setPageContextState] = useState<PageContextState>("unknown");
+  const [chatTurnState, setChatTurnState] = useState<ChatTurnState>("idle");
   const [pageSubmitted, setPageSubmitted] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string>("未提交页面上下文");
+  const [modeState, setModeState] = useState<ModeState>("chat");
   const [input, setInput] = useState("");
   const [settings, setSettings] = useState<MercurySettings | null>(null);
   const [settingsStatus, setSettingsStatus] = useState<"idle" | "loading" | "saving" | "testing" | "error">("idle");
   const [settingsMessage, setSettingsMessage] = useState("尚未加载设置。");
+  const [settingsDiagnosticEvent, setSettingsDiagnosticEvent] = useState<AgentEvent | null>(null);
   const [providerTestResult, setProviderTestResult] = useState<ProviderTestResult | null>(null);
   const [providerDraft, setProviderDraft] = useState({
     displayName: "DeepSeek",
     baseUrl: "https://api.deepseek.com",
     apiKey: "",
-    defaultModel: "deepseek-chat"
+    defaultModel: "deepseek-v4-flash"
   });
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: crypto.randomUUID(), role: "system", text: "请先读取并提交当前页面，然后开始网页伴读。" }
-  ]);
+  const [chatProviderDraft, setChatProviderDraft] = useState<ChatProviderConfig>({
+    coreProvider: "llm_direct",
+    llmProviderId: undefined,
+    model: "deepseek-v4-flash"
+  });
+  const [chatView, dispatchChatView] = useReducer(chatViewReducer, undefined, () => createChatViewState("chat"));
   const [streamStatus, setStreamStatus] = useState("idle");
   const [activeView, setActiveView] = useState<SideView>("chat");
-  const canChat = runtimeStatus === "online" && pageSubmitted;
+  const canChat = runtimeStatus === "online" && streamStatus !== "streaming";
 
   function normalizeView(value: string | null | undefined): SideView {
-    if (value === "debug" || value === "settings" || value === "chat") return value;
+    if (value === "agent" || value === "debug" || value === "settings" || value === "chat") return value;
     return "chat";
   }
 
   function syncView(nextView: SideView) {
     setActiveView(nextView);
+    setModeState(nextView === "agent" ? (runtimeStatus === "online" ? "agent_ready" : "agent_unavailable") : "chat");
     const nextHash = `#${nextView}`;
     if (window.location.hash !== nextHash) {
       window.history.replaceState(null, "", nextHash);
@@ -92,12 +124,14 @@ function App() {
       const next = await getSettings();
       setSettings(next);
       const provider = getDefaultProvider(next);
+      const chatProvider = resolveChatProviderDraft(next);
       setProviderDraft({
-        displayName: provider?.displayName ?? "DeepSeek",
+        displayName: provider?.name ?? "DeepSeek",
         baseUrl: provider?.baseUrl ?? "https://api.deepseek.com",
         apiKey: "",
-        defaultModel: provider?.defaultModel ?? next.defaultModel ?? "deepseek-chat"
+        defaultModel: provider?.defaultModel ?? next.defaultModel ?? "deepseek-v4-flash"
       });
+      setChatProviderDraft(chatProvider);
       setSettingsStatus("idle");
       setSettingsMessage(provider ? "LLM 设置已加载。" : "尚未配置默认 Provider，请先填写 API Key 并保存。");
     } catch (error) {
@@ -118,6 +152,7 @@ function App() {
         setSessionId(null);
         setPageContext(null);
         setPageSubmitted(false);
+        setPageContextState("stale");
         setSubmitStatus("最近 session 与当前页面不匹配，请重新读取页面。");
         return;
       }
@@ -133,10 +168,11 @@ function App() {
           cleaned_text: ""
         });
         setPageSubmitted(true);
+        setPageContextState("captured");
         setSubmitStatus(`已恢复：${restored.activePage.title}`);
       }
       const restoredMessages = restoreMessages(restored);
-      if (restoredMessages.length > 0) setMessages(restoredMessages);
+      if (restoredMessages.length > 0) dispatchChatView({ type: "restore_messages", messages: restoredMessages });
     } catch {
       await clearLastSessionId();
     }
@@ -144,41 +180,15 @@ function App() {
 
   async function captureCurrentPage() {
     setSubmitStatus("正在读取当前页面...");
+    setPageContextState("capturing");
     try {
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (!tab.id || !tab.url) {
-        setSubmitStatus("无法定位当前标签页。");
-        return;
-      }
-      if (!/^https?:|^file:/.test(tab.url)) {
-        setSubmitStatus("当前页面不允许扩展读取，请切换到普通网页后重试。");
-        return;
-      }
-
-      let context: ExtractedPageContext | null = null;
-      try {
-        const response = await chrome.tabs.sendMessage(tab.id, { type: "navia.extractPageContext" });
-        if (response?.ok) context = response.context;
-      } catch {
-        context = null;
-      }
-
-      if (!context) {
-        const [result] = await chrome.scripting.executeScript({
-          target: { tabId: tab.id },
-          func: extractPageContextInTab
-        });
-        context = result?.result as ExtractedPageContext | null;
-      }
-
-      if (!context) {
-        setSubmitStatus("读取失败：页面未返回上下文。");
-        return;
-      }
+      const context = await readCurrentPageContext();
       setPageContext(context);
       setPageSubmitted(false);
+      setPageContextState("capture_ready");
       setSubmitStatus(`已读取页面：${context.title}`);
     } catch (error) {
+      setPageContextState(error instanceof PageUnsupportedError ? "unsupported" : "failed");
       setSubmitStatus(`读取失败：${error instanceof Error ? error.message : "未知错误"}`);
     }
   }
@@ -192,9 +202,11 @@ function App() {
       const id = await ensureSession();
       const result = await submitRuntimePageContext(pageContext, id);
       setPageSubmitted(result.ok);
+      setPageContextState(result.ok ? "captured" : "failed");
       setSubmitStatus(result.ok ? `已提交：${result.pageId}` : result.message ?? "提交失败");
     } catch {
       setPageSubmitted(false);
+      setPageContextState("failed");
       setSubmitStatus("Runtime 不可用，无法提交页面上下文");
     }
   }
@@ -218,13 +230,14 @@ function App() {
         displayName: providerDraft.displayName.trim() || "DeepSeek",
         baseUrl: providerDraft.baseUrl.trim() || "https://api.deepseek.com",
         apiKey: providerDraft.apiKey.trim(),
-        defaultModel: providerDraft.defaultModel.trim() || "deepseek-chat"
+        defaultModel: providerDraft.defaultModel.trim() || "deepseek-v4-flash",
+        models: DEFAULT_DEEPSEEK_MODELS
       });
       setSettings(result.settings);
       setProviderTestResult(null);
       setProviderDraft((current) => ({ ...current, apiKey: "" }));
       setSettingsStatus("idle");
-      setSettingsMessage(`API Key 已配置并保存成功。${result.provider.displayName ? `（${result.provider.displayName}）` : ""}`);
+      setSettingsMessage(`API Key 已配置并保存成功。${result.provider.name ? `（${result.provider.name}）` : ""}`);
     } catch (error) {
       setSettingsStatus("error");
       setSettingsMessage(error instanceof Error ? error.message : "Provider 保存失败。");
@@ -241,7 +254,7 @@ function App() {
     setSettingsStatus("testing");
     setSettingsMessage("正在测试连接...");
     try {
-      const result = await testProvider(provider.providerId);
+      const result = await testProvider(provider.id);
       setProviderTestResult(result);
       setSettingsStatus(result.status === "ok" ? "idle" : "error");
       setSettingsMessage(
@@ -262,7 +275,7 @@ function App() {
     setSettingsStatus("saving");
     setSettingsMessage("正在删除 Provider...");
     try {
-      const result = await deleteProvider(provider.providerId);
+      const result = await deleteProvider(provider.id);
       setSettings(result.settings);
       setProviderTestResult(null);
       setSettingsStatus("idle");
@@ -273,75 +286,164 @@ function App() {
     }
   }
 
-  async function sendChat(message: string) {
+  async function saveChatProvider() {
+    if (runtimeStatus !== "online") {
+      setSettingsStatus("error");
+      setSettingsMessage("Runtime offline，无法保存 Chat Provider。");
+      return;
+    }
+    setSettingsStatus("saving");
+    setSettingsMessage("正在保存 Chat Provider...");
+    try {
+      await patchSettings({
+        coreProvider: chatProviderDraft.coreProvider,
+        chatProvider: chatProviderDraft
+      });
+      const next = await getSettings();
+      setSettings(next);
+      setChatProviderDraft(resolveChatProviderDraft(next));
+      setSettingsStatus("idle");
+      setSettingsMessage("Chat Provider 组合已保存。");
+    } catch (error) {
+      setSettingsStatus("error");
+      setSettingsMessage(error instanceof Error ? error.message : "Chat Provider 保存失败。");
+    }
+  }
+
+  async function testChatProvider() {
+    if (runtimeStatus !== "online") {
+      setSettingsStatus("error");
+      setSettingsMessage("Runtime offline，无法测试 Chat Provider。");
+      return;
+    }
+    setSettingsStatus("testing");
+    setSettingsMessage("正在测试 Chat Provider...");
+    const collector = createChatProviderTestCollector();
+    try {
+      const id = await ensureSession();
+      await withTimeout(
+        streamRuntimeChat(id, CHAT_PROVIDER_TEST_PROMPT, (event) => {
+          const status = collector.accept(event);
+          if (status === "tool_boundary" || status === "provider_error") {
+            throw new ChatProviderTestTerminalError();
+          }
+        }, { ...chatProviderDraft, intentHint: "general_chat", autoContext: false, profile: "chat" }),
+        CHAT_PROVIDER_TEST_TIMEOUT_MS
+      );
+      const result = collector.finalize("complete");
+      setSettingsDiagnosticEvent(result.rawEvent ?? null);
+      setSettingsStatus(result.status === "ok" ? "idle" : "error");
+      setSettingsMessage(result.message);
+    } catch (error) {
+      if (error instanceof ChatProviderTestTerminalError) {
+        const result = collector.finalize("complete");
+        setSettingsDiagnosticEvent(result.rawEvent ?? null);
+        setSettingsStatus("error");
+        setSettingsMessage(result.message);
+        return;
+      }
+      const result = error instanceof ChatProviderTestTimeoutError ? collector.finalize("timeout") : null;
+      setSettingsStatus("error");
+      setSettingsDiagnosticEvent(result?.rawEvent ?? null);
+      setSettingsMessage(result?.message ?? (error instanceof Error ? error.message : "Chat Provider 测试失败。"));
+    }
+  }
+
+  async function sendChat(message: string, intentHint?: ChatIntent, retriedAfterCapture = false) {
     const trimmed = message.trim();
     if (!trimmed) return;
     if (runtimeStatus !== "online") {
-      appendMessage("system", "Runtime offline，请启动 Local Runtime 后重试。");
+      dispatchChatView({ type: "system_message", kind: "error", text: "Runtime offline，请启动 Local Runtime 后重试。" });
       return;
     }
-    if (!pageSubmitted) {
-      appendMessage("system", "请先读取并提交当前页面上下文。");
-      return;
+    setChatTurnState("intent_detecting");
+    const intent = intentHint ?? detectChatIntent(trimmed);
+    const turnId = createClientTurnId();
+    dispatchChatView({ type: "start_turn", turnId, text: trimmed, intentHint: intent });
+    setInput("");
+    if (isDeferredIntent(intent)) {
+      setChatTurnState("capability_boundary");
+    } else {
+      setChatTurnState("context_strategy_deciding");
+    }
+    if (intentRequiresPageContext(intent, trimmed)) {
+      setChatTurnState("context_resolving");
+      dispatchChatView({ type: "agent_event", event: syntheticEvent("state.transition", turnId, { from: "context_strategy_deciding", to: "context_resolving" }) });
+      const contextResult = await ensurePageContext();
+      if (!contextResult.ok) {
+        dispatchChatView({ type: "agent_event", event: syntheticEvent("error", turnId, { message: contextResult.message, recoverable: true }) });
+        setChatTurnState("error");
+        return;
+      }
     }
     const id = await ensureSession();
-    const assistantId = crypto.randomUUID();
-    setMessages((current) => [
-      ...current,
-      { id: crypto.randomUUID(), role: "user", text: trimmed },
-      { id: assistantId, role: "assistant", text: "" }
-    ]);
-    setInput("");
+    setChatTurnState("executing_chat");
     setStreamStatus("streaming");
     try {
-      await streamRuntimeChat(id, trimmed, (event) => handleAgentEvent(event, assistantId));
+      await streamRuntimeChat(
+        id,
+        trimmed,
+        async (event) => {
+          if (
+            event.type === "error" &&
+            event.data.code === "page_context_auto_capture_required" &&
+            event.data.action === "capture_page_and_retry" &&
+            !retriedAfterCapture
+          ) {
+            const contextResult = await ensurePageContext({ forceRefresh: true });
+            if (contextResult.ok) {
+              await streamRuntimeChat(
+                id,
+                trimmed,
+                (nextEvent) => dispatchChatView({ type: "agent_event", event: nextEvent }),
+                { ...chatProviderDraft, intentHint: intent, autoContext: false, profile: "chat" }
+              );
+            } else {
+              dispatchChatView({ type: "agent_event", event: syntheticEvent("error", turnId, { message: contextResult.message, recoverable: true }) });
+            }
+            return;
+          }
+          dispatchChatView({ type: "agent_event", event });
+        },
+        { ...chatProviderDraft, intentHint: intent, autoContext: intentRequiresPageContext(intent, trimmed), profile: "chat" }
+      );
       setStreamStatus("done");
+      setChatTurnState("done");
     } catch (error) {
       setRuntimeStatus("offline");
       setStreamStatus("error");
-      patchAssistant(assistantId, `连接 Runtime 失败：${error instanceof Error ? error.message : "unknown error"}`);
+      setChatTurnState("error");
+      dispatchChatView({
+        type: "agent_event",
+        event: syntheticEvent("error", turnId, { message: `连接 Runtime 失败：${error instanceof Error ? error.message : "unknown error"}`, recoverable: true })
+      });
     }
   }
 
-  function appendMessage(role: ChatMessage["role"], text: string) {
-    setMessages((current) => [...current, { id: crypto.randomUUID(), role, text }]);
-  }
-
-  function patchAssistant(id: string, text: string, artifact?: ArtifactRecord) {
-    setMessages((current) =>
-      current.map((message) =>
-        message.id === id
-          ? { ...message, text: text ? `${message.text}${text}` : message.text, artifact: artifact ?? message.artifact }
-          : message
-      )
-    );
-  }
-
-  function handleAgentEvent(event: AgentEvent, assistantId: string) {
-    switch (event.type) {
-      case "response.delta":
-        patchAssistant(assistantId, String(event.data.text ?? ""));
-        return;
-      case "artifact.created":
-        patchAssistant(assistantId, "", event.data.artifact as ArtifactRecord);
-        return;
-      case "tool.started":
-        setStreamStatus(`running ${event.data.tool_name ?? "tool"}`);
-        return;
-      case "tool.done":
-        setStreamStatus("tool done");
-        return;
-      case "error":
-        patchAssistant(assistantId, `\n${event.data.message ?? event.data.code ?? "Runtime error"}`);
-        setStreamStatus("error");
-        return;
-      case "state.transition":
-      case "intent.detected":
-      case "budget.checked":
-      case "response.done":
-        return;
-      default:
-        console.debug("Navia ignored unknown SSE event", event);
+  async function ensurePageContext(options: { forceRefresh?: boolean } = {}): Promise<{ ok: true } | { ok: false; message: string }> {
+    try {
+      const currentUrl = await getActiveTabUrl();
+      const reusable = pageSubmitted && pageContext && currentUrl && isSamePageUrl(pageContext.url, currentUrl);
+      if (reusable && !options.forceRefresh) return { ok: true };
+      setPageContextState(options.forceRefresh || pageContext ? "stale" : "capture_ready");
+      setPageContextState("capturing");
+      const context = await readCurrentPageContext();
+      setPageContext(context);
+      const id = await ensureSession();
+      setSubmitStatus("正在提交页面上下文...");
+      const result = await submitRuntimePageContext(context, id);
+      setPageSubmitted(result.ok);
+      setPageContextState(result.ok ? "captured" : "failed");
+      setSubmitStatus(result.ok ? `已提交：${result.pageId}` : result.message ?? "提交失败");
+      return result.ok ? { ok: true } : { ok: false, message: result.message ?? "页面读取失败，可重试或继续普通聊天。" };
+    } catch (error) {
+      const unsupported = error instanceof PageUnsupportedError;
+      setPageContextState(unsupported ? "unsupported" : "failed");
+      const message = unsupported
+        ? "当前页面无法读取，但你仍可以普通聊天。如果你希望我基于页面内容回答，可以复制正文给我，或换一个普通网页。"
+        : `页面读取失败：${error instanceof Error ? error.message : "未知错误"}。你仍可以继续普通聊天。`;
+      setSubmitStatus(message);
+      return { ok: false, message };
     }
   }
 
@@ -351,11 +453,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const applyHash = () => setActiveView(normalizeView(window.location.hash.replace(/^#/, "")));
+    const applyHash = () => {
+      const nextView = normalizeView(window.location.hash.replace(/^#/, ""));
+      setActiveView(nextView);
+      setModeState(nextView === "agent" ? (runtimeStatus === "online" ? "agent_ready" : "agent_unavailable") : "chat");
+    };
     applyHash();
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
-  }, []);
+  }, [runtimeStatus]);
 
   return (
     <main className="shell shell-layout">
@@ -363,7 +469,7 @@ function App() {
         <header className="topbar">
           <div className="topbar-copy">
             <div>
-              <h1>{activeView === "chat" ? "聊天" : activeView === "debug" ? "Debug" : "设置"}</h1>
+              <h1>{activeView === "chat" ? "聊天" : activeView === "agent" ? "Agent" : activeView === "debug" ? "Debug" : "设置"}</h1>
             </div>
           </div>
         </header>
@@ -371,22 +477,27 @@ function App() {
         {activeView === "chat" ? (
           <section className="chat-stage">
             <div className="messages" aria-live="polite">
-              {messages.map((message) => (
-                <article className={`message ${message.role}`} key={message.id}>
-                  <pre>{message.text || (message.role === "assistant" ? "..." : "")}</pre>
-                  {message.artifact?.metadata?.format === "mermaid" ? <MermaidArtifact artifact={message.artifact} /> : null}
-                </article>
-              ))}
+              {chatView.messages.map((message) => {
+                if (message.role === "user") return <UserMessage message={message} key={message.id} />;
+                if (message.role === "assistant") return <AssistantMessage message={message} key={message.id} />;
+                return (
+                  <article className={`message system ${message.kind}`} key={message.id}>
+                    <pre>{message.text}</pre>
+                  </article>
+                );
+              })}
+              {chatView.activeStatus ? <InlineStatusRow status={chatView.activeStatus} /> : null}
+              {chatView.deferredNotice ? <DeferredCapabilityNotice notice={chatView.deferredNotice} /> : null}
             </div>
 
             <div className="composer-stack">
               <div className="toolbar panel-strip pill-strip">
                 <button disabled={runtimeStatus !== "online"} onClick={captureCurrentPage} type="button">读取当前页面</button>
                 <button disabled={runtimeStatus !== "online"} onClick={submitPageContext} type="button">提交上下文</button>
-                <button disabled={!canChat || streamStatus === "streaming"} onClick={() => sendChat("总结这篇文章")} type="button">总结</button>
-                <button disabled={!canChat || streamStatus === "streaming"} onClick={() => sendChat("生成 Mermaid 思维导图")} type="button">Mindmap</button>
-                <button disabled={!canChat || streamStatus === "streaming"} onClick={() => sendChat("解释选区")} type="button">解释选区</button>
-                <button disabled={!canChat || streamStatus === "streaming"} onClick={() => sendChat("新对话")} type="button">新对话</button>
+                <button disabled={!canChat} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
+                <button disabled={!canChat} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
+                <button disabled={!canChat} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
+                <button disabled={!canChat} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
               </div>
 
               <form
@@ -403,11 +514,48 @@ function App() {
                     event.currentTarget.style.height = "auto";
                     event.currentTarget.style.height = `${Math.min(event.currentTarget.scrollHeight, 160)}px`;
                   }}
-                  placeholder={canChat ? "基于当前网页提问..." : "请先连接 Runtime，并提交页面上下文。"}
+                  placeholder={runtimeStatus === "online" ? "你可以直接提问。需要页面内容时，我会自动读取当前页面。" : "请先连接 Runtime。"}
                   rows={2}
                 />
-                <button disabled={!canChat || streamStatus === "streaming"} type="submit">发送</button>
+                <button disabled={!canChat} type="submit">发送</button>
               </form>
+            </div>
+          </section>
+        ) : null}
+
+        {activeView === "agent" ? (
+          <section className="view-panel">
+            <div className="panel-heading">
+              <div>
+                <h2>Agent</h2>
+                <p className="muted">Agent 模式入口已预留，工具执行与长任务会在后续版本开放。</p>
+              </div>
+            </div>
+            <div className="debug-grid">
+              <div className="debug-card">
+                <dt>Mode</dt>
+                <dd>{modeState}</dd>
+              </div>
+              <div className="debug-card">
+                <dt>Runtime</dt>
+                <dd>{runtimeStatus}</dd>
+              </div>
+              <div className="debug-card">
+                <dt>Profile</dt>
+                <dd>{settings?.defaultProfile ?? "chat"}</dd>
+              </div>
+              <div className="debug-card">
+                <dt>Tools</dt>
+                <dd>disabled</dd>
+              </div>
+            </div>
+            <div className="debug-log">
+              <p className="muted">
+                {runtimeStatus === "online"
+                  ? "Agent 模式当前只做能力边界展示，不执行工具、不创建 AgentTask。你仍可继续使用 Chat 完成普通问答、页面总结、Mindmap 和解释选区。"
+                  : "Agent 模式暂不可用。请先启动本地 Runtime；Chat 也会在 Runtime 恢复后继续可用。"}
+              </p>
+              <p className="muted">暂未开放：天气查询、实时搜索、Deep Research、PPT 生成、Code Task、本地文件和命令工具。</p>
             </div>
           </section>
         ) : null}
@@ -432,11 +580,15 @@ function App() {
               </div>
               <div className="debug-card">
                 <dt>Page</dt>
-                <dd>{pageContext?.title ?? "尚未读取"}</dd>
+                <dd>{pageContextState} · {pageContext?.title ?? "尚未读取"}</dd>
+              </div>
+              <div className="debug-card">
+                <dt>Mode</dt>
+                <dd>{modeState}</dd>
               </div>
               <div className="debug-card">
                 <dt>Stream</dt>
-                <dd>{streamStatus}</dd>
+                <dd>{streamStatus} · {chatTurnState}</dd>
               </div>
             </div>
             <div className="debug-log">
@@ -453,7 +605,17 @@ function App() {
               <p className="muted">
                 Reconnect note: {runtimeStatus === "offline" ? "请启动本地 Runtime 后点击重连。" : runtimeStatus === "online" ? "Runtime 已连接。" : "正在检查 Runtime..."}
               </p>
+              <p className="muted">
+                Profile config: {settings?.profiles?.chat?.coreProvider && settings?.chatProvider?.coreProvider && settings.profiles.chat.coreProvider !== settings.chatProvider.coreProvider
+                  ? `profiles.chat=${settings.profiles.chat.coreProvider} / chatProvider=${settings.chatProvider.coreProvider}`
+                  : "profiles.chat 与 chatProvider 未发现冲突"}
+              </p>
               <p className="muted">{settingsMessage}</p>
+              <p className="muted">Raw events: {chatView.debugEvents.length}</p>
+              <p className="muted">Reducer warnings: {chatView.debugWarnings.length}</p>
+              <p className="muted">
+                Settings diagnostic event: {settingsDiagnosticEvent ? JSON.stringify(settingsDiagnosticEvent) : "none"}
+              </p>
             </div>
           </section>
         ) : null}
@@ -469,7 +631,7 @@ function App() {
             <div className="settings-summary">
               <div>
                 <dt>当前 Provider</dt>
-                <dd>{getDefaultProvider(settings)?.displayName ?? "未配置"}</dd>
+                <dd>{getDefaultProvider(settings)?.name ?? "未配置"}</dd>
               </div>
               <div>
                 <dt>默认模型</dt>
@@ -509,8 +671,90 @@ function App() {
                   value={providerDraft.defaultModel}
                   onChange={(event) => setProviderDraft((current) => ({ ...current, defaultModel: event.target.value }))}
                 >
-                  <option value="deepseek-chat">deepseek-chat</option>
-                  <option value="deepseek-reasoner">deepseek-reasoner</option>
+                  {(getDefaultProvider(settings)?.models ?? DEFAULT_DEEPSEEK_MODELS).map((model) => (
+                    <option value={model} key={model}>{model}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div className="settings-summary">
+              <div>
+                <dt>API Key</dt>
+                <dd>{getDefaultProvider(settings)?.apiKeyMasked ?? "未配置"}</dd>
+              </div>
+              <div>
+                <dt>连接状态</dt>
+                <dd>{getDefaultProvider(settings)?.testStatus?.status ?? "untested"}</dd>
+              </div>
+            </div>
+            <div className="panel-heading panel-heading-tight settings-subheading">
+              <div>
+                <h2>Chat Provider</h2>
+                <p className="muted">选择聊天使用的 CoreProvider / LLM Provider / Model。</p>
+              </div>
+            </div>
+            <div className="settings-summary">
+              <div>
+                <dt>Core</dt>
+                <dd>{settings?.chatProvider?.coreProvider ?? settings?.coreProvider ?? "未配置"}</dd>
+              </div>
+              <div>
+                <dt>Runtime 当前生效配置</dt>
+                <dd>
+                  {getProviderById(settings, settings?.chatProvider?.llmProviderId)?.name ?? "未配置"} / {settings?.chatProvider?.model ?? "未配置"}
+                </dd>
+              </div>
+            </div>
+            <div className="settings-summary">
+              <div>
+                <dt>草稿 Core</dt>
+                <dd>{chatProviderDraft.coreProvider}</dd>
+              </div>
+              <div>
+                <dt>草稿 Model</dt>
+                <dd>{getProviderById(settings, chatProviderDraft.llmProviderId)?.name ?? "未配置"} / {chatProviderDraft.model ?? "未配置"}</dd>
+              </div>
+            </div>
+            <div className="settings-grid">
+              <label>
+                <span>Core Provider</span>
+                <select
+                  value={chatProviderDraft.coreProvider}
+                  onChange={(event) => setChatProviderDraft((current) => ({ ...current, coreProvider: event.target.value as CoreProviderId }))}
+                >
+                  {CORE_PROVIDERS.map((provider) => (
+                    <option value={provider} key={provider}>{provider}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span>LLM Provider</span>
+                <select
+                  value={chatProviderDraft.llmProviderId ?? ""}
+                  onChange={(event) => {
+                    const provider = getProviderById(settings, event.target.value);
+                    setChatProviderDraft((current) => ({
+                      ...current,
+                      llmProviderId: provider?.id,
+                      model: provider?.defaultModel ?? current.model
+                    }));
+                  }}
+                >
+                  <option value="">未配置</option>
+                  {(settings?.providers ?? []).map((provider) => (
+                    <option value={provider.id} key={provider.id}>{provider.name}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                <span>Chat Model</span>
+                <select
+                  value={chatProviderDraft.model ?? ""}
+                  onChange={(event) => setChatProviderDraft((current) => ({ ...current, model: event.target.value }))}
+                >
+                  {(getProviderById(settings, chatProviderDraft.llmProviderId)?.models ?? DEFAULT_DEEPSEEK_MODELS).map((model) => (
+                    <option value={model} key={model}>{model}</option>
+                  ))}
                 </select>
               </label>
             </div>
@@ -523,6 +767,12 @@ function App() {
               </button>
               <button disabled={runtimeStatus !== "online" || settingsStatus === "saving" || !getDefaultProvider(settings)} onClick={removeProvider} type="button">
                 删除 Provider
+              </button>
+              <button disabled={runtimeStatus !== "online" || settingsStatus === "saving" || settingsStatus === "testing"} onClick={saveChatProvider} type="button">
+                保存 Chat Provider
+              </button>
+              <button disabled={runtimeStatus !== "online" || settingsStatus === "saving" || settingsStatus === "testing"} onClick={testChatProvider} type="button">
+                测试 Chat Provider
               </button>
             </div>
             <div className="settings-feedback" role="status" aria-live="polite">
@@ -547,6 +797,14 @@ function App() {
           聊天
         </button>
         <button
+          className={`tool-button ${activeView === "agent" ? "active" : ""}`}
+          type="button"
+          aria-current={activeView === "agent" ? "true" : undefined}
+          onClick={() => syncView("agent")}
+        >
+          Agent
+        </button>
+        <button
           className={`tool-button ${activeView === "debug" ? "active" : ""}`}
           type="button"
           aria-current={activeView === "debug" ? "true" : undefined}
@@ -567,38 +825,83 @@ function App() {
   );
 }
 
-function MermaidArtifact({ artifact }: { artifact: ArtifactRecord }) {
-  const [svg, setSvg] = useState("");
-  const [error, setError] = useState("");
-  const renderId = useMemo(() => `navia_mermaid_${artifact.artifactId.replace(/\W/g, "_")}`, [artifact.artifactId]);
+class PageUnsupportedError extends Error {}
 
-  useEffect(() => {
-    let cancelled = false;
-    mermaid
-      .render(renderId, artifact.content)
-      .then((result) => {
-        if (!cancelled) {
-          setSvg(result.svg);
-          setError("");
-        }
-      })
-      .catch((err) => {
-        if (!cancelled) {
-          setSvg("");
-          setError(err instanceof Error ? err.message : "Mermaid render failed.");
-        }
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [artifact.content, renderId]);
+async function readCurrentPageContext(): Promise<ExtractedPageContext> {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab.id || !tab.url) {
+    throw new Error("无法定位当前标签页。");
+  }
+  if (!/^https?:|^file:/.test(tab.url)) {
+    throw new PageUnsupportedError("当前页面无法读取，但你仍可以普通聊天。");
+  }
 
+  let context: ExtractedPageContext | null = null;
+  try {
+    const response = await chrome.tabs.sendMessage(tab.id, { type: "navia.extractPageContext" });
+    if (response?.ok) context = response.context;
+  } catch {
+    context = null;
+  }
+
+  if (!context) {
+    const [result] = await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: extractPageContextInTab
+    });
+    context = result?.result as ExtractedPageContext | null;
+  }
+
+  if (!context) {
+    throw new Error("页面未返回上下文。");
+  }
+  return context;
+}
+
+function detectChatIntent(message: string): ChatIntent {
+  const normalized = message.trim().toLowerCase();
+  if (/(天气|weather|气温)/i.test(normalized)) return "weather_lookup";
+  if (/(搜索|search|查一下|google|联网)/i.test(normalized)) return "web_search";
+  if (/(新闻|news|资讯|实时)/i.test(normalized)) return "realtime_news";
+  if (/(deep research|深度研究|深入研究)/i.test(normalized)) return "deep_research";
+  if (/(ppt|幻灯片|演示文稿)/i.test(normalized)) return "slide_generation";
+  if (/(code task|代码任务|改代码|写代码)/i.test(normalized)) return "code_task";
+  if (/(mindmap|mermaid|思维导图|脑图)/i.test(normalized)) return "mindmap_page";
+  if (/(总结|summary|summarize)/i.test(normalized)) return "summarize_page";
+  if (/(解释选区|解释选中|selection|selected text)/i.test(normalized)) return "explain_selection";
+  if (/(当前页面|这个页面|这页|这篇|这篇文章|这段|上面内容|文章)/i.test(normalized)) return "page_qa";
+  if (/(改写|rewrite|润色)/i.test(normalized)) return "rewrite";
+  return "general_chat";
+}
+
+function isDeferredIntent(intent: ChatIntent): boolean {
   return (
-    <div className="artifact">
-      {svg ? <div className="mermaid-render" dangerouslySetInnerHTML={{ __html: svg }} /> : null}
-      {error ? <p className="mermaid-fallback">Mermaid 渲染失败</p> : null}
-    </div>
+    intent === "weather_lookup" ||
+    intent === "web_search" ||
+    intent === "realtime_news" ||
+    intent === "deep_research" ||
+    intent === "slide_generation" ||
+    intent === "code_task"
   );
+}
+
+function createClientTurnId(): string {
+  return `turn_ui_${crypto.randomUUID().replaceAll("-", "")}`;
+}
+
+function syntheticEvent(type: string, turnId: string, data: Record<string, unknown>): AgentEvent {
+  return {
+    event_id: `evt_ui_${crypto.randomUUID().replaceAll("-", "")}`,
+    session_id: "sess_ui",
+    turn_id: turnId,
+    type,
+    data
+  };
+}
+
+function intentRequiresPageContext(intent: ChatIntent, message: string): boolean {
+  if (intent === "page_qa" || intent === "summarize_page" || intent === "mindmap_page" || intent === "explain_selection") return true;
+  return /(当前页面|这个页面|这页|这篇|这篇文章|这段|上面内容)/i.test(message);
 }
 
 function extractPageContextInTab(): ExtractedPageContext {
@@ -631,7 +934,24 @@ function extractPageContextInTab(): ExtractedPageContext {
 
 function getDefaultProvider(settings: MercurySettings | null): LLMProviderConfig | null {
   const providers = settings?.providers ?? [];
-  return providers.find((provider) => provider.providerId === settings?.defaultProviderId) ?? providers[0] ?? null;
+  return providers.find((provider) => provider.id === settings?.defaultProviderId) ?? providers[0] ?? null;
+}
+
+function getProviderById(settings: MercurySettings | null, providerId: string | undefined): LLMProviderConfig | null {
+  if (!providerId) return null;
+  return (settings?.providers ?? []).find((provider) => provider.id === providerId) ?? null;
+}
+
+function resolveChatProviderDraft(settings: MercurySettings): ChatProviderConfig {
+  const defaultProvider = getDefaultProvider(settings);
+  const configured = settings.chatProvider;
+  const configuredProvider = getProviderById(settings, configured?.llmProviderId);
+  const provider = configuredProvider ?? defaultProvider;
+  return {
+    coreProvider: configured?.coreProvider ?? settings.coreProvider ?? "llm_direct",
+    llmProviderId: provider?.id,
+    model: configured?.model ?? provider?.defaultModel ?? settings.defaultModel ?? "deepseek-v4-flash"
+  };
 }
 
 async function getActiveTabUrl(): Promise<string | null> {
@@ -640,6 +960,21 @@ async function getActiveTabUrl(): Promise<string | null> {
     return typeof tab?.url === "string" ? tab.url : null;
   } catch {
     return null;
+  }
+}
+
+class ChatProviderTestTerminalError extends Error {}
+class ChatProviderTestTimeoutError extends Error {}
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs: number): Promise<T> {
+  let timeoutId: ReturnType<typeof setTimeout> | undefined;
+  const timeout = new Promise<never>((_, reject) => {
+    timeoutId = setTimeout(() => reject(new ChatProviderTestTimeoutError("Chat Provider test timeout.")), timeoutMs);
+  });
+  try {
+    return await Promise.race([promise, timeout]);
+  } finally {
+    if (timeoutId) clearTimeout(timeoutId);
   }
 }
 

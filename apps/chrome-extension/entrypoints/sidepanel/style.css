@@ -281,17 +281,68 @@ button {
   color: #52606d;
 }
 
+.message.system.deferred,
+.deferred-notice {
+  align-self: center;
+  max-width: 92%;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #eef2f7;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
 .message pre,
-.artifact pre {
+.artifact pre,
+.artifact-inline-card pre {
   margin: 0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   font: inherit;
 }
 
-.artifact {
+.artifact,
+.artifact-inline-card {
   margin-top: 10px;
   overflow: auto;
+}
+
+.artifact-inline-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fbfcff;
+  padding: 10px;
+}
+
+.artifact-inline-title {
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.inline-status-row {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #eef2f7;
+  padding: 7px 11px;
+  font-size: 12px;
+}
+
+.inline-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #635bff;
+  box-shadow: 0 0 0 4px rgba(99, 91, 255, 0.1);
 }
 
 .mermaid-render {

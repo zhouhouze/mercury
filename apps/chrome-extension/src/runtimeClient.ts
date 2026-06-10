@@ -4,28 +4,74 @@ import { parseSseBlocks } from "./sse";
 
 export const RUNTIME_URL = "http://127.0.0.1:17861";
 export const LAST_SESSION_STORAGE_KEY = "navia_last_session_id";
-export const SETTINGS_STORAGE_KEY = "navia_provider_settings";
 
 export type RuntimeStatus = "checking" | "online" | "offline";
 export type ChatRole = "user" | "assistant" | "system";
 export type ProviderTestStatus = "ok" | "error";
 
 export type LLMProviderConfig = {
-  providerId: string;
-  providerType: string;
-  displayName: string;
+  id: string;
+  type: string;
+  name: string;
   baseUrl: string;
+  models: string[];
   defaultModel: string;
-  apiKey?: string;
-  apiKeyMasked?: string;
+  isDefault: boolean;
+  apiKeyMasked: string;
+  testStatus: ProviderTestResult | { status: "untested"; message: string } | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type MercurySettings = {
   providers: LLMProviderConfig[];
   defaultProviderId: string | null;
-  defaultModel: string;
+  defaultModel: string | null;
+  coreProvider?: CoreProviderId | null;
+  chatProvider?: ChatProviderConfig | null;
+  defaultProfile?: RuntimeProfile | null;
+  profiles?: Record<RuntimeProfile, ProfileConfig> | null;
   updatedAt: string;
 };
+
+export type CoreProviderId = "mock" | "llm_direct" | "piagent" | "custom";
+export type RuntimeProfile = "chat" | "agent";
+
+export type ToolPolicy = {
+  mode: "disabled" | "approval_allowlist";
+  allowedTools: string[];
+};
+
+export type ProfileConfig = {
+  profile: RuntimeProfile;
+  coreProvider: CoreProviderId;
+  llmProviderId?: string;
+  model?: string;
+  toolPolicy: ToolPolicy;
+  enabled: boolean;
+};
+
+export type ChatProviderConfig = {
+  coreProvider: CoreProviderId;
+  llmProviderId?: string;
+  model?: string;
+};
+
+export type ChatIntent =
+  | "general_chat"
+  | "page_qa"
+  | "summarize_page"
+  | "mindmap_page"
+  | "explain_selection"
+  | "rewrite"
+  | "translate"
+  | "weather_lookup"
+  | "web_search"
+  | "realtime_news"
+  | "deep_research"
+  | "slide_generation"
+  | "code_task"
+  | "unknown";
 
 export type ProviderTestResult =
   | {
@@ -82,8 +128,8 @@ export type StructuredPageDebug = Record<string, unknown>;
 
 type ApiResponse<T> = {
   ok: boolean;
-  data: T;
-  error?: { message?: string };
+  data: T | null;
+  error?: { message?: string; code?: string; details?: Record<string, unknown> };
 };
 
 export async function checkRuntimeHealth(): Promise<boolean> {
@@ -92,13 +138,13 @@ export async function checkRuntimeHealth(): Promise<boolean> {
 }
 
 export async function createRuntimeSession(source: string): Promise<string> {
-  const body = await runtimeJson<{ session_id: string }>({
+  const body = unwrapApiResponse(await runtimeJson<{ session_id: string }>({
     path: "/v1/sessions",
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: { client: "chrome-extension", metadata: { source } }
-  });
-  const id = body.data.session_id;
+  }));
+  const id = body.session_id;
   await chrome.storage.local.set({ [LAST_SESSION_STORAGE_KEY]: id });
   return id;
 }
@@ -110,73 +156,64 @@ export async function getLastSessionId(): Promise<string | null> {
 }
 
 export async function getSettings(): Promise<MercurySettings> {
-  const stored = await chrome.storage.local.get(SETTINGS_STORAGE_KEY);
-  const raw = stored[SETTINGS_STORAGE_KEY];
-  if (isMercurySettings(raw)) return raw;
-  return {
-    providers: [],
-    defaultProviderId: null,
-    defaultModel: "deepseek-chat",
-    updatedAt: new Date().toISOString()
-  };
+  const body = await runtimeJson<MercurySettings>({ path: "/v1/settings" });
+  return unwrapApiResponse(body);
+}
+
+export async function patchSettings(
+  input: Partial<
+    Pick<MercurySettings, "defaultProviderId" | "defaultModel" | "coreProvider" | "chatProvider" | "defaultProfile" | "profiles">
+  >
+): Promise<MercurySettings> {
+  const body = await runtimeJson<MercurySettings>({
+    path: "/v1/settings",
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: input
+  });
+  return unwrapApiResponse(body);
 }
 
 export async function importProvider(input: {
-  providerType: string;
-  displayName: string;
+  providerType?: string;
+  displayName?: string;
+  type?: string;
+  name?: string;
   baseUrl: string;
   apiKey: string;
   defaultModel: string;
+  models?: string[];
 }): Promise<{ settings: MercurySettings; provider: LLMProviderConfig }> {
-  const settings = await getSettings();
-  const provider: LLMProviderConfig = {
-    providerId: `provider_${crypto.randomUUID().replace(/-/g, "")}`,
-    providerType: input.providerType,
-    displayName: input.displayName,
-    baseUrl: input.baseUrl,
-    defaultModel: input.defaultModel,
-    apiKey: input.apiKey,
-    apiKeyMasked: maskApiKey(input.apiKey)
-  };
-  const providers = [...settings.providers.filter((item) => item.providerId !== provider.providerId), provider];
-  const next: MercurySettings = {
-    providers,
-    defaultProviderId: provider.providerId,
-    defaultModel: provider.defaultModel,
-    updatedAt: new Date().toISOString()
-  };
-  await chrome.storage.local.set({ [SETTINGS_STORAGE_KEY]: next });
-  return { settings: next, provider };
+  const body = await runtimeJson<{ settings: MercurySettings; provider: LLMProviderConfig }>({
+    path: "/v1/llm/providers/import",
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: {
+      type: input.type ?? input.providerType ?? "deepseek",
+      name: input.name ?? input.displayName ?? "DeepSeek",
+      baseUrl: input.baseUrl,
+      apiKey: input.apiKey,
+      defaultModel: input.defaultModel,
+      models: input.models
+    }
+  });
+  return unwrapApiResponse(body);
 }
 
 export async function deleteProvider(providerId: string): Promise<{ settings: MercurySettings }> {
-  const settings = await getSettings();
-  const providers = settings.providers.filter((provider) => provider.providerId !== providerId);
-  const next: MercurySettings = {
-    providers,
-    defaultProviderId: settings.defaultProviderId === providerId ? providers[0]?.providerId ?? null : settings.defaultProviderId,
-    defaultModel: settings.defaultModel,
-    updatedAt: new Date().toISOString()
-  };
-  await chrome.storage.local.set({ [SETTINGS_STORAGE_KEY]: next });
-  return { settings: next };
+  const body = await runtimeJson<MercurySettings>({
+    path: `/v1/llm/providers/${providerId}`,
+    method: "DELETE"
+  });
+  return { settings: unwrapApiResponse(body) };
 }
 
 export async function testProvider(providerId: string): Promise<ProviderTestResult> {
-  const start = performance.now();
-  const settings = await getSettings();
-  const provider = settings.providers.find((item) => item.providerId === providerId);
-  if (!provider) {
-    return { status: "error", message: "Provider not found.", error: { message: "Provider not found." } };
-  }
-  if (!provider.baseUrl || !provider.displayName) {
-    return { status: "error", message: "Provider config is incomplete.", error: { message: "Provider config is incomplete." } };
-  }
-  return {
-    status: "ok",
-    latencyMs: Math.max(1, Math.round(performance.now() - start)),
-    message: "Provider config loaded."
-  };
+  const body = await runtimeJson<{ result: ProviderTestResult; provider: LLMProviderConfig }>({
+    path: `/v1/llm/providers/${providerId}/test`,
+    method: "POST"
+  });
+  return unwrapApiResponse(body).result;
 }
 
 export async function clearLastSessionId() {
@@ -189,7 +226,7 @@ export async function restoreRuntimeSession(sessionId: string): Promise<Restored
     await clearLastSessionId();
     return null;
   }
-  return body.data;
+  return unwrapApiResponse(body);
 }
 
 export async function submitRuntimePageContext(
@@ -203,14 +240,25 @@ export async function submitRuntimePageContext(
     body: { ...context, session_id: sessionId }
   });
   if (!body.ok) return { ok: false, message: body.error?.message ?? "PageContext submit failed." };
+  const data = unwrapApiResponse(body);
   await chrome.storage.local.set({ [LAST_SESSION_STORAGE_KEY]: sessionId });
-  return { ok: true, pageId: body.data.page_id, structuredPage: body.data.structuredPage };
+  return { ok: true, pageId: data.page_id, structuredPage: data.structuredPage };
 }
 
 export async function streamRuntimeChat(
   sessionId: string,
   message: string,
-  onEvent: (event: AgentEvent) => void
+  onEvent: (event: AgentEvent) => void | Promise<void>,
+  overrides?: {
+    coreProvider?: CoreProviderId;
+    llmProviderId?: string;
+    model?: string;
+    intentHint?: ChatIntent;
+    autoContext?: boolean;
+    pageId?: string;
+    pageContextRef?: string;
+    profile?: RuntimeProfile;
+  }
 ): Promise<void> {
   const request = {
     path: "/v1/chat/stream",
@@ -220,7 +268,8 @@ export async function streamRuntimeChat(
       session_id: sessionId,
       message,
       source: "typed",
-      request_id: `req_${crypto.randomUUID().replace(/-/g, "")}`
+      request_id: `req_${crypto.randomUUID().replace(/-/g, "")}`,
+      ...overrides
     }
   };
   if (shouldUseRuntimeProxy()) return streamRuntimeChatViaProxy(request, onEvent);
@@ -246,7 +295,7 @@ export function restoreMessages(restored: RestoredSession): ChatMessage[] {
     }));
 }
 
-async function readSse(stream: ReadableStream<Uint8Array>, onEvent: (event: AgentEvent) => void) {
+async function readSse(stream: ReadableStream<Uint8Array>, onEvent: (event: AgentEvent) => void | Promise<void>) {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
@@ -257,7 +306,7 @@ async function readSse(stream: ReadableStream<Uint8Array>, onEvent: (event: Agen
     const parsed = parseSseBlocks(buffer);
     buffer = parsed.remainder;
     for (const event of parsed.events) {
-      onEvent(event);
+      await onEvent(event);
     }
   }
 }
@@ -299,21 +348,33 @@ function shouldUseRuntimeProxy(): boolean {
   return typeof chrome !== "undefined" && Boolean(chrome.runtime?.sendMessage) && window.location.protocol !== "chrome-extension:";
 }
 
-async function streamRuntimeChatViaProxy(request: RuntimeRequest, onEvent: (event: AgentEvent) => void): Promise<void> {
+async function streamRuntimeChatViaProxy(request: RuntimeRequest, onEvent: (event: AgentEvent) => void | Promise<void>): Promise<void> {
   const port = chrome.runtime.connect({ name: "navia.runtimeStream" });
   let buffer = "";
+  let eventChain = Promise.resolve();
   return new Promise((resolve, reject) => {
     port.onMessage.addListener((message) => {
       if (message?.type === "chunk" && typeof message.text === "string") {
         buffer += message.text;
         const parsed = parseSseBlocks(buffer);
         buffer = parsed.remainder;
-        for (const event of parsed.events) onEvent(event);
+        eventChain = parsed.events.reduce((chain, event) => chain.then(() => onEvent(event)), eventChain);
+        void eventChain.catch((error) => {
+          port.disconnect();
+          reject(error instanceof Error ? error : new Error("Runtime stream event handling failed."));
+        });
         return;
       }
       if (message?.type === "done") {
-        port.disconnect();
-        resolve();
+        void eventChain
+          .then(() => {
+            port.disconnect();
+            resolve();
+          })
+          .catch((error) => {
+            port.disconnect();
+            reject(error instanceof Error ? error : new Error("Runtime stream event handling failed."));
+          });
         return;
       }
       if (message?.type === "error") {
@@ -325,11 +386,9 @@ async function streamRuntimeChatViaProxy(request: RuntimeRequest, onEvent: (even
   });
 }
 
-function isMercurySettings(value: unknown): value is MercurySettings {
-  return typeof value === "object" && value !== null && Array.isArray((value as MercurySettings).providers);
-}
-
-function maskApiKey(apiKey: string): string {
-  if (apiKey.length <= 8) return "********";
-  return `${apiKey.slice(0, 4)}****${apiKey.slice(-4)}`;
+function unwrapApiResponse<T>(body: ApiResponse<T>): T {
+  if (!body.ok || body.data === null) {
+    throw new Error(body.error?.message ?? "Runtime request failed.");
+  }
+  return body.data;
 }

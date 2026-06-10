@@ -12,9 +12,22 @@ from fastapi.responses import JSONResponse, Response, StreamingResponse
 from navia_runtime import __version__
 from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, failure, new_id, success, utc_now
 from navia_runtime.modules.adapters.runtime import AdapterRegistry, default_adapter_registry
-from navia_runtime.modules.agent_loop.runtime import run_agentic_turn
+from navia_runtime.modules.agent_loop.runtime import run_agentic_turn, run_core_provider_turn_async
 from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
 from navia_runtime.modules.page_reading.runtime import build_structured_page_context
+from navia_runtime.provider_settings import (
+    DeepSeekProvider,
+    ProviderMissingError,
+    ProviderRegistry,
+    ProviderSettingsError,
+    SettingsStore,
+)
+from navia_runtime.runtime_profile import (
+    DEFERRED_MESSAGE,
+    detect_deferred_intent,
+    resolve_context_strategy,
+    resolve_profile,
+)
 from navia_runtime.state_machine import mermaid_graph
 from navia_runtime.stores import InMemoryEventStream, SQLiteEventStore, SQLiteSessionStore
 from navia_runtime.v2.artifacts import V2ArtifactStore
@@ -42,6 +55,8 @@ def default_db_path() -> Path:
 event_store = SQLiteEventStore(default_db_path())
 event_stream = InMemoryEventStream()
 session_store = SQLiteSessionStore(default_db_path())
+settings_store = SettingsStore(default_db_path())
+provider_registry = ProviderRegistry(settings_store)
 v2_artifact_store = V2ArtifactStore(default_db_path())
 runtime_projection = {"state": "waiting_user"}
 
@@ -67,7 +82,7 @@ async def origin_allowlist(request: Request, call_next):
         response = await call_next(request)
     if allowed_origin and origin:
         response.headers["Access-Control-Allow-Origin"] = origin
-        response.headers["Access-Control-Allow-Methods"] = "GET,POST,OPTIONS"
+        response.headers["Access-Control-Allow-Methods"] = "GET,POST,PATCH,DELETE,OPTIONS"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type,X-Request-Id"
         response.headers["Access-Control-Max-Age"] = "600"
         response.headers["Vary"] = "Origin"
@@ -119,6 +134,103 @@ def models_status(request: Request):
         },
         request_id=request.headers.get("x-request-id"),
     )
+
+
+@app.get("/v1/settings")
+def get_settings(request: Request):
+    return success(settings_store.get_settings(), request_id=request.headers.get("x-request-id"))
+
+
+@app.patch("/v1/settings")
+async def patch_settings(request: Request):
+    body = await request.json()
+    try:
+        return success(settings_store.patch_settings(body), request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+@app.get("/v1/llm/providers")
+def list_llm_providers(request: Request):
+    return success({"providers": settings_store.list_providers()}, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v1/llm/providers")
+async def create_llm_provider(request: Request):
+    body = await request.json()
+    return await import_llm_provider_body(body, request)
+
+
+@app.patch("/v1/llm/providers")
+async def patch_llm_provider_from_body(request: Request):
+    body = await request.json()
+    provider_id = body.get("id")
+    if not isinstance(provider_id, str) or not provider_id:
+        return provider_failure_response(
+            ProviderSettingsError("Provider id is required.", code="provider_missing"),
+            request,
+        )
+    try:
+        provider = settings_store.patch_provider(provider_id, body)
+        return success({"provider": provider, "settings": settings_store.get_settings()}, request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+@app.patch("/v1/llm/providers/{provider_id}")
+async def patch_llm_provider(provider_id: str, request: Request):
+    body = await request.json()
+    try:
+        provider = settings_store.patch_provider(provider_id, body)
+        return success({"provider": provider, "settings": settings_store.get_settings()}, request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+@app.delete("/v1/llm/providers")
+async def delete_llm_provider_from_body(request: Request):
+    body = await request.json()
+    provider_id = body.get("id")
+    if not isinstance(provider_id, str) or not provider_id:
+        return provider_failure_response(
+            ProviderSettingsError("Provider id is required.", code="provider_missing"),
+            request,
+        )
+    try:
+        return success(settings_store.delete_provider(provider_id), request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+@app.delete("/v1/llm/providers/{provider_id}")
+def delete_llm_provider(provider_id: str, request: Request):
+    try:
+        return success(settings_store.delete_provider(provider_id), request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+@app.post("/v1/llm/providers/import")
+async def import_llm_provider(request: Request):
+    body = await request.json()
+    return await import_llm_provider_body(body, request)
+
+
+@app.post("/v1/llm/providers/{provider_id}/test")
+def test_llm_provider(provider_id: str, request: Request):
+    provider = settings_store.get_provider(provider_id, include_secret=True)
+    if not provider:
+        return provider_failure_response(ProviderMissingError(), request)
+    try:
+        test_result = DeepSeekProvider(provider, provider_registry.client_factory).test()
+        visible_provider = settings_store.update_test_status(provider_id, test_result)
+        return success({"result": test_result, "provider": visible_provider}, request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+    except RuntimeError as exc:
+        error_result = {"status": "error", "message": str(exc), "latencyMs": 0}
+        visible_provider = settings_store.update_test_status(provider_id, error_result)
+        return success({"result": error_result, "provider": visible_provider}, request_id=request.headers.get("x-request-id"))
 
 
 @app.post("/v1/sessions")
@@ -271,23 +383,71 @@ async def chat_stream(request: Request):
         persist_and_publish(err)
         return StreamingResponse(sse([err]), media_type="text/event-stream")
 
+    message = str(body.get("message") or "")
     active_page = session_store.get_active_page(session_id)
-    result = run_agentic_turn(
-        {
-            "sessionId": session_id,
-            "requestId": request_id,
-            "userMessage": body.get("message", ""),
-            "activePage": active_page,
-            "recentMessages": normalize_recent_messages(session_store.get_session_record(session_id)),
-            "budget": body.get("budget") if isinstance(body.get("budget"), dict) else {},
-            "adapterRegistry": integration_adapter_registry(),
-            "forceAdapterId": "fixture.denied" if is_high_risk_message(str(body.get("message") or "")) else body.get("forceAdapterId"),
-        }
-    )
-    persist_turn_result(session_id, str(body.get("message") or ""), result)
-    for event in result["events"]:
-        persist_and_publish(event)
-    return StreamingResponse(sse(result["events"]), media_type="text/event-stream")
+    intent = detect_chat_intent(message, body)
+    settings_snapshot = settings_store.get_settings()
+    profile_resolution = resolve_profile(settings_snapshot, body)
+    deferred_intent = detect_deferred_intent(message, body.get("intentHint") if isinstance(body.get("intentHint"), str) else None)
+    if deferred_intent:
+        events = deferred_intent_events(session_id, request_id, deferred_intent)
+        persist_turn_result(session_id, message, turn_result_from_events(events, status="deferred"))
+        for event in events:
+            persist_and_publish(event)
+        return StreamingResponse(sse(events), media_type="text/event-stream")
+    if profile_resolution.profile == "agent":
+        events = agent_profile_preflight_events(session_id, request_id)
+        persist_turn_result(session_id, message, turn_result_from_events(events, status="deferred"))
+        for event in events:
+            persist_and_publish(event)
+        return StreamingResponse(sse(events), media_type="text/event-stream")
+    context_strategy = resolve_context_strategy(intent, message)
+    if context_strategy.type == "page_context" and body.get("autoContext") is True and active_page is None:
+        err = page_context_auto_capture_event(session_id, request_id)
+        persist_and_publish(err)
+        return StreamingResponse(sse([err]), media_type="text/event-stream")
+    if is_explicit_core_provider_request(body):
+        core_config_or_error = resolve_core_config(body, session_id=session_id, request_id=request_id)
+        if isinstance(core_config_or_error, dict) and "provider" in core_config_or_error:
+            result = await run_core_provider_turn_async(
+                {
+                    "sessionId": session_id,
+                    "requestId": request_id,
+                    "userMessage": message,
+                    "activePage": active_page,
+                    "recentMessages": normalize_recent_messages(session_store.get_session_record(session_id)),
+                    "budget": body.get("budget") if isinstance(body.get("budget"), dict) else {},
+                    "coreConfig": {**core_config_or_error, "mode": "reading" if active_page else "chat"},
+                }
+            )
+            persist_turn_result(session_id, message, result)
+            for event in result["events"]:
+                persist_and_publish(event)
+            return StreamingResponse(sse(result["events"]), media_type="text/event-stream")
+        if isinstance(core_config_or_error, dict):
+            err = core_config_or_error
+            persist_and_publish(err)
+            return StreamingResponse(sse([err]), media_type="text/event-stream")
+
+    if should_use_agentic_tools(message, body, intent=intent, active_page=active_page):
+        result = run_agentic_turn(
+            {
+                "sessionId": session_id,
+                "requestId": request_id,
+                "userMessage": message,
+                "activePage": active_page,
+                "recentMessages": normalize_recent_messages(session_store.get_session_record(session_id)),
+                "budget": body.get("budget") if isinstance(body.get("budget"), dict) else {},
+                "adapterRegistry": integration_adapter_registry(),
+                "forceAdapterId": "fixture.denied" if is_high_risk_message(message) else body.get("forceAdapterId"),
+            }
+        )
+        persist_turn_result(session_id, message, result)
+        for event in result["events"]:
+            persist_and_publish(event)
+        return StreamingResponse(sse(result["events"]), media_type="text/event-stream")
+
+    return StreamingResponse(sse(stream_llm_turn(session_id, request_id, message, active_page)), media_type="text/event-stream")
 
 
 @app.get("/v1/sessions/{session_id}/trace")
@@ -384,6 +544,288 @@ async def v2_workbench(request: Request):
             ),
         )
     return success(result, request_id=request.headers.get("x-request-id"))
+
+
+async def import_llm_provider_body(body: dict[str, Any], request: Request):
+    provider_type = str(body.get("type") or body.get("providerType") or "deepseek")
+    if provider_type != "deepseek":
+        return provider_failure_response(
+            ProviderSettingsError("Only DeepSeek provider import is supported in V1.0.", code="provider_unsupported"),
+            request,
+        )
+    try:
+        provider = settings_store.import_deepseek(body, new_id("prov_"))
+        return success({"provider": provider, "settings": settings_store.get_settings()}, request_id=request.headers.get("x-request-id"))
+    except ProviderSettingsError as exc:
+        return provider_failure_response(exc, request)
+
+
+def provider_failure_response(exc: ProviderSettingsError, request: Request) -> JSONResponse:
+    status_code = 404 if exc.code == "provider_missing" else 400
+    error_code = ErrorCode.MODEL_UNAVAILABLE if exc.code.startswith("provider") else ErrorCode.REQUEST_INVALID
+    return JSONResponse(
+        status_code=status_code,
+        content=failure(
+            error_code,
+            str(exc),
+            request_id=request.headers.get("x-request-id"),
+            recoverable=exc.recoverable,
+            details={"code": exc.code},
+        ),
+    )
+
+
+def stream_llm_turn(session_id: str, request_id: str, user_message: str, active_page: dict[str, Any] | None) -> Iterable[dict[str, Any]]:
+    turn_id = new_id("turn_")
+    response_text = ""
+    try:
+        provider = provider_registry.get_default_provider()
+        for chunk in provider.stream_chat(user_message, page_context=active_page):
+            response_text += chunk
+            yield persist_and_publish(
+                agent_event(
+                    AgentEventType.RESPONSE_DELTA,
+                    session_id=session_id,
+                    turn_id=turn_id,
+                    request_id=request_id,
+                    data={"text": chunk},
+                )
+            )
+        persist_llm_messages(session_id, turn_id, user_message, response_text)
+        yield persist_and_publish(
+            agent_event(
+                AgentEventType.RESPONSE_DONE,
+                session_id=session_id,
+                turn_id=turn_id,
+                request_id=request_id,
+                data={"status": "done"},
+            )
+        )
+    except ProviderSettingsError as exc:
+        yield persist_and_publish(provider_error_event(session_id, turn_id, request_id, exc.code, str(exc), exc.recoverable))
+    except RuntimeError as exc:
+        yield persist_and_publish(provider_error_event(session_id, turn_id, request_id, "provider_call_failed", str(exc), True))
+
+
+def provider_error_event(session_id: str, turn_id: str, request_id: str, code: str, message: str, recoverable: bool) -> dict[str, Any]:
+    return agent_event(
+        AgentEventType.ERROR,
+        session_id=session_id,
+        turn_id=turn_id,
+        request_id=request_id,
+        data={"code": code, "message": message, "recoverable": recoverable},
+    )
+
+
+def page_context_auto_capture_event(session_id: str, request_id: str) -> dict[str, Any]:
+    return agent_event(
+        AgentEventType.ERROR,
+        session_id=session_id,
+        request_id=request_id,
+        data={
+            "code": "page_context_auto_capture_required",
+            "message": "需要读取当前页面后继续。",
+            "recoverable": True,
+            "action": "capture_page_and_retry",
+        },
+    )
+
+
+def deferred_intent_events(session_id: str, request_id: str, intent: str) -> list[dict[str, Any]]:
+    turn_id = new_id("turn_")
+    trace_id = new_id("trace_")
+    return [
+        agent_event(
+            AgentEventType.INTENT_DETECTED,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"provider": "runtime_profile", "adapter_id": intent, "confidence": 1.0, "status": "deferred"},
+        ),
+        agent_event(
+            AgentEventType.STATE_TRANSITION,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"from": "intent_detecting", "to": "capability_boundary", "reason": intent},
+        ),
+        agent_event(
+            AgentEventType.RESPONSE_DELTA,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"text": DEFERRED_MESSAGE},
+        ),
+        agent_event(
+            AgentEventType.RESPONSE_DONE,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"status": "done"},
+        ),
+    ]
+
+
+def agent_profile_preflight_events(session_id: str, request_id: str) -> list[dict[str, Any]]:
+    turn_id = new_id("turn_")
+    trace_id = new_id("trace_")
+    message = "Agent 模式会在后续版本支持工具和长任务。当前暂未开放天气查询、实时搜索、Deep Research、PPT 生成、Code Task、本地文件和命令工具。你仍可继续使用 Chat。"
+    return [
+        agent_event(
+            AgentEventType.INTENT_DETECTED,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"provider": "runtime_profile", "adapter_id": "agent_preflight", "confidence": 1.0, "status": "deferred"},
+        ),
+        agent_event(
+            AgentEventType.STATE_TRANSITION,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"from": "agent_checking", "to": "agent_unavailable", "reason": "agent_deferred"},
+        ),
+        agent_event(
+            AgentEventType.RESPONSE_DELTA,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"text": message},
+        ),
+        agent_event(
+            AgentEventType.RESPONSE_DONE,
+            session_id=session_id,
+            turn_id=turn_id,
+            trace_id=trace_id,
+            request_id=request_id,
+            data={"status": "done"},
+        ),
+    ]
+
+
+def turn_result_from_events(events: list[dict[str, Any]], status: str) -> dict[str, Any]:
+    first = events[0] if events else {}
+    return {
+        "turnId": first.get("turn_id") or new_id("turn_"),
+        "traceId": first.get("trace_id") or new_id("trace_"),
+        "requestId": first.get("request_id") or new_id("req_"),
+        "status": status,
+        "events": events,
+        "artifacts": [],
+        "toolCalls": [],
+        "state": "done" if status == "done" else status,
+    }
+
+
+def persist_llm_messages(session_id: str, turn_id: str, user_message: str, assistant_message: str) -> None:
+    now = utc_now()
+    session_store.add_message(
+        session_id,
+        {
+            "message_id": new_id("msg_"),
+            "turn_id": turn_id,
+            "role": "user",
+            "content": user_message,
+            "created_at": now,
+            "metadata": {"source": "typed"},
+        },
+    )
+    session_store.add_message(
+        session_id,
+        {
+            "message_id": new_id("msg_"),
+            "turn_id": turn_id,
+            "role": "assistant",
+            "content": assistant_message,
+            "created_at": now,
+            "metadata": {"source": "llm_direct"},
+        },
+    )
+
+
+def detect_chat_intent(message: str, body: dict[str, Any]) -> str:
+    hint = body.get("intentHint")
+    if isinstance(hint, str) and hint:
+        return hint
+    lowered = message.lower()
+    if any(keyword in lowered for keyword in ["mindmap", "思维导图", "脑图", "mermaid"]):
+        return "mindmap_page"
+    if any(keyword in lowered for keyword in ["总结", "summary", "summarize"]):
+        return "summarize_page"
+    if any(keyword in lowered for keyword in ["解释选区", "解释选中", "selection", "selected text"]):
+        return "explain_selection"
+    if any(keyword in lowered for keyword in ["当前页面", "这个页面", "这页", "这篇", "这篇文章", "这段", "上面内容", "文章"]):
+        return "page_qa"
+    if any(keyword in lowered for keyword in ["改写", "rewrite", "润色"]):
+        return "rewrite"
+    return "general_chat"
+
+
+def intent_requires_page_context(intent: str, message: str) -> bool:
+    if intent in {"page_qa", "summarize_page", "mindmap_page", "explain_selection"}:
+        return True
+    lowered = message.lower()
+    return any(keyword in lowered for keyword in ["当前页面", "这个页面", "这页", "这篇", "这篇文章", "这段", "上面内容"])
+
+
+def should_use_agentic_tools(message: str, body: dict[str, Any], *, intent: str | None = None, active_page: dict[str, Any] | None = None) -> bool:
+    lowered = message.lower()
+    if is_high_risk_message(message):
+        return True
+    if isinstance(body.get("budget"), dict) or body.get("forceAdapterId"):
+        return True
+    selected_intent = intent or detect_chat_intent(message, body)
+    if selected_intent in {"summarize_page", "mindmap_page", "explain_selection", "page_qa"}:
+        return True
+    return active_page is not None and any(keyword in lowered for keyword in ["什么", "为什么", "如何", "how", "what", "why", "?"])
+
+
+def is_explicit_core_provider_request(body: dict[str, Any]) -> bool:
+    return body.get("coreProvider") in {"mock", "llm_direct", "piagent"}
+
+
+def resolve_core_config(body: dict[str, Any], *, session_id: str, request_id: str) -> dict[str, Any] | None:
+    try:
+        selected = settings_store.resolve_chat_provider(body)
+        core_provider = selected.get("coreProvider") or os.environ.get("NAVIA_CORE_PROVIDER")
+        if core_provider not in {"mock", "llm_direct", "piagent"}:
+            return None
+        config: dict[str, Any] = {"provider": core_provider}
+        if core_provider in {"llm_direct", "piagent"}:
+            provider = settings_store.get_llm_provider_for_chat(
+                selected.get("llmProviderId"),
+                selected.get("model"),
+                include_secret=True,
+            )
+            config["llmProviderId"] = provider["id"]
+            config["model"] = provider["selectedModel"]
+            config["options"] = {"modelProvider": model_provider_payload(provider)}
+        return config
+    except ProviderSettingsError as exc:
+        return provider_error_event(session_id, new_id("turn_"), request_id, exc.code, str(exc), exc.recoverable)
+
+
+def model_provider_payload(provider: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "type": provider["type"],
+        "baseUrl": provider["baseUrl"],
+        "model": provider["selectedModel"],
+        "apiKey": provider.get("apiKey"),
+        "apiKeyRef": provider.get("apiKeyRef"),
+        "capabilities": {
+            "streaming": True,
+            "toolCalls": False,
+            "jsonOutput": True,
+            "reasoning": provider["selectedModel"] in {"deepseek-v4-pro", "deepseek-reasoner"},
+        },
+    }
 
 
 def with_legacy_page_aliases(page: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:

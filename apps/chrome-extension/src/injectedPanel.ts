@@ -89,12 +89,14 @@ export function createMermaidArtifactElement(
   artifactEl.append(iframe);
 
   const onMessage = (event: MessageEvent) => {
-    if (event.source !== iframe.contentWindow) return;
     const data = event.data as { type?: string; artifactId?: string; status?: string; message?: string };
     if (data.type !== "navia.mermaidRendered" || data.artifactId !== artifact.artifactId) return;
+    if (event.source && iframe.contentWindow && event.source !== iframe.contentWindow && !event.origin.startsWith("chrome-extension://")) return;
     artifactEl.dataset.rendered = data.status === "succeeded" ? "true" : "false";
     if (data.status !== "succeeded") {
-      artifactEl.title = data.message ?? "Mermaid render failed";
+      const message = data.message ?? "Mermaid render failed";
+      artifactEl.title = message;
+      artifactEl.textContent = message;
     }
     window.removeEventListener("message", onMessage);
   };
@@ -127,7 +129,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     lastError: null
   };
   const messages: ChatMessage[] = [
-    { id: newId(), role: "system", text: "展开后读取当前页面，即可开始网页伴读。" }
+    { id: newId(), role: "system", text: "你可以直接提问。需要页面内容时，我会自动读取当前页面。" }
   ];
   const mermaidArtifactCache = new Map<string, { content: string; element: HTMLElement }>();
   let layoutMode: LayoutMode = "push";
@@ -155,7 +157,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   const statusEl = root.querySelector<HTMLElement>("[data-testid='navia-status']")!;
   const pageEl = root.querySelector<HTMLElement>("[data-testid='navia-page']")!;
   const stateBannerEl = root.querySelector<HTMLElement>("[data-testid='navia-state-banner']")!;
-  const chatNoticeEl = root.querySelector<HTMLElement>("[data-testid='navia-chat-notice']")!;
+  const chatNoticeEl = root.querySelector<HTMLElement>("[data-testid='navia-chat-notice']");
   const structuredJsonEl = root.querySelector<HTMLElement>("[data-testid='navia-structured-json']")!;
 
   reconnectButton.addEventListener("click", () => checkRuntime());
@@ -171,7 +173,8 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   sendButton.addEventListener("click", () => sendChat(input.value));
   const autoGrowInput = () => {
     input.style.height = "auto";
-    input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
+    const fallbackHeight = Math.max(44, input.value.split("\n").length * 20 + 12);
+    input.style.height = `${Math.min(Math.max(input.scrollHeight, fallbackHeight), 120)}px`;
   };
   input.addEventListener("input", autoGrowInput);
   autoGrowInput();
@@ -224,7 +227,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     state.streamStatus = "idle";
     state.lastError = null;
     state.statusText = state.runtimeStatus === "online" ? "已新建会话" : state.statusText;
-    messages.splice(0, messages.length, { id: newId(), role: "system", text: "新会话已创建。读取当前页面后即可继续网页伴读。" });
+    messages.splice(0, messages.length, { id: newId(), role: "system", text: "新会话已创建。你可以直接提问，页面相关问题会自动读取当前页面。" });
     input.value = "";
     autoGrowInput();
     if (state.runtimeStatus === "online") {
@@ -328,11 +331,14 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
       render();
       return;
     }
-    if (!state.pageSubmitted) {
-      appendMessage("system", "请先读取当前页面。");
-      state.lastError = "缺少当前页面上下文，不能生成摘要或回答。";
-      render();
-      return;
+    if (!state.pageSubmitted && injectedIntentRequiresPageContext(trimmed)) {
+      appendMessage("system", "正在读取当前页面……");
+      await captureAndSubmitPage();
+      if (!state.pageSubmitted) {
+        appendMessage("system", "当前页面无法读取，但你仍可以普通聊天。");
+        render();
+        return;
+      }
     }
     const sessionId = await ensureSession();
     const assistantId = newId();
@@ -431,7 +437,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
       : "尚未读取页面";
     structuredJsonEl.textContent = JSON.stringify(getStructuredDebugPayload(), null, 2);
     stateBannerEl.textContent = getStateBannerText();
-    chatNoticeEl.textContent = getChatNoticeText();
+    if (chatNoticeEl) chatNoticeEl.textContent = getChatNoticeText();
     chatToolButton.classList.toggle("active", state.activeTool === "chat");
     chatToolButton.setAttribute("aria-current", state.activeTool === "chat" ? "true" : "false");
     debugToggleButton.setAttribute("aria-pressed", state.activeTool === "debug" ? "true" : "false");
@@ -464,14 +470,14 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   }
 
   function canChat() {
-    return state.runtimeStatus === "online" && state.pageSubmitted && state.streamStatus !== "streaming";
+    return state.runtimeStatus === "online" && state.streamStatus !== "streaming";
   }
 
   function getStateBannerText() {
     if (state.lastError) return state.lastError;
     if (state.runtimeStatus === "offline") return "Runtime offline，请启动本地服务后点击重连。";
     if (state.runtimeStatus === "checking") return "正在检查 Local Runtime 状态。";
-    if (!state.pageSubmitted) return "尚未读取当前页面，摘要和问答会保持禁用。";
+    if (!state.pageSubmitted) return "你可以直接提问；需要页面内容时会自动读取当前页面。";
     if (state.streamStatus === "streaming") return "正在生成回复，请稍候。";
     if (state.streamStatus.startsWith("running")) return `工具执行中：${state.streamStatus.replace("running ", "")}`;
     if (state.statusText.startsWith("已恢复")) return "已恢复最近会话，可继续基于当前页面提问。";
@@ -481,7 +487,7 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   function getChatNoticeText() {
     if (state.runtimeStatus === "offline") return "Runtime offline，启动本地服务后可继续聊天。";
     if (state.runtimeStatus === "checking") return "正在检查 Local Runtime。";
-    if (!state.pageSubmitted) return "读取当前页面后，聊天会基于网页内容回答。";
+    if (!state.pageSubmitted) return "可直接聊天；页面相关问题会自动读取当前页面。";
     if (state.streamStatus === "streaming") return "正在生成回复。";
     if (state.streamStatus.startsWith("running")) return `正在执行工具：${state.streamStatus.replace("running ", "")}`;
     return "当前页面已就绪。";
@@ -539,6 +545,12 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
     container.appendChild(element);
   }
 
+}
+
+function injectedIntentRequiresPageContext(message: string): boolean {
+  return /(总结|summary|summarize|mindmap|mermaid|思维导图|脑图|解释选区|解释选中|当前页面|这个页面|这页|这篇|这篇文章|这段|上面内容)/i.test(
+    message
+  );
 }
 
 function getPanelWidthState(width: number, viewportWidth: number, mode: LayoutMode): PanelWidthState {
