@@ -243,16 +243,16 @@ V1 允许使用本地 fixture，但必须满足：
 
 ## 5. 阶段门禁产物
 
-每个阶段必须形成以下产物：
+每个当前激活阶段必须形成以下产物：
 
 ```text
-stage-gates/v1.0-x-<stage-name>.md
+stage-gates/v1.2-<module-or-stage>.md
 ```
 
-V1.1 阶段使用：
+当前 A-V1.2 阶段使用：
 
 ```text
-stage-gates/v1.1-frontend-fidelity.md
+stage-gates/v1.2-a-v1.2-production-page-perception.md
 ```
 
 其中至少包含：

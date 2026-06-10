@@ -17,6 +17,20 @@
 
 本审计包只申请进入 `A-V1.2-0` 合同冻结复审，不申请进入 `A-V1.2-1+` 实质开发。
 
+A-V1.2 当前文档包已经覆盖本阶段开发所需的 PRD、目标架构、公共合同、模块工作区、开发及验收计划、100-page corpus gate、drawio gap 图谱和 false-green 防线。文档层面可支撑后续自动化开发审计；但在外部审计未确认无 fatal / major risk 前，仍不得进入 `A-V1.2-1+` 代码实现。
+
+A-V1.2 默认组合路线：
+
+```text
+DOM baseline
++ extractor ensemble
++ A-owned schema normalization
++ SourceMap / jumpback
++ Quality Evaluator
++ DebugEvidenceBundle
++ 100-page corpus gate
+```
+
 阶段判断：
 
 ```text
@@ -98,6 +112,21 @@ A 不反向调用 D/C/B，也不写任何 Runtime side effect。
 | `A-V1.2-6` | Quality evaluator | 每个 metric 有 numerator、denominator、method、threshold、passed、denominatorZeroBehavior |
 | `A-V1.2-7` | DebugEvidenceBundle | Debug JSON 解释 pass / degraded / fail，且不包含无界网页全文 |
 | `A-V1.2-8` | Corpus exit | corpus-level report 通过；失败项映射回对应子阶段并打回 |
+
+## 5.1 External Audit Closure Addendum
+
+ChatGPT external audit P0 closures for A-V1.2-0:
+
+- Extractor scoring contract: `ExtractorCandidateScore.mainTextCoverage` is now required and normalized as `candidate.mainTextChars / max(mainTextChars among available candidates on the same page)`. `mainTextChars` remains a raw tie-breaker only.
+- A boundary conflict: A acceptance is limited to page perception contracts and evidence files. Summary `ArtifactRecord`, final answer, Mindmap, SSE, EventStore, and Trace creation belong to D / Integration / Summary Tool acceptance, not A.
+- A-V1.2-8 automation hardening: `eval_corpus` is the required corpus exit command. It reads `corpus-manifest.json`, writes `corpus-level-report.json`, and must exit non-zero on category gate, source coverage, grounding, jumpback, low-signal, gold review, snapshot, or debug evidence failure.
+
+Status after this addendum:
+
+```text
+Go for external re-audit of A-V1.2-0.
+No-Go for A-V1.2-1+ implementation until external audit confirms no fatal or major remaining gaps.
+```
 
 ## 6. False-Green Gates
 

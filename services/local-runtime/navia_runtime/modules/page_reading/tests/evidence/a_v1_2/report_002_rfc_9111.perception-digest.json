@@ -1,0 +1,649 @@
+{
+  "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+  "digestId": "digest_page_report_002_rfc_9111",
+  "items": [
+    {
+      "confidence": 0.847,
+      "importance": 0.889,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "Most commonly, caches store the successful result of a retrieval request: i.e., a 200 (OK) response to a GET request, which contains a representation of the target resource ( Section 9.3.1 of [ HTTP ] ). However, it is also possible to store redirects, negative results (e.g., 404 (Not Found)), incomplete results (e.g., 206 (Partial Content)), and responses t",
+          "headingPath": [
+            "HTTP Caching",
+            "2. Overview of Cache Operation"
+          ],
+          "order": 93,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0094",
+          "sourceRefId": "src_page_report_002_rfc_9111_0094",
+          "textHash": "sha256_9197481a1a702f3aae406030a8e39805",
+          "textQuote": "Most commonly, caches store the successful result of a retrieval request: i.e., a 200 (OK) response to a GET request, which contains a representation of the target resource ( Section 9.3.1 of [ HTTP ] ). However, it is a"
+        }
+      ],
+      "text": "Most commonly , caches store the successful result of a retrieval request : i . e",
+      "warnings": []
+    },
+    {
+      "confidence": 0.841,
+      "importance": 0.875,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0090",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0090"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0090",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. Therefore, HTTP cache requirements are focused on preventing a cache from either storing a non-reusable response or reusing a stored respons",
+          "headingPath": [
+            "HTTP Caching",
+            "2. Overview of Cache Operation"
+          ],
+          "order": 89,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0090",
+          "sourceRefId": "src_page_report_002_rfc_9111_0090",
+          "textHash": "sha256_cc761902145762440ec30d62cf62f95b",
+          "textQuote": "Although caching is an entirely OPTIONAL feature of HTTP, it can be assumed that reusing a cached response is desirable and that such reuse is the default behavior when no requirement or local configuration prevents it. "
+        }
+      ],
+      "text": "Although caching is an entirely OPTIONAL feature of HTTP , it can be assumed that reusing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.838,
+      "importance": 0.866,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0088",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0088"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0088",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "Note: The value 2147483648 is here for historical reasons, represents infinity (over 68 years), and does not need to be stored in binary form; an implementation could produce it as a string if any overflow occurs, even if the calculations are performed with an arithmetic type incapable of directly representing that number. What matters here is that an overfl",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction",
+            "1.2. Syntax Notation",
+            "1.2.2. Delta Seconds"
+          ],
+          "order": 87,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0088",
+          "sourceRefId": "src_page_report_002_rfc_9111_0088",
+          "textHash": "sha256_11abc5038c72d934ec21c8c9641f8632",
+          "textQuote": "Note: The value 2147483648 is here for historical reasons, represents infinity (over 68 years), and does not need to be stored in binary form; an implementation could produce it as a string if any overflow occurs, even i"
+        }
+      ],
+      "text": "Note : The value 2147483648 is here for historical reasons , represents infinity ( over 68",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.86,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0126",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0126"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0126",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "In some cases, caches (especially in user agents) store the results of processing the received response, rather than the response itself, and updating header fields that affect that processing can result in inconsistent behavior and security issues. Caches in this situation MAY omit these header fields from updating stored responses on an exceptional basis b",
+          "headingPath": [
+            "HTTP Caching",
+            "3. Storing Responses in Caches",
+            "3.2. Updating Stored Header Fields"
+          ],
+          "order": 125,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0126",
+          "sourceRefId": "src_page_report_002_rfc_9111_0126",
+          "textHash": "sha256_029c6d324021a968b21ae5a1e3f24ce4",
+          "textQuote": "In some cases, caches (especially in user agents) store the results of processing the received response, rather than the response itself, and updating header fields that affect that processing can result in inconsistent "
+        }
+      ],
+      "text": "In some cases , caches ( especially in user agents ) store the results of processing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.86,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0132",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0132"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0132",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "A response might transfer only a partial representation if the connection closed prematurely or if the request used one or more Range specifiers ( Section 14.2 of [ HTTP ] ). After several such transfers, a cache might have received several ranges of the same representation. A cache MAY combine these ranges into a single stored response, and reuse that respo",
+          "headingPath": [
+            "HTTP Caching",
+            "3. Storing Responses in Caches",
+            "3.4. Combining Partial Content"
+          ],
+          "order": 131,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0132",
+          "sourceRefId": "src_page_report_002_rfc_9111_0132",
+          "textHash": "sha256_7b46548a0e222d52208f0e3cf5ba261f",
+          "textQuote": "A response might transfer only a partial representation if the connection closed prematurely or if the request used one or more Range specifiers ( Section 14.2 of [ HTTP ] ). After several such transfers, a cache might h"
+        }
+      ],
+      "text": "A response might transfer only a partial representation if the connection closed prematurely or if the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.849,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0127",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0127"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0127",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "For example, a browser might decode the content coding of a response while it is being received, creating a disconnect between the data it has stored and the response's original metadata. Updating that stored metadata with a different Content-Encoding header field would be problematic. Likewise, a browser might store a post-parse HTML tree rather than the co",
+          "headingPath": [
+            "HTTP Caching",
+            "3. Storing Responses in Caches",
+            "3.2. Updating Stored Header Fields"
+          ],
+          "order": 126,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0127",
+          "sourceRefId": "src_page_report_002_rfc_9111_0127",
+          "textHash": "sha256_e1e8cf7f50b41070f73ee56aaf1b5ad2",
+          "textQuote": "For example, a browser might decode the content coding of a response while it is being received, creating a disconnect between the data it has stored and the response's original metadata. Updating that stored metadata wi"
+        }
+      ],
+      "text": "For example , a browser might decode the content coding of a response while it is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.848,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0002",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0002"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0002",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. This document defines HTTP caches and the associated header fields that control cache behavior or indicate cacheable response messages. ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "Abstract"
+          ],
+          "order": 1,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0002",
+          "sourceRefId": "src_page_report_002_rfc_9111_0002",
+          "textHash": "sha256_8e43f5e171f80eda39a6b0ff74ff40f5",
+          "textQuote": "The Hypertext Transfer Protocol (HTTP) is a stateless application-level protocol for distributed, collaborative, hypertext information systems. This document defines HTTP caches and the associated header fields that cont"
+        }
+      ],
+      "text": "The Hypertext Transfer Protocol ( HTTP ) is a stateless application - level protocol for distributed",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0008",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0008"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0008",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these documents carefully, as they describe your rights and restrictions with respect to this document. Code Components extracted from this document ",
+          "headingPath": [
+            "HTTP Caching",
+            "Copyright Notice"
+          ],
+          "order": 7,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0008",
+          "sourceRefId": "src_page_report_002_rfc_9111_0008",
+          "textHash": "sha256_b97182746bc70e601f25900bc1a0d323",
+          "textQuote": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these doc"
+        }
+      ],
+      "text": "This document is subject to BCP 78 and the IETF Trust ' s Legal Provisions Relating",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0074",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0074"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0074",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "An HTTP \"cache\" is a local store of response messages and the subsystem that controls storage, retrieval, and deletion of messages in it. A cache stores cacheable responses to reduce the response time and network bandwidth consumption on future equivalent requests. Any client or server MAY use a cache, though not when acting as a tunnel ( Section 3.7 of [ HT",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction"
+          ],
+          "order": 73,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0074",
+          "sourceRefId": "src_page_report_002_rfc_9111_0074",
+          "textHash": "sha256_20e380e408ed400435bf2d4d582a5b8a",
+          "textQuote": "An HTTP \"cache\" is a local store of response messages and the subsystem that controls storage, retrieval, and deletion of messages in it. A cache stores cacheable responses to reduce the response time and network bandwid"
+        }
+      ],
+      "text": "An HTTP \" cache \" is a local store of response messages and the subsystem that",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0081",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "It also uses a list extension, defined in Section 5.6.1 of [ HTTP ] , that allows for compact definition of comma-separated lists using a \"#\" operator (similar to how the \"*\" operator indicates repetition). Appendix A shows the collected grammar with all list operators expanded to standard ABNF notation. ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction",
+            "1.2. Syntax Notation"
+          ],
+          "order": 80,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0081",
+          "sourceRefId": "src_page_report_002_rfc_9111_0081",
+          "textHash": "sha256_b535bb6e5e2f0735b4744e0a1968cf21",
+          "textQuote": "It also uses a list extension, defined in Section 5.6.1 of [ HTTP ] , that allows for compact definition of comma-separated lists using a \"#\" operator (similar to how the \"*\" operator indicates repetition). Appendix A sh"
+        }
+      ],
+      "text": "It also uses a list extension , defined in Section 5 . 6 . 1 of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0006",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0006"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0006",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9111 . ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "Status of This Memo"
+          ],
+          "order": 5,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0006",
+          "sourceRefId": "src_page_report_002_rfc_9111_0006",
+          "textHash": "sha256_05af00d5ddd9052181f0c9721da09ad6",
+          "textQuote": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9111 . ¶"
+        }
+      ],
+      "text": "Information about the current status of this document , any errata , and how to provide",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.84,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0076",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0076"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0076",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "The goal of HTTP caching is significantly improving performance by reusing a prior response message to satisfy a current request. A cache considers a stored response \"fresh\", as defined in Section 4.2 , if it can be reused without \"validation\" (checking with the origin server to see if the cached response remains valid for this request). A fresh response can",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction"
+          ],
+          "order": 75,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0076",
+          "sourceRefId": "src_page_report_002_rfc_9111_0076",
+          "textHash": "sha256_9638c76c7d2a360663101a6fad195c3e",
+          "textQuote": "The goal of HTTP caching is significantly improving performance by reusing a prior response message to satisfy a current request. A cache considers a stored response \"fresh\", as defined in Section 4.2 , if it can be reus"
+        }
+      ],
+      "text": "The goal of HTTP caching is significantly improving performance by reusing a prior response message to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0131",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0131"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0131",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "A cache MAY complete a stored incomplete response by making a subsequent range request ( Section 14.2 of [ HTTP ] ) and combining the successful response with the stored response, as defined in Section 3.4 . A cache MUST NOT use an incomplete response to answer requests unless the response has been made complete, or the request is partial and specifies a ran",
+          "headingPath": [
+            "HTTP Caching",
+            "3. Storing Responses in Caches",
+            "3.3. Storing Incomplete Responses"
+          ],
+          "order": 130,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0131",
+          "sourceRefId": "src_page_report_002_rfc_9111_0131",
+          "textHash": "sha256_b523ab1b06471106274c4055df39be66",
+          "textQuote": "A cache MAY complete a stored incomplete response by making a subsequent range request ( Section 14.2 of [ HTTP ] ) and combining the successful response with the stored response, as defined in Section 3.4 . A cache MUST"
+        }
+      ],
+      "text": "A cache MAY complete a stored incomplete response by making a subsequent range request ( Section",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0092",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0092"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0092",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "A cache might store multiple responses for a request target that is subject to content negotiation. Caches differentiate these responses by incorporating some of the original request's header fields into the cache key as well, using information in the Vary response header field, as per Section 4.1 . ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "2. Overview of Cache Operation"
+          ],
+          "order": 91,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0092",
+          "sourceRefId": "src_page_report_002_rfc_9111_0092",
+          "textHash": "sha256_8c2e419bf6e3b92543e90cdbca002de0",
+          "textQuote": "A cache might store multiple responses for a request target that is subject to content negotiation. Caches differentiate these responses by incorporating some of the original request's header fields into the cache key as"
+        }
+      ],
+      "text": "A cache might store multiple responses for a request target that is subject to content negotiation",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0114",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0114"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0114",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "Caches MUST include all received response header fields -- including unrecognized ones -- when storing a response; this assures that new HTTP header fields can be successfully deployed. However, the following exceptions are made: ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "3. Storing Responses in Caches",
+            "3.1. Storing Header and Trailer Fields"
+          ],
+          "order": 113,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0114",
+          "sourceRefId": "src_page_report_002_rfc_9111_0114",
+          "textHash": "sha256_1ecd48918b9485dd6a5489d79124c8bc",
+          "textQuote": "Caches MUST include all received response header fields -- including unrecognized ones -- when storing a response; this assures that new HTTP header fields can be successfully deployed. However, the following exceptions "
+        }
+      ],
+      "text": "Caches MUST include all received response header fields - - including unrecognized ones - - when",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0082",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "The following core rule is included by reference, as defined in [ RFC5234 ], Appendix B.1 : DIGIT (decimal 0-9). ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction",
+            "1.2. Syntax Notation",
+            "1.2.1. Imported Rules"
+          ],
+          "order": 81,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0082",
+          "sourceRefId": "src_page_report_002_rfc_9111_0082",
+          "textHash": "sha256_e369e307a706e66d500aeb9e3dc84ee1",
+          "textQuote": "The following core rule is included by reference, as defined in [ RFC5234 ], Appendix B.1 : DIGIT (decimal 0-9). ¶"
+        }
+      ],
+      "text": "The following core rule is included by reference , as defined in [ RFC5234 ] ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0087",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0087"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0087",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "A recipient parsing a delta-seconds value and converting it to binary form ought to use an arithmetic type of at least 31 bits of non-negative integer range. If a cache receives a delta-seconds value greater than the greatest integer it can represent, or if any of its subsequent calculations overflows, the cache MUST consider the value to be 2147483648 (2 31",
+          "headingPath": [
+            "HTTP Caching",
+            "1. Introduction",
+            "1.2. Syntax Notation",
+            "1.2.2. Delta Seconds"
+          ],
+          "order": 86,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0087",
+          "sourceRefId": "src_page_report_002_rfc_9111_0087",
+          "textHash": "sha256_a877627a666866b3f3da6a8f69833959",
+          "textQuote": "A recipient parsing a delta-seconds value and converting it to binary form ought to use an arithmetic type of at least 31 bits of non-negative integer range. If a cache receives a delta-seconds value greater than the gre"
+        }
+      ],
+      "text": "A recipient parsing a delta - seconds value and converting it to binary form ought to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_report_002_rfc_9111_0139",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_002_rfc_9111_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_002_rfc_9111_0139"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_002_rfc_9111_0139",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_002_rfc_9111_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ea2539526647c985f13f96ade22f8d7630af1da87eb05b473bd2b194209525b",
+          "fallbackText": "request header fields nominated by the stored response (if any) match those presented (see Section 4.1 ), and ¶",
+          "headingPath": [
+            "HTTP Caching",
+            "4. Constructing Responses from Caches"
+          ],
+          "order": 138,
+          "pageId": "page_report_002_rfc_9111",
+          "paragraphId": "pg_page_report_002_rfc_9111_0139",
+          "sourceRefId": "src_page_report_002_rfc_9111_0139",
+          "textHash": "sha256_9347029d3bc94a277aae8b475a1b56bc",
+          "textQuote": "request header fields nominated by the stored response (if any) match those presented (see Section 4.1 ), and ¶"
+        }
+      ],
+      "text": "request header fields nominated by the stored response ( if any ) match those presented (",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_report_002_rfc_9111",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.079,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Most commonly , caches store the successful result of a retrieval request : i . e",
+      "Although caching is an entirely OPTIONAL feature of HTTP , it can be assumed that reusing",
+      "Note : The value 2147483648 is here for historical reasons , represents infinity ( over 68",
+      "In some cases , caches ( especially in user agents ) store the results of processing",
+      "A response might transfer only a partial representation if the connection closed prematurely or if the"
+    ],
+    "tldr": "Most commonly , caches store the successful result of a retrieval request : i . e"
+  }
+}

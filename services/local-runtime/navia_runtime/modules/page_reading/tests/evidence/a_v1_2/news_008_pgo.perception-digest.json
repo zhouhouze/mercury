@@ -1,0 +1,644 @@
+{
+  "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+  "digestId": "digest_page_news_008_pgo",
+  "items": [
+    {
+      "confidence": 0.852,
+      "importance": 0.901,
+      "itemId": "item_block_pg_page_news_008_pgo_0118",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0022"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0118"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0118",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0022",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "Next article: Scaling gopls for the growing Go ecosystem Previous article: Perfectly Reproducible, Verified Go Toolchains Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Acknowledgements"
+          ],
+          "order": 117,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0118",
+          "sourceRefId": "src_page_news_008_pgo_0118",
+          "textHash": "sha256_764f5a9fa67039bcbcd210b493cc3680",
+          "textQuote": "Next article: Scaling gopls for the growing Go ecosystem Previous article: Perfectly Reproducible, Verified Go Toolchains Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages "
+        }
+      ],
+      "text": "Next article : Scaling gopls for the growing Go ecosystem Previous article : Perfectly Reproducible ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.847,
+      "importance": 0.89,
+      "itemId": "item_block_pg_page_news_008_pgo_0033",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "When you build a Go binary, the Go compiler performs optimizations to try to generate the best performing binary it can. For example, constant propagation can evaluate constant expressions at compile time, avoiding runtime evaluation cost. Escape analysis avoids heap allocations for locally-scoped objects, avoiding GC overheads. Inlining copies the body of s",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21"
+          ],
+          "order": 32,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0033",
+          "sourceRefId": "src_page_news_008_pgo_0033",
+          "textHash": "sha256_29cbabb90a39a78f50a7b88aa8bab7dd",
+          "textQuote": "When you build a Go binary, the Go compiler performs optimizations to try to generate the best performing binary it can. For example, constant propagation can evaluate constant expressions at compile time, avoiding runti"
+        }
+      ],
+      "text": "When you build a Go binary , the Go compiler performs optimizations to try to generate",
+      "warnings": []
+    },
+    {
+      "confidence": 0.844,
+      "importance": 0.883,
+      "itemId": "item_block_pg_page_news_008_pgo_0079",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0079"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0079",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "When specifying pprof -diff_base , the values in displayed in pprof are the difference between the two profiles. So, for instance, runtime.scanobject used 0.46s less CPU time with PGO than without. On the other hand, gitlab.com/golang-commonmark/markdown.performReplacements used 0.36s more CPU time. In a differential profile, we typically want to look at the",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Inlining"
+          ],
+          "order": 78,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0079",
+          "sourceRefId": "src_page_news_008_pgo_0079",
+          "textHash": "sha256_ee0a020fb6ed6ecb4c2c04848220bd28",
+          "textQuote": "When specifying pprof -diff_base , the values in displayed in pprof are the difference between the two profiles. So, for instance, runtime.scanobject used 0.46s less CPU time with PGO than without. On the other hand, git"
+        }
+      ],
+      "text": "When specifying pprof - diff_base , the values in displayed in pprof are the difference between",
+      "warnings": []
+    },
+    {
+      "confidence": 0.843,
+      "importance": 0.881,
+      "itemId": "item_block_pg_page_news_008_pgo_0034",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "Go improves optimizations from release to release, but doing so is no easy task. Some optimizations are tunable, but the compiler can’t just “turn it up to 11” on every optimization because overly aggressive optimizations can actually hurt performance or cause excessive build times. Other optimizations require the compiler to make a judgment call about what ",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21"
+          ],
+          "order": 33,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0034",
+          "sourceRefId": "src_page_news_008_pgo_0034",
+          "textHash": "sha256_ebba88f39634fceb633de17119a5afb0",
+          "textQuote": "Go improves optimizations from release to release, but doing so is no easy task. Some optimizations are tunable, but the compiler can’t just “turn it up to 11” on every optimization because overly aggressive optimization"
+        }
+      ],
+      "text": "Go improves optimizations from release to release , but doing so is no easy task .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.877,
+      "itemId": "item_block_pg_page_news_008_pgo_0067",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "The new version is around 3.8% faster! In Go 1.21, workloads typically get between 2% and 7% CPU usage improvements from enabling PGO. Profiles contain a wealth of information about application behavior and Go 1.21 just begins to crack the surface by using this information for a limited set of optimizations. Future releases will continue improving performanc",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Example",
+            "Evaluation"
+          ],
+          "order": 66,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0067",
+          "sourceRefId": "src_page_news_008_pgo_0067",
+          "textHash": "sha256_a058231a1535e081c3e6cb9a192ab165",
+          "textQuote": "The new version is around 3.8% faster! In Go 1.21, workloads typically get between 2% and 7% CPU usage improvements from enabling PGO. Profiles contain a wealth of information about application behavior and Go 1.21 just "
+        }
+      ],
+      "text": "The new version is around 3 . 8 % faster ! In Go 1 . 21",
+      "warnings": []
+    },
+    {
+      "confidence": 0.839,
+      "importance": 0.869,
+      "itemId": "item_block_pg_page_news_008_pgo_0080",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0080"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0080",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "top -cum shows the top differences by cumulative change. That is, the difference in CPU of a function and all transitive callees from that function. This will generally show the outermost frames in our program’s call graph, such as main or another goroutine entry point. Here we can see most savings are coming from the ruleLinkify portion of handling HTTP req",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Inlining"
+          ],
+          "order": 79,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0080",
+          "sourceRefId": "src_page_news_008_pgo_0080",
+          "textHash": "sha256_00021e95f6438cc9ddd0888c020b481d",
+          "textQuote": "top -cum shows the top differences by cumulative change. That is, the difference in CPU of a function and all transitive callees from that function. This will generally show the outermost frames in our program’s call gra"
+        }
+      ],
+      "text": "top - cum shows the top differences by cumulative change . That is , the difference",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_news_008_pgo_0068",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0068"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0068",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "In this example, after collecting a profile, we rebuilt our server using the exact same source code used in the original build. In a real-world scenario, there is always ongoing development. So we may collect a profile from production, which is running last week’s code, and use it to build with today’s source code. That is perfectly fine! PGO in Go can handl",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Next steps"
+          ],
+          "order": 67,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0068",
+          "sourceRefId": "src_page_news_008_pgo_0068",
+          "textHash": "sha256_3612e2db2904d61a21868f58d2c05080",
+          "textQuote": "In this example, after collecting a profile, we rebuilt our server using the exact same source code used in the original build. In a real-world scenario, there is always ongoing development. So we may collect a profile f"
+        }
+      ],
+      "text": "In this example , after collecting a profile , we rebuilt our server using the exact",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.86,
+      "itemId": "item_block_pg_page_news_008_pgo_0108",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0020"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0108"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0108",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0020",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "Here we have a call to the io.Reader interface method Read . Since interfaces can have multiple implementations, the compiler generates an indirect function call, meaning it looks up the correct method to call at run time from the type in the interface value. Indirect calls have a small additional runtime cost compared to direct calls, but more importantly t",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Devirtualization"
+          ],
+          "order": 107,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0108",
+          "sourceRefId": "src_page_news_008_pgo_0108",
+          "textHash": "sha256_6d8abf72ad97bac51f9ee22a100df397",
+          "textQuote": "Here we have a call to the io.Reader interface method Read . Since interfaces can have multiple implementations, the compiler generates an indirect function call, meaning it looks up the correct method to call at run tim"
+        }
+      ],
+      "text": "Here we have a call to the io . Reader interface method Read . Since interfaces",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.854,
+      "itemId": "item_block_pg_page_news_008_pgo_0089",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "The -sample_index=alloc_objects option is showing us the count of allocations, regardless of size. This is useful since we are investigating a decrease in CPU usage, which tends to correlate more with allocation count rather than size. There are quite a few reductions here, but let’s focus on the biggest reduction, mdurl.Parse .",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Inlining"
+          ],
+          "order": 88,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0089",
+          "sourceRefId": "src_page_news_008_pgo_0089",
+          "textHash": "sha256_2b4dff79d299c9ad55ddbdd75ff51975",
+          "textQuote": "The -sample_index=alloc_objects option is showing us the count of allocations, regardless of size. This is useful since we are investigating a decrease in CPU usage, which tends to correlate more with allocation count ra"
+        }
+      ],
+      "text": "The - sample_index = alloc_objects option is showing us the count of allocations , regardless of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_news_008_pgo_0081",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "top shows the top differences limited only to changes in the function itself. This will generally show inner frames in our program’s call graph, where most of the actual work is happening. Here we can see that individual savings are coming mostly from runtime functions.",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Inlining"
+          ],
+          "order": 80,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0081",
+          "sourceRefId": "src_page_news_008_pgo_0081",
+          "textHash": "sha256_21a99fadde6e98cc7dd11971f077341e",
+          "textQuote": "top shows the top differences limited only to changes in the function itself. This will generally show inner frames in our program’s call graph, where most of the actual work is happening. Here we can see that individual"
+        }
+      ],
+      "text": "top shows the top differences limited only to changes in the function itself . This will",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_page_news_008_pgo_0035",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "With no definitive information about how the code is used in a production environment, the compiler can operate only on the source code of packages. But we do have a tool to evaluate production behavior: profiling . If we provide a profile to the compiler, it can make more informed decisions: more aggressively optimizing the most frequently used functions, o",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21"
+          ],
+          "order": 34,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0035",
+          "sourceRefId": "src_page_news_008_pgo_0035",
+          "textHash": "sha256_717b8a4d14142baf395a692fc87e1a76",
+          "textQuote": "With no definitive information about how the code is used in a production environment, the compiler can operate only on the source code of packages. But we do have a tool to evaluate production behavior: profiling . If w"
+        }
+      ],
+      "text": "With no definitive information about how the code is used in a production environment , the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_news_008_pgo_0111",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0021"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0111"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0111",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0021",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "PGO-driven devirtualization extends this concept to situations where the concrete type is not statically known, but profiling can show that, for example, an io.Reader.Read call targets os.(*File).Read most of the time. In this case, PGO can replace r.Read(b) with something like:",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Devirtualization"
+          ],
+          "order": 110,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0111",
+          "sourceRefId": "src_page_news_008_pgo_0111",
+          "textHash": "sha256_16eb9cfd24a256ec2be15f21fafc090f",
+          "textQuote": "PGO-driven devirtualization extends this concept to situations where the concrete type is not statically known, but profiling can show that, for example, an io.Reader.Read call targets os.(*File).Read most of the time. I"
+        }
+      ],
+      "text": "PGO - driven devirtualization extends this concept to situations where the concrete type is not statically",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_news_008_pgo_0069",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0069"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0069",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "For much more information on using PGO, best practices and caveats to be aware of, please see the profile-guided optimization user guide . If you are curious about what is going on under the hood, keep reading!",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Next steps"
+          ],
+          "order": 68,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0069",
+          "sourceRefId": "src_page_news_008_pgo_0069",
+          "textHash": "sha256_a3ff0db3c6d2f366d03c89d1f9d3d767",
+          "textQuote": "For much more information on using PGO, best practices and caveats to be aware of, please see the profile-guided optimization user guide . If you are curious about what is going on under the hood, keep reading!"
+        }
+      ],
+      "text": "For much more information on using PGO , best practices and caveats to be aware of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.84,
+      "itemId": "item_block_pg_page_news_008_pgo_0114",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0021"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0114"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0114",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0021",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "In our analysis of the markdown server we didn’t see PGO-driven devirtualization, but we also only looked at the top impacted areas. PGO (and most compiler optimizations) generally yield their benefit in the aggregate of very small improvements in lots of different places, so there is likely more happening than just what we looked at.",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Devirtualization"
+          ],
+          "order": 113,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0114",
+          "sourceRefId": "src_page_news_008_pgo_0114",
+          "textHash": "sha256_db46b8a6dfd21a64c99ca738ba5efea3",
+          "textQuote": "In our analysis of the markdown server we didn’t see PGO-driven devirtualization, but we also only looked at the top impacted areas. PGO (and most compiler optimizations) generally yield their benefit in the aggregate of"
+        }
+      ],
+      "text": "In our analysis of the markdown server we didn ’ t see PGO - driven devirtualization",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_news_008_pgo_0104",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0019"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0104"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0104",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0019",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "In these cases, we got improved performance through fewer heap allocations. Part of the power of PGO and compiler optimizations in general is that effects on allocations are not part of the compiler’s PGO implementation at all. The only change that PGO made was to allow inlining of these hot function calls. All of the effects to escape analysis and heap allo",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Under the hood",
+            "Inlining"
+          ],
+          "order": 103,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0104",
+          "sourceRefId": "src_page_news_008_pgo_0104",
+          "textHash": "sha256_4d807390ac921407f8872bf19cad662a",
+          "textQuote": "In these cases, we got improved performance through fewer heap allocations. Part of the power of PGO and compiler optimizations in general is that effects on allocations are not part of the compiler’s PGO implementation "
+        }
+      ],
+      "text": "In these cases , we got improved performance through fewer heap allocations . Part of the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_news_008_pgo_0052",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "We recommend committing default.pgo files to your repository. Storing profiles alongside your source code ensures that users automatically have access to the profile simply by fetching the repository (either via the version control system, or via go get ) and that builds remain reproducible.",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Example",
+            "Using the profile"
+          ],
+          "order": 51,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0052",
+          "sourceRefId": "src_page_news_008_pgo_0052",
+          "textHash": "sha256_c89549b5afae21db65b5ceb135c7d5ee",
+          "textQuote": "We recommend committing default.pgo files to your repository. Storing profiles alongside your source code ensures that users automatically have access to the profile simply by fetching the repository (either via the vers"
+        }
+      ],
+      "text": "We recommend committing default . pgo files to your repository . Storing profiles alongside your source",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_news_008_pgo_0046",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "Normally you want to collect a profile from your production environment so that the compiler gets a representative view of behavior in production. Since this example doesn’t have a “production” environment, I have created a simple program to generate load while we collect a profile. Fetch and start the load generator (make sure the server is still running!):",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21",
+            "Example",
+            "Profiling"
+          ],
+          "order": 45,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0046",
+          "sourceRefId": "src_page_news_008_pgo_0046",
+          "textHash": "sha256_a84d7e81945f2d3e0ba9bec8a9ffa269",
+          "textQuote": "Normally you want to collect a profile from your production environment so that the compiler gets a representative view of behavior in production. Since this example doesn’t have a “production” environment, I have create"
+        }
+      ],
+      "text": "Normally you want to collect a profile from your production environment so that the compiler gets",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_news_008_pgo_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_008_pgo_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_008_pgo_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_008_pgo_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_008_pgo_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_54d9ea5a53690f2786ea8f1130bad2afb0679d23e688841bfec48f2cda1c661d",
+          "fallbackText": "Earlier in 2023, Go 1.20 shipped a preview of profile-guided optimization (PGO) for users to test. After addressing known limitations in the preview, and with additional refinements thanks to community feedback and contributions, PGO support in Go 1.21 is ready for general production use! See the profile-guided optimization user guide for complete documentat",
+          "headingPath": [
+            "Profile-guided optimization in Go 1.21"
+          ],
+          "order": 30,
+          "pageId": "page_news_008_pgo",
+          "paragraphId": "pg_page_news_008_pgo_0031",
+          "sourceRefId": "src_page_news_008_pgo_0031",
+          "textHash": "sha256_fa064afe632fdfb53d58ce37b446a2af",
+          "textQuote": "Earlier in 2023, Go 1.20 shipped a preview of profile-guided optimization (PGO) for users to test. After addressing known limitations in the preview, and with additional refinements thanks to community feedback and contr"
+        }
+      ],
+      "text": "Earlier in 2023 , Go 1 . 20 shipped a preview of profile - guided optimization",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_news_008_pgo",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.059,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Scaling gopls for the growing Go ecosystem Previous article : Perfectly Reproducible ,",
+      "When you build a Go binary , the Go compiler performs optimizations to try to generate",
+      "When specifying pprof - diff_base , the values in displayed in pprof are the difference between",
+      "Go improves optimizations from release to release , but doing so is no easy task .",
+      "The new version is around 3 . 8 % faster ! In Go 1 . 21"
+    ],
+    "tldr": "Next article : Scaling gopls for the growing Go ecosystem Previous article : Perfectly Reproducible ,"
+  }
+}

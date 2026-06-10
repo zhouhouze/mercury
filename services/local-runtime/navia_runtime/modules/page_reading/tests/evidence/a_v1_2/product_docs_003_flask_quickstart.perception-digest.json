@@ -1,0 +1,646 @@
+{
+  "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+  "digestId": "digest_page_product_docs_003_flask_quickstart",
+  "items": [
+    {
+      "confidence": 0.835,
+      "importance": 0.86,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0067",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Dynamic web applications also need static files. That’s usually where the CSS and JavaScript files are coming from. Ideally your web server is configured to serve them for you, but during development Flask can do that as well. Just create a folder called static in your package or next to your module and it will be available at /static on the application.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Static Files ¶"
+          ],
+          "order": 66,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0067",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0067",
+          "textHash": "sha256_b6910651a7990a4707d564f2b18576ff",
+          "textQuote": "Dynamic web applications also need static files. That’s usually where the CSS and JavaScript files are coming from. Ideally your web server is configured to serve them for you, but during development Flask can do that as"
+        }
+      ],
+      "text": "Dynamic web applications also need static files . That ’ s usually where the CSS and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0095",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0095"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0095",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Imagine the context being the handling thread. A request comes in and the web server decides to spawn a new thread (or something else, the underlying object is capable of dealing with concurrency systems other than threads). When Flask starts its internal request handling it figures out that the current thread is the active context and binds the current appl",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "Context Locals ¶"
+          ],
+          "order": 94,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0095",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0095",
+          "textHash": "sha256_4130c2c4b96c9c7b95b74c1e64df4951",
+          "textQuote": "Imagine the context being the handling thread. A request comes in and the web server decides to spawn a new thread (or something else, the underlying object is capable of dealing with concurrency systems other than threa"
+        }
+      ],
+      "text": "Imagine the context being the handling thread . A request comes in and the web server",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0146",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0146"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0146",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "In addition to the request object there is also a second object called session which allows you to store information specific to a user from one request to the next. This is implemented on top of cookies for you and signs the cookies cryptographically. What this means is that the user could look at the contents of your cookie but not modify it, unless they k",
+          "headingPath": [
+            "Quickstart ¶",
+            "Sessions ¶"
+          ],
+          "order": 145,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0146",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0146",
+          "textHash": "sha256_1ce695f5cb5b6843e312484f5ca6f634",
+          "textQuote": "In addition to the request object there is also a second object called session which allows you to store information specific to a user from one request to the next. This is implemented on top of cookies for you and sign"
+        }
+      ],
+      "text": "In addition to the request object there is also a second object called session which allows",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0096",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "So what does this mean to you? Basically you can completely ignore that this is the case unless you are doing something like unit testing. You will notice that code which depends on a request object will suddenly break because there is no request object. The solution is creating a request object yourself and binding it to the context. The easiest solution fo",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "Context Locals ¶"
+          ],
+          "order": 95,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0096",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0096",
+          "textHash": "sha256_ac57b4ff847168747ee1f3af6b433130",
+          "textQuote": "So what does this mean to you? Basically you can completely ignore that this is the case unless you are doing something like unit testing. You will notice that code which depends on a request object will suddenly break b"
+        }
+      ],
+      "text": "So what does this mean to you ? Basically you can completely ignore that this is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0031",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "When returning HTML (the default response type in Flask), any user-provided values rendered in the output must be escaped to protect from injection attacks. HTML templates rendered with Jinja, introduced later, will do this automatically.",
+          "headingPath": [
+            "Quickstart ¶",
+            "HTML Escaping ¶"
+          ],
+          "order": 30,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0031",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0031",
+          "textHash": "sha256_4a918a9dc25ca3e81b21fa035430362e",
+          "textQuote": "When returning HTML (the default response type in Flask), any user-provided values rendered in the output must be escaped to protect from injection attacks. HTML templates rendered with Jinja, introduced later, will do t"
+        }
+      ],
+      "text": "When returning HTML ( the default response type in Flask ) , any user - provided",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0107",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "We recommend accessing URL parameters with get or by catching the KeyError because users might change the URL and presenting them a 400 bad request page in that case is not user friendly.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "The Request Object ¶"
+          ],
+          "order": 106,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0107",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0107",
+          "textHash": "sha256_58d1a25aadb3937350d3a3676590ed06",
+          "textQuote": "We recommend accessing URL parameters with get or by catching the KeyError because users might change the URL and presenting them a 400 bad request page in that case is not user friendly."
+        }
+      ],
+      "text": "We recommend accessing URL parameters with get or by catching the KeyError because users might change",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0145",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0145"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0145",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "For complex types such as database models, you’ll want to use a serialization library to convert the data to valid JSON types first. There are many serialization libraries and Flask API extensions maintained by the community that support more complex applications.",
+          "headingPath": [
+            "Quickstart ¶",
+            "About Responses ¶",
+            "APIs with JSON ¶"
+          ],
+          "order": 144,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0145",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0145",
+          "textHash": "sha256_a1476e03bfb9167e77d55e21ef139c42",
+          "textQuote": "For complex types such as database models, you’ll want to use a serialization library to convert the data to valid JSON types first. There are many serialization libraries and Flask API extensions maintained by the commu"
+        }
+      ],
+      "text": "For complex types such as database models , you ’ ll want to use a serialization",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0052",
+      "kind": "open_question",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into your templates?",
+          "headingPath": [
+            "Quickstart ¶",
+            "Routing ¶",
+            "URL Building ¶"
+          ],
+          "order": 51,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0052",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0052",
+          "textHash": "sha256_cfd973d82c409d3fd8395cff4e063164",
+          "textQuote": "Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into your templates?"
+        }
+      ],
+      "text": "Why would you want to build URLs using the URL reversing function url_for ( ) instead",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0085",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0085"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0085",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Templates are especially useful if inheritance is used. If you want to know how that works, see Template Inheritance . Basically template inheritance makes it possible to keep certain elements on each page (like header, navigation and footer).",
+          "headingPath": [
+            "Quickstart ¶",
+            "Rendering Templates ¶"
+          ],
+          "order": 84,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0085",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0085",
+          "textHash": "sha256_bdff99af48142f5925f1fd775cd8fec4",
+          "textQuote": "Templates are especially useful if inheritance is used. If you want to know how that works, see Template Inheritance . Basically template inheritance makes it possible to keep certain elements on each page (like header, "
+        }
+      ],
+      "text": "Templates are especially useful if inheritance is used . If you want to know how that",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0120",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0120"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0120",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Note that cookies are set on response objects. Since you normally just return strings from the view functions Flask will convert them into response objects for you. If you explicitly want to do that you can use the make_response() function and then modify it.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "Cookies ¶"
+          ],
+          "order": 119,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0120",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0120",
+          "textHash": "sha256_c709e2e9bad81cb42858dc9b595eaa65",
+          "textQuote": "Note that cookies are set on response objects. Since you normally just return strings from the view functions Flask will convert them into response objects for you. If you explicitly want to do that you can use the make_"
+        }
+      ],
+      "text": "Note that cookies are set on response objects . Since you normally just return strings from",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0071",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja template engine for you automatically.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Rendering Templates ¶"
+          ],
+          "order": 70,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0071",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0071",
+          "textHash": "sha256_c7305bb8c54a34fc0eff9bcc8236cc29",
+          "textQuote": "Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja template engin"
+        }
+      ],
+      "text": "Generating HTML from within Python is not fun , and actually pretty cumbersome because you have",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0110",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0110"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0110",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Uploaded files are stored in memory or at a temporary location on the filesystem. You can access those files by looking at the files attribute on the request object. Each uploaded file is stored in that dictionary. It behaves just like a standard Python file object, but it also has a save() method that allows you to store that file on the filesystem of the s",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "File Uploads ¶"
+          ],
+          "order": 109,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0110",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0110",
+          "textHash": "sha256_6b4e3a11ddbd2c5c6d63f55c62afab0b",
+          "textQuote": "Uploaded files are stored in memory or at a temporary location on the filesystem. You can access those files by looking at the files attribute on the request object. Each uploaded file is stored in that dictionary. It be"
+        }
+      ],
+      "text": "Uploaded files are stored in memory or at a temporary location on the filesystem . You",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0121",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0121"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0121",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Sometimes you might want to set a cookie at a point where the response object does not exist yet. This is possible by utilizing the Deferred Request Callbacks pattern.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶",
+            "Cookies ¶"
+          ],
+          "order": 120,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0121",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0121",
+          "textHash": "sha256_110c6f665133aadc9fa4d91ef685fbe5",
+          "textQuote": "Sometimes you might want to set a cookie at a point where the response object does not exist yet. This is possible by utilizing the Deferred Request Callbacks pattern."
+        }
+      ],
+      "text": "Sometimes you might want to set a cookie at a point where the response object does",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0029",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0029"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0029",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Debugging Application Errors for information about using the built-in debugger and other debuggers.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Debug Mode ¶"
+          ],
+          "order": 28,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0029",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0029",
+          "textHash": "sha256_38770eef11c4d2285685c8b1f65a3fdd",
+          "textQuote": "Debugging Application Errors for information about using the built-in debugger and other debuggers."
+        }
+      ],
+      "text": "Debugging Application Errors for information about using the built - in debugger and other debuggers .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0086",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Automatic escaping is enabled, so if person contains HTML it will be escaped automatically. If you can trust a variable and you know that it will be safe HTML (for example because it came from a module that converts wiki markup to HTML) you can mark it as safe by using the Markup class or by using the |safe filter in the template. Head over to the Jinja 2 do",
+          "headingPath": [
+            "Quickstart ¶",
+            "Rendering Templates ¶"
+          ],
+          "order": 85,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0086",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0086",
+          "textHash": "sha256_9a2e4542c80b89bee9a1d67540f3e78f",
+          "textQuote": "Automatic escaping is enabled, so if person contains HTML it will be escaped automatically. If you can trust a variable and you know that it will be safe HTML (for example because it came from a module that converts wiki"
+        }
+      ],
+      "text": "Automatic escaping is enabled , so if person contains HTML it will be escaped automatically .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0091",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0091",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "For web applications it’s crucial to react to the data a client sends to the server. In Flask this information is provided by the global request object. If you have some experience with Python you might be wondering how that object can be global and how Flask manages to still be threadsafe. The answer is context locals:",
+          "headingPath": [
+            "Quickstart ¶",
+            "Accessing Request Data ¶"
+          ],
+          "order": 90,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0091",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0091",
+          "textHash": "sha256_4d2f4ccb4f2cf927eed4092f8ceb9b1f",
+          "textQuote": "For web applications it’s crucial to react to the data a client sends to the server. In Flask this information is provided by the global request object. If you have some experience with Python you might be wondering how "
+        }
+      ],
+      "text": "For web applications it ’ s crucial to react to the data a client sends to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "If your application is placed outside the URL root, for example, in /myapplication instead of / , url_for() properly handles that for you.",
+          "headingPath": [
+            "Quickstart ¶",
+            "Routing ¶",
+            "URL Building ¶"
+          ],
+          "order": 56,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0057",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0057",
+          "textHash": "sha256_b22512a04b75c454fb0285f3752f0cba",
+          "textQuote": "If your application is placed outside the URL root, for example, in /myapplication instead of / , url_for() properly handles that for you."
+        }
+      ],
+      "text": "If your application is placed outside the URL root , for example , in / myapplication",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_product_docs_003_flask_quickstart_0007",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_product_docs_003_flask_quickstart_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_003_flask_quickstart_0007"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_003_flask_quickstart_0007",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+          "fallbackText": "Next we create an instance of this class. The first argument is the name of the application’s module or package. __name__ is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.",
+          "headingPath": [
+            "Quickstart ¶",
+            "A Minimal Application ¶"
+          ],
+          "order": 6,
+          "pageId": "page_product_docs_003_flask_quickstart",
+          "paragraphId": "pg_page_product_docs_003_flask_quickstart_0007",
+          "sourceRefId": "src_page_product_docs_003_flask_quickstart_0007",
+          "textHash": "sha256_f75135636046b243c3e05cec72e6e333",
+          "textQuote": "Next we create an instance of this class. The first argument is the name of the application’s module or package. __name__ is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask"
+        }
+      ],
+      "text": "Next we create an instance of this class . The first argument is the name of",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_product_docs_003_flask_quickstart",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.067,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Dynamic web applications also need static files . That ’ s usually where the CSS and",
+      "Imagine the context being the handling thread . A request comes in and the web server",
+      "In addition to the request object there is also a second object called session which allows",
+      "So what does this mean to you ? Basically you can completely ignore that this is",
+      "When returning HTML ( the default response type in Flask ) , any user - provided"
+    ],
+    "tldr": "Dynamic web applications also need static files . That ’ s usually where the CSS and"
+  }
+}

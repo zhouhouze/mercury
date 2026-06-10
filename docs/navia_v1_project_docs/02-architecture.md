@@ -196,6 +196,16 @@ Chrome PageContext / HTML snapshot
   -> DebugEvidenceBundle
 ```
 
+A-V1.2 组合路线的架构职责：
+
+- `DOM baseline` 是永远可用的保底候选，不依赖第三方包。
+- `candidate extractor ensemble` 只提供候选抽取结果，必须通过依赖审计后才可启用。
+- `A-owned schema normalization` 负责把所有候选结果映射回 Navia 自有 block graph，禁止第三方 raw field 泄漏。
+- `SourceMap / jumpback` 负责让每个摘要项、关键事实和高信号块具备 `textQuote` 或 `fallbackText`。
+- `Quality Evaluator` 负责用可计算指标决定 `pass / degraded / fail`，不得写死通过。
+- `DebugEvidenceBundle` 负责把 raw signals、候选比较、过滤证据、source map 和质量报告合并成可审计 JSON。
+- `100-page corpus gate` 是 A-V1.2 出门门槛，不是可选展示材料。
+
 模块调用关系：
 
 ```text
@@ -221,6 +231,22 @@ A-V1.2 目标架构与当前架构差异：
 | 质量判断 | 小规模 fixture 与人工判断 | 100-page corpus、gold review、可计算 metric、DebugEvidenceBundle |
 | 来源反跳 | paragraph/sourceRange fallback | SourceRef 必须包含 textQuote 或 fallbackText，selector/domPath 仅为增强 |
 | 下游消费 | D/C/B 容易依赖临时 shape | 只通过公共合同和 readiness gate 消费 |
+
+A-V1.2 的关键体验路径：
+
+```text
+读取网页
+  -> A 生成 DebugEvidenceBundle
+  -> B Debug 页展示结构化 JSON、过滤证据和质量状态
+
+用户提问
+  -> D 只在 quality pass 时使用 HighSignalPageContext / PerceptionDigest
+  -> degraded/fail 时回退或返回 PAGE_CONTEXT_REQUIRED
+
+用户生成 Mindmap
+  -> C 使用 SourceMap / SourceRef 生成 nodeSourceMap
+  -> B 点击节点时优先 DOM jumpback，失败则展示 textQuote/fallbackText 证据卡
+```
 
 A-V1.2 边界：
 

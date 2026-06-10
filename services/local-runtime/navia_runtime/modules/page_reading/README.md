@@ -22,10 +22,9 @@ A-V1.0-2 image-rich web page recognition
 A-V1.0-3 OCR recognition planning
 A-V1.0-4 table / list / code block recognition
 A-V1.0-5 page region and information density recognition
-A-V1.1-* high-signal page perception
-A-V1.2-* high-quality page perception, structured page summary, jumpback evidence, Debug JSON, and 100-page evaluation
-A-V2.0-1 video perception planning
-A-V2.0-2 live perception planning
+A-V1.1-* high-signal page perception, now historical
+A-V1.2-* current high-quality page perception, structured page summary, jumpback evidence, Debug JSON, and 100-page evaluation
+A-V1.12+ future video / live perception planning
 ```
 
 ## Inputs
@@ -74,18 +73,17 @@ docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md
 docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.md
 docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.drawio
 docs/navia_v1_project_docs/stage-gates/v1.2-a-page-reading.md
-docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.1-high-signal-page-perception.md
 docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.2-production-page-perception.md
 docs/navia_v1_project_docs/design/a-v1.2-contract-freeze-readiness-audit.md
 docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json
-docs/public-api.md
-docs/executable-contract.md
-docs/fixture-spec.md
-docs/test-and-evidence-plan.md
-docs/a-v1.2-100-page-evaluation-plan.md
-docs/a-v1.2-0-contract-freeze-acceptance.md
-docs/a-v1.2-executable-development-spec.md
-docs/a-v1.2-extractor-dependency-audit.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/public-api.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/architecture.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/implementation-plan.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/test-and-evidence-plan.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-100-page-evaluation-plan.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-0-contract-freeze-acceptance.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-executable-development-spec.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-extractor-dependency-audit.md
 ```
 
 ## Validation Evidence
@@ -100,5 +98,16 @@ docs/a-v1.2-extractor-dependency-audit.md
 - `PagePerceptionQualityReport` must explain pass / degraded / fail with metric formulas, not hard-coded status.
 - `PerceptionDigestItem` must have `sourceRefs`; DOM selector cannot be the only jumpback mechanism.
 - OCR, video, and live recognition remain planning-only until governed Adapter contracts are approved.
+
+Current A-V1.2 acceptance evidence:
+
+```text
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-1-acceptance-report.md
+services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-2-8-final-acceptance-report.md
+services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json
+services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json
+```
+
+The accepted A-V1.2 baseline is `dom_baseline` plus A-owned schema normalization and real-snapshot corpus evidence. It does not claim third-party extractor ensemble, OCR, VLM, ASR, video, live perception, final answers, Mindmap, ArtifactRecord, SSE, EventStore, Trace, RAG, MCP, Skill, or external API execution by A.
 
 Use `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md` for handoff.

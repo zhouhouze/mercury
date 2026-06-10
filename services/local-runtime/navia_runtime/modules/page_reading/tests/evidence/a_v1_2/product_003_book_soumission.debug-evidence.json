@@ -1,0 +1,1159 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_product_003_book_soumission"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_product_003_book_soumission"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_product_003_book_soumission"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_product_003_book_soumission"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_product_003_book_soumission"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "All required quality gates passed."
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 10,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 1302,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_product_003_book_soumission",
+    "pageKey": "page_product_003_book_soumission",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+    "digestRef": "digest_page_product_003_book_soumission",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.668,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.754,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0001",
+            "sourceRefId": "src_page_product_003_book_soumission_0001",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata: Soumission",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.788,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Soumission"
+            ],
+            "order": 1,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0002",
+            "sourceRefId": "src_page_product_003_book_soumission_0002",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock (20 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.81,
+        "contentDensityScore": 0.684,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.798,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les forces en jeu dans le pays ont fissuré le système politique jusqu’à provoquer son effondrement. Cette implosion sans soubresauts, sans vrai",
+            "headingPath": [
+              "Soumission",
+              "Product Description"
+            ],
+            "order": 2,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0003",
+            "sourceRefId": "src_page_product_003_book_soumission_0003",
+            "textHash": "sha256_be25721ccb04c8cbc077c903c0ece369",
+            "textQuote": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les"
+          }
+        ],
+        "text": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les forces en jeu dans le pays ont fissuré le système politique jusqu’à provoquer son effondrement. Cette implosion sans soubresauts, sans vraie révolution, s Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les forces en jeu dans le pays ont fissuré le système politique jusqu’à provoquer son effondrement. Cette implosion sans soubresauts, sans vraie révolution, se développe comme un mauvais rêve.Le talent de l’auteur, sa force visionnaire nous entraînent sur un terrain ambigu et glissant ; son regard sur notre civilisation vieillissante fait coexister dans ce roman les intuitions poétiques, les effets comiques, une mélancolie fataliste.Ce livre est une saisissante fable politique et morale. ...more",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0004",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.795,
+        "contentDensityScore": 0.661,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 3,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0004"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0004",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "6957f44c3847a760",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 3,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0004",
+            "sourceRefId": "src_page_product_003_book_soumission_0004",
+            "textHash": "sha256_fec99ddebe622e6c19b06d7f159ecd76",
+            "textQuote": "6957f44c3847a760"
+          }
+        ],
+        "text": "6957f44c3847a760",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0005",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 4,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0005"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0005",
+            "sourceRefId": "src_page_product_003_book_soumission_0005",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price (excl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0006",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 5,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0006"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0006",
+            "sourceRefId": "src_page_product_003_book_soumission_0006",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price (incl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0007",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 6,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0007"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0007",
+            "sourceRefId": "src_page_product_003_book_soumission_0007",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock (20 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0008",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 7,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0008"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0008",
+            "sourceRefId": "src_page_product_003_book_soumission_0008",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0009",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 8,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0009"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0009",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "Soumission",
+              "Products you recently viewed"
+            ],
+            "order": 8,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0009",
+            "sourceRefId": "src_page_product_003_book_soumission_0009",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata: Tipping the Velvet",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0010",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.675,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 9,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphIds": [
+          "pg_page_product_003_book_soumission_0010"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: A Light in the Attic",
+            "headingPath": [
+              "Soumission",
+              "Products you recently viewed",
+              "Tipping the Velvet"
+            ],
+            "order": 9,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0010",
+            "sourceRefId": "src_page_product_003_book_soumission_0010",
+            "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+            "textQuote": "Image metadata: A Light in the Attic"
+          }
+        ],
+        "text": "Image metadata: A Light in the Attic",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "documentation",
+      "headingCount": 6,
+      "language": "en",
+      "paragraphCount": 10,
+      "wordCount": 302
+    },
+    "pageId": "page_product_003_book_soumission",
+    "qualityReportRef": "q_page_product_003_book_soumission",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_product_003_book_soumission",
+    "sourceMapRef": "smap_page_product_003_book_soumission",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+      "pageId": "page_product_003_book_soumission"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_product_003_book_soumission",
+  "perceptionDigest": {
+    "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+    "digestId": "digest_page_product_003_book_soumission",
+    "items": [
+      {
+        "confidence": 0.81,
+        "importance": 0.798,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les forces en jeu dans le pays ont fissuré le système politique jusqu’à provoquer son effondrement. Cette implosion sans soubresauts, sans vrai",
+            "headingPath": [
+              "Soumission",
+              "Product Description"
+            ],
+            "order": 2,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0003",
+            "sourceRefId": "src_page_product_003_book_soumission_0003",
+            "textHash": "sha256_be25721ccb04c8cbc077c903c0ece369",
+            "textQuote": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les"
+          }
+        ],
+        "text": "Dans une France assez proche de la nôtre , un homme s ’ engage dans la",
+        "warnings": []
+      },
+      {
+        "confidence": 0.807,
+        "importance": 0.788,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0002",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Soumission"
+            ],
+            "order": 1,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0002",
+            "sourceRefId": "src_page_product_003_book_soumission_0002",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock ( 20 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.797,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0007",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0007"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0007",
+            "sourceRefId": "src_page_product_003_book_soumission_0007",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock ( 20 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.795,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0004",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0004",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "6957f44c3847a760",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 3,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0004",
+            "sourceRefId": "src_page_product_003_book_soumission_0004",
+            "textHash": "sha256_fec99ddebe622e6c19b06d7f159ecd76",
+            "textQuote": "6957f44c3847a760"
+          }
+        ],
+        "text": "6957f44c3847a760",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0005",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0005",
+            "sourceRefId": "src_page_product_003_book_soumission_0005",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price ( excl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0006",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0006"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0006",
+            "sourceRefId": "src_page_product_003_book_soumission_0006",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price ( incl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0008",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "Soumission",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0008",
+            "sourceRefId": "src_page_product_003_book_soumission_0008",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0009",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0009"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0009",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "Soumission",
+              "Products you recently viewed"
+            ],
+            "order": 8,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0009",
+            "sourceRefId": "src_page_product_003_book_soumission_0009",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata : Tipping the Velvet",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0010",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0010"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: A Light in the Attic",
+            "headingPath": [
+              "Soumission",
+              "Products you recently viewed",
+              "Tipping the Velvet"
+            ],
+            "order": 9,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0010",
+            "sourceRefId": "src_page_product_003_book_soumission_0010",
+            "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+            "textQuote": "Image metadata: A Light in the Attic"
+          }
+        ],
+        "text": "Image metadata : A Light in the Attic",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.754,
+        "itemId": "item_block_pg_page_product_003_book_soumission_0001",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_003_book_soumission_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_003_book_soumission_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_003_book_soumission_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_product_003_book_soumission_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_003_book_soumission",
+            "paragraphId": "pg_page_product_003_book_soumission_0001",
+            "sourceRefId": "src_page_product_003_book_soumission_0001",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata : Soumission",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_product_003_book_soumission",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.228,
+      "itemCount": 10,
+      "sourceRefCount": 10
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "Dans une France assez proche de la nôtre , un homme s ’ engage dans la",
+        "In stock ( 20 available )",
+        "In stock ( 20 available )",
+        "6957f44c3847a760",
+        "Price ( excl . tax )"
+      ],
+      "tldr": "Dans une France assez proche de la nôtre , un homme s ’ engage dans la"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 6.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.6
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.228,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.964
+      },
+      "contentCoverage": {
+        "denominator": 1302.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 1302.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 206.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 47.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.228
+      },
+      "groundingCompleteness": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.968,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_product_003_book_soumission",
+    "reportId": "q_page_product_003_book_soumission",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 1302,
+    "codeBlockCount": 0,
+    "domain": "books.toscrape.com",
+    "headingCount": 6,
+    "htmlAvailable": true,
+    "imageCount": 3,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 5,
+    "title": "product_003_book_soumission",
+    "url": "https://books.toscrape.com/catalogue/soumission_998/index.html",
+    "visibleTextLength": 302
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+    "pageId": "page_product_003_book_soumission",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_product_003_book_soumission",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Image metadata: Soumission",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0001",
+        "sourceRefId": "src_page_product_003_book_soumission_0001",
+        "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+        "textQuote": "Image metadata: Soumission"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "In stock (20 available)",
+        "headingPath": [
+          "Soumission"
+        ],
+        "order": 1,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0002",
+        "sourceRefId": "src_page_product_003_book_soumission_0002",
+        "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+        "textQuote": "In stock (20 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les forces en jeu dans le pays ont fissuré le système politique jusqu’à provoquer son effondrement. Cette implosion sans soubresauts, sans vrai",
+        "headingPath": [
+          "Soumission",
+          "Product Description"
+        ],
+        "order": 2,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0003",
+        "sourceRefId": "src_page_product_003_book_soumission_0003",
+        "textHash": "sha256_be25721ccb04c8cbc077c903c0ece369",
+        "textQuote": "Dans une France assez proche de la nôtre, un homme s’engage dans la carrière universitaire. Peu motivé par l’enseignement, il s’attend à une vie ennuyeuse mais calme, protégée des grands drames historiques. Cependant les"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0004",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "6957f44c3847a760",
+        "headingPath": [
+          "Soumission",
+          "Product Information"
+        ],
+        "order": 3,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0004",
+        "sourceRefId": "src_page_product_003_book_soumission_0004",
+        "textHash": "sha256_fec99ddebe622e6c19b06d7f159ecd76",
+        "textQuote": "6957f44c3847a760"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0005",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Price (excl. tax)",
+        "headingPath": [
+          "Soumission",
+          "Product Information"
+        ],
+        "order": 4,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0005",
+        "sourceRefId": "src_page_product_003_book_soumission_0005",
+        "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+        "textQuote": "Price (excl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0006",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Price (incl. tax)",
+        "headingPath": [
+          "Soumission",
+          "Product Information"
+        ],
+        "order": 5,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0006",
+        "sourceRefId": "src_page_product_003_book_soumission_0006",
+        "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+        "textQuote": "Price (incl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0007",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "In stock (20 available)",
+        "headingPath": [
+          "Soumission",
+          "Product Information"
+        ],
+        "order": 6,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0007",
+        "sourceRefId": "src_page_product_003_book_soumission_0007",
+        "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+        "textQuote": "In stock (20 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0008",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Number of reviews",
+        "headingPath": [
+          "Soumission",
+          "Product Information"
+        ],
+        "order": 7,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0008",
+        "sourceRefId": "src_page_product_003_book_soumission_0008",
+        "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+        "textQuote": "Number of reviews"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0009",
+        "blockType": "image",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Image metadata: Tipping the Velvet",
+        "headingPath": [
+          "Soumission",
+          "Products you recently viewed"
+        ],
+        "order": 8,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0009",
+        "sourceRefId": "src_page_product_003_book_soumission_0009",
+        "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+        "textQuote": "Image metadata: Tipping the Velvet"
+      },
+      {
+        "blockId": "block_pg_page_product_003_book_soumission_0010",
+        "blockType": "image",
+        "chunkId": "ck_page_product_003_book_soumission_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_2e85e41316ad50c29cd9b98d2c6646e9468bb3f62e103f31fffdecde4a67275b",
+        "fallbackText": "Image metadata: A Light in the Attic",
+        "headingPath": [
+          "Soumission",
+          "Products you recently viewed",
+          "Tipping the Velvet"
+        ],
+        "order": 9,
+        "pageId": "page_product_003_book_soumission",
+        "paragraphId": "pg_page_product_003_book_soumission_0010",
+        "sourceRefId": "src_page_product_003_book_soumission_0010",
+        "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+        "textQuote": "Image metadata: A Light in the Attic"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "All required quality gates passed.",
+  "warnings": []
+}

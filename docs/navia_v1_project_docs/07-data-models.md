@@ -207,9 +207,9 @@ type StructuredPageContext = {
 
 ---
 
-## 7.2 A-V1.1 High-Signal Page Models
+## 7.2 A-V1.2 High-Signal Page Models
 
-详细合同见 `contracts/v1_2_adapter_contracts.md`。A-V1.1 在 `StructuredPageContext` 之上增加高信号视图和质量评估：
+详细合同见 `contracts/v1_2_adapter_contracts.md` 和 `contracts/a_v1_2_page_perception.schema.json`。A-V1.2 在 `StructuredPageContext` 之上增加高信号视图、结构化页面摘要、反跳来源和质量评估。历史 `a-v1.1-*` schemaVersion 是兼容 wire shape，不代表当前开发阶段退回 A-V1.1。
 
 ```ts
 type HighSignalPageContext = {
@@ -260,7 +260,7 @@ type PagePerceptionQualityReport = {
 
 约束：
 
-- A-V1.1 模型是公共合同后才能被 D/C 依赖 exact shape。
+- A-V1.2 high-signal 模型只能通过公共合同被 D/C 依赖 exact shape。
 - `SourceRef.selector` / `domPath` 可选，不能作为唯一反跳机制。
 - `PerceptionDigest.items[]` 中每个 item 必须有 source refs。
 - `PagePerceptionQualityReport` 必须按冻结公式计算，不能写死通过。
@@ -370,7 +370,8 @@ type ArtifactRecord = {
 - 文本摘要和回答默认 `metadata.format = "markdown"`。
 - Mermaid mindmap 使用 `metadata.format = "mermaid"`，`content` 存 Mermaid source。
 - `explain_selection` 产生 `type = "answer"`、`source = "selection"` 的 ArtifactRecord。
-- 成功工具必须创建 ArtifactRecord；失败、denied 或 budget_exceeded 不得创建假 artifact。
+- 成功 D / Integration 工具必须创建 ArtifactRecord；失败、denied 或 budget_exceeded 不得创建假 artifact。
+- A 页面感知模块不创建 ArtifactRecord，只输出 page perception contracts 与 evidence files。
 - V1 AI 伴读中，summary / answer / mindmap artifact 必须能追溯到 `sourcePageId`、`turnId`、`toolCallId`。
 - Mindmap 视觉渲染状态不写入 ArtifactRecord 顶层字段；Runtime 只存 Mermaid source 和 validation metadata，Frontend 单独处理 renderer failure 与 source fallback。
 - V1.2 Mindmap artifact 必须在 metadata 中记录 `nodeSourceMap`，用于节点反跳或 source excerpt fallback。

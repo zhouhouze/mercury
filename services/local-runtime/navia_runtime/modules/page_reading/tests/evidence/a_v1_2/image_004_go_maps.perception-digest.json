@@ -1,0 +1,625 @@
+{
+  "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+  "digestId": "digest_page_image_004_go_maps",
+  "items": [
+    {
+      "confidence": 0.837,
+      "importance": 0.864,
+      "itemId": "item_block_pg_page_image_004_go_maps_0093",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0093"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0093",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Next article: Get thee to a Go meetup Previous article: go fmt your code Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Golang Week",
+          "headingPath": [
+            "Go maps in action",
+            "Iteration order"
+          ],
+          "order": 92,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0093",
+          "sourceRefId": "src_page_image_004_go_maps_0093",
+          "textHash": "sha256_5f72e013374b74c7aad8bd6a2e29c527",
+          "textQuote": "Next article: Get thee to a Go meetup Previous article: go fmt your code Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download"
+        }
+      ],
+      "text": "Next article : Get thee to a Go meetup Previous article : go fmt your code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_image_004_go_maps_0070",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "As mentioned earlier, map keys may be of any type that is comparable. The language spec defines this precisely, but in short, comparable types are boolean, numeric, string, pointer, channel, and interface types, and structs or arrays that contain only those types. Notably absent from the list are slices, maps, and functions; these types cannot be compared us",
+          "headingPath": [
+            "Go maps in action",
+            "Key types"
+          ],
+          "order": 69,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0070",
+          "sourceRefId": "src_page_image_004_go_maps_0070",
+          "textHash": "sha256_4ba9c4b55d62e804a8c8a32724c1b565",
+          "textQuote": "As mentioned earlier, map keys may be of any type that is comparable. The language spec defines this precisely, but in short, comparable types are boolean, numeric, string, pointer, channel, and interface types, and stru"
+        }
+      ],
+      "text": "As mentioned earlier , map keys may be of any type that is comparable . The",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_image_004_go_maps_0083",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0083"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0083",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Maps are not safe for concurrent use : it’s not defined what happens when you read and write to them simultaneously. If you need to read from and write to a map from concurrently executing goroutines, the accesses must be mediated by some kind of synchronization mechanism. One common way to protect maps is with sync.RWMutex .",
+          "headingPath": [
+            "Go maps in action",
+            "Concurrency"
+          ],
+          "order": 82,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0083",
+          "sourceRefId": "src_page_image_004_go_maps_0083",
+          "textHash": "sha256_596131281db8a5ea083b13cbeba5138f",
+          "textQuote": "Maps are not safe for concurrent use : it’s not defined what happens when you read and write to them simultaneously. If you need to read from and write to a map from concurrently executing goroutines, the accesses must b"
+        }
+      ],
+      "text": "Maps are not safe for concurrent use : it ’ s not defined what happens when",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_image_004_go_maps_0075",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Unfortunately, this approach becomes unwieldy when adding data, as for any given outer key you must check if the inner map exists, and create it if needed:",
+          "headingPath": [
+            "Go maps in action",
+            "Key types"
+          ],
+          "order": 74,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0075",
+          "sourceRefId": "src_page_image_004_go_maps_0075",
+          "textHash": "sha256_7c71baf0ca7aac3228e2a3fda6ba4a83",
+          "textQuote": "Unfortunately, this approach becomes unwieldy when adding data, as for any given outer key you must check if the inner map exists, and create it if needed:"
+        }
+      ],
+      "text": "Unfortunately , this approach becomes unwieldy when adding data , as for any given outer key",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_image_004_go_maps_0071",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "It’s obvious that strings, ints, and other basic types should be available as map keys, but perhaps unexpected are struct keys. Struct can be used to key data by multiple dimensions. For example, this map of maps could be used to tally web page hits by country:",
+          "headingPath": [
+            "Go maps in action",
+            "Key types"
+          ],
+          "order": 70,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0071",
+          "sourceRefId": "src_page_image_004_go_maps_0071",
+          "textHash": "sha256_d083f85dc5497187a180688031aa022a",
+          "textQuote": "It’s obvious that strings, ints, and other basic types should be available as map keys, but perhaps unexpected are struct keys. Struct can be used to key data by multiple dimensions. For example, this map of maps could b"
+        }
+      ],
+      "text": "It ’ s obvious that strings , ints , and other basic types should be available",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_image_004_go_maps_0069",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0069"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0069",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Note that since both range and len treat a nil slice as a zero-length slice, these last two examples will work even if nobody likes cheese or bacon (however unlikely that may be).",
+          "headingPath": [
+            "Go maps in action",
+            "Exploiting zero values"
+          ],
+          "order": 68,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0069",
+          "sourceRefId": "src_page_image_004_go_maps_0069",
+          "textHash": "sha256_c0357e9ba0a8147cd09f0b4d4102326b",
+          "textQuote": "Note that since both range and len treat a nil slice as a zero-length slice, these last two examples will work even if nobody likes cheese or bacon (however unlikely that may be)."
+        }
+      ],
+      "text": "Note that since both range and len treat a nil slice as a zero - length",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_image_004_go_maps_0031",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-in map type that implements a hash table.",
+          "headingPath": [
+            "Go maps in action",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0031",
+          "sourceRefId": "src_page_image_004_go_maps_0031",
+          "textHash": "sha256_6ee05e114febac86d4790f3b00d8598f",
+          "textQuote": "One of the most useful data structures in computer science is the hash table. Many hash table implementations exist with varying properties, but in general they offer fast lookups, adds, and deletes. Go provides a built-"
+        }
+      ],
+      "text": "One of the most useful data structures in computer science is the hash table . Many",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_image_004_go_maps_0081",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "And it’s similarly straightforward to see how many Swiss people have read the spec:",
+          "headingPath": [
+            "Go maps in action",
+            "Key types"
+          ],
+          "order": 80,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0081",
+          "sourceRefId": "src_page_image_004_go_maps_0081",
+          "textHash": "sha256_fc3f4149e8de6e8f93eb14872f973cab",
+          "textQuote": "And it’s similarly straightforward to see how many Swiss people have read the spec:"
+        }
+      ],
+      "text": "And it ’ s similarly straightforward to see how many Swiss people have read the spec",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_image_004_go_maps_0090",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0090"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0090",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "When iterating over a map with a range loop, the iteration order is not specified and is not guaranteed to be the same from one iteration to the next. If you require a stable iteration order you must maintain a separate data structure that specifies that order. This example uses a separate sorted slice of keys to print a map[int]string in key order:",
+          "headingPath": [
+            "Go maps in action",
+            "Iteration order"
+          ],
+          "order": 89,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0090",
+          "sourceRefId": "src_page_image_004_go_maps_0090",
+          "textHash": "sha256_c8e2ae0da86e8b241c5613e7b14555e2",
+          "textQuote": "When iterating over a map with a range loop, the iteration order is not specified and is not guaranteed to be the same from one iteration to the next. If you require a stable iteration order you must maintain a separate "
+        }
+      ],
+      "text": "When iterating over a map with a range loop , the iteration order is not specified",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_image_004_go_maps_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0020",
+          "sourceRefId": "src_page_image_004_go_maps_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_004_go_maps_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0013",
+          "sourceRefId": "src_page_image_004_go_maps_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_004_go_maps_0040",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0040"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0040",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Go provides a familiar syntax for working with maps. This statement sets the key \"route\" to the value 66 :",
+          "headingPath": [
+            "Go maps in action",
+            "Working with maps"
+          ],
+          "order": 39,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0040",
+          "sourceRefId": "src_page_image_004_go_maps_0040",
+          "textHash": "sha256_0d786728b9bb74f5cb5fe9a86b7a0c53",
+          "textQuote": "Go provides a familiar syntax for working with maps. This statement sets the key \"route\" to the value 66 :"
+        }
+      ],
+      "text": "Go provides a familiar syntax for working with maps . This statement sets the key \"",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_004_go_maps_0060",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "For instance, a map of boolean values can be used as a set-like data structure (recall that the zero value for the boolean type is false). This example traverses a linked list of Nodes and prints their values. It uses a map of Node pointers to detect cycles in the list.",
+          "headingPath": [
+            "Go maps in action",
+            "Exploiting zero values"
+          ],
+          "order": 59,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0060",
+          "sourceRefId": "src_page_image_004_go_maps_0060",
+          "textHash": "sha256_7c764727d17fb90aa55b27ef28515965",
+          "textQuote": "For instance, a map of boolean values can be used as a set-like data structure (recall that the zero value for the boolean type is false). This example traverses a linked list of Nodes and prints their values. It uses a "
+        }
+      ],
+      "text": "For instance , a map of boolean values can be used as a set - like",
+      "warnings": []
+    },
+    {
+      "confidence": 0.811,
+      "importance": 0.8,
+      "itemId": "item_block_pg_page_image_004_go_maps_0035",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "This variable m is a map of string keys to int values:",
+          "headingPath": [
+            "Go maps in action",
+            "Declaration and initialization"
+          ],
+          "order": 34,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0035",
+          "sourceRefId": "src_page_image_004_go_maps_0035",
+          "textHash": "sha256_d0e81e2549137c2cb0b8947b223e84e4",
+          "textQuote": "This variable m is a map of string keys to int values:"
+        }
+      ],
+      "text": "This variable m is a map of string keys to int values :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.811,
+      "importance": 0.799,
+      "itemId": "item_block_pg_page_image_004_go_maps_0009",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "A complete introduction to building software with Go",
+          "headingPath": [],
+          "order": 8,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0009",
+          "sourceRefId": "src_page_image_004_go_maps_0009",
+          "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+          "textQuote": "A complete introduction to building software with Go"
+        }
+      ],
+      "text": "A complete introduction to building software with Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.798,
+      "itemId": "item_block_pg_page_image_004_go_maps_0011",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0011"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0011",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Reference documentation for Go's standard library",
+          "headingPath": [],
+          "order": 10,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0011",
+          "sourceRefId": "src_page_image_004_go_maps_0011",
+          "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+          "textQuote": "Reference documentation for Go's standard library"
+        }
+      ],
+      "text": "Reference documentation for Go ' s standard library",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.798,
+      "itemId": "item_block_pg_page_image_004_go_maps_0037",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0037"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0037",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "Map types are reference types, like pointers or slices, and so the value of m above is nil ; it doesn’t point to an initialized map. A nil map behaves like an empty map when reading, but attempts to write to a nil map will cause a runtime panic; don’t do that. To initialize a map, use the built in make function:",
+          "headingPath": [
+            "Go maps in action",
+            "Declaration and initialization"
+          ],
+          "order": 36,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0037",
+          "sourceRefId": "src_page_image_004_go_maps_0037",
+          "textHash": "sha256_4dc6de79ece935a014e48e84f5ea6aea",
+          "textQuote": "Map types are reference types, like pointers or slices, and so the value of m above is nil ; it doesn’t point to an initialized map. A nil map behaves like an empty map when reading, but attempts to write to a nil map wi"
+        }
+      ],
+      "text": "Map types are reference types , like pointers or slices , and so the value of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.798,
+      "itemId": "item_block_pg_page_image_004_go_maps_0041",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_004_go_maps_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_004_go_maps_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_004_go_maps_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_004_go_maps_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_5ca2172496a6f6dedf87412ea255956b5bff27a55baf443dacb4f7ea02689d49",
+          "fallbackText": "This statement retrieves the value stored under the key \"route\" and assigns it to a new variable i:",
+          "headingPath": [
+            "Go maps in action",
+            "Working with maps"
+          ],
+          "order": 40,
+          "pageId": "page_image_004_go_maps",
+          "paragraphId": "pg_page_image_004_go_maps_0041",
+          "sourceRefId": "src_page_image_004_go_maps_0041",
+          "textHash": "sha256_d8126e92966db5912d7c02e98f36422d",
+          "textQuote": "This statement retrieves the value stored under the key \"route\" and assigns it to a new variable i:"
+        }
+      ],
+      "text": "This statement retrieves the value stored under the key \" route \" and assigns it to",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_004_go_maps",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.14,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Get thee to a Go meetup Previous article : go fmt your code",
+      "As mentioned earlier , map keys may be of any type that is comparable . The",
+      "Maps are not safe for concurrent use : it ’ s not defined what happens when",
+      "Unfortunately , this approach becomes unwieldy when adding data , as for any given outer key",
+      "It ’ s obvious that strings , ints , and other basic types should be available"
+    ],
+    "tldr": "Next article : Get thee to a Go meetup Previous article : go fmt your code"
+  }
+}

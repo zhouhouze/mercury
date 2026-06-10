@@ -145,26 +145,25 @@ docs/navia_v1_project_docs/                   PRD, architecture, contracts, stag
 .navia/                                       Local SQLite runtime state, ignored by Git
 ```
 
-## V1.1 Documentation
+## Active Documentation
 
-The V1.1 frontend fidelity plan lives in:
+Current project documentation lives in:
 
-- `docs/navia_v1_project_docs/design/v1.1-frontend-fidelity-architecture.md`
-- `docs/navia_v1_project_docs/stage-gates/v1.1-frontend-fidelity.md`
-- `docs/navia_v1_project_docs/design/v1.1-frontend-fidelity-gap.drawio`
+- `docs/navia_v1_project_docs/README.md`
 
-V1.1 does not reopen Runtime, AgentEvent, ToolResult, or PageContext contracts. It is a high-fidelity frontend experience stage that requires a Figma screenshot or normal Figma `/design/` node before final visual acceptance can be claimed.
-
-## V1.2 Documentation
-
-The V1.2 AI reading architecture and workspace partition plan lives in:
+The current active stage is A-V1.2 page perception. Its development and audit package lives in:
 
 - `docs/navia_v1_project_docs/design/v1.2-ai-reading-modular-architecture.md`
 - `docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md`
 - `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md`
 - `docs/navia_v1_project_docs/stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md`
+- `docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.drawio`
+- `docs/navia_v1_project_docs/stage-gates/v1.2-a-v1.2-production-page-perception.md`
+- `docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json`
 
 V1.2 allows lightweight MCP / Skill / External API Adapter contracts only through D Adapter Layer and governance hooks. It does not allow long-term memory, RAG, multi-agent orchestration, browser automation, or high-risk side effects by default.
+
+Historical V1.0, V1.1, A-V1.1, and V1.13-V1.16 documents have been moved to `docs/history/`.
 
 Additional external-agent onboarding docs:
 

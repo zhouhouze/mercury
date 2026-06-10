@@ -24,20 +24,18 @@ PRD/窗口交互_PRD.md
 如果当前阶段已有 stage-gate 文档，还必须读取：
 
 ```text
-stage-gates/v1.0-x-<stage-name>.md
+stage-gates/v1.2-<module-or-stage>.md
 ```
 
-V1.1 前端高保真阶段还必须读取：
+A-V1.2 当前阶段还必须读取：
 
 ```text
-PRD/窗口交互_PRD.md
-12-interaction-prd-authority-and-revised-plan.md
-stage-gates/v1.1-frontend-fidelity.md
-design/v1.1-frontend-fidelity-implementation-spec.md
-design/v1.1-figma-baseline/README.md
-design/v1.1-figma-baseline/capture-matrix.md
-design/v1.1-figma-baseline/capture-manifest.json
-design/v1.1-figma-baseline/manual-capture-runbook.md
+contracts/a_v1_2_page_perception.schema.json
+design/v1.2-a-page-perception-gap.md
+design/v1.2-a-page-perception-gap.drawio
+design/a-v1.2-contract-freeze-readiness-audit.md
+stage-gates/v1.2-a-page-reading.md
+stage-gates/v1.2-a-v1.2-production-page-perception.md
 ```
 
 ---
@@ -332,35 +330,33 @@ V1 禁止默认启用：
 
 ---
 
-## 9.2 V1.1 前端高保真对齐
+## 9.2 历史 V1.1 前端高保真归档
 
-V1.1 开工前必须额外读取：
+V1.1 前端高保真文档已归档到：
 
-- [ ] `design/v1.1-frontend-fidelity-architecture.md`。
-- [ ] `design/v1.1-frontend-fidelity-implementation-spec.md`。
-- [ ] `stage-gates/v1.1-frontend-fidelity.md`。
-- [ ] `design/v1.1-frontend-fidelity-gap.drawio`。
-- [ ] 用户提供 Image #1/#2、PRD 硬约束、design-only、deferred scope 均已登记；若只有 Figma Make 资源清单，不得声明最终视觉通过。
+```text
+docs/history/V1.1/
+```
 
-V1.1 实现前必须确认：
+历史 V1.1 文档只用于追溯，不作为当前 A-V1.2 开工或验收依据。若重新启用视觉高保真阶段，必须先恢复为当前阶段文档并重新审计。
 
-- [ ] 不新增 Runtime API。
-- [ ] 不修改 AgentEvent / ToolResult / PageContext 合同。
-- [ ] 不把 Chrome Side Panel 作为高保真验收对象。
-- [ ] 保留 PageContext、SSE Chat、Mermaid、Session restore、push / overlay / resize / collapse recovery。
-- [ ] 视觉 token 已集中定义：颜色、字体、圆角、阴影、间距、轨道宽度、动画时长。
-- [ ] Figma `MainLayout / MockPage / FloatingBall / Sidebar / ChatArea` 已映射到真实注入面板语义。
-- [ ] Playwright 截图验收覆盖默认态、hover 态、窄距、半屏、覆盖、小视口。
-- [ ] Runtime offline、PageContext missing、tool failure 有明确视觉状态；Mermaid / mindmap 后续专项。
+A-V1.2 开工前必须确认：
 
-V1.1 false-green 防线：
+- [ ] `design/v1.2-a-page-perception-gap.drawio` 与 Markdown companion 一致。
+- [ ] `contracts/a_v1_2_page_perception.schema.json` 可解析。
+- [ ] `stage-gates/v1.2-a-v1.2-production-page-perception.md` 明确 A-V1.2-0 到 A-V1.2-8。
+- [ ] 100-page corpus gate、gold review gate、extractor dependency audit 和 quality formula gate 均已冻结。
 
-- [ ] 没有视觉基线不得声明高保真通过。
-- [ ] manifest 中仍有 blocking state 不得进入 V1.1 实质实现。
-- [ ] 只通过 DOM 测试不得声明高保真通过。
-- [ ] 只通过 Side Panel 不得声明高保真通过。
-- [ ] 截图偏离关键布局比例不得声明通过。
-- [ ] Runtime / Trace / Session 断链不得声明通过。
+A-V1.2 false-green 防线：
+
+- [ ] 少于 100 个最终计入网页不得声明 A-V1.2 完成。
+- [ ] URL-only、`planned` 或 `annotated` gold 页面不得计入最终验收。
+- [ ] 低信号页不得伪装为 `pass`。
+- [ ] Digest item 缺少 `sourceRefs` 不得进入通过输出。
+- [ ] DOM selector 不得作为唯一反跳机制。
+- [ ] QualityReport 不得写死 `pass`。
+- [ ] 第三方 extractor 原始输出不得直接暴露为 Navia 公共合同。
+- [ ] A 模块不得声明完成最终回答、Mindmap、RAG、Notebook、AgenticLoop、OCR/VLM/ASR/video/live engine。
 
 ---
 

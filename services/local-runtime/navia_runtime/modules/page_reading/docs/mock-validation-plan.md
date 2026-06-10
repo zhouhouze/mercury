@@ -71,9 +71,9 @@ Current result:
 8 passed
 ```
 
-## A-V1.1 Mock Validation Additions
+## A-V1.2 High-Signal Baseline Mock Validation
 
-New fixture families:
+These fixture families came from the historical high-signal stage and remain required A-V1.2 baseline validation:
 
 - `article_noise.html` verifies boilerplate and recommendation filtering.
 - `news_with_sidebar.html` verifies sidebar, footer, comment, and ad-like block downgrade.
@@ -84,7 +84,7 @@ New fixture families:
 - `video_page_stub.html` verifies media contracts without real video engine execution.
 - `empty_or_low_signal.html` verifies quality gate failure.
 
-Required A-V1.1 evidence:
+Required A-V1.2 baseline evidence:
 
 - `*.high-signal-page.json`
 - `*.perception-digest.json`
@@ -107,5 +107,5 @@ Fail criteria:
 - Quality report always returns pass.
 - Digest items lack grounding.
 - A directly calls OCR, VLM, ASR, video, live stream, MCP, Skill, or external API.
-- D/C/B consume A-V1.1 exact shapes before public contract promotion.
+- D/C/B consume high-signal exact shapes outside the frozen A-V1.2 public contract and readiness gate.
 - SourceRef relies only on selector/domPath without textQuote or fallbackText.

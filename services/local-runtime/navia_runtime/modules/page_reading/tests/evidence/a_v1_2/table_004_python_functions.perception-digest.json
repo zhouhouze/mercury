@@ -1,0 +1,619 @@
+{
+  "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+  "digestId": "digest_page_table_004_python_functions",
+  "items": [
+    {
+      "confidence": 0.836,
+      "importance": 0.863,
+      "itemId": "item_block_pg_page_table_004_python_functions_0036",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "This function drops you into the debugger at the call site. Specifically, it calls sys.breakpointhook() , passing args and kws straight through. By default, sys.breakpointhook() calls pdb.set_trace() expecting no arguments. In this case, it is purely a convenience function so you don’t have to explicitly import pdb or type as much code to enter the debugger.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 35,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0036",
+          "sourceRefId": "src_page_table_004_python_functions_0036",
+          "textHash": "sha256_97e58a10c4bda30b4351091be4881c95",
+          "textQuote": "This function drops you into the debugger at the call site. Specifically, it calls sys.breakpointhook() , passing args and kws straight through. By default, sys.breakpointhook() calls pdb.set_trace() expecting no argumen"
+        }
+      ],
+      "text": "This function drops you into the debugger at the call site . Specifically , it calls",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_table_004_python_functions_0075",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "When compiling a string with multi-line code in 'single' or 'eval' mode, input must be terminated by at least one newline character. This is to facilitate detection of incomplete and complete statements in the code module.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 74,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0075",
+          "sourceRefId": "src_page_table_004_python_functions_0075",
+          "textHash": "sha256_e7abde9db4a72864731587b3e76cfdb3",
+          "textQuote": "When compiling a string with multi-line code in 'single' or 'eval' mode, input must be terminated by at least one newline character. This is to facilitate detection of incomplete and complete statements in the code modul"
+        }
+      ],
+      "text": "When compiling a string with multi - line code in ' single ' or ' eval",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_table_004_python_functions_0104",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0104"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0104",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "Because dir() is supplied primarily as a convenience for use at an interactive prompt, it tries to supply an interesting set of names more than it tries to supply a rigorously or consistently defined set of names, and its detailed behavior may change across releases. For example, metaclass attributes are not in the result list when the argument is a class.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 103,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0104",
+          "sourceRefId": "src_page_table_004_python_functions_0104",
+          "textHash": "sha256_af15a1a35a44dba545a0e124a09a9fa3",
+          "textQuote": "Because dir() is supplied primarily as a convenience for use at an interactive prompt, it tries to supply an interesting set of names more than it tries to supply a rigorously or consistently defined set of names, and it"
+        }
+      ],
+      "text": "Because dir ( ) is supplied primarily as a convenience for use at an interactive prompt",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_table_004_python_functions_0064",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0064"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0064",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "Changed in version 3.10: Class methods now inherit the method attributes ( __module__ , __name__ , __qualname__ , __doc__ and __annotations__ ) and have a new __wrapped__ attribute.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 63,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0064",
+          "sourceRefId": "src_page_table_004_python_functions_0064",
+          "textHash": "sha256_246008f73d50a35accc6d03d3cadb2d7",
+          "textQuote": "Changed in version 3.10: Class methods now inherit the method attributes ( __module__ , __name__ , __qualname__ , __doc__ and __annotations__ ) and have a new __wrapped__ attribute."
+        }
+      ],
+      "text": "Changed in version 3 . 10 : Class methods now inherit the method attributes ( __module__",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.834,
+      "itemId": "item_block_pg_page_table_004_python_functions_0011",
+      "kind": "table_fact",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0011"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0011",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_table_004_python_functions_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "A abs() aiter() all() anext() any() ascii() B bin() bool() breakpoint() bytearray() bytes() C callable() chr() classmethod() compile() complex() D delattr() dict() dir() divmod()",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 10,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0011",
+          "sourceRefId": "src_page_table_004_python_functions_0011",
+          "textHash": "sha256_179b15e4dd43ff3c4eeb2f0a81dc4a37",
+          "textQuote": "A abs() aiter() all() anext() any() ascii() B bin() bool() breakpoint() bytearray() bytes() C callable() chr() classmethod() compile() complex() D delattr() dict() dir() divmod()"
+        }
+      ],
+      "text": "A abs ( ) aiter ( ) all ( ) anext ( ) any ( )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_table_004_python_functions_0012",
+      "kind": "table_fact",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0012"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0012",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_table_004_python_functions_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "E enumerate() eval() exec() F filter() float() format() frozenset() G getattr() globals() H hasattr() hash() help() hex() I id() input() int() isinstance() issubclass() iter()",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 11,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0012",
+          "sourceRefId": "src_page_table_004_python_functions_0012",
+          "textHash": "sha256_1f8948b3a87d23256d44d491e7d1269d",
+          "textQuote": "E enumerate() eval() exec() F filter() float() format() frozenset() G getattr() globals() H hasattr() hash() help() hex() I id() input() int() isinstance() issubclass() iter()"
+        }
+      ],
+      "text": "E enumerate ( ) eval ( ) exec ( ) F filter ( ) float (",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_table_004_python_functions_0105",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "Take two (non-complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. For integers, the result is the same as (a // b, a % b) . For floating-point numbers the result is (q, a % b) , where q is usually math.floo",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 104,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0105",
+          "sourceRefId": "src_page_table_004_python_functions_0105",
+          "textHash": "sha256_d6020e79529189447413ce879a8533fa",
+          "textQuote": "Take two (non-complex) numbers as arguments and return a pair of numbers consisting of their quotient and remainder when using integer division. With mixed operand types, the rules for binary arithmetic operators apply. "
+        }
+      ],
+      "text": "Take two ( non - complex ) numbers as arguments and return a pair of numbers",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_table_004_python_functions_0103",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0103"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0103",
+          "blockType": "code",
+          "chunkId": "ck_page_table_004_python_functions_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": ">>> import struct >>> dir () # show the names in the module namespace ['__builtins__', '__name__', 'struct'] >>> dir ( struct ) # show the names in the struct module ['Struct', '__all__', '__builtins__', '__cached__', '__doc__', '__file__', '__initializing__', '__loader__', '__name__', '__package__', '_clearcache', 'calcsize', 'error', 'pack', 'pack_into', '",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 102,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0103",
+          "sourceRefId": "src_page_table_004_python_functions_0103",
+          "textHash": "sha256_12e1630a5f8561965acb4cc35d7c1253",
+          "textQuote": ">>> import struct >>> dir () # show the names in the module namespace ['__builtins__', '__name__', 'struct'] >>> dir ( struct ) # show the names in the struct module ['Struct', '__all__', '__builtins__', '__cached__', '_"
+        }
+      ],
+      "text": "> > > import struct > > > dir ( ) # show the names in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_table_004_python_functions_0114",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0114"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0114",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "This function executes arbitrary code. Calling it with untrusted user-supplied input will lead to security vulnerabilities.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 113,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0114",
+          "sourceRefId": "src_page_table_004_python_functions_0114",
+          "textHash": "sha256_db29de3d594567353290011e06ceddb2",
+          "textQuote": "This function executes arbitrary code. Calling it with untrusted user-supplied input will lead to security vulnerabilities."
+        }
+      ],
+      "text": "This function executes arbitrary code . Calling it with untrusted user - supplied input will lead",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_table_004_python_functions_0124",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0124"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0124",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "This function executes arbitrary code. Calling it with untrusted user-supplied input will lead to security vulnerabilities.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 123,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0124",
+          "sourceRefId": "src_page_table_004_python_functions_0124",
+          "textHash": "sha256_db29de3d594567353290011e06ceddb2",
+          "textQuote": "This function executes arbitrary code. Calling it with untrusted user-supplied input will lead to security vulnerabilities."
+        }
+      ],
+      "text": "This function executes arbitrary code . Calling it with untrusted user - supplied input will lead",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_table_004_python_functions_0098",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0098"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0098",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "The default dir() mechanism behaves differently with different types of objects, as it attempts to produce the most relevant, rather than complete, information:",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 97,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0098",
+          "sourceRefId": "src_page_table_004_python_functions_0098",
+          "textHash": "sha256_093588611558c31250de4f094fb242c4",
+          "textQuote": "The default dir() mechanism behaves differently with different types of objects, as it attempts to produce the most relevant, rather than complete, information:"
+        }
+      ],
+      "text": "The default dir ( ) mechanism behaves differently with different types of objects , as it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_table_004_python_functions_0014",
+      "kind": "table_fact",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0014"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0014",
+          "blockType": "table_cell",
+          "chunkId": "ck_page_table_004_python_functions_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "R range() repr() reversed() round() S set() setattr() slice() sorted() staticmethod() str() sum() super() T tuple() type() V vars() Z zip() _ __import__()",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 13,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0014",
+          "sourceRefId": "src_page_table_004_python_functions_0014",
+          "textHash": "sha256_c9f6b0ed80d1405a83440b274e556075",
+          "textQuote": "R range() repr() reversed() round() S set() setattr() slice() sorted() staticmethod() str() sum() super() T tuple() type() V vars() Z zip() _ __import__()"
+        }
+      ],
+      "text": "R range ( ) repr ( ) reversed ( ) round ( ) S set (",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.823,
+      "itemId": "item_block_pg_page_table_004_python_functions_0118",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0118"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0118",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "Hints: dynamic execution of statements is supported by the exec() function. The globals() and locals() functions return the current global and local dictionary, respectively, which may be useful to pass around for use by eval() or exec() .",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 117,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0118",
+          "sourceRefId": "src_page_table_004_python_functions_0118",
+          "textHash": "sha256_be7a7c2bba5f4e896dbe19378395f54c",
+          "textQuote": "Hints: dynamic execution of statements is supported by the exec() function. The globals() and locals() functions return the current global and local dictionary, respectively, which may be useful to pass around for use by"
+        }
+      ],
+      "text": "Hints : dynamic execution of statements is supported by the exec ( ) function . The",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_table_004_python_functions_0082",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "If the argument is a string, it must contain either a real part (in the same format as for float() ) or an imaginary part (in the same format but with a 'j' or 'J' suffix), or both real and imaginary parts (the sign of the imaginary part is mandatory in this case). The string can optionally be surrounded by whitespaces and the round parentheses '(' and ')' ,",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 81,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0082",
+          "sourceRefId": "src_page_table_004_python_functions_0082",
+          "textHash": "sha256_c20baadfb23dc5a1d01f34b6d11ae816",
+          "textQuote": "If the argument is a string, it must contain either a real part (in the same format as for float() ) or an imaginary part (in the same format but with a 'j' or 'J' suffix), or both real and imaginary parts (the sign of t"
+        }
+      ],
+      "text": "If the argument is a string , it must contain either a real part ( in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_table_004_python_functions_0096",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "If the object has a method named __dir__() , this method will be called and must return the list of attributes. This allows objects that implement a custom __getattr__() or __getattribute__() function to customize the way dir() reports their attributes.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 95,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0096",
+          "sourceRefId": "src_page_table_004_python_functions_0096",
+          "textHash": "sha256_2011f87777cfd78ca728e66f3ce3e314",
+          "textQuote": "If the object has a method named __dir__() , this method will be called and must return the list of attributes. This allows objects that implement a custom __getattr__() or __getattribute__() function to customize the wa"
+        }
+      ],
+      "text": "If the object has a method named __dir__ ( ) , this method will be called",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_table_004_python_functions_0117",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0117"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0117",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "This function can also be used to execute arbitrary code objects (such as those created by compile() ). In this case, pass a code object instead of a string. If the code object has been compiled with 'exec' as the mode argument, eval() 's return value will be None .",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 116,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0117",
+          "sourceRefId": "src_page_table_004_python_functions_0117",
+          "textHash": "sha256_afb64df996465fa6e06e11bead17a372",
+          "textQuote": "This function can also be used to execute arbitrary code objects (such as those created by compile() ). In this case, pass a code object instead of a string. If the code object has been compiled with 'exec' as the mode a"
+        }
+      ],
+      "text": "This function can also be used to execute arbitrary code objects ( such as those created",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_table_004_python_functions_0125",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0125"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0125",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "This function supports dynamic execution of Python code. source must be either a string or a code object. If it is a string, the string is parsed as a suite of Python statements which is then executed (unless a syntax error occurs). [ 1 ] If it is a code object, it is simply executed. In all cases, the code that’s executed is expected to be valid as file inp",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 124,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0125",
+          "sourceRefId": "src_page_table_004_python_functions_0125",
+          "textHash": "sha256_907c3b3d2c631ba0f403c6d395078d8b",
+          "textQuote": "This function supports dynamic execution of Python code. source must be either a string or a code object. If it is a string, the string is parsed as a suite of Python statements which is then executed (unless a syntax er"
+        }
+      ],
+      "text": "This function supports dynamic execution of Python code . source must be either a string or",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_table_004_python_functions_0009",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_table_004_python_functions_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_table_004_python_functions_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_table_004_python_functions_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_table_004_python_functions_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_1cd80a4b04aec6889cf22b697e2857d8299ac6f5e3ff21d593d37cad61ae79d7",
+          "fallbackText": "The Python interpreter has a number of functions and types built into it that are always available. They are listed here in alphabetical order.",
+          "headingPath": [
+            "Built-in Functions ¶"
+          ],
+          "order": 8,
+          "pageId": "page_table_004_python_functions",
+          "paragraphId": "pg_page_table_004_python_functions_0009",
+          "sourceRefId": "src_page_table_004_python_functions_0009",
+          "textHash": "sha256_ce2fa85b9fe4ee4c03b22919c973bde0",
+          "textQuote": "The Python interpreter has a number of functions and types built into it that are always available. They are listed here in alphabetical order."
+        }
+      ],
+      "text": "The Python interpreter has a number of functions and types built into it that are always",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_table_004_python_functions",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.057,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "This function drops you into the debugger at the call site . Specifically , it calls",
+      "When compiling a string with multi - line code in ' single ' or ' eval",
+      "Because dir ( ) is supplied primarily as a convenience for use at an interactive prompt",
+      "Changed in version 3 . 10 : Class methods now inherit the method attributes ( __module__",
+      "A abs ( ) aiter ( ) all ( ) anext ( ) any ( )"
+    ],
+    "tldr": "This function drops you into the debugger at the call site . Specifically , it calls"
+  }
+}

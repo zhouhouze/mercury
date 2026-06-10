@@ -1,0 +1,642 @@
+{
+  "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+  "digestId": "digest_page_image_007_go_context",
+  "items": [
+    {
+      "confidence": 0.845,
+      "importance": 0.886,
+      "itemId": "item_block_pg_page_image_007_go_context_0081",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "At Google, we require that Go programmers pass a Context parameter as the first argument to every function on the call path between incoming and outgoing requests. This allows Go code developed by many different teams to interoperate well. It provides simple control over timeouts and cancellation and ensures that critical values like security credentials tra",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Conclusion"
+          ],
+          "order": 80,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0081",
+          "sourceRefId": "src_page_image_007_go_context_0081",
+          "textHash": "sha256_b157a2801fdbbf3a54a94187e03ed96a",
+          "textQuote": "At Google, we require that Go programmers pass a Context parameter as the first argument to every function on the call path between incoming and outgoing requests. This allows Go code developed by many different teams to"
+        }
+      ],
+      "text": "At Google , we require that Go programmers pass a Context parameter as the first argument",
+      "warnings": []
+    },
+    {
+      "confidence": 0.84,
+      "importance": 0.871,
+      "itemId": "item_block_pg_page_image_007_go_context_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "In Go servers, each incoming request is handled in its own goroutine. Request handlers often start additional goroutines to access backends such as databases and RPC services. The set of goroutines working on a request typically needs access to request-specific values such as the identity of the end user, authorization tokens, and the request’s deadline. Whe",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0031",
+          "sourceRefId": "src_page_image_007_go_context_0031",
+          "textHash": "sha256_794966e6dc5e78533438ef0f69a4de72",
+          "textQuote": "In Go servers, each incoming request is handled in its own goroutine. Request handlers often start additional goroutines to access backends such as databases and RPC services. The set of goroutines working on a request t"
+        }
+      ],
+      "text": "In Go servers , each incoming request is handled in its own goroutine . Request handlers",
+      "warnings": []
+    },
+    {
+      "confidence": 0.838,
+      "importance": 0.867,
+      "itemId": "item_block_pg_page_image_007_go_context_0086",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "Next article: Go at OSCON Previous article: Go will be at OSCON 2014 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Golang Weekly O",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Further reading"
+          ],
+          "order": 85,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0086",
+          "sourceRefId": "src_page_image_007_go_context_0086",
+          "textHash": "sha256_dbe37f00614779778412a1b2a7d4b5af",
+          "textQuote": "Next article: Go at OSCON Previous article: Go will be at OSCON 2014 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blo"
+        }
+      ],
+      "text": "Next article : Go at OSCON Previous article : Go will be at OSCON 2014 Blog",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.857,
+      "itemId": "item_block_pg_page_image_007_go_context_0082",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "Server frameworks that want to build on Context should provide implementations of Context to bridge between their packages and those that expect a Context parameter. Their client libraries would then accept a Context from the calling code. By establishing a common interface for request-scoped data and cancellation, Context makes it easier for package develop",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Conclusion"
+          ],
+          "order": 81,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0082",
+          "sourceRefId": "src_page_image_007_go_context_0082",
+          "textHash": "sha256_b696cfcec0c65af29abcbcf6e3435e2e",
+          "textQuote": "Server frameworks that want to build on Context should provide implementations of Context to bridge between their packages and those that expect a Context parameter. Their client libraries would then accept a Context fro"
+        }
+      ],
+      "text": "Server frameworks that want to build on Context should provide implementations of Context to bridge between",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_image_007_go_context_0062",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "The userip package provides functions for extracting a user IP address from a request and associating it with a Context . A Context provides a key-value mapping, where the keys and values are both of type interface{} . Key types must support equality, and values must be safe for simultaneous use by multiple goroutines. Packages like userip hide the details o",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Example: Google Web Search",
+            "Package userip"
+          ],
+          "order": 61,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0062",
+          "sourceRefId": "src_page_image_007_go_context_0062",
+          "textHash": "sha256_1a2d81de6420b036b9b4ad1be87af08e",
+          "textQuote": "The userip package provides functions for extracting a user IP address from a request and associating it with a Context . A Context provides a key-value mapping, where the keys and values are both of type interface{} . K"
+        }
+      ],
+      "text": "The userip package provides functions for extracting a user IP address from a request and associating",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_image_007_go_context_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "At Google, we developed a context package that makes it easy to pass request-scoped values, cancellation signals, and deadlines across API boundaries to all the goroutines involved in handling a request. The package is publicly available as context . This article describes how to use the package and provides a complete working example.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Introduction"
+          ],
+          "order": 31,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0032",
+          "sourceRefId": "src_page_image_007_go_context_0032",
+          "textHash": "sha256_324227e53351e267f49a21f57dd5c759",
+          "textQuote": "At Google, we developed a context package that makes it easy to pass request-scoped values, cancellation signals, and deadlines across API boundaries to all the goroutines involved in handling a request. The package is p"
+        }
+      ],
+      "text": "At Google , we developed a context package that makes it easy to pass request -",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_image_007_go_context_0044",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0044"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0044",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "WithCancel and WithTimeout return derived Context values that can be canceled sooner than the parent Context . The Context associated with an incoming request is typically canceled when the request handler returns. WithCancel is also useful for canceling redundant requests when using multiple replicas. WithTimeout is useful for setting a deadline on requests",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context",
+            "Derived contexts"
+          ],
+          "order": 43,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0044",
+          "sourceRefId": "src_page_image_007_go_context_0044",
+          "textHash": "sha256_432c18ac8476ac4fc3e339fd03ddfc69",
+          "textQuote": "WithCancel and WithTimeout return derived Context values that can be canceled sooner than the parent Context . The Context associated with an incoming request is typically canceled when the request handler returns. WithC"
+        }
+      ],
+      "text": "WithCancel and WithTimeout return derived Context values that can be canceled sooner than the parent Context",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_image_007_go_context_0039",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0039",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "The Deadline method allows functions to determine whether they should start work at all; if too little time is left, it may not be worthwhile. Code may also use a deadline to set timeouts for I/O operations.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context"
+          ],
+          "order": 38,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0039",
+          "sourceRefId": "src_page_image_007_go_context_0039",
+          "textHash": "sha256_cf031c91de3d2eca43ab61d8fc9732cb",
+          "textQuote": "The Deadline method allows functions to determine whether they should start work at all; if too little time is left, it may not be worthwhile. Code may also use a deadline to set timeouts for I/O operations."
+        }
+      ],
+      "text": "The Deadline method allows functions to determine whether they should start work at all ; if",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_image_007_go_context_0078",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "Many server frameworks provide packages and types for carrying request-scoped values. We can define new implementations of the Context interface to bridge between code using existing frameworks and code that expects a Context parameter.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Adapting code for Contexts"
+          ],
+          "order": 77,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0078",
+          "sourceRefId": "src_page_image_007_go_context_0078",
+          "textHash": "sha256_e1b510d174bbae132364bbc0fbf5a977",
+          "textQuote": "Many server frameworks provide packages and types for carrying request-scoped values. We can define new implementations of the Context interface to bridge between code using existing frameworks and code that expects a Co"
+        }
+      ],
+      "text": "Many server frameworks provide packages and types for carrying request - scoped values . We can",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_image_007_go_context_0034",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0034",
+          "blockType": "code",
+          "chunkId": "ck_page_image_007_go_context_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "// A Context carries a deadline, cancellation signal, and request-scoped values // across API boundaries. Its methods are safe for simultaneous use by multiple // goroutines. type Context interface { // Done returns a channel that is closed when this Context is canceled // or times out. Done() <-chan struct{} // Err indicates why this context was canceled, a",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context"
+          ],
+          "order": 33,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0034",
+          "sourceRefId": "src_page_image_007_go_context_0034",
+          "textHash": "sha256_979d902b1c4d6ce524420e92ab32ae0e",
+          "textQuote": "// A Context carries a deadline, cancellation signal, and request-scoped values // across API boundaries. Its methods are safe for simultaneous use by multiple // goroutines. type Context interface { // Done returns a ch"
+        }
+      ],
+      "text": "/ / A Context carries a deadline , cancellation signal , and request - scoped values",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_image_007_go_context_0054",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "The server program handles requests like /search?q=golang by serving the first few Google search results for golang . It registers handleSearch to handle the /search endpoint. The handler creates an initial Context called ctx and arranges for it to be canceled when the handler returns. If the request includes the timeout URL parameter, the Context is cancele",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Example: Google Web Search",
+            "The server program"
+          ],
+          "order": 53,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0054",
+          "sourceRefId": "src_page_image_007_go_context_0054",
+          "textHash": "sha256_8d7aae00e6ddd64f2a2d1320f07e1ef3",
+          "textQuote": "The server program handles requests like /search?q=golang by serving the first few Google search results for golang . It registers handleSearch to handle the /search endpoint. The handler creates an initial Context calle"
+        }
+      ],
+      "text": "The server program handles requests like / search ? q = golang by serving the first",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_image_007_go_context_0037",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0037"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0037",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "A Context does not have a Cancel method for the same reason the Done channel is receive-only: the function receiving a cancellation signal is usually not the one that sends the signal. In particular, when a parent operation starts goroutines for sub-operations, those sub-operations should not be able to cancel the parent. Instead, the WithCancel function (de",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context"
+          ],
+          "order": 36,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0037",
+          "sourceRefId": "src_page_image_007_go_context_0037",
+          "textHash": "sha256_a9eb00b48dd641f8bf865aee812d1ea0",
+          "textQuote": "A Context does not have a Cancel method for the same reason the Done channel is receive-only: the function receiving a cancellation signal is usually not the one that sends the signal. In particular, when a parent operat"
+        }
+      ],
+      "text": "A Context does not have a Cancel method for the same reason the Done channel is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_image_007_go_context_0080",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0080"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0080",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "Other packages have provided cancellation support similar to Context . For example, Tomb provides a Kill method that signals cancellation by closing a Dying channel. Tomb also provides methods to wait for those goroutines to exit, similar to sync.WaitGroup . In tomb.go , we provide a Context implementation that is canceled when either its parent Context is c",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Adapting code for Contexts"
+          ],
+          "order": 79,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0080",
+          "sourceRefId": "src_page_image_007_go_context_0080",
+          "textHash": "sha256_9d5301859a10832e5c5e505ec2ce51fd",
+          "textQuote": "Other packages have provided cancellation support similar to Context . For example, Tomb provides a Kill method that signals cancellation by closing a Dying channel. Tomb also provides methods to wait for those goroutine"
+        }
+      ],
+      "text": "Other packages have provided cancellation support similar to Context . For example , Tomb provides a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_image_007_go_context_0073",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0073"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0073",
+          "blockType": "code",
+          "chunkId": "ck_page_image_007_go_context_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "func Search(ctx context.Context, query string) (Results, error) { // Prepare the Google Search API request. req, err := http.NewRequest(\"GET\", \"https://ajax.googleapis.com/ajax/services/search/web?v=1.0\", nil) if err != nil { return nil, err } q := req.URL.Query() q.Set(\"q\", query) // If ctx is carrying the user IP address, forward it to the server. // Googl",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Example: Google Web Search",
+            "Package google"
+          ],
+          "order": 72,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0073",
+          "sourceRefId": "src_page_image_007_go_context_0073",
+          "textHash": "sha256_0bbe1fe99b0cd4da53890e2b6acd6022",
+          "textQuote": "func Search(ctx context.Context, query string) (Results, error) { // Prepare the Google Search API request. req, err := http.NewRequest(\"GET\", \"https://ajax.googleapis.com/ajax/services/search/web?v=1.0\", nil) if err != "
+        }
+      ],
+      "text": "func Search ( ctx context . Context , query string ) ( Results , error )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_image_007_go_context_0036",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "The Done method returns a channel that acts as a cancellation signal to functions running on behalf of the Context : when the channel is closed, the functions should abandon their work and return. The Err method returns an error indicating why the Context was canceled. The Pipelines and Cancellation article discusses the Done channel idiom in more detail.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context"
+          ],
+          "order": 35,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0036",
+          "sourceRefId": "src_page_image_007_go_context_0036",
+          "textHash": "sha256_0073b48db04cfdd6b5d60f66eab054cd",
+          "textQuote": "The Done method returns a channel that acts as a cancellation signal to functions running on behalf of the Context : when the channel is closed, the functions should abandon their work and return. The Err method returns "
+        }
+      ],
+      "text": "The Done method returns a channel that acts as a cancellation signal to functions running on",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.81,
+      "itemId": "item_block_pg_page_image_007_go_context_0079",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0079"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0079",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "For example, Gorilla’s github.com/gorilla/context package allows handlers to associate data with incoming requests by providing a mapping from HTTP requests to key-value pairs. In gorilla.go , we provide a Context implementation whose Value method returns the values associated with a specific HTTP request in the Gorilla package.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Adapting code for Contexts"
+          ],
+          "order": 78,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0079",
+          "sourceRefId": "src_page_image_007_go_context_0079",
+          "textHash": "sha256_abd618b5eed2cab5c8a21d1c8b53024f",
+          "textQuote": "For example, Gorilla’s github.com/gorilla/context package allows handlers to associate data with incoming requests by providing a mapping from HTTP requests to key-value pairs. In gorilla.go , we provide a Context implem"
+        }
+      ],
+      "text": "For example , Gorilla ’ s github . com / gorilla / context package allows handlers",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_image_007_go_context_0040",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0040"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0040",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_007_go_context_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "Value allows a Context to carry request-scoped data. That data must be safe for simultaneous use by multiple goroutines.",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Context"
+          ],
+          "order": 39,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0040",
+          "sourceRefId": "src_page_image_007_go_context_0040",
+          "textHash": "sha256_f091fe9e1ca769b1f2c9e375d981056a",
+          "textQuote": "Value allows a Context to carry request-scoped data. That data must be safe for simultaneous use by multiple goroutines."
+        }
+      ],
+      "text": "Value allows a Context to carry request - scoped data . That data must be safe",
+      "warnings": []
+    },
+    {
+      "confidence": 0.808,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_image_007_go_context_0055",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_image_007_go_context_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_007_go_context_0055"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_007_go_context_0055",
+          "blockType": "code",
+          "chunkId": "ck_page_image_007_go_context_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_ff13bc988cef7f5ba9e153ff89153b68b5e741313414aafed5d16a1ed6338fa6",
+          "fallbackText": "func handleSearch(w http.ResponseWriter, req *http.Request) { // ctx is the Context for this handler. Calling cancel closes the // ctx.Done channel, which is the cancellation signal for requests // started by this handler. var ( ctx context.Context cancel context.CancelFunc ) timeout, err := time.ParseDuration(req.FormValue(\"timeout\")) if err == nil { // The",
+          "headingPath": [
+            "Go Concurrency Patterns: Context",
+            "Example: Google Web Search",
+            "The server program"
+          ],
+          "order": 54,
+          "pageId": "page_image_007_go_context",
+          "paragraphId": "pg_page_image_007_go_context_0055",
+          "sourceRefId": "src_page_image_007_go_context_0055",
+          "textHash": "sha256_87ec110e3498c99b3234d24eccd1741c",
+          "textQuote": "func handleSearch(w http.ResponseWriter, req *http.Request) { // ctx is the Context for this handler. Calling cancel closes the // ctx.Done channel, which is the cancellation signal for requests // started by this handle"
+        }
+      ],
+      "text": "func handleSearch ( w http . ResponseWriter , req * http . Request ) { /",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_007_go_context",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.105,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "At Google , we require that Go programmers pass a Context parameter as the first argument",
+      "In Go servers , each incoming request is handled in its own goroutine . Request handlers",
+      "Next article : Go at OSCON Previous article : Go will be at OSCON 2014 Blog",
+      "Server frameworks that want to build on Context should provide implementations of Context to bridge between",
+      "The userip package provides functions for extracting a user IP address from a request and associating"
+    ],
+    "tldr": "At Google , we require that Go programmers pass a Context parameter as the first argument"
+  }
+}

@@ -6,7 +6,7 @@ This plan uses module-local numbering from `docs/navia_v1_project_docs/MODULE_VE
 
 A module development is limited to `services/local-runtime/navia_runtime/modules/page_reading/`. Integration into `/v1/page/context`, session state, D, C, or B is owned by Integration Codex.
 
-## A-V1.0 Build Order
+## Historical A-V1.0 Baseline
 
 | Stage | Build target | Acceptance |
 |---|---|---|
@@ -17,7 +17,9 @@ A module development is limited to `services/local-runtime/navia_runtime/modules
 | `A-V1.0-4` | Add table / list / code block recognition | table/list/code fixture produces first-class blocks without breaking paragraph/chunk order |
 | `A-V1.0-5` | Add page region and information density recognition | density, importance, confidence, and region hints are deterministic and auditable |
 
-## A-V1.1 Build Order
+## Historical A-V1.1 High-Signal Baseline
+
+A-V1.1 is no longer the active implementation stage. Its high-signal contracts, fixture gates, SourceRef rules, and quality gates are retained as A-V1.2 compatibility baselines.
 
 | Stage | Build target | Acceptance |
 |---|---|---|
@@ -33,7 +35,7 @@ A module development is limited to `services/local-runtime/navia_runtime/modules
 | `A-V1.1-5` | Add image/OCR contract enhancement | image metadata is grounded; OCR is mock/contract-only and does not call engines |
 | `A-V1.1-6` | Add video/live planning records | media contracts are documented; no real video/live engine is executed |
 
-## A-V1.2 Build Order
+## Current A-V1.2 Build Order
 
 `A-V1.2` is documentation and contract planning until its stage gate is audited. It must not install extractor dependencies or implement production extraction before `A-V1.2-0` closes.
 
@@ -47,6 +49,20 @@ high-quality page perception
 ```
 
 It is not a learning artifact, RAG, Notebook, mindmap, or AgenticLoop stage.
+
+The accepted implementation route for A-V1.2 is:
+
+```text
+DOM baseline
++ extractor ensemble
++ A-owned schema normalization
++ SourceMap / jumpback
++ Quality Evaluator
++ DebugEvidenceBundle
++ 100-page corpus gate
+```
+
+Implementation must keep `dom_baseline` as the offline baseline and fallback. Third-party extractors are optional candidates only after dependency audit approval; they must never define the public Navia output shape.
 
 Implementation decisions for schemas, corpus manifest, gold rubric, extractor dependency audit, deterministic algorithms, and stage acceptance commands are frozen in:
 
@@ -68,45 +84,73 @@ If that document conflicts with older module notes, the executable development s
 | `A-V1.2-7` | Add DebugEvidenceBundle | raw signals, candidate extraction, filtered evidence, high-signal context, source map, and quality report are bundled for Debug UI |
 | `A-V1.2-8` | Run 100-page exit validation | Corpus-level report passes; failures are mapped back to the responsible A-V1.2 substage |
 
-## Implementation Sequence
+## A-V1.2 Substage Handoff Rules
 
-1. Define module-local parser interfaces in `runtime/`.
-2. Add fixture loader and normalized input model.
-3. Implement text cleanup and metadata extraction.
-4. Implement heading tree builder.
-5. Implement paragraph splitter.
-6. Implement chunk builder.
-7. Implement deterministic annotation and density rules.
-8. Add image DOM metadata collector with unknown fallback.
-9. Add table/list/code block collectors.
-10. Implement optional `StructuredSummaryDraft` as downstream context only.
-11. Add contract tests using real fixtures.
+Each A-V1.2 substage must hand off:
 
-## A-V1.1 Implementation Sequence
+- updated PRD / architecture / contract notes if the stage changes behavior.
+- fixture or corpus evidence.
+- quality and false-green review.
+- exact tests or validation commands.
+- explicit Go / No-Go conclusion.
 
-Do not start `A-V1.1-1+` implementation until `A-V1.1-0a` through `A-V1.1-0e` pass audit.
+The next substage cannot start if the previous substage leaves fatal or major issues open.
 
-`A-V1.1-0` sequence:
+## Current A-V1.2 Implementation Sequence
 
-1. Decide whether HighSignal / Digest / SourceMap / QualityReport are public D/C contracts.
-2. If public, update `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md` or equivalent contract docs.
-3. Freeze exact schemas and add JSON Schema or Pydantic validation tests.
-4. Freeze SourceRef minimum fields and fallback behavior.
-5. Freeze quality metric formulas and thresholds.
-6. Freeze CandidateExtractionResult isolation and DOM baseline fallback.
-7. Freeze fixture class gates and evidence naming.
-8. Run ChatGPT re-audit; continue only if no fatal or major issue remains.
+1. `A-V1.2-0`: keep public schemas, quality formulas, corpus rules, gold review rules, extractor selection, and dependency audit frozen.
+2. `A-V1.2-1`: build `corpus-manifest.json`, reproducible snapshots, gold review records, and category distribution report.
+3. `A-V1.2-2`: implement or strengthen normalized page input, DOM baseline extraction, heading tree, paragraph blocks, list/table/code/image DOM metadata blocks, and A-owned block graph.
+4. `A-V1.2-3`: implement deterministic main-content scoring, noise taxonomy, filtered evidence, and density ranking.
+5. `A-V1.2-4`: implement deterministic, source-grounded `PerceptionDigest`; reject all ungrounded digest candidates.
+6. `A-V1.2-5`: implement `SourceMap / SourceRef` with text fallback; DOM selector remains optional.
+7. `A-V1.2-6`: implement `PagePerceptionQualityReport` with frozen formulas, denominator-zero behavior, thresholds, and readiness semantics.
+8. `A-V1.2-7`: implement `DebugEvidenceBundle` with bounded raw signals, candidate comparison, filtered evidence, high-signal page, digest, source map, quality report, and audit trail.
+9. `A-V1.2-8`: implement or run the corpus exit command below, generate corpus-level report, and map failures back to responsible substages.
 
-`A-V1.1-1+` implementation sequence, after audit:
+```bash
+PYTHONPATH=services/local-runtime python3 -m navia_runtime.modules.page_reading.eval_corpus \
+  --manifest services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json \
+  --output services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json
+```
 
-1. Add candidate extractor interface with `trafilatura` as preferred future baseline, Mozilla Readability / `readabilipy` as comparison, and `readability-lxml` as fallback.
-2. Keep third-party extractor output isolated from final Navia contracts.
-3. Implement block classifier and noise filter over DOM-derived blocks.
-4. Generate source references for paragraphs, chunks, images, tables, lists, and code blocks.
-5. Build deterministic `PerceptionDigest` from high-signal blocks.
-6. Add quality evaluator and block D/C high-signal readiness when thresholds fail.
-7. Add OCR mock contract and media planning fixtures without real engine calls.
-8. Write evidence JSON for structured page, high-signal page, digest, source map, and quality report.
+The command must exit non-zero on category gate, source coverage, grounding, jumpback, low-signal, gold review, snapshot, or debug evidence failure.
+
+Extractor implementation note:
+
+- `dom_baseline` is required.
+- third-party extractors remain disabled until dependency audit marks the package `decision=approved`.
+- third-party raw output must never enter final Navia public contracts.
+
+## Current A-V1.2 Acceptance Status
+
+The scoped deterministic baseline has passed A-V1.2 exit validation:
+
+```text
+baseline = dom_baseline + A-owned schema normalization + reproducible real snapshots
+finalCountedPages = 107
+categoryCount = 13
+exitGate = pass
+debugEvidenceFiles = 107
+qualityReportFiles = 107
+```
+
+Acceptance reports:
+
+```text
+docs/a-v1.2-1-acceptance-report.md
+docs/a-v1.2-2-8-final-acceptance-report.md
+```
+
+Evidence:
+
+```text
+tests/evidence/a_v1_2/corpus-manifest.json
+tests/evidence/a_v1_2/corpus-evidence-generation-report.json
+tests/evidence/a_v1_2/corpus-level-report.json
+```
+
+This status does not enable or claim third-party extractor ensemble, OCR, VLM, ASR, video, live perception, final assistant answers, Mindmap, ArtifactRecord, SSE, EventStore, Trace, RAG, MCP, Skill, or external API execution by A.
 
 ## Deterministic Annotation Rules
 
@@ -135,7 +179,7 @@ If `pageId` is absent in a fixture, derive it from `contentHash`.
 
 - `A-V1.0-3` documents OCR contracts only; it must not install or call OCR libraries.
 - `A-V1.2` may plan OCR / VLM / media adapter inputs only, but must not execute OCR, VLM, ASR, video, or live engines.
-- `A-V2.0-1` and `A-V2.0-2` document video and live perception only; they are not V1.2 implementation deliverables.
+- `A-V1.12+` documents video and live perception planning only; it is not an A-V1.2 implementation deliverable.
 - Future execution of OCR, vision, video, or live stream recognition must go through D Adapter Layer and governance hooks.
 - A may accept approved future OCR or media perception results as structured inputs only after contract review.
 

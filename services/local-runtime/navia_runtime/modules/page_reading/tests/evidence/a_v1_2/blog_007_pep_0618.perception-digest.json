@@ -1,0 +1,654 @@
+{
+  "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+  "digestId": "digest_page_blog_007_pep_0618",
+  "items": [
+    {
+      "confidence": 0.844,
+      "importance": 0.882,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0042",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "If both zip and zip_longest lived alongside each other in itertools or as builtins, then adding zip_strict in the same location would indeed be a much stronger argument. However, the new “strict” variant is conceptually much closer to zip in interface and behavior than zip_longest , while still not meeting the high bar of being its own builtin. Given this si",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add itertools.zip_strict",
+            "Precedent"
+          ],
+          "order": 41,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0042",
+          "sourceRefId": "src_page_blog_007_pep_0618_0042",
+          "textHash": "sha256_b58e4da4fbbed431f1cf73f3042201e9",
+          "textQuote": "If both zip and zip_longest lived alongside each other in itertools or as builtins, then adding zip_strict in the same location would indeed be a much stronger argument. However, the new “strict” variant is conceptually "
+        }
+      ],
+      "text": "If both zip and zip_longest lived alongside each other in itertools or as builtins , then",
+      "warnings": []
+    },
+    {
+      "confidence": 0.843,
+      "importance": 0.88,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0014",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0014"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0014",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "It is clear from the author’s personal experience and a survey of the standard library that much (if not most) zip usage involves iterables that must be of equal length. Sometimes this invariant is proven true from the context of the surrounding code, but often the data being zipped is passed from the caller, sourced separately, or generated in some fashion.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Motivation"
+          ],
+          "order": 13,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0014",
+          "sourceRefId": "src_page_blog_007_pep_0618_0014",
+          "textHash": "sha256_9a9e0163841229e39cb7c6ecff2c74e9",
+          "textQuote": "It is clear from the author’s personal experience and a survey of the standard library that much (if not most) zip usage involves iterables that must be of equal length. Sometimes this invariant is proven true from the c"
+        }
+      ],
+      "text": "It is clear from the author ’ s personal experience and a survey of the standard",
+      "warnings": []
+    },
+    {
+      "confidence": 0.843,
+      "importance": 0.878,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0049",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "However, it doesn’t seem like adding behaviors other than the current default and the proposed “strict” mode is worth the additional complexity. The clearest candidate, “longest”, would require a new fillvalue parameter (which is meaningless for both other modes). This mode is also already handled perfectly by itertools.zip_longest , and adding it would crea",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add Several “Modes” To Switch Between"
+          ],
+          "order": 48,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0049",
+          "sourceRefId": "src_page_blog_007_pep_0618_0049",
+          "textHash": "sha256_ba2be526c0f702e08a38c7f14fbfe03e",
+          "textQuote": "However, it doesn’t seem like adding behaviors other than the current default and the proposed “strict” mode is worth the additional complexity. The clearest candidate, “longest”, would require a new fillvalue parameter "
+        }
+      ],
+      "text": "However , it doesn ’ t seem like adding behaviors other than the current default and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.877,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0045",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0045"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0045",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "While implementation should only be a secondary concern when making usability improvements, it is important to recognize that adding a new utility is significantly more complicated than modifying an existing one. The CPython implementation accompanying this PEP is simple and has no measurable performance impact on default zip behavior, while adding an entire",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add itertools.zip_strict",
+            "Maintenance Cost"
+          ],
+          "order": 44,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0045",
+          "sourceRefId": "src_page_blog_007_pep_0618_0045",
+          "textHash": "sha256_e1ede2c999d314b6014ec26f8442b5c2",
+          "textQuote": "While implementation should only be a secondary concern when making usability improvements, it is important to recognize that adding a new utility is significantly more complicated than modifying an existing one. The CPy"
+        }
+      ],
+      "text": "While implementation should only be a secondary concern when making usability improvements , it is important",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0017",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0017"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0017",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "There are several other ways in which zip is commonly used. Idiomatic tricks are especially susceptible, because they are often employed by users who lack a complete understanding of how the code works. One example is unpacking into zip to lazily “unzip” or “transpose” nested iterables:",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Motivation"
+          ],
+          "order": 16,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0017",
+          "sourceRefId": "src_page_blog_007_pep_0618_0017",
+          "textHash": "sha256_50ebe5425eacd0bbabdd8fb7d380191f",
+          "textQuote": "There are several other ways in which zip is commonly used. Idiomatic tricks are especially susceptible, because they are often employed by users who lack a complete understanding of how the code works. One example is un"
+        }
+      ],
+      "text": "There are several other ways in which zip is commonly used . Idiomatic tricks are especially",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.858,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0025",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0025"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0025",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "Some critics assert that constant boolean switches are a “code-smell”, or go against Python’s design philosophy. However, Python currently contains several examples of boolean keyword parameters on built-in functions which are typically called with compile-time constants:",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rationale"
+          ],
+          "order": 24,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0025",
+          "sourceRefId": "src_page_blog_007_pep_0618_0025",
+          "textHash": "sha256_b817e7005e5d050b8d8d5f0813e7283c",
+          "textQuote": "Some critics assert that constant boolean switches are a “code-smell”, or go against Python’s design philosophy. However, Python currently contains several examples of boolean keyword parameters on built-in functions whi"
+        }
+      ],
+      "text": "Some critics assert that constant boolean switches are a “ code - smell ” , or",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0060",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "While able to do basically anything a user could need, this solution makes handling the more common cases (like rejecting mismatched lengths) unnecessarily complicated and non-obvious.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Accept A Callback To Handle Remaining Items"
+          ],
+          "order": 59,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0060",
+          "sourceRefId": "src_page_blog_007_pep_0618_0060",
+          "textHash": "sha256_905eeba2cbba9047bcf6123b9b16e64e",
+          "textQuote": "While able to do basically anything a user could need, this solution makes handling the more common cases (like rejecting mismatched lengths) unnecessarily complicated and non-obvious."
+        }
+      ],
+      "text": "While able to do basically anything a user could need , this solution makes handling the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "This proposal is further complicated by the fact that CPython’s actual zip type is currently an undocumented implementation detail. This means that choosing one of the above behaviors will effectively “lock in” the current implementation (or at least require it to be emulated) going forward.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add A Method Or Alternate Constructor To The zip Type"
+          ],
+          "order": 56,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0057",
+          "sourceRefId": "src_page_blog_007_pep_0618_0057",
+          "textHash": "sha256_35783ab3d6a7ef85a589b02aabbe6e64",
+          "textQuote": "This proposal is further complicated by the fact that CPython’s actual zip type is currently an undocumented implementation detail. This means that choosing one of the above behaviors will effectively “lock in” the curre"
+        }
+      ],
+      "text": "This proposal is further complicated by the fact that CPython ’ s actual zip type is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0063",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "Since this feature has nothing to do with Python’s assert statement, raising an AssertionError here would be inappropriate. Users desiring a check that is disabled in optimized mode (like an assert statement) can use strict=__debug__ instead.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Raise An AssertionError"
+          ],
+          "order": 62,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0063",
+          "sourceRefId": "src_page_blog_007_pep_0618_0063",
+          "textHash": "sha256_d0477996be57a76d9c0c2c9df14d53dd",
+          "textQuote": "Since this feature has nothing to do with Python’s assert statement, raising an AssertionError here would be inappropriate. Users desiring a check that is disabled in optimized mode (like an assert statement) can use str"
+        }
+      ],
+      "text": "Since this feature has nothing to do with Python ’ s assert statement , raising an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0065",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0065"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0065",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "If rejected, the feature is realistically not worth pursuing. If accepted, such a change to map should not require its own PEP (though, like all enhancements, its usefulness should be carefully considered). For consistency, it should follow same API and semantics debated here for zip .",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add A Similar Feature to map"
+          ],
+          "order": 64,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0065",
+          "sourceRefId": "src_page_blog_007_pep_0618_0065",
+          "textHash": "sha256_c451f8c1d70819c0f6c25a3cbf0c5a79",
+          "textQuote": "If rejected, the feature is realistically not worth pursuing. If accepted, such a change to map should not require its own PEP (though, like all enhancements, its usefulness should be carefully considered). For consisten"
+        }
+      ],
+      "text": "If rejected , the feature is realistically not worth pursuing . If accepted , such a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0067",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "Silently truncated data is a particularly nasty class of bug, and hand-writing a robust solution that gets this right isn’t trivial . The real-world motivating examples from Python’s own standard library are evidence that it’s very easy to fall into the sort of trap that this feature aims to avoid.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Do Nothing"
+          ],
+          "order": 66,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0067",
+          "sourceRefId": "src_page_blog_007_pep_0618_0067",
+          "textHash": "sha256_52fb2c163b9ed3bff44adb2a4f9f71cb",
+          "textQuote": "Silently truncated data is a particularly nasty class of bug, and hand-writing a robust solution that gets this right isn’t trivial . The real-world motivating examples from Python’s own standard library are evidence tha"
+        }
+      ],
+      "text": "Silently truncated data is a particularly nasty class of bug , and hand - writing a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0024",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0024"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0024",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "In fact, the author has counted dozens of other call sites in Python’s standard library and tooling where it would be appropriate to enable this new feature immediately.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Motivation"
+          ],
+          "order": 23,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0024",
+          "sourceRefId": "src_page_blog_007_pep_0618_0024",
+          "textHash": "sha256_11969418b361d3a245b657aa442a91e6",
+          "textQuote": "In fact, the author has counted dozens of other call sites in Python’s standard library and tooling where it would be appropriate to enable this new feature immediately."
+        }
+      ],
+      "text": "In fact , the author has counted dozens of other call sites in Python ’ s",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0039",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0039",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "This is the alternative with the most support on the Python-Ideas mailing list, so it deserves to be discussed in some detail here. It does not have any disqualifying flaws, and could work well enough as a substitute if this PEP is rejected.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add itertools.zip_strict"
+          ],
+          "order": 38,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0039",
+          "sourceRefId": "src_page_blog_007_pep_0618_0039",
+          "textHash": "sha256_399fa32d3f190db01e3714307a7ff086",
+          "textQuote": "This is the alternative with the most support on the Python-Ideas mailing list, so it deserves to be discussed in some detail here. It does not have any disqualifying flaws, and could work well enough as a substitute if "
+        }
+      ],
+      "text": "This is the alternative with the most support on the Python - Ideas mailing list ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0064",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0064"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0064",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "This PEP does not propose any changes to map , since the use of map with multiple iterable arguments is quite rare. However, this PEP’s ruling shall serve as precedent such a future discussion (should it occur).",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add A Similar Feature to map"
+          ],
+          "order": 63,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0064",
+          "sourceRefId": "src_page_blog_007_pep_0618_0064",
+          "textHash": "sha256_7d66112c20669fcce27139b3929a96ad",
+          "textQuote": "This PEP does not propose any changes to map , since the use of map with multiple iterable arguments is quite rare. However, this PEP’s ruling shall serve as precedent such a future discussion (should it occur)."
+        }
+      ],
+      "text": "This PEP does not propose any changes to map , since the use of map with",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0043",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0043"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "If zip is capable of preventing this class of bug, it becomes much simpler for users to enable the check at call sites with this property. Compare this with importing a drop-in replacement for a built-in utility, which feels somewhat heavy just to check a tricky condition that should “always” be true.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add itertools.zip_strict",
+            "Usability"
+          ],
+          "order": 42,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0043",
+          "sourceRefId": "src_page_blog_007_pep_0618_0043",
+          "textHash": "sha256_b9405bb95ae34747a489a8dc1c5ce653",
+          "textQuote": "If zip is capable of preventing this class of bug, it becomes much simpler for users to enable the check at call sites with this property. Compare this with importing a drop-in replacement for a built-in utility, which f"
+        }
+      ],
+      "text": "If zip is capable of preventing this class of bug , it becomes much simpler for",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0031",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "The idea and name for this new parameter were originally proposed by Ram Rachum. The thread received over 100 replies, with the alternative “equal” receiving a similar amount of support.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rationale"
+          ],
+          "order": 30,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0031",
+          "sourceRefId": "src_page_blog_007_pep_0618_0031",
+          "textHash": "sha256_973c6c8d18be25a41304dfd8b834c5a5",
+          "textQuote": "The idea and name for this new parameter were originally proposed by Ram Rachum. The thread received over 100 replies, with the alternative “equal” receiving a similar amount of support."
+        }
+      ],
+      "text": "The idea and name for this new parameter were originally proposed by Ram Rachum . The",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0041",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "It seems that a great deal of the motivation driving this alternative is that zip_longest already exists in itertools . However, zip_longest is in many ways a much more complicated, specialized utility: it takes on the responsibility of filling in missing values, a job neither of the other variants needs to concern themselves with.",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Add itertools.zip_strict",
+            "Precedent"
+          ],
+          "order": 40,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0041",
+          "sourceRefId": "src_page_blog_007_pep_0618_0041",
+          "textHash": "sha256_80f84f8bf5e05d8dedd48365c31dbc4f",
+          "textQuote": "It seems that a great deal of the motivation driving this alternative is that zip_longest already exists in itertools . However, zip_longest is in many ways a much more complicated, specialized utility: it takes on the r"
+        }
+      ],
+      "text": "It seems that a great deal of the motivation driving this alternative is that zip_longest already",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_blog_007_pep_0618_0061",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_007_pep_0618_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_007_pep_0618_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_007_pep_0618_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_007_pep_0618_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_7dbf48f8b9f6199c1e6fbb4027c521ee7db0ab8a150ef6cf5e70efadfdcade93",
+          "fallbackText": "There are no built-in functions or types that raise an AssertionError as part of their API. Further, the official documentation simply reads (in its entirety):",
+          "headingPath": [
+            "PEP 618 – Add Optional Length-Checking To zip",
+            "Rejected Ideas",
+            "Raise An AssertionError"
+          ],
+          "order": 60,
+          "pageId": "page_blog_007_pep_0618",
+          "paragraphId": "pg_page_blog_007_pep_0618_0061",
+          "sourceRefId": "src_page_blog_007_pep_0618_0061",
+          "textHash": "sha256_69cac302800f94007d8a95962092fb45",
+          "textQuote": "There are no built-in functions or types that raise an AssertionError as part of their API. Further, the official documentation simply reads (in its entirety):"
+        }
+      ],
+      "text": "There are no built - in functions or types that raise an AssertionError as part of",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_blog_007_pep_0618",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.124,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "If both zip and zip_longest lived alongside each other in itertools or as builtins , then",
+      "It is clear from the author ’ s personal experience and a survey of the standard",
+      "However , it doesn ’ t seem like adding behaviors other than the current default and",
+      "While implementation should only be a secondary concern when making usability improvements , it is important",
+      "There are several other ways in which zip is commonly used . Idiomatic tricks are especially"
+    ],
+    "tldr": "If both zip and zip_longest lived alongside each other in itertools or as builtins , then"
+  }
+}

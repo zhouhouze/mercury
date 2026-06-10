@@ -1,0 +1,640 @@
+{
+  "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+  "digestId": "digest_page_tech_004_python_tutorial_datastructures",
+  "items": [
+    {
+      "confidence": 0.835,
+      "importance": 0.86,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0131",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0019"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0131"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0131",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0019",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Note that comparing objects of different types with < or > is legal provided that the objects have appropriate comparison methods. For example, mixed numeric types are compared according to their numeric value, so 0 equals 0.0, etc. Otherwise, rather than providing an arbitrary ordering, the interpreter will raise a TypeError exception.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.8. Comparing Sequences and Other Types ¶"
+          ],
+          "order": 130,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0131",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0131",
+          "textHash": "sha256_7de124863561466b87fa7add89899d17",
+          "textQuote": "Note that comparing objects of different types with < or > is legal provided that the objects have appropriate comparison methods. For example, mixed numeric types are compared according to their numeric value, so 0 equa"
+        }
+      ],
+      "text": "Note that comparing objects of different types with < or > is legal provided that the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0080",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0080"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0080",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "As you see, on output tuples are always enclosed in parentheses, so that nested tuples are interpreted correctly; they may be input with or without surrounding parentheses, although often parentheses are necessary anyway (if the tuple is part of a larger expression). It is not possible to assign to the individual items of a tuple, however it is possible to c",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.3. Tuples and Sequences ¶"
+          ],
+          "order": 79,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0080",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0080",
+          "textHash": "sha256_837c370ec27cacd5028ddda859536263",
+          "textQuote": "As you see, on output tuples are always enclosed in parentheses, so that nested tuples are interpreted correctly; they may be input with or without surrounding parentheses, although often parentheses are necessary anyway"
+        }
+      ],
+      "text": "As you see , on output tuples are always enclosed in parentheses , so that nested",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0094",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Another useful data type built into Python is the dictionary (see Mapping Types — dict ). Dictionaries are sometimes found in other languages as “associative memories” or “associative arrays”. Unlike sequences, which are indexed by a range of numbers, dictionaries are indexed by keys , which can be any immutable type; strings and numbers can always be keys. ",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.5. Dictionaries ¶"
+          ],
+          "order": 93,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0094",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0094",
+          "textHash": "sha256_3e70171b994d3ae0e4aed92c27bb3a1c",
+          "textQuote": "Another useful data type built into Python is the dictionary (see Mapping Types — dict ). Dictionaries are sometimes found in other languages as “associative memories” or “associative arrays”. Unlike sequences, which are"
+        }
+      ],
+      "text": "Another useful data type built into Python is the dictionary ( see Mapping Types — dict",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0077",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0077"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0077",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "We saw that lists and strings have many common properties, such as indexing and slicing operations. They are two examples of sequence data types (see Sequence Types — list, tuple, range ). Since Python is an evolving language, other sequence data types may be added. There is also another standard sequence data type: the tuple .",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.3. Tuples and Sequences ¶"
+          ],
+          "order": 76,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0077",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0077",
+          "textHash": "sha256_2008e4c168a0a244fcebc5912cd60e09",
+          "textQuote": "We saw that lists and strings have many common properties, such as indexing and slicing operations. They are two examples of sequence data types (see Sequence Types — list, tuple, range ). Since Python is an evolving lan"
+        }
+      ],
+      "text": "We saw that lists and strings have many common properties , such as indexing and slicing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0087",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0087"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0087",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Python also includes a data type for sets . A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical operations like union, intersection, difference, and symmetric difference.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.4. Sets ¶"
+          ],
+          "order": 86,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0087",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0087",
+          "textHash": "sha256_e92f1b077d40a62cb6d59efd0e856d47",
+          "textQuote": "Python also includes a data type for sets . A set is an unordered collection with no duplicate elements. Basic uses include membership testing and eliminating duplicate entries. Set objects also support mathematical oper"
+        }
+      ],
+      "text": "Python also includes a data type for sets . A set is an unordered collection with",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0128",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0128"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0128",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator := . This avoids a common class of problems encountered in C programs: typing = in an expression when == was intended.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.7. More on Conditions ¶"
+          ],
+          "order": 127,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0128",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0128",
+          "textHash": "sha256_ba6548db310052a2f59ceb42b0bfa165",
+          "textQuote": "Note that in Python, unlike C, assignment inside expressions must be done explicitly with the walrus operator := . This avoids a common class of problems encountered in C programs: typing = in an expression when == was i"
+        }
+      ],
+      "text": "Note that in Python , unlike C , assignment inside expressions must be done explicitly with",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0081",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable , and usually contain a heterogeneous sequence of elements that are accessed via unpacking (see later in this section) or indexing (or even by attribute in the case of namedtuples ). Lists are mutable , and their elements are ",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.3. Tuples and Sequences ¶"
+          ],
+          "order": 80,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0081",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0081",
+          "textHash": "sha256_22f8d24b82166d5f3f78b6f623cf0301",
+          "textQuote": "Though tuples may seem similar to lists, they are often used in different situations and for different purposes. Tuples are immutable , and usually contain a heterogeneous sequence of elements that are accessed via unpac"
+        }
+      ],
+      "text": "Though tuples may seem similar to lists , they are often used in different situations and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0037",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0037"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0037",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "You might have noticed that methods like insert , remove or sort that only modify the list have no return value printed – they return the default None . [ 1 ] This is a design principle for all mutable data structures in Python.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.1. More on Lists ¶"
+          ],
+          "order": 36,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0037",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0037",
+          "textHash": "sha256_6cd3a2e8eb90bfc8dc5cfc30313eb24e",
+          "textQuote": "You might have noticed that methods like insert , remove or sort that only modify the list have no return value printed – they return the default None . [ 1 ] This is a design principle for all mutable data structures in"
+        }
+      ],
+      "text": "You might have noticed that methods like insert , remove or sort that only modify the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0132",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0019"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0132"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0132",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0019",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Other languages may return the mutated object, which allows method chaining, such as d->insert(\"a\")->remove(\"b\")->sort(); .",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.8. Comparing Sequences and Other Types ¶"
+          ],
+          "order": 131,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0132",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0132",
+          "textHash": "sha256_38ae982f86ae1f1512680ad685dfca90",
+          "textQuote": "Other languages may return the mutated object, which allows method chaining, such as d->insert(\"a\")->remove(\"b\")->sort(); ."
+        }
+      ],
+      "text": "Other languages may return the mutated object , which allows method chaining , such as d",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0082",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "A special problem is the construction of tuples containing 0 or 1 items: the syntax has some extra quirks to accommodate these. Empty tuples are constructed by an empty pair of parentheses; a tuple with one item is constructed by following a value with a comma (it is not sufficient to enclose a single value in parentheses). Ugly, but effective. For example:",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.3. Tuples and Sequences ¶"
+          ],
+          "order": 81,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0082",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0082",
+          "textHash": "sha256_13879c18f88a5acd6eb456bc4b7788cf",
+          "textQuote": "A special problem is the construction of tuples containing 0 or 1 items: the syntax has some extra quirks to accommodate these. Empty tuples are constructed by an empty pair of parentheses; a tuple with one item is const"
+        }
+      ],
+      "text": "A special problem is the construction of tuples containing 0 or 1 items : the syntax",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0103",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0103"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0103",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "In addition, dict comprehensions can be used to create dictionaries from arbitrary key and value expressions:",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.5. Dictionaries ¶"
+          ],
+          "order": 102,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0103",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0103",
+          "textHash": "sha256_a5a971ce438629e0696fad4578dd57f2",
+          "textQuote": "In addition, dict comprehensions can be used to create dictionaries from arbitrary key and value expressions:"
+        }
+      ],
+      "text": "In addition , dict comprehensions can be used to create dictionaries from arbitrary key and value",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0038",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0038"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Another thing you might notice is that not all data can be sorted or compared. For instance, [None, 'hello', 10] doesn’t sort because integers can’t be compared to strings and None can’t be compared to other types. Also, there are some types that don’t have a defined ordering relation. For example, 3+4j < 5+7j isn’t a valid comparison.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.1. More on Lists ¶"
+          ],
+          "order": 37,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0038",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0038",
+          "textHash": "sha256_8242ee054229231e9db461b152f810be",
+          "textQuote": "Another thing you might notice is that not all data can be sorted or compared. For instance, [None, 'hello', 10] doesn’t sort because integers can’t be compared to strings and None can’t be compared to other types. Also,"
+        }
+      ],
+      "text": "Another thing you might notice is that not all data can be sorted or compared .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0047",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Note that this creates (or overwrites) a variable named x that still exists after the loop completes. We can calculate the list of squares without any side effects using:",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.1. More on Lists ¶",
+            "5.1.3. List Comprehensions ¶"
+          ],
+          "order": 46,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0047",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0047",
+          "textHash": "sha256_ac62649c6302fc1ac6bee4d7582985ab",
+          "textQuote": "Note that this creates (or overwrites) a variable named x that still exists after the loop completes. We can calculate the list of squares without any side effects using:"
+        }
+      ],
+      "text": "Note that this creates ( or overwrites ) a variable named x that still exists after",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0105",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.5. Dictionaries ¶"
+          ],
+          "order": 104,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0105",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0105",
+          "textHash": "sha256_45b25c0eee68573bc54a142d7ff5c4bf",
+          "textQuote": "When the keys are simple strings, it is sometimes easier to specify pairs using keyword arguments:"
+        }
+      ],
+      "text": "When the keys are simple strings , it is sometimes easier to specify pairs using keyword",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0076",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0076"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0076",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "Referencing the name a hereafter is an error (at least until another value is assigned to it). We’ll find other uses for del later.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.2. The del statement ¶"
+          ],
+          "order": 75,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0076",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0076",
+          "textHash": "sha256_e2d9f78c12e5d0997945d252bab293b3",
+          "textQuote": "Referencing the name a hereafter is an error (at least until another value is assigned to it). We’ll find other uses for del later."
+        }
+      ],
+      "text": "Referencing the name a hereafter is an error ( at least until another value is assigned",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0121",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0121"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0121",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "The conditions used in while and if statements can contain any operators, not just comparisons.",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.7. More on Conditions ¶"
+          ],
+          "order": 120,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0121",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0121",
+          "textHash": "sha256_2f2f754e5e040c6618587b46139500f1",
+          "textQuote": "The conditions used in while and if statements can contain any operators, not just comparisons."
+        }
+      ],
+      "text": "The conditions used in while and if statements can contain any operators , not just comparisons",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0041",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "It is also possible to use a list as a queue, where the first element added is the first element retrieved (“first-in, first-out”); however, lists are not efficient for this purpose. While appends and pops from the end of list are fast, doing inserts or pops from the beginning of a list is slow (because all of the other elements have to be shifted by one).",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.1. More on Lists ¶",
+            "5.1.2. Using Lists as Queues ¶"
+          ],
+          "order": 40,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0041",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0041",
+          "textHash": "sha256_5681d79508586f784731411ae639acc5",
+          "textQuote": "It is also possible to use a list as a queue, where the first element added is the first element retrieved (“first-in, first-out”); however, lists are not efficient for this purpose. While appends and pops from the end o"
+        }
+      ],
+      "text": "It is also possible to use a list as a queue , where the first element",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_tech_004_python_tutorial_datastructures_0052",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_004_python_tutorial_datastructures_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_004_python_tutorial_datastructures_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_004_python_tutorial_datastructures_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_004_python_tutorial_datastructures_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_1e43a9a41b6abfcf491ac43f8b13ba6ba9d459960e451c9708d1563a6d1d822e",
+          "fallbackText": "A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses. The result will be a new list resulting from evaluating the expression in the context of the for and if clauses which follow it. For example, this listcomp combines the elements of two lists if they are not equal:",
+          "headingPath": [
+            "5. Data Structures ¶",
+            "5.1. More on Lists ¶",
+            "5.1.3. List Comprehensions ¶"
+          ],
+          "order": 51,
+          "pageId": "page_tech_004_python_tutorial_datastructures",
+          "paragraphId": "pg_page_tech_004_python_tutorial_datastructures_0052",
+          "sourceRefId": "src_page_tech_004_python_tutorial_datastructures_0052",
+          "textHash": "sha256_a5ff553025f035a0025e596232d60d07",
+          "textQuote": "A list comprehension consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses. The result will be a new list resulting from evaluating the expression in the context of t"
+        }
+      ],
+      "text": "A list comprehension consists of brackets containing an expression followed by a for clause , then",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_004_python_tutorial_datastructures",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.069,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Note that comparing objects of different types with < or > is legal provided that the",
+      "As you see , on output tuples are always enclosed in parentheses , so that nested",
+      "Another useful data type built into Python is the dictionary ( see Mapping Types — dict",
+      "We saw that lists and strings have many common properties , such as indexing and slicing",
+      "Python also includes a data type for sets . A set is an unordered collection with"
+    ],
+    "tldr": "Note that comparing objects of different types with < or > is legal provided that the"
+  }
+}

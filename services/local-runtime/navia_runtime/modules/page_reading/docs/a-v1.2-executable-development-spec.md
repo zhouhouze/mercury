@@ -17,6 +17,27 @@ high-quality page perception
 
 A must not generate final answers, Mindmap, Flashcards, Quiz, Podcast, Notebook, RAG output, AgenticLoop behavior, `ArtifactRecord`, SSE, EventStore, Trace, or D/C/B side effects.
 
+Accepted route:
+
+```text
+DOM baseline
++ extractor ensemble
++ A-owned schema normalization
++ SourceMap / jumpback
++ Quality Evaluator
++ DebugEvidenceBundle
++ 100-page corpus gate
+```
+
+Implementation default:
+
+- `dom_baseline` is always implemented and available.
+- `extractor ensemble` is a candidate layer and must be disabled until dependency audit is approved.
+- final public outputs come only from A-owned normalization and schema validation.
+- SourceMap and QualityReport are mandatory for pass readiness.
+- DebugEvidenceBundle is mandatory for human and automated acceptance.
+- 100-page corpus exit is mandatory before claiming A-V1.2 completion.
+
 ## 2. Public / Evidence Schemas
 
 A-V1.2 public decision:
@@ -127,6 +148,7 @@ type ExtractorCandidateScore = {
   status: "available" | "unavailable" | "skipped" | "failed" | "rejected";
   blockCount: number;
   mainTextChars: number;
+  mainTextCoverage: number;
   estimatedNoiseRatio: number;
   headingCoverage: number;
   sourceRefCoverage: number;
@@ -452,6 +474,12 @@ No extractor may become required for baseline operation. `dom_baseline` remains 
 Extractor candidate score formula:
 
 ```text
+mainTextCoverage =
+  candidate.mainTextChars / max(mainTextChars among available candidates on the same page)
+
+If the denominator is 0, mainTextCoverage is 0 for every candidate and low-main-text
+rejection rules decide whether only degraded/fail output is allowed.
+
 score =
   0.35 * sourceRefCoverage
   + 0.25 * (1 - estimatedNoiseRatio)
@@ -479,6 +507,10 @@ Additional required checks after A-V1.2-8:
 
 ```bash
 PYTHONPATH=services/local-runtime python3 -m pytest -q services/local-runtime/navia_runtime/modules/page_reading/tests -k a_v1_2
+
+PYTHONPATH=services/local-runtime python3 -m navia_runtime.modules.page_reading.eval_corpus \
+  --manifest services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json \
+  --output services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json
 ```
 
 Required evidence review after A-V1.2-8:
@@ -490,6 +522,17 @@ corpus-level quality report exists
 low-signal pages fail/degrade
 debug-evidence.json explains every fail/degrade page
 ```
+
+`eval_corpus` must exit non-zero when any of these checks fail:
+
+- final counted pages are fewer than 100.
+- category gate or core category minimum is not met.
+- any final counted page lacks `snapshotPath` or stored reproducible HTML evidence.
+- any final counted page lacks `goldStatus = reviewed` or `goldStatus = semi_auto_accepted`.
+- source coverage, grounding completeness, jumpback coverage, or required quality thresholds fail.
+- low-signal pages are marked `pass`.
+- required DebugEvidenceBundle files are missing or do not explain pass/degraded/fail status.
+- evidence files required by A-V1.2-1 through A-V1.2-7 are missing.
 
 ## 8. Implementation Handoff Rules
 

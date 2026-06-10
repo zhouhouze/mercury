@@ -1,0 +1,641 @@
+{
+  "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+  "digestId": "digest_page_code_003_py_pathlib",
+  "items": [
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0034",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "You want to make sure that your code only manipulates paths without actually accessing the OS. In this case, instantiating one of the pure classes may be useful since those simply don’t have any OS-accessing operations.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶"
+          ],
+          "order": 33,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0034",
+          "sourceRefId": "src_page_code_003_py_pathlib_0034",
+          "textHash": "sha256_a2bd3496b28d38a604251cd11343ff46",
+          "textQuote": "You want to make sure that your code only manipulates paths without actually accessing the OS. In this case, instantiating one of the pure classes may be useful since those simply don’t have any OS-accessing operations."
+        }
+      ],
+      "text": "You want to make sure that your code only manipulates paths without actually accessing the OS",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0103",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0103"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0103",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "This behavior conforms to The Open Group Base Specifications Issue 6 , paragraph 4.11 Pathname Resolution :",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 102,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0103",
+          "sourceRefId": "src_page_code_003_py_pathlib_0103",
+          "textHash": "sha256_db8cda99957111539b0eea308ef4a971",
+          "textQuote": "This behavior conforms to The Open Group Base Specifications Issue 6 , paragraph 4.11 Pathname Resolution :"
+        }
+      ],
+      "text": "This behavior conforms to The Open Group Base Specifications Issue 6 , paragraph 4 . 11",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0109",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0109"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0109",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Changed in version 3.10: The parents sequence now supports slices and negative index values.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 108,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0109",
+          "sourceRefId": "src_page_code_003_py_pathlib_0109",
+          "textHash": "sha256_54bdb2e3aa1070f12272cab4255fdc7e",
+          "textQuote": "Changed in version 3.10: The parents sequence now supports slices and negative index values."
+        }
+      ],
+      "text": "Changed in version 3 . 10 : The parents sequence now supports slices and negative index",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0029",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0029"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0029",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "This module offers classes representing filesystem paths with semantics appropriate for different operating systems. Path classes are divided between pure paths , which provide purely computational operations without I/O, and concrete paths , which inherit from pure paths but also provide I/O operations.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶"
+          ],
+          "order": 28,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0029",
+          "sourceRefId": "src_page_code_003_py_pathlib_0029",
+          "textHash": "sha256_0b64ae1da239e09e6cc123ce74e7f31e",
+          "textQuote": "This module offers classes representing filesystem paths with semantics appropriate for different operating systems. Path classes are divided between pure paths , which provide purely computational operations without I/O"
+        }
+      ],
+      "text": "This module offers classes representing filesystem paths with semantics appropriate for different operating systems . Path",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0101",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0101"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0101",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "If the path starts with more than two successive slashes, PurePosixPath collapses them:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 100,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0101",
+          "sourceRefId": "src_page_code_003_py_pathlib_0101",
+          "textHash": "sha256_05e72c083324802e3f261f2691b14002",
+          "textQuote": "If the path starts with more than two successive slashes, PurePosixPath collapses them:"
+        }
+      ],
+      "text": "If the path starts with more than two successive slashes , PurePosixPath collapses them :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0066",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0066"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0066",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "A subclass of PurePath , this path flavour represents non-Windows filesystem paths:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶"
+          ],
+          "order": 65,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0066",
+          "sourceRefId": "src_page_code_003_py_pathlib_0066",
+          "textHash": "sha256_994355f0a5c311aa2925961ba29be00a",
+          "textQuote": "A subclass of PurePath , this path flavour represents non-Windows filesystem paths:"
+        }
+      ],
+      "text": "A subclass of PurePath , this path flavour represents non - Windows filesystem paths :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.81,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0061",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Spurious slashes and single dots are collapsed, but double dots ( '..' ) and leading double slashes ( '//' ) are not, since this would change the meaning of a path for various reasons (e.g. symbolic links, UNC paths):",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶"
+          ],
+          "order": 60,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0061",
+          "sourceRefId": "src_page_code_003_py_pathlib_0061",
+          "textHash": "sha256_d72e13072765bceec71f759824a675b1",
+          "textQuote": "Spurious slashes and single dots are collapsed, but double dots ( '..' ) and leading double slashes ( '//' ) are not, since this would change the meaning of a path for various reasons (e.g. symbolic links, UNC paths):"
+        }
+      ],
+      "text": "Spurious slashes and single dots are collapsed , but double dots ( ' . . '",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0065",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0065"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0065",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Changed in version 3.6: Added support for the os.PathLike interface.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶"
+          ],
+          "order": 64,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0065",
+          "sourceRefId": "src_page_code_003_py_pathlib_0065",
+          "textHash": "sha256_a5bf4569de0dd796e8e76b98dc6456e9",
+          "textQuote": "Changed in version 3.6: Added support for the os.PathLike interface."
+        }
+      ],
+      "text": "Changed in version 3 . 6 : Added support for the os . PathLike interface .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0131",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0131"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0131",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Return a string representation of the path with forward slashes ( / ):",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 130,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0131",
+          "sourceRefId": "src_page_code_003_py_pathlib_0131",
+          "textHash": "sha256_439eabeae0663869cb155786d01105a4",
+          "textQuote": "Return a string representation of the path with forward slashes ( / ):"
+        }
+      ],
+      "text": "Return a string representation of the path with forward slashes ( / ) :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0075",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Paths of a different flavour compare unequal and cannot be ordered:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "General properties ¶"
+          ],
+          "order": 74,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0075",
+          "sourceRefId": "src_page_code_003_py_pathlib_0075",
+          "textHash": "sha256_7a184a3af8bdf68554edf93f177f14fe",
+          "textQuote": "Paths of a different flavour compare unequal and cannot be ordered:"
+        }
+      ],
+      "text": "Paths of a different flavour compare unequal and cannot be ordered :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0089",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "(note how the drive and local root are regrouped in a single part)",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Accessing individual parts ¶"
+          ],
+          "order": 88,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0089",
+          "sourceRefId": "src_page_code_003_py_pathlib_0089",
+          "textHash": "sha256_4671ddb6bd44e1de9689fad328d4925e",
+          "textQuote": "(note how the drive and local root are regrouped in a single part)"
+        }
+      ],
+      "text": "( note how the drive and local root are regrouped in a single part )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0114",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0114"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0114",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "This is a purely lexical operation, hence the following behaviour:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 113,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0114",
+          "sourceRefId": "src_page_code_003_py_pathlib_0114",
+          "textHash": "sha256_44a0088cf0ac03f49bef8ca0c2911802",
+          "textQuote": "This is a purely lexical operation, hence the following behaviour:"
+        }
+      ],
+      "text": "This is a purely lexical operation , hence the following behaviour :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.804,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "If you’ve never used this module before or just aren’t sure which class is right for your task, Path is most likely what you need. It instantiates a concrete path for the platform the code is running on.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶"
+          ],
+          "order": 30,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0031",
+          "sourceRefId": "src_page_code_003_py_pathlib_0031",
+          "textHash": "sha256_bee2917f4924ff9454c0d3e3a08d64a1",
+          "textQuote": "If you’ve never used this module before or just aren’t sure which class is right for your task, Path is most likely what you need. It instantiates a concrete path for the platform the code is running on."
+        }
+      ],
+      "text": "If you ’ ve never used this module before or just aren ’ t sure which",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.804,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0035",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "PEP 428 : The pathlib module – object-oriented filesystem paths.",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶"
+          ],
+          "order": 34,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0035",
+          "sourceRefId": "src_page_code_003_py_pathlib_0035",
+          "textHash": "sha256_0c8c0fb6930e2c258c3e90dca9ea1d4d",
+          "textQuote": "PEP 428 : The pathlib module – object-oriented filesystem paths."
+        }
+      ],
+      "text": "PEP 428 : The pathlib module – object - oriented filesystem paths .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.804,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0050",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Pure path objects provide path-handling operations which don’t actually access a filesystem. There are three ways to access these classes, which we also call flavours :",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶"
+          ],
+          "order": 49,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0050",
+          "sourceRefId": "src_page_code_003_py_pathlib_0050",
+          "textHash": "sha256_02397f930081679d46a0ab3274ddbb58",
+          "textQuote": "Pure path objects provide path-handling operations which don’t actually access a filesystem. There are three ways to access these classes, which we also call flavours :"
+        }
+      ],
+      "text": "Pure path objects provide path - handling operations which don ’ t actually access a filesystem",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0125",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0125"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0125",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "A list of the path’s suffixes, often called file extensions:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Methods and properties ¶"
+          ],
+          "order": 124,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0125",
+          "sourceRefId": "src_page_code_003_py_pathlib_0125",
+          "textHash": "sha256_b4221bdc753b6da4a55cd3fd9c4f7c9c",
+          "textQuote": "A list of the path’s suffixes, often called file extensions:"
+        }
+      ],
+      "text": "A list of the path ’ s suffixes , often called file extensions :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "Pure paths are useful in some special cases; for example:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶"
+          ],
+          "order": 31,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0032",
+          "sourceRefId": "src_page_code_003_py_pathlib_0032",
+          "textHash": "sha256_c1db2eb480ca9506125ff487ca6dd951",
+          "textQuote": "Pure paths are useful in some special cases; for example:"
+        }
+      ],
+      "text": "Pure paths are useful in some special cases ; for example :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_code_003_py_pathlib_0087",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_code_003_py_pathlib_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_003_py_pathlib_0087"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_003_py_pathlib_0087",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_003_py_pathlib_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_f1ce9912175b26014929d2997bf66cd9d20aa94d3fe4de5b6481bd0db0dcd569",
+          "fallbackText": "A tuple giving access to the path’s various components:",
+          "headingPath": [
+            "pathlib — Object-oriented filesystem paths ¶",
+            "Pure paths ¶",
+            "Accessing individual parts ¶"
+          ],
+          "order": 86,
+          "pageId": "page_code_003_py_pathlib",
+          "paragraphId": "pg_page_code_003_py_pathlib_0087",
+          "sourceRefId": "src_page_code_003_py_pathlib_0087",
+          "textHash": "sha256_647a3a79c60b226015512269732e76fd",
+          "textQuote": "A tuple giving access to the path’s various components:"
+        }
+      ],
+      "text": "A tuple giving access to the path ’ s various components :",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_code_003_py_pathlib",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.118,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "You want to make sure that your code only manipulates paths without actually accessing the OS",
+      "This behavior conforms to The Open Group Base Specifications Issue 6 , paragraph 4 . 11",
+      "Changed in version 3 . 10 : The parents sequence now supports slices and negative index",
+      "This module offers classes representing filesystem paths with semantics appropriate for different operating systems . Path",
+      "If the path starts with more than two successive slashes , PurePosixPath collapses them :"
+    ],
+    "tldr": "You want to make sure that your code only manipulates paths without actually accessing the OS"
+  }
+}

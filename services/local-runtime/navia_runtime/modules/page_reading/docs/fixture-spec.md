@@ -39,9 +39,9 @@ tests/evidence/empty.error.json
 - manually fabricated text unrelated to fixture body.
 - one giant `cleanedText` block as only useful output.
 
-## A-V1.1 Fixture Classes
+## A-V1.2 High-Signal Baseline Fixture Classes
 
-Additional A-V1.1 fixtures:
+These fixtures came from the historical high-signal stage and remain required as A-V1.2 baseline regression fixtures:
 
 ```text
 fixtures/article_noise.html
@@ -63,7 +63,7 @@ Fixture class gates:
 | `no_signal` | `empty_or_low_signal.html` | `downstreamReadiness = fail` or `PAGE_CONTEXT_REQUIRED`; never pass |
 | `planning_only` | `video_page_stub.html` | contract fields only; never real perception ready |
 
-Expected A-V1.1 evidence files:
+Expected A-V1.2 baseline evidence files:
 
 ```text
 tests/evidence/<fixture>.candidate-extraction.json
@@ -73,7 +73,7 @@ tests/evidence/<fixture>.perception-digest.json
 tests/evidence/<fixture>.quality-report.json
 ```
 
-Disallowed A-V1.1 fixture behavior:
+Disallowed A-V1.2 baseline fixture behavior:
 
 - `empty_or_low_signal.html` passing quality gates.
 - `video_page_stub.html` producing real video perception readiness.

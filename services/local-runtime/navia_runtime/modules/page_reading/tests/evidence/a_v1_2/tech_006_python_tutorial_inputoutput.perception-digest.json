@@ -1,0 +1,648 @@
+{
+  "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+  "digestId": "digest_page_tech_006_python_tutorial_inputoutput",
+  "items": [
+    {
+      "confidence": 0.846,
+      "importance": 0.886,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0061",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The str.rjust() method of string objects right-justifies a string in a field of a given width by padding it with spaces on the left. There are similar methods str.ljust() and str.center() . These methods do not write anything, they just return a new string. If the input string is too long, they don’t truncate it, but return it unchanged; this will mess up yo",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶",
+            "7.1.3. Manual String Formatting ¶"
+          ],
+          "order": 60,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0061",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0061",
+          "textHash": "sha256_c0e9e3afb380a460b98565186c839f80",
+          "textQuote": "The str.rjust() method of string objects right-justifies a string in a field of a given width by padding it with spaces on the left. There are similar methods str.ljust() and str.center() . These methods do not write any"
+        }
+      ],
+      "text": "The str . rjust ( ) method of string objects right - justifies a string in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0107",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "Contrary to JSON , pickle is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languages. It is also insecure by default: deserializing pickle data coming from an untrusted source can execute arbitrary code, if the data was cr",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.2. Saving structured data with json ¶"
+          ],
+          "order": 106,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0107",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0107",
+          "textHash": "sha256_43cdde7c6b671507d7871655a5aeb777",
+          "textQuote": "Contrary to JSON , pickle is a protocol which allows the serialization of arbitrarily complex Python objects. As such, it is specific to Python and cannot be used to communicate with applications written in other languag"
+        }
+      ],
+      "text": "Contrary to JSON , pickle is a protocol which allows the serialization of arbitrarily complex Python",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.864,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0030",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0030"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0030",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The string module contains support for a simple templating approach based upon regular expressions, via string.Template . This offers yet another way to substitute values into strings, using placeholders like $x and replacing them with values from a dictionary. This syntax is easy to use, although it offers much less control for formatting.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 29,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0030",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0030",
+          "textHash": "sha256_1cdb35bcb39e122aedc995740ee800bd",
+          "textQuote": "The string module contains support for a simple templating approach based upon regular expressions, via string.Template . This offers yet another way to substitute values into strings, using placeholders like $x and repl"
+        }
+      ],
+      "text": "The string module contains support for a simple templating approach based upon regular expressions , via",
+      "warnings": []
+    },
+    {
+      "confidence": 0.836,
+      "importance": 0.861,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0096",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows you to use the popular data interchange format called JSON (JavaScript Object Notation) . The standard module called json can take Python data hierarchies, and convert them to string representations; this process is called serializing . Recon",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.2. Saving structured data with json ¶"
+          ],
+          "order": 95,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0096",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0096",
+          "textHash": "sha256_b752681efbbf3a18f825439543040fb9",
+          "textQuote": "Rather than having users constantly writing and debugging code to save complicated data types to files, Python allows you to use the popular data interchange format called JSON (JavaScript Object Notation) . The standard"
+        }
+      ],
+      "text": "Rather than having users constantly writing and debugging code to save complicated data types to files",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0028",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0028"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0028",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The str() function is meant to return representations of values which are fairly human-readable, while repr() is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if there is no equivalent syntax). For objects which don’t have a particular representation for human consumption, str() will return the same value",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 27,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0028",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0028",
+          "textHash": "sha256_372a6cc9124609e89a77e9d78b138bdf",
+          "textQuote": "The str() function is meant to return representations of values which are fairly human-readable, while repr() is meant to generate representations which can be read by the interpreter (or will force a SyntaxError if ther"
+        }
+      ],
+      "text": "The str ( ) function is meant to return representations of values which are fairly human",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0019",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0019"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0019",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "So far we’ve encountered two ways of writing values: expression statements and the print() function. (A third way is using the write() method of file objects; the standard output file can be referenced as sys.stdout . See the Library Reference for more information on this.)",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 18,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0019",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0019",
+          "textHash": "sha256_56f4b74e864d115dcdce17dfd809d6e7",
+          "textQuote": "So far we’ve encountered two ways of writing values: expression statements and the print() function. (A third way is using the write() method of file objects; the standard output file can be referenced as sys.stdout . Se"
+        }
+      ],
+      "text": "So far we ’ ve encountered two ways of writing values : expression statements and the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0095",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0095"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0095",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "Strings can easily be written to and read from a file. Numbers take a bit more effort, since the read() method only returns strings, which will have to be passed to a function like int() , which takes a string like '123' and returns its numeric value 123. When you want to save more complex data types like nested lists and dictionaries, parsing and serializin",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.2. Saving structured data with json ¶"
+          ],
+          "order": 94,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0095",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0095",
+          "textHash": "sha256_a9d8ccd49b296c05e4ba0150d72613f3",
+          "textQuote": "Strings can easily be written to and read from a file. Numbers take a bit more effort, since the read() method only returns strings, which will have to be passed to a function like int() , which takes a string like '123'"
+        }
+      ],
+      "text": "Strings can easily be written to and read from a file . Numbers take a bit",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0034",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "Passing an integer after the ':' will cause that field to be a minimum number of characters wide. This is useful for making columns line up.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶",
+            "7.1.1. Formatted String Literals ¶"
+          ],
+          "order": 33,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0034",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0034",
+          "textHash": "sha256_d6a5e47d2a5da534a62eef7cd2fc5c5d",
+          "textQuote": "Passing an integer after the ':' will cause that field to be a minimum number of characters wide. This is useful for making columns line up."
+        }
+      ],
+      "text": "Passing an integer after the ' : ' will cause that field to be a minimum",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0062",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "There is another method, str.zfill() , which pads a numeric string on the left with zeros. It understands about plus and minus signs:",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶",
+            "7.1.3. Manual String Formatting ¶"
+          ],
+          "order": 61,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0062",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0062",
+          "textHash": "sha256_1f959fafbfb8878923f269f4d601da67",
+          "textQuote": "There is another method, str.zfill() , which pads a numeric string on the left with zeros. It understands about plus and minus signs:"
+        }
+      ],
+      "text": "There is another method , str . zfill ( ) , which pads a numeric string",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0023",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0023"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0023",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The str.format() method of strings requires more manual effort. You’ll still use { and } to mark where a variable will be substituted and can provide detailed formatting directives, but you’ll also need to provide the information to be formatted. In the following code block there are two examples of how to format variables:",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 22,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0023",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0023",
+          "textHash": "sha256_e3248183dea38108c9ceeba7895bcc0d",
+          "textQuote": "The str.format() method of strings requires more manual effort. You’ll still use { and } to mark where a variable will be substituted and can provide detailed formatting directives, but you’ll also need to provide the in"
+        }
+      ],
+      "text": "The str . format ( ) method of strings requires more manual effort . You ’",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0027",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0027"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0027",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can convert any value to a string with the repr() or str() functions.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 26,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0027",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0027",
+          "textHash": "sha256_3ad08d6066e0d84d611529aeaf96d981",
+          "textQuote": "When you don’t need fancy output but just want a quick display of some variables for debugging purposes, you can convert any value to a string with the repr() or str() functions."
+        }
+      ],
+      "text": "When you don ’ t need fancy output but just want a quick display of some",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0097",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0097"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0097",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The JSON format is commonly used by modern applications to allow for data exchange. Many programmers are already familiar with it, which makes it a good choice for interoperability.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.2. Saving structured data with json ¶"
+          ],
+          "order": 96,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0097",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0097",
+          "textHash": "sha256_773606e5a67b477be5d8dc0b5d9faf94",
+          "textQuote": "The JSON format is commonly used by modern applications to allow for data exchange. Many programmers are already familiar with it, which makes it a good choice for interoperability."
+        }
+      ],
+      "text": "The JSON format is commonly used by modern applications to allow for data exchange . Many",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0020",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "Often you’ll want more control over the formatting of your output than simply printing space-separated values. There are several ways to format output.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶"
+          ],
+          "order": 19,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0020",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0020",
+          "textHash": "sha256_6bd2cf9d90fc5e4d080bc307cc493cd5",
+          "textQuote": "Often you’ll want more control over the formatting of your output than simply printing space-separated values. There are several ways to format output."
+        }
+      ],
+      "text": "Often you ’ ll want more control over the formatting of your output than simply printing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0064",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0064"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0064",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "The % operator (modulo) can also be used for string formatting. Given format % values (where format is a string), % conversion specifications in format are replaced with zero or more elements of values . This operation is commonly known as string interpolation. For example:",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.1. Fancier Output Formatting ¶",
+            "7.1.4. Old string formatting ¶"
+          ],
+          "order": 63,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0064",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0064",
+          "textHash": "sha256_dbbd3a824d663fdff3b65b1f9038b40a",
+          "textQuote": "The % operator (modulo) can also be used for string formatting. Given format % values (where format is a string), % conversion specifications in format are replaced with zero or more elements of values . This operation i"
+        }
+      ],
+      "text": "The % operator ( modulo ) can also be used for string formatting . Given format",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0093",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0093"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0093",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "In text files (those opened without a b in the mode string), only seeks relative to the beginning of the file are allowed (the exception being seeking to the very file end with seek(0, 2) ) and the only valid offset values are those returned from the f.tell() , or zero. Any other offset value produces undefined behaviour.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.1. Methods of File Objects ¶"
+          ],
+          "order": 92,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0093",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0093",
+          "textHash": "sha256_361e9bcb9c2110bbf2c39dc51123176c",
+          "textQuote": "In text files (those opened without a b in the mode string), only seeks relative to the beginning of the file are allowed (the exception being seeking to the very file end with seek(0, 2) ) and the only valid offset valu"
+        }
+      ],
+      "text": "In text files ( those opened without a b in the mode string ) , only",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0105",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "This simple serialization technique can handle lists and dictionaries, but serializing arbitrary class instances in JSON requires a bit of extra effort. The reference for the json module contains an explanation of this.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.2. Saving structured data with json ¶"
+          ],
+          "order": 104,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0105",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0105",
+          "textHash": "sha256_84641d69f86b4710f6de2b8f1e6f11c3",
+          "textQuote": "This simple serialization technique can handle lists and dictionaries, but serializing arbitrary class instances in JSON requires a bit of extra effort. The reference for the json module contains an explanation of this."
+        }
+      ],
+      "text": "This simple serialization technique can handle lists and dictionaries , but serializing arbitrary class instances in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "File objects have some additional methods, such as isatty() and truncate() which are less frequently used; consult the Library Reference for a complete guide to file objects.",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶",
+            "7.2.1. Methods of File Objects ¶"
+          ],
+          "order": 93,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0094",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0094",
+          "textHash": "sha256_d95abf14345427ff22aebf9345936d2b",
+          "textQuote": "File objects have some additional methods, such as isatty() and truncate() which are less frequently used; consult the Library Reference for a complete guide to file objects."
+        }
+      ],
+      "text": "File objects have some additional methods , such as isatty ( ) and truncate ( )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_tech_006_python_tutorial_inputoutput_0072",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_006_python_tutorial_inputoutput_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_006_python_tutorial_inputoutput_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_006_python_tutorial_inputoutput_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_006_python_tutorial_inputoutput_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_34f04bc794a5830ac20a1675d90c730acc66d027efbc0f33cb9a81399b0f4ebe",
+          "fallbackText": "It is good practice to use the with keyword when dealing with file objects. The advantage is that the file is properly closed after its suite finishes, even if an exception is raised at some point. Using with is also much shorter than writing equivalent try - finally blocks:",
+          "headingPath": [
+            "7. Input and Output ¶",
+            "7.2. Reading and Writing Files ¶"
+          ],
+          "order": 71,
+          "pageId": "page_tech_006_python_tutorial_inputoutput",
+          "paragraphId": "pg_page_tech_006_python_tutorial_inputoutput_0072",
+          "sourceRefId": "src_page_tech_006_python_tutorial_inputoutput_0072",
+          "textHash": "sha256_4dcbc91cdea24bb09cc88038215d2538",
+          "textQuote": "It is good practice to use the with keyword when dealing with file objects. The advantage is that the file is properly closed after its suite finishes, even if an exception is raised at some point. Using with is also muc"
+        }
+      ],
+      "text": "It is good practice to use the with keyword when dealing with file objects . The",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_006_python_tutorial_inputoutput",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.077,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "The str . rjust ( ) method of string objects right - justifies a string in",
+      "Contrary to JSON , pickle is a protocol which allows the serialization of arbitrarily complex Python",
+      "The string module contains support for a simple templating approach based upon regular expressions , via",
+      "Rather than having users constantly writing and debugging code to save complicated data types to files",
+      "The str ( ) function is meant to return representations of values which are fairly human"
+    ],
+    "tldr": "The str . rjust ( ) method of string objects right - justifies a string in"
+  }
+}

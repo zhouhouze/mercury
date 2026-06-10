@@ -10,7 +10,7 @@ build_structured_page_context(input: PageReadingInput) -> PageReadingResult
 
 Implementation files stay under `runtime/`. Integration Codex imports this entry and wires it to existing `/v1/page/context` or session update flow.
 
-A module planning and implementation items use `A-V1.0-*` numbering from `docs/navia_v1_project_docs/MODULE_VERSIONING.md`.
+A module planning and implementation items use `A-V1.x-*` numbering from `docs/navia_v1_project_docs/MODULE_VERSIONING.md`. The current page perception stage is `A-V1.2`.
 
 ## Input
 
@@ -108,7 +108,7 @@ Planned but not V1.2 implemented by default:
 - `ImageBlock`: DOM-readable metadata only unless approved OCR input exists. Current A module evidence uses module-local `imageMetadata[]`.
 - `OcrTextBlock`: contract-only in `A-V1.0-3`.
 - `TableBlock`, `ListBlock`, `CodeBlock`: planned for `A-V1.0-4`.
-- `MediaTimelineBlock`: video / live planning only in `A-V2.0-*`.
+- `MediaTimelineBlock`: video / live planning only in `A-V1.12+`.
 
 ## Error Rules
 
@@ -127,7 +127,9 @@ Planned but not V1.2 implemented by default:
 - OCR / vision / media execution must be routed through future governed Adapter contracts.
 - Any public schema change must be proposed through V1.2-0 contract review before implementation.
 
-## A-V1.1 Quality Gate
+## A-V1.2 High-Signal Compatibility Quality Gate
+
+A-V1.2 复用 A-V1.1 high-signal schemaVersion 作为兼容合同基线。这里的字段和阈值仍是当前 A-V1.2 high-signal 输出的最低质量门槛，不表示当前阶段是 A-V1.1。
 
 Minimum quality report fields:
 
@@ -203,7 +205,7 @@ Rules:
 
 A-V1.2 is scoped to high-quality page perception, structured page summary, jumpback evidence, and debug-verifiable JSON. It is not a final-answer, learning artifact, RAG, Notebook, mindmap, or AgenticLoop API.
 
-A-V1.2 defaults to preserving A-V1.1 public contracts:
+A-V1.2 defaults to preserving the high-signal compatible public contracts:
 
 ```text
 StructuredPageContext
@@ -231,6 +233,8 @@ D/C/B may depend on the exact shape only through the public schema and only for 
 - Corpus and gold review records are acceptance evidence, not runtime session state.
 
 `PerceptionDigest` may contain structured page summary fields such as TLDR, key paragraphs, key facts, terms, entities, procedures, table facts, and code facts. These fields are downstream context only; they are not assistant messages and must not be treated as final answers.
+
+`ExtractorCandidateScore` must include both raw `mainTextChars` and normalized `mainTextCoverage`. `mainTextCoverage` is computed as `candidate.mainTextChars / max(mainTextChars among available candidates on the same page)`; if the denominator is 0, every candidate gets `mainTextCoverage = 0` and low-main-text degraded/fail rules apply.
 
 `DebugEvidenceBundle` planning shape:
 

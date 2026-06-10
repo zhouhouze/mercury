@@ -163,16 +163,18 @@ type StructuredSummaryDraft = {
 
 ---
 
-## 8. A-V1.1 High-Signal Public Contracts
+## 8. A High-Signal Public Contracts Used By A-V1.2
 
-A-V1.1 审计结论：
+A-V1.2 复用已经验证过的 high-signal 合同作为公共消费基线。历史 schemaVersion 仍保留 `a-v1.1-*`，这是兼容 wire shape，不代表当前开发阶段退回 A-V1.1。
+
+原 A-V1.1 审计结论仍然有效：
 
 ```text
 HighSignalPageContext / PerceptionDigest / SourceMap / PagePerceptionQualityReport
 must be public contracts before D/C can consume them.
 ```
 
-这些合同是 `StructuredPageContext` 的高信号视图和评估层，不替代 `StructuredPageContext`。A 必须继续保留完整结构化上下文；D/C 可在 `qualityReport.downstreamReadiness = "pass"` 时优先消费 high-signal 视图。
+这些合同是 `StructuredPageContext` 的高信号视图和评估层，不替代 `StructuredPageContext`。A 必须继续保留完整结构化上下文；D/C 可在 `qualityReport.downstreamReadiness = "pass"` 时优先消费 high-signal 视图。A-V1.2 在此基础上新增 `DebugEvidenceBundle`、corpus、gold review 和 extractor comparison 合同。
 
 ### 8.1 HighSignalPageContext
 
@@ -530,6 +532,9 @@ Quality formula closure:
 Extractor selection closure:
 
 - Candidate score formula is `0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage`.
+- `mainTextCoverage` is a normalized `Score`: `candidate.mainTextChars / max(mainTextChars among available candidates on the same page)`.
+- If every available candidate has `mainTextChars = 0`, `mainTextCoverage = 0` for every candidate and low-main-text rejection / degraded-or-fail rules apply.
+- `mainTextChars` remains the raw character count and is only used as a tie-breaker after score, `dom_baseline`, and `sourceRefCoverage`.
 - Winner selection is highest score.
 - Tie breaker is `highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars`.
 - Any unavailable, failed, unapproved, high-noise, low-source-coverage, or low-main-text candidate must be marked rejected.

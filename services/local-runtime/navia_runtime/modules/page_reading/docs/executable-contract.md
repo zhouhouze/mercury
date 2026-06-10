@@ -18,9 +18,9 @@ Public shape must conform to:
 - `annotations` reference existing paragraph IDs.
 - `densityScore` and `confidence` are within `0..1`.
 
-`A-V1.1` public contracts:
+`A-V1.2` high-signal compatibility public contracts:
 
-- `HighSignalPageContext` validates against `docs/navia_v1_project_docs/contracts/a_v1_1_high_signal.schema.json`.
+- `HighSignalPageContext` validates against `docs/navia_v1_project_docs/contracts/a_v1_1_high_signal.schema.json` for compatibility and against A-V1.2 public schema where applicable.
 - `HighSignalPageContext.sourceStructuredPageRef` matches the source `StructuredPageContext` `pageId` and `contentHash`.
 - Every `HighSignalBlock` has at least one `SourceRef`.
 - `PerceptionDigest.items[]` contains only items with non-empty `sourceRefs`.
@@ -38,10 +38,10 @@ Public shape must conform to:
 - C may consume it.
 - B must not mutate it.
 - A owns `HighSignalPageContext`, `PerceptionDigest`, `SourceMap`, `SourceRef`, and `PagePerceptionQualityReport`.
-- D/C may consume A-V1.1 high-signal contracts only when public schema validation passes and quality readiness passes.
-- B may render A-V1.1 contracts in Debug, but must not mutate them.
+- D/C may consume A-V1.2 high-signal contracts only when public schema validation passes and quality readiness passes.
+- B may render A-V1.2 contracts in Debug, but must not mutate them.
 
-## A-V1.1 False-Green Assertions
+## A-V1.2 False-Green Assertions
 
 - `no_signal` fixtures must fail or return `PAGE_CONTEXT_REQUIRED`.
 - `planning_only` fixtures must not produce `status = "ready"`.

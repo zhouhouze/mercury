@@ -1,0 +1,635 @@
+{
+  "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+  "digestId": "digest_page_code_008_py_typing",
+  "items": [
+    {
+      "confidence": 0.832,
+      "importance": 0.853,
+      "itemId": "item_block_pg_page_code_008_py_typing_0061",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Note that these checks are enforced only by the static type checker. At runtime, the statement Derived = NewType('Derived', Base) will make Derived a callable that immediately returns whatever parameter you pass it. That means the expression Derived(some_value) does not create a new class or introduce much overhead beyond that of a regular function call.",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "NewType ¶"
+          ],
+          "order": 60,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0061",
+          "sourceRefId": "src_page_code_008_py_typing_0061",
+          "textHash": "sha256_5c927cdb02060749b1def2d915539e5b",
+          "textQuote": "Note that these checks are enforced only by the static type checker. At runtime, the statement Derived = NewType('Derived', Base) will make Derived a callable that immediately returns whatever parameter you pass it. That"
+        }
+      ],
+      "text": "Note that these checks are enforced only by the static type checker . At runtime ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.84,
+      "itemId": "item_block_pg_page_code_008_py_typing_0081",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Callables which take other callables as arguments may indicate that their parameter types are dependent on each other using ParamSpec . Additionally, if that callable adds or removes arguments from other callables, the Concatenate operator may be used. They take the form Callable[ParamSpecVariable, ReturnType] and Callable[Concatenate[Arg1Type, Arg2Type, ...",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating callable objects ¶"
+          ],
+          "order": 80,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0081",
+          "sourceRefId": "src_page_code_008_py_typing_0081",
+          "textHash": "sha256_5e9da29ca8ffa0ecbff4d694059e6c93",
+          "textQuote": "Callables which take other callables as arguments may indicate that their parameter types are dependent on each other using ParamSpec . Additionally, if that callable adds or removes arguments from other callables, the C"
+        }
+      ],
+      "text": "Callables which take other callables as arguments may indicate that their parameter types are dependent on",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_code_008_py_typing_0118",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0118"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0118",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Coroutines can be annotated using Coroutine[YieldType, SendType, ReturnType] . Generic arguments correspond to those of Generator , for example:",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating generators and coroutines ¶"
+          ],
+          "order": 117,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0118",
+          "sourceRefId": "src_page_code_008_py_typing_0118",
+          "textHash": "sha256_ab842a6cad3047856f01c8dec767e030",
+          "textQuote": "Coroutines can be annotated using Coroutine[YieldType, SendType, ReturnType] . Generic arguments correspond to those of Generator , for example:"
+        }
+      ],
+      "text": "Coroutines can be annotated using Coroutine [ YieldType , SendType , ReturnType ] . Generic arguments",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_code_008_py_typing_0079",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0079"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0079",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Callable cannot express complex signatures such as functions that take a variadic number of arguments, overloaded functions , or functions that have keyword-only parameters. However, these signatures can be expressed by defining a Protocol class with a __call__() method:",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating callable objects ¶"
+          ],
+          "order": 78,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0079",
+          "sourceRefId": "src_page_code_008_py_typing_0079",
+          "textHash": "sha256_5b7671f8a2eb9222e810ed006a401a33",
+          "textQuote": "Callable cannot express complex signatures such as functions that take a variadic number of arguments, overloaded functions , or functions that have keyword-only parameters. However, these signatures can be expressed by "
+        }
+      ],
+      "text": "Callable cannot express complex signatures such as functions that take a variadic number of arguments ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_code_008_py_typing_0047",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "A type alias is defined using the type statement, which creates an instance of TypeAliasType . In this example, Vector and list[float] will be treated equivalently by static type checkers:",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Type aliases ¶"
+          ],
+          "order": 46,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0047",
+          "sourceRefId": "src_page_code_008_py_typing_0047",
+          "textHash": "sha256_34a16adc43c42c9e31591b0b94865601",
+          "textQuote": "A type alias is defined using the type statement, which creates an instance of TypeAliasType . In this example, Vector and list[float] will be treated equivalently by static type checkers:"
+        }
+      ],
+      "text": "A type alias is defined using the type statement , which creates an instance of TypeAliasType",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_code_008_py_typing_0125",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0125"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0125",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Generic classes have __class_getitem__() methods, meaning they can be parameterised at runtime (e.g. LoggedVar[int] below):",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "User-defined generic types ¶"
+          ],
+          "order": 124,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0125",
+          "sourceRefId": "src_page_code_008_py_typing_0125",
+          "textHash": "sha256_7ca9b63a1897654d819412ab1f2604ca",
+          "textQuote": "Generic classes have __class_getitem__() methods, meaning they can be parameterised at runtime (e.g. LoggedVar[int] below):"
+        }
+      ],
+      "text": "Generic classes have __class_getitem__ ( ) methods , meaning they can be parameterised at runtime (",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_code_008_py_typing_0036",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers , IDEs, linters, etc.",
+          "headingPath": [
+            "typing — Support for type hints ¶"
+          ],
+          "order": 35,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0036",
+          "sourceRefId": "src_page_code_008_py_typing_0036",
+          "textHash": "sha256_b62d503de188e39d4600fb6162978417",
+          "textQuote": "The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers , IDEs, linters, etc."
+        }
+      ],
+      "text": "The Python runtime does not enforce function and variable type annotations . They can be used",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_code_008_py_typing_0136",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0136"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0136",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Using a generic class without specifying type parameters assumes Any for each position. In the following example, MyIterable is not generic but implicitly inherits from Iterable[Any] :",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "User-defined generic types ¶"
+          ],
+          "order": 135,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0136",
+          "sourceRefId": "src_page_code_008_py_typing_0136",
+          "textHash": "sha256_cd4282d32be5129a48bd36a97fe569a5",
+          "textQuote": "Using a generic class without specifying type parameters assumes Any for each position. In the following example, MyIterable is not generic but implicitly inherits from Iterable[Any] :"
+        }
+      ],
+      "text": "Using a generic class without specifying type parameters assumes Any for each position . In the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_code_008_py_typing_0084",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Since type information about objects kept in containers cannot be statically inferred in a generic way, many container classes in the standard library support subscription to denote the expected types of container elements.",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Generics ¶"
+          ],
+          "order": 83,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0084",
+          "sourceRefId": "src_page_code_008_py_typing_0084",
+          "textHash": "sha256_934b4b3653808338f21c2ba3303eb401",
+          "textQuote": "Since type information about objects kept in containers cannot be statically inferred in a generic way, many container classes in the standard library support subscription to denote the expected types of container elemen"
+        }
+      ],
+      "text": "Since type information about objects kept in containers cannot be statically inferred in a generic way",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_008_py_typing_0107",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Note that unlike many other generic classes in the standard library, the SendType of Generator behaves contravariantly, not covariantly or invariantly.",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating generators and coroutines ¶"
+          ],
+          "order": 106,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0107",
+          "sourceRefId": "src_page_code_008_py_typing_0107",
+          "textHash": "sha256_326251994b2bc79c6b029fb8922b4990",
+          "textQuote": "Note that unlike many other generic classes in the standard library, the SendType of Generator behaves contravariantly, not covariantly or invariantly."
+        }
+      ],
+      "text": "Note that unlike many other generic classes in the standard library , the SendType of Generator",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_code_008_py_typing_0082",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Changed in version 3.10: Callable now supports ParamSpec and Concatenate . See PEP 612 for more details.",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating callable objects ¶"
+          ],
+          "order": 81,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0082",
+          "sourceRefId": "src_page_code_008_py_typing_0082",
+          "textHash": "sha256_42f9d523ab15562bd6235576b31afc3c",
+          "textQuote": "Changed in version 3.10: Callable now supports ParamSpec and Concatenate . See PEP 612 for more details."
+        }
+      ],
+      "text": "Changed in version 3 . 10 : Callable now supports ParamSpec and Concatenate . See PEP",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_code_008_py_typing_0112",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0112"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0112",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Simple generators that only ever yield values can also be annotated as having a return type of either Iterable[YieldType] or Iterator[YieldType] :",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating generators and coroutines ¶"
+          ],
+          "order": 111,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0112",
+          "sourceRefId": "src_page_code_008_py_typing_0112",
+          "textHash": "sha256_9bf47a42342b4d9a2c5843a8a9a08eca",
+          "textQuote": "Simple generators that only ever yield values can also be annotated as having a return type of either Iterable[YieldType] or Iterator[YieldType] :"
+        }
+      ],
+      "text": "Simple generators that only ever yield values can also be annotated as having a return type",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_008_py_typing_0044",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0044"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0044",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "The Python typing system is standardised via PEPs, so this reference should broadly apply to most Python type checkers. (Some parts may still be specific to mypy.)",
+          "headingPath": [
+            "typing — Support for type hints ¶"
+          ],
+          "order": 43,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0044",
+          "sourceRefId": "src_page_code_008_py_typing_0044",
+          "textHash": "sha256_e2c87b0b17bcf0e209a64f7b113aa92c",
+          "textQuote": "The Python typing system is standardised via PEPs, so this reference should broadly apply to most Python type checkers. (Some parts may still be specific to mypy.)"
+        }
+      ],
+      "text": "The Python typing system is standardised via PEPs , so this reference should broadly apply to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_008_py_typing_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Unlike most other Python containers, however, it is common in idiomatic Python code for tuples to have elements which are not all of the same type. For this reason, tuples are special-cased in Python’s typing system. tuple accepts any number of type arguments:",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating tuples ¶"
+          ],
+          "order": 93,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0094",
+          "sourceRefId": "src_page_code_008_py_typing_0094",
+          "textHash": "sha256_9e1de15804ea6d6b276aaabbb41d318a",
+          "textQuote": "Unlike most other Python containers, however, it is common in idiomatic Python code for tuples to have elements which are not all of the same type. For this reason, tuples are special-cased in Python’s typing system. tup"
+        }
+      ],
+      "text": "Unlike most other Python containers , however , it is common in idiomatic Python code for",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_code_008_py_typing_0083",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0083"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0083",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "The documentation for ParamSpec and Concatenate provides examples of usage in Callable .",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Annotating callable objects ¶"
+          ],
+          "order": 82,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0083",
+          "sourceRefId": "src_page_code_008_py_typing_0083",
+          "textHash": "sha256_aa97f3343afd44e8a757351a48bcb6d0",
+          "textQuote": "The documentation for ParamSpec and Concatenate provides examples of usage in Callable ."
+        }
+      ],
+      "text": "The documentation for ParamSpec and Concatenate provides examples of usage in Callable .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_code_008_py_typing_0051",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0051"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0051",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "The type statement is new in Python 3.12. For backwards compatibility, type aliases can also be created through simple assignment:",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Type aliases ¶"
+          ],
+          "order": 50,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0051",
+          "sourceRefId": "src_page_code_008_py_typing_0051",
+          "textHash": "sha256_b5b362488dd2cbab391eadbafb4af57f",
+          "textQuote": "The type statement is new in Python 3.12. For backwards compatibility, type aliases can also be created through simple assignment:"
+        }
+      ],
+      "text": "The type statement is new in Python 3 . 12 . For backwards compatibility , type",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_code_008_py_typing_0070",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "In contrast, NewType declares one type to be a subtype of another. Doing Derived = NewType('Derived', Original) will make the static type checker treat Derived as a subclass of Original , which means a value of type Original cannot be used in places where a value of type Derived is expected. This is useful when you want to prevent logic errors with minimal r",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "NewType ¶"
+          ],
+          "order": 69,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0070",
+          "sourceRefId": "src_page_code_008_py_typing_0070",
+          "textHash": "sha256_fa0605bc4b61c889213d380fdb3bd353",
+          "textQuote": "In contrast, NewType declares one type to be a subtype of another. Doing Derived = NewType('Derived', Original) will make the static type checker treat Derived as a subclass of Original , which means a value of type Orig"
+        }
+      ],
+      "text": "In contrast , NewType declares one type to be a subtype of another . Doing Derived",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_code_008_py_typing_0086",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_008_py_typing_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_008_py_typing_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_008_py_typing_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_008_py_typing_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_84cec06311748d889ef53067796e8f6b57d0f93e852a9165a5d350985c004b75",
+          "fallbackText": "Generic functions and classes can be parameterized by using type parameter syntax :",
+          "headingPath": [
+            "typing — Support for type hints ¶",
+            "Generics ¶"
+          ],
+          "order": 85,
+          "pageId": "page_code_008_py_typing",
+          "paragraphId": "pg_page_code_008_py_typing_0086",
+          "sourceRefId": "src_page_code_008_py_typing_0086",
+          "textHash": "sha256_7355e767385495acfaa95f860d3c8f50",
+          "textQuote": "Generic functions and classes can be parameterized by using type parameter syntax :"
+        }
+      ],
+      "text": "Generic functions and classes can be parameterized by using type parameter syntax :",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_code_008_py_typing",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.093,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Note that these checks are enforced only by the static type checker . At runtime ,",
+      "Callables which take other callables as arguments may indicate that their parameter types are dependent on",
+      "Coroutines can be annotated using Coroutine [ YieldType , SendType , ReturnType ] . Generic arguments",
+      "Callable cannot express complex signatures such as functions that take a variadic number of arguments ,",
+      "A type alias is defined using the type statement , which creates an instance of TypeAliasType"
+    ],
+    "tldr": "Note that these checks are enforced only by the static type checker . At runtime ,"
+  }
+}

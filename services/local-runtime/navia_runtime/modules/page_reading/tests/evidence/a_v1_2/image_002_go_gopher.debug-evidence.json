@@ -1,0 +1,3924 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_image_002_go_gopher"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_image_002_go_gopher"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_image_002_go_gopher"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_image_002_go_gopher"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_image_002_go_gopher"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 56,
+        "estimatedNoiseRatio": 0.036,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 4697,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 0.991,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_image_002_go_gopher",
+    "pageKey": "page_image_002_go_gopher",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+  "filteredEvidence": [
+    {
+      "blockId": "block_pg_page_image_002_go_gopher_0046",
+      "blockType": "paragraph",
+      "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+      "noiseScore": 0.9,
+      "order": 45,
+      "pageId": "page_image_002_go_gopher",
+      "reason": "footer",
+      "regionType": "footer",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_002_go_gopher_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_002_go_gopher_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+          "fallbackText": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They may be purchased from the Google Store , although the supply can be irregular. (These elusive creatures have been spotted in all kinds of plac",
+          "headingPath": [
+            "The Go Gopher"
+          ],
+          "order": 45,
+          "pageId": "page_image_002_go_gopher",
+          "paragraphId": "pg_page_image_002_go_gopher_0046",
+          "sourceRefId": "src_page_image_002_go_gopher_0046",
+          "textHash": "sha256_337cb4566e95856accd95f3672cdb14b",
+          "textQuote": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They ma"
+        }
+      ],
+      "textHash": "sha256_337cb4566e95856accd95f3672cdb14b",
+      "textQuote": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They ma"
+    },
+    {
+      "blockId": "block_pg_page_image_002_go_gopher_0051",
+      "blockType": "list_item",
+      "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+      "noiseScore": 0.9,
+      "order": 50,
+      "pageId": "page_image_002_go_gopher",
+      "reason": "footer",
+      "regionType": "footer",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_002_go_gopher_0051",
+          "blockType": "list_item",
+          "chunkId": "ck_page_image_002_go_gopher_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+          "fallbackText": "Terms of Service",
+          "headingPath": [
+            "The Go Gopher"
+          ],
+          "order": 50,
+          "pageId": "page_image_002_go_gopher",
+          "paragraphId": "pg_page_image_002_go_gopher_0051",
+          "sourceRefId": "src_page_image_002_go_gopher_0051",
+          "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+          "textQuote": "Terms of Service"
+        }
+      ],
+      "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+      "textQuote": "Terms of Service"
+    }
+  ],
+  "highSignalPage": {
+    "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+    "digestRef": "digest_page_image_002_go_gopher",
+    "filteredBlocks": [
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0046",
+        "blockType": "paragraph",
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "noiseScore": 0.9,
+        "order": 45,
+        "pageId": "page_image_002_go_gopher",
+        "reason": "footer",
+        "regionType": "footer",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0046",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They may be purchased from the Google Store , although the supply can be irregular. (These elusive creatures have been spotted in all kinds of plac",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 45,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0046",
+            "sourceRefId": "src_page_image_002_go_gopher_0046",
+            "textHash": "sha256_337cb4566e95856accd95f3672cdb14b",
+            "textQuote": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They ma"
+          }
+        ],
+        "textHash": "sha256_337cb4566e95856accd95f3672cdb14b",
+        "textQuote": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They ma"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0051",
+        "blockType": "list_item",
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "noiseScore": 0.9,
+        "order": 50,
+        "pageId": "page_image_002_go_gopher",
+        "reason": "footer",
+        "regionType": "footer",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0051",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Terms of Service",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 50,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0051",
+            "sourceRefId": "src_page_image_002_go_gopher_0051",
+            "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+            "textQuote": "Terms of Service"
+          }
+        ],
+        "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+        "textQuote": "Terms of Service"
+      }
+    ],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.781,
+        "contentDensityScore": 0.663,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.752,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: Go",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0001",
+            "sourceRefId": "src_page_image_002_go_gopher_0001",
+            "textHash": "sha256_00926e32f0383735c7add832b1043c04",
+            "textQuote": "Image metadata: Go"
+          }
+        ],
+        "text": "Image metadata: Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0002",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.696,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.791,
+        "noiseScore": 0.12,
+        "order": 1,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0002"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0002",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0002",
+            "sourceRefId": "src_page_image_002_go_gopher_0002",
+            "textHash": "sha256_18ac3f4cdd89dce2bc3ebed8af4f7b57",
+            "textQuote": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown"
+          }
+        ],
+        "text": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.677,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.794,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Common problems companies solve with Go",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0003",
+            "sourceRefId": "src_page_image_002_go_gopher_0003",
+            "textHash": "sha256_0a6f33d8dfbdfd2ea461982564e2ff22",
+            "textQuote": "Common problems companies solve with Go"
+          }
+        ],
+        "text": "Common problems companies solve with Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0004",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.679,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.795,
+        "noiseScore": 0.08,
+        "order": 3,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0004"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Stories about how and why companies use Go",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0004",
+            "sourceRefId": "src_page_image_002_go_gopher_0004",
+            "textHash": "sha256_ef57e730e467089436137e8322bb821b",
+            "textQuote": "Stories about how and why companies use Go"
+          }
+        ],
+        "text": "Stories about how and why companies use Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0005",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.679,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.795,
+        "noiseScore": 0.08,
+        "order": 4,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0005"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "How Go can help keep you secure by default",
+            "headingPath": [],
+            "order": 4,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0005",
+            "sourceRefId": "src_page_image_002_go_gopher_0005",
+            "textHash": "sha256_149ef556d2f39d225d11267fa7b23c16",
+            "textQuote": "How Go can help keep you secure by default"
+          }
+        ],
+        "text": "How Go can help keep you secure by default",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0006",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.8,
+        "contentDensityScore": 0.684,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.784,
+        "noiseScore": 0.12,
+        "order": 5,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0006"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0006",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Learn Press Enter to activate/deactivate dropdown",
+            "headingPath": [],
+            "order": 5,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0006",
+            "sourceRefId": "src_page_image_002_go_gopher_0006",
+            "textHash": "sha256_439bdfe1a851ba1c8ef8e22ede5e28c8",
+            "textQuote": "Learn Press Enter to activate/deactivate dropdown"
+          }
+        ],
+        "text": "Learn Press Enter to activate/deactivate dropdown",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0007",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.695,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.79,
+        "noiseScore": 0.12,
+        "order": 6,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0007"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0007",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Docs arrow_drop_down Press Enter to activate/deactivate dropdown",
+            "headingPath": [],
+            "order": 6,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0007",
+            "sourceRefId": "src_page_image_002_go_gopher_0007",
+            "textHash": "sha256_e97a33844671971c110da27e33f75957",
+            "textQuote": "Docs arrow_drop_down Press Enter to activate/deactivate dropdown"
+          }
+        ],
+        "text": "Docs arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0008",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.677,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.794,
+        "noiseScore": 0.08,
+        "order": 7,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0008"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0008",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The official Go language specification",
+            "headingPath": [],
+            "order": 7,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0008",
+            "sourceRefId": "src_page_image_002_go_gopher_0008",
+            "textHash": "sha256_4ee35382b26d1495bc31ec9863083272",
+            "textQuote": "The official Go language specification"
+          }
+        ],
+        "text": "The official Go language specification",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0009",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.811,
+        "contentDensityScore": 0.686,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.799,
+        "noiseScore": 0.08,
+        "order": 8,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0009"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0009",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "A complete introduction to building software with Go",
+            "headingPath": [],
+            "order": 8,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0009",
+            "sourceRefId": "src_page_image_002_go_gopher_0009",
+            "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+            "textQuote": "A complete introduction to building software with Go"
+          }
+        ],
+        "text": "A complete introduction to building software with Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0010",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.645,
+        "contentDensityScore": 0.661,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.562,
+        "noiseScore": 0.72,
+        "order": 9,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0010"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0010",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Standard library",
+            "headingPath": [],
+            "order": 9,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0010",
+            "sourceRefId": "src_page_image_002_go_gopher_0010",
+            "textHash": "sha256_bf5bc533c4349e5e326a4222977fcc34",
+            "textQuote": "Standard library"
+          }
+        ],
+        "text": "Standard library",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0011",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.81,
+        "contentDensityScore": 0.684,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.798,
+        "noiseScore": 0.08,
+        "order": 10,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0011"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0011",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Reference documentation for Go's standard library",
+            "headingPath": [],
+            "order": 10,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0011",
+            "sourceRefId": "src_page_image_002_go_gopher_0011",
+            "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+            "textQuote": "Reference documentation for Go's standard library"
+          }
+        ],
+        "text": "Reference documentation for Go's standard library",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0012",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.648,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.569,
+        "noiseScore": 0.72,
+        "order": 11,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0012"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0012",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Learn what's new in each Go release",
+            "headingPath": [],
+            "order": 11,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0012",
+            "sourceRefId": "src_page_image_002_go_gopher_0012",
+            "textHash": "sha256_9be88c2a94a9f5045bbfa9af83df22d0",
+            "textQuote": "Learn what's new in each Go release"
+          }
+        ],
+        "text": "Learn what's new in each Go release",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0013",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.812,
+        "contentDensityScore": 0.69,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.801,
+        "noiseScore": 0.08,
+        "order": 12,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0013"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0013",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+            "headingPath": [],
+            "order": 12,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0013",
+            "sourceRefId": "src_page_image_002_go_gopher_0013",
+            "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+            "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+          }
+        ],
+        "text": "Tips for writing clear, performant, and idiomatic Go code",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0014",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.801,
+        "contentDensityScore": 0.686,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.785,
+        "noiseScore": 0.12,
+        "order": 13,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0014"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0014",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Packages Press Enter to activate/deactivate dropdown",
+            "headingPath": [],
+            "order": 13,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0014",
+            "sourceRefId": "src_page_image_002_go_gopher_0014",
+            "textHash": "sha256_5a494e6dd81b15b28fb70e849e7f8704",
+            "textQuote": "Packages Press Enter to activate/deactivate dropdown"
+          }
+        ],
+        "text": "Packages Press Enter to activate/deactivate dropdown",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0015",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.804,
+        "contentDensityScore": 0.698,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.792,
+        "noiseScore": 0.12,
+        "order": 14,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0015"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0015",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Community arrow_drop_down Press Enter to activate/deactivate dropdown",
+            "headingPath": [],
+            "order": 14,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0015",
+            "sourceRefId": "src_page_image_002_go_gopher_0015",
+            "textHash": "sha256_e969133d5f840ba93bb5c82dce74e49c",
+            "textQuote": "Community arrow_drop_down Press Enter to activate/deactivate dropdown"
+          }
+        ],
+        "text": "Community arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0016",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.647,
+        "contentDensityScore": 0.667,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.565,
+        "noiseScore": 0.72,
+        "order": 15,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0016"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0016",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Videos from prior events",
+            "headingPath": [],
+            "order": 15,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0016",
+            "sourceRefId": "src_page_image_002_go_gopher_0016",
+            "textHash": "sha256_53b60a2caf32d8b5ef08a9e55ff07099",
+            "textQuote": "Videos from prior events"
+          }
+        ],
+        "text": "Videos from prior events",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0017",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.646,
+        "contentDensityScore": 0.663,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.563,
+        "noiseScore": 0.72,
+        "order": 16,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0017"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0017",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Meetups open_in_new",
+            "headingPath": [],
+            "order": 16,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0017",
+            "sourceRefId": "src_page_image_002_go_gopher_0017",
+            "textHash": "sha256_4ac05580eda18d1c68e688caa1f7eabb",
+            "textQuote": "Meetups open_in_new"
+          }
+        ],
+        "text": "Meetups open_in_new",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0018",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.648,
+        "contentDensityScore": 0.671,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.567,
+        "noiseScore": 0.72,
+        "order": 17,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0018"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0018",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Meet other local Go developers",
+            "headingPath": [],
+            "order": 17,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0018",
+            "sourceRefId": "src_page_image_002_go_gopher_0018",
+            "textHash": "sha256_90541588cfa642643955bb0746891872",
+            "textQuote": "Meet other local Go developers"
+          }
+        ],
+        "text": "Meet other local Go developers",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0019",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.647,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.564,
+        "noiseScore": 0.72,
+        "order": 18,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0019"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0019",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Conferences open_in_new",
+            "headingPath": [],
+            "order": 18,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0019",
+            "sourceRefId": "src_page_image_002_go_gopher_0019",
+            "textHash": "sha256_18281f12dc1918f152b5143a1d606307",
+            "textQuote": "Conferences open_in_new"
+          }
+        ],
+        "text": "Conferences open_in_new",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0020",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.812,
+        "contentDensityScore": 0.691,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.802,
+        "noiseScore": 0.08,
+        "order": 19,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0020"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0020",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Learn and network with Go developers from around the world",
+            "headingPath": [],
+            "order": 19,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0020",
+            "sourceRefId": "src_page_image_002_go_gopher_0020",
+            "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+            "textQuote": "Learn and network with Go developers from around the world"
+          }
+        ],
+        "text": "Learn and network with Go developers from around the world",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0021",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.648,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.568,
+        "noiseScore": 0.72,
+        "order": 20,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0021"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0021",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The Go project's official blog.",
+            "headingPath": [],
+            "order": 20,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0021",
+            "sourceRefId": "src_page_image_002_go_gopher_0021",
+            "textHash": "sha256_fff409ec4619c6bace49fed6ba6304af",
+            "textQuote": "The Go project's official blog."
+          }
+        ],
+        "text": "The Go project's official blog.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0022",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.648,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.569,
+        "noiseScore": 0.72,
+        "order": 21,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0022"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0022",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Get help and stay informed from Go",
+            "headingPath": [],
+            "order": 21,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0022",
+            "sourceRefId": "src_page_image_002_go_gopher_0022",
+            "textHash": "sha256_2b3eee1320213fabb228d534e274b917",
+            "textQuote": "Get help and stay informed from Go"
+          }
+        ],
+        "text": "Get help and stay informed from Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0023",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.781,
+        "contentDensityScore": 0.663,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.752,
+        "noiseScore": 0.18,
+        "order": 22,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0023"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0023",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: Go.",
+            "headingPath": [],
+            "order": 22,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0023",
+            "sourceRefId": "src_page_image_002_go_gopher_0023",
+            "textHash": "sha256_97ea4426b9d79e084bc17d888adfb65b",
+            "textQuote": "Image metadata: Go."
+          }
+        ],
+        "text": "Image metadata: Go.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0024",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.752,
+        "contentDensityScore": 0.463,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.663,
+        "noiseScore": 0.12,
+        "order": 23,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0024"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0024",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Why Go navigate_next navigate_before Why Go",
+            "headingPath": [],
+            "order": 23,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0024",
+            "sourceRefId": "src_page_image_002_go_gopher_0024",
+            "textHash": "sha256_3b758a287e4dbab4a34db04ce1dee406",
+            "textQuote": "Why Go navigate_next navigate_before Why Go"
+          }
+        ],
+        "text": "Why Go navigate_next navigate_before Why Go",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0025",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.763,
+        "contentDensityScore": 0.515,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.691,
+        "noiseScore": 0.12,
+        "order": 24,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0025"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0025",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Docs navigate_next navigate_before Docs",
+            "headingPath": [],
+            "order": 24,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0025",
+            "sourceRefId": "src_page_image_002_go_gopher_0025",
+            "textHash": "sha256_3a989c2aa781a6a078ebb9bd6a0eb3b7",
+            "textQuote": "Docs navigate_next navigate_before Docs"
+          }
+        ],
+        "text": "Docs navigate_next navigate_before Docs",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0026",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.645,
+        "contentDensityScore": 0.661,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.562,
+        "noiseScore": 0.72,
+        "order": 25,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0026"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0026",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Standard library",
+            "headingPath": [],
+            "order": 25,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0026",
+            "sourceRefId": "src_page_image_002_go_gopher_0026",
+            "textHash": "sha256_bf5bc533c4349e5e326a4222977fcc34",
+            "textQuote": "Standard library"
+          }
+        ],
+        "text": "Standard library",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0027",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.765,
+        "contentDensityScore": 0.522,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.695,
+        "noiseScore": 0.12,
+        "order": 26,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0027"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0027",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Community navigate_next navigate_before Community",
+            "headingPath": [],
+            "order": 26,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0027",
+            "sourceRefId": "src_page_image_002_go_gopher_0027",
+            "textHash": "sha256_1d47c0c64723e9f283c9b615979056d3",
+            "textQuote": "Community navigate_next navigate_before Community"
+          }
+        ],
+        "text": "Community navigate_next navigate_before Community",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0028",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.646,
+        "contentDensityScore": 0.663,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.563,
+        "noiseScore": 0.72,
+        "order": 27,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0028"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0028",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Meetups open_in_new",
+            "headingPath": [],
+            "order": 27,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0028",
+            "sourceRefId": "src_page_image_002_go_gopher_0028",
+            "textHash": "sha256_4ac05580eda18d1c68e688caa1f7eabb",
+            "textQuote": "Meetups open_in_new"
+          }
+        ],
+        "text": "Meetups open_in_new",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0029",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.647,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.564,
+        "noiseScore": 0.72,
+        "order": 28,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0029"
+        ],
+        "regionType": "unknown",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0029",
+            "blockType": "list_item",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Conferences open_in_new",
+            "headingPath": [],
+            "order": 28,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0029",
+            "sourceRefId": "src_page_image_002_go_gopher_0029",
+            "textHash": "sha256_18281f12dc1918f152b5143a1d606307",
+            "textQuote": "Conferences open_in_new"
+          }
+        ],
+        "text": "Conferences open_in_new",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0030",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.679,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.795,
+        "noiseScore": 0.08,
+        "order": 29,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0030"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0030",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Rob Pike and Andrew Gerrand 24 March 2014",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 29,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0030",
+            "sourceRefId": "src_page_image_002_go_gopher_0030",
+            "textHash": "sha256_188eca050a95154bf0adde2c161e38d3",
+            "textQuote": "Rob Pike and Andrew Gerrand 24 March 2014"
+          }
+        ],
+        "text": "Rob Pike and Andrew Gerrand 24 March 2014",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0031",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "confidence": 0.804,
+        "contentDensityScore": 0.654,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.782,
+        "noiseScore": 0.08,
+        "order": 30,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0031"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0031",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 30,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0031",
+            "sourceRefId": "src_page_image_002_go_gopher_0031",
+            "textHash": "sha256_8961b34ef03e58bb65877fc3a5de1846",
+            "textQuote": "The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior."
+          }
+        ],
+        "text": "The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0032",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.818,
+        "contentDensityScore": 0.717,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.816,
+        "noiseScore": 0.08,
+        "order": 31,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0032"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0032",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the gopher.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 31,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0032",
+            "sourceRefId": "src_page_image_002_go_gopher_0032",
+            "textHash": "sha256_961941638fadd0f72288c4e45b3fe6f2",
+            "textQuote": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the"
+          }
+        ],
+        "text": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the gopher.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0033",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.824,
+        "contentDensityScore": 0.745,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.832,
+        "noiseScore": 0.08,
+        "order": 32,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0033"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0033",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic face .)",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 32,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0033",
+            "sourceRefId": "src_page_image_002_go_gopher_0033",
+            "textHash": "sha256_62b6aefa632fab227cbfff6477fbc6f9",
+            "textQuote": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic "
+          }
+        ],
+        "text": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic face .)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0034",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.813,
+        "contentDensityScore": 0.697,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.805,
+        "noiseScore": 0.08,
+        "order": 33,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0034"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0034",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 33,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0034",
+            "sourceRefId": "src_page_image_002_go_gopher_0034",
+            "textHash": "sha256_d2503c5d9ce386e8b3ff82b216b9e3a1",
+            "textQuote": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher."
+          }
+        ],
+        "text": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0035",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.624,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.765,
+        "noiseScore": 0.08,
+        "order": 34,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0035"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0035",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "When we started the Go project we needed a logo, and Renee volunteered to draw it. It was featured on the first Go T-shirt and the Google Code site.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 34,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0035",
+            "sourceRefId": "src_page_image_002_go_gopher_0035",
+            "textHash": "sha256_3c55fd956f32a2d17dda8264649ecac0",
+            "textQuote": "When we started the Go project we needed a logo, and Renee volunteered to draw it. It was featured on the first Go T-shirt and the Google Code site."
+          }
+        ],
+        "text": "When we started the Go project we needed a logo, and Renee volunteered to draw it. It was featured on the first Go T-shirt and the Google Code site.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0036",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.801,
+        "contentDensityScore": 0.643,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.776,
+        "noiseScore": 0.08,
+        "order": 35,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0036"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0036",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "For the open source launch in 2009, Renee suggested adapting the WFMU gopher as a mascot. And the Go gopher was born:",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 35,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0036",
+            "sourceRefId": "src_page_image_002_go_gopher_0036",
+            "textHash": "sha256_b981ad4187ff999a251507c695eb6def",
+            "textQuote": "For the open source launch in 2009, Renee suggested adapting the WFMU gopher as a mascot. And the Go gopher was born:"
+          }
+        ],
+        "text": "For the open source launch in 2009, Renee suggested adapting the WFMU gopher as a mascot. And the Go gopher was born:",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0037",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.788,
+        "contentDensityScore": 0.584,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.743,
+        "noiseScore": 0.08,
+        "order": 36,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0037"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0037",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "(The gopher has no name, and is called just the “Go gopher”.)",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 36,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0037",
+            "sourceRefId": "src_page_image_002_go_gopher_0037",
+            "textHash": "sha256_e1600d512ae37cf9830b1f362627824a",
+            "textQuote": "(The gopher has no name, and is called just the “Go gopher”.)"
+          }
+        ],
+        "text": "(The gopher has no name, and is called just the “Go gopher”.)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0038",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.814,
+        "contentDensityScore": 0.698,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.806,
+        "noiseScore": 0.08,
+        "order": 37,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0038"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0038",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first prototype was kinda hairy:",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 37,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0038",
+            "sourceRefId": "src_page_image_002_go_gopher_0038",
+            "textHash": "sha256_725800db345513b16dabf7e6ade0ceff",
+            "textQuote": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first proto"
+          }
+        ],
+        "text": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first prototype was kinda hairy:",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0039",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.808,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.793,
+        "noiseScore": 0.08,
+        "order": 38,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0039"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0039",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "But the second one was just right:",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 38,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0039",
+            "sourceRefId": "src_page_image_002_go_gopher_0039",
+            "textHash": "sha256_253c7ba3627493aa8cd495d92ab4e770",
+            "textQuote": "But the second one was just right:"
+          }
+        ],
+        "text": "But the second one was just right:",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0040",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "confidence": 0.819,
+        "contentDensityScore": 0.721,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.819,
+        "noiseScore": 0.08,
+        "order": 39,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0040"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0040",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 39,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0040",
+            "sourceRefId": "src_page_image_002_go_gopher_0040",
+            "textHash": "sha256_172b6eb7e6b99d1ce4f208f44b3a4501",
+            "textQuote": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011."
+          }
+        ],
+        "text": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0041",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.805,
+        "contentDensityScore": 0.66,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.785,
+        "noiseScore": 0.08,
+        "order": 40,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0041"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0041",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The gopher therefore exists in many forms, but has always been Renee’s creation. It stands for the Go project and Go programmers everywhere, and is one of the most popular things in the Go world.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 40,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0041",
+            "sourceRefId": "src_page_image_002_go_gopher_0041",
+            "textHash": "sha256_d701d15f7bede4102a2f75d68b4600dc",
+            "textQuote": "The gopher therefore exists in many forms, but has always been Renee’s creation. It stands for the Go project and Go programmers everywhere, and is one of the most popular things in the Go world."
+          }
+        ],
+        "text": "The gopher therefore exists in many forms, but has always been Renee’s creation. It stands for the Go project and Go programmers everywhere, and is one of the most popular things in the Go world.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0042",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.781,
+        "contentDensityScore": 0.55,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.725,
+        "noiseScore": 0.08,
+        "order": 41,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0042"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0042",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The Go gopher is a character; a unique creation. Not any old gopher, just as Snoopy is not any old cartoon dog.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 41,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0042",
+            "sourceRefId": "src_page_image_002_go_gopher_0042",
+            "textHash": "sha256_294c1e8c2a79f3af25abba82aa24f65c",
+            "textQuote": "The Go gopher is a character; a unique creation. Not any old gopher, just as Snoopy is not any old cartoon dog."
+          }
+        ],
+        "text": "The Go gopher is a character; a unique creation. Not any old gopher, just as Snoopy is not any old cartoon dog.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0043",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.814,
+        "contentDensityScore": 0.698,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.806,
+        "noiseScore": 0.08,
+        "order": 42,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0043"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0043",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 42,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0043",
+            "sourceRefId": "src_page_image_002_go_gopher_0043",
+            "textHash": "sha256_df84cd1569c5d6f0ef2a5d9fd238f980",
+            "textQuote": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used."
+          }
+        ],
+        "text": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0044",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.813,
+        "contentDensityScore": 0.697,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.805,
+        "noiseScore": 0.08,
+        "order": 43,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0044"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0044",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 43,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0044",
+            "sourceRefId": "src_page_image_002_go_gopher_0044",
+            "textHash": "sha256_24d5f5474acee5ecb4c55152a15e4ffe",
+            "textQuote": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations."
+          }
+        ],
+        "text": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0045",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.816,
+        "contentDensityScore": 0.71,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.812,
+        "noiseScore": 0.08,
+        "order": 44,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0045"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0045",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 44,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0045",
+            "sourceRefId": "src_page_image_002_go_gopher_0045",
+            "textHash": "sha256_e3497460940d9f3224f9dacd04188d5b",
+            "textQuote": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site."
+          }
+        ],
+        "text": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0047",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.725,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.821,
+        "noiseScore": 0.08,
+        "order": 46,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0047"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0047",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10).",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 46,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0047",
+            "sourceRefId": "src_page_image_002_go_gopher_0047",
+            "textHash": "sha256_2ce3803073887caacd193aad5717a9b6",
+            "textQuote": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10)."
+          }
+        ],
+        "text": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10).",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0048",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.667,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.789,
+        "noiseScore": 0.08,
+        "order": 47,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0048"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0048",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "(Photo by Noah Lorang .)",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 47,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0048",
+            "sourceRefId": "src_page_image_002_go_gopher_0048",
+            "textHash": "sha256_c7cfed7fde2ebc9b4e2558f076171049",
+            "textQuote": "(Photo by Noah Lorang .)"
+          }
+        ],
+        "text": "(Photo by Noah Lorang .)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0049",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 48,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0049"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0049",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: The Go Gopher",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 48,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0049",
+            "sourceRefId": "src_page_image_002_go_gopher_0049",
+            "textHash": "sha256_88108196a5f0759d1c2671ad04cabde1",
+            "textQuote": "Image metadata: The Go Gopher"
+          }
+        ],
+        "text": "Image metadata: The Go Gopher",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0050",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.851,
+        "contentDensityScore": 0.869,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.9,
+        "noiseScore": 0.08,
+        "order": 49,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0050"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0050",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 49,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0050",
+            "sourceRefId": "src_page_image_002_go_gopher_0050",
+            "textHash": "sha256_c7bf2e0ddf691f23105ff6e82cc30582",
+            "textQuote": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Librar"
+          }
+        ],
+        "text": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Golang Weekly Opens in new window.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0052",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 51,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0052"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0052",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: System theme",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 51,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0052",
+            "sourceRefId": "src_page_image_002_go_gopher_0052",
+            "textHash": "sha256_b14d4668232cebc399a0aa00ad168c08",
+            "textQuote": "Image metadata: System theme"
+          }
+        ],
+        "text": "Image metadata: System theme",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0053",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.668,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.754,
+        "noiseScore": 0.18,
+        "order": 52,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0053"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0053",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: Dark theme",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 52,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0053",
+            "sourceRefId": "src_page_image_002_go_gopher_0053",
+            "textHash": "sha256_092b88e1c544fcc1cea95fa6cbe9b69d",
+            "textQuote": "Image metadata: Dark theme"
+          }
+        ],
+        "text": "Image metadata: Dark theme",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0054",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 53,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0054"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0054",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: Light theme",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 53,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0054",
+            "sourceRefId": "src_page_image_002_go_gopher_0054",
+            "textHash": "sha256_222befbff99cc038de9b31962a09ec3e",
+            "textQuote": "Image metadata: Light theme"
+          }
+        ],
+        "text": "Image metadata: Light theme",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0055",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 54,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0055"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0055",
+            "blockType": "image",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Image metadata: Google logo",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 54,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0055",
+            "sourceRefId": "src_page_image_002_go_gopher_0055",
+            "textHash": "sha256_95ded6d44db7550290d7dee14de151a0",
+            "textQuote": "Image metadata: Google logo"
+          }
+        ],
+        "text": "Image metadata: Google logo",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0056",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "confidence": 0.809,
+        "contentDensityScore": 0.677,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "importance": 0.794,
+        "noiseScore": 0.08,
+        "order": 55,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphIds": [
+          "pg_page_image_002_go_gopher_0056"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0056",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 55,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0056",
+            "sourceRefId": "src_page_image_002_go_gopher_0056",
+            "textHash": "sha256_0f44fe7b67298b1a9c27323cddee03f6",
+            "textQuote": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay"
+          }
+        ],
+        "text": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "documentation",
+      "headingCount": 2,
+      "language": "en",
+      "paragraphCount": 56,
+      "wordCount": 863
+    },
+    "pageId": "page_image_002_go_gopher",
+    "qualityReportRef": "q_page_image_002_go_gopher",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_image_002_go_gopher",
+    "sourceMapRef": "smap_page_image_002_go_gopher",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+      "pageId": "page_image_002_go_gopher"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_image_002_go_gopher",
+  "perceptionDigest": {
+    "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+    "digestId": "digest_page_image_002_go_gopher",
+    "items": [
+      {
+        "confidence": 0.851,
+        "importance": 0.9,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0050",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0004"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0050"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0050",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0004",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 49,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0050",
+            "sourceRefId": "src_page_image_002_go_gopher_0050",
+            "textHash": "sha256_c7bf2e0ddf691f23105ff6e82cc30582",
+            "textQuote": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Librar"
+          }
+        ],
+        "text": "Next article : GopherCon 2014 Wrap Up Previous article : Go Concurrency Patterns : Pipelines and",
+        "warnings": []
+      },
+      {
+        "confidence": 0.824,
+        "importance": 0.832,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0033",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0033"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0033",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic face .)",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 32,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0033",
+            "sourceRefId": "src_page_image_002_go_gopher_0033",
+            "textHash": "sha256_62b6aefa632fab227cbfff6477fbc6f9",
+            "textQuote": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic "
+          }
+        ],
+        "text": "The gopher next made an appearance at Bell Labs , as Bob Flandrena ’ s avatar",
+        "warnings": []
+      },
+      {
+        "confidence": 0.82,
+        "importance": 0.821,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0047",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0047"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0047",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10).",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 46,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0047",
+            "sourceRefId": "src_page_image_002_go_gopher_0047",
+            "textHash": "sha256_2ce3803073887caacd193aad5717a9b6",
+            "textQuote": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10)."
+          }
+        ],
+        "text": "Perhaps the best way to get a gopher is to catch one in the wild at",
+        "warnings": []
+      },
+      {
+        "confidence": 0.819,
+        "importance": 0.819,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0040",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0040"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0040",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 39,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0040",
+            "sourceRefId": "src_page_image_002_go_gopher_0040",
+            "textHash": "sha256_172b6eb7e6b99d1ce4f208f44b3a4501",
+            "textQuote": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011."
+          }
+        ],
+        "text": "Around the same time , Renee roughed out a gopher in clay . This inspired a",
+        "warnings": []
+      },
+      {
+        "confidence": 0.818,
+        "importance": 0.816,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0032",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0032"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0032",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the gopher.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 31,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0032",
+            "sourceRefId": "src_page_image_002_go_gopher_0032",
+            "textHash": "sha256_961941638fadd0f72288c4e45b3fe6f2",
+            "textQuote": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the"
+          }
+        ],
+        "text": "About 15 years ago — long before the Go project — the gopher first appeared as",
+        "warnings": []
+      },
+      {
+        "confidence": 0.816,
+        "importance": 0.812,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0045",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0045"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0045",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 44,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0045",
+            "sourceRefId": "src_page_image_002_go_gopher_0045",
+            "textHash": "sha256_e3497460940d9f3224f9dacd04188d5b",
+            "textQuote": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site."
+          }
+        ],
+        "text": "They ’ re cute and we like them , but by the Creative Commons rules the",
+        "warnings": []
+      },
+      {
+        "confidence": 0.814,
+        "importance": 0.806,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0038",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0038"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0038",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first prototype was kinda hairy:",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 37,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0038",
+            "sourceRefId": "src_page_image_002_go_gopher_0038",
+            "textHash": "sha256_725800db345513b16dabf7e6ade0ceff",
+            "textQuote": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first proto"
+          }
+        ],
+        "text": "For the launch of the Go App Engine runtime at Google I / O 2011 we",
+        "warnings": []
+      },
+      {
+        "confidence": 0.814,
+        "importance": 0.806,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0043",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0043"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0043",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 42,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0043",
+            "sourceRefId": "src_page_image_002_go_gopher_0043",
+            "textHash": "sha256_df84cd1569c5d6f0ef2a5d9fd238f980",
+            "textQuote": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used."
+          }
+        ],
+        "text": "The gopher images are Creative Commons Attribution 4 . 0 licensed . That means you can",
+        "warnings": []
+      },
+      {
+        "confidence": 0.813,
+        "importance": 0.805,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0034",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0034"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0034",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 33,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0034",
+            "sourceRefId": "src_page_image_002_go_gopher_0034",
+            "textHash": "sha256_d2503c5d9ce386e8b3ff82b216b9e3a1",
+            "textQuote": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher."
+          }
+        ],
+        "text": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot , a",
+        "warnings": []
+      },
+      {
+        "confidence": 0.813,
+        "importance": 0.805,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0044",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0044"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0044",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations.",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 43,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0044",
+            "sourceRefId": "src_page_image_002_go_gopher_0044",
+            "textHash": "sha256_24d5f5474acee5ecb4c55152a15e4ffe",
+            "textQuote": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations."
+          }
+        ],
+        "text": "Here are a few gopher adaptations that people have used as mascots for user group mascots",
+        "warnings": []
+      },
+      {
+        "confidence": 0.812,
+        "importance": 0.802,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0020",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0020"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0020",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Learn and network with Go developers from around the world",
+            "headingPath": [],
+            "order": 19,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0020",
+            "sourceRefId": "src_page_image_002_go_gopher_0020",
+            "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+            "textQuote": "Learn and network with Go developers from around the world"
+          }
+        ],
+        "text": "Learn and network with Go developers from around the world",
+        "warnings": []
+      },
+      {
+        "confidence": 0.812,
+        "importance": 0.801,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0013",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0013"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0013",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+            "headingPath": [],
+            "order": 12,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0013",
+            "sourceRefId": "src_page_image_002_go_gopher_0013",
+            "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+            "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+          }
+        ],
+        "text": "Tips for writing clear , performant , and idiomatic Go code",
+        "warnings": []
+      },
+      {
+        "confidence": 0.811,
+        "importance": 0.799,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0009",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0009"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0009",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "A complete introduction to building software with Go",
+            "headingPath": [],
+            "order": 8,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0009",
+            "sourceRefId": "src_page_image_002_go_gopher_0009",
+            "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+            "textQuote": "A complete introduction to building software with Go"
+          }
+        ],
+        "text": "A complete introduction to building software with Go",
+        "warnings": []
+      },
+      {
+        "confidence": 0.81,
+        "importance": 0.798,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0011",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0011"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0011",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Reference documentation for Go's standard library",
+            "headingPath": [],
+            "order": 10,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0011",
+            "sourceRefId": "src_page_image_002_go_gopher_0011",
+            "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+            "textQuote": "Reference documentation for Go's standard library"
+          }
+        ],
+        "text": "Reference documentation for Go ' s standard library",
+        "warnings": []
+      },
+      {
+        "confidence": 0.809,
+        "importance": 0.795,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0004",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Stories about how and why companies use Go",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0004",
+            "sourceRefId": "src_page_image_002_go_gopher_0004",
+            "textHash": "sha256_ef57e730e467089436137e8322bb821b",
+            "textQuote": "Stories about how and why companies use Go"
+          }
+        ],
+        "text": "Stories about how and why companies use Go",
+        "warnings": []
+      },
+      {
+        "confidence": 0.809,
+        "importance": 0.795,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0005",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "How Go can help keep you secure by default",
+            "headingPath": [],
+            "order": 4,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0005",
+            "sourceRefId": "src_page_image_002_go_gopher_0005",
+            "textHash": "sha256_149ef556d2f39d225d11267fa7b23c16",
+            "textQuote": "How Go can help keep you secure by default"
+          }
+        ],
+        "text": "How Go can help keep you secure by default",
+        "warnings": []
+      },
+      {
+        "confidence": 0.809,
+        "importance": 0.795,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0030",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0030"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0030",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Rob Pike and Andrew Gerrand 24 March 2014",
+            "headingPath": [
+              "The Go Gopher"
+            ],
+            "order": 29,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0030",
+            "sourceRefId": "src_page_image_002_go_gopher_0030",
+            "textHash": "sha256_188eca050a95154bf0adde2c161e38d3",
+            "textQuote": "Rob Pike and Andrew Gerrand 24 March 2014"
+          }
+        ],
+        "text": "Rob Pike and Andrew Gerrand 24 March 2014",
+        "warnings": []
+      },
+      {
+        "confidence": 0.809,
+        "importance": 0.794,
+        "itemId": "item_block_pg_page_image_002_go_gopher_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_image_002_go_gopher_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_image_002_go_gopher_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_image_002_go_gopher_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_image_002_go_gopher_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+            "fallbackText": "Common problems companies solve with Go",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_image_002_go_gopher",
+            "paragraphId": "pg_page_image_002_go_gopher_0003",
+            "sourceRefId": "src_page_image_002_go_gopher_0003",
+            "textHash": "sha256_0a6f33d8dfbdfd2ea461982564e2ff22",
+            "textQuote": "Common problems companies solve with Go"
+          }
+        ],
+        "text": "Common problems companies solve with Go",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_image_002_go_gopher",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.263,
+      "itemCount": 18,
+      "sourceRefCount": 18
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "Next article : GopherCon 2014 Wrap Up Previous article : Go Concurrency Patterns : Pipelines and",
+        "The gopher next made an appearance at Bell Labs , as Bob Flandrena ’ s avatar",
+        "Perhaps the best way to get a gopher is to catch one in the wild at",
+        "Around the same time , Renee roughed out a gopher in clay . This inspired a",
+        "About 15 years ago — long before the Go project — the gopher first appeared as"
+      ],
+      "tldr": "Next article : GopherCon 2014 Wrap Up Previous article : Go Concurrency Patterns : Pipelines and"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 18.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 7.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.389
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.263,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.805
+      },
+      "contentCoverage": {
+        "denominator": 4697.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 4316.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.919
+      },
+      "digestCompressionRatio": {
+        "denominator": 794.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 209.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.263
+      },
+      "groundingCompleteness": {
+        "denominator": 18.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 18.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 56.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 56.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 56.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.036
+      },
+      "sourceCoverage": {
+        "denominator": 54.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 54.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.939,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_image_002_go_gopher",
+    "reportId": "q_page_image_002_go_gopher",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 4697,
+    "codeBlockCount": 0,
+    "domain": "go.dev",
+    "headingCount": 2,
+    "htmlAvailable": true,
+    "imageCount": 34,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "image_002_go_gopher",
+    "url": "https://go.dev/blog/gopher",
+    "visibleTextLength": 863
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+    "pageId": "page_image_002_go_gopher",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_image_002_go_gopher",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: Go",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0001",
+        "sourceRefId": "src_page_image_002_go_gopher_0001",
+        "textHash": "sha256_00926e32f0383735c7add832b1043c04",
+        "textQuote": "Image metadata: Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0002",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0002",
+        "sourceRefId": "src_page_image_002_go_gopher_0002",
+        "textHash": "sha256_18ac3f4cdd89dce2bc3ebed8af4f7b57",
+        "textQuote": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Common problems companies solve with Go",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0003",
+        "sourceRefId": "src_page_image_002_go_gopher_0003",
+        "textHash": "sha256_0a6f33d8dfbdfd2ea461982564e2ff22",
+        "textQuote": "Common problems companies solve with Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0004",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Stories about how and why companies use Go",
+        "headingPath": [],
+        "order": 3,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0004",
+        "sourceRefId": "src_page_image_002_go_gopher_0004",
+        "textHash": "sha256_ef57e730e467089436137e8322bb821b",
+        "textQuote": "Stories about how and why companies use Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0005",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "How Go can help keep you secure by default",
+        "headingPath": [],
+        "order": 4,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0005",
+        "sourceRefId": "src_page_image_002_go_gopher_0005",
+        "textHash": "sha256_149ef556d2f39d225d11267fa7b23c16",
+        "textQuote": "How Go can help keep you secure by default"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0006",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Learn Press Enter to activate/deactivate dropdown",
+        "headingPath": [],
+        "order": 5,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0006",
+        "sourceRefId": "src_page_image_002_go_gopher_0006",
+        "textHash": "sha256_439bdfe1a851ba1c8ef8e22ede5e28c8",
+        "textQuote": "Learn Press Enter to activate/deactivate dropdown"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0007",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Docs arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "headingPath": [],
+        "order": 6,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0007",
+        "sourceRefId": "src_page_image_002_go_gopher_0007",
+        "textHash": "sha256_e97a33844671971c110da27e33f75957",
+        "textQuote": "Docs arrow_drop_down Press Enter to activate/deactivate dropdown"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0008",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The official Go language specification",
+        "headingPath": [],
+        "order": 7,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0008",
+        "sourceRefId": "src_page_image_002_go_gopher_0008",
+        "textHash": "sha256_4ee35382b26d1495bc31ec9863083272",
+        "textQuote": "The official Go language specification"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0009",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "A complete introduction to building software with Go",
+        "headingPath": [],
+        "order": 8,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0009",
+        "sourceRefId": "src_page_image_002_go_gopher_0009",
+        "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+        "textQuote": "A complete introduction to building software with Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0010",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Standard library",
+        "headingPath": [],
+        "order": 9,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0010",
+        "sourceRefId": "src_page_image_002_go_gopher_0010",
+        "textHash": "sha256_bf5bc533c4349e5e326a4222977fcc34",
+        "textQuote": "Standard library"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0011",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Reference documentation for Go's standard library",
+        "headingPath": [],
+        "order": 10,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0011",
+        "sourceRefId": "src_page_image_002_go_gopher_0011",
+        "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+        "textQuote": "Reference documentation for Go's standard library"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0012",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Learn what's new in each Go release",
+        "headingPath": [],
+        "order": 11,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0012",
+        "sourceRefId": "src_page_image_002_go_gopher_0012",
+        "textHash": "sha256_9be88c2a94a9f5045bbfa9af83df22d0",
+        "textQuote": "Learn what's new in each Go release"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0013",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+        "headingPath": [],
+        "order": 12,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0013",
+        "sourceRefId": "src_page_image_002_go_gopher_0013",
+        "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+        "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0014",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Packages Press Enter to activate/deactivate dropdown",
+        "headingPath": [],
+        "order": 13,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0014",
+        "sourceRefId": "src_page_image_002_go_gopher_0014",
+        "textHash": "sha256_5a494e6dd81b15b28fb70e849e7f8704",
+        "textQuote": "Packages Press Enter to activate/deactivate dropdown"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0015",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Community arrow_drop_down Press Enter to activate/deactivate dropdown",
+        "headingPath": [],
+        "order": 14,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0015",
+        "sourceRefId": "src_page_image_002_go_gopher_0015",
+        "textHash": "sha256_e969133d5f840ba93bb5c82dce74e49c",
+        "textQuote": "Community arrow_drop_down Press Enter to activate/deactivate dropdown"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0016",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Videos from prior events",
+        "headingPath": [],
+        "order": 15,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0016",
+        "sourceRefId": "src_page_image_002_go_gopher_0016",
+        "textHash": "sha256_53b60a2caf32d8b5ef08a9e55ff07099",
+        "textQuote": "Videos from prior events"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0017",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Meetups open_in_new",
+        "headingPath": [],
+        "order": 16,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0017",
+        "sourceRefId": "src_page_image_002_go_gopher_0017",
+        "textHash": "sha256_4ac05580eda18d1c68e688caa1f7eabb",
+        "textQuote": "Meetups open_in_new"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0018",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Meet other local Go developers",
+        "headingPath": [],
+        "order": 17,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0018",
+        "sourceRefId": "src_page_image_002_go_gopher_0018",
+        "textHash": "sha256_90541588cfa642643955bb0746891872",
+        "textQuote": "Meet other local Go developers"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0019",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Conferences open_in_new",
+        "headingPath": [],
+        "order": 18,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0019",
+        "sourceRefId": "src_page_image_002_go_gopher_0019",
+        "textHash": "sha256_18281f12dc1918f152b5143a1d606307",
+        "textQuote": "Conferences open_in_new"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0020",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Learn and network with Go developers from around the world",
+        "headingPath": [],
+        "order": 19,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0020",
+        "sourceRefId": "src_page_image_002_go_gopher_0020",
+        "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+        "textQuote": "Learn and network with Go developers from around the world"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0021",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The Go project's official blog.",
+        "headingPath": [],
+        "order": 20,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0021",
+        "sourceRefId": "src_page_image_002_go_gopher_0021",
+        "textHash": "sha256_fff409ec4619c6bace49fed6ba6304af",
+        "textQuote": "The Go project's official blog."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0022",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Get help and stay informed from Go",
+        "headingPath": [],
+        "order": 21,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0022",
+        "sourceRefId": "src_page_image_002_go_gopher_0022",
+        "textHash": "sha256_2b3eee1320213fabb228d534e274b917",
+        "textQuote": "Get help and stay informed from Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0023",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: Go.",
+        "headingPath": [],
+        "order": 22,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0023",
+        "sourceRefId": "src_page_image_002_go_gopher_0023",
+        "textHash": "sha256_97ea4426b9d79e084bc17d888adfb65b",
+        "textQuote": "Image metadata: Go."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0024",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Why Go navigate_next navigate_before Why Go",
+        "headingPath": [],
+        "order": 23,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0024",
+        "sourceRefId": "src_page_image_002_go_gopher_0024",
+        "textHash": "sha256_3b758a287e4dbab4a34db04ce1dee406",
+        "textQuote": "Why Go navigate_next navigate_before Why Go"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0025",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Docs navigate_next navigate_before Docs",
+        "headingPath": [],
+        "order": 24,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0025",
+        "sourceRefId": "src_page_image_002_go_gopher_0025",
+        "textHash": "sha256_3a989c2aa781a6a078ebb9bd6a0eb3b7",
+        "textQuote": "Docs navigate_next navigate_before Docs"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0026",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Standard library",
+        "headingPath": [],
+        "order": 25,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0026",
+        "sourceRefId": "src_page_image_002_go_gopher_0026",
+        "textHash": "sha256_bf5bc533c4349e5e326a4222977fcc34",
+        "textQuote": "Standard library"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0027",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Community navigate_next navigate_before Community",
+        "headingPath": [],
+        "order": 26,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0027",
+        "sourceRefId": "src_page_image_002_go_gopher_0027",
+        "textHash": "sha256_1d47c0c64723e9f283c9b615979056d3",
+        "textQuote": "Community navigate_next navigate_before Community"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0028",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Meetups open_in_new",
+        "headingPath": [],
+        "order": 27,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0028",
+        "sourceRefId": "src_page_image_002_go_gopher_0028",
+        "textHash": "sha256_4ac05580eda18d1c68e688caa1f7eabb",
+        "textQuote": "Meetups open_in_new"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0029",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Conferences open_in_new",
+        "headingPath": [],
+        "order": 28,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0029",
+        "sourceRefId": "src_page_image_002_go_gopher_0029",
+        "textHash": "sha256_18281f12dc1918f152b5143a1d606307",
+        "textQuote": "Conferences open_in_new"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0030",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Rob Pike and Andrew Gerrand 24 March 2014",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 29,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0030",
+        "sourceRefId": "src_page_image_002_go_gopher_0030",
+        "textHash": "sha256_188eca050a95154bf0adde2c161e38d3",
+        "textQuote": "Rob Pike and Andrew Gerrand 24 March 2014"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0031",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 30,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0031",
+        "sourceRefId": "src_page_image_002_go_gopher_0031",
+        "textHash": "sha256_8961b34ef03e58bb65877fc3a5de1846",
+        "textQuote": "The Go gopher is an iconic mascot and one of the most distinctive features of the Go project. In this post we’ll talk about its origins, evolution, and behavior."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0032",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the gopher.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 31,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0032",
+        "sourceRefId": "src_page_image_002_go_gopher_0032",
+        "textHash": "sha256_961941638fadd0f72288c4e45b3fe6f2",
+        "textQuote": "About 15 years ago—long before the Go project—the gopher first appeared as a promotion for the WFMU radio station in New Jersey. Renee French was commissioned to design a T-shirt for an annual fundraiser and out came the"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0033",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic face .)",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 32,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0033",
+        "sourceRefId": "src_page_image_002_go_gopher_0033",
+        "textHash": "sha256_62b6aefa632fab227cbfff6477fbc6f9",
+        "textQuote": "The gopher next made an appearance at Bell Labs, as Bob Flandrena’s avatar in the Bell Labs mail system. Other Renee drawings became avatars for ken, r, rsc, and others. (Of course, Peter Weinberger’s was his own iconic "
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0034",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 33,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0034",
+        "sourceRefId": "src_page_image_002_go_gopher_0034",
+        "textHash": "sha256_d2503c5d9ce386e8b3ff82b216b9e3a1",
+        "textQuote": "Another Bell Labs activity led to Renee creating Glenda , the Plan 9 mascot, a distant cousin of the WFMU gopher."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0035",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "When we started the Go project we needed a logo, and Renee volunteered to draw it. It was featured on the first Go T-shirt and the Google Code site.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 34,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0035",
+        "sourceRefId": "src_page_image_002_go_gopher_0035",
+        "textHash": "sha256_3c55fd956f32a2d17dda8264649ecac0",
+        "textQuote": "When we started the Go project we needed a logo, and Renee volunteered to draw it. It was featured on the first Go T-shirt and the Google Code site."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0036",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "For the open source launch in 2009, Renee suggested adapting the WFMU gopher as a mascot. And the Go gopher was born:",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 35,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0036",
+        "sourceRefId": "src_page_image_002_go_gopher_0036",
+        "textHash": "sha256_b981ad4187ff999a251507c695eb6def",
+        "textQuote": "For the open source launch in 2009, Renee suggested adapting the WFMU gopher as a mascot. And the Go gopher was born:"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0037",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "(The gopher has no name, and is called just the “Go gopher”.)",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 36,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0037",
+        "sourceRefId": "src_page_image_002_go_gopher_0037",
+        "textHash": "sha256_e1600d512ae37cf9830b1f362627824a",
+        "textQuote": "(The gopher has no name, and is called just the “Go gopher”.)"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0038",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first prototype was kinda hairy:",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 37,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0038",
+        "sourceRefId": "src_page_image_002_go_gopher_0038",
+        "textHash": "sha256_725800db345513b16dabf7e6ade0ceff",
+        "textQuote": "For the launch of the Go App Engine runtime at Google I/O 2011 we engaged Squishable to manufacture the plush gophers. This was the first time the gopher was colored blue and appeared in three dimensions. The first proto"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0039",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "But the second one was just right:",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 38,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0039",
+        "sourceRefId": "src_page_image_002_go_gopher_0039",
+        "textHash": "sha256_253c7ba3627493aa8cd495d92ab4e770",
+        "textQuote": "But the second one was just right:"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0040",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 39,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0040",
+        "sourceRefId": "src_page_image_002_go_gopher_0040",
+        "textHash": "sha256_172b6eb7e6b99d1ce4f208f44b3a4501",
+        "textQuote": "Around the same time, Renee roughed out a gopher in clay. This inspired a refined sculpture that became a vinyl figurine made by Kidrobot . The vinyls were first distributed at OSCON 2011."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0041",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The gopher therefore exists in many forms, but has always been Renee’s creation. It stands for the Go project and Go programmers everywhere, and is one of the most popular things in the Go world.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 40,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0041",
+        "sourceRefId": "src_page_image_002_go_gopher_0041",
+        "textHash": "sha256_d701d15f7bede4102a2f75d68b4600dc",
+        "textQuote": "The gopher therefore exists in many forms, but has always been Renee’s creation. It stands for the Go project and Go programmers everywhere, and is one of the most popular things in the Go world."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0042",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The Go gopher is a character; a unique creation. Not any old gopher, just as Snoopy is not any old cartoon dog.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 41,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0042",
+        "sourceRefId": "src_page_image_002_go_gopher_0042",
+        "textHash": "sha256_294c1e8c2a79f3af25abba82aa24f65c",
+        "textQuote": "The Go gopher is a character; a unique creation. Not any old gopher, just as Snoopy is not any old cartoon dog."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0043",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 42,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0043",
+        "sourceRefId": "src_page_image_002_go_gopher_0043",
+        "textHash": "sha256_df84cd1569c5d6f0ef2a5d9fd238f980",
+        "textQuote": "The gopher images are Creative Commons Attribution 4.0 licensed. That means you can play with the images but you must give credit to their creator (Renee French) wherever they are used."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0044",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 43,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0044",
+        "sourceRefId": "src_page_image_002_go_gopher_0044",
+        "textHash": "sha256_24d5f5474acee5ecb4c55152a15e4ffe",
+        "textQuote": "Here are a few gopher adaptations that people have used as mascots for user group mascots and similar organizations."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0045",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site.",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 44,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0045",
+        "sourceRefId": "src_page_image_002_go_gopher_0045",
+        "textHash": "sha256_e3497460940d9f3224f9dacd04188d5b",
+        "textQuote": "They’re cute and we like them, but by the Creative Commons rules the groups should give Renee credit, perhaps as a mention on the user group web site."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0046",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They may be purchased from the Google Store , although the supply can be irregular. (These elusive creatures have been spotted in all kinds of plac",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 45,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0046",
+        "sourceRefId": "src_page_image_002_go_gopher_0046",
+        "textHash": "sha256_337cb4566e95856accd95f3672cdb14b",
+        "textQuote": "The vinyl and plush gophers are copyrighted designs; accept no substitutes! But how can you get one? Their natural habitat is near high concentrations of Go programmers, and their worldwide population is growing. They ma"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0047",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10).",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 46,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0047",
+        "sourceRefId": "src_page_image_002_go_gopher_0047",
+        "textHash": "sha256_2ce3803073887caacd193aad5717a9b6",
+        "textQuote": "Perhaps the best way to get a gopher is to catch one in the wild at a Go conference. There are two big chances this year: GopherCon (Denver, April 24-26) and dotGo (Paris, October 10)."
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0048",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "(Photo by Noah Lorang .)",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 47,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0048",
+        "sourceRefId": "src_page_image_002_go_gopher_0048",
+        "textHash": "sha256_c7cfed7fde2ebc9b4e2558f076171049",
+        "textQuote": "(Photo by Noah Lorang .)"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0049",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: The Go Gopher",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 48,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0049",
+        "sourceRefId": "src_page_image_002_go_gopher_0049",
+        "textHash": "sha256_88108196a5f0759d1c2671ad04cabde1",
+        "textQuote": "Image metadata: The Go Gopher"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0050",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 49,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0050",
+        "sourceRefId": "src_page_image_002_go_gopher_0050",
+        "textHash": "sha256_c7bf2e0ddf691f23105ff6e82cc30582",
+        "textQuote": "Next article: GopherCon 2014 Wrap Up Previous article: Go Concurrency Patterns: Pipelines and cancellation Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Librar"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0051",
+        "blockType": "list_item",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Terms of Service",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 50,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0051",
+        "sourceRefId": "src_page_image_002_go_gopher_0051",
+        "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+        "textQuote": "Terms of Service"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0052",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: System theme",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 51,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0052",
+        "sourceRefId": "src_page_image_002_go_gopher_0052",
+        "textHash": "sha256_b14d4668232cebc399a0aa00ad168c08",
+        "textQuote": "Image metadata: System theme"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0053",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: Dark theme",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 52,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0053",
+        "sourceRefId": "src_page_image_002_go_gopher_0053",
+        "textHash": "sha256_092b88e1c544fcc1cea95fa6cbe9b69d",
+        "textQuote": "Image metadata: Dark theme"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0054",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: Light theme",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 53,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0054",
+        "sourceRefId": "src_page_image_002_go_gopher_0054",
+        "textHash": "sha256_222befbff99cc038de9b31962a09ec3e",
+        "textQuote": "Image metadata: Light theme"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0055",
+        "blockType": "image",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "Image metadata: Google logo",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 54,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0055",
+        "sourceRefId": "src_page_image_002_go_gopher_0055",
+        "textHash": "sha256_95ded6d44db7550290d7dee14de151a0",
+        "textQuote": "Image metadata: Google logo"
+      },
+      {
+        "blockId": "block_pg_page_image_002_go_gopher_0056",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_image_002_go_gopher_0004",
+        "confidence": 0.92,
+        "contentHash": "sha256_a3c7f5e030b002c7d839c12055d74e27c783ff6b090479fc55bb87abea1e987b",
+        "fallbackText": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay",
+        "headingPath": [
+          "The Go Gopher"
+        ],
+        "order": 55,
+        "pageId": "page_image_002_go_gopher",
+        "paragraphId": "pg_page_image_002_go_gopher_0056",
+        "sourceRefId": "src_page_image_002_go_gopher_0056",
+        "textHash": "sha256_0f44fe7b67298b1a9c27323cddee03f6",
+        "textQuote": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity",
+  "warnings": [
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 1, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 2, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 3, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 4, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 5, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 6, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 7, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 8, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 10, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 11, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 12, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 13, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 14, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 15, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 16, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 17, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 18, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 19, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 20, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 21, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 22, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 23, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 24, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 25, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 26, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 27, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 28, 'recoverable': True}"
+  ]
+}

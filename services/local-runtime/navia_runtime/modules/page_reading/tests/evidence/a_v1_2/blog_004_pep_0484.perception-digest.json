@@ -1,0 +1,646 @@
+{
+  "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+  "digestId": "digest_page_blog_004_pep_0484",
+  "items": [
+    {
+      "confidence": 0.848,
+      "importance": 0.891,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0046",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "While these annotations are available at runtime through the usual __annotations__ attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which users can run over their source code voluntarily. Essentially, such a type checker acts as a very powerful linter. (While it would of course b",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Abstract"
+          ],
+          "order": 45,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0046",
+          "sourceRefId": "src_page_blog_004_pep_0484_0046",
+          "textHash": "sha256_b0c70c38f9f301f0a3c59df075ccb079",
+          "textQuote": "While these annotations are available at runtime through the usual __annotations__ attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which us"
+        }
+      ],
+      "text": "While these annotations are available at runtime through the usual __annotations__ attribute , no type checking",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0047",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "The proposal is strongly inspired by mypy . For example, the type “sequence of integers” can be written as Sequence[int] . The square brackets mean that no new syntax needs to be added to the language. The example here uses a custom type Sequence , imported from a pure-Python module typing . The Sequence[int] notation works at runtime by implementing __getit",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Abstract"
+          ],
+          "order": 46,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0047",
+          "sourceRefId": "src_page_blog_004_pep_0484_0047",
+          "textHash": "sha256_46639b64ecc9649919cf79a14bdc3952",
+          "textQuote": "The proposal is strongly inspired by mypy . For example, the type “sequence of integers” can be written as Sequence[int] . The square brackets mean that no new syntax needs to be added to the language. The example here u"
+        }
+      ],
+      "text": "The proposal is strongly inspired by mypy . For example , the type “ sequence of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.854,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0067",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Annotations should be kept simple or static analysis tools may not be able to interpret the values. For example, dynamically computed types are unlikely to be understood. (This is an intentionally somewhat vague requirement, specific inclusions and exclusions may be added to future versions of this PEP as warranted by the discussion.)",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Acceptable type hints"
+          ],
+          "order": 66,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0067",
+          "sourceRefId": "src_page_blog_004_pep_0484_0067",
+          "textHash": "sha256_fae8cc1b71137aec98a86f64004e3011",
+          "textQuote": "Annotations should be kept simple or static analysis tools may not be able to interpret the values. For example, dynamically computed types are unlikely to be understood. (This is an intentionally somewhat vague requirem"
+        }
+      ],
+      "text": "Annotations should be kept simple or static analysis tools may not be able to interpret the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.853,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0041",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "PEP 3107 introduced syntax for function annotations, but the semantics were deliberately left undefined. There has now been enough 3rd party usage for static type analysis that the community would benefit from a standard vocabulary and baseline tools within the standard library.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Abstract"
+          ],
+          "order": 40,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0041",
+          "sourceRefId": "src_page_blog_004_pep_0484_0041",
+          "textHash": "sha256_8e48961d819f307d7a3ebad5d0dd4663",
+          "textQuote": "PEP 3107 introduced syntax for function annotations, but the semantics were deliberately left undefined. There has now been enough 3rd party usage for static type analysis that the community would benefit from a standard"
+        }
+      ],
+      "text": "PEP 3107 introduced syntax for function annotations , but the semantics were deliberately left undefined .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0053",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "While the proposed typing module will contain some building blocks for runtime type checking – in particular the get_type_hints() function – third party packages would have to be developed to implement specific runtime type checking functionality, for example using decorators or metaclasses. Using type hints for performance optimizations is left as an exerci",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Rationale and Goals",
+            "Non-goals"
+          ],
+          "order": 52,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0053",
+          "sourceRefId": "src_page_blog_004_pep_0484_0053",
+          "textHash": "sha256_13aeb4d748b5f7117ef2b5274c87a062",
+          "textQuote": "While the proposed typing module will contain some building blocks for runtime type checking – in particular the get_type_hints() function – third party packages would have to be developed to implement specific runtime t"
+        }
+      ],
+      "text": "While the proposed typing module will contain some building blocks for runtime type checking – in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.848,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0134",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0134"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0134",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "To create Node instances you call Node() just as for a regular class. At runtime the type (class) of the instance will be Node . But what type does it have to the type checker? The answer depends on how much information is available in the call. If the constructor ( __init__ or __new__ ) uses T in its signature, and a corresponding argument value is passed, ",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Instantiating generic classes and type erasure"
+          ],
+          "order": 133,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0134",
+          "sourceRefId": "src_page_blog_004_pep_0484_0134",
+          "textHash": "sha256_a8d1d412eb5283511be3fe0bafbe307f",
+          "textQuote": "To create Node instances you call Node() just as for a regular class. At runtime the type (class) of the instance will be Node . But what type does it have to the type checker? The answer depends on how much information "
+        }
+      ],
+      "text": "To create Node instances you call Node ( ) just as for a regular class .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.845,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0085",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0085"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0085",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Since type information about objects kept in containers cannot be statically inferred in a generic way, abstract base classes have been extended to support subscription to denote expected types for container elements. Example:",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Generics"
+          ],
+          "order": 84,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0085",
+          "sourceRefId": "src_page_blog_004_pep_0484_0085",
+          "textHash": "sha256_a8436ca6f85d96924e437ac0daa06210",
+          "textQuote": "Since type information about objects kept in containers cannot be statically inferred in a generic way, abstract base classes have been extended to support subscription to denote expected types for container elements. Ex"
+        }
+      ],
+      "text": "Since type information about objects kept in containers cannot be statically inferred in a generic way",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0042",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "This PEP introduces a provisional module to provide these standard definitions and tools, along with some conventions for situations where annotations are not available.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Abstract"
+          ],
+          "order": 41,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0042",
+          "sourceRefId": "src_page_blog_004_pep_0484_0042",
+          "textHash": "sha256_51c452a4d9ed2b293a09421301114747",
+          "textQuote": "This PEP introduces a provisional module to provide these standard definitions and tools, along with some conventions for situations where annotations are not available."
+        }
+      ],
+      "text": "This PEP introduces a provisional module to provide these standard definitions and tools , along with",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0054",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Rationale and Goals",
+            "Non-goals"
+          ],
+          "order": 53,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0054",
+          "sourceRefId": "src_page_blog_004_pep_0484_0054",
+          "textHash": "sha256_0a109e8d804f551e360ffc4ca2212a0c",
+          "textQuote": "It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention."
+        }
+      ],
+      "text": "It should also be emphasized that Python will remain a dynamically typed language , and the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0050",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "PEP 3107 added support for arbitrary annotations on parts of a function definition. Although no meaning was assigned to annotations then, there has always been an implicit goal to use them for type hinting , which is listed as the first possible use case in said PEP.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Rationale and Goals"
+          ],
+          "order": 49,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0050",
+          "sourceRefId": "src_page_blog_004_pep_0484_0050",
+          "textHash": "sha256_c7cf5d26947b05674c54a6ab789251d4",
+          "textQuote": "PEP 3107 added support for arbitrary annotations on parts of a function definition. Although no meaning was assigned to annotations then, there has always been an implicit goal to use them for type hinting , which is lis"
+        }
+      ],
+      "text": "PEP 3107 added support for arbitrary annotations on parts of a function definition . Although no",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0068",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0068"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0068",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "In addition to the above, the following special constructs defined below may be used: None , Any , Union , Tuple , Callable , all ABCs and stand-ins for concrete classes exported from typing (e.g. Sequence and Dict ), type variables, and type aliases.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Acceptable type hints"
+          ],
+          "order": 67,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0068",
+          "sourceRefId": "src_page_blog_004_pep_0484_0068",
+          "textHash": "sha256_91b8761d64a10dc48d8ce50d099dd69d",
+          "textQuote": "In addition to the above, the following special constructs defined below may be used: None , Any , Union , Tuple , Callable , all ABCs and stand-ins for concrete classes exported from typing (e.g. Sequence and Dict ), ty"
+        }
+      ],
+      "text": "In addition to the above , the following special constructs defined below may be used :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0141",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0141"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0141",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Using generic classes (parameterized or not) to access attributes will result in type check failure. Outside the class definition body, a class attribute cannot be assigned, and can only be looked up by accessing it through a class instance that does not have an instance attribute with the same name:",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Instantiating generic classes and type erasure"
+          ],
+          "order": 140,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0141",
+          "sourceRefId": "src_page_blog_004_pep_0484_0141",
+          "textHash": "sha256_3f45d148a41df7a43e55dfdc66ef3214",
+          "textQuote": "Using generic classes (parameterized or not) to access attributes will result in type check failure. Outside the class definition body, a class attribute cannot be assigned, and can only be looked up by accessing it thro"
+        }
+      ],
+      "text": "Using generic classes ( parameterized or not ) to access attributes will result in type check",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0052",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Of these goals, static analysis is the most important. This includes support for off-line type checkers such as mypy, as well as providing a standard notation that can be used by IDEs for code completion and refactoring.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Rationale and Goals"
+          ],
+          "order": 51,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0052",
+          "sourceRefId": "src_page_blog_004_pep_0484_0052",
+          "textHash": "sha256_f0e2f8bd7002f0ec30a74bf248850be4",
+          "textQuote": "Of these goals, static analysis is the most important. This includes support for off-line type checkers such as mypy, as well as providing a standard notation that can be used by IDEs for code completion and refactoring."
+        }
+      ],
+      "text": "Of these goals , static analysis is the most important . This includes support for off",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0043",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0043"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification. It simply enables better coordination, as PEP 333 did for web frameworks.",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Abstract"
+          ],
+          "order": 42,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0043",
+          "sourceRefId": "src_page_blog_004_pep_0484_0043",
+          "textHash": "sha256_463da2cb3867c09caf7cb2cad3815ba9",
+          "textQuote": "Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification. It simply enables be"
+        }
+      ],
+      "text": "Note that this PEP still explicitly does NOT prevent other uses of annotations , nor does",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0078",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Frameworks expecting callback functions of specific signatures might be type hinted using Callable[[Arg1Type, Arg2Type], ReturnType] . Examples:",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Callable"
+          ],
+          "order": 77,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0078",
+          "sourceRefId": "src_page_blog_004_pep_0484_0078",
+          "textHash": "sha256_c30ed6ea1e4f1f241c0da29b9bfd29c2",
+          "textQuote": "Frameworks expecting callback functions of specific signatures might be type hinted using Callable[[Arg1Type, Arg2Type], ReturnType] . Examples:"
+        }
+      ],
+      "text": "Frameworks expecting callback functions of specific signatures might be type hinted using Callable [ [ Arg1Type",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "(Note that the return type of __init__ ought to be annotated with -> None . The reason for this is subtle. If __init__ assumed a return annotation of -> None , would that mean that an argument-less, un-annotated __init__ method should still be type-checked? Rather than leaving this ambiguous or introducing an exception to the exception, we simply say that __",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "The meaning of annotations"
+          ],
+          "order": 56,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0057",
+          "sourceRefId": "src_page_blog_004_pep_0484_0057",
+          "textHash": "sha256_6f3cefb3f06b91f54907d8dec5724167",
+          "textQuote": "(Note that the return type of __init__ ought to be annotated with -> None . The reason for this is subtle. If __init__ assumed a return annotation of -> None , would that mean that an argument-less, un-annotated __init__"
+        }
+      ],
+      "text": "( Note that the return type of __init__ ought to be annotated with - > None",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "The syntax leverages PEP 3107 -style annotations with a number of extensions described in sections below. In its basic form, type hinting is used by filling function annotation slots with classes:",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax"
+          ],
+          "order": 59,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0060",
+          "sourceRefId": "src_page_blog_004_pep_0484_0060",
+          "textHash": "sha256_d9894f23e1b97ccc2f2bbd1c5506031d",
+          "textQuote": "The syntax leverages PEP 3107 -style annotations with a number of extensions described in sections below. In its basic form, type hinting is used by filling function annotation slots with classes:"
+        }
+      ],
+      "text": "The syntax leverages PEP 3107 - style annotations with a number of extensions described in sections",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_blog_004_pep_0484_0119",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_004_pep_0484_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_004_pep_0484_0119"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_004_pep_0484_0119",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_004_pep_0484_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+          "fallbackText": "Type variables follow normal name resolution rules. However, there are some special cases in the static typechecking context:",
+          "headingPath": [
+            "PEP 484 – Type Hints",
+            "Type Definition Syntax",
+            "Scoping rules for type variables"
+          ],
+          "order": 118,
+          "pageId": "page_blog_004_pep_0484",
+          "paragraphId": "pg_page_blog_004_pep_0484_0119",
+          "sourceRefId": "src_page_blog_004_pep_0484_0119",
+          "textHash": "sha256_f11838bf351d62d461cb115ff5ffaa9b",
+          "textQuote": "Type variables follow normal name resolution rules. However, there are some special cases in the static typechecking context:"
+        }
+      ],
+      "text": "Type variables follow normal name resolution rules . However , there are some special cases in",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_blog_004_pep_0484",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.08,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "While these annotations are available at runtime through the usual __annotations__ attribute , no type checking",
+      "The proposal is strongly inspired by mypy . For example , the type “ sequence of",
+      "Annotations should be kept simple or static analysis tools may not be able to interpret the",
+      "PEP 3107 introduced syntax for function annotations , but the semantics were deliberately left undefined .",
+      "While the proposed typing module will contain some building blocks for runtime type checking – in"
+    ],
+    "tldr": "While these annotations are available at runtime through the usual __annotations__ attribute , no type checking"
+  }
+}

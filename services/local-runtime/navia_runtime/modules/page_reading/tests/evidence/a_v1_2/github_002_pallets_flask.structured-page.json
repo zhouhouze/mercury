@@ -1,0 +1,150 @@
+{
+  "annotations": [
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0001",
+      "confidence": 0.72,
+      "densityScore": 0.83,
+      "importance": "high",
+      "labels": [
+        "definition"
+      ],
+      "paragraphId": "pg_page_github_002_pallets_flask_0001",
+      "role": "definition"
+    },
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0001",
+      "confidence": 0.72,
+      "densityScore": 0.812,
+      "importance": "high",
+      "labels": [
+        "example"
+      ],
+      "paragraphId": "pg_page_github_002_pallets_flask_0002",
+      "role": "example"
+    },
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0002",
+      "confidence": 0.45,
+      "densityScore": 0.738,
+      "importance": "high",
+      "labels": [
+        "unknown"
+      ],
+      "paragraphId": "pg_page_github_002_pallets_flask_0003",
+      "role": "unknown"
+    }
+  ],
+  "capturedAt": "2026-06-09T02:42:31Z",
+  "chunks": [
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0001",
+      "headingPath": [],
+      "order": 0,
+      "pageId": "page_github_002_pallets_flask",
+      "paragraphIds": [
+        "pg_page_github_002_pallets_flask_0001",
+        "pg_page_github_002_pallets_flask_0002"
+      ],
+      "text": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any dependencies or project layout. It is up to the developer to choose the tools and libraries they want to use. There are many extensions provided by the community that make adding new functionality easy.\n[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ``` ## Donate The Pallets organization develops and supports Flask and the libraries it uses. In order to grow the community of contributors and users, and allow the maintainers to devote more time to the projects, [please donate today].",
+      "tokenEstimate": 289
+    },
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0002",
+      "headingPath": [],
+      "order": 1,
+      "pageId": "page_github_002_pallets_flask",
+      "paragraphIds": [
+        "pg_page_github_002_pallets_flask_0003"
+      ],
+      "text": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/",
+      "tokenEstimate": 76
+    }
+  ],
+  "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+  "domain": "raw.githubusercontent.com",
+  "headingTree": [],
+  "imageMetadata": [
+    {
+      "alt": null,
+      "ariaLabel": null,
+      "caption": null,
+      "nearbyText": null,
+      "order": 0,
+      "src": "https://raw.githubusercontent.com/pallets/flask/refs/heads/stable/docs/_static/flask-name.svg",
+      "status": "unknown_metadata",
+      "title": null
+    }
+  ],
+  "metadata": {
+    "contentType": "readme",
+    "headingCount": 0,
+    "language": "en",
+    "paragraphCount": 3,
+    "wordCount": 218
+  },
+  "pageId": "page_github_002_pallets_flask",
+  "paragraphs": [
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0001",
+      "headingPath": [],
+      "order": 0,
+      "pageId": "page_github_002_pallets_flask",
+      "paragraphId": "pg_page_github_002_pallets_flask_0001",
+      "sourceBlockType": "paragraph",
+      "text": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any dependencies or project layout. It is up to the developer to choose the tools and libraries they want to use. There are many extensions provided by the community that make adding new functionality easy."
+    },
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0001",
+      "headingPath": [],
+      "order": 1,
+      "pageId": "page_github_002_pallets_flask",
+      "paragraphId": "pg_page_github_002_pallets_flask_0002",
+      "sourceBlockType": "paragraph",
+      "text": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ``` ## Donate The Pallets organization develops and supports Flask and the libraries it uses. In order to grow the community of contributors and users, and allow the maintainers to devote more time to the projects, [please donate today]."
+    },
+    {
+      "chunkId": "ck_page_github_002_pallets_flask_0002",
+      "headingPath": [],
+      "order": 2,
+      "pageId": "page_github_002_pallets_flask",
+      "paragraphId": "pg_page_github_002_pallets_flask_0003",
+      "sourceBlockType": "paragraph",
+      "text": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/"
+    }
+  ],
+  "sessionId": "a_v1_2_github_002_pallets_flask",
+  "summaryDraft": {
+    "format": "json",
+    "keyPoints": [
+      "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It beg",
+      "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.",
+      "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting is"
+    ],
+    "structure": [
+      {
+        "headingPath": [],
+        "paragraphIds": [
+          "pg_page_github_002_pallets_flask_0001",
+          "pg_page_github_002_pallets_flask_0002"
+        ],
+        "summary": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It beg"
+      },
+      {
+        "headingPath": [],
+        "paragraphIds": [
+          "pg_page_github_002_pallets_flask_0003"
+        ],
+        "summary": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting is"
+      }
+    ],
+    "suggestedQuestions": [
+      "这篇内容的核心观点是什么？",
+      "哪些段落最值得深入阅读？",
+      "可以把这篇内容整理成思维导图吗？"
+    ],
+    "title": "github_002_pallets_flask",
+    "tldr": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and ha"
+  },
+  "title": "github_002_pallets_flask",
+  "url": "https://raw.githubusercontent.com/pallets/flask/main/README.md"
+}

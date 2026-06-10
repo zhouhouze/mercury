@@ -89,12 +89,17 @@ export function createMermaidArtifactElement(
   artifactEl.append(iframe);
 
   const onMessage = (event: MessageEvent) => {
-    if (event.source !== iframe.contentWindow) return;
+    if (iframe.contentWindow && event.source && event.source !== iframe.contentWindow) return;
     const data = event.data as { type?: string; artifactId?: string; status?: string; message?: string };
     if (data.type !== "navia.mermaidRendered" || data.artifactId !== artifact.artifactId) return;
     artifactEl.dataset.rendered = data.status === "succeeded" ? "true" : "false";
     if (data.status !== "succeeded") {
-      artifactEl.title = data.message ?? "Mermaid render failed";
+      const message = data.message ?? "Mermaid render failed";
+      artifactEl.title = message;
+      const errorEl = document.createElement("p");
+      errorEl.className = "navia-mermaid-error";
+      errorEl.textContent = message;
+      artifactEl.append(errorEl);
     }
     window.removeEventListener("message", onMessage);
   };
@@ -170,8 +175,9 @@ export function mountNaviaInjectedPanel(): NaviaInjectedPanelController | null {
   newChatButton.addEventListener("click", () => resetChat());
   sendButton.addEventListener("click", () => sendChat(input.value));
   const autoGrowInput = () => {
+    const fallbackHeight = Math.max(44, input.value.split("\n").length * 22 + 24);
     input.style.height = "auto";
-    input.style.height = `${Math.min(input.scrollHeight, 120)}px`;
+    input.style.height = `${Math.min(Math.max(input.scrollHeight, fallbackHeight), 120)}px`;
   };
   input.addEventListener("input", autoGrowInput);
   autoGrowInput();
@@ -585,6 +591,7 @@ function isSamePageUrl(restoredUrl: string, currentUrl: string): boolean {
             </header>
             <section class="navia-messages" data-testid="navia-messages" aria-live="polite"></section>
             <footer class="navia-chat-footer">
+              <p class="navia-chat-notice" data-testid="navia-chat-notice" role="status"></p>
               <div class="navia-chat-toolbar" aria-label="Chat actions">
                 <button data-testid="navia-read-page">读取网页</button>
                 <button data-testid="navia-summary">总结</button>
@@ -903,6 +910,11 @@ function styles() {
       }
       .navia-mermaid-source summary {
         cursor: pointer;
+        font-size: 12px;
+      }
+      .navia-mermaid-error {
+        margin: 8px 0 0;
+        color: #b91c1c;
         font-size: 12px;
       }
       .navia-composer-container {

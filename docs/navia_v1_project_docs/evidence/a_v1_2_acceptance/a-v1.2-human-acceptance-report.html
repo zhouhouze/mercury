@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia A-V1.2 人类验收报告</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #657086;
+      --line: #dfe5ee;
+      --panel: #ffffff;
+      --bg: #f6f8fb;
+      --blue: #4f63ff;
+      --green: #1f9d6a;
+      --amber: #b7791f;
+      --red: #c53030;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    header {
+      padding: 44px 48px 28px;
+      background: linear-gradient(135deg, #152238, #3543a4);
+      color: white;
+    }
+    header h1 { margin: 0 0 10px; font-size: 34px; letter-spacing: 0; }
+    header p { margin: 0; max-width: 980px; color: rgba(255,255,255,.84); font-size: 16px; }
+    main { padding: 28px 48px 56px; max-width: 1420px; margin: 0 auto; }
+    section { margin: 0 0 28px; }
+    h2 { font-size: 22px; margin: 0 0 14px; }
+    h3 { font-size: 16px; margin: 0 0 10px; }
+    .grid { display: grid; gap: 16px; }
+    .kpis { grid-template-columns: repeat(5, minmax(150px, 1fr)); }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(20, 32, 52, .06);
+    }
+    .kpi .value { font-size: 30px; font-weight: 760; }
+    .kpi .label { color: var(--muted); font-size: 13px; }
+    .pass-text { color: var(--green); }
+    .warn-text { color: var(--amber); }
+    .two { grid-template-columns: 1.1fr .9fr; }
+    .bars { display: grid; gap: 9px; }
+    .bar-row { display: grid; grid-template-columns: 190px 1fr 36px; align-items: center; gap: 10px; font-size: 13px; }
+    .bar-track { height: 10px; border-radius: 999px; background: #edf1f7; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--blue); }
+    .gates { grid-template-columns: repeat(3, minmax(220px, 1fr)); }
+    .gate { display: flex; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: white; }
+    .gate strong { overflow-wrap: anywhere; word-break: break-word; }
+    .gate p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+    .gate-icon { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; color: white; font-weight: 800; flex: 0 0 auto; }
+    .gate.pass .gate-icon { background: var(--green); }
+    .gate.fail .gate-icon { background: var(--red); }
+    .samples { grid-template-columns: repeat(2, minmax(420px, 1fr)); }
+    .sample { overflow: hidden; padding: 0; }
+    .sample img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid var(--line); background: #edf1f7; display: block; }
+    .sample-body { padding: 16px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; color: var(--muted); font-size: 12px; background: #fafcff; }
+    .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
+    .metric { background: #f7f9fc; border-radius: 6px; padding: 8px; }
+    .metric strong { display: block; font-size: 15px; }
+    .metric span { color: var(--muted); font-size: 11px; }
+    ul { margin: 10px 0 0; padding-left: 18px; }
+    li { margin: 6px 0; }
+    code { background: #eef2f7; border-radius: 4px; padding: 1px 4px; }
+    .evidence-paths { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #334155; }
+    .footer-note { color: var(--muted); font-size: 13px; }
+    @media (max-width: 980px) {
+      header, main { padding-left: 20px; padding-right: 20px; }
+      .kpis, .two, .gates, .samples { grid-template-columns: 1fr; }
+      .bar-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia A-V1.2 阶段验收报告</h1>
+    <p>本报告用真实网页快照、结构化 JSON、质量门槛和截图样例展示 A 模块“高质量网页感知 + 结构化页面摘要 + 可反跳证据 + Debug 可验证 JSON”的完成情况。</p>
+  </header>
+  <main>
+    <section class="grid kpis">
+      <div class="card kpi"><div class="value pass-text">通过</div><div class="label">Corpus Exit Gate</div></div>
+      <div class="card kpi"><div class="value">107</div><div class="label">真实快照计入页面</div></div>
+      <div class="card kpi"><div class="value">13</div><div class="label">页面类别</div></div>
+      <div class="card kpi"><div class="value">107</div><div class="label">生成 evidence 页面</div></div>
+      <div class="card kpi"><div class="value">107</div><div class="label">可复现 HTML 快照</div></div>
+    </section>
+
+    <section class="card">
+      <h2>107 个网页明细二级页</h2>
+      <p><strong>截图复核：通过</strong>。已为 107 / 107 个验证网页生成截图，并逐条核对截图、链接、结果状态和低信号结论。另有 3 个非低信号页面实际结果为 degraded，已在二级页逐条展示。</p>
+      <p><a href="a-v1.2-107-page-gallery.html">打开 107 个网页逐项截图、链接与结果明细</a></p>
+    </section>
+
+    <section class="card">
+      <h2>中文复杂站点视觉补充</h2>
+      <p><strong>视觉补充：通过</strong>。已捕获 8 / 8 个中文复杂站点；B站首页视觉门槛 通过，B站视频页视觉门槛 通过。</p>
+      <p class="footer-note">这部分使用真实浏览器页面截图，专门补足 B站首页、B站视频页以及中文图文复杂布局的用户视角证据；它不替换 107 页可复现 HTML corpus gate。</p>
+      <p><a href="a-v1.2-chinese-visual-supplement.html">打开中文复杂站点视觉补充：B站首页、B站视频页、中文图文站点</a></p>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>验收结论</h2>
+        <p><strong>A-V1.2 已完成本阶段确定性基线开发。</strong> 当前通过范围是 <code>dom_baseline + A-owned schema normalization + real snapshot corpus evidence</code>。</p>
+        <p>这意味着 A 模块已经能在真实网页快照上稳定产出结构化页面、HighSignal、SourceMap、PerceptionDigest、QualityReport 与 DebugEvidence。</p>
+        <p class="footer-note">不包含：第三方 extractor ensemble、OCR/VLM/ASR、视频/直播理解、最终回答、Mindmap、ArtifactRecord、SSE、EventStore、Trace、RAG、MCP、Skill 或外部 API 调用。</p>
+      </div>
+      <div class="card">
+        <h2>采集与生成</h2>
+        <div class="metrics">
+          <div class="metric"><strong>112</strong><span>请求抓取</span></div>
+          <div class="metric"><strong>88</strong><span>新抓取</span></div>
+          <div class="metric"><strong>19</strong><span>复用快照</span></div>
+          <div class="metric"><strong>5</strong><span>未计入失败</span></div>
+        </div>
+        <p class="footer-note">网络失败页面不计入最终验收；只有存在 <code>snapshotPath</code> 的页面才能被 corpus exit gate 计入。</p>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <div class="card">
+        <h2>页面类型覆盖</h2>
+        <div class="bars">
+        <div class="bar-row">
+          <span>academic_or_report</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>code_heavy_page</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>ecommerce_product</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>forum_thread</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>github_readme</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>image_rich_article</span>
+          <div class="bar-track"><div class="bar-fill" style="width:91.7%"></div></div>
+          <strong>11</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>localized_chinese_page</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>longform_blog</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>low_signal_or_paywall_like</span>
+          <div class="bar-track"><div class="bar-fill" style="width:33.3%"></div></div>
+          <strong>4</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>news_article</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>product_docs</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>table_heavy_page</span>
+          <div class="bar-track"><div class="bar-fill" style="width:66.7%"></div></div>
+          <strong>8</strong>
+        </div>
+        
+
+        <div class="bar-row">
+          <span>technical_docs</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%"></div></div>
+          <strong>12</strong>
+        </div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>验收门槛</h2>
+        <div class="grid gates">
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>manifest_schema</strong>
+            <p>Every page record validates as CorpusPageRecord.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>total_pages</strong>
+            <p>Corpus has at least 100 page records.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>category_count</strong>
+            <p>Corpus covers at least 10 categories.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>core_category_minimum</strong>
+            <p>Each core category has at least 8 pages.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>snapshot_reproducibility</strong>
+            <p>Every final counted page has a stored reproducible HTML snapshot.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>gold_review</strong>
+            <p>Every final counted page has reviewed or semi-auto-accepted gold status.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>low_signal_expected_outcome</strong>
+            <p>Low-signal pages must not be expected to pass.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>required_evidence_files</strong>
+            <p>Every non-fail page has required evidence files, and fail pages have error evidence.</p>
+          </div>
+        </div>
+        
+
+        <div class="gate pass">
+          <div class="gate-icon">✓</div>
+          <div>
+            <strong>quality_and_debug_evidence</strong>
+            <p>Quality and Debug evidence satisfy source, grounding, jumpback, low-signal, and explanation gates.</p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>截图证据与样例页面</h2>
+      <div class="grid samples">
+      <article class="card sample">
+        <img src="screenshots/news_001_go_loopvar_preview.png" alt="新闻/博客长文 截图" />
+        <div class="sample-body">
+          <h3>新闻/博客长文 · news_001_go_loopvar_preview</h3>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.96</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 66 · filtered 2 · digest 18 · sourceRefs 68</p>
+          <ul><li><strong>entity</strong> · Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Tools have been written to identify these mistakes , but it is hard to analyze whether <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Old code will continue to mean exactly what it means today : the fix only applies <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/tech_002_python_tutorial_intro.png" alt="技术文档 截图" />
+        <div class="sample-body">
+          <h3>技术文档 · tech_002_python_tutorial_intro</h3>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.97</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 126 · filtered 2 · digest 18 · sourceRefs 128</p>
+          <ul><li><strong>entity</strong> · Python can manipulate text ( represented by type str , so - called “ strings ” <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The body of the loop is indented : indentation is Python ’ s way of grouping <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The print ( ) function writes the value of the argument ( s ) it is <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/github_007_fastapi_fastapi.png" alt="GitHub README 截图" />
+        <div class="sample-body">
+          <h3>GitHub README · github_007_fastapi_fastapi</h3>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.82</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 8 · filtered 0 · digest 8 · sourceRefs 8</p>
+          <ul><li><strong>entity</strong> · FastAPI framework , high performance , easy to learn , fast to code , ready for <span class="pill">sourceRefs 1</span></li>
+<li><strong>image_metadata</strong> · Image metadata : FastAPI Conf &#x27; 26 - October 28 , 2026 - Amsterdam , NL <span class="pill">sourceRefs 1</span></li>
+<li><strong>image_metadata</strong> · Image metadata : Supported Python versions <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/product_001_book_light_attic.png" alt="商品页 截图" />
+        <div class="sample-body">
+          <h3>商品页 · product_001_book_light_attic</h3>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.97</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 9 · filtered 0 · digest 9 · sourceRefs 9</p>
+          <ul><li><strong>open_question</strong> · It &#x27; s hard to imagine a world without A Light in the Attic . This <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 22 available ) <span class="pill">sourceRefs 1</span></li>
+<li><strong>table_fact</strong> · In stock ( 22 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/image_001_go_image_draw.png" alt="图文页 截图" />
+        <div class="sample-body">
+          <h3>图文页 · image_001_go_image_draw</h3>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.95</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 64 · filtered 1 · digest 18 · sourceRefs 65</p>
+          <ul><li><strong>entity</strong> · Next article : Learn Go from your browser Previous article : The Go image package Blog <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The image / draw package implementation demonstrates how to provide an image manipulation function that is <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The Porter - Duff paper presented 12 different composition operators , but with an explicit mask <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/zh_002_python_tutorial_intro.png" alt="中文页面 截图" />
+        <div class="sample-body">
+          <h3>中文页面 · zh_002_python_tutorial_intro</h3>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">status: pass</span>
+            <span class="pill">expected: pass</span>
+            <span class="pill">score: 0.96</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 108 · filtered 0 · digest 18 · sourceRefs 108</p>
+          <ul><li><strong>entity</strong> · 除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为 &quot; 字符串 &quot; ） 。 这包括字符 &quot; <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · while 循环只要条件 ( 这里是 a &lt; 10 ) 为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真 <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符 ） 。 使用文本编辑器可以实现更复杂的输入方式 <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="card sample">
+        <img src="screenshots/low_001_example_com.png" alt="低信号页 截图" />
+        <div class="sample-body">
+          <h3>低信号页 · low_001_example_com</h3>
+          <div class="meta">
+            <span class="pill">low_signal_or_paywall_like</span>
+            <span class="pill">status: degraded</span>
+            <span class="pill">expected: degraded</span>
+            <span class="pill">score: 0.90</span>
+          </div>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="footer-note">blocks 1 · filtered 0 · digest 1 · sourceRefs 1</p>
+          <ul><li><strong>definition</strong> · This domain is for use in documentation examples without needing permission . Avoid use in operations <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    </div>
+    </section>
+
+    <section class="card">
+      <h2>证据文件</h2>
+      <div class="evidence-paths">
+        <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json</p>
+        <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json</p>
+        <p>services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-evidence-generation-report.json</p>
+        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery.html</p>
+        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-107-page-gallery-review.json</p>
+        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/a-v1.2-chinese-visual-supplement.html</p>
+        <p>docs/navia_v1_project_docs/evidence/a_v1_2_acceptance/chinese-visual/chinese-visual-capture-report.json</p>
+        <p>services/local-runtime/navia_runtime/modules/page_reading/docs/a-v1.2-2-8-final-acceptance-report.md</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

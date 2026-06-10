@@ -17,6 +17,20 @@ The evaluation must not be used to claim final answers, mindmaps, flashcards, qu
 
 The evaluation corpus must include at least `100` complex webpages across diverse categories. Each page must be reproducible through either a URL with capture metadata or a stored HTML snapshot.
 
+The accepted evaluation route is:
+
+```text
+DOM baseline
++ extractor ensemble
++ A-owned schema normalization
++ SourceMap / jumpback
++ Quality Evaluator
++ DebugEvidenceBundle
++ 100-page corpus gate
+```
+
+Extractor ensemble can be evaluated only after the dependency audit is approved. Until then, the corpus may validate `dom_baseline` and A-owned normalization, but it must not claim extractor ensemble gains.
+
 Executable schema, corpus manifest path, gold rubric, deterministic algorithm rules, extractor dependency audit, and exact stage commands are defined in:
 
 ```text
@@ -187,7 +201,28 @@ No-Go if:
 - A calls D/C/B, Artifact, SSE, EventStore, MCP, Skill, or external APIs directly.
 - A claims final answer, mindmap, flashcard, quiz, podcast, notebook, RAG, or AgenticLoop completion.
 
+## User Acceptance Scenarios
+
+The final corpus review must include human-readable examples for:
+
+- article summary: key points are shorter than raw text and every item links to sourceRefs.
+- technical docs: code/list/table facts are represented as first-class grounded items.
+- noisy news or ecommerce: recommendations, ads, comments, share bars, and cookie banners are filtered or downgraded.
+- image-rich content: image facts come only from DOM-readable metadata; unknown image content stays unknown.
+- low-signal or paywall-like pages: the page degrades or fails with an explicit reason.
+- Chinese or mixed-language pages: headings, paragraphs, and digest items remain readable and source-grounded.
+
 ## A-V1.2 Exit Report
+
+The final corpus report must be produced by the required exit command:
+
+```bash
+PYTHONPATH=services/local-runtime python3 -m navia_runtime.modules.page_reading.eval_corpus \
+  --manifest services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json \
+  --output services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-level-report.json
+```
+
+The command must exit non-zero on category gate, source coverage, grounding, jumpback, low-signal, gold review, snapshot reproducibility, or debug evidence failure.
 
 The final report must summarize:
 

@@ -1,0 +1,631 @@
+{
+  "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+  "digestId": "digest_page_image_006_go_json",
+  "items": [
+    {
+      "confidence": 0.845,
+      "importance": 0.885,
+      "itemId": "item_block_pg_page_image_006_go_json_0103",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0103"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0103",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Next article: Go becomes more stable Previous article: Go Slices: usage and internals Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetu",
+          "headingPath": [
+            "JSON and Go",
+            "References"
+          ],
+          "order": 102,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0103",
+          "sourceRefId": "src_page_image_006_go_json_0103",
+          "textHash": "sha256_83b3a6059e76f77905ee57d6da2fa81f",
+          "textQuote": "Next article: Go becomes more stable Previous article: Go Slices: usage and internals Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages A"
+        }
+      ],
+      "text": "Next article : Go becomes more stable Previous article : Go Slices : usage and internals",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.849,
+      "itemId": "item_block_pg_page_image_006_go_json_0089",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Unmarshaling that data into a FamilyMember value works as expected, but if we look closely we can see a remarkable thing has happened. With the var statement we allocated a FamilyMember struct, and then provided a pointer to that value to Unmarshal , but at that time the Parents field was a nil slice value. To populate the Parents field, Unmarshal allocated ",
+          "headingPath": [
+            "JSON and Go",
+            "Reference Types"
+          ],
+          "order": 88,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0089",
+          "sourceRefId": "src_page_image_006_go_json_0089",
+          "textHash": "sha256_9b932c883da18b6946361c35a3433555",
+          "textQuote": "Unmarshaling that data into a FamilyMember value works as expected, but if we look closely we can see a remarkable thing has happened. With the var statement we allocated a FamilyMember struct, and then provided a pointe"
+        }
+      ],
+      "text": "Unmarshaling that data into a FamilyMember value works as expected , but if we look closely",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_image_006_go_json_0095",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0095"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0095",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "and the sending party can populate the Cmd field and/or the Msg field of the top-level JSON object, depending on the type of message they want to communicate. Unmarshal , when decoding the JSON into an IncomingMessage struct, will only allocate the data structures present in the JSON data. To know which messages to process, the programmer need simply test th",
+          "headingPath": [
+            "JSON and Go",
+            "Reference Types"
+          ],
+          "order": 94,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0095",
+          "sourceRefId": "src_page_image_006_go_json_0095",
+          "textHash": "sha256_8950b5d327200557b4db9ef06b2b9a31",
+          "textQuote": "and the sending party can populate the Cmd field and/or the Msg field of the top-level JSON object, depending on the type of message they want to communicate. Unmarshal , when decoding the JSON into an IncomingMessage st"
+        }
+      ],
+      "text": "and the sending party can populate the Cmd field and / or the Msg field of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_image_006_go_json_0078",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Without knowing this data’s structure, we can decode it into an interface{} value with Unmarshal :",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding arbitrary data"
+          ],
+          "order": 77,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0078",
+          "sourceRefId": "src_page_image_006_go_json_0078",
+          "textHash": "sha256_d54335c346e59c689231561f8bed0d4b",
+          "textQuote": "Without knowing this data’s structure, we can decode it into an interface{} value with Unmarshal :"
+        }
+      ],
+      "text": "Without knowing this data ’ s structure , we can decode it into an interface {",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_image_006_go_json_0086",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "In this way you can work with unknown JSON data while still enjoying the benefits of type safety.",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding arbitrary data"
+          ],
+          "order": 85,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0086",
+          "sourceRefId": "src_page_image_006_go_json_0086",
+          "textHash": "sha256_62e0b6e34dfc62c022212ea95dc803a5",
+          "textQuote": "In this way you can work with unknown JSON data while still enjoying the benefits of type safety."
+        }
+      ],
+      "text": "In this way you can work with unknown JSON data while still enjoying the benefits of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_image_006_go_json_0046",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Cyclic data structures are not supported; they will cause Marshal to go into an infinite loop.",
+          "headingPath": [
+            "JSON and Go",
+            "Encoding"
+          ],
+          "order": 45,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0046",
+          "sourceRefId": "src_page_image_006_go_json_0046",
+          "textHash": "sha256_5ec502724a1919aebd54e330420a5eb8",
+          "textQuote": "Cyclic data structures are not supported; they will cause Marshal to go into an infinite loop."
+        }
+      ],
+      "text": "Cyclic data structures are not supported ; they will cause Marshal to go into an infinite",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_image_006_go_json_0084",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "We can then iterate through the map with a range statement and use a type switch to access its values as their concrete types:",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding arbitrary data"
+          ],
+          "order": 83,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0084",
+          "sourceRefId": "src_page_image_006_go_json_0084",
+          "textHash": "sha256_65fa3501b0e257fa010dcd5fb7cc5fc4",
+          "textQuote": "We can then iterate through the map with a range statement and use a type switch to access its values as their concrete types:"
+        }
+      ],
+      "text": "We can then iterate through the map with a range statement and use a type switch",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_image_006_go_json_0062",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Unmarshal will decode only the fields that it can find in the destination type. In this case, only the Name field of m will be populated, and the Food field will be ignored. This behavior is particularly useful when you wish to pick only a few specific fields out of a large JSON blob. It also means that any unexported fields in the destination struct will be",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding"
+          ],
+          "order": 61,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0062",
+          "sourceRefId": "src_page_image_006_go_json_0062",
+          "textHash": "sha256_c83569e87491e997d2aa1111392f8aa7",
+          "textQuote": "Unmarshal will decode only the fields that it can find in the destination type. In this case, only the Name field of m will be populated, and the Food field will be ignored. This behavior is particularly useful when you "
+        }
+      ],
+      "text": "Unmarshal will decode only the fields that it can find in the destination type . In",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.81,
+      "itemId": "item_block_pg_page_image_006_go_json_0057",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "An exported field with a tag of \"Foo\" (see the Go spec for more on struct tags),",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding"
+          ],
+          "order": 56,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0057",
+          "sourceRefId": "src_page_image_006_go_json_0057",
+          "textHash": "sha256_6df1f7abfd3160cc8ca79f3042c27217",
+          "textQuote": "An exported field with a tag of \"Foo\" (see the Go spec for more on struct tags),"
+        }
+      ],
+      "text": "An exported field with a tag of \" Foo \" ( see the Go spec for",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_image_006_go_json_0100",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0100"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0100",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Due to the ubiquity of Readers and Writers, these Encoder and Decoder types can be used in a broad range of scenarios, such as reading and writing to HTTP connections, WebSockets, or files.",
+          "headingPath": [
+            "JSON and Go",
+            "Streaming Encoders and Decoders"
+          ],
+          "order": 99,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0100",
+          "sourceRefId": "src_page_image_006_go_json_0100",
+          "textHash": "sha256_2ae757ee4e1009380fe6039f9cee8a39",
+          "textQuote": "Due to the ubiquity of Readers and Writers, these Encoder and Decoder types can be used in a broad range of scenarios, such as reading and writing to HTTP connections, WebSockets, or files."
+        }
+      ],
+      "text": "Due to the ubiquity of Readers and Writers , these Encoder and Decoder types can be",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.807,
+      "itemId": "item_block_pg_page_image_006_go_json_0071",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "The json package uses map[string]interface{} and []interface{} values to store arbitrary JSON objects and arrays; it will happily unmarshal any valid JSON blob into a plain interface{} value. The default concrete Go types are:",
+          "headingPath": [
+            "JSON and Go",
+            "Generic JSON with interface"
+          ],
+          "order": 70,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0071",
+          "sourceRefId": "src_page_image_006_go_json_0071",
+          "textHash": "sha256_64123b020349633de0c1a1f43c805ee9",
+          "textQuote": "The json package uses map[string]interface{} and []interface{} values to store arbitrary JSON objects and arrays; it will happily unmarshal any valid JSON blob into a plain interface{} value. The default concrete Go type"
+        }
+      ],
+      "text": "The json package uses map [ string ] interface { } and [ ] interface {",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_image_006_go_json_0063",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "But what if you don’t know the structure of your JSON data beforehand?",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding"
+          ],
+          "order": 62,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0063",
+          "sourceRefId": "src_page_image_006_go_json_0063",
+          "textHash": "sha256_aef2fe6d51e9743b3335956fb48da152",
+          "textQuote": "But what if you don’t know the structure of your JSON data beforehand?"
+        }
+      ],
+      "text": "But what if you don ’ t know the structure of your JSON data beforehand ?",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_image_006_go_json_0093",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0093"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0093",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "From this a useful pattern arises: if you have an application that receives a few distinct message types, you might define “receiver” structure like",
+          "headingPath": [
+            "JSON and Go",
+            "Reference Types"
+          ],
+          "order": 92,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0093",
+          "sourceRefId": "src_page_image_006_go_json_0093",
+          "textHash": "sha256_46653c22bad935e2aafdeb9bfbce7256",
+          "textQuote": "From this a useful pattern arises: if you have an application that receives a few distinct message types, you might define “receiver” structure like"
+        }
+      ],
+      "text": "From this a useful pattern arises : if you have an application that receives a few",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_image_006_go_json_0051",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0051"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0051",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "We must first create a place where the decoded data will be stored",
+          "headingPath": [
+            "JSON and Go",
+            "Decoding"
+          ],
+          "order": 50,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0051",
+          "sourceRefId": "src_page_image_006_go_json_0051",
+          "textHash": "sha256_6ef3b322f06d2a212532ab026315c803",
+          "textQuote": "We must first create a place where the decoded data will be stored"
+        }
+      ],
+      "text": "We must first create a place where the decoded data will be stored",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.804,
+      "itemId": "item_block_pg_page_image_006_go_json_0098",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0098"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0098",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Here’s an example program that reads a series of JSON objects from standard input, removes all but the Name field from each object, and then writes the objects to standard output:",
+          "headingPath": [
+            "JSON and Go",
+            "Streaming Encoders and Decoders"
+          ],
+          "order": 97,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0098",
+          "sourceRefId": "src_page_image_006_go_json_0098",
+          "textHash": "sha256_94f4a8f312a95028c4db016f7809f00a",
+          "textQuote": "Here’s an example program that reads a series of JSON objects from standard input, removes all but the Name field from each object, and then writes the objects to standard output:"
+        }
+      ],
+      "text": "Here ’ s an example program that reads a series of JSON objects from standard input",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_image_006_go_json_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0020",
+          "sourceRefId": "src_page_image_006_go_json_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_006_go_json_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0013",
+          "sourceRefId": "src_page_image_006_go_json_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_006_go_json_0045",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_006_go_json_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_006_go_json_0045"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_006_go_json_0045",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_006_go_json_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_a3ed0e5248b374226202745b01b75a45387d8583d32e3367f02cbde1176405d2",
+          "fallbackText": "Channel, complex, and function types cannot be encoded.",
+          "headingPath": [
+            "JSON and Go",
+            "Encoding"
+          ],
+          "order": 44,
+          "pageId": "page_image_006_go_json",
+          "paragraphId": "pg_page_image_006_go_json_0045",
+          "sourceRefId": "src_page_image_006_go_json_0045",
+          "textHash": "sha256_2b2d54fd14c212f5ba04a2fc25b267fd",
+          "textQuote": "Channel, complex, and function types cannot be encoded."
+        }
+      ],
+      "text": "Channel , complex , and function types cannot be encoded .",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_006_go_json",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.144,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Go becomes more stable Previous article : Go Slices : usage and internals",
+      "Unmarshaling that data into a FamilyMember value works as expected , but if we look closely",
+      "and the sending party can populate the Cmd field and / or the Msg field of",
+      "Without knowing this data ’ s structure , we can decode it into an interface {",
+      "In this way you can work with unknown JSON data while still enjoying the benefits of"
+    ],
+    "tldr": "Next article : Go becomes more stable Previous article : Go Slices : usage and internals"
+  }
+}

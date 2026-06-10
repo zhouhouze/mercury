@@ -1,0 +1,2644 @@
+{
+  "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+  "pageId": "page_blog_004_pep_0484",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_blog_004_pep_0484",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0001",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "PEP 484 – Type Hints",
+      "headingPath": [
+        "Python Enhancement Proposals"
+      ],
+      "order": 0,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0001",
+      "sourceRefId": "src_page_blog_004_pep_0484_0001",
+      "textHash": "sha256_469502eb226620963f36c4dc1cb68d11",
+      "textQuote": "PEP 484 – Type Hints"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0002",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Table of Contents",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 1,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0002",
+      "sourceRefId": "src_page_blog_004_pep_0484_0002",
+      "textHash": "sha256_a9360e0212a4d173581c91da68494d02",
+      "textQuote": "Table of Contents"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0003",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Rationale and Goals",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 2,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0003",
+      "sourceRefId": "src_page_blog_004_pep_0484_0003",
+      "textHash": "sha256_cf0ca68ea461d181e7177271c56476be",
+      "textQuote": "Rationale and Goals"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0004",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The meaning of annotations",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 3,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0004",
+      "sourceRefId": "src_page_blog_004_pep_0484_0004",
+      "textHash": "sha256_3315588c547a0d2bdeb59d1ca8c00cf5",
+      "textQuote": "The meaning of annotations"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0005",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type Definition Syntax",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 4,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0005",
+      "sourceRefId": "src_page_blog_004_pep_0484_0005",
+      "textHash": "sha256_14fa8b50874fb7550c556426a6193839",
+      "textQuote": "Type Definition Syntax"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0006",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Acceptable type hints",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 5,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0006",
+      "sourceRefId": "src_page_blog_004_pep_0484_0006",
+      "textHash": "sha256_99084dc9719f58a4db240d0ca9f35056",
+      "textQuote": "Acceptable type hints"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0007",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "User-defined generic types",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 6,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0007",
+      "sourceRefId": "src_page_blog_004_pep_0484_0007",
+      "textHash": "sha256_69f5cf17cf0ff812be184f995342544c",
+      "textQuote": "User-defined generic types"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0008",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Scoping rules for type variables",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 7,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0008",
+      "sourceRefId": "src_page_blog_004_pep_0484_0008",
+      "textHash": "sha256_0f9816c5a864620ce4f3e1d2ebf58e91",
+      "textQuote": "Scoping rules for type variables"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0009",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Instantiating generic classes and type erasure",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 8,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0009",
+      "sourceRefId": "src_page_blog_004_pep_0484_0009",
+      "textHash": "sha256_d6e02ec7fbc5e97a5f702eb9a007f770",
+      "textQuote": "Instantiating generic classes and type erasure"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0010",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Arbitrary generic types as base classes",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 9,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0010",
+      "sourceRefId": "src_page_blog_004_pep_0484_0010",
+      "textHash": "sha256_36b16cf0735b1e52a490a97dc7ec0c3a",
+      "textQuote": "Arbitrary generic types as base classes"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0011",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Abstract generic types",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 10,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0011",
+      "sourceRefId": "src_page_blog_004_pep_0484_0011",
+      "textHash": "sha256_bf00419580db233214c04842b41dba99",
+      "textQuote": "Abstract generic types"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0012",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type variables with an upper bound",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 11,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0012",
+      "sourceRefId": "src_page_blog_004_pep_0484_0012",
+      "textHash": "sha256_9f7fe6a46be67821fa5df3eb7a9d062f",
+      "textQuote": "Type variables with an upper bound"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0013",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Covariance and contravariance",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 12,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0013",
+      "sourceRefId": "src_page_blog_004_pep_0484_0013",
+      "textHash": "sha256_5b5a57054eff68d3165597245b083ac8",
+      "textQuote": "Covariance and contravariance"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0014",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The numeric tower",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 13,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0014",
+      "sourceRefId": "src_page_blog_004_pep_0484_0014",
+      "textHash": "sha256_e8e16f16a9ec51803c740b4b53480432",
+      "textQuote": "The numeric tower"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0015",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Forward references",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 14,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0015",
+      "sourceRefId": "src_page_blog_004_pep_0484_0015",
+      "textHash": "sha256_4a0e945950369aed27616441a0233ad1",
+      "textQuote": "Forward references"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0016",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Support for singleton types in unions",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 15,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0016",
+      "sourceRefId": "src_page_blog_004_pep_0484_0016",
+      "textHash": "sha256_68e9fec1b1be88636d4302fd5ed6aff9",
+      "textQuote": "Support for singleton types in unions"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0017",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The NoReturn type",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 16,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0017",
+      "sourceRefId": "src_page_blog_004_pep_0484_0017",
+      "textHash": "sha256_3b98f747470327010a8a65e14b1c161b",
+      "textQuote": "The NoReturn type"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0018",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The type of class objects",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 17,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0018",
+      "sourceRefId": "src_page_blog_004_pep_0484_0018",
+      "textHash": "sha256_a29efeed0c13320484627e33ee32b0ee",
+      "textQuote": "The type of class objects"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0019",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Annotating instance and class methods",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 18,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0019",
+      "sourceRefId": "src_page_blog_004_pep_0484_0019",
+      "textHash": "sha256_155e9ac239d2dac4ddc15b9a5be9b585",
+      "textQuote": "Annotating instance and class methods"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0020",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Version and platform checking",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 19,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0020",
+      "sourceRefId": "src_page_blog_004_pep_0484_0020",
+      "textHash": "sha256_e8b35167a2cda765b3c30a991dd3026e",
+      "textQuote": "Version and platform checking"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0021",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Runtime or type checking?",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 20,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0021",
+      "sourceRefId": "src_page_blog_004_pep_0484_0021",
+      "textHash": "sha256_0b3c426c2482115d4824db3a79fd5cd9",
+      "textQuote": "Runtime or type checking?"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0022",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Arbitrary argument lists and default argument values",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 21,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0022",
+      "sourceRefId": "src_page_blog_004_pep_0484_0022",
+      "textHash": "sha256_61d4fabd677889b07a0cb572f0b73cb4",
+      "textQuote": "Arbitrary argument lists and default argument values"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0023",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Positional-only arguments",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 22,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0023",
+      "sourceRefId": "src_page_blog_004_pep_0484_0023",
+      "textHash": "sha256_fb6be7021dcbaac344d332c6510f4dd6",
+      "textQuote": "Positional-only arguments"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0024",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Annotating generator functions and coroutines",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 23,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0024",
+      "sourceRefId": "src_page_blog_004_pep_0484_0024",
+      "textHash": "sha256_9903d4cfda3693970f1a038c0dc27e5e",
+      "textQuote": "Annotating generator functions and coroutines"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0025",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Compatibility with other uses of function annotations",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 24,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0025",
+      "sourceRefId": "src_page_blog_004_pep_0484_0025",
+      "textHash": "sha256_d8b5c8c010cad4d36f0f4a0c606a9140",
+      "textQuote": "Compatibility with other uses of function annotations"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0026",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "NewType helper function",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 25,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0026",
+      "sourceRefId": "src_page_blog_004_pep_0484_0026",
+      "textHash": "sha256_fd0ec1fa7cce01cba5ad63805b3a6e30",
+      "textQuote": "NewType helper function"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0027",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Function/method overloading",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 26,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0027",
+      "sourceRefId": "src_page_blog_004_pep_0484_0027",
+      "textHash": "sha256_1d3c83c0ab43b9a9466d3e3c2cf27be6",
+      "textQuote": "Function/method overloading"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0028",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Storing and distributing stub files",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 27,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0028",
+      "sourceRefId": "src_page_blog_004_pep_0484_0028",
+      "textHash": "sha256_1b2171792f458d033055debe5a35531b",
+      "textQuote": "Storing and distributing stub files"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0029",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The Typeshed Repo",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 28,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0029",
+      "sourceRefId": "src_page_blog_004_pep_0484_0029",
+      "textHash": "sha256_3fecef9e342490669ff9f1ed5fb3cb62",
+      "textQuote": "The Typeshed Repo"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0030",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The typing Module",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 29,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0030",
+      "sourceRefId": "src_page_blog_004_pep_0484_0030",
+      "textHash": "sha256_33726b70118250ad3cb34814a4f55e49",
+      "textQuote": "The typing Module"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0031",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Suggested syntax for Python 2.7 and straddling code",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 30,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0031",
+      "sourceRefId": "src_page_blog_004_pep_0484_0031",
+      "textHash": "sha256_a615c0637e17154c1f6a0f8c6311b744",
+      "textQuote": "Suggested syntax for Python 2.7 and straddling code"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0032",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Rejected Alternatives",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 31,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0032",
+      "sourceRefId": "src_page_blog_004_pep_0484_0032",
+      "textHash": "sha256_d52494a1ca14bfc62b3fe89601d9c110",
+      "textQuote": "Rejected Alternatives"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0033",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Which brackets for generic type parameters?",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 32,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0033",
+      "sourceRefId": "src_page_blog_004_pep_0484_0033",
+      "textHash": "sha256_88ad971189537718f62c6ac2cf424c89",
+      "textQuote": "Which brackets for generic type parameters?"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0034",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "What about existing uses of annotations?",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 33,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0034",
+      "sourceRefId": "src_page_blog_004_pep_0484_0034",
+      "textHash": "sha256_6c8a0c62a4f69443a71d4089020fe4ad",
+      "textQuote": "What about existing uses of annotations?"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0035",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The problem of forward declarations",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 34,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0035",
+      "sourceRefId": "src_page_blog_004_pep_0484_0035",
+      "textHash": "sha256_e66010e5555c7fcfc7053bf4edf4451d",
+      "textQuote": "The problem of forward declarations"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0036",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The double colon",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 35,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0036",
+      "sourceRefId": "src_page_blog_004_pep_0484_0036",
+      "textHash": "sha256_610c6515aef1e72018de25903f759cea",
+      "textQuote": "The double colon"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0037",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Other forms of new syntax",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 36,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0037",
+      "sourceRefId": "src_page_blog_004_pep_0484_0037",
+      "textHash": "sha256_a3ebe7120a81090b808e231be84a3860",
+      "textQuote": "Other forms of new syntax"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0038",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Other backwards compatible conventions",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 37,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0038",
+      "sourceRefId": "src_page_blog_004_pep_0484_0038",
+      "textHash": "sha256_453f26d08d395247fa8355edc0f61399",
+      "textQuote": "Other backwards compatible conventions"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0039",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "PEP Development Process",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 38,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0039",
+      "sourceRefId": "src_page_blog_004_pep_0484_0039",
+      "textHash": "sha256_5b7a901456ab63ae3b7e0e8aa339b628",
+      "textQuote": "PEP Development Process"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0040",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Acknowledgements",
+      "headingPath": [
+        "PEP 484 – Type Hints"
+      ],
+      "order": 39,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0040",
+      "sourceRefId": "src_page_blog_004_pep_0484_0040",
+      "textHash": "sha256_c9015d53b90846454375a2fdf2829c66",
+      "textQuote": "Acknowledgements"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0041",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "PEP 3107 introduced syntax for function annotations, but the semantics were deliberately left undefined. There has now been enough 3rd party usage for static type analysis that the community would benefit from a standard vocabulary and baseline tools within the standard library.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 40,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0041",
+      "sourceRefId": "src_page_blog_004_pep_0484_0041",
+      "textHash": "sha256_8e48961d819f307d7a3ebad5d0dd4663",
+      "textQuote": "PEP 3107 introduced syntax for function annotations, but the semantics were deliberately left undefined. There has now been enough 3rd party usage for static type analysis that the community would benefit from a standard"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0042",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "This PEP introduces a provisional module to provide these standard definitions and tools, along with some conventions for situations where annotations are not available.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 41,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0042",
+      "sourceRefId": "src_page_blog_004_pep_0484_0042",
+      "textHash": "sha256_51c452a4d9ed2b293a09421301114747",
+      "textQuote": "This PEP introduces a provisional module to provide these standard definitions and tools, along with some conventions for situations where annotations are not available."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0043",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification. It simply enables better coordination, as PEP 333 did for web frameworks.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 42,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0043",
+      "sourceRefId": "src_page_blog_004_pep_0484_0043",
+      "textHash": "sha256_463da2cb3867c09caf7cb2cad3815ba9",
+      "textQuote": "Note that this PEP still explicitly does NOT prevent other uses of annotations, nor does it require (or forbid) any particular processing of annotations, even when they conform to this specification. It simply enables be"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0044",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "For example, here is a simple function whose argument and return type are declared in the annotations:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 43,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0044",
+      "sourceRefId": "src_page_blog_004_pep_0484_0044",
+      "textHash": "sha256_e287b18954c342d4bc12db65176d4b40",
+      "textQuote": "For example, here is a simple function whose argument and return type are declared in the annotations:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0045",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "def greeting ( name : str ) -> str : return 'Hello ' + name",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 44,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0045",
+      "sourceRefId": "src_page_blog_004_pep_0484_0045",
+      "textHash": "sha256_cc9e46dbed74725be32b6a2f9fd685a3",
+      "textQuote": "def greeting ( name : str ) -> str : return 'Hello ' + name"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0046",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "While these annotations are available at runtime through the usual __annotations__ attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which users can run over their source code voluntarily. Essentially, such a type checker acts as a very powerful linter. (While it would of course b",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 45,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0046",
+      "sourceRefId": "src_page_blog_004_pep_0484_0046",
+      "textHash": "sha256_b0c70c38f9f301f0a3c59df075ccb079",
+      "textQuote": "While these annotations are available at runtime through the usual __annotations__ attribute, no type checking happens at runtime . Instead, the proposal assumes the existence of a separate off-line type checker which us"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0047",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The proposal is strongly inspired by mypy . For example, the type “sequence of integers” can be written as Sequence[int] . The square brackets mean that no new syntax needs to be added to the language. The example here uses a custom type Sequence , imported from a pure-Python module typing . The Sequence[int] notation works at runtime by implementing __getit",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 46,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0047",
+      "sourceRefId": "src_page_blog_004_pep_0484_0047",
+      "textHash": "sha256_46639b64ecc9649919cf79a14bdc3952",
+      "textQuote": "The proposal is strongly inspired by mypy . For example, the type “sequence of integers” can be written as Sequence[int] . The square brackets mean that no new syntax needs to be added to the language. The example here u"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0048",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The type system supports unions, generic types, and a special type named Any which is consistent with (i.e. assignable to and from) all types. This latter feature is taken from the idea of gradual typing. Gradual typing and the full type system are explained in PEP 483 .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 47,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0048",
+      "sourceRefId": "src_page_blog_004_pep_0484_0048",
+      "textHash": "sha256_7857db190a21471c9c2959b84863b079",
+      "textQuote": "The type system supports unions, generic types, and a special type named Any which is consistent with (i.e. assignable to and from) all types. This latter feature is taken from the idea of gradual typing. Gradual typing "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0049",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Other approaches from which we have borrowed or to which ours can be compared and contrasted are described in PEP 482 .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Abstract"
+      ],
+      "order": 48,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0049",
+      "sourceRefId": "src_page_blog_004_pep_0484_0049",
+      "textHash": "sha256_ca29a914f05d4d0620e4d3a9ff1ce7a3",
+      "textQuote": "Other approaches from which we have borrowed or to which ours can be compared and contrasted are described in PEP 482 ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0050",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "PEP 3107 added support for arbitrary annotations on parts of a function definition. Although no meaning was assigned to annotations then, there has always been an implicit goal to use them for type hinting , which is listed as the first possible use case in said PEP.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Rationale and Goals"
+      ],
+      "order": 49,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0050",
+      "sourceRefId": "src_page_blog_004_pep_0484_0050",
+      "textHash": "sha256_c7cf5d26947b05674c54a6ab789251d4",
+      "textQuote": "PEP 3107 added support for arbitrary annotations on parts of a function definition. Although no meaning was assigned to annotations then, there has always been an implicit goal to use them for type hinting , which is lis"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0051",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "This PEP aims to provide a standard syntax for type annotations, opening up Python code to easier static analysis and refactoring, potential runtime type checking, and (perhaps, in some contexts) code generation utilizing type information.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Rationale and Goals"
+      ],
+      "order": 50,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0051",
+      "sourceRefId": "src_page_blog_004_pep_0484_0051",
+      "textHash": "sha256_f816fe0b8d8921c1f88ee655eb92a3ac",
+      "textQuote": "This PEP aims to provide a standard syntax for type annotations, opening up Python code to easier static analysis and refactoring, potential runtime type checking, and (perhaps, in some contexts) code generation utilizin"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0052",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Of these goals, static analysis is the most important. This includes support for off-line type checkers such as mypy, as well as providing a standard notation that can be used by IDEs for code completion and refactoring.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Rationale and Goals"
+      ],
+      "order": 51,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0052",
+      "sourceRefId": "src_page_blog_004_pep_0484_0052",
+      "textHash": "sha256_f0e2f8bd7002f0ec30a74bf248850be4",
+      "textQuote": "Of these goals, static analysis is the most important. This includes support for off-line type checkers such as mypy, as well as providing a standard notation that can be used by IDEs for code completion and refactoring."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0053",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "While the proposed typing module will contain some building blocks for runtime type checking – in particular the get_type_hints() function – third party packages would have to be developed to implement specific runtime type checking functionality, for example using decorators or metaclasses. Using type hints for performance optimizations is left as an exerci",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Rationale and Goals",
+        "Non-goals"
+      ],
+      "order": 52,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0053",
+      "sourceRefId": "src_page_blog_004_pep_0484_0053",
+      "textHash": "sha256_13aeb4d748b5f7117ef2b5274c87a062",
+      "textQuote": "While the proposed typing module will contain some building blocks for runtime type checking – in particular the get_type_hints() function – third party packages would have to be developed to implement specific runtime t"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0054",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Rationale and Goals",
+        "Non-goals"
+      ],
+      "order": 53,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0054",
+      "sourceRefId": "src_page_blog_004_pep_0484_0054",
+      "textHash": "sha256_0a109e8d804f551e360ffc4ca2212a0c",
+      "textQuote": "It should also be emphasized that Python will remain a dynamically typed language, and the authors have no desire to ever make type hints mandatory, even by convention."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0055",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Any function without annotations should be treated as having the most general type possible, or ignored, by any type checker. Functions with the @no_type_check decorator should be treated as having no annotations.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "The meaning of annotations"
+      ],
+      "order": 54,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0055",
+      "sourceRefId": "src_page_blog_004_pep_0484_0055",
+      "textHash": "sha256_3dd71c4e4b30b9d7228ab8dab9e50593",
+      "textQuote": "Any function without annotations should be treated as having the most general type possible, or ignored, by any type checker. Functions with the @no_type_check decorator should be treated as having no annotations."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0056",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "It is recommended but not required that checked functions have annotations for all arguments and the return type. For a checked function, the default annotation for arguments and for the return type is Any . An exception is the first argument of instance and class methods. If it is not annotated, then it is assumed to have the type of the containing class fo",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "The meaning of annotations"
+      ],
+      "order": 55,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0056",
+      "sourceRefId": "src_page_blog_004_pep_0484_0056",
+      "textHash": "sha256_ca116e19145fec8ff06620804deab780",
+      "textQuote": "It is recommended but not required that checked functions have annotations for all arguments and the return type. For a checked function, the default annotation for arguments and for the return type is Any . An exception"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0057",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "(Note that the return type of __init__ ought to be annotated with -> None . The reason for this is subtle. If __init__ assumed a return annotation of -> None , would that mean that an argument-less, un-annotated __init__ method should still be type-checked? Rather than leaving this ambiguous or introducing an exception to the exception, we simply say that __",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "The meaning of annotations"
+      ],
+      "order": 56,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0057",
+      "sourceRefId": "src_page_blog_004_pep_0484_0057",
+      "textHash": "sha256_6f3cefb3f06b91f54907d8dec5724167",
+      "textQuote": "(Note that the return type of __init__ ought to be annotated with -> None . The reason for this is subtle. If __init__ assumed a return annotation of -> None , would that mean that an argument-less, un-annotated __init__"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0058",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A type checker is expected to check the body of a checked function for consistency with the given annotations. The annotations may also be used to check correctness of calls appearing in other checked functions.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "The meaning of annotations"
+      ],
+      "order": 57,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0058",
+      "sourceRefId": "src_page_blog_004_pep_0484_0058",
+      "textHash": "sha256_1a54dd41beaf04ddbaf4c9729798ec78",
+      "textQuote": "A type checker is expected to check the body of a checked function for consistency with the given annotations. The annotations may also be used to check correctness of calls appearing in other checked functions."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0059",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type checkers are expected to attempt to infer as much information as necessary. The minimum requirement is to handle the builtin decorators @property , @staticmethod and @classmethod .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "The meaning of annotations"
+      ],
+      "order": 58,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0059",
+      "sourceRefId": "src_page_blog_004_pep_0484_0059",
+      "textHash": "sha256_81bbf520e78104e2dcddd0726375af6f",
+      "textQuote": "Type checkers are expected to attempt to infer as much information as necessary. The minimum requirement is to handle the builtin decorators @property , @staticmethod and @classmethod ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0060",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The syntax leverages PEP 3107 -style annotations with a number of extensions described in sections below. In its basic form, type hinting is used by filling function annotation slots with classes:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax"
+      ],
+      "order": 59,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0060",
+      "sourceRefId": "src_page_blog_004_pep_0484_0060",
+      "textHash": "sha256_d9894f23e1b97ccc2f2bbd1c5506031d",
+      "textQuote": "The syntax leverages PEP 3107 -style annotations with a number of extensions described in sections below. In its basic form, type hinting is used by filling function annotation slots with classes:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0061",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "def greeting ( name : str ) -> str : return 'Hello ' + name",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax"
+      ],
+      "order": 60,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0061",
+      "sourceRefId": "src_page_blog_004_pep_0484_0061",
+      "textHash": "sha256_cc9e46dbed74725be32b6a2f9fd685a3",
+      "textQuote": "def greeting ( name : str ) -> str : return 'Hello ' + name"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0062",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "This states that the expected type of the name argument is str . Analogically, the expected return type is str .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax"
+      ],
+      "order": 61,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0062",
+      "sourceRefId": "src_page_blog_004_pep_0484_0062",
+      "textHash": "sha256_743dcce40503d1eefb8621093e9371f5",
+      "textQuote": "This states that the expected type of the name argument is str . Analogically, the expected return type is str ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0063",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Expressions whose type is a subtype of a specific argument type are also accepted for that argument.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax"
+      ],
+      "order": 62,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0063",
+      "sourceRefId": "src_page_blog_004_pep_0484_0063",
+      "textHash": "sha256_f4e4d4d705ef5fbf3aa2fcef2c1e3586",
+      "textQuote": "Expressions whose type is a subtype of a specific argument type are also accepted for that argument."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0064",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type hints may be built-in classes (including those defined in standard library or third-party extension modules), abstract base classes, types available in the types module, and user-defined classes (including those defined in the standard library or third-party modules).",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 63,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0064",
+      "sourceRefId": "src_page_blog_004_pep_0484_0064",
+      "textHash": "sha256_359184bfcd29d69144fe64f76ebaa0b2",
+      "textQuote": "Type hints may be built-in classes (including those defined in standard library or third-party extension modules), abstract base classes, types available in the types module, and user-defined classes (including those def"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0065",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "While annotations are normally the best format for type hints, there are times when it is more appropriate to represent them by a special comment, or in a separately distributed stub file. (See below for examples.)",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 64,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0065",
+      "sourceRefId": "src_page_blog_004_pep_0484_0065",
+      "textHash": "sha256_ad32a80abbcbba4231a48f2fd4122e9e",
+      "textQuote": "While annotations are normally the best format for type hints, there are times when it is more appropriate to represent them by a special comment, or in a separately distributed stub file. (See below for examples.)"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0066",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Annotations must be valid expressions that evaluate without raising exceptions at the time the function is defined (but see below for forward references).",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 65,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0066",
+      "sourceRefId": "src_page_blog_004_pep_0484_0066",
+      "textHash": "sha256_56650ecac8cf90cbc9d52ed9ae4f5b83",
+      "textQuote": "Annotations must be valid expressions that evaluate without raising exceptions at the time the function is defined (but see below for forward references)."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0067",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Annotations should be kept simple or static analysis tools may not be able to interpret the values. For example, dynamically computed types are unlikely to be understood. (This is an intentionally somewhat vague requirement, specific inclusions and exclusions may be added to future versions of this PEP as warranted by the discussion.)",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 66,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0067",
+      "sourceRefId": "src_page_blog_004_pep_0484_0067",
+      "textHash": "sha256_fae8cc1b71137aec98a86f64004e3011",
+      "textQuote": "Annotations should be kept simple or static analysis tools may not be able to interpret the values. For example, dynamically computed types are unlikely to be understood. (This is an intentionally somewhat vague requirem"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0068",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "In addition to the above, the following special constructs defined below may be used: None , Any , Union , Tuple , Callable , all ABCs and stand-ins for concrete classes exported from typing (e.g. Sequence and Dict ), type variables, and type aliases.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 67,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0068",
+      "sourceRefId": "src_page_blog_004_pep_0484_0068",
+      "textHash": "sha256_91b8761d64a10dc48d8ce50d099dd69d",
+      "textQuote": "In addition to the above, the following special constructs defined below may be used: None , Any , Union , Tuple , Callable , all ABCs and stand-ins for concrete classes exported from typing (e.g. Sequence and Dict ), ty"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0069",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "All newly introduced names used to support features described in following sections (such as Any and Union ) are available in the typing module.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Acceptable type hints"
+      ],
+      "order": 68,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0069",
+      "sourceRefId": "src_page_blog_004_pep_0484_0069",
+      "textHash": "sha256_f737c3010a50f4d405c750727da1f310",
+      "textQuote": "All newly introduced names used to support features described in following sections (such as Any and Union ) are available in the typing module."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0070",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "When used in a type hint, the expression None is considered equivalent to type(None) .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Using None"
+      ],
+      "order": 69,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0070",
+      "sourceRefId": "src_page_blog_004_pep_0484_0070",
+      "textHash": "sha256_4b8b97cbca43c8182cf0b841da74d57c",
+      "textQuote": "When used in a type hint, the expression None is considered equivalent to type(None) ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0071",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type aliases are defined by simple variable assignments:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 70,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0071",
+      "sourceRefId": "src_page_blog_004_pep_0484_0071",
+      "textHash": "sha256_558ccee3354a1bd313312d6982c03656",
+      "textQuote": "Type aliases are defined by simple variable assignments:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0072",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Url = str def retry ( url : Url , retry_count : int ) -> None : ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 71,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0072",
+      "sourceRefId": "src_page_blog_004_pep_0484_0072",
+      "textHash": "sha256_4e087b75cf078e2a4b42be6e5b46ca51",
+      "textQuote": "Url = str def retry ( url : Url , retry_count : int ) -> None : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0073",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Note that we recommend capitalizing alias names, since they represent user-defined types, which (like user-defined classes) are typically spelled that way.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 72,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0073",
+      "sourceRefId": "src_page_blog_004_pep_0484_0073",
+      "textHash": "sha256_ade12fba3afba7e30768a67f2cefc2f1",
+      "textQuote": "Note that we recommend capitalizing alias names, since they represent user-defined types, which (like user-defined classes) are typically spelled that way."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0074",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type aliases may be as complex as type hints in annotations – anything that is acceptable as a type hint is acceptable in a type alias:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 73,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0074",
+      "sourceRefId": "src_page_blog_004_pep_0484_0074",
+      "textHash": "sha256_50a247edb549df651363625f18e95923",
+      "textQuote": "Type aliases may be as complex as type hints in annotations – anything that is acceptable as a type hint is acceptable in a type alias:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0075",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Iterable , Tuple T = TypeVar ( 'T' , int , float , complex ) Vector = Iterable [ Tuple [ T , T ]] def inproduct ( v : Vector [ T ]) -> T : return sum ( x * y for x , y in v ) def dilate ( v : Vector [ T ], scale : T ) -> Vector [ T ]: return (( x * scale , y * scale ) for x , y in v ) vec = [] # type: Vector[float]",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 74,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0075",
+      "sourceRefId": "src_page_blog_004_pep_0484_0075",
+      "textHash": "sha256_09dba995cfd3a4221f809c04a54d45c9",
+      "textQuote": "from typing import TypeVar , Iterable , Tuple T = TypeVar ( 'T' , int , float , complex ) Vector = Iterable [ Tuple [ T , T ]] def inproduct ( v : Vector [ T ]) -> T : return sum ( x * y for x , y in v ) def dilate ( v :"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0076",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "This is equivalent to:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 75,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0076",
+      "sourceRefId": "src_page_blog_004_pep_0484_0076",
+      "textHash": "sha256_e616332af2fe03a6c3e761d7550802a7",
+      "textQuote": "This is equivalent to:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0077",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Iterable , Tuple T = TypeVar ( 'T' , int , float , complex ) def inproduct ( v : Iterable [ Tuple [ T , T ]]) -> T : return sum ( x * y for x , y in v ) def dilate ( v : Iterable [ Tuple [ T , T ]], scale : T ) -> Iterable [ Tuple [ T , T ]]: return (( x * scale , y * scale ) for x , y in v ) vec = [] # type: Iterable[Tuple[float",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Type aliases"
+      ],
+      "order": 76,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0077",
+      "sourceRefId": "src_page_blog_004_pep_0484_0077",
+      "textHash": "sha256_a360018cc7686693b4117f3294a18456",
+      "textQuote": "from typing import TypeVar , Iterable , Tuple T = TypeVar ( 'T' , int , float , complex ) def inproduct ( v : Iterable [ Tuple [ T , T ]]) -> T : return sum ( x * y for x , y in v ) def dilate ( v : Iterable [ Tuple [ T "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0078",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Frameworks expecting callback functions of specific signatures might be type hinted using Callable[[Arg1Type, Arg2Type], ReturnType] . Examples:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 77,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0078",
+      "sourceRefId": "src_page_blog_004_pep_0484_0078",
+      "textHash": "sha256_c30ed6ea1e4f1f241c0da29b9bfd29c2",
+      "textQuote": "Frameworks expecting callback functions of specific signatures might be type hinted using Callable[[Arg1Type, Arg2Type], ReturnType] . Examples:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0079",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import Callable def feeder ( get_next_item : Callable [[], str ]) -> None : # Body def async_query ( on_success : Callable [[ int ], None ], on_error : Callable [[ int , Exception ], None ]) -> None : # Body",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 78,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0079",
+      "sourceRefId": "src_page_blog_004_pep_0484_0079",
+      "textHash": "sha256_596029a70c048efcba53a0d50ef25dcb",
+      "textQuote": "from typing import Callable def feeder ( get_next_item : Callable [[], str ]) -> None : # Body def async_query ( on_success : Callable [[ int ], None ], on_error : Callable [[ int , Exception ], None ]) -> None : # Body"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0080",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "It is possible to declare the return type of a callable without specifying the call signature by substituting a literal ellipsis (three dots) for the list of arguments:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 79,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0080",
+      "sourceRefId": "src_page_blog_004_pep_0484_0080",
+      "textHash": "sha256_309911b9596f5cffa8d242bd17a13bc7",
+      "textQuote": "It is possible to declare the return type of a callable without specifying the call signature by substituting a literal ellipsis (three dots) for the list of arguments:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0081",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "def partial ( func : Callable [ ... , str ], * args ) -> Callable [ ... , str ]: # Body",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 80,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0081",
+      "sourceRefId": "src_page_blog_004_pep_0484_0081",
+      "textHash": "sha256_56e49440d1d561f48bb9311154d33147",
+      "textQuote": "def partial ( func : Callable [ ... , str ], * args ) -> Callable [ ... , str ]: # Body"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0082",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Note that there are no square brackets around the ellipsis. The arguments of the callback are completely unconstrained in this case (and keyword arguments are acceptable).",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 81,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0082",
+      "sourceRefId": "src_page_blog_004_pep_0484_0082",
+      "textHash": "sha256_6a28c59eab7fedb5a9ee928cce28e9d1",
+      "textQuote": "Note that there are no square brackets around the ellipsis. The arguments of the callback are completely unconstrained in this case (and keyword arguments are acceptable)."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0083",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Since using callbacks with keyword arguments is not perceived as a common use case, there is currently no support for specifying keyword arguments with Callable . Similarly, there is no support for specifying callback signatures with a variable number of arguments of a specific type.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 82,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0083",
+      "sourceRefId": "src_page_blog_004_pep_0484_0083",
+      "textHash": "sha256_a8f2c5f44e2b2ef44c5e7dce34a14963",
+      "textQuote": "Since using callbacks with keyword arguments is not perceived as a common use case, there is currently no support for specifying keyword arguments with Callable . Similarly, there is no support for specifying callback si"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0084",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Because typing.Callable does double-duty as a replacement for collections.abc.Callable , isinstance(x, typing.Callable) is implemented by deferring to isinstance(x, collections.abc.Callable) . However, isinstance(x, typing.Callable[...]) is not supported.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Callable"
+      ],
+      "order": 83,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0084",
+      "sourceRefId": "src_page_blog_004_pep_0484_0084",
+      "textHash": "sha256_2678efbde45e3bb63f64673c0d14a847",
+      "textQuote": "Because typing.Callable does double-duty as a replacement for collections.abc.Callable , isinstance(x, typing.Callable) is implemented by deferring to isinstance(x, collections.abc.Callable) . However, isinstance(x, typi"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0085",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Since type information about objects kept in containers cannot be statically inferred in a generic way, abstract base classes have been extended to support subscription to denote expected types for container elements. Example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 84,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0085",
+      "sourceRefId": "src_page_blog_004_pep_0484_0085",
+      "textHash": "sha256_a8436ca6f85d96924e437ac0daa06210",
+      "textQuote": "Since type information about objects kept in containers cannot be statically inferred in a generic way, abstract base classes have been extended to support subscription to denote expected types for container elements. Ex"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0086",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import Mapping , Set def notify_by_email ( employees : Set [ Employee ], overrides : Mapping [ str , str ]) -> None : ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 85,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0086",
+      "sourceRefId": "src_page_blog_004_pep_0484_0086",
+      "textHash": "sha256_fd26bb57744a7f4ab262fccbeb3e42d3",
+      "textQuote": "from typing import Mapping , Set def notify_by_email ( employees : Set [ Employee ], overrides : Mapping [ str , str ]) -> None : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0087",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Generics can be parameterized by using a new factory available in typing called TypeVar . Example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 86,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0087",
+      "sourceRefId": "src_page_blog_004_pep_0484_0087",
+      "textHash": "sha256_368811542de20901414d457fa4b7bce0",
+      "textQuote": "Generics can be parameterized by using a new factory available in typing called TypeVar . Example:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0088",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import Sequence , TypeVar T = TypeVar ( 'T' ) # Declare type variable def first ( l : Sequence [ T ]) -> T : # Generic function return l [ 0 ]",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 87,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0088",
+      "sourceRefId": "src_page_blog_004_pep_0484_0088",
+      "textHash": "sha256_de3eff7467a1400a0bdc1aa70f4fde1a",
+      "textQuote": "from typing import Sequence , TypeVar T = TypeVar ( 'T' ) # Declare type variable def first ( l : Sequence [ T ]) -> T : # Generic function return l [ 0 ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0089",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "In this case the contract is that the returned value is consistent with the elements held by the collection.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 88,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0089",
+      "sourceRefId": "src_page_blog_004_pep_0484_0089",
+      "textHash": "sha256_cf8238972b163d77d1a97a8c808b9726",
+      "textQuote": "In this case the contract is that the returned value is consistent with the elements held by the collection."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0090",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A TypeVar() expression must always directly be assigned to a variable (it should not be used as part of a larger expression). The argument to TypeVar() must be a string equal to the variable name to which it is assigned. Type variables must not be redefined.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 89,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0090",
+      "sourceRefId": "src_page_blog_004_pep_0484_0090",
+      "textHash": "sha256_ab7508c036df30bbe646dbc437026966",
+      "textQuote": "A TypeVar() expression must always directly be assigned to a variable (it should not be used as part of a larger expression). The argument to TypeVar() must be a string equal to the variable name to which it is assigned."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0091",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "TypeVar supports constraining parametric types to a fixed set of possible types (note: those types cannot be parameterized by type variables). For example, we can define a type variable that ranges over just str and bytes . By default, a type variable ranges over all possible types. Example of constraining a type variable:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 90,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0091",
+      "sourceRefId": "src_page_blog_004_pep_0484_0091",
+      "textHash": "sha256_fd5d859bf0e90f149fe7cc5e3558e3eb",
+      "textQuote": "TypeVar supports constraining parametric types to a fixed set of possible types (note: those types cannot be parameterized by type variables). For example, we can define a type variable that ranges over just str and byte"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0092",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Text AnyStr = TypeVar ( 'AnyStr' , Text , bytes ) def concat ( x : AnyStr , y : AnyStr ) -> AnyStr : return x + y",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 91,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0092",
+      "sourceRefId": "src_page_blog_004_pep_0484_0092",
+      "textHash": "sha256_7ddd8d6972283d901d08e8bd70c539cf",
+      "textQuote": "from typing import TypeVar , Text AnyStr = TypeVar ( 'AnyStr' , Text , bytes ) def concat ( x : AnyStr , y : AnyStr ) -> AnyStr : return x + y"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0093",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The function concat can be called with either two str arguments or two bytes arguments, but not with a mix of str and bytes arguments.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 92,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0093",
+      "sourceRefId": "src_page_blog_004_pep_0484_0093",
+      "textHash": "sha256_18eef30a973e3e63587773f1ceb7ebd4",
+      "textQuote": "The function concat can be called with either two str arguments or two bytes arguments, but not with a mix of str and bytes arguments."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0094",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "There should be at least two constraints, if any; specifying a single constraint is disallowed.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 93,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0094",
+      "sourceRefId": "src_page_blog_004_pep_0484_0094",
+      "textHash": "sha256_fe78acdf27826c5e8774ffc734e116bd",
+      "textQuote": "There should be at least two constraints, if any; specifying a single constraint is disallowed."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0095",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Subtypes of types constrained by a type variable should be treated as their respective explicitly listed base types in the context of the type variable. Consider this example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 94,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0095",
+      "sourceRefId": "src_page_blog_004_pep_0484_0095",
+      "textHash": "sha256_f85530a4b34bda12472b0b0a2e5b26e6",
+      "textQuote": "Subtypes of types constrained by a type variable should be treated as their respective explicitly listed base types in the context of the type variable. Consider this example:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0096",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "class MyStr ( str ): ... x = concat ( MyStr ( 'apple' ), MyStr ( 'pie' ))",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 95,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0096",
+      "sourceRefId": "src_page_blog_004_pep_0484_0096",
+      "textHash": "sha256_f21d4ef211bd2edd9b47bd6a58fb0091",
+      "textQuote": "class MyStr ( str ): ... x = concat ( MyStr ( 'apple' ), MyStr ( 'pie' ))"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0097",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The call is valid but the type variable AnyStr will be set to str and not MyStr . In effect, the inferred type of the return value assigned to x will also be str .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 96,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0097",
+      "sourceRefId": "src_page_blog_004_pep_0484_0097",
+      "textHash": "sha256_8b94682b10d06e32bbf6f056ac73bc10",
+      "textQuote": "The call is valid but the type variable AnyStr will be set to str and not MyStr . In effect, the inferred type of the return value assigned to x will also be str ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0098",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Additionally, Any is a valid value for every type variable. Consider the following:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 97,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0098",
+      "sourceRefId": "src_page_blog_004_pep_0484_0098",
+      "textHash": "sha256_21c2145f630b747b09463dfe85c8c2f5",
+      "textQuote": "Additionally, Any is a valid value for every type variable. Consider the following:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0099",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "def count_truthy ( elements : List [ Any ]) -> int : return sum ( 1 for elem in elements if elem )",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 98,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0099",
+      "sourceRefId": "src_page_blog_004_pep_0484_0099",
+      "textHash": "sha256_7f7267da4631d0e41899847f1083ff61",
+      "textQuote": "def count_truthy ( elements : List [ Any ]) -> int : return sum ( 1 for elem in elements if elem )"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0100",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "This is equivalent to omitting the generic notation and just saying elements: List .",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Generics"
+      ],
+      "order": 99,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0100",
+      "sourceRefId": "src_page_blog_004_pep_0484_0100",
+      "textHash": "sha256_3456b23c89a15fe187dd97b36311f605",
+      "textQuote": "This is equivalent to omitting the generic notation and just saying elements: List ."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0101",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "You can include a Generic base class to define a user-defined class as generic. Example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 100,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0101",
+      "sourceRefId": "src_page_blog_004_pep_0484_0101",
+      "textHash": "sha256_26d4cb077511d6a573b0dee0dbb2a23c",
+      "textQuote": "You can include a Generic base class to define a user-defined class as generic. Example:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0102",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic from logging import Logger T = TypeVar ( 'T' ) class LoggedVar ( Generic [ T ]): def __init__ ( self , value : T , name : str , logger : Logger ) -> None : self . name = name self . logger = logger self . value = value def set ( self , new : T ) -> None : self . log ( 'Set ' + repr ( self . value )) self . value = new def",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 101,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0102",
+      "sourceRefId": "src_page_blog_004_pep_0484_0102",
+      "textHash": "sha256_cc204e30bf2d67d917318ef38ba15e4a",
+      "textQuote": "from typing import TypeVar , Generic from logging import Logger T = TypeVar ( 'T' ) class LoggedVar ( Generic [ T ]): def __init__ ( self , value : T , name : str , logger : Logger ) -> None : self . name = name self . l"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0103",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Generic[T] as a base class defines that the class LoggedVar takes a single type parameter T . This also makes T valid as a type within the class body.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 102,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0103",
+      "sourceRefId": "src_page_blog_004_pep_0484_0103",
+      "textHash": "sha256_2129db6f3558932059fc0a50f1948e94",
+      "textQuote": "Generic[T] as a base class defines that the class LoggedVar takes a single type parameter T . This also makes T valid as a type within the class body."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0104",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The Generic base class uses a metaclass that defines __getitem__ so that LoggedVar[t] is valid as a type:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 103,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0104",
+      "sourceRefId": "src_page_blog_004_pep_0484_0104",
+      "textHash": "sha256_d907adce6792a7f51f7fff64eb33673d",
+      "textQuote": "The Generic base class uses a metaclass that defines __getitem__ so that LoggedVar[t] is valid as a type:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0105",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import Iterable def zero_all_vars ( vars : Iterable [ LoggedVar [ int ]]) -> None : for var in vars : var . set ( 0 )",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 104,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0105",
+      "sourceRefId": "src_page_blog_004_pep_0484_0105",
+      "textHash": "sha256_8815830f046c040e9e579b0c7df7949f",
+      "textQuote": "from typing import Iterable def zero_all_vars ( vars : Iterable [ LoggedVar [ int ]]) -> None : for var in vars : var . set ( 0 )"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0106",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A generic type can have any number of type variables, and type variables may be constrained. This is valid:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 105,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0106",
+      "sourceRefId": "src_page_blog_004_pep_0484_0106",
+      "textHash": "sha256_f8c0278b86f08acae077efd28bd7deb9",
+      "textQuote": "A generic type can have any number of type variables, and type variables may be constrained. This is valid:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0107",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic ... T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Pair ( Generic [ T , S ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 106,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0107",
+      "sourceRefId": "src_page_blog_004_pep_0484_0107",
+      "textHash": "sha256_43fb782b0b59c0298aa444b698c68c39",
+      "textQuote": "from typing import TypeVar , Generic ... T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Pair ( Generic [ T , S ]): ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0108",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Each type variable argument to Generic must be distinct. This is thus invalid:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 107,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0108",
+      "sourceRefId": "src_page_blog_004_pep_0484_0108",
+      "textHash": "sha256_72b11ec8c73d4fdc0081d93dec4b8220",
+      "textQuote": "Each type variable argument to Generic must be distinct. This is thus invalid:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0109",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic ... T = TypeVar ( 'T' ) class Pair ( Generic [ T , T ]): # INVALID ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 108,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0109",
+      "sourceRefId": "src_page_blog_004_pep_0484_0109",
+      "textHash": "sha256_b244732b1a526f404f44accc10cd52a2",
+      "textQuote": "from typing import TypeVar , Generic ... T = TypeVar ( 'T' ) class Pair ( Generic [ T , T ]): # INVALID ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0110",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "The Generic[T] base class is redundant in simple cases where you subclass some other generic class and specify type variables for its parameters:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 109,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0110",
+      "sourceRefId": "src_page_blog_004_pep_0484_0110",
+      "textHash": "sha256_86dbaf3ea7019228aef2342ec8a9e7a5",
+      "textQuote": "The Generic[T] base class is redundant in simple cases where you subclass some other generic class and specify type variables for its parameters:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0111",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Iterator T = TypeVar ( 'T' ) class MyIter ( Iterator [ T ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 110,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0111",
+      "sourceRefId": "src_page_blog_004_pep_0484_0111",
+      "textHash": "sha256_ce0d0e9221bbc634ab7b57f80bfbd002",
+      "textQuote": "from typing import TypeVar , Iterator T = TypeVar ( 'T' ) class MyIter ( Iterator [ T ]): ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0112",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "That class definition is equivalent to:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 111,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0112",
+      "sourceRefId": "src_page_blog_004_pep_0484_0112",
+      "textHash": "sha256_c2111e620fd693b72b8c19d50330c238",
+      "textQuote": "That class definition is equivalent to:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0113",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "class MyIter ( Iterator [ T ], Generic [ T ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 112,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0113",
+      "sourceRefId": "src_page_blog_004_pep_0484_0113",
+      "textHash": "sha256_7f2a1b965245560758b4ed6d9ed67e65",
+      "textQuote": "class MyIter ( Iterator [ T ], Generic [ T ]): ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0114",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "You can use multiple inheritance with Generic :",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 113,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0114",
+      "sourceRefId": "src_page_blog_004_pep_0484_0114",
+      "textHash": "sha256_cb8306bc032e5c77d64ca6b83fc55706",
+      "textQuote": "You can use multiple inheritance with Generic :"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0115",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic , Sized , Iterable , Container , Tuple T = TypeVar ( 'T' ) class LinkedList ( Sized , Generic [ T ]): ... K = TypeVar ( 'K' ) V = TypeVar ( 'V' ) class MyMapping ( Iterable [ Tuple [ K , V ]], Container [ Tuple [ K , V ]], Generic [ K , V ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 114,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0115",
+      "sourceRefId": "src_page_blog_004_pep_0484_0115",
+      "textHash": "sha256_e25ae1a2168435b6c04a5c9c050174cd",
+      "textQuote": "from typing import TypeVar , Generic , Sized , Iterable , Container , Tuple T = TypeVar ( 'T' ) class LinkedList ( Sized , Generic [ T ]): ... K = TypeVar ( 'K' ) V = TypeVar ( 'V' ) class MyMapping ( Iterable [ Tuple [ "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0116",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Subclassing a generic class without specifying type parameters assumes Any for each position. In the following example, MyIterable is not generic but implicitly inherits from Iterable[Any] :",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 115,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0116",
+      "sourceRefId": "src_page_blog_004_pep_0484_0116",
+      "textHash": "sha256_eea58ca1bfc243011face99300e5deb1",
+      "textQuote": "Subclassing a generic class without specifying type parameters assumes Any for each position. In the following example, MyIterable is not generic but implicitly inherits from Iterable[Any] :"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0117",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import Iterable class MyIterable ( Iterable ): # Same as Iterable[Any] ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 116,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0117",
+      "sourceRefId": "src_page_blog_004_pep_0484_0117",
+      "textHash": "sha256_d0e29d1b8930c3fc50e09d8ce3760636",
+      "textQuote": "from typing import Iterable class MyIterable ( Iterable ): # Same as Iterable[Any] ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0118",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Generic metaclasses are not supported.",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "User-defined generic types"
+      ],
+      "order": 117,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0118",
+      "sourceRefId": "src_page_blog_004_pep_0484_0118",
+      "textHash": "sha256_a9fec630767156845c7a25da5ddd275f",
+      "textQuote": "Generic metaclasses are not supported."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0119",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Type variables follow normal name resolution rules. However, there are some special cases in the static typechecking context:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 118,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0119",
+      "sourceRefId": "src_page_blog_004_pep_0484_0119",
+      "textHash": "sha256_f11838bf351d62d461cb115ff5ffaa9b",
+      "textQuote": "Type variables follow normal name resolution rules. However, there are some special cases in the static typechecking context:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0120",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A type variable used in a generic function could be inferred to represent different types in the same code block. Example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 119,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0120",
+      "sourceRefId": "src_page_blog_004_pep_0484_0120",
+      "textHash": "sha256_ec663cd9c91edbd80cb981afc8b43802",
+      "textQuote": "A type variable used in a generic function could be inferred to represent different types in the same code block. Example:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0121",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) def fun_1 ( x : T ) -> T : ... # T here def fun_2 ( x : T ) -> T : ... # and here could be different fun_1 ( 1 ) # This is OK, T is inferred to be int fun_2 ( 'a' ) # This is also OK, now T is str",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 120,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0121",
+      "sourceRefId": "src_page_blog_004_pep_0484_0121",
+      "textHash": "sha256_6fa6ab9b986d01ef42bff4a889e564ed",
+      "textQuote": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) def fun_1 ( x : T ) -> T : ... # T here def fun_2 ( x : T ) -> T : ... # and here could be different fun_1 ( 1 ) # This is OK, T is inferred to be int fun_2 ( 'a' "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0122",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A type variable used in a method of a generic class that coincides with one of the variables that parameterize this class is always bound to that variable. Example:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 121,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0122",
+      "sourceRefId": "src_page_blog_004_pep_0484_0122",
+      "textHash": "sha256_f99546a44609f2339645947f02ad4e03",
+      "textQuote": "A type variable used in a method of a generic class that coincides with one of the variables that parameterize this class is always bound to that variable. Example:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0123",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class MyClass ( Generic [ T ]): def meth_1 ( self , x : T ) -> T : ... # T here def meth_2 ( self , x : T ) -> T : ... # and here are always the same a = MyClass () # type: MyClass[int] a . meth_1 ( 1 ) # OK a . meth_2 ( 'a' ) # This is an error!",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 122,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0123",
+      "sourceRefId": "src_page_blog_004_pep_0484_0123",
+      "textHash": "sha256_04499335b9ced4b3f20b48cd6c1d58ef",
+      "textQuote": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class MyClass ( Generic [ T ]): def meth_1 ( self , x : T ) -> T : ... # T here def meth_2 ( self , x : T ) -> T : ... # and here are always the same a = MyClass ("
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0124",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A type variable used in a method that does not match any of the variables that parameterize the class makes this method a generic function in that variable:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 123,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0124",
+      "sourceRefId": "src_page_blog_004_pep_0484_0124",
+      "textHash": "sha256_54a90eb221d3da223a81cdbb60dcef03",
+      "textQuote": "A type variable used in a method that does not match any of the variables that parameterize the class makes this method a generic function in that variable:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0125",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Foo ( Generic [ T ]): def method ( self , x : T , y : S ) -> S : ... x = Foo () # type: Foo[int] y = x . method ( 0 , \"abc\" ) # inferred type of y is str",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 124,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0125",
+      "sourceRefId": "src_page_blog_004_pep_0484_0125",
+      "textHash": "sha256_70335073467cbf85d75fc36971fbd023",
+      "textQuote": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Foo ( Generic [ T ]): def method ( self , x : T , y : S ) -> S : ... x = Foo () # type: Foo[int] y = x . method ( 0 , \"abc\" ) # inferred type of y is str"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0126",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Unbound type variables should not appear in the bodies of generic functions, or in the class bodies apart from method definitions:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 125,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0126",
+      "sourceRefId": "src_page_blog_004_pep_0484_0126",
+      "textHash": "sha256_a7c0645c227b6db3ba341ecbd1edd0ab",
+      "textQuote": "Unbound type variables should not appear in the bodies of generic functions, or in the class bodies apart from method definitions:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0127",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) def a_fun ( x : T ) -> None : # this is OK y = [] # type: List[T] # but below is an error! y = [] # type: List[S] class Bar ( Generic [ T ]): # this is also an error an_attr = [] # type: List[S] def do_something ( x : S ) -> S : # this is OK though ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 126,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0127",
+      "sourceRefId": "src_page_blog_004_pep_0484_0127",
+      "textHash": "sha256_931bfce6fc7a618606c513bf062727e3",
+      "textQuote": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) def a_fun ( x : T ) -> None : # this is OK y = [] # type: List[T] # but below is an error! y = [] # type: List[S] class Bar ( Generic [ T ]): # this is also an error an_attr = [] #"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0128",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A generic class definition that appears inside a generic function should not use type variables that parameterize the generic function:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 127,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0128",
+      "sourceRefId": "src_page_blog_004_pep_0484_0128",
+      "textHash": "sha256_27fe0c02d483d7ce52511a34cea1ef1d",
+      "textQuote": "A generic class definition that appears inside a generic function should not use type variables that parameterize the generic function:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0129",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import List def a_fun ( x : T ) -> None : # This is OK a_list = [] # type: List[T] ... # This is however illegal class MyGeneric ( Generic [ T ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 128,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0129",
+      "sourceRefId": "src_page_blog_004_pep_0484_0129",
+      "textHash": "sha256_8ff9f8fc7a9d53d9b9747557f80baa16",
+      "textQuote": "from typing import List def a_fun ( x : T ) -> None : # This is OK a_list = [] # type: List[T] ... # This is however illegal class MyGeneric ( Generic [ T ]): ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0130",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "A generic class nested in another generic class cannot use same type variables. The scope of the type variables of the outer class doesn’t cover the inner one:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 129,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0130",
+      "sourceRefId": "src_page_blog_004_pep_0484_0130",
+      "textHash": "sha256_9c236089aa016fc95134994a1b90f30f",
+      "textQuote": "A generic class nested in another generic class cannot use same type variables. The scope of the type variables of the outer class doesn’t cover the inner one:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0131",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Outer ( Generic [ T ]): class Bad ( Iterable [ T ]): # Error ... class AlsoBad : x = None # type: List[T] # Also an error class Inner ( Iterable [ S ]): # OK ... attr = None # type: Inner[T] # Also OK",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Scoping rules for type variables"
+      ],
+      "order": 130,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0131",
+      "sourceRefId": "src_page_blog_004_pep_0484_0131",
+      "textHash": "sha256_d43cbb5fa1d59718753404fbaa8cfdbb",
+      "textQuote": "T = TypeVar ( 'T' ) S = TypeVar ( 'S' ) class Outer ( Generic [ T ]): class Bad ( Iterable [ T ]): # Error ... class AlsoBad : x = None # type: List[T] # Also an error class Inner ( Iterable [ S ]): # OK ... attr = None "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0132",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "User-defined generic classes can be instantiated. Suppose we write a Node class inheriting from Generic[T] :",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 131,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0132",
+      "sourceRefId": "src_page_blog_004_pep_0484_0132",
+      "textHash": "sha256_ba5c3d49872ef846866daf85e160206e",
+      "textQuote": "User-defined generic classes can be instantiated. Suppose we write a Node class inheriting from Generic[T] :"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0133",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class Node ( Generic [ T ]): ...",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 132,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0133",
+      "sourceRefId": "src_page_blog_004_pep_0484_0133",
+      "textHash": "sha256_9c5774c5b55a8b46637db186eeb42f96",
+      "textQuote": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class Node ( Generic [ T ]): ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0134",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "To create Node instances you call Node() just as for a regular class. At runtime the type (class) of the instance will be Node . But what type does it have to the type checker? The answer depends on how much information is available in the call. If the constructor ( __init__ or __new__ ) uses T in its signature, and a corresponding argument value is passed, ",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 133,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0134",
+      "sourceRefId": "src_page_blog_004_pep_0484_0134",
+      "textHash": "sha256_a8d1d412eb5283511be3fe0bafbe307f",
+      "textQuote": "To create Node instances you call Node() just as for a regular class. At runtime the type (class) of the instance will be Node . But what type does it have to the type checker? The answer depends on how much information "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0135",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class Node ( Generic [ T ]): x = None # type: T # Instance attribute (see below) def __init__ ( self , label : T = None ) -> None : ... x = Node ( '' ) # Inferred type is Node[str] y = Node ( 0 ) # Inferred type is Node[int] z = Node () # Inferred type is Node[Any]",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 134,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0135",
+      "sourceRefId": "src_page_blog_004_pep_0484_0135",
+      "textHash": "sha256_97db86d9c055db63bd2244bf317942c9",
+      "textQuote": "from typing import TypeVar , Generic T = TypeVar ( 'T' ) class Node ( Generic [ T ]): x = None # type: T # Instance attribute (see below) def __init__ ( self , label : T = None ) -> None : ... x = Node ( '' ) # Inferred "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0136",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "In case the inferred type uses [Any] but the intended type is more specific, you can use a type comment (see below) to force the type of the variable, e.g.:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 135,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0136",
+      "sourceRefId": "src_page_blog_004_pep_0484_0136",
+      "textHash": "sha256_8adc6aef5d5479414120b3c1c548acc3",
+      "textQuote": "In case the inferred type uses [Any] but the intended type is more specific, you can use a type comment (see below) to force the type of the variable, e.g.:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0137",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "# (continued from previous example) a = Node () # type: Node[int] b = Node () # type: Node[str]",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 136,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0137",
+      "sourceRefId": "src_page_blog_004_pep_0484_0137",
+      "textHash": "sha256_e82f4b0f1583d6d45c306ea138048a31",
+      "textQuote": "# (continued from previous example) a = Node () # type: Node[int] b = Node () # type: Node[str]"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0138",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Alternatively, you can instantiate a specific concrete type, e.g.:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 137,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0138",
+      "sourceRefId": "src_page_blog_004_pep_0484_0138",
+      "textHash": "sha256_269c57fcecf9580dc989ab9cc54e794b",
+      "textQuote": "Alternatively, you can instantiate a specific concrete type, e.g.:"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0139",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "# (continued from previous example) p = Node [ int ]() q = Node [ str ]() r = Node [ int ]( '' ) # Error s = Node [ str ]( 0 ) # Error",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 138,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0139",
+      "sourceRefId": "src_page_blog_004_pep_0484_0139",
+      "textHash": "sha256_548d14ed14f574a989e9dba785dcdba6",
+      "textQuote": "# (continued from previous example) p = Node [ int ]() q = Node [ str ]() r = Node [ int ]( '' ) # Error s = Node [ str ]( 0 ) # Error"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0140",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Note that the runtime type (class) of p and q is still just Node – Node[int] and Node[str] are distinguishable class objects, but the runtime class of the objects created by instantiating them doesn’t record the distinction. This behavior is called “type erasure”; it is common practice in languages with generics (e.g. Java, TypeScript).",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 139,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0140",
+      "sourceRefId": "src_page_blog_004_pep_0484_0140",
+      "textHash": "sha256_166e4d4c6ec9f2dadae96152925fd7e0",
+      "textQuote": "Note that the runtime type (class) of p and q is still just Node – Node[int] and Node[str] are distinguishable class objects, but the runtime class of the objects created by instantiating them doesn’t record the distinct"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0141",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Using generic classes (parameterized or not) to access attributes will result in type check failure. Outside the class definition body, a class attribute cannot be assigned, and can only be looked up by accessing it through a class instance that does not have an instance attribute with the same name:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 140,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0141",
+      "sourceRefId": "src_page_blog_004_pep_0484_0141",
+      "textHash": "sha256_3f45d148a41df7a43e55dfdc66ef3214",
+      "textQuote": "Using generic classes (parameterized or not) to access attributes will result in type check failure. Outside the class definition body, a class attribute cannot be assigned, and can only be looked up by accessing it thro"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0142",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "# (continued from previous example) Node [ int ] . x = 1 # Error Node [ int ] . x # Error Node . x = 1 # Error Node . x # Error type ( p ) . x # Error p . x # Ok (evaluates to None) Node [ int ]() . x # Ok (evaluates to None) p . x = 1 # Ok, but assigning to instance attribute",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 141,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0142",
+      "sourceRefId": "src_page_blog_004_pep_0484_0142",
+      "textHash": "sha256_588bcc4bcbef91cbc3f4cb6ab8e789d9",
+      "textQuote": "# (continued from previous example) Node [ int ] . x = 1 # Error Node [ int ] . x # Error Node . x = 1 # Error Node . x # Error type ( p ) . x # Error p . x # Ok (evaluates to None) Node [ int ]() . x # Ok (evaluates to "
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0143",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "Generic versions of abstract collections like Mapping or Sequence and generic versions of built-in classes – List , Dict , Set , and FrozenSet – cannot be instantiated. However, concrete user-defined subclasses thereof and generic versions of concrete collections can be instantiated:",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 142,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0143",
+      "sourceRefId": "src_page_blog_004_pep_0484_0143",
+      "textHash": "sha256_162f971eb2aecb0dbec1cca75a705a55",
+      "textQuote": "Generic versions of abstract collections like Mapping or Sequence and generic versions of built-in classes – List , Dict , Set , and FrozenSet – cannot be instantiated. However, concrete user-defined subclasses thereof a"
+    },
+    {
+      "blockId": "block_pg_page_blog_004_pep_0484_0144",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_004_pep_0484_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_343197aa203b64979672d64575b91db20c9cb9fe426771e7450fd9003e5ed501",
+      "fallbackText": "data = DefaultDict [ int , bytes ]()",
+      "headingPath": [
+        "PEP 484 – Type Hints",
+        "Type Definition Syntax",
+        "Instantiating generic classes and type erasure"
+      ],
+      "order": 143,
+      "pageId": "page_blog_004_pep_0484",
+      "paragraphId": "pg_page_blog_004_pep_0484_0144",
+      "sourceRefId": "src_page_blog_004_pep_0484_0144",
+      "textHash": "sha256_4ad019e917aa779083b237fe9b5de78d",
+      "textQuote": "data = DefaultDict [ int , bytes ]()"
+    }
+  ],
+  "status": "pass"
+}

@@ -1,0 +1,635 @@
+{
+  "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+  "digestId": "digest_page_news_006_routing_enhancements",
+  "items": [
+    {
+      "confidence": 0.848,
+      "importance": 0.892,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Next article: Robust generic functions on slices Previous article: Go 1.22 is released! Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Mee",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Compatibility"
+          ],
+          "order": 59,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0060",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0060",
+          "textHash": "sha256_3043ba2d6c94121ebe41edb043a114b9",
+          "textQuote": "Next article: Robust generic functions on slices Previous article: Go 1.22 is released! Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages"
+        }
+      ],
+      "text": "Next article : Robust generic functions on slices Previous article : Go 1 . 22 is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.846,
+      "importance": 0.887,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0047",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Some routers disallow overlaps; others use the pattern that was registered last. Go has always allowed overlaps, and has chosen the longer pattern regardless of registration order. Preserving order-independence was important to us (and necessary for backwards compatibility), but we needed a better rule than “longest wins.” That rule would select /posts/lates",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 46,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0047",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0047",
+          "textHash": "sha256_2bcc706db83a445f84088db338aca7b2",
+          "textQuote": "Some routers disallow overlaps; others use the pattern that was registered last. Go has always allowed overlaps, and has chosen the longer pattern regardless of registration order. Preserving order-independence was impor"
+        }
+      ],
+      "text": "Some routers disallow overlaps ; others use the pattern that was registered last . Go has",
+      "warnings": []
+    },
+    {
+      "confidence": 0.846,
+      "importance": 0.887,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0055",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0055"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0055",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Defining precedence by languages instead of expressions makes it easy to state and understand. But there is a downside to having a rule based on potentially infinite sets: it isn’t clear how to implement it efficiently. It turns out we can determine whether two patterns conflict by walking them segment by segment. Roughly speaking, if one pattern has a liter",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 54,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0055",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0055",
+          "textHash": "sha256_a3286deaf045ab8c9b458903ddff9ded",
+          "textQuote": "Defining precedence by languages instead of expressions makes it easy to state and understand. But there is a downside to having a rule based on potentially infinite sets: it isn’t clear how to implement it efficiently. "
+        }
+      ],
+      "text": "Defining precedence by languages instead of expressions makes it easy to state and understand . But",
+      "warnings": []
+    },
+    {
+      "confidence": 0.846,
+      "importance": 0.886,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "We made these changes as part of our continuing effort to make Go a great language for building production systems. We studied many third-party web frameworks, extracted what we felt were the most used features, and integrated them into net/http . Then we validated our choices and improved our design by collaborating with the community in a GitHub discussion",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22"
+          ],
+          "order": 31,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0032",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0032",
+          "textHash": "sha256_aa7e4666322fdeec35316710a2b85e61",
+          "textQuote": "We made these changes as part of our continuing effort to make Go a great language for building production systems. We studied many third-party web frameworks, extracted what we felt were the most used features, and inte"
+        }
+      ],
+      "text": "We made these changes as part of our continuing effort to make Go a great language",
+      "warnings": []
+    },
+    {
+      "confidence": 0.846,
+      "importance": 0.886,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0056",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0056"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0056",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "As new patterns are registered on a ServeMux , it checks for conflicts with previously registered patterns. But checking every pair of patterns would take quadratic time. We use an index to skip patterns that cannot conflict with a new pattern; in practice, it works quite well. In any case, this check happens when patterns are registered, usually at server s",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 55,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0056",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0056",
+          "textHash": "sha256_3f7c45ab0df76d4ecc1b20ef0c9ef38c",
+          "textQuote": "As new patterns are registered on a ServeMux , it checks for conflicts with previously registered patterns. But checking every pair of patterns would take quadratic time. We use an index to skip patterns that cannot conf"
+        }
+      ],
+      "text": "As new patterns are registered on a ServeMux , it checks for conflicts with previously registered",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Go 1.22 brings two enhancements to the net/http package’s router: method matching and wildcards. These features let you express common routes as patterns instead of Go code. Although they are simple to explain and use, it was a challenge to come up with the right rules for selecting the winning pattern when several match a request.",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22"
+          ],
+          "order": 30,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0031",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0031",
+          "textHash": "sha256_3057dba0a0c03bc21abccec01c423a66",
+          "textQuote": "Go 1.22 brings two enhancements to the net/http package’s router: method matching and wildcards. These features let you express common routes as patterns instead of Go code. Although they are simple to explain and use, i"
+        }
+      ],
+      "text": "Go 1 . 22 brings two enhancements to the net / http package ’ s router",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0052",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "What if two patterns overlap but neither is more specific? For example, /posts/{id} and /{resource}/latest both match /posts/latest . There is no obvious answer to which takes precedence, so we consider these patterns to conflict with each other. Registering both of them (in either order!) will panic.",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 51,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0052",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0052",
+          "textHash": "sha256_8fbcfe39fb174365f529377addd43fb3",
+          "textQuote": "What if two patterns overlap but neither is more specific? For example, /posts/{id} and /{resource}/latest both match /posts/latest . There is no obvious answer to which takes precedence, so we consider these patterns to"
+        }
+      ],
+      "text": "What if two patterns overlap but neither is more specific ? For example , / posts",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.848,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0048",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Our quest for a good precedence rule led us to consider many properties of patterns. For example, we considered preferring the pattern with the longest literal (non-wildcard) prefix. That would choose /posts/latest over /posts/ {id} . But it wouldn’t distinguish between /users/{u}/posts/latest and /users/{u}/posts/{id} , and it seems like the former should t",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 47,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0048",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0048",
+          "textHash": "sha256_c74a35356806a9e90483329072cd9277",
+          "textQuote": "Our quest for a good precedence rule led us to consider many properties of patterns. For example, we considered preferring the pattern with the longest literal (non-wildcard) prefix. That would choose /posts/latest over "
+        }
+      ],
+      "text": "Our quest for a good precedence rule led us to consider many properties of patterns .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.845,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0054",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "Students of computer science may recall the beautiful theory of regular expressions and regular languages. Each regular expression picks out a regular language, the set of strings matched by the expression. Some questions are easier to pose and answer by talking about languages rather than expressions. Our precedence rule was inspired by this theory. Indeed,",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 53,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0054",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0054",
+          "textHash": "sha256_f0b0f5a9d0841de2a1af994a7b50858c",
+          "textQuote": "Students of computer science may recall the beautiful theory of regular expressions and regular languages. Each regular expression picks out a regular language, the set of strings matched by the expression. Some question"
+        }
+      ],
+      "text": "Students of computer science may recall the beautiful theory of regular expressions and regular languages .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0039",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0039",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "This pattern matches a GET request whose path begins “/posts/” and has two segments. (As a special case, GET also matches HEAD; all the other methods match exactly.) The handlePost2 function no longer needs to check the method, and extracting the identifier string can be written using the new PathValue method on Request :",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Enhancements"
+          ],
+          "order": 38,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0039",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0039",
+          "textHash": "sha256_52438d251649ae6775dd20ac79fa3941",
+          "textQuote": "This pattern matches a GET request whose path begins “/posts/” and has two segments. (As a special case, GET also matches HEAD; all the other methods match exactly.) The handlePost2 function no longer needs to check the "
+        }
+      ],
+      "text": "This pattern matches a GET request whose path begins “ / posts / ” and has",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.834,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "We made every effort to keep the new functionality compatible with older versions of Go. The new pattern syntax is a superset of the old, and the new precedence rule generalizes the old one. But there are a few edge cases. For example, previous versions of Go accepted patterns with braces and treated them literally, but Go 1.22 uses braces for wildcards. The",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Compatibility"
+          ],
+          "order": 56,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0057",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0057",
+          "textHash": "sha256_1480193164978022d91059990df8ce81",
+          "textQuote": "We made every effort to keep the new functionality compatible with older versions of Go. The new pattern syntax is a superset of the old, and the new precedence rule generalizes the old one. But there are a few edge case"
+        }
+      ],
+      "text": "We made every effort to keep the new functionality compatible with older versions of Go .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0045",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0045"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0045",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "And there is one last bit of API: net/http.Request has a SetPathValue method so that routers outside the standard library can make the results of their own path parsing available via Request.PathValue .",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Enhancements"
+          ],
+          "order": 44,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0045",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0045",
+          "textHash": "sha256_41e50c8deccbea33d71ec03dba1a63c2",
+          "textQuote": "And there is one last bit of API: net/http.Request has a SetPathValue method so that routers outside the standard library can make the results of their own path parsing available via Request.PathValue ."
+        }
+      ],
+      "text": "And there is one last bit of API : net / http . Request has a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0049",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "We eventually chose a rule based on what the patterns mean instead of how they look. Every valid pattern matches a set of requests. For example, /posts/latest matches requests with the path /posts/latest , while /posts/{id} matches requests with any two-segment path whose first segment is “posts”. We say that one pattern is more specific than another if it m",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 48,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0049",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0049",
+          "textHash": "sha256_51f8537146862c5842d0faeafc7cd4dc",
+          "textQuote": "We eventually chose a rule based on what the patterns mean instead of how they look. Every valid pattern matches a set of requests. For example, /posts/latest matches requests with the path /posts/latest , while /posts/{"
+        }
+      ],
+      "text": "We eventually chose a rule based on what the patterns mean instead of how they look",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0036",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "The trailing slash routes all requests beginning /posts/ to the handlePost function, which would have to check that the HTTP method was GET, extract the identifier, and retrieve the post. Since the method check isn’t strictly necessary to satisfy the request, it would be a natural mistake to omit it. That would mean that a request like DELETE /posts/234 woul",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Enhancements"
+          ],
+          "order": 35,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0036",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0036",
+          "textHash": "sha256_fd9bad0b5793af8137e1186c8864f638",
+          "textQuote": "The trailing slash routes all requests beginning /posts/ to the handlePost function, which would have to check that the HTTP method was GET, extract the identifier, and retrieve the post. Since the method check isn’t str"
+        }
+      ],
+      "text": "The trailing slash routes all requests beginning / posts / to the handlePost function , which",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0050",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "The precedence rule is simple: the most specific pattern wins. This rule matches our intuition that posts/latests should be preferred to posts/{id} , and /users/{u}/posts/latest should be preferred to /users/{u}/posts/{id} . It also makes sense for methods. For example, GET /posts/{id} takes precedence over /posts/{id} because the first only matches GET and ",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 49,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0050",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0050",
+          "textHash": "sha256_3a35385d306da07474148a82e4322e32",
+          "textQuote": "The precedence rule is simple: the most specific pattern wins. This rule matches our intuition that posts/latests should be preferred to posts/{id} , and /users/{u}/posts/latest should be preferred to /users/{u}/posts/{i"
+        }
+      ],
+      "text": "The precedence rule is simple : the most specific pattern wins . This rule matches our",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0053",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "The precedence rule works exactly as above for methods and paths, but we had to make one exception for hosts to preserve compatibility: if two patterns would otherwise conflict and one has a host while the other does not, then the pattern with the host takes precedence.",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Precedence"
+          ],
+          "order": 52,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0053",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0053",
+          "textHash": "sha256_d98ed98a706b365ec35871a5f61bf65e",
+          "textQuote": "The precedence rule works exactly as above for methods and paths, but we had to make one exception for hosts to preserve compatibility: if two patterns would otherwise conflict and one has a host while the other does not"
+        }
+      ],
+      "text": "The precedence rule works exactly as above for methods and paths , but we had to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0058",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0058"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0058",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "For more details about these routing enhancements, see the net/http.ServeMux documentation .",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Compatibility"
+          ],
+          "order": 57,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0058",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0058",
+          "textHash": "sha256_316af84a2fe7b18514db25ff6c188cc4",
+          "textQuote": "For more details about these routing enhancements, see the net/http.ServeMux documentation ."
+        }
+      ],
+      "text": "For more details about these routing enhancements , see the net / http . ServeMux documentation",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_news_006_routing_enhancements_0037",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_news_006_routing_enhancements_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_006_routing_enhancements_0037"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_006_routing_enhancements_0037",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_006_routing_enhancements_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_e1a505a46cbc20fd3d860cd46808175e66fb1731683b12838df935772b4ce339",
+          "fallbackText": "In Go 1.22, the existing code will continue to work, or you could instead write this:",
+          "headingPath": [
+            "Routing Enhancements for Go 1.22",
+            "Enhancements"
+          ],
+          "order": 36,
+          "pageId": "page_news_006_routing_enhancements",
+          "paragraphId": "pg_page_news_006_routing_enhancements_0037",
+          "sourceRefId": "src_page_news_006_routing_enhancements_0037",
+          "textHash": "sha256_94f876796111abb3b6dda1d4b13e228a",
+          "textQuote": "In Go 1.22, the existing code will continue to work, or you could instead write this:"
+        }
+      ],
+      "text": "In Go 1 . 22 , the existing code will continue to work , or you",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_news_006_routing_enhancements",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.151,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Robust generic functions on slices Previous article : Go 1 . 22 is",
+      "Some routers disallow overlaps ; others use the pattern that was registered last . Go has",
+      "Defining precedence by languages instead of expressions makes it easy to state and understand . But",
+      "We made these changes as part of our continuing effort to make Go a great language",
+      "As new patterns are registered on a ServeMux , it checks for conflicts with previously registered"
+    ],
+    "tldr": "Next article : Robust generic functions on slices Previous article : Go 1 . 22 is"
+  }
+}

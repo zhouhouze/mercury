@@ -20,33 +20,35 @@ docs/navia_v1_project_docs/design/v1.2-a-page-perception-gap.md
 | Image-rich pages | No stable perception contract | DOM-readable image metadata only: alt, caption, title, aria-label, nearby text |
 | OCR | Not implemented | Contract planning only in `A-V1.0-3`; execution must route through future governed D adapters |
 | Tables / lists / code | Not guaranteed as first-class blocks | Planned first-class block recognition in `A-V1.0-4` |
-| Video / live | Out of V1.2 implementation scope | `A-V2.0-*` planning records only |
+| Video / live | Out of A-V1.2 implementation scope | `A-V1.12+` planning records only |
 
-## A-V1.1 High-Signal Target
+## A-V1.2 Production Page Perception Target
 
-A-V1.1 keeps the existing `StructuredPageContext` baseline and adds a high-signal layer for downstream D/C consumption:
+A-V1.2 keeps the existing `StructuredPageContext` baseline and adds a production-grade high-signal layer for downstream D/C/B consumption:
 
 ```text
 captured PageContext / HTML fixture
--> candidate extraction baseline
+-> DOM baseline candidate
+-> optional audited candidate extractor ensemble
 -> A-owned block classifier
 -> noise filter
 -> sourceMap builder
 -> perception digest builder
 -> quality evaluator
--> HighSignalPageContext
+-> DebugEvidenceBundle
 ```
 
-Candidate extraction may use community libraries such as `trafilatura`, Mozilla Readability / `readabilipy`, or `readability-lxml`, but their output is never the final Navia contract. A owns the final block graph, source references, digest, and quality report.
+Candidate extraction may use community libraries such as `trafilatura`, Mozilla Readability / `readabilipy`, or `readability-lxml` only after dependency audit approval. Their output is never the final Navia contract. A owns the final block graph, source references, digest, quality report, and debug evidence.
 
-A-V1.1 target outputs are module-local unless contract review promotes them:
+A-V1.2 public outputs are:
 
 - `HighSignalPageContext`
 - `PerceptionDigest`
 - `PagePerceptionQualityReport`
 - `SourceMap`
+- `DebugEvidenceBundle`
 
-Quality gates decide whether the page is ready for D/C high-signal consumption. Failed pages may still be shown in Debug, but must not be treated as high-quality context.
+Quality gates decide whether the page is ready for D/C high-signal consumption. Failed pages may still be shown in Debug, but must not be treated as high-quality context. B may render Debug evidence and fallback quotes, but must not mutate A output.
 
 ## Runtime Flow
 
@@ -74,7 +76,7 @@ Target internal components:
 | Annotation engine | Add deterministic role, importance, density score, confidence, and warnings |
 | Summary draft builder | Optional structured page-level draft for downstream D/C use; not a final answer |
 
-Future perception routes are planned but not implemented in the current V1.2 code path:
+Future perception routes are planned but not implemented in the current A-V1.2 code path:
 
 ```text
 image / figure metadata
@@ -83,7 +85,7 @@ image / figure metadata
 -> video / live perception planning
 ```
 
-A-V1.1 extends the planning boundary with OCR and media contracts, but still does not directly execute OCR, VLM, ASR, video frame extraction, or live stream analysis.
+A-V1.2 may retain OCR and media contract planning as boundary notes, but still does not directly execute OCR, VLM, ASR, video frame extraction, or live stream analysis.
 
 ## Inputs
 

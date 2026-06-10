@@ -1,0 +1,579 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_github_006_psf_requests"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_github_006_psf_requests"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_github_006_psf_requests"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_github_006_psf_requests"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_github_006_psf_requests"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: compressionScore"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 4,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 2871,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_github_006_psf_requests",
+    "pageKey": "page_github_006_psf_requests",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+    "digestRef": "digest_page_github_006_psf_requests",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_006_psf_requests_0001"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.648,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "importance": 0.778,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphIds": [
+          "pg_page_github_006_psf_requests_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests) [![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests) [![Contributors](https://img.shie",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0001",
+            "sourceRefId": "src_page_github_006_psf_requests_0001",
+            "textHash": "sha256_9b386ae9d958dc444d5331e9ae7721f4",
+            "textQuote": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/r"
+          }
+        ],
+        "text": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests) [![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests) [![Contributors](https://img.shields.io/github/contributors/psf/requests.svg)](https://github.com/psf/requests/graphs/contributors) [![Documentation](https://readthedocs.org/projects/requests/badge/?version=latest)](https://requests.readthedocs.io) **Requests** is a simple, yet elegant, HTTP library.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_006_psf_requests_0001"
+        ],
+        "confidence": 0.843,
+        "contentDensityScore": 0.831,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "importance": 0.879,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphIds": [
+          "pg_page_github_006_psf_requests_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'utf-8' >>> r.text '{\"authenticated\": true, ...' >>> r.json() {'authenticated': True, ...} ``` Requests allows you to send HTTP/1.1 requests e",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0002",
+            "sourceRefId": "src_page_github_006_psf_requests_0002",
+            "textHash": "sha256_2eb82844a3457a5dcaad53cc919e8027",
+            "textQuote": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'u"
+          }
+        ],
+        "text": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'utf-8' >>> r.text '{\"authenticated\": true, ...' >>> r.json() {'authenticated': True, ...} ``` Requests allows you to send HTTP/1.1 requests extremely easily. There’s no need to manually add query strings to your URLs, or to form-encode your `PUT` & `POST` data — but nowadays, just use the `json` method!",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_006_psf_requests_0002"
+        ],
+        "confidence": 0.841,
+        "contentDensityScore": 0.824,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "importance": 0.875,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphIds": [
+          "pg_page_github_006_psf_requests_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories. ## Installing Requests and Supported Versions Requests is available on Py",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0003",
+            "sourceRefId": "src_page_github_006_psf_requests_0003",
+            "textHash": "sha256_c3bdd236af6f1676a68e824936219f36",
+            "textQuote": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?pack"
+          }
+        ],
+        "text": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories. ## Installing Requests and Supported Versions Requests is available on PyPI: ```console $ python -m pip install requests ``` Requests officially supports Python 3.10+. ## Supported Features & Best–Practices Requests is ready for the demands of building robust and reliable HTTP–speaking applications, for the needs of today.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0004",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_006_psf_requests_0003"
+        ],
+        "confidence": 0.832,
+        "contentDensityScore": 0.782,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "importance": 0.852,
+        "noiseScore": 0.08,
+        "order": 3,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphIds": [
+          "pg_page_github_006_psf_requests_0004"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Content Decompression and Decoding - Multi-part File Uploads - SOCKS Proxy Support - Connection Timeouts - Streaming Downloads - Automatic honorin",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0004",
+            "sourceRefId": "src_page_github_006_psf_requests_0004",
+            "textHash": "sha256_7cdb0e57e6d48e95ccc08393461f5ac4",
+            "textQuote": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Conten"
+          }
+        ],
+        "text": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Content Decompression and Decoding - Multi-part File Uploads - SOCKS Proxy Support - Connection Timeouts - Streaming Downloads - Automatic honoring of `.netrc` - Chunked HTTP Requests ## Cloning the repository When cloning the Requests repository, you may need to add the `-c fetch.fsck.badTimezone=ignore` flag to avoid an error about a bad commit timestamp (see [this issue](https://github.com/psf/requests/issues/2690) for more background): ```shell git clone -c fetch.fsck.badTimezone=ignore https://github.com/psf/requests.git ``` You can also apply this setting to your global Git config: ```shell git config --global fetch.fsck.badTimezone ignore ``` --- [![Kenneth Reitz](https://raw.githubusercontent.com/psf/requests/main/ext/kr.png)](https://kennethreitz.org) [![Python Software Foundation](https://raw.githubusercontent.com/psf/requests/main/ext/psf.png)](https://www.python.org/psf)",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 4,
+      "wordCount": 400
+    },
+    "pageId": "page_github_006_psf_requests",
+    "qualityReportRef": "q_page_github_006_psf_requests",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_github_006_psf_requests",
+    "sourceMapRef": "smap_page_github_006_psf_requests",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+      "pageId": "page_github_006_psf_requests"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_github_006_psf_requests",
+  "perceptionDigest": {
+    "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+    "digestId": "digest_page_github_006_psf_requests",
+    "items": [
+      {
+        "confidence": 0.843,
+        "importance": 0.879,
+        "itemId": "item_block_pg_page_github_006_psf_requests_0002",
+        "kind": "evidence",
+        "relatedChunkIds": [
+          "ck_page_github_006_psf_requests_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_006_psf_requests_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'utf-8' >>> r.text '{\"authenticated\": true, ...' >>> r.json() {'authenticated': True, ...} ``` Requests allows you to send HTTP/1.1 requests e",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0002",
+            "sourceRefId": "src_page_github_006_psf_requests_0002",
+            "textHash": "sha256_2eb82844a3457a5dcaad53cc919e8027",
+            "textQuote": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'u"
+          }
+        ],
+        "text": "` ` ` python > > > import requests > > > r = requests .",
+        "warnings": []
+      },
+      {
+        "confidence": 0.841,
+        "importance": 0.875,
+        "itemId": "item_block_pg_page_github_006_psf_requests_0003",
+        "kind": "evidence",
+        "relatedChunkIds": [
+          "ck_page_github_006_psf_requests_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_006_psf_requests_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories. ## Installing Requests and Supported Versions Requests is available on Py",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0003",
+            "sourceRefId": "src_page_github_006_psf_requests_0003",
+            "textHash": "sha256_c3bdd236af6f1676a68e824936219f36",
+            "textQuote": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?pack"
+          }
+        ],
+        "text": "Requests is one of the most downloaded Python packages today , pulling in around ` 300M",
+        "warnings": []
+      },
+      {
+        "confidence": 0.832,
+        "importance": 0.852,
+        "itemId": "item_block_pg_page_github_006_psf_requests_0004",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_github_006_psf_requests_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_006_psf_requests_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Content Decompression and Decoding - Multi-part File Uploads - SOCKS Proxy Support - Connection Timeouts - Streaming Downloads - Automatic honorin",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0004",
+            "sourceRefId": "src_page_github_006_psf_requests_0004",
+            "textHash": "sha256_7cdb0e57e6d48e95ccc08393461f5ac4",
+            "textQuote": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Conten"
+          }
+        ],
+        "text": "- Keep - Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie",
+        "warnings": []
+      },
+      {
+        "confidence": 0.803,
+        "importance": 0.778,
+        "itemId": "item_block_pg_page_github_006_psf_requests_0001",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_github_006_psf_requests_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_006_psf_requests_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_006_psf_requests_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_006_psf_requests_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+            "fallbackText": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests) [![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests) [![Contributors](https://img.shie",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_006_psf_requests",
+            "paragraphId": "pg_page_github_006_psf_requests_0001",
+            "sourceRefId": "src_page_github_006_psf_requests_0001",
+            "textHash": "sha256_9b386ae9d958dc444d5331e9ae7721f4",
+            "textQuote": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/r"
+          }
+        ],
+        "text": "# Requests [ ! [ Version ] ( https : / / img . shields .",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_github_006_psf_requests",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.087,
+      "itemCount": 4,
+      "sourceRefCount": 4
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "` ` ` python > > > import requests > > > r = requests .",
+        "Requests is one of the most downloaded Python packages today , pulling in around ` 300M",
+        "- Keep - Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie",
+        "# Requests [ ! [ Version ] ( https : / / img . shields ."
+      ],
+      "tldr": "` ` ` python > > > import requests > > > r = requests ."
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 4.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.75
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.087,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.395
+      },
+      "contentCoverage": {
+        "denominator": 2871.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 2871.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 400.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 35.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.087
+      },
+      "groundingCompleteness": {
+        "denominator": 4.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 4.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 4.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 4.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 4.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.98,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_github_006_psf_requests",
+    "reportId": "q_page_github_006_psf_requests",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 2871,
+    "codeBlockCount": 0,
+    "domain": "raw.githubusercontent.com",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 0,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "github_006_psf_requests",
+    "url": "https://raw.githubusercontent.com/psf/requests/main/README.md",
+    "visibleTextLength": 400
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+    "pageId": "page_github_006_psf_requests",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_github_006_psf_requests",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_006_psf_requests_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "fallbackText": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests) [![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests) [![Contributors](https://img.shie",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphId": "pg_page_github_006_psf_requests_0001",
+        "sourceRefId": "src_page_github_006_psf_requests_0001",
+        "textHash": "sha256_9b386ae9d958dc444d5331e9ae7721f4",
+        "textQuote": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/r"
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_006_psf_requests_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "fallbackText": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'utf-8' >>> r.text '{\"authenticated\": true, ...' >>> r.json() {'authenticated': True, ...} ``` Requests allows you to send HTTP/1.1 requests e",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphId": "pg_page_github_006_psf_requests_0002",
+        "sourceRefId": "src_page_github_006_psf_requests_0002",
+        "textHash": "sha256_2eb82844a3457a5dcaad53cc919e8027",
+        "textQuote": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'u"
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_006_psf_requests_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "fallbackText": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories. ## Installing Requests and Supported Versions Requests is available on Py",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphId": "pg_page_github_006_psf_requests_0003",
+        "sourceRefId": "src_page_github_006_psf_requests_0003",
+        "textHash": "sha256_c3bdd236af6f1676a68e824936219f36",
+        "textQuote": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?pack"
+      },
+      {
+        "blockId": "block_pg_page_github_006_psf_requests_0004",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_006_psf_requests_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+        "fallbackText": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Content Decompression and Decoding - Multi-part File Uploads - SOCKS Proxy Support - Connection Timeouts - Streaming Downloads - Automatic honorin",
+        "headingPath": [],
+        "order": 3,
+        "pageId": "page_github_006_psf_requests",
+        "paragraphId": "pg_page_github_006_psf_requests_0004",
+        "sourceRefId": "src_page_github_006_psf_requests_0004",
+        "textHash": "sha256_7cdb0e57e6d48e95ccc08393461f5ac4",
+        "textQuote": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Conten"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: compressionScore",
+  "warnings": []
+}

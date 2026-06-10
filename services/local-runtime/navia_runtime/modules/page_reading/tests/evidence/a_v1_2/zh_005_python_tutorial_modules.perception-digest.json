@@ -1,0 +1,646 @@
+{
+  "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+  "digestId": "digest_page_zh_005_python_tutorial_modules",
+  "items": [
+    {
+      "confidence": 0.833,
+      "importance": 0.855,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0067",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "假设要为统一处理声音文件与声音数据设计一个模块集（“包”）。声音文件的格式很多 (通常以扩展名来识别，例如 .wav ， .aiff ， .au )，因此，为了不同文件格式之间的转换，需要创建和维护一个不断增长的模块集合。 为了实现对声音数据的不同处理（例如混声、添加回声、均衡器功能、创造人工立体声效果），还要编写无穷无尽的模块流。 你的包可能的架构是这样的（展示为多层级的文件系统形式）：",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶"
+          ],
+          "order": 66,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0067",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0067",
+          "textHash": "sha256_70e20c096c341cdaf621370cb5437508",
+          "textQuote": "假设要为统一处理声音文件与声音数据设计一个模块集（“包”）。声音文件的格式很多 (通常以扩展名来识别，例如 .wav ， .aiff ， .au )，因此，为了不同文件格式之间的转换，需要创建和维护一个不断增长的模块集合。 为了实现对声音数据的不同处理（例如混声、添加回声、均衡器功能、创造人工立体声效果），还要编写无穷无尽的模块流。 你的包可能的架构是这样的（展示为多层级的文件系统形式）："
+        }
+      ],
+      "text": "假设要为统一处理声音文件与声音数据设计一个模块集 （ “ 包 ” ） 。 声音文件的格式很多 ( 通常以扩展名来识别 ， 例如 . wav ， .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0016",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0016"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0016",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "每个模块都有它自己的私有符号表，该表被定义在该模块里的所有函数当作全局符号表使用。 因此，一个模块的作者可以在模块内放心使用全局变量，而不必担心它们会和模块使用者的全局变量发生意外冲突。 另一方面，如果您知道自己在做什么，您可以使用与引用模块函数相同的语法去访问一个模块的全局变量，即 modname.itemname 。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶"
+          ],
+          "order": 15,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0016",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0016",
+          "textHash": "sha256_9356db41afc36f7b50860987cb95d475",
+          "textQuote": "每个模块都有它自己的私有符号表，该表被定义在该模块里的所有函数当作全局符号表使用。 因此，一个模块的作者可以在模块内放心使用全局变量，而不必担心它们会和模块使用者的全局变量发生意外冲突。 另一方面，如果您知道自己在做什么，您可以使用与引用模块函数相同的语法去访问一个模块的全局变量，即 modname.itemname 。"
+        }
+      ],
+      "text": "每个模块都有它自己的私有符号表 ， 该表被定义在该模块里的所有函数当作全局符号表使用 。 因此 ， 一个模块的作者可以在模块内放心使用全局变量 ， 而不必担心它们会和模块使用者的全局变量发生意外冲突 。 另一方面 ， 如果您知道自己在做什么 ， 您可以使用与引用模块函数相同的语法去访问一个模块的全局变量 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0049",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "Python 在两种情况下不检查缓存。一，从命令行直接载入的模块，每次都会重新编译，且不储存编译结果；二，没有源模块，就不会检查缓存。为了让一个库能以隐藏源代码的形式分发（通过将所有源代码变为编译后的版本），编译后的模块必须放在源目录而非缓存目录中，并且源目录绝不能包含同名的未编译的源模块。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶",
+            "6.1.3. “已编译的” Python 文件 ¶"
+          ],
+          "order": 48,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0049",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0049",
+          "textHash": "sha256_682ce1e41ec26badaf1fe53878f3a458",
+          "textQuote": "Python 在两种情况下不检查缓存。一，从命令行直接载入的模块，每次都会重新编译，且不储存编译结果；二，没有源模块，就不会检查缓存。为了让一个库能以隐藏源代码的形式分发（通过将所有源代码变为编译后的版本），编译后的模块必须放在源目录而非缓存目录中，并且源目录绝不能包含同名的未编译的源模块。"
+        }
+      ],
+      "text": "Python 在两种情况下不检查缓存 。 一 ， 从命令行直接载入的模块 ， 每次都会重新编译 ， 且不储存编译结果 ； 二 ， 没有源模块 ， 就不会检查缓存",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0046",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "初始化后，Python 程序可以更改 sys.path 。脚本所在的目录先于标准库所在的路径被搜索。这意味着，脚本所在的目录如果有和标准库同名的文件，那么加载的是该目录里的，而不是标准库的。这一般是一个错误，除非这样的替换是你有意为之。详见 标准模块 。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶",
+            "6.1.2. 模块搜索路径 ¶"
+          ],
+          "order": 45,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0046",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0046",
+          "textHash": "sha256_3a0018a2d4bc6876412d9324938fb142",
+          "textQuote": "初始化后，Python 程序可以更改 sys.path 。脚本所在的目录先于标准库所在的路径被搜索。这意味着，脚本所在的目录如果有和标准库同名的文件，那么加载的是该目录里的，而不是标准库的。这一般是一个错误，除非这样的替换是你有意为之。详见 标准模块 。"
+        }
+      ],
+      "text": "初始化后 ， Python 程序可以更改 sys . path 。 脚本所在的目录先于标准库所在的路径被搜索 。 这意味着 ， 脚本所在的目录如果有和标准库同名的文件 ， 那么加载的是该目录里的 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0084",
+      "kind": "open_question",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "使用 from sound.effects import * 时会发生什么？你可能希望它会查找并导入包的所有子模块，但事实并非如此。因为这将花费很长的时间，并且可能会产生你不想要的副作用，如果这种副作用被你设计为只有在导入某个特定的子模块时才应该发生。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.1. 从包中导入 * ¶"
+          ],
+          "order": 83,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0084",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0084",
+          "textHash": "sha256_a0316806a49ff058972a012d43fe6c2a",
+          "textQuote": "使用 from sound.effects import * 时会发生什么？你可能希望它会查找并导入包的所有子模块，但事实并非如此。因为这将花费很长的时间，并且可能会产生你不想要的副作用，如果这种副作用被你设计为只有在导入某个特定的子模块时才应该发生。"
+        }
+      ],
+      "text": "使用 from sound . effects import * 时会发生什么 ？ 你可能希望它会查找并导入包的所有子模块 ， 但事实并非如此 。 因为这将花费很长的时间 ， 并且可能会产生你不想要的副作用",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0054",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为\"库参考\" ）里另外描述。 一些模块是内嵌到解释器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调用提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如， winreg 模块只在 Windows 系统上提供。一个特别值得注意的模块 sys ，它被内嵌到每一个 Python 解释器中。 sys.ps1 和 sys.ps2 变量定义了一些字符，它们可以用作主提示符和辅助提示符:",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.2. 标准模块 ¶"
+          ],
+          "order": 53,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0054",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0054",
+          "textHash": "sha256_df48d16e93554e872465f5bf64fed7af",
+          "textQuote": "Python 自带一个标准模块的库，它在 Python 库参考（此处以下称为\"库参考\" ）里另外描述。 一些模块是内嵌到解释器里面的， 它们给一些虽并非语言核心但却内嵌的操作提供接口，要么是为了效率，要么是给操作系统基础操作例如系统调用提供接口。 这些模块集是一个配置选项， 并且还依赖于底层的操作系统。 例如， winreg 模块只在 Windows 系统上提供。一个特别值得注意的模块 sys ，它被内嵌到每一个 Python 解释器中"
+        }
+      ],
+      "text": "Python 自带一个标准模块的库 ， 它在 Python 库参考 （ 此处以下称为 \" 库参考 \" ） 里另外描述 。 一些模块是内嵌到解释器里面的 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0006",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0006"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0006",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "退出 Python 解释器后，再次进入时，之前在 Python 解释器中定义的函数和变量就丢失了。因此，编写较长程序时，最好用文本编辑器代替解释器，执行文件中的输入内容，这就是编写 脚本 。随着程序越来越长，为了方便维护，最好把脚本拆分成多个文件。编写脚本还有一个好处，不同程序调用同一个函数时，不用把函数定义复制到各个程序。",
+          "headingPath": [
+            "6. 模块 ¶"
+          ],
+          "order": 5,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0006",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0006",
+          "textHash": "sha256_3842ca6d63d18e1f5e127e9ac66b404b",
+          "textQuote": "退出 Python 解释器后，再次进入时，之前在 Python 解释器中定义的函数和变量就丢失了。因此，编写较长程序时，最好用文本编辑器代替解释器，执行文件中的输入内容，这就是编写 脚本 。随着程序越来越长，为了方便维护，最好把脚本拆分成多个文件。编写脚本还有一个好处，不同程序调用同一个函数时，不用把函数定义复制到各个程序。"
+        }
+      ],
+      "text": "退出 Python 解释器后 ， 再次进入时 ， 之前在 Python 解释器中定义的函数和变量就丢失了 。 因此 ， 编写较长程序时 ， 最好用文本编辑器代替解释器 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0099",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "包还支持一个特殊的属性， __path__ 。 在执行该文件中的代码之前，它被初始化为字符串的 sequence ，其中包含包的 __init__.py 的目录名称。这个变量可以修改；修改后会影响今后对模块和包中包含的子包的搜索。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.3. 多目录中的包 ¶"
+          ],
+          "order": 98,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0099",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0099",
+          "textHash": "sha256_6a1aec22c328174b64dc34f7b1d24103",
+          "textQuote": "包还支持一个特殊的属性， __path__ 。 在执行该文件中的代码之前，它被初始化为字符串的 sequence ，其中包含包的 __init__.py 的目录名称。这个变量可以修改；修改后会影响今后对模块和包中包含的子包的搜索。"
+        }
+      ],
+      "text": "包还支持一个特殊的属性 ， __path__ 。 在执行该文件中的代码之前 ， 它被初始化为字符串的 sequence ， 其中包含包的 __init__ . py 的目录名称 。 这个变量可以修改",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0070",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "需要有 __init__.py 文件才能让 Python 将包含该文件的目录当作包来处理（除非使用 namespace package ，这是一个相对高级的特性）。 这可以防止重名的目录如 string 在无意中屏蔽后继出现在模块搜索路径中的有效模块。 在最简单的情况下， __init__.py 可以只是一个空文件，但它也可以执行包的初始化代码或设置 __all__ 变量，这将在稍后详细描述。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶"
+          ],
+          "order": 69,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0070",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0070",
+          "textHash": "sha256_73a77fa035a45b177a51601280f6502e",
+          "textQuote": "需要有 __init__.py 文件才能让 Python 将包含该文件的目录当作包来处理（除非使用 namespace package ，这是一个相对高级的特性）。 这可以防止重名的目录如 string 在无意中屏蔽后继出现在模块搜索路径中的有效模块。 在最简单的情况下， __init__.py 可以只是一个空文件，但它也可以执行包的初始化代码或设置 __all__ 变量，这将在稍后详细描述。"
+        }
+      ],
+      "text": "需要有 __init__ . py 文件才能让 Python 将包含该文件的目录当作包来处理 （ 除非使用 namespace package ， 这是一个相对高级的特性 ） 。 这可以防止重名的目录如",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0092",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0092"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0092",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "在本例中， echo 和 surround 模块被导入到当前命名空间，因为在执行 from...import 语句时它们已在 sound.effects 包中定义了。 （当定义了 __all__ 时也是如此）。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.1. 从包中导入 * ¶"
+          ],
+          "order": 91,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0092",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0092",
+          "textHash": "sha256_2da28e694de2114dc75f3b71a75d5427",
+          "textQuote": "在本例中， echo 和 surround 模块被导入到当前命名空间，因为在执行 from...import 语句时它们已在 sound.effects 包中定义了。 （当定义了 __all__ 时也是如此）。"
+        }
+      ],
+      "text": "在本例中 ， echo 和 surround 模块被导入到当前命名空间 ， 因为在执行 from . . . import 语句时它们已在 sound .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0017",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0017"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0017",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "模块可以导入其他模块。 根据惯例可以将所有 import 语句都放在模块（或者也可以说是脚本）的开头但这并非强制要求。 如果被放置于一个模块的最高层级，则被导入的模块名称会被添加到该模块的全局命名空间。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶"
+          ],
+          "order": 16,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0017",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0017",
+          "textHash": "sha256_7e402139dfe6a54176d3ae5b3f3d12d3",
+          "textQuote": "模块可以导入其他模块。 根据惯例可以将所有 import 语句都放在模块（或者也可以说是脚本）的开头但这并非强制要求。 如果被放置于一个模块的最高层级，则被导入的模块名称会被添加到该模块的全局命名空间。"
+        }
+      ],
+      "text": "模块可以导入其他模块 。 根据惯例可以将所有 import 语句都放在模块 （ 或者也可以说是脚本 ） 的开头但这并非强制要求 。 如果被放置于一个模块的最高层级 ， 则被导入的模块名称会被添加到该模块的全局命名空间 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0085",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0085"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0085",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "唯一的解决办法是提供包的显式索引。 import 语句使用如下惯例：如果包的 __init__.py 代码定义了列表 __all__ ，运行 from package import * 时，它就是被导入的模块名列表。发布包的新版本时，包的作者应更新此列表。如果包的作者认为没有必要在包中执行导入 * 操作，也可以不提供此列表。例如， sound/effects/__init__.py 文件可以包含以下代码：",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.1. 从包中导入 * ¶"
+          ],
+          "order": 84,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0085",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0085",
+          "textHash": "sha256_b02586572159a6a085c7cad74b7189ec",
+          "textQuote": "唯一的解决办法是提供包的显式索引。 import 语句使用如下惯例：如果包的 __init__.py 代码定义了列表 __all__ ，运行 from package import * 时，它就是被导入的模块名列表。发布包的新版本时，包的作者应更新此列表。如果包的作者认为没有必要在包中执行导入 * 操作，也可以不提供此列表。例如， sound/effects/__init__.py 文件可以包含以下代码："
+        }
+      ],
+      "text": "唯一的解决办法是提供包的显式索引 。 import 语句使用如下惯例 ： 如果包的 __init__ . py 代码定义了列表 __all__ ， 运行 from package import",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0098",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0098"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0098",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "需要注意的是，相对导入是基于当前模块所属包的名称进行的。由于主模块（即直接运行的脚本）没有所属包，因此那些打算作为 Python 应用程序主模块使用的模块，必须始终使用绝对导入。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.2. 相对导入 ¶"
+          ],
+          "order": 97,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0098",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0098",
+          "textHash": "sha256_3723e145da386e9f838c0793ca3ee9d9",
+          "textQuote": "需要注意的是，相对导入是基于当前模块所属包的名称进行的。由于主模块（即直接运行的脚本）没有所属包，因此那些打算作为 Python 应用程序主模块使用的模块，必须始终使用绝对导入。"
+        }
+      ],
+      "text": "需要注意的是 ， 相对导入是基于当前模块所属包的名称进行的 。 由于主模块 （ 即直接运行的脚本 ） 没有所属包 ， 因此那些打算作为 Python 应用程序主模块使用的模块 ， 必须始终使用绝对导入 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0094",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "记住，使用 from package import specific_submodule 没有任何问题！ 实际上，除了导入模块使用不同包的同名子模块之外，这种方式是推荐用法。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.4. 包 ¶",
+            "6.4.1. 从包中导入 * ¶"
+          ],
+          "order": 93,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0094",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0094",
+          "textHash": "sha256_c0c69b3a29de72704f85cd23b3b99bf1",
+          "textQuote": "记住，使用 from package import specific_submodule 没有任何问题！ 实际上，除了导入模块使用不同包的同名子模块之外，这种方式是推荐用法。"
+        }
+      ],
+      "text": "记住 ， 使用 from package import specific_submodule 没有任何问题 ！ 实际上 ， 除了导入模块使用不同包的同名子模块之外 ， 这种方式是推荐用法 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0048",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "Python 对比编译版与源码的修改日期，查看编译版是否已过期，是否要重新编译。此进程完全是自动的。此外，编译模块与平台无关，因此，可在不同架构的系统之间共享相同的库。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶",
+            "6.1.3. “已编译的” Python 文件 ¶"
+          ],
+          "order": 47,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0048",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0048",
+          "textHash": "sha256_fe724b6888c31bd30f89378b8f78c561",
+          "textQuote": "Python 对比编译版与源码的修改日期，查看编译版是否已过期，是否要重新编译。此进程完全是自动的。此外，编译模块与平台无关，因此，可在不同架构的系统之间共享相同的库。"
+        }
+      ],
+      "text": "Python 对比编译版与源码的修改日期 ， 查看编译版是否已过期 ， 是否要重新编译 。 此进程完全是自动的 。 此外 ， 编译模块与平台无关 ， 因此 ， 可在不同架构的系统之间共享相同的库",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0015",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0015"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0015",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 import 语句 第一次 遇到模块名时执行。 [ 1 ] (文件作为脚本运行时，也会执行这些语句。)",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶"
+          ],
+          "order": 14,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0015",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0015",
+          "textHash": "sha256_25785f7f36c451cf929a26a6232404df",
+          "textQuote": "模块包含可执行语句及函数定义。这些语句用于初始化模块，且仅在 import 语句 第一次 遇到模块名时执行。 [ 1 ] (文件作为脚本运行时，也会执行这些语句。)"
+        }
+      ],
+      "text": "模块包含可执行语句及函数定义 。 这些语句用于初始化模块 ， 且仅在 import 语句 第一次 遇到模块名时执行 。 [ 1 ] ( 文件作为脚本运行时 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.81,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0050",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "在 Python 命令中使用 -O 或 -OO 开关，可以减小编译模块的大小。 -O 去除断言语句， -OO 去除断言语句和 __doc__ 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的”模块带有 opt- 标签，并且文件通常会小一些。将来的发行版或许会改进优化的效果。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶",
+            "6.1.3. “已编译的” Python 文件 ¶"
+          ],
+          "order": 49,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0050",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0050",
+          "textHash": "sha256_a092c25b26650e6218ecb5d50677a54e",
+          "textQuote": "在 Python 命令中使用 -O 或 -OO 开关，可以减小编译模块的大小。 -O 去除断言语句， -OO 去除断言语句和 __doc__ 字符串。有些程序可能依赖于这些内容，因此，没有十足的把握，不要使用这两个选项。“优化过的”模块带有 opt- 标签，并且文件通常会小一些。将来的发行版或许会改进优化的效果。"
+        }
+      ],
+      "text": "在 Python 命令中使用 - O 或 - OO 开关 ， 可以减小编译模块的大小 。 - O 去除断言语句 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_zh_005_python_tutorial_modules_0023",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_005_python_tutorial_modules_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_005_python_tutorial_modules_0023"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_005_python_tutorial_modules_0023",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_005_python_tutorial_modules_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_56a36654d0af1f18dcce9a90858086290e16852951a6ac89a8de40fe99bdf5bb",
+          "fallbackText": "这种方式会导入所有不以下划线 ( _ ) 开头的名称。 大多数情况下，不要用这个功能，这种方式向解释器导入了一批未知的名称，可能会覆盖已经定义的名称。",
+          "headingPath": [
+            "6. 模块 ¶",
+            "6.1. 模块详解 ¶"
+          ],
+          "order": 22,
+          "pageId": "page_zh_005_python_tutorial_modules",
+          "paragraphId": "pg_page_zh_005_python_tutorial_modules_0023",
+          "sourceRefId": "src_page_zh_005_python_tutorial_modules_0023",
+          "textHash": "sha256_aa3eb1da07a860a4adc1b3859175a030",
+          "textQuote": "这种方式会导入所有不以下划线 ( _ ) 开头的名称。 大多数情况下，不要用这个功能，这种方式向解释器导入了一批未知的名称，可能会覆盖已经定义的名称。"
+        }
+      ],
+      "text": "这种方式会导入所有不以下划线 ( _ ) 开头的名称 。 大多数情况下 ， 不要用这个功能 ， 这种方式向解释器导入了一批未知的名称 ， 可能会覆盖已经定义的名称 。",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_zh_005_python_tutorial_modules",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.118,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "假设要为统一处理声音文件与声音数据设计一个模块集 （ “ 包 ” ） 。 声音文件的格式很多 ( 通常以扩展名来识别 ， 例如 . wav ， .",
+      "每个模块都有它自己的私有符号表 ， 该表被定义在该模块里的所有函数当作全局符号表使用 。 因此 ， 一个模块的作者可以在模块内放心使用全局变量 ， 而不必担心它们会和模块使用者的全局变量发生意外冲突 。 另一方面 ， 如果您知道自己在做什么 ， 您可以使用与引用模块函数相同的语法去访问一个模块的全局变量 ，",
+      "Python 在两种情况下不检查缓存 。 一 ， 从命令行直接载入的模块 ， 每次都会重新编译 ， 且不储存编译结果 ； 二 ， 没有源模块 ， 就不会检查缓存",
+      "初始化后 ， Python 程序可以更改 sys . path 。 脚本所在的目录先于标准库所在的路径被搜索 。 这意味着 ， 脚本所在的目录如果有和标准库同名的文件 ， 那么加载的是该目录里的 ，",
+      "使用 from sound . effects import * 时会发生什么 ？ 你可能希望它会查找并导入包的所有子模块 ， 但事实并非如此 。 因为这将花费很长的时间 ， 并且可能会产生你不想要的副作用"
+    ],
+    "tldr": "假设要为统一处理声音文件与声音数据设计一个模块集 （ “ 包 ” ） 。 声音文件的格式很多 ( 通常以扩展名来识别 ， 例如 . wav ， ."
+  }
+}

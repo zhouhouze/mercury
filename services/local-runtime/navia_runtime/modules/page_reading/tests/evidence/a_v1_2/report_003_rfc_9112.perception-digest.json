@@ -1,0 +1,650 @@
+{
+  "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+  "digestId": "digest_page_report_003_rfc_9112",
+  "items": [
+    {
+      "confidence": 0.851,
+      "importance": 0.9,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0120",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0120"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0120",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Although the request-line grammar rule requires that each of the component elements be separated by a single SP octet, recipients MAY instead parse on whitespace-delimited word boundaries and, aside from the CRLF terminator, treat any form of whitespace as the SP separator while ignoring preceding or trailing whitespace; such whitespace includes one or more ",
+          "headingPath": [
+            "HTTP/1.1",
+            "3. Request Line"
+          ],
+          "order": 119,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0120",
+          "sourceRefId": "src_page_report_003_rfc_9112_0120",
+          "textHash": "sha256_76c0e5558b697bf1f8300448ddabdbc3",
+          "textQuote": "Although the request-line grammar rule requires that each of the component elements be separated by a single SP octet, recipients MAY instead parse on whitespace-delimited word boundaries and, aside from the CRLF termina"
+        }
+      ],
+      "text": "Although the request - line grammar rule requires that each of the component elements be separated",
+      "warnings": []
+    },
+    {
+      "confidence": 0.845,
+      "importance": 0.883,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0091",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0091",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "The following core rules are included by reference, as defined in [ RFC5234 ], Appendix B.1 : ALPHA (letters), CR (carriage return), CRLF (CR LF), CTL (controls), DIGIT (decimal 0-9), DQUOTE (double quote), HEXDIG (hexadecimal 0-9/A-F/a-f), HTAB (horizontal tab), LF (line feed), OCTET (any 8-bit sequence of data), SP (space), and VCHAR (any visible [ USASCII",
+          "headingPath": [
+            "HTTP/1.1",
+            "1. Introduction",
+            "1.2. Syntax Notation"
+          ],
+          "order": 90,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0091",
+          "sourceRefId": "src_page_report_003_rfc_9112_0091",
+          "textHash": "sha256_f3b031c86e35fbfe2e5ee7380f97f262",
+          "textQuote": "The following core rules are included by reference, as defined in [ RFC5234 ], Appendix B.1 : ALPHA (letters), CR (carriage return), CRLF (CR LF), CTL (controls), DIGIT (decimal 0-9), DQUOTE (double quote), HEXDIG (hexad"
+        }
+      ],
+      "text": "The following core rules are included by reference , as defined in [ RFC5234 ] ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.84,
+      "importance": 0.871,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0104",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0104"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0104",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "A recipient MUST parse an HTTP message as a sequence of octets in an encoding that is a superset of US-ASCII [ USASCII ] . Parsing an HTTP message as a stream of Unicode characters, without regard for the specific encoding, creates security vulnerabilities due to the varying ways that string processing libraries handle invalid multibyte character sequences t",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.2. Message Parsing"
+          ],
+          "order": 103,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0104",
+          "sourceRefId": "src_page_report_003_rfc_9112_0104",
+          "textHash": "sha256_5254504867466173e905e23ce8065388",
+          "textQuote": "A recipient MUST parse an HTTP message as a sequence of octets in an encoding that is a superset of US-ASCII [ USASCII ] . Parsing an HTTP message as a stream of Unicode characters, without regard for the specific encodi"
+        }
+      ],
+      "text": "A recipient MUST parse an HTTP message as a sequence of octets in an encoding that",
+      "warnings": []
+    },
+    {
+      "confidence": 0.836,
+      "importance": 0.861,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0110",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0110"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0110",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "A recipient that receives whitespace between the start-line and the first header field MUST either reject the message as invalid or consume each whitespace-preceded line without further processing of it (i.e., ignore the entire line, along with any subsequent lines preceded by whitespace, until a properly formed header field is received or the header section",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.2. Message Parsing"
+          ],
+          "order": 109,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0110",
+          "sourceRefId": "src_page_report_003_rfc_9112_0110",
+          "textHash": "sha256_214d4d3450c83c8f86fae9400ba2cbe1",
+          "textQuote": "A recipient that receives whitespace between the start-line and the first header field MUST either reject the message as invalid or consume each whitespace-preceded line without further processing of it (i.e., ignore the"
+        }
+      ],
+      "text": "A recipient that receives whitespace between the start - line and the first header field MUST",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0008",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0008"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0008",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these documents carefully, as they describe your rights and restrictions with respect to this document. Code Components extracted from this document ",
+          "headingPath": [
+            "HTTP/1.1",
+            "Copyright Notice"
+          ],
+          "order": 7,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0008",
+          "sourceRefId": "src_page_report_003_rfc_9112_0008",
+          "textHash": "sha256_b97182746bc70e601f25900bc1a0d323",
+          "textQuote": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these doc"
+        }
+      ],
+      "text": "This document is subject to BCP 78 and the IETF Trust ' s Legal Provisions Relating",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0089",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "It also uses a list extension, defined in Section 5.6.1 of [ HTTP ] , that allows for compact definition of comma-separated lists using a \"#\" operator (similar to how the \"*\" operator indicates repetition). Appendix A shows the collected grammar with all list operators expanded to standard ABNF notation. ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "1. Introduction",
+            "1.2. Syntax Notation"
+          ],
+          "order": 88,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0089",
+          "sourceRefId": "src_page_report_003_rfc_9112_0089",
+          "textHash": "sha256_b535bb6e5e2f0735b4744e0a1968cf21",
+          "textQuote": "It also uses a list extension, defined in Section 5.6.1 of [ HTTP ] , that allows for compact definition of comma-separated lists using a \"#\" operator (similar to how the \"*\" operator indicates repetition). Appendix A sh"
+        }
+      ],
+      "text": "It also uses a list extension , defined in Section 5 . 6 . 1 of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0116",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0116"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0116",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Intermediaries that process HTTP messages (i.e., all intermediaries other than those acting as tunnels) MUST send their own HTTP-version in forwarded messages, unless it is purposefully downgraded as a workaround for an upstream issue. In other words, an intermediary is not allowed to blindly forward the start-line without ensuring that the protocol version ",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.3. HTTP Version"
+          ],
+          "order": 115,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0116",
+          "sourceRefId": "src_page_report_003_rfc_9112_0116",
+          "textHash": "sha256_04969c44463fd10af225ebb73919f7c0",
+          "textQuote": "Intermediaries that process HTTP messages (i.e., all intermediaries other than those acting as tunnels) MUST send their own HTTP-version in forwarded messages, unless it is purposefully downgraded as a workaround for an "
+        }
+      ],
+      "text": "Intermediaries that process HTTP messages ( i . e . , all intermediaries other than those",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0006",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0006"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0006",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9112 . ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "Status of This Memo"
+          ],
+          "order": 5,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0006",
+          "sourceRefId": "src_page_report_003_rfc_9112_0006",
+          "textHash": "sha256_e5bab11d9d6371915b5daf00995b83b9",
+          "textQuote": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9112 . ¶"
+        }
+      ],
+      "text": "Information about the current status of this document , any errata , and how to provide",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0111",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0111"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0111",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "When a server listening only for HTTP request messages, or processing what appears from the start-line to be an HTTP request message, receives a sequence of octets that does not match the HTTP-message grammar aside from the robustness exceptions listed above, the server SHOULD respond with a 400 (Bad Request) response and close the connection. ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.2. Message Parsing"
+          ],
+          "order": 110,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0111",
+          "sourceRefId": "src_page_report_003_rfc_9112_0111",
+          "textHash": "sha256_aaf0734f43f5b185df5fad649a06c799",
+          "textQuote": "When a server listening only for HTTP request messages, or processing what appears from the start-line to be an HTTP request message, receives a sequence of octets that does not match the HTTP-message grammar aside from "
+        }
+      ],
+      "text": "When a server listening only for HTTP request messages , or processing what appears from the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0117",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0117"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0117",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "A server MAY send an HTTP/1.0 response to an HTTP/1.1 request if it is known or suspected that the client incorrectly implements the HTTP specification and is incapable of correctly processing later version responses, such as when a client fails to parse the version number correctly or when an intermediary is known to blindly forward the HTTP-version even wh",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.3. HTTP Version"
+          ],
+          "order": 116,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0117",
+          "sourceRefId": "src_page_report_003_rfc_9112_0117",
+          "textHash": "sha256_6b424108ad04121f4a598396fdbe7dff",
+          "textQuote": "A server MAY send an HTTP/1.0 response to an HTTP/1.1 request if it is known or suspected that the client incorrectly implements the HTTP specification and is incapable of correctly processing later version responses, su"
+        }
+      ],
+      "text": "A server MAY send an HTTP / 1 . 0 response to an HTTP / 1",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0081",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "The Hypertext Transfer Protocol (HTTP) is a stateless application-level request/response protocol that uses extensible semantics and self-descriptive messages for flexible interaction with network-based hypertext information systems. HTTP/1.1 is defined by: ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "1. Introduction"
+          ],
+          "order": 80,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0081",
+          "sourceRefId": "src_page_report_003_rfc_9112_0081",
+          "textHash": "sha256_ca22d5e56107f2a207f524663c8926c6",
+          "textQuote": "The Hypertext Transfer Protocol (HTTP) is a stateless application-level request/response protocol that uses extensible semantics and self-descriptive messages for flexible interaction with network-based hypertext informa"
+        }
+      ],
+      "text": "The Hypertext Transfer Protocol ( HTTP ) is a stateless application - level request / response",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0090",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0090"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0090",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "As a convention, ABNF rule names prefixed with \"obs-\" denote obsolete grammar rules that appear for historical reasons. ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "1. Introduction",
+            "1.2. Syntax Notation"
+          ],
+          "order": 89,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0090",
+          "sourceRefId": "src_page_report_003_rfc_9112_0090",
+          "textHash": "sha256_489abefe4477edff3f832f87928b9609",
+          "textQuote": "As a convention, ABNF rule names prefixed with \"obs-\" denote obsolete grammar rules that appear for historical reasons. ¶"
+        }
+      ],
+      "text": "As a convention , ABNF rule names prefixed with \" obs - \" denote obsolete grammar",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.823,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0115",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0115"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0115",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "When an HTTP/1.1 message is sent to an HTTP/1.0 recipient [ HTTP/1.0 ] or a recipient whose version is unknown, the HTTP/1.1 message is constructed such that it can be interpreted as a valid HTTP/1.0 message if all of the newer features are ignored. This specification places recipient-version requirements on some new features so that a conformant sender will",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.3. HTTP Version"
+          ],
+          "order": 114,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0115",
+          "sourceRefId": "src_page_report_003_rfc_9112_0115",
+          "textHash": "sha256_3cf6eb9284f2e89f76d8a87e1d9dd620",
+          "textQuote": "When an HTTP/1.1 message is sent to an HTTP/1.0 recipient [ HTTP/1.0 ] or a recipient whose version is unknown, the HTTP/1.1 message is constructed such that it can be interpreted as a valid HTTP/1.0 message if all of th"
+        }
+      ],
+      "text": "When an HTTP / 1 . 1 message is sent to an HTTP / 1 .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.823,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0128",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0128"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0128",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Recipients of an invalid request-line SHOULD respond with either a 400 (Bad Request) error or a 301 (Moved Permanently) redirect with the request-target properly encoded. A recipient SHOULD NOT attempt to autocorrect and then process the request without a redirect, since the invalid request-line might be deliberately crafted to bypass security filters along ",
+          "headingPath": [
+            "HTTP/1.1",
+            "3. Request Line",
+            "3.2. Request Target"
+          ],
+          "order": 127,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0128",
+          "sourceRefId": "src_page_report_003_rfc_9112_0128",
+          "textHash": "sha256_35d0b4fee9e8c3de4b514cb2b02c5788",
+          "textQuote": "Recipients of an invalid request-line SHOULD respond with either a 400 (Bad Request) error or a 301 (Moved Permanently) redirect with the request-target properly encoded. A recipient SHOULD NOT attempt to autocorrect and"
+        }
+      ],
+      "text": "Recipients of an invalid request - line SHOULD respond with either a 400 ( Bad Request",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0005",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "This document is a product of the Internet Engineering Task Force (IETF). It represents the consensus of the IETF community. It has received public review and has been approved for publication by the Internet Engineering Steering Group (IESG). Further information on Internet Standards is available in Section 2 of RFC 7841. ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "Status of This Memo"
+          ],
+          "order": 4,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0005",
+          "sourceRefId": "src_page_report_003_rfc_9112_0005",
+          "textHash": "sha256_44b8f6aade35a31e4aebac9ba789c7b6",
+          "textQuote": "This document is a product of the Internet Engineering Task Force (IETF). It represents the consensus of the IETF community. It has received public review and has been approved for publication by the Internet Engineering"
+        }
+      ],
+      "text": "This document is a product of the Internet Engineering Task Force ( IETF ) . It",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0107",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Older HTTP/1.0 user agent implementations might send an extra CRLF after a POST request as a workaround for some early server applications that failed to read message body content that was not terminated by a line-ending. An HTTP/1.1 user agent MUST NOT preface or follow a request with an extra CRLF. If terminating the request message body with a line-ending",
+          "headingPath": [
+            "HTTP/1.1",
+            "2. Message",
+            "2.2. Message Parsing"
+          ],
+          "order": 106,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0107",
+          "sourceRefId": "src_page_report_003_rfc_9112_0107",
+          "textHash": "sha256_6240ce7672f5057bc81998217bb49c72",
+          "textQuote": "Older HTTP/1.0 user agent implementations might send an extra CRLF after a POST request as a workaround for some early server applications that failed to read message body content that was not terminated by a line-ending"
+        }
+      ],
+      "text": "Older HTTP / 1 . 0 user agent implementations might send an extra CRLF after a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0087",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0087"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0087",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "Conformance criteria and considerations regarding error handling are defined in Section 2 of [ HTTP ] . ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "1. Introduction",
+            "1.1. Requirements Notation"
+          ],
+          "order": 86,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0087",
+          "sourceRefId": "src_page_report_003_rfc_9112_0087",
+          "textHash": "sha256_153034d4b29a502f3b90daeefee02b80",
+          "textQuote": "Conformance criteria and considerations regarding error handling are defined in Section 2 of [ HTTP ] . ¶"
+        }
+      ],
+      "text": "Conformance criteria and considerations regarding error handling are defined in Section 2 of [ HTTP ]",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_report_003_rfc_9112_0124",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_report_003_rfc_9112_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_003_rfc_9112_0124"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_003_rfc_9112_0124",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_report_003_rfc_9112_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_e08f2de4ac11f888c4c58b5691b83c225b8a87d91585a86b14a35c9072e4efa3",
+          "fallbackText": "The request methods defined by this specification can be found in Section 9 of [ HTTP ] , along with information regarding the HTTP method registry and considerations for defining new methods. ¶",
+          "headingPath": [
+            "HTTP/1.1",
+            "3. Request Line",
+            "3.1. Method"
+          ],
+          "order": 123,
+          "pageId": "page_report_003_rfc_9112",
+          "paragraphId": "pg_page_report_003_rfc_9112_0124",
+          "sourceRefId": "src_page_report_003_rfc_9112_0124",
+          "textHash": "sha256_52dfccec882a2d3d526cb8005b4d6cd8",
+          "textQuote": "The request methods defined by this specification can be found in Section 9 of [ HTTP ] , along with information regarding the HTTP method registry and considerations for defining new methods. ¶"
+        }
+      ],
+      "text": "The request methods defined by this specification can be found in Section 9 of [ HTTP",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_report_003_rfc_9112",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.074,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Although the request - line grammar rule requires that each of the component elements be separated",
+      "The following core rules are included by reference , as defined in [ RFC5234 ] ,",
+      "A recipient MUST parse an HTTP message as a sequence of octets in an encoding that",
+      "A recipient that receives whitespace between the start - line and the first header field MUST",
+      "This document is subject to BCP 78 and the IETF Trust ' s Legal Provisions Relating"
+    ],
+    "tldr": "Although the request - line grammar rule requires that each of the component elements be separated"
+  }
+}

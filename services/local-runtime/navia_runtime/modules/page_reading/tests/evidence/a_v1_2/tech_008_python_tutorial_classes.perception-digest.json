@@ -1,0 +1,638 @@
+{
+  "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+  "digestId": "digest_page_tech_008_python_tutorial_classes",
+  "items": [
+    {
+      "confidence": 0.843,
+      "importance": 0.878,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0044",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0044"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0044",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "It is important to realize that scopes are determined textually: the global scope of a function defined in a module is that module’s namespace, no matter from where or by what alias the function is called. On the other hand, the actual search for names is done dynamically, at run time — however, the language definition is evolving towards static name resolut",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.2. Python Scopes and Namespaces ¶"
+          ],
+          "order": 43,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0044",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0044",
+          "textHash": "sha256_65394a4a4e93e02b1af4c3e9e2b3d556",
+          "textQuote": "It is important to realize that scopes are determined textually: the global scope of a function defined in a module is that module’s namespace, no matter from where or by what alias the function is called. On the other h"
+        }
+      ],
+      "text": "It is important to realize that scopes are determined textually : the global scope of a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.877,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0133",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0026"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0133"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0133",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0026",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "This style of access is clear, concise, and convenient. The use of iterators pervades and unifies Python. Behind the scenes, the for statement calls iter() on the container object. The function returns an iterator object that defines the method __next__() which accesses elements in the container one at a time. When there are no more elements, __next__() rais",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.8. Iterators ¶"
+          ],
+          "order": 132,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0133",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0133",
+          "textHash": "sha256_4aeafaafe6c1b61abbf9f43c5937f9ed",
+          "textQuote": "This style of access is clear, concise, and convenient. The use of iterators pervades and unifies Python. Behind the scenes, the for statement calls iter() on the container object. The function returns an iterator object"
+        }
+      ],
+      "text": "This style of access is clear , concise , and convenient . The use of iterators",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.877,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0144",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0028"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0144"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0144",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0028",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Some simple generators can be coded succinctly as expressions using a syntax similar to list comprehensions but with parentheses instead of square brackets. These expressions are designed for situations where the generator is used right away by an enclosing function. Generator expressions are more compact but less versatile than full generator definitions an",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.10. Generator Expressions ¶"
+          ],
+          "order": 143,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0144",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0144",
+          "textHash": "sha256_d24d57b776fac7c79d6769c7ea75826c",
+          "textQuote": "Some simple generators can be coded succinctly as expressions using a syntax similar to list comprehensions but with parentheses instead of square brackets. These expressions are designed for situations where the generat"
+        }
+      ],
+      "text": "Some simple generators can be coded succinctly as expressions using a syntax similar to list comprehensions",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0118",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0022"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0118"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0118",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0022",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. _spam ) should be treated as a non-public part of the API (whether it is a function, a method or a data member). It should be considered an imple",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.6. Private Variables ¶"
+          ],
+          "order": 117,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0118",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0118",
+          "textHash": "sha256_da0f045f68863db46ebed99e8cc73c4f",
+          "textQuote": "“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. _spam"
+        }
+      ],
+      "text": "“ Private ” instance variables that cannot be accessed except from inside an object don ’",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0138",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0027"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0138"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0138",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0027",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Generators are a simple and powerful tool for creating iterators. They are written like regular functions but use the yield statement whenever they want to return data. Each time next() is called on it, the generator resumes where it left off (it remembers all the data values and which statement was last executed). An example shows that generators can be tri",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.9. Generators ¶"
+          ],
+          "order": 137,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0138",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0138",
+          "textHash": "sha256_a19446803cca5d5d96cd8cbf2ce92507",
+          "textQuote": "Generators are a simple and powerful tool for creating iterators. They are written like regular functions but use the yield statement whenever they want to return data. Each time next() is called on it, the generator res"
+        }
+      ],
+      "text": "Generators are a simple and powerful tool for creating iterators . They are written like regular",
+      "warnings": []
+    },
+    {
+      "confidence": 0.836,
+      "importance": 0.862,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0091",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0091",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Data attributes may be referenced by methods as well as by ordinary users (“clients”) of an object. In other words, classes are not usable to implement pure abstract data types. In fact, nothing in Python makes it possible to enforce data hiding — it is all based upon convention. (On the other hand, the Python implementation, written in C, can completely hid",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.4. Random Remarks ¶"
+          ],
+          "order": 90,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0091",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0091",
+          "textHash": "sha256_c98598feab21c57e51d5babcd36a224a",
+          "textQuote": "Data attributes may be referenced by methods as well as by ordinary users (“clients”) of an object. In other words, classes are not usable to implement pure abstract data types. In fact, nothing in Python makes it possib"
+        }
+      ],
+      "text": "Data attributes may be referenced by methods as well as by ordinary users ( “ clients",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0026",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0026"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0026",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "In C++ terminology, normally class members (including the data members) are public (except see below Private Variables ), and all member functions are virtual . As in Modula-3, there are no shorthands for referencing the object’s members from its methods: the method function is declared with an explicit first argument representing the object, which is provid",
+          "headingPath": [
+            "9. Classes ¶"
+          ],
+          "order": 25,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0026",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0026",
+          "textHash": "sha256_440b75414fb58e4f43ebe9fcfe591e80",
+          "textQuote": "In C++ terminology, normally class members (including the data members) are public (except see below Private Variables ), and all member functions are virtual . As in Modula-3, there are no shorthands for referencing the"
+        }
+      ],
+      "text": "In C + + terminology , normally class members ( including the data members ) are",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.858,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0119",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0023"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0119"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0119",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0023",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Since there is a valid use-case for class-private members (namely to avoid name clashes of names with names defined by subclasses), there is limited support for such a mechanism, called name mangling . Any identifier of the form __spam (at least two leading underscores, at most one trailing underscore) is textually replaced with _classname__spam , where clas",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.6. Private Variables ¶"
+          ],
+          "order": 118,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0119",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0119",
+          "textHash": "sha256_17a77a664598efb99eded96bed25df81",
+          "textQuote": "Since there is a valid use-case for class-private members (namely to avoid name clashes of names with names defined by subclasses), there is limited support for such a mechanism, called name mangling . Any identifier of "
+        }
+      ],
+      "text": "Since there is a valid use - case for class - private members ( namely to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.857,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0143",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0027"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0143"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0143",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0027",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration . In combination, these features make it easy to create iterators with no more effort than writing a regular function.",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.9. Generators ¶"
+          ],
+          "order": 142,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0143",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0143",
+          "textHash": "sha256_fa1fd06cfcd6ef0c9abdd5ed305a27fd",
+          "textQuote": "In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration . In combination, these features make it easy to create iterators with no more effort t"
+        }
+      ],
+      "text": "In addition to automatic method creation and saving program state , when generators terminate , they",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.854,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0045",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0045"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0045",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is true for deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact, all operations th",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.2. Python Scopes and Namespaces ¶"
+          ],
+          "order": 44,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0045",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0045",
+          "textHash": "sha256_fd5d66aff557b9ee85f0e5ae89b5d427",
+          "textQuote": "A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is t"
+        }
+      ],
+      "text": "A special quirk of Python is that – if no global or nonlocal statement is in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.853,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0042",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "If a name is declared global, then all references and assignments go directly to the next-to-last scope containing the module’s global names. To rebind variables found outside of the innermost scope, the nonlocal statement can be used; if not declared nonlocal, those variables are read-only (an attempt to write to such a variable will simply create a new loc",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.2. Python Scopes and Namespaces ¶"
+          ],
+          "order": 41,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0042",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0042",
+          "textHash": "sha256_081020a6561f5262cbb0708b81986db0",
+          "textQuote": "If a name is declared global, then all references and assignments go directly to the next-to-last scope containing the module’s global names. To rebind variables found outside of the innermost scope, the nonlocal stateme"
+        }
+      ],
+      "text": "If a name is declared global , then all references and assignments go directly to the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0029",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0029"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0029",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Before introducing classes, I first have to tell you something about Python’s scope rules. Class definitions play some neat tricks with namespaces, and you need to know how scopes and namespaces work to fully understand what’s going on. Incidentally, knowledge about this subject is useful for any advanced Python programmer.",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.2. Python Scopes and Namespaces ¶"
+          ],
+          "order": 28,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0029",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0029",
+          "textHash": "sha256_0dbfdcf400bea22dfd5521963fc2f49e",
+          "textQuote": "Before introducing classes, I first have to tell you something about Python’s scope rules. Class definitions play some neat tricks with namespaces, and you need to know how scopes and namespaces work to fully understand "
+        }
+      ],
+      "text": "Before introducing classes , I first have to tell you something about Python ’ s scope",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.849,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0028",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0028"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0028",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Objects have individuality, and multiple names (in multiple scopes) can be bound to the same object. This is known as aliasing in other languages. This is usually not appreciated on a first glance at Python, and can be safely ignored when dealing with immutable basic types (numbers, strings, tuples). However, aliasing has a possibly surprising effect on the ",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.1. A Word About Names and Objects ¶"
+          ],
+          "order": 27,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0028",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0028",
+          "textHash": "sha256_fd95b2611f1b236c6779227214874e43",
+          "textQuote": "Objects have individuality, and multiple names (in multiple scopes) can be bound to the same object. This is known as aliasing in other languages. This is usually not appreciated on a first glance at Python, and can be s"
+        }
+      ],
+      "text": "Objects have individuality , and multiple names ( in multiple scopes ) can be bound to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0072",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Data attributes correspond to “instance variables” in Smalltalk, and to “data members” in C++. Data attributes need not be declared; like local variables, they spring into existence when they are first assigned to. For example, if x is the instance of MyClass created above, the following piece of code will print the value 16 , without leaving a trace:",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.3. A First Look at Classes ¶",
+            "9.3.3. Instance Objects ¶"
+          ],
+          "order": 71,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0072",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0072",
+          "textHash": "sha256_d5b4dda6ca4fdfde689a76aebe5b41c6",
+          "textQuote": "Data attributes correspond to “instance variables” in Smalltalk, and to “data members” in C++. Data attributes need not be declared; like local variables, they spring into existence when they are first assigned to. For e"
+        }
+      ],
+      "text": "Data attributes correspond to “ instance variables ” in Smalltalk , and to “ data members",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0025",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0025"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0025",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Compared with other programming languages, Python’s class mechanism adds classes with a minimum of new syntax and semantics. It is a mixture of the class mechanisms found in C++ and Modula-3. Python classes provide all the standard features of Object Oriented Programming: the class inheritance mechanism allows multiple base classes, a derived class can overr",
+          "headingPath": [
+            "9. Classes ¶"
+          ],
+          "order": 24,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0025",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0025",
+          "textHash": "sha256_57b5fe25e35560d760159eba836034d8",
+          "textQuote": "Compared with other programming languages, Python’s class mechanism adds classes with a minimum of new syntax and semantics. It is a mixture of the class mechanisms found in C++ and Modula-3. Python classes provide all t"
+        }
+      ],
+      "text": "Compared with other programming languages , Python ’ s class mechanism adds classes with a minimum",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "In practice, the statements inside a class definition will usually be function definitions, but other statements are allowed, and sometimes useful — we’ll come back to this later. The function definitions inside a class normally have a peculiar form of argument list, dictated by the calling conventions for methods — again, this is explained later.",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.3. A First Look at Classes ¶",
+            "9.3.1. Class Definition Syntax ¶"
+          ],
+          "order": 56,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0057",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0057",
+          "textHash": "sha256_0ec5448ba8e0567e021242e8f14d9cbd",
+          "textQuote": "In practice, the statements inside a class definition will usually be function definitions, but other statements are allowed, and sometimes useful — we’ll come back to this later. The function definitions inside a class "
+        }
+      ],
+      "text": "In practice , the statements inside a class definition will usually be function definitions , but",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0117",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0022"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0117"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0117",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0022",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit one or more diamond relationships (where at least one of the parent classes can be accessed through multiple paths from the bottommost class). For example, all classes inherit from object , so any case of multiple inheritance provides more than one path to reach object . To keep ",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.5. Inheritance ¶",
+            "9.5.1. Multiple Inheritance ¶"
+          ],
+          "order": 116,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0117",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0117",
+          "textHash": "sha256_13c9f57146f19a7dd94a491a839abe42",
+          "textQuote": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit one or more diamond relationships (where at least one of the parent classes can be accessed through multiple paths from the bottommost class"
+        }
+      ],
+      "text": "Dynamic ordering is necessary because all cases of multiple inheritance exhibit one or more diamond relationships",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_tech_008_python_tutorial_classes_0094",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_008_python_tutorial_classes_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_008_python_tutorial_classes_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_008_python_tutorial_classes_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_008_python_tutorial_classes_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_740158b30e595074e3e33d0b456a1a045eb1991060310d13ee20d2c1643c7462",
+          "fallbackText": "Often, the first argument of a method is called self . This is nothing more than a convention: the name self has absolutely no special meaning to Python. Note, however, that by not following the convention your code may be less readable to other Python programmers, and it is also conceivable that a class browser program might be written that relies upon such",
+          "headingPath": [
+            "9. Classes ¶",
+            "9.4. Random Remarks ¶"
+          ],
+          "order": 93,
+          "pageId": "page_tech_008_python_tutorial_classes",
+          "paragraphId": "pg_page_tech_008_python_tutorial_classes_0094",
+          "sourceRefId": "src_page_tech_008_python_tutorial_classes_0094",
+          "textHash": "sha256_4a7b510a3fe44b7fe285b5ce1e28e82e",
+          "textQuote": "Often, the first argument of a method is called self . This is nothing more than a convention: the name self has absolutely no special meaning to Python. Note, however, that by not following the convention your code may "
+        }
+      ],
+      "text": "Often , the first argument of a method is called self . This is nothing more",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_008_python_tutorial_classes",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.048,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "It is important to realize that scopes are determined textually : the global scope of a",
+      "This style of access is clear , concise , and convenient . The use of iterators",
+      "Some simple generators can be coded succinctly as expressions using a syntax similar to list comprehensions",
+      "“ Private ” instance variables that cannot be accessed except from inside an object don ’",
+      "Generators are a simple and powerful tool for creating iterators . They are written like regular"
+    ],
+    "tldr": "It is important to realize that scopes are determined textually : the global scope of a"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+  "pageId": "page_github_006_psf_requests",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_github_006_psf_requests",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_github_006_psf_requests_0001",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_github_006_psf_requests_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+      "fallbackText": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/requests) [![Downloads](https://static.pepy.tech/badge/requests/month)](https://pepy.tech/project/requests) [![Contributors](https://img.shie",
+      "headingPath": [],
+      "order": 0,
+      "pageId": "page_github_006_psf_requests",
+      "paragraphId": "pg_page_github_006_psf_requests_0001",
+      "sourceRefId": "src_page_github_006_psf_requests_0001",
+      "textHash": "sha256_9b386ae9d958dc444d5331e9ae7721f4",
+      "textQuote": "# Requests [![Version](https://img.shields.io/pypi/v/requests.svg?maxAge=86400)](https://pypi.org/project/requests/) [![Supported Versions](https://img.shields.io/pypi/pyversions/requests.svg)](https://pypi.org/project/r"
+    },
+    {
+      "blockId": "block_pg_page_github_006_psf_requests_0002",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_github_006_psf_requests_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+      "fallbackText": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'utf-8' >>> r.text '{\"authenticated\": true, ...' >>> r.json() {'authenticated': True, ...} ``` Requests allows you to send HTTP/1.1 requests e",
+      "headingPath": [],
+      "order": 1,
+      "pageId": "page_github_006_psf_requests",
+      "paragraphId": "pg_page_github_006_psf_requests_0002",
+      "sourceRefId": "src_page_github_006_psf_requests_0002",
+      "textHash": "sha256_2eb82844a3457a5dcaad53cc919e8027",
+      "textQuote": "```python >>> import requests >>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass')) >>> r.status_code 200 >>> r.headers['content-type'] 'application/json; charset=utf8' >>> r.encoding 'u"
+    },
+    {
+      "blockId": "block_pg_page_github_006_psf_requests_0003",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_github_006_psf_requests_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+      "fallbackText": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?package_id=UGFja2FnZS01NzA4OTExNg%3D%3D) by `4,000,000+` repositories. ## Installing Requests and Supported Versions Requests is available on Py",
+      "headingPath": [],
+      "order": 2,
+      "pageId": "page_github_006_psf_requests",
+      "paragraphId": "pg_page_github_006_psf_requests_0003",
+      "sourceRefId": "src_page_github_006_psf_requests_0003",
+      "textHash": "sha256_c3bdd236af6f1676a68e824936219f36",
+      "textQuote": "Requests is one of the most downloaded Python packages today, pulling in around `300M downloads / week` — according to GitHub, Requests is currently [depended upon](https://github.com/psf/requests/network/dependents?pack"
+    },
+    {
+      "blockId": "block_pg_page_github_006_psf_requests_0004",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_github_006_psf_requests_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da9c3a1515af1ce5c3d6e68fc5a96d706b43ade6387cb864508a950d88e460f7",
+      "fallbackText": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Content Decompression and Decoding - Multi-part File Uploads - SOCKS Proxy Support - Connection Timeouts - Streaming Downloads - Automatic honorin",
+      "headingPath": [],
+      "order": 3,
+      "pageId": "page_github_006_psf_requests",
+      "paragraphId": "pg_page_github_006_psf_requests_0004",
+      "sourceRefId": "src_page_github_006_psf_requests_0004",
+      "textHash": "sha256_7cdb0e57e6d48e95ccc08393461f5ac4",
+      "textQuote": "- Keep-Alive & Connection Pooling - International Domains and URLs - Sessions with Cookie Persistence - Browser-style TLS/SSL Verification - Basic & Digest Authentication - Familiar `dict`–like Cookies - Automatic Conten"
+    }
+  ],
+  "status": "pass"
+}

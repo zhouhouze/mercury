@@ -1,0 +1,1622 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_product_008_book_coming_woman"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_product_008_book_coming_woman"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_product_008_book_coming_woman"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_product_008_book_coming_woman"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_product_008_book_coming_woman"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 15,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 2942,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_product_008_book_coming_woman",
+    "pageKey": "page_product_008_book_coming_woman",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+    "digestRef": "digest_page_product_008_book_coming_woman",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0001",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "confidence": 0.787,
+        "contentDensityScore": 0.624,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.751,
+        "noiseScore": 0.12,
+        "order": 0,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0001"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0001",
+            "blockType": "list_item",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0001",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0001",
+            "textHash": "sha256_8431eeddebf4e5f78508e3aa188ef9d9",
+            "textQuote": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+          }
+        ],
+        "text": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0002",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "confidence": 0.777,
+        "contentDensityScore": 0.646,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.742,
+        "noiseScore": 0.18,
+        "order": 1,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0002"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0002",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0002",
+            "textHash": "sha256_90eb75d56829de60d7fd89a62f42ece0",
+            "textQuote": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+          }
+        ],
+        "text": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.788,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "In stock (19 available)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+            ],
+            "order": 2,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0003",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0003",
+            "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+            "textQuote": "In stock (19 available)"
+          }
+        ],
+        "text": "In stock (19 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0004",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0002"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.667,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.789,
+        "noiseScore": 0.08,
+        "order": 3,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0004"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_008_book_coming_woman_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes y",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Description"
+            ],
+            "order": 3,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0004",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0004",
+            "textHash": "sha256_8e9182e560821714154deb1bd694b92b",
+            "textQuote": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take"
+          }
+        ],
+        "text": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes you back with a \"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes you back with a breathtaking, present-tense bird's eye view into a time when women's liberation was primarily confined to one woman's very capable, independent mind. I couldn't put it down.\"---Ruth Buzzi, Golden Globe Award winner and Television Hall of Fame inductee\"Sadly, too many Americans have never heard of Victoria Woodhull, let alone learned of her story: her revolutionary campaign for the presidency at a time when women weren't even allowed to vote, her support for worker's rights, or her feminist commitment to equality, a century before the official battle over the Equal Rights Amendment. But in The Coming Woman, Karen Hicks brings Woodhull's efforts to life, and reminds us that some of our nation's greatest figures aren't always featured in the history books. It is a riveting account of an amazing woman and her struggle for justice and human dignity, told in an engaging and eminently readable style.\"-Tim Wise, author, \"White Like Me: Reflections on Race from a Privileged Son\"\"The Coming Woman\" is a novel based on the life of feminist Victoria Woodhull, the first woman to run for U.S. President, 50 years before women could even vote!Running for President wasn't Victoria's only first as a woman. She was also the first to own a successful Wall Street firm, the first to publish a successful national newspaper, and the first to head the two-million-member Spiritualist Association. She was the first woman to enter the Senate Judiciary Committee chambers to petition for woman's suffrage, her argument changing the entire focus of the suffragist movement by pointing out that the 14th and 15th Amendments already gave women the vote.In her",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0005",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.795,
+        "contentDensityScore": 0.661,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 4,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0005"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "e72a5dfc7e9267b2",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0005",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0005",
+            "textHash": "sha256_062ef843e649a12e95afc4602cf322f6",
+            "textQuote": "e72a5dfc7e9267b2"
+          }
+        ],
+        "text": "e72a5dfc7e9267b2",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0006",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 5,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0006"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0006",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0006",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price (excl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0007",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 6,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0007"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0007",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0007",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price (incl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0008",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 7,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0008"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "In stock (19 available)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0008",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0008",
+            "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+            "textQuote": "In stock (19 available)"
+          }
+        ],
+        "text": "In stock (19 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0009",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 8,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0009"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0009",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 8,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0009",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0009",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0010",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.788,
+        "contentDensityScore": 0.696,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.77,
+        "noiseScore": 0.18,
+        "order": 9,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0010"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed"
+            ],
+            "order": 9,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0010",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0010",
+            "textHash": "sha256_9ad826a059bccb825d758b3576f8f495",
+            "textQuote": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job"
+          }
+        ],
+        "text": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0011",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 10,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0011"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0011",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Requiem Red",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "The Dirty Little Secrets ..."
+            ],
+            "order": 10,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0011",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0011",
+            "textHash": "sha256_b0f50ece622beea8d0fa1e0c92debe61",
+            "textQuote": "Image metadata: The Requiem Red"
+          }
+        ],
+        "text": "Image metadata: The Requiem Red",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0012",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.786,
+        "contentDensityScore": 0.687,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.765,
+        "noiseScore": 0.18,
+        "order": 11,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0012"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0012",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Sapiens: A Brief History of Humankind",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "The Requiem Red"
+            ],
+            "order": 11,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0012",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0012",
+            "textHash": "sha256_507fd53c427eb0d18d30c566cf0bace7",
+            "textQuote": "Image metadata: Sapiens: A Brief History of Humankind"
+          }
+        ],
+        "text": "Image metadata: Sapiens: A Brief History of Humankind",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0013",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 12,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0013"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0013",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Sharp Objects",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Sapiens: A Brief History ..."
+            ],
+            "order": 12,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0013",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0013",
+            "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+            "textQuote": "Image metadata: Sharp Objects"
+          }
+        ],
+        "text": "Image metadata: Sharp Objects",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0014",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.668,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.754,
+        "noiseScore": 0.18,
+        "order": 13,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0014"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0014",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Sharp Objects"
+            ],
+            "order": 13,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0014",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0014",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata: Soumission",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0015",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 14,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphIds": [
+          "pg_page_product_008_book_coming_woman_0015"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0015",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Soumission"
+            ],
+            "order": 14,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0015",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0015",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata: Tipping the Velvet",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 10,
+      "language": "en",
+      "paragraphCount": 15,
+      "wordCount": 836
+    },
+    "pageId": "page_product_008_book_coming_woman",
+    "qualityReportRef": "q_page_product_008_book_coming_woman",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_product_008_book_coming_woman",
+    "sourceMapRef": "smap_page_product_008_book_coming_woman",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+      "pageId": "page_product_008_book_coming_woman"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_product_008_book_coming_woman",
+  "perceptionDigest": {
+    "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+    "digestId": "digest_page_product_008_book_coming_woman",
+    "items": [
+      {
+        "confidence": 0.807,
+        "importance": 0.789,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0004",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0004",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_008_book_coming_woman_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes y",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Description"
+            ],
+            "order": 3,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0004",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0004",
+            "textHash": "sha256_8e9182e560821714154deb1bd694b92b",
+            "textQuote": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take"
+          }
+        ],
+        "text": "\" If you have a heart , if you have a soul , Karen Hicks '",
+        "warnings": []
+      },
+      {
+        "confidence": 0.807,
+        "importance": 0.788,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0003",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "In stock (19 available)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+            ],
+            "order": 2,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0003",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0003",
+            "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+            "textQuote": "In stock (19 available)"
+          }
+        ],
+        "text": "In stock ( 19 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.797,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0008",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "In stock (19 available)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0008",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0008",
+            "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+            "textQuote": "In stock (19 available)"
+          }
+        ],
+        "text": "In stock ( 19 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.795,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0005",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "e72a5dfc7e9267b2",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0005",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0005",
+            "textHash": "sha256_062ef843e649a12e95afc4602cf322f6",
+            "textQuote": "e72a5dfc7e9267b2"
+          }
+        ],
+        "text": "e72a5dfc7e9267b2",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0006",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0006"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0006",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0006",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price ( excl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0007",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0007"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0007",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0007",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price ( incl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0009",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0009"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0009",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Product Information"
+            ],
+            "order": 8,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0009",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0009",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "confidence": 0.788,
+        "importance": 0.77,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0010",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0010"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed"
+            ],
+            "order": 9,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0010",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0010",
+            "textHash": "sha256_9ad826a059bccb825d758b3576f8f495",
+            "textQuote": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job"
+          }
+        ],
+        "text": "Image metadata : The Dirty Little Secrets of Getting Your Dream Job",
+        "warnings": []
+      },
+      {
+        "confidence": 0.786,
+        "importance": 0.765,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0012",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0012"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0012",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Sapiens: A Brief History of Humankind",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "The Requiem Red"
+            ],
+            "order": 11,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0012",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0012",
+            "textHash": "sha256_507fd53c427eb0d18d30c566cf0bace7",
+            "textQuote": "Image metadata: Sapiens: A Brief History of Humankind"
+          }
+        ],
+        "text": "Image metadata : Sapiens : A Brief History of Humankind",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0015",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0015"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0015",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Soumission"
+            ],
+            "order": 14,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0015",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0015",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata : Tipping the Velvet",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.757,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0011",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0011"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0011",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Requiem Red",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "The Dirty Little Secrets ..."
+            ],
+            "order": 10,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0011",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0011",
+            "textHash": "sha256_b0f50ece622beea8d0fa1e0c92debe61",
+            "textQuote": "Image metadata: The Requiem Red"
+          }
+        ],
+        "text": "Image metadata : The Requiem Red",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.755,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0013",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0013"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0013",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Sharp Objects",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Sapiens: A Brief History ..."
+            ],
+            "order": 12,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0013",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0013",
+            "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+            "textQuote": "Image metadata: Sharp Objects"
+          }
+        ],
+        "text": "Image metadata : Sharp Objects",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.754,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0014",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0014"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0014",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [
+              "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+              "Products you recently viewed",
+              "Sharp Objects"
+            ],
+            "order": 13,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0014",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0014",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata : Soumission",
+        "warnings": []
+      },
+      {
+        "confidence": 0.787,
+        "importance": 0.751,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0001",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0001",
+            "blockType": "list_item",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0001",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0001",
+            "textHash": "sha256_8431eeddebf4e5f78508e3aa188ef9d9",
+            "textQuote": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+          }
+        ],
+        "text": "The Coming Woman : A Novel Based on the Life of the Infamous Feminist , Victoria",
+        "warnings": []
+      },
+      {
+        "confidence": 0.777,
+        "importance": 0.742,
+        "itemId": "item_block_pg_page_product_008_book_coming_woman_0002",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_008_book_coming_woman_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_008_book_coming_woman_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_008_book_coming_woman_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_product_008_book_coming_woman_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+            "fallbackText": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_product_008_book_coming_woman",
+            "paragraphId": "pg_page_product_008_book_coming_woman_0002",
+            "sourceRefId": "src_page_product_008_book_coming_woman_0002",
+            "textHash": "sha256_90eb75d56829de60d7fd89a62f42ece0",
+            "textQuote": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+          }
+        ],
+        "text": "Image metadata : The Coming Woman : A Novel Based on the Life of the Infamous",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_product_008_book_coming_woman",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.182,
+      "itemCount": 15,
+      "sourceRefCount": 15
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "\" If you have a heart , if you have a soul , Karen Hicks '",
+        "In stock ( 19 available )",
+        "In stock ( 19 available )",
+        "e72a5dfc7e9267b2",
+        "Price ( excl . tax )"
+      ],
+      "tldr": "\" If you have a heart , if you have a soul , Karen Hicks '"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 7.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.467
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.182,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.827
+      },
+      "contentCoverage": {
+        "denominator": 2942.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 2942.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 516.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 94.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.182
+      },
+      "groundingCompleteness": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 15.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 15.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 15.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.957,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_product_008_book_coming_woman",
+    "reportId": "q_page_product_008_book_coming_woman",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 2942,
+    "codeBlockCount": 0,
+    "domain": "books.toscrape.com",
+    "headingCount": 10,
+    "htmlAvailable": true,
+    "imageCount": 7,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 5,
+    "title": "product_008_book_coming_woman",
+    "url": "https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html",
+    "visibleTextLength": 836
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+    "pageId": "page_product_008_book_coming_woman",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_product_008_book_coming_woman",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0001",
+        "blockType": "list_item",
+        "chunkId": "ck_page_product_008_book_coming_woman_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0001",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0001",
+        "textHash": "sha256_8431eeddebf4e5f78508e3aa188ef9d9",
+        "textQuote": "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0002",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0002",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0002",
+        "textHash": "sha256_90eb75d56829de60d7fd89a62f42ece0",
+        "textQuote": "Image metadata: The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_008_book_coming_woman_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "In stock (19 available)",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull"
+        ],
+        "order": 2,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0003",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0003",
+        "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+        "textQuote": "In stock (19 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0004",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_008_book_coming_woman_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take for a woman to buck the old boy's club of politics in 1872? More than 140 years pre-Hillary, there was Victoria Woodhull. This book takes y",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Description"
+        ],
+        "order": 3,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0004",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0004",
+        "textHash": "sha256_8e9182e560821714154deb1bd694b92b",
+        "textQuote": "\"If you have a heart, if you have a soul, Karen Hicks' The Coming Woman will make you fall in love with Victoria Woodhull.\"-Kinky Friedman, author and Governor of the Heart of Texas \"What kind of confidence would it take"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0005",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "e72a5dfc7e9267b2",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Information"
+        ],
+        "order": 4,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0005",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0005",
+        "textHash": "sha256_062ef843e649a12e95afc4602cf322f6",
+        "textQuote": "e72a5dfc7e9267b2"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0006",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Price (excl. tax)",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Information"
+        ],
+        "order": 5,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0006",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0006",
+        "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+        "textQuote": "Price (excl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0007",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Price (incl. tax)",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Information"
+        ],
+        "order": 6,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0007",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0007",
+        "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+        "textQuote": "Price (incl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0008",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "In stock (19 available)",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Information"
+        ],
+        "order": 7,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0008",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0008",
+        "textHash": "sha256_bd0e21b30a4d7fc2589a263d31ab8d4e",
+        "textQuote": "In stock (19 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0009",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Number of reviews",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Product Information"
+        ],
+        "order": 8,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0009",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0009",
+        "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+        "textQuote": "Number of reviews"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0010",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed"
+        ],
+        "order": 9,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0010",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0010",
+        "textHash": "sha256_9ad826a059bccb825d758b3576f8f495",
+        "textQuote": "Image metadata: The Dirty Little Secrets of Getting Your Dream Job"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0011",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: The Requiem Red",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed",
+          "The Dirty Little Secrets ..."
+        ],
+        "order": 10,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0011",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0011",
+        "textHash": "sha256_b0f50ece622beea8d0fa1e0c92debe61",
+        "textQuote": "Image metadata: The Requiem Red"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0012",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: Sapiens: A Brief History of Humankind",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed",
+          "The Requiem Red"
+        ],
+        "order": 11,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0012",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0012",
+        "textHash": "sha256_507fd53c427eb0d18d30c566cf0bace7",
+        "textQuote": "Image metadata: Sapiens: A Brief History of Humankind"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0013",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: Sharp Objects",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed",
+          "Sapiens: A Brief History ..."
+        ],
+        "order": 12,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0013",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0013",
+        "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+        "textQuote": "Image metadata: Sharp Objects"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0014",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: Soumission",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed",
+          "Sharp Objects"
+        ],
+        "order": 13,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0014",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0014",
+        "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+        "textQuote": "Image metadata: Soumission"
+      },
+      {
+        "blockId": "block_pg_page_product_008_book_coming_woman_0015",
+        "blockType": "image",
+        "chunkId": "ck_page_product_008_book_coming_woman_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_a9ecd393a14eae5268e485887416de428966d01be3c0da5d62fbe24c433a1626",
+        "fallbackText": "Image metadata: Tipping the Velvet",
+        "headingPath": [
+          "The Coming Woman: A Novel Based on the Life of the Infamous Feminist, Victoria Woodhull",
+          "Products you recently viewed",
+          "Soumission"
+        ],
+        "order": 14,
+        "pageId": "page_product_008_book_coming_woman",
+        "paragraphId": "pg_page_product_008_book_coming_woman_0015",
+        "sourceRefId": "src_page_product_008_book_coming_woman_0015",
+        "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+        "textQuote": "Image metadata: Tipping the Velvet"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity",
+  "warnings": []
+}

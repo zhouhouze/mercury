@@ -1,0 +1,634 @@
+{
+  "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+  "digestId": "digest_page_code_007_py_unittest",
+  "items": [
+    {
+      "confidence": 0.834,
+      "importance": 0.856,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0097",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0097"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0097",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Changed in version 3.11: Test discovery dropped the namespace packages support. It has been broken since Python 3.7. Start directory and its subdirectories containing tests must be regular package that have __init__.py file.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Test Discovery ¶"
+          ],
+          "order": 96,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0097",
+          "sourceRefId": "src_page_code_007_py_unittest_0097",
+          "textHash": "sha256_505c3f6c38a70ab7d909107424d48675",
+          "textQuote": "Changed in version 3.11: Test discovery dropped the namespace packages support. It has been broken since Python 3.7. Start directory and its subdirectories containing tests must be regular package that have __init__.py f"
+        }
+      ],
+      "text": "Changed in version 3 . 11 : Test discovery dropped the namespace packages support . It",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.855,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0136",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0136"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0136",
+          "blockType": "code",
+          "chunkId": "ck_page_code_007_py_unittest_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "class MyTestCase ( unittest . TestCase ): @unittest . skip ( \"demonstrating skipping\" ) def test_nothing ( self ): self . fail ( \"shouldn't happen\" ) @unittest . skipIf ( mylib . __version__ < ( 1 , 3 ), \"not supported in this library version\" ) def test_format ( self ): # Tests that work for only a certain version of the library. pass @unittest . skipUnless",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Skipping tests and expected failures ¶"
+          ],
+          "order": 135,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0136",
+          "sourceRefId": "src_page_code_007_py_unittest_0136",
+          "textHash": "sha256_f6514eacb48a3ee8ab896415e0a6daae",
+          "textQuote": "class MyTestCase ( unittest . TestCase ): @unittest . skip ( \"demonstrating skipping\" ) def test_nothing ( self ): self . fail ( \"shouldn't happen\" ) @unittest . skipIf ( mylib . __version__ < ( 1 , 3 ), \"not supported i"
+        }
+      ],
+      "text": "class MyTestCase ( unittest . TestCase ) : @ unittest . skip ( \" demonstrating skipping",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0070",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Patterns that contain a wildcard character ( * ) are matched against the test name using fnmatch.fnmatchcase() ; otherwise simple case-sensitive substring matching is used.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Command-Line Interface ¶",
+            "Command-line options ¶"
+          ],
+          "order": 69,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0070",
+          "sourceRefId": "src_page_code_007_py_unittest_0070",
+          "textHash": "sha256_3a357b675f72618419aab96406330979",
+          "textQuote": "Patterns that contain a wildcard character ( * ) are matched against the test name using fnmatch.fnmatchcase() ; otherwise simple case-sensitive substring matching is used."
+        }
+      ],
+      "text": "Patterns that contain a wildcard character ( * ) are matched against the test name using",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0028",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0028"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0028",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "A test fixture represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server process.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶"
+          ],
+          "order": 27,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0028",
+          "sourceRefId": "src_page_code_007_py_unittest_0028",
+          "textHash": "sha256_abbb79ca4a3ca1370033c5c7d3080536",
+          "textQuote": "A test fixture represents the preparation needed to perform one or more tests, and any associated cleanup actions. This may involve, for example, creating temporary or proxy databases, directories, or starting a server p"
+        }
+      ],
+      "text": "A test fixture represents the preparation needed to perform one or more tests , and any",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.823,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0040",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0040"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0040",
+          "blockType": "code",
+          "chunkId": "ck_page_code_007_py_unittest_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "import unittest class TestStringMethods ( unittest . TestCase ): def test_upper ( self ): self . assertEqual ( 'foo' . upper (), 'FOO' ) def test_isupper ( self ): self . assertTrue ( 'FOO' . isupper ()) self . assertFalse ( 'Foo' . isupper ()) def test_split ( self ): s = 'hello world' self . assertEqual ( s . split (), [ 'hello' , 'world' ]) # check that s",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Basic example ¶"
+          ],
+          "order": 39,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0040",
+          "sourceRefId": "src_page_code_007_py_unittest_0040",
+          "textHash": "sha256_f4bfbcbe7d2f5067d0ff87955c8028d6",
+          "textQuote": "import unittest class TestStringMethods ( unittest . TestCase ): def test_upper ( self ): self . assertEqual ( 'foo' . upper (), 'FOO' ) def test_isupper ( self ): self . assertTrue ( 'FOO' . isupper ()) self . assertFal"
+        }
+      ],
+      "text": "import unittest class TestStringMethods ( unittest . TestCase ) : def test_upper ( self ) :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0026",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0026"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0026",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "The unittest unit testing framework was originally inspired by JUnit and has a similar flavor as major unit testing frameworks in other languages. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶"
+          ],
+          "order": 25,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0026",
+          "sourceRefId": "src_page_code_007_py_unittest_0026",
+          "textHash": "sha256_425bfc2c8d8868bde165c1f4bd76ac95",
+          "textQuote": "The unittest unit testing framework was originally inspired by JUnit and has a similar flavor as major unit testing frameworks in other languages. It supports test automation, sharing of setup and shutdown code for tests"
+        }
+      ],
+      "text": "The unittest unit testing framework was originally inspired by JUnit and has a similar flavor as",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0042",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "The crux of each test is a call to assertEqual() to check for an expected result; assertTrue() or assertFalse() to verify a condition; or assertRaises() to verify that a specific exception gets raised. These methods are used instead of the assert statement so the test runner can accumulate all test results and produce a report.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Basic example ¶"
+          ],
+          "order": 41,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0042",
+          "sourceRefId": "src_page_code_007_py_unittest_0042",
+          "textHash": "sha256_b9b979c446a7c4e7605e35cb24eb0de1",
+          "textQuote": "The crux of each test is a call to assertEqual() to check for an expected result; assertTrue() or assertFalse() to verify a condition; or assertRaises() to verify that a specific exception gets raised. These methods are "
+        }
+      ],
+      "text": "The crux of each test is a call to assertEqual ( ) to check for an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0100",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0100"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0100",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "The basic building blocks of unit testing are test cases — single scenarios that must be set up and checked for correctness. In unittest , test cases are represented by unittest.TestCase instances. To make your own test cases you must write subclasses of TestCase or use FunctionTestCase .",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Organizing test code ¶"
+          ],
+          "order": 99,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0100",
+          "sourceRefId": "src_page_code_007_py_unittest_0100",
+          "textHash": "sha256_2e91a117daced6753707b2b4678c9908",
+          "textQuote": "The basic building blocks of unit testing are test cases — single scenarios that must be set up and checked for correctness. In unittest , test cases are represented by unittest.TestCase instances. To make your own test "
+        }
+      ],
+      "text": "The basic building blocks of unit testing are test cases — single scenarios that must be",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0104",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0104"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0104",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Note that in order to test something, we use one of the assert* methods provided by the TestCase base class. If the test fails, an exception will be raised with an explanatory message, and unittest will identify the test case as a failure . Any other exceptions will be treated as errors .",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Organizing test code ¶"
+          ],
+          "order": 103,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0104",
+          "sourceRefId": "src_page_code_007_py_unittest_0104",
+          "textHash": "sha256_a90b8c5f6579b0e570d53d8c11205efc",
+          "textQuote": "Note that in order to test something, we use one of the assert* methods provided by the TestCase base class. If the test fails, an exception will be raised with an explanatory message, and unittest will identify the test"
+        }
+      ],
+      "text": "Note that in order to test something , we use one of the assert * methods",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0063",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Added in version 3.14: Output is colorized by default and can be controlled using environment variables .",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Command-Line Interface ¶"
+          ],
+          "order": 62,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0063",
+          "sourceRefId": "src_page_code_007_py_unittest_0063",
+          "textHash": "sha256_bdd50151f5e2c18639e36f3f0b9089be",
+          "textQuote": "Added in version 3.14: Output is colorized by default and can be controlled using environment variables ."
+        }
+      ],
+      "text": "Added in version 3 . 14 : Output is colorized by default and can be controlled",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0138",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0138"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0138",
+          "blockType": "code",
+          "chunkId": "ck_page_code_007_py_unittest_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "test_format ( __main__ . MyTestCase . test_format ) ... skipped 'not supported in this library version' test_nothing ( __main__ . MyTestCase . test_nothing ) ... skipped 'demonstrating skipping' test_maybe_skipped ( __main__ . MyTestCase . test_maybe_skipped ) ... skipped 'external resource not available' test_windows_support ( __main__ . MyTestCase . test_w",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Skipping tests and expected failures ¶"
+          ],
+          "order": 137,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0138",
+          "sourceRefId": "src_page_code_007_py_unittest_0138",
+          "textHash": "sha256_83f628144cc3881d7af1b5c497c5d51b",
+          "textQuote": "test_format ( __main__ . MyTestCase . test_format ) ... skipped 'not supported in this library version' test_nothing ( __main__ . MyTestCase . test_nothing ) ... skipped 'demonstrating skipping' test_maybe_skipped ( __ma"
+        }
+      ],
+      "text": "test_format ( __main__ . MyTestCase . test_format ) . . . skipped ' not supported in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0128",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0128"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0128",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "one can create an equivalent test case instance as follows, with optional set-up and tear-down methods:",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Re-using old test code ¶"
+          ],
+          "order": 127,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0128",
+          "sourceRefId": "src_page_code_007_py_unittest_0128",
+          "textHash": "sha256_cdd946aee22e8045aaad63dfbb3614c6",
+          "textQuote": "one can create an equivalent test case instance as follows, with optional set-up and tear-down methods:"
+        }
+      ],
+      "text": "one can create an equivalent test case instance as follows , with optional set - up",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0048",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "The above examples show the most commonly used unittest features which are sufficient to meet many everyday testing needs. The remainder of the documentation explores the full feature set from first principles.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Basic example ¶"
+          ],
+          "order": 47,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0048",
+          "sourceRefId": "src_page_code_007_py_unittest_0048",
+          "textHash": "sha256_f8b9307e56a860fefbd953bf855552e7",
+          "textQuote": "The above examples show the most commonly used unittest features which are sufficient to meet many everyday testing needs. The remainder of the documentation explores the full feature set from first principles."
+        }
+      ],
+      "text": "The above examples show the most commonly used unittest features which are sufficient to meet many",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0101",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0101"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0101",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "The testing code of a TestCase instance should be entirely self contained, such that it can be run either in isolation or in arbitrary combination with any number of other test cases.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Organizing test code ¶"
+          ],
+          "order": 100,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0101",
+          "sourceRefId": "src_page_code_007_py_unittest_0101",
+          "textHash": "sha256_10a6b5c7e3d31c19ff8edbaa12fa5871",
+          "textQuote": "The testing code of a TestCase instance should be entirely self contained, such that it can be run either in isolation or in arbitrary combination with any number of other test cases."
+        }
+      ],
+      "text": "The testing code of a TestCase instance should be entirely self contained , such that it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0125",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0125"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0125",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "For this reason, unittest provides a FunctionTestCase class. This subclass of TestCase can be used to wrap an existing test function. Set-up and tear-down functions can also be provided.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Re-using old test code ¶"
+          ],
+          "order": 124,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0125",
+          "sourceRefId": "src_page_code_007_py_unittest_0125",
+          "textHash": "sha256_e5ad6da1333cf442ba00a7a57f2b0529",
+          "textQuote": "For this reason, unittest provides a FunctionTestCase class. This subclass of TestCase can be used to wrap an existing test function. Set-up and tear-down functions can also be provided."
+        }
+      ],
+      "text": "For this reason , unittest provides a FunctionTestCase class . This subclass of TestCase can be",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0033",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Kent Beck’s original paper on testing frameworks using the pattern shared by unittest .",
+          "headingPath": [
+            "unittest — Unit testing framework ¶"
+          ],
+          "order": 32,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0033",
+          "sourceRefId": "src_page_code_007_py_unittest_0033",
+          "textHash": "sha256_cc13da5e3012b42e4e0d5465f79102b8",
+          "textQuote": "Kent Beck’s original paper on testing frameworks using the pattern shared by unittest ."
+        }
+      ],
+      "text": "Kent Beck ’ s original paper on testing frameworks using the pattern shared by unittest .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0027",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0027"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0027",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "To achieve this, unittest supports some important concepts in an object-oriented way:",
+          "headingPath": [
+            "unittest — Unit testing framework ¶"
+          ],
+          "order": 26,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0027",
+          "sourceRefId": "src_page_code_007_py_unittest_0027",
+          "textHash": "sha256_5227e85ee83643ea560ab682d343c7d4",
+          "textQuote": "To achieve this, unittest supports some important concepts in an object-oriented way:"
+        }
+      ],
+      "text": "To achieve this , unittest supports some important concepts in an object - oriented way :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_code_007_py_unittest_0062",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_007_py_unittest_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_007_py_unittest_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_007_py_unittest_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_007_py_unittest_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_a2503c0c8652b1fb8da953c9e557792898c15de062baaf7efeff0b66d1a0676c",
+          "fallbackText": "Changed in version 3.2: In earlier versions it was only possible to run individual test methods and not modules or classes.",
+          "headingPath": [
+            "unittest — Unit testing framework ¶",
+            "Command-Line Interface ¶"
+          ],
+          "order": 61,
+          "pageId": "page_code_007_py_unittest",
+          "paragraphId": "pg_page_code_007_py_unittest_0062",
+          "sourceRefId": "src_page_code_007_py_unittest_0062",
+          "textHash": "sha256_f4263b30a8158107d16542ddeeb45e5d",
+          "textQuote": "Changed in version 3.2: In earlier versions it was only possible to run individual test methods and not modules or classes."
+        }
+      ],
+      "text": "Changed in version 3 . 2 : In earlier versions it was only possible to run",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_code_007_py_unittest",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.085,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Changed in version 3 . 11 : Test discovery dropped the namespace packages support . It",
+      "class MyTestCase ( unittest . TestCase ) : @ unittest . skip ( \" demonstrating skipping",
+      "Patterns that contain a wildcard character ( * ) are matched against the test name using",
+      "A test fixture represents the preparation needed to perform one or more tests , and any",
+      "import unittest class TestStringMethods ( unittest . TestCase ) : def test_upper ( self ) :"
+    ],
+    "tldr": "Changed in version 3 . 11 : Test discovery dropped the namespace packages support . It"
+  }
+}

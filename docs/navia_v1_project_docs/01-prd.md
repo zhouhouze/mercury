@@ -183,8 +183,7 @@ A-V1.0-5：页面区域与信息密度识别
 后续媒体感知规划：
 
 ```text
-A-V2.0-1：视频感知规划
-A-V2.0-2：直播实时感知规划
+A-V1.12+：视频 / 直播等未来媒体感知规划
 ```
 
 OCR 规划原则：
@@ -212,6 +211,20 @@ A-V1.2 必须聚焦：
 + 可反跳证据
 + Debug 可验证 JSON
 ```
+
+A-V1.2 采用的产品技术组合路线：
+
+```text
+DOM baseline
++ extractor ensemble
++ A-owned schema normalization
++ SourceMap / jumpback
++ Quality Evaluator
++ DebugEvidenceBundle
++ 100-page corpus gate
+```
+
+该组合路线的产品含义是：A 不是“把网页原文塞给 D/C/B”，而是先把网页转换成高信号、低噪声、可追踪来源、可机器评估的事实输入。用户在 Debug 页看到的 JSON 必须能解释“系统读到了什么、过滤了什么、为什么认为可用或不可用”；下游 D/C/B 只能消费通过质量门槛的高信号结果。
 
 A-V1.2 必须输出或规划输出：
 
@@ -248,6 +261,14 @@ A-V1.2 的最终 corpus 验收规则：
 - 最终计入的页面必须有 `goldStatus = "reviewed"` 或 `goldStatus = "semi_auto_accepted"`。
 - `planned`、`annotated` 或未审阅页面不得计入最终通过率。
 - 第三方 extractor 依赖在 license、体积、性能、隐私、fallback 审计未批准前不得安装或成为必需依赖。
+
+A-V1.2 用户验收场景：
+
+- 普通文章页：Debug JSON 能显示主要段落、关键事实、sourceRefs 和 pass 质量原因。
+- 技术文档页：列表、代码块、表格或 API 参数不被压成纯文本噪声，摘要项能回指来源。
+- 电商 / 论坛 / 新闻页：推荐、广告、评论、导航和 cookie banner 被过滤或降级，并在 filtered evidence 中可见。
+- 图片富集页：只能基于 DOM metadata 形成图片相关事实；没有 alt/caption/nearby text 时必须标记 unknown。
+- 低信号 / 登录墙 / 付费墙：必须 fail 或 degraded，不能产出看似正常的高信号摘要。
 
 ---
 
