@@ -1,0 +1,635 @@
+{
+  "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+  "digestId": "digest_page_code_005_py_dataclasses",
+  "items": [
+    {
+      "confidence": 0.836,
+      "importance": 0.863,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0117",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0117"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0117",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "Be forewarned about how init=False fields work during a call to replace() . They are not copied from the source object, but rather are initialized in __post_init__() , if they’re initialized at all. It is expected that init=False fields will be rarely and judiciously used. If they are used, it might be wise to have alternate class constructors, or perhaps a ",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 116,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0117",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0117",
+          "textHash": "sha256_909c217ab60c0088108e36f949b2d677",
+          "textQuote": "Be forewarned about how init=False fields work during a call to replace() . They are not copied from the source object, but rather are initialized in __post_init__() , if they’re initialized at all. It is expected that i"
+        }
+      ],
+      "text": "Be forewarned about how init = False fields work during a call to replace ( )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.858,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0105",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "Creates a new dataclass with name cls_name , fields as defined in fields , base classes as given in bases , and initialized with a namespace as given in namespace . fields is an iterable whose elements are each either name , (name, type) , or (name, type, Field) . If just name is supplied, typing.Any is used for type . The values of init , repr , eq , order ",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 104,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0105",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0105",
+          "textHash": "sha256_e5aa546f992ac609cde2900f96ce9549",
+          "textQuote": "Creates a new dataclass with name cls_name , fields as defined in fields , base classes as given in bases , and initialized with a namespace as given in namespace . fields is an iterable whose elements are each either na"
+        }
+      ],
+      "text": "Creates a new dataclass with name cls_name , fields as defined in fields , base classes",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.854,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0141",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0141"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0141",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "It is not possible to create truly immutable Python objects. However, by passing frozen=True to the @dataclass decorator you can emulate immutability. In that case, dataclasses will add __setattr__() and __delattr__() methods to the class. These methods will raise a FrozenInstanceError when invoked.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Frozen instances ¶"
+          ],
+          "order": 140,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0141",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0141",
+          "textHash": "sha256_f9fc01ffecd42b51e9025dd08d1f1ba3",
+          "textQuote": "It is not possible to create truly immutable Python objects. However, by passing frozen=True to the @dataclass decorator you can emulate immutability. In that case, dataclasses will add __setattr__() and __delattr__() me"
+        }
+      ],
+      "text": "It is not possible to create truly immutable Python objects . However , by passing frozen",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "This module provides a decorator and functions for automatically adding generated special methods such as __init__() and __repr__() to user-defined classes. It was originally described in PEP 557 .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶"
+          ],
+          "order": 19,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0020",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0020",
+          "textHash": "sha256_e8a40fb780ff612e926d29f7658dbaca",
+          "textQuote": "This module provides a decorator and functions for automatically adding generated special methods such as __init__() and __repr__() to user-defined classes. It was originally described in PEP 557 ."
+        }
+      ],
+      "text": "This module provides a decorator and functions for automatically adding generated special methods such as __init__",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0091",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0091",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "InitVar[T] type annotations describe variables that are init-only . Fields annotated with InitVar are considered pseudo-fields, and thus are neither returned by the fields() function nor used in any way except adding them as parameters to __init__() and an optional __post_init__() .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 90,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0091",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0091",
+          "textHash": "sha256_bb729de9f877ab381f74254381c6cf77",
+          "textQuote": "InitVar[T] type annotations describe variables that are init-only . Fields annotated with InitVar are considered pseudo-fields, and thus are neither returned by the fields() function nor used in any way except adding the"
+        }
+      ],
+      "text": "InitVar [ T ] type annotations describe variables that are init - only . Fields annotated",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0066",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0066"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0066",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "For common and simple use cases, no other functionality is required. There are, however, some dataclass features that require additional per-field information. To satisfy this need for additional information, you can replace the default field value with a call to the provided field() function. For example:",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 65,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0066",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0066",
+          "textHash": "sha256_a2691f884f1f747f4b521b8c7868e7bb",
+          "textQuote": "For common and simple use cases, no other functionality is required. There are, however, some dataclass features that require additional per-field information. To satisfy this need for additional information, you can rep"
+        }
+      ],
+      "text": "For common and simple use cases , no other functionality is required . There are ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0093",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0093"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0093",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "Converts the dataclass obj to a dict (by using the factory function dict_factory ). Each dataclass is converted to a dict of its fields, as name: value pairs. dataclasses, dicts, lists, and tuples are recursed into. Other objects are copied with copy.deepcopy() .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 92,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0093",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0093",
+          "textHash": "sha256_e61189554f3ed7898d91c763df114100",
+          "textQuote": "Converts the dataclass obj to a dict (by using the factory function dict_factory ). Each dataclass is converted to a dict of its fields, as name: value pairs. dataclasses, dicts, lists, and tuples are recursed into. Othe"
+        }
+      ],
+      "text": "Converts the dataclass obj to a dict ( by using the factory function dict_factory ) .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0116",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0116"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0116",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "It is an error for changes to contain any fields that are defined as having init=False . A ValueError will be raised in this case.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 115,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0116",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0116",
+          "textHash": "sha256_146aab74c940317df535321285f5c204",
+          "textQuote": "It is an error for changes to contain any fields that are defined as having init=False . A ValueError will be raised in this case."
+        }
+      ],
+      "text": "It is an error for changes to contain any fields that are defined as having init",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0043",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0043"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "__hash__() is used by built-in hash() , and when objects are added to hashed collections such as dictionaries and sets. Having a __hash__() implies that instances of the class are immutable. Mutability is a complicated property that depends on the programmer’s intent, the existence and behavior of __eq__() , and the values of the eq and frozen flags in the @",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 42,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0043",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0043",
+          "textHash": "sha256_701889d53c18aced953f885e7c8c2269",
+          "textQuote": "__hash__() is used by built-in hash() , and when objects are added to hashed collections such as dictionaries and sets. Having a __hash__() implies that instances of the class are immutable. Mutability is a complicated p"
+        }
+      ],
+      "text": "__hash__ ( ) is used by built - in hash ( ) , and when objects",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0077",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0077"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0077",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "metadata : This can be a mapping or None . None is treated as an empty dict. This value is wrapped in MappingProxyType() to make it read-only, and exposed on the Field object. It is not used at all by Data Classes, and is provided as a third-party extension mechanism. Multiple third-parties can each have their own key, to use as a namespace in the metadata.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 76,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0077",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0077",
+          "textHash": "sha256_af649ae28e8c0c76bc1ab942ea86790e",
+          "textQuote": "metadata : This can be a mapping or None . None is treated as an empty dict. This value is wrapped in MappingProxyType() to make it read-only, and exposed on the Field object. It is not used at all by Data Classes, and i"
+        }
+      ],
+      "text": "metadata : This can be a mapping or None . None is treated as an empty",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0021",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0021"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0021",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "The member variables to use in these generated methods are defined using PEP 526 type annotations. For example, this code:",
+          "headingPath": [
+            "dataclasses — Data Classes ¶"
+          ],
+          "order": 20,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0021",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0021",
+          "textHash": "sha256_2c09faf9f317c230deb82385da6901a3",
+          "textQuote": "The member variables to use in these generated methods are defined using PEP 526 type annotations. For example, this code:"
+        }
+      ],
+      "text": "The member variables to use in these generated methods are defined using PEP 526 type annotations",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0142",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0142"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0142",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "There is a tiny performance penalty when using frozen=True : __init__() cannot use simple assignment to initialize fields, and must use object.__setattr__() .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Frozen instances ¶"
+          ],
+          "order": 141,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0142",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0142",
+          "textHash": "sha256_b904efc6dae7ec1c8b78ce28a3a92087",
+          "textQuote": "There is a tiny performance penalty when using frozen=True : __init__() cannot use simple assignment to initialize fields, and must use object.__setattr__() ."
+        }
+      ],
+      "text": "There is a tiny performance penalty when using frozen = True : __init__ ( ) cannot",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0041",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "If the class already defines any of __lt__() , __le__() , __gt__() , or __ge__() , then TypeError is raised.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 40,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0041",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0041",
+          "textHash": "sha256_e7899e7378288d2cf0e7d959e83ac3cb",
+          "textQuote": "If the class already defines any of __lt__() , __le__() , __gt__() , or __ge__() , then TypeError is raised."
+        }
+      ],
+      "text": "If the class already defines any of __lt__ ( ) , __le__ ( ) , __gt__",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0099",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "Converts the dataclass obj to a tuple (by using the factory function tuple_factory ). Each dataclass is converted to a tuple of its field values. dataclasses, dicts, lists, and tuples are recursed into. Other objects are copied with copy.deepcopy() .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 98,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0099",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0099",
+          "textHash": "sha256_1c97838b308111ddb8ccb91875cf221e",
+          "textQuote": "Converts the dataclass obj to a tuple (by using the factory function tuple_factory ). Each dataclass is converted to a tuple of its field values. dataclasses, dicts, lists, and tuples are recursed into. Other objects are"
+        }
+      ],
+      "text": "Converts the dataclass obj to a tuple ( by using the factory function tuple_factory ) .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0046",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "Here are the rules governing implicit creation of a __hash__() method. Note that you cannot both have an explicit __hash__() method in your dataclass and set unsafe_hash=True ; this will result in a TypeError .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 45,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0046",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0046",
+          "textHash": "sha256_7737deb8498f4eb72a907d21d8dec942",
+          "textQuote": "Here are the rules governing implicit creation of a __hash__() method. Note that you cannot both have an explicit __hash__() method in your dataclass and set unsafe_hash=True ; this will result in a TypeError ."
+        }
+      ],
+      "text": "Here are the rules governing implicit creation of a __hash__ ( ) method . Note that",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0044",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0044"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0044",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "By default, @dataclass will not implicitly add a __hash__() method unless it is safe to do so. Neither will it add or change an existing explicitly defined __hash__() method. Setting the class attribute __hash__ = None has a specific meaning to Python, as described in the __hash__() documentation.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 43,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0044",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0044",
+          "textHash": "sha256_288a79da47a35bd3ab5ba5b14c7c95fd",
+          "textQuote": "By default, @dataclass will not implicitly add a __hash__() method unless it is safe to do so. Neither will it add or change an existing explicitly defined __hash__() method. Setting the class attribute __hash__ = None h"
+        }
+      ],
+      "text": "By default , @ dataclass will not implicitly add a __hash__ ( ) method unless it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0042",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "unsafe_hash : If true, force dataclasses to create a __hash__() method, even though it may not be safe to do so. Otherwise, generate a __hash__() method according to how eq and frozen are set. The default value is False .",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 41,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0042",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0042",
+          "textHash": "sha256_fa18a90d6e3dd21f753d01afe245dace",
+          "textQuote": "unsafe_hash : If true, force dataclasses to create a __hash__() method, even though it may not be safe to do so. Otherwise, generate a __hash__() method according to how eq and frozen are set. The default value is False "
+        }
+      ],
+      "text": "unsafe_hash : If true , force dataclasses to create a __hash__ ( ) method , even",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_code_005_py_dataclasses_0078",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_005_py_dataclasses_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_005_py_dataclasses_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_005_py_dataclasses_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_005_py_dataclasses_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_031c6584d5f2caa8283198415c988104d7658293ad1de5ac25132c56d61e1cbe",
+          "fallbackText": "kw_only : If true, this field will be marked as keyword-only. This is used when the generated __init__() method’s parameters are computed.",
+          "headingPath": [
+            "dataclasses — Data Classes ¶",
+            "Module contents ¶"
+          ],
+          "order": 77,
+          "pageId": "page_code_005_py_dataclasses",
+          "paragraphId": "pg_page_code_005_py_dataclasses_0078",
+          "sourceRefId": "src_page_code_005_py_dataclasses_0078",
+          "textHash": "sha256_122c8d190c2d06ec8a7e262bc39e63f6",
+          "textQuote": "kw_only : If true, this field will be marked as keyword-only. This is used when the generated __init__() method’s parameters are computed."
+        }
+      ],
+      "text": "kw_only : If true , this field will be marked as keyword - only . This",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_code_005_py_dataclasses",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.062,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Be forewarned about how init = False fields work during a call to replace ( )",
+      "Creates a new dataclass with name cls_name , fields as defined in fields , base classes",
+      "It is not possible to create truly immutable Python objects . However , by passing frozen",
+      "This module provides a decorator and functions for automatically adding generated special methods such as __init__",
+      "InitVar [ T ] type annotations describe variables that are init - only . Fields annotated"
+    ],
+    "tldr": "Be forewarned about how init = False fields work during a call to replace ( )"
+  }
+}

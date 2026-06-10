@@ -1,0 +1,125 @@
+{
+  "failedGates": [],
+  "gates": [
+    {
+      "details": {
+        "invalidRecordCount": 0,
+        "invalidRecords": []
+      },
+      "gate": "manifest_schema",
+      "message": "Every page record validates as CorpusPageRecord.",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": 107,
+        "required": 100
+      },
+      "gate": "total_pages",
+      "message": "Corpus has at least 100 page records.",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": 13,
+        "distribution": {
+          "academic_or_report": 8,
+          "code_heavy_page": 8,
+          "ecommerce_product": 8,
+          "forum_thread": 8,
+          "github_readme": 8,
+          "image_rich_article": 11,
+          "localized_chinese_page": 8,
+          "longform_blog": 8,
+          "low_signal_or_paywall_like": 4,
+          "news_article": 8,
+          "product_docs": 8,
+          "table_heavy_page": 8,
+          "technical_docs": 12
+        },
+        "required": 10
+      },
+      "gate": "category_count",
+      "message": "Corpus covers at least 10 categories.",
+      "passed": true
+    },
+    {
+      "details": {
+        "failures": {},
+        "minimum": 8
+      },
+      "gate": "core_category_minimum",
+      "message": "Each core category has at least 8 pages.",
+      "passed": true
+    },
+    {
+      "details": {
+        "missingSnapshotCount": 0,
+        "missingSnapshots": []
+      },
+      "gate": "snapshot_reproducibility",
+      "message": "Every final counted page has a stored reproducible HTML snapshot.",
+      "passed": true
+    },
+    {
+      "details": {
+        "invalidGoldCount": 0,
+        "invalidGoldPages": []
+      },
+      "gate": "gold_review",
+      "message": "Every final counted page has reviewed or semi-auto-accepted gold status.",
+      "passed": true
+    },
+    {
+      "details": {
+        "lowSignalPassCount": 0,
+        "lowSignalPassPages": []
+      },
+      "gate": "low_signal_expected_outcome",
+      "message": "Low-signal pages must not be expected to pass.",
+      "passed": true
+    },
+    {
+      "details": {
+        "missingEvidence": {},
+        "missingEvidenceCount": 0
+      },
+      "gate": "required_evidence_files",
+      "message": "Every non-fail page has required evidence files, and fail pages have error evidence.",
+      "passed": true
+    },
+    {
+      "details": {
+        "qualityFailureCount": 0,
+        "qualityFailures": {}
+      },
+      "gate": "quality_and_debug_evidence",
+      "message": "Quality and Debug evidence satisfy source, grounding, jumpback, low-signal, and explanation gates.",
+      "passed": true
+    }
+  ],
+  "manifestPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json",
+  "passed": true,
+  "schemaVersion": "a-v1.2-corpus-level-report-2026-06-08",
+  "stage": "exit",
+  "summary": {
+    "categoryCount": 13,
+    "categoryDistribution": {
+      "academic_or_report": 8,
+      "code_heavy_page": 8,
+      "ecommerce_product": 8,
+      "forum_thread": 8,
+      "github_readme": 8,
+      "image_rich_article": 11,
+      "localized_chinese_page": 8,
+      "longform_blog": 8,
+      "low_signal_or_paywall_like": 4,
+      "news_article": 8,
+      "product_docs": 8,
+      "table_heavy_page": 8,
+      "technical_docs": 12
+    },
+    "finalCountedPages": 107,
+    "totalPages": 107
+  }
+}

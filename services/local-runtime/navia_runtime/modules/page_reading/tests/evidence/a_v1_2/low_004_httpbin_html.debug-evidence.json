@@ -1,0 +1,342 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_low_004_httpbin_html"
+      ],
+      "status": "degraded",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_low_004_httpbin_html"
+      ],
+      "status": "degraded",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_low_004_httpbin_html"
+      ],
+      "status": "degraded",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_low_004_httpbin_html"
+      ],
+      "status": "degraded",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_low_004_httpbin_html"
+      ],
+      "status": "degraded",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 1,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 2400,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_low_004_httpbin_html",
+    "pageKey": "page_low_004_httpbin_html",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+    "digestRef": "digest_page_low_004_httpbin_html",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_low_004_httpbin_html_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_low_004_httpbin_html_0001"
+        ],
+        "confidence": 0.823,
+        "contentDensityScore": 0.743,
+        "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+        "importance": 0.831,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_low_004_httpbin_html",
+        "paragraphIds": [
+          "pg_page_low_004_httpbin_html_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_low_004_httpbin_html_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_low_004_httpbin_html_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+            "fallbackText": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast ",
+            "headingPath": [
+              "Herman Melville - Moby-Dick"
+            ],
+            "order": 0,
+            "pageId": "page_low_004_httpbin_html",
+            "paragraphId": "pg_page_low_004_httpbin_html_0001",
+            "sourceRefId": "src_page_low_004_httpbin_html_0001",
+            "textHash": "sha256_7f2929833a49bd562563ba123839860c",
+            "textQuote": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had n"
+          }
+        ],
+        "text": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his hammer the heavy beating of his heart. And so it was.—Most miserable! A peculiar walk in this old man, a certain slight but painful appearing yawing in his gait, had at an early period of the voyage excited the curiosity of the mariners. And to the importunity of their persisted questionings he had finally given in; and so it came to pass that every one now knew the shameful story of his wretched fate. Belated, and not innocently, one bitter winter's midnight, on the road running between two country towns, the blacksmith half-stupidly felt the deadly numbness stealing over him, and sought refuge in a leaning, dilapidated barn. The issue was, the loss of the extremities of both feet. Out of this revelation, part by part, at last came out the four acts of the gladness, and the one long, and as yet uncatastrophied fifth act of the grief of his life's drama. He was an old man, who, at the age of nearly sixty, had postponedly encountered that thing in sorrow's technicals called ruin. He had been an artisan of famed excellence, and with plenty to do; owned a house and garden; embraced a youthful, daughter-like, loving wife, and three blithe, ruddy children; every Sunday went to a cheerful-looking church, planted in a grove. But one night, under cover of darkness, and further concealed in a most cunning disguis",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "article",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 1,
+      "wordCount": 624
+    },
+    "pageId": "page_low_004_httpbin_html",
+    "qualityReportRef": "q_page_low_004_httpbin_html",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_low_004_httpbin_html",
+    "sourceMapRef": "smap_page_low_004_httpbin_html",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+      "pageId": "page_low_004_httpbin_html"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_low_004_httpbin_html",
+  "perceptionDigest": {
+    "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+    "digestId": "digest_page_low_004_httpbin_html",
+    "items": [
+      {
+        "confidence": 0.823,
+        "importance": 0.831,
+        "itemId": "item_block_pg_page_low_004_httpbin_html_0001",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_low_004_httpbin_html_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_low_004_httpbin_html_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_low_004_httpbin_html_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_low_004_httpbin_html_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+            "fallbackText": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast ",
+            "headingPath": [
+              "Herman Melville - Moby-Dick"
+            ],
+            "order": 0,
+            "pageId": "page_low_004_httpbin_html",
+            "paragraphId": "pg_page_low_004_httpbin_html_0001",
+            "sourceRefId": "src_page_low_004_httpbin_html_0001",
+            "textHash": "sha256_7f2929833a49bd562563ba123839860c",
+            "textQuote": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had n"
+          }
+        ],
+        "text": "Availing himself of the mild , summer - cool weather that now reigned in these latitudes",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_low_004_httpbin_html",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.034,
+      "itemCount": 1,
+      "sourceRefCount": 1
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "Availing himself of the mild , summer - cool weather that now reigned in these latitudes"
+      ],
+      "tldr": "Availing himself of the mild , summer - cool weather that now reigned in these latitudes"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+    "downstreamReadiness": "degraded",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.034,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.155
+      },
+      "contentCoverage": {
+        "denominator": 2400.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 2400.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 415.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 14.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.034
+      },
+      "groundingCompleteness": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.92,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_low_004_httpbin_html",
+    "reportId": "q_page_low_004_httpbin_html",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "degraded",
+    "warnings": [
+      {
+        "code": "LOW_SIGNAL_PAGE_DEGRADED",
+        "message": "Low-signal corpus page cannot be marked pass even when deterministic metrics are high.",
+        "relatedIds": [
+          "page_low_004_httpbin_html"
+        ],
+        "severity": "major"
+      }
+    ]
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 2400,
+    "codeBlockCount": 0,
+    "domain": "httpbin.org",
+    "headingCount": 1,
+    "htmlAvailable": true,
+    "imageCount": 0,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "low_004_httpbin_html",
+    "url": "https://httpbin.org/html",
+    "visibleTextLength": 624
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+    "pageId": "page_low_004_httpbin_html",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_low_004_httpbin_html",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_low_004_httpbin_html_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_low_004_httpbin_html_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b9b4dcbd8745088e790c54356a52cdaa01e4648dba9817f76d7eeea6efe46576",
+        "fallbackText": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast ",
+        "headingPath": [
+          "Herman Melville - Moby-Dick"
+        ],
+        "order": 0,
+        "pageId": "page_low_004_httpbin_html",
+        "paragraphId": "pg_page_low_004_httpbin_html_0001",
+        "sourceRefId": "src_page_low_004_httpbin_html_0001",
+        "textHash": "sha256_7f2929833a49bd562563ba123839860c",
+        "textQuote": "Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had n"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "degraded",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore",
+  "warnings": []
+}

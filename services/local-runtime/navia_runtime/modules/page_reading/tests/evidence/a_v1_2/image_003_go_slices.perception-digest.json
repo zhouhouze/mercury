@@ -1,0 +1,628 @@
+{
+  "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+  "digestId": "digest_page_image_003_go_slices",
+  "items": [
+    {
+      "confidence": 0.848,
+      "importance": 0.892,
+      "itemId": "item_block_pg_page_image_003_go_slices_0086",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Next article: More powerful Go execution traces Previous article: Routing Enhancements for Go 1.22 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "Further reading"
+          ],
+          "order": 85,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0086",
+          "sourceRefId": "src_page_image_003_go_slices_0086",
+          "textHash": "sha256_64db0719712459cc095782209a72e479",
+          "textQuote": "Next article: More powerful Go execution traces Previous article: Routing Enhancements for Go 1.22 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About "
+        }
+      ],
+      "text": "Next article : More powerful Go execution traces Previous article : Routing Enhancements for Go 1",
+      "warnings": []
+    },
+    {
+      "confidence": 0.839,
+      "importance": 0.869,
+      "itemId": "item_block_pg_page_image_003_go_slices_0052",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Before Go 1.22, slices.Delete didn’t modify the elements between the new and original lengths of the slice. While the returned slice wouldn’t include these elements, the “gap” created at the end of the original, now-invalidated slice continued to hold onto them. These elements could contain pointers to large objects (a 20MB image), and the garbage collector ",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "A problem of unwanted liveness"
+          ],
+          "order": 51,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0052",
+          "sourceRefId": "src_page_image_003_go_slices_0052",
+          "textHash": "sha256_2c741993119b12b9e1757c195a435f27",
+          "textQuote": "Before Go 1.22, slices.Delete didn’t modify the elements between the new and original lengths of the slice. While the returned slice wouldn’t include these elements, the “gap” created at the end of the original, now-inva"
+        }
+      ],
+      "text": "Before Go 1 . 22 , slices . Delete didn ’ t modify the elements between",
+      "warnings": []
+    },
+    {
+      "confidence": 0.837,
+      "importance": 0.865,
+      "itemId": "item_block_pg_page_image_003_go_slices_0059",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0059"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0059",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "A key observation is that “setting the obsolete pointers to nil ” is not as easy as it seems. In fact, this task is so error-prone that we should not put the burden on the user to write it. Out of pragmatism, we chose to modify the implementation of the five functions Compact , CompactFunc , Delete , DeleteFunc , Replace to “clear the tail”. As a nice side e",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "The fix"
+          ],
+          "order": 58,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0059",
+          "sourceRefId": "src_page_image_003_go_slices_0059",
+          "textHash": "sha256_0dbf28839058f44b011f4d3827d5c2fd",
+          "textQuote": "A key observation is that “setting the obsolete pointers to nil ” is not as easy as it seems. In fact, this task is so error-prone that we should not put the burden on the user to write it. Out of pragmatism, we chose to"
+        }
+      ],
+      "text": "A key observation is that “ setting the obsolete pointers to nil ” is not as",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_image_003_go_slices_0053",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "In this above example, we’re successfully deleting the pointers p2 , p3 , p4 from s[2:5] , by shifting one element to the left. But p3 and p4 are still present in the underlying array, beyond the new length of s . The garbage collector won’t reclaim them. Less obviously, p5 is not one of the deleted elements, but its memory may still leak because of the p5 p",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "A problem of unwanted liveness"
+          ],
+          "order": 52,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0053",
+          "sourceRefId": "src_page_image_003_go_slices_0053",
+          "textHash": "sha256_8c40b85c37b004d5c8d6b22ece461430",
+          "textQuote": "In this above example, we’re successfully deleting the pointers p2 , p3 , p4 from s[2:5] , by shifting one element to the left. But p3 and p4 are still present in the underlying array, beyond the new length of s . The ga"
+        }
+      ],
+      "text": "In this above example , we ’ re successfully deleting the pointers p2 , p3 ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_image_003_go_slices_0049",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Delete need not allocate a new array, as it shifts the elements in place. Like append , it returns a new slice. Many other functions in the slices package follow this pattern, including Compact , CompactFunc , DeleteFunc , Grow , Insert , and Replace .",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 48,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0049",
+          "sourceRefId": "src_page_image_003_go_slices_0049",
+          "textHash": "sha256_70119be783b16f92dcc805c3005f8dcc",
+          "textQuote": "Delete need not allocate a new array, as it shifts the elements in place. Like append , it returns a new slice. Many other functions in the slices package follow this pattern, including Compact , CompactFunc , DeleteFunc"
+        }
+      ],
+      "text": "Delete need not allocate a new array , as it shifts the elements in place .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_image_003_go_slices_0050",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "When calling these functions we must consider the original slice invalid, because the underlying array has been modified. It would be a mistake to call the function but ignore the return value:",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 49,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0050",
+          "sourceRefId": "src_page_image_003_go_slices_0050",
+          "textHash": "sha256_42495e0305c5da8168984d589016cb4e",
+          "textQuote": "When calling these functions we must consider the original slice invalid, because the underlying array has been modified. It would be a mistake to call the function but ignore the return value:"
+        }
+      ],
+      "text": "When calling these functions we must consider the original slice invalid , because the underlying array",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_image_003_go_slices_0066",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0066"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0066",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "then you may incorrectly assume that s does not contain any nil pointer. Example in the Go Playground .",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "Tests failing"
+          ],
+          "order": 65,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0066",
+          "sourceRefId": "src_page_image_003_go_slices_0066",
+          "textHash": "sha256_f0118e37b4ef7bbca05d7965f1709d70",
+          "textQuote": "then you may incorrectly assume that s does not contain any nil pointer. Example in the Go Playground ."
+        }
+      ],
+      "text": "then you may incorrectly assume that s does not contain any nil pointer . Example in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_image_003_go_slices_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "The slices package provides functions that work for slices of any type. In this blog post we’ll discuss how you can use these functions more effectively by understanding how slices are represented in memory and how that affects the garbage collector, and we’ll cover how we recently adjusted these functions to make them less surprising.",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 30,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0031",
+          "sourceRefId": "src_page_image_003_go_slices_0031",
+          "textHash": "sha256_f252b55e26c254f572a70fdce2f4edf1",
+          "textQuote": "The slices package provides functions that work for slices of any type. In this blog post we’ll discuss how you can use these functions more effectively by understanding how slices are represented in memory and how that "
+        }
+      ],
+      "text": "The slices package provides functions that work for slices of any type . In this blog",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_image_003_go_slices_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0057",
+          "blockType": "list_item",
+          "chunkId": "ck_page_image_003_go_slices_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Or change Delete to always set the obsolete elements to zero. This is extra work, making Delete slightly less efficient. Zeroing pointers (setting them to nil ) enables the garbage collection of the objects, when they become otherwise unreachable.",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "A problem of unwanted liveness"
+          ],
+          "order": 56,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0057",
+          "sourceRefId": "src_page_image_003_go_slices_0057",
+          "textHash": "sha256_5d7a2960623aa76c0e0fb5df3e57fee0",
+          "textQuote": "Or change Delete to always set the obsolete elements to zero. This is extra work, making Delete slightly less efficient. Zeroing pointers (setting them to nil ) enables the garbage collection of the objects, when they be"
+        }
+      ],
+      "text": "Or change Delete to always set the obsolete elements to zero . This is extra work",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_image_003_go_slices_0034",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "It is no longer necessary to implement Index again for each different type of element.",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 33,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0034",
+          "sourceRefId": "src_page_image_003_go_slices_0034",
+          "textHash": "sha256_d7797e66d8a41b90ff875f63cfba7556",
+          "textQuote": "It is no longer necessary to implement Index again for each different type of element."
+        }
+      ],
+      "text": "It is no longer necessary to implement Index again for each different type of element .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_image_003_go_slices_0069",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0069"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0069",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "then you may incorrectly assume that s is properly sorted and compacted. Example .",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "Tests failing"
+          ],
+          "order": 68,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0069",
+          "sourceRefId": "src_page_image_003_go_slices_0069",
+          "textHash": "sha256_cb8df4ff9509544a37f24dd405cab270",
+          "textQuote": "then you may incorrectly assume that s is properly sorted and compacted. Example ."
+        }
+      ],
+      "text": "then you may incorrectly assume that s is properly sorted and compacted . Example .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_image_003_go_slices_0072",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "then you may incorrectly assume that s does not contain any nil pointer. Example .",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "Tests failing"
+          ],
+          "order": 71,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0072",
+          "sourceRefId": "src_page_image_003_go_slices_0072",
+          "textHash": "sha256_fccb5daba23bd58104162e1f02b57c0f",
+          "textQuote": "then you may incorrectly assume that s does not contain any nil pointer. Example ."
+        }
+      ],
+      "text": "then you may incorrectly assume that s does not contain any nil pointer . Example .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_image_003_go_slices_0075",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "then you may incorrectly assume that s does not contain any nil pointer. Example .",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "Tests failing"
+          ],
+          "order": 74,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0075",
+          "sourceRefId": "src_page_image_003_go_slices_0075",
+          "textHash": "sha256_fccb5daba23bd58104162e1f02b57c0f",
+          "textQuote": "then you may incorrectly assume that s does not contain any nil pointer. Example ."
+        }
+      ],
+      "text": "then you may incorrectly assume that s does not contain any nil pointer . Example .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_image_003_go_slices_0040",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0040"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0040",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "If a function changes the length of a slice passed as a parameter, then it needs to return a new slice to the caller. The underlying array may remain the same if it doesn’t have to grow. This explains why append and slices.Compact return a value, but slices.Sort , which merely reorders the elements, does not.",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 39,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0040",
+          "sourceRefId": "src_page_image_003_go_slices_0040",
+          "textHash": "sha256_6ff61917601fc42de8c8bbc86804ac80",
+          "textQuote": "If a function changes the length of a slice passed as a parameter, then it needs to return a new slice to the caller. The underlying array may remain the same if it doesn’t have to grow. This explains why append and slic"
+        }
+      ],
+      "text": "If a function changes the length of a slice passed as a parameter , then it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_image_003_go_slices_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "In Go 1.22, this is what the memory looks like after calling Delete:",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "The fix"
+          ],
+          "order": 59,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0060",
+          "sourceRefId": "src_page_image_003_go_slices_0060",
+          "textHash": "sha256_b02df7820946d45298907fa10b24451a",
+          "textQuote": "In Go 1.22, this is what the memory looks like after calling Delete:"
+        }
+      ],
+      "text": "In Go 1 . 22 , this is what the memory looks like after calling Delete",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_image_003_go_slices_0037",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0037"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0037",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Several new functions ( Insert , Replace , Delete , etc.) modify the slice. To understand how they work, and how to properly use them, we need to examine the underlying structure of slices.",
+          "headingPath": [
+            "Robust generic functions on slices"
+          ],
+          "order": 36,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0037",
+          "sourceRefId": "src_page_image_003_go_slices_0037",
+          "textHash": "sha256_5f10d890703e5ab1ec2b1ec60bb30c17",
+          "textQuote": "Several new functions ( Insert , Replace , Delete , etc.) modify the slice. To understand how they work, and how to properly use them, we need to examine the underlying structure of slices."
+        }
+      ],
+      "text": "Several new functions ( Insert , Replace , Delete , etc . ) modify the slice",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_image_003_go_slices_0054",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "This could be confusing for developers, if they were not aware that “invisible” elements were still using memory.",
+          "headingPath": [
+            "Robust generic functions on slices",
+            "A problem of unwanted liveness"
+          ],
+          "order": 53,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0054",
+          "sourceRefId": "src_page_image_003_go_slices_0054",
+          "textHash": "sha256_44d0a53a0ec42212c1b693bb127eaf13",
+          "textQuote": "This could be confusing for developers, if they were not aware that “invisible” elements were still using memory."
+        }
+      ],
+      "text": "This could be confusing for developers , if they were not aware that “ invisible ”",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_image_003_go_slices_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_003_go_slices_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_003_go_slices_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_003_go_slices_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_003_go_slices_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_image_003_go_slices",
+          "paragraphId": "pg_page_image_003_go_slices_0020",
+          "sourceRefId": "src_page_image_003_go_slices_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_003_go_slices",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.155,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : More powerful Go execution traces Previous article : Routing Enhancements for Go 1",
+      "Before Go 1 . 22 , slices . Delete didn ’ t modify the elements between",
+      "A key observation is that “ setting the obsolete pointers to nil ” is not as",
+      "In this above example , we ’ re successfully deleting the pointers p2 , p3 ,",
+      "Delete need not allocate a new array , as it shifts the elements in place ."
+    ],
+    "tldr": "Next article : More powerful Go execution traces Previous article : Routing Enhancements for Go 1"
+  }
+}

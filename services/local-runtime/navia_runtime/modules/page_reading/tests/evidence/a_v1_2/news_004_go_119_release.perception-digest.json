@@ -1,0 +1,599 @@
+{
+  "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+  "digestId": "digest_page_news_004_go_119_release",
+  "items": [
+    {
+      "confidence": 0.851,
+      "importance": 0.898,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0038",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0038"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Finally, Go 1.19 includes a wide variety of performance and implementation improvements, including dynamic sizing of initial goroutine stacks to reduce stack copying, automatic use of additional file descriptors on most Unix systems, jump tables for large switch statements on x86-64 and ARM64, support for debugger-injected function calls on ARM64, register A",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 37,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0038",
+          "sourceRefId": "src_page_news_004_go_119_release_0038",
+          "textHash": "sha256_ccf814b7c55bfeae02b0ea9137724d3d",
+          "textQuote": "Finally, Go 1.19 includes a wide variety of performance and implementation improvements, including dynamic sizing of initial goroutine stacks to reduce stack copying, automatic use of additional file descriptors on most "
+        }
+      ],
+      "text": "Finally , Go 1 . 19 includes a wide variety of performance and implementation improvements ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.847,
+      "importance": 0.89,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0041",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Next article: Vulnerability Management for Go Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitH",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 40,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0041",
+          "sourceRefId": "src_page_news_004_go_119_release_0041",
+          "textHash": "sha256_b374e6ee32f719cc41523052a16c5444",
+          "textQuote": "Next article: Vulnerability Management for Go Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Libr"
+        }
+      ],
+      "text": "Next article : Vulnerability Management for Go Previous article : Share your feedback about developing with",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0034",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Go’s memory model now explicitly defines the behavior of the sync/atomic package . The formal definition of the happens-before relation has been revised to align with the memory models used by C, C++, Java, JavaScript, Rust, and Swift. Existing programs are unaffected. Along with the memory model update, there are new types in the sync/atomic package , such ",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 33,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0034",
+          "sourceRefId": "src_page_news_004_go_119_release_0034",
+          "textHash": "sha256_39fe548acea078cd780f1bb9c9686f35",
+          "textQuote": "Go’s memory model now explicitly defines the behavior of the sync/atomic package . The formal definition of the happens-before relation has been revised to align with the memory models used by C, C++, Java, JavaScript, R"
+        }
+      ],
+      "text": "Go ’ s memory model now explicitly defines the behavior of the sync / atomic package",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0039",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0039",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Thanks to everyone who contributed to this release by writing code, filing bugs, sharing feedback, and testing the beta and release candidates. Your efforts helped to ensure that Go 1.19 is as stable as possible. As always, if you notice any problems, please file an issue .",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 38,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0039",
+          "sourceRefId": "src_page_news_004_go_119_release_0039",
+          "textHash": "sha256_6220a6f0bf023f7f18b90910a907b5eb",
+          "textQuote": "Thanks to everyone who contributed to this release by writing code, filing bugs, sharing feedback, and testing the beta and release candidates. Your efforts helped to ensure that Go 1.19 is as stable as possible. As alwa"
+        }
+      ],
+      "text": "Thanks to everyone who contributed to this release by writing code , filing bugs , sharing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0035",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "For security reasons , the os/exec package no longer respects relative paths in PATH lookups. See the package documentation for details. Existing uses of golang.org/x/sys/execabs can be moved back to os/exec in programs that only build using Go 1.19 or later.",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 34,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0035",
+          "sourceRefId": "src_page_news_004_go_119_release_0035",
+          "textHash": "sha256_b484e5ea60384cf36e0936853db40e3d",
+          "textQuote": "For security reasons , the os/exec package no longer respects relative paths in PATH lookups. See the package documentation for details. Existing uses of golang.org/x/sys/execabs can be moved back to os/exec in programs "
+        }
+      ],
+      "text": "For security reasons , the os / exec package no longer respects relative paths in PATH",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0032",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Go 1.19 refines and improves our massive Go 1.18 release earlier this year. We focused Go 1.19’s generics development on addressing the subtle issues and corner cases reported to us by the community, as well as important performance improvements (up to 20% for some generic programs).",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 31,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0032",
+          "sourceRefId": "src_page_news_004_go_119_release_0032",
+          "textHash": "sha256_f43dd1b273c81bb756a5847ba42ee2d4",
+          "textQuote": "Go 1.19 refines and improves our massive Go 1.18 release earlier this year. We focused Go 1.19’s generics development on addressing the subtle issues and corner cases reported to us by the community, as well as important"
+        }
+      ],
+      "text": "Go 1 . 19 refines and improves our massive Go 1 . 18 release earlier this",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0036",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "The garbage collector has added support for a soft memory limit, discussed in detail in the new garbage collection guide . The limit can be particularly helpful for optimizing Go programs to run as efficiently as possible in containers with dedicated amounts of memory.",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 35,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0036",
+          "sourceRefId": "src_page_news_004_go_119_release_0036",
+          "textHash": "sha256_f1c19726fa5656f00f95c7cdde4ba0f1",
+          "textQuote": "The garbage collector has added support for a soft memory limit, discussed in detail in the new garbage collection guide . The limit can be particularly helpful for optimizing Go programs to run as efficiently as possibl"
+        }
+      ],
+      "text": "The garbage collector has added support for a soft memory limit , discussed in detail in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0020",
+          "sourceRefId": "src_page_news_004_go_119_release_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0013",
+          "sourceRefId": "src_page_news_004_go_119_release_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.811,
+      "importance": 0.799,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0009",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "A complete introduction to building software with Go",
+          "headingPath": [],
+          "order": 8,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0009",
+          "sourceRefId": "src_page_news_004_go_119_release_0009",
+          "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+          "textQuote": "A complete introduction to building software with Go"
+        }
+      ],
+      "text": "A complete introduction to building software with Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.798,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0011",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0011"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0011",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Reference documentation for Go's standard library",
+          "headingPath": [],
+          "order": 10,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0011",
+          "sourceRefId": "src_page_news_004_go_119_release_0011",
+          "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+          "textQuote": "Reference documentation for Go's standard library"
+        }
+      ],
+      "text": "Reference documentation for Go ' s standard library",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.795,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0004",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0004"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0004",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Stories about how and why companies use Go",
+          "headingPath": [],
+          "order": 3,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0004",
+          "sourceRefId": "src_page_news_004_go_119_release_0004",
+          "textHash": "sha256_ef57e730e467089436137e8322bb821b",
+          "textQuote": "Stories about how and why companies use Go"
+        }
+      ],
+      "text": "Stories about how and why companies use Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.795,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0005",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "How Go can help keep you secure by default",
+          "headingPath": [],
+          "order": 4,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0005",
+          "sourceRefId": "src_page_news_004_go_119_release_0005",
+          "textHash": "sha256_149ef556d2f39d225d11267fa7b23c16",
+          "textQuote": "How Go can help keep you secure by default"
+        }
+      ],
+      "text": "How Go can help keep you secure by default",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0003",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0003"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0003",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Common problems companies solve with Go",
+          "headingPath": [],
+          "order": 2,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0003",
+          "sourceRefId": "src_page_news_004_go_119_release_0003",
+          "textHash": "sha256_0a6f33d8dfbdfd2ea461982564e2ff22",
+          "textQuote": "Common problems companies solve with Go"
+        }
+      ],
+      "text": "Common problems companies solve with Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0008",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0008"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0008",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "The official Go language specification",
+          "headingPath": [],
+          "order": 7,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0008",
+          "sourceRefId": "src_page_news_004_go_119_release_0008",
+          "textHash": "sha256_4ee35382b26d1495bc31ec9863083272",
+          "textQuote": "The official Go language specification"
+        }
+      ],
+      "text": "The official Go language specification",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0047",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_004_go_119_release_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay",
+          "headingPath": [
+            "Go 1.19 is released!"
+          ],
+          "order": 46,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0047",
+          "sourceRefId": "src_page_news_004_go_119_release_0047",
+          "textHash": "sha256_0f44fe7b67298b1a9c27323cddee03f6",
+          "textQuote": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay"
+        }
+      ],
+      "text": "go . dev uses cookies from Google to deliver and enhance the quality of its services",
+      "warnings": []
+    },
+    {
+      "confidence": 0.804,
+      "importance": 0.792,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0015",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0015"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0015",
+          "blockType": "list_item",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Community arrow_drop_down Press Enter to activate/deactivate dropdown",
+          "headingPath": [],
+          "order": 14,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0015",
+          "sourceRefId": "src_page_news_004_go_119_release_0015",
+          "textHash": "sha256_e969133d5f840ba93bb5c82dce74e49c",
+          "textQuote": "Community arrow_drop_down Press Enter to activate/deactivate dropdown"
+        }
+      ],
+      "text": "Community arrow_drop_down Press Enter to activate / deactivate dropdown",
+      "warnings": []
+    },
+    {
+      "confidence": 0.803,
+      "importance": 0.791,
+      "itemId": "item_block_pg_page_news_004_go_119_release_0002",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_004_go_119_release_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_004_go_119_release_0002"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_004_go_119_release_0002",
+          "blockType": "list_item",
+          "chunkId": "ck_page_news_004_go_119_release_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_930c8fcbff6b435d0f2ac8c5efe5bef1badd0eea5c183ffb2ec36ca513105cfc",
+          "fallbackText": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown",
+          "headingPath": [],
+          "order": 1,
+          "pageId": "page_news_004_go_119_release",
+          "paragraphId": "pg_page_news_004_go_119_release_0002",
+          "sourceRefId": "src_page_news_004_go_119_release_0002",
+          "textHash": "sha256_18ac3f4cdd89dce2bc3ebed8af4f7b57",
+          "textQuote": "Why Go arrow_drop_down Press Enter to activate/deactivate dropdown"
+        }
+      ],
+      "text": "Why Go arrow_drop_down Press Enter to activate / deactivate dropdown",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_news_004_go_119_release",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.266,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Finally , Go 1 . 19 includes a wide variety of performance and implementation improvements ,",
+      "Next article : Vulnerability Management for Go Previous article : Share your feedback about developing with",
+      "Go ’ s memory model now explicitly defines the behavior of the sync / atomic package",
+      "Thanks to everyone who contributed to this release by writing code , filing bugs , sharing",
+      "For security reasons , the os / exec package no longer respects relative paths in PATH"
+    ],
+    "tldr": "Finally , Go 1 . 19 includes a wide variety of performance and implementation improvements ,"
+  }
+}

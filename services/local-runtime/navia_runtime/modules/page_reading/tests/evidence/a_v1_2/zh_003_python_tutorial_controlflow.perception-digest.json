@@ -1,0 +1,640 @@
+{
+  "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+  "digestId": "digest_page_zh_003_python_tutorial_controlflow",
+  "items": [
+    {
+      "confidence": 0.83,
+      "importance": 0.846,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0082",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 81,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0082",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0082",
+          "textHash": "sha256_bdc2c6ef69f90febc3d3e05e1ee16925",
+          "textQuote": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。"
+        }
+      ],
+      "text": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0050",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配的case，则不执行任何分支。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.7. match 语句 ¶"
+          ],
+          "order": 49,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0050",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0050",
+          "textHash": "sha256_2fa090f81c922098c2cfcfed1df4b450",
+          "textQuote": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配的case，则不执行任何分支。"
+        }
+      ],
+      "text": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0081",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 80,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0081",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0081",
+          "textHash": "sha256_d33e88363ae85c64831628332e8ae41c",
+          "textQuote": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。"
+        }
+      ],
+      "text": "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符串可以自动生成在线文档或打印版文档 ， 还可以让开发者在浏览代码时直接查阅文档 ； Python 开发者最好养成在代码中加入文档字符串的好习惯",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0049",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.6. pass 语句 ¶"
+          ],
+          "order": 48,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0049",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0049",
+          "textHash": "sha256_b5841339b879019e07dc2ae4699f9347",
+          "textQuote": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。"
+        }
+      ],
+      "text": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ， 也不是语言定义的一部分 （ 这里你可以使用任意常量表达式",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0083",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0083"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0083",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 82,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0083",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0083",
+          "textHash": "sha256_1c8cb7f5c8f4146ee46e6aeb6a3c47a5",
+          "textQuote": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。"
+        }
+      ],
+      "text": "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的 值 始终是对象的 引用",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0086",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 85,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0086",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0086",
+          "textHash": "sha256_ec2de3a9ae42e11733612eab99cf1bf4",
+          "textQuote": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:"
+        }
+      ],
+      "text": "如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return 语句的函数也有返回值 ， 尽管这个值可能相当无聊 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0027",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0027"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0027",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "range() 返回的对象在很多方面和列表的行为一样，但其实它和列表不一样。该对象只有在被迭代时才一个一个地返回所期望的列表项，并没有真正生成过一个含有全部项的列表，从而节省了空间。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.3. range() 函数 ¶"
+          ],
+          "order": 26,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0027",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0027",
+          "textHash": "sha256_9ba7663436979cf2b66b9742d1b05fe5",
+          "textQuote": "range() 返回的对象在很多方面和列表的行为一样，但其实它和列表不一样。该对象只有在被迭代时才一个一个地返回所期望的列表项，并没有真正生成过一个含有全部项的列表，从而节省了空间。"
+        }
+      ],
+      "text": "range ( ) 返回的对象在很多方面和列表的行为一样 ， 但其实它和列表不一样 。 该对象只有在被迭代时才一个一个地返回所期望的列表项 ， 并没有真正生成过一个含有全部项的列表 ， 从而节省了空间 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0028",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0028"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0028",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "这种对象称为可迭代对象 iterable ，适合作为需要获取一系列值的函数或程序构件的参数。 for 语句就是这样的程序构件；以可迭代对象作为参数的函数例如 sum() ：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.3. range() 函数 ¶"
+          ],
+          "order": 27,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0028",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0028",
+          "textHash": "sha256_0d97d836c516728d8901176b48a2e855",
+          "textQuote": "这种对象称为可迭代对象 iterable ，适合作为需要获取一系列值的函数或程序构件的参数。 for 语句就是这样的程序构件；以可迭代对象作为参数的函数例如 sum() ："
+        }
+      ],
+      "text": "这种对象称为可迭代对象 iterable ， 适合作为需要获取一系列值的函数或程序构件的参数 。 for 语句就是这样的程序构件 ； 以可迭代对象作为参数的函数例如 sum ( ) ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0061",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性 __match_args__ ，为属性指定其在模式中对应的位置。若设为 (\"x\", \"y\")，则以下模式相互等价 (且都把属性 y 绑定到变量 var )：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.7. match 语句 ¶"
+          ],
+          "order": 60,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0061",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0061",
+          "textHash": "sha256_7b1474533fb5723e3b7253635e46717e",
+          "textQuote": "一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性 __match_args__ ，为属性指定其在模式中对应的位置。若设为 (\"x\", \"y\")，则以下模式相互等价 (且都把属性 y 绑定到变量 var )："
+        }
+      ],
+      "text": "一些内置类 （ 如 dataclass ） 为属性提供了一个顺序 ， 此时 ， 可以使用位置参数 。 自定义类可通过在类中设置特殊属性 __match_args__ ， 为属性指定其在模式中对应的位置 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0063",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.7. match 语句 ¶"
+          ],
+          "order": 62,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0063",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0063",
+          "textHash": "sha256_545833171d6b5a3248a4723afb1cb3a1",
+          "textQuote": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。"
+        }
+      ],
+      "text": "建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只会为单一的名称 ( 如上面的 var ) 赋值 ， 而不会赋值给带点号的名称",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0066",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0066"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0066",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.7. match 语句 ¶"
+          ],
+          "order": 65,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0066",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0066",
+          "textHash": "sha256_a01d59827f73463efdebf8ada22d9e9b",
+          "textQuote": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值："
+        }
+      ],
+      "text": "我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。 注意是先将值捕获 ， 再对守卫子句求值 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0092",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0092"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0092",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自己的对象类型和方法，参见 类 。） 在示例中显示的方法 append() 是由列表对象定义的；它会在列表的末尾添加一个新元素。 在本例中它等同于 result = result + [a] ，但效率更高。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 91,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0092",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0092",
+          "textHash": "sha256_63a8ecfc4c4efe05786f11fd180efac9",
+          "textQuote": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自己的对象类型和方法，参见 类 。） 在示例中显示的方法 append() 是由列"
+        }
+      ],
+      "text": "语句 result . append ( a ) 调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0084",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "函数定义在当前符号表中把函数名与函数对象关联在一起。解释器把函数名指向的对象作为用户自定义函数。还可以使用其他名称指向同一个函数对象，并访问该函数：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.8. 定义函数 ¶"
+          ],
+          "order": 83,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0084",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0084",
+          "textHash": "sha256_c69e107c693371884f407b9c3666fc70",
+          "textQuote": "函数定义在当前符号表中把函数名与函数对象关联在一起。解释器把函数名指向的对象作为用户自定义函数。还可以使用其他名称指向同一个函数对象，并访问该函数："
+        }
+      ],
+      "text": "函数定义在当前符号表中把函数名与函数对象关联在一起 。 解释器把函数名指向的对象作为用户自定义函数 。 还可以使用其他名称指向同一个函数对象 ， 并访问该函数 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0098",
+      "kind": "open_question",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0098"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0098",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.9. 函数定义详解 ¶",
+            "4.9.1. 默认值参数 ¶"
+          ],
+          "order": 97,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0098",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0098",
+          "textHash": "sha256_7e38216d2f51176502bfc2643624a873",
+          "textQuote": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')"
+        }
+      ],
+      "text": "给出所有实参 ： ask_ok ( ' OK to overwrite the file ? ' , 2 , '",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.807,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0109",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0109"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0109",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.9. 函数定义详解 ¶",
+            "4.9.2. 关键字参数 ¶"
+          ],
+          "order": 108,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0109",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0109",
+          "textHash": "sha256_9e4492029909113d11905f990c8d3ba1",
+          "textQuote": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用："
+        }
+      ],
+      "text": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type ) 。 该函数可用下列方式调用 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0102",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0102"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0102",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数：",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.9. 函数定义详解 ¶",
+            "4.9.1. 默认值参数 ¶"
+          ],
+          "order": 101,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0102",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0102",
+          "textHash": "sha256_7ed1978f9c1793315552a6e101f2e5e5",
+          "textQuote": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数："
+        }
+      ],
+      "text": "重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面的函数会累积后续调用时传递的参数 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0058",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0058"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0058",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.7. match 语句 ¶"
+          ],
+          "order": 57,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0058",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0058",
+          "textHash": "sha256_fe4494642bd4352499d2e9a10e59ca8c",
+          "textQuote": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。"
+        }
+      ],
+      "text": "请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ， 变量 绑定 了来自主语 ( point ) 的一个值 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_zh_003_python_tutorial_controlflow_0030",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_003_python_tutorial_controlflow_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_003_python_tutorial_controlflow_0030"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_003_python_tutorial_controlflow_0030",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_003_python_tutorial_controlflow_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_9efbe6ec0b78fd620005e446f8f1ba0e420a674605bf29be42cbfd17f34f928c",
+          "fallbackText": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。",
+          "headingPath": [
+            "4. 更多控制流工具 ¶",
+            "4.3. range() 函数 ¶"
+          ],
+          "order": 29,
+          "pageId": "page_zh_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_zh_003_python_tutorial_controlflow_0030",
+          "sourceRefId": "src_page_zh_003_python_tutorial_controlflow_0030",
+          "textHash": "sha256_4f5ab172328bd57fa99c2b2561e62767",
+          "textQuote": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。"
+        }
+      ],
+      "text": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list ( ) 的更多细节 。",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_zh_003_python_tutorial_controlflow",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.087,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ，",
+      "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch",
+      "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符串可以自动生成在线文档或打印版文档 ， 还可以让开发者在浏览代码时直接查阅文档 ； Python 开发者最好养成在代码中加入文档字符串的好习惯",
+      "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ， 也不是语言定义的一部分 （ 这里你可以使用任意常量表达式",
+      "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的 值 始终是对象的 引用"
+    ],
+    "tldr": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ，"
+  }
+}

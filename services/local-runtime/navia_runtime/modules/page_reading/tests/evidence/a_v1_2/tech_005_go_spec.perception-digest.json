@@ -1,0 +1,649 @@
+{
+  "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+  "digestId": "digest_page_tech_005_go_spec",
+  "items": [
+    {
+      "confidence": 0.841,
+      "importance": 0.875,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0086",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Although these representations all result in an integer, they have different valid ranges. Octal escapes must represent a value between 0 and 255 inclusive. Hexadecimal escapes satisfy this condition by construction. The escapes \\u and \\U represent Unicode code points so within them some values are illegal, in particular those above 0x10FFFF and surrogate ha",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Rune literals"
+          ],
+          "order": 85,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0086",
+          "sourceRefId": "src_page_tech_005_go_spec_0086",
+          "textHash": "sha256_fd3feabb654f2d899f529ae6542a81c3",
+          "textQuote": "Although these representations all result in an integer, they have different valid ranges. Octal escapes must represent a value between 0 and 255 inclusive. Hexadecimal escapes satisfy this condition by construction. The"
+        }
+      ],
+      "text": "Although these representations all result in an integer , they have different valid ranges . Octal",
+      "warnings": []
+    },
+    {
+      "confidence": 0.841,
+      "importance": 0.874,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0053",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Tokens form the vocabulary of the Go language. There are four classes: identifiers , keywords , operators and punctuation , and literals . White space , formed from spaces (U+0020), horizontal tabs (U+0009), carriage returns (U+000D), and newlines (U+000A), is ignored except as it separates tokens that would otherwise combine into a single token. Also, a new",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Tokens"
+          ],
+          "order": 52,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0053",
+          "sourceRefId": "src_page_tech_005_go_spec_0053",
+          "textHash": "sha256_116a341adb5dc8f4c6a63175a46bd912",
+          "textQuote": "Tokens form the vocabulary of the Go language. There are four classes: identifiers , keywords , operators and punctuation , and literals . White space , formed from spaces (U+0020), horizontal tabs (U+0009), carriage ret"
+        }
+      ],
+      "text": "Tokens form the vocabulary of the Go language . There are four classes : identifiers ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.857,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Go is a general-purpose language designed with systems programming in mind. It is strongly typed and garbage-collected and has explicit support for concurrent programming. Programs are constructed from packages , whose properties allow efficient management of dependencies.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0031",
+          "sourceRefId": "src_page_tech_005_go_spec_0031",
+          "textHash": "sha256_b90ac5cef1b6cc6456fea408e4461cf3",
+          "textQuote": "Go is a general-purpose language designed with systems programming in mind. It is strongly typed and garbage-collected and has explicit support for concurrent programming. Programs are constructed from packages , whose p"
+        }
+      ],
+      "text": "Go is a general - purpose language designed with systems programming in mind . It is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0091",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0091",
+          "blockType": "code",
+          "chunkId": "ck_page_tech_005_go_spec_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "'a' 'ä' '本' '\\t' '\\000' '\\007' '\\377' '\\x07' '\\xff' '\\u12e4' '\\U00101234' '\\'' // rune literal containing single quote character 'aa' // illegal: too many characters '\\k' // illegal: k is not recognized after a backslash '\\xa' // illegal: too few hexadecimal digits '\\0' // illegal: too few octal digits '\\400' // illegal: octal value over 255 '\\uDFFF' // ille",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Rune literals"
+          ],
+          "order": 90,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0091",
+          "sourceRefId": "src_page_tech_005_go_spec_0091",
+          "textHash": "sha256_fa0d3a60e4c7d25167f31f6d0a7018bc",
+          "textQuote": "'a' 'ä' '本' '\\t' '\\000' '\\007' '\\377' '\\x07' '\\xff' '\\u12e4' '\\U00101234' '\\'' // rune literal containing single quote character 'aa' // illegal: too many characters '\\k' // illegal: k is not recognized after a backslash"
+        }
+      ],
+      "text": "' a ' ' ä ' ' 本 ' ' \\ t ' ' \\ 000",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0083",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0083"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0083",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "A rune literal represents a rune constant , an integer value identifying a Unicode code point. A rune literal is expressed as one or more characters enclosed in single quotes, as in 'x' or '\\n' . Within the quotes, any character may appear except newline and unescaped single quote. A single quoted character represents the Unicode value of the character itsel",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Rune literals"
+          ],
+          "order": 82,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0083",
+          "sourceRefId": "src_page_tech_005_go_spec_0083",
+          "textHash": "sha256_7ac94e2a6456150dd574c9f3cc66d577",
+          "textQuote": "A rune literal represents a rune constant , an integer value identifying a Unicode code point. A rune literal is expressed as one or more characters enclosed in single quotes, as in 'x' or '\\n' . Within the quotes, any c"
+        }
+      ],
+      "text": "A rune literal represents a rune constant , an integer value identifying a Unicode code point",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0070",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "For readability, an underscore character _ may appear after a base prefix or between successive digits; such underscores do not change the literal's value.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Integer literals"
+          ],
+          "order": 69,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0070",
+          "sourceRefId": "src_page_tech_005_go_spec_0070",
+          "textHash": "sha256_4f5346fc055dd00a5ce368abface3a73",
+          "textQuote": "For readability, an underscore character _ may appear after a base prefix or between successive digits; such underscores do not change the literal's value."
+        }
+      ],
+      "text": "For readability , an underscore character _ may appear after a base prefix or between successive",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0107",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Implementation restriction: Although numeric constants have arbitrary precision in the language, a compiler may implement them using an internal representation with limited precision. That said, every implementation must:",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Constants"
+          ],
+          "order": 106,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0107",
+          "sourceRefId": "src_page_tech_005_go_spec_0107",
+          "textHash": "sha256_c46ee4a9d598ba46d618a738f30d58dc",
+          "textQuote": "Implementation restriction: Although numeric constants have arbitrary precision in the language, a compiler may implement them using an internal representation with limited precision. That said, every implementation must"
+        }
+      ],
+      "text": "Implementation restriction : Although numeric constants have arbitrary precision in the language , a compiler may",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0072",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0072",
+          "blockType": "code",
+          "chunkId": "ck_page_tech_005_go_spec_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "42 4_2 0600 0_600 0o600 0O600 // second character is capital letter 'O' 0xBadFace 0xBad_Face 0x_67_7a_2f_cc_40_c6 170141183460469231731687303715884105727 170_141183_460469_231731_687303_715884_105727 _42 // an identifier, not an integer literal 42_ // invalid: _ must separate successive digits 4__2 // invalid: only one _ at a time 0_xBadFace // invalid: _ mu",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Integer literals"
+          ],
+          "order": 71,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0072",
+          "sourceRefId": "src_page_tech_005_go_spec_0072",
+          "textHash": "sha256_cba36e1c5c0538c65e2dce209970232e",
+          "textQuote": "42 4_2 0600 0_600 0o600 0O600 // second character is capital letter 'O' 0xBadFace 0xBad_Face 0x_67_7a_2f_cc_40_c6 170141183460469231731687303715884105727 170_141183_460469_231731_687303_715884_105727 _42 // an identifier"
+        }
+      ],
+      "text": "42 4_2 0600 0_600 0o600 0O600 / / second character is capital letter ' O '",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0076",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0076"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0076",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "For readability, an underscore character _ may appear after a base prefix or between successive digits; such underscores do not change the literal value.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Floating-point literals"
+          ],
+          "order": 75,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0076",
+          "sourceRefId": "src_page_tech_005_go_spec_0076",
+          "textHash": "sha256_963b299e5bed407cc9ee0551197f77b2",
+          "textQuote": "For readability, an underscore character _ may appear after a base prefix or between successive digits; such underscores do not change the literal value."
+        }
+      ],
+      "text": "For readability , an underscore character _ may appear after a base prefix or between successive",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0106",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0106"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0106",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "An untyped constant has a default type which is the type to which the constant is implicitly converted in contexts where a typed value is required, for instance, in a short variable declaration such as i := 0 where there is no explicit type. The default type of an untyped constant is bool , rune , int , float64 , complex128 , or string respectively, dependin",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Constants"
+          ],
+          "order": 105,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0106",
+          "sourceRefId": "src_page_tech_005_go_spec_0106",
+          "textHash": "sha256_b0821d7cd596cd55335331ef13b41097",
+          "textQuote": "An untyped constant has a default type which is the type to which the constant is implicitly converted in contexts where a typed value is required, for instance, in a short variable declaration such as i := 0 where there"
+        }
+      ],
+      "text": "An untyped constant has a default type which is the type to which the constant is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0122",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0019"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0122"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0122",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0019",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "The language predeclares certain type names. Others are introduced with type declarations or type parameter lists . Composite types —array, struct, pointer, function, interface, slice, map, and channel types—may be constructed using type literals.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Types"
+          ],
+          "order": 121,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0122",
+          "sourceRefId": "src_page_tech_005_go_spec_0122",
+          "textHash": "sha256_8272a9ac30bfb9d783073530ada4cc23",
+          "textQuote": "The language predeclares certain type names. Others are introduced with type declarations or type parameter lists . Composite types —array, struct, pointer, function, interface, slice, map, and channel types—may be const"
+        }
+      ],
+      "text": "The language predeclares certain type names . Others are introduced with type declarations or type parameter",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0130",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0021"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0130"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0130",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0021",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "To avoid portability issues all numeric types are defined types and thus distinct except byte , which is an alias for uint8 , and rune , which is an alias for int32 . Explicit conversions are required when different numeric types are mixed in an expression or assignment. For instance, int32 and int are not the same type even though they may have the same siz",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Types",
+            "Numeric types"
+          ],
+          "order": 129,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0130",
+          "sourceRefId": "src_page_tech_005_go_spec_0130",
+          "textHash": "sha256_7d60ba3eb4e90cb96b771950fe612874",
+          "textQuote": "To avoid portability issues all numeric types are defined types and thus distinct except byte , which is an alias for uint8 , and rune , which is an alias for int32 . Explicit conversions are required when different nume"
+        }
+      ],
+      "text": "To avoid portability issues all numeric types are defined types and thus distinct except byte ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "The syntax is compact and simple to parse, allowing for easy analysis by automatic tools such as integrated development environments.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Introduction"
+          ],
+          "order": 31,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0032",
+          "sourceRefId": "src_page_tech_005_go_spec_0032",
+          "textHash": "sha256_5d558ffcd76a12635919eac13d8c48ec",
+          "textQuote": "The syntax is compact and simple to parse, allowing for easy analysis by automatic tools such as integrated development environments."
+        }
+      ],
+      "text": "The syntax is compact and simple to parse , allowing for easy analysis by automatic tools",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0093",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0093"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0093",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Raw string literals are character sequences between back quotes, as in `foo` . Within the quotes, any character may appear except back quote. The value of a raw string literal is the string composed of the uninterpreted (implicitly UTF-8-encoded) characters between the quotes; in particular, backslashes have no special meaning and the string may contain newl",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "String literals"
+          ],
+          "order": 92,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0093",
+          "sourceRefId": "src_page_tech_005_go_spec_0093",
+          "textHash": "sha256_2fa2c7f1ec5df82052406a3b98da4bf9",
+          "textQuote": "Raw string literals are character sequences between back quotes, as in `foo` . Within the quotes, any character may appear except back quote. The value of a raw string literal is the string composed of the uninterpreted "
+        }
+      ],
+      "text": "Raw string literals are character sequences between back quotes , as in ` foo ` .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Interpreted string literals are character sequences between double quotes, as in \"bar\" . Within the quotes, any character may appear except newline and unescaped double quote. The text between the quotes forms the value of the literal, with backslash escapes interpreted as they are in rune literals (except that \\' is illegal and \\\" is legal), with the same r",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "String literals"
+          ],
+          "order": 93,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0094",
+          "sourceRefId": "src_page_tech_005_go_spec_0094",
+          "textHash": "sha256_2088117dee73e8e34a09e38baeee3bab",
+          "textQuote": "Interpreted string literals are character sequences between double quotes, as in \"bar\" . Within the quotes, any character may appear except newline and unescaped double quote. The text between the quotes forms the value "
+        }
+      ],
+      "text": "Interpreted string literals are character sequences between double quotes , as in \" bar \" .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0116",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0116"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0116",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "Structured variables of array , slice , and struct types have elements and fields that may be addressed individually. Each such element acts like a variable.",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Variables"
+          ],
+          "order": 115,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0116",
+          "sourceRefId": "src_page_tech_005_go_spec_0116",
+          "textHash": "sha256_f459af28db260b804784b05a34fee421",
+          "textQuote": "Structured variables of array , slice , and struct types have elements and fields that may be addressed individually. Each such element acts like a variable."
+        }
+      ],
+      "text": "Structured variables of array , slice , and struct types have elements and fields that may",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0066",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0066"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0066",
+          "blockType": "code",
+          "chunkId": "ck_page_tech_005_go_spec_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Keywords"
+          ],
+          "order": 65,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0066",
+          "sourceRefId": "src_page_tech_005_go_spec_0066",
+          "textHash": "sha256_b0e7582dbc039ba250b526ba5bf2bf73",
+          "textQuote": "break default func interface select case defer go map struct chan else goto package switch const fallthrough if range type continue for import return var"
+        }
+      ],
+      "text": "break default func interface select case defer go map struct chan else goto package switch const",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_tech_005_go_spec_0081",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_005_go_spec_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_005_go_spec_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_005_go_spec_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_005_go_spec_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_957c55ba9ef414209b17e5150bfca7821fa8c38c08e0b4304fc02d1ca51e3033",
+          "fallbackText": "For backward compatibility, an imaginary literal's integer part consisting entirely of decimal digits (and possibly underscores) is considered a decimal integer, even if it starts with a leading 0 .",
+          "headingPath": [
+            "The Go Programming Language Specification",
+            "Lexical elements",
+            "Imaginary literals"
+          ],
+          "order": 80,
+          "pageId": "page_tech_005_go_spec",
+          "paragraphId": "pg_page_tech_005_go_spec_0081",
+          "sourceRefId": "src_page_tech_005_go_spec_0081",
+          "textHash": "sha256_740fb822f8a4023a781790f8ac5168bb",
+          "textQuote": "For backward compatibility, an imaginary literal's integer part consisting entirely of decimal digits (and possibly underscores) is considered a decimal integer, even if it starts with a leading 0 ."
+        }
+      ],
+      "text": "For backward compatibility , an imaginary literal ' s integer part consisting entirely of decimal digits",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_005_go_spec",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.062,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Although these representations all result in an integer , they have different valid ranges . Octal",
+      "Tokens form the vocabulary of the Go language . There are four classes : identifiers ,",
+      "Go is a general - purpose language designed with systems programming in mind . It is",
+      "' a ' ' ä ' ' 本 ' ' \\ t ' ' \\ 000",
+      "A rune literal represents a rune constant , an integer value identifying a Unicode code point"
+    ],
+    "tldr": "Although these representations all result in an integer , they have different valid ranges . Octal"
+  }
+}

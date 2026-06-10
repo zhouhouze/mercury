@@ -1,0 +1,342 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_low_001_example_com"
+      ],
+      "status": "degraded",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_low_001_example_com"
+      ],
+      "status": "degraded",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_low_001_example_com"
+      ],
+      "status": "degraded",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_low_001_example_com"
+      ],
+      "status": "degraded",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_low_001_example_com"
+      ],
+      "status": "degraded",
+      "step": "quality",
+      "summary": "Quality gates failed: compressionScore, digestCompressionRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 1,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 101,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_low_001_example_com",
+    "pageKey": "page_low_001_example_com",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+    "digestRef": "digest_page_low_001_example_com",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_low_001_example_com_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_low_001_example_com_0001"
+        ],
+        "confidence": 0.799,
+        "contentDensityScore": 0.634,
+        "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+        "importance": 0.771,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_low_001_example_com",
+        "paragraphIds": [
+          "pg_page_low_001_example_com_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_low_001_example_com_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_low_001_example_com_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+            "fallbackText": "This domain is for use in documentation examples without needing permission. Avoid use in operations.",
+            "headingPath": [
+              "Example Domain"
+            ],
+            "order": 0,
+            "pageId": "page_low_001_example_com",
+            "paragraphId": "pg_page_low_001_example_com_0001",
+            "sourceRefId": "src_page_low_001_example_com_0001",
+            "textHash": "sha256_e927826c7a8636a7a9ad6188939bbf37",
+            "textQuote": "This domain is for use in documentation examples without needing permission. Avoid use in operations."
+          }
+        ],
+        "text": "This domain is for use in documentation examples without needing permission. Avoid use in operations.",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "documentation",
+      "headingCount": 1,
+      "language": "en",
+      "paragraphCount": 1,
+      "wordCount": 21
+    },
+    "pageId": "page_low_001_example_com",
+    "qualityReportRef": "q_page_low_001_example_com",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_low_001_example_com",
+    "sourceMapRef": "smap_page_low_001_example_com",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+      "pageId": "page_low_001_example_com"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_low_001_example_com",
+  "perceptionDigest": {
+    "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+    "digestId": "digest_page_low_001_example_com",
+    "items": [
+      {
+        "confidence": 0.799,
+        "importance": 0.771,
+        "itemId": "item_block_pg_page_low_001_example_com_0001",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_low_001_example_com_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_low_001_example_com_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_low_001_example_com_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_low_001_example_com_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+            "fallbackText": "This domain is for use in documentation examples without needing permission. Avoid use in operations.",
+            "headingPath": [
+              "Example Domain"
+            ],
+            "order": 0,
+            "pageId": "page_low_001_example_com",
+            "paragraphId": "pg_page_low_001_example_com_0001",
+            "sourceRefId": "src_page_low_001_example_com_0001",
+            "textHash": "sha256_e927826c7a8636a7a9ad6188939bbf37",
+            "textQuote": "This domain is for use in documentation examples without needing permission. Avoid use in operations."
+          }
+        ],
+        "text": "This domain is for use in documentation examples without needing permission . Avoid use in operations",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_low_001_example_com",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 1.0,
+      "itemCount": 1,
+      "sourceRefCount": 1
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "This domain is for use in documentation examples without needing permission . Avoid use in operations"
+      ],
+      "tldr": "This domain is for use in documentation examples without needing permission . Avoid use in operations"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+    "downstreamReadiness": "degraded",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 1.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 1.0,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 101.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 101.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 15.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 15.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 1.0
+      },
+      "groundingCompleteness": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.9,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_low_001_example_com",
+    "reportId": "q_page_low_001_example_com",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "degraded",
+    "warnings": [
+      {
+        "code": "LOW_SIGNAL_PAGE_DEGRADED",
+        "message": "Low-signal corpus page cannot be marked pass even when deterministic metrics are high.",
+        "relatedIds": [
+          "page_low_001_example_com"
+        ],
+        "severity": "major"
+      }
+    ]
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 101,
+    "codeBlockCount": 0,
+    "domain": "example.com",
+    "headingCount": 1,
+    "htmlAvailable": true,
+    "imageCount": 0,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "low_001_example_com",
+    "url": "https://example.com",
+    "visibleTextLength": 21
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+    "pageId": "page_low_001_example_com",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_low_001_example_com",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_low_001_example_com_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_low_001_example_com_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b6992c313e9d054ed975a177d2e537c59bfbfe5c82217a3d8c82ce3cb41b8e1f",
+        "fallbackText": "This domain is for use in documentation examples without needing permission. Avoid use in operations.",
+        "headingPath": [
+          "Example Domain"
+        ],
+        "order": 0,
+        "pageId": "page_low_001_example_com",
+        "paragraphId": "pg_page_low_001_example_com_0001",
+        "sourceRefId": "src_page_low_001_example_com_0001",
+        "textHash": "sha256_e927826c7a8636a7a9ad6188939bbf37",
+        "textQuote": "This domain is for use in documentation examples without needing permission. Avoid use in operations."
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "degraded",
+  "statusReason": "Quality gates failed: compressionScore, digestCompressionRatio",
+  "warnings": []
+}

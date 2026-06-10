@@ -1,0 +1,2491 @@
+{
+  "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+  "pageId": "page_blog_008_pep_0634",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_blog_008_pep_0634",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0001",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "PEP 634 – Structural Pattern Matching: Specification",
+      "headingPath": [
+        "Python Enhancement Proposals"
+      ],
+      "order": 0,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0001",
+      "sourceRefId": "src_page_blog_008_pep_0634_0001",
+      "textHash": "sha256_fd1e39ab7027982c14d9f0fad04723c7",
+      "textQuote": "PEP 634 – Structural Pattern Matching: Specification"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0002",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Table of Contents",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 1,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0002",
+      "sourceRefId": "src_page_blog_008_pep_0634_0002",
+      "textHash": "sha256_a9360e0212a4d173581c91da68494d02",
+      "textQuote": "Table of Contents"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0003",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Syntax and Semantics",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 2,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0003",
+      "sourceRefId": "src_page_blog_008_pep_0634_0003",
+      "textHash": "sha256_320c34cc45387bf577ae61ed20c09134",
+      "textQuote": "Syntax and Semantics"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0004",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Overview and Terminology",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 3,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0004",
+      "sourceRefId": "src_page_blog_008_pep_0634_0004",
+      "textHash": "sha256_2a6c2da19dcf5f66124658ac08430ac3",
+      "textQuote": "Overview and Terminology"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0005",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The Match Statement",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 4,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0005",
+      "sourceRefId": "src_page_blog_008_pep_0634_0005",
+      "textHash": "sha256_aeeabd63ff2aa286ab390a24487694c2",
+      "textQuote": "The Match Statement"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0006",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Irrefutable case blocks",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 5,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0006",
+      "sourceRefId": "src_page_blog_008_pep_0634_0006",
+      "textHash": "sha256_710cd224c0c5be4783992e4ad86bb44c",
+      "textQuote": "Irrefutable case blocks"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0007",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Literal Patterns",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 6,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0007",
+      "sourceRefId": "src_page_blog_008_pep_0634_0007",
+      "textHash": "sha256_934c2041ff7853a419842737278e1fd4",
+      "textQuote": "Literal Patterns"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0008",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Capture Patterns",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 7,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0008",
+      "sourceRefId": "src_page_blog_008_pep_0634_0008",
+      "textHash": "sha256_9444b9600f0ecc8bf0985a3303db2555",
+      "textQuote": "Capture Patterns"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0009",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Wildcard Pattern",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 8,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0009",
+      "sourceRefId": "src_page_blog_008_pep_0634_0009",
+      "textHash": "sha256_582d45c6d2646afb07053787c6326f41",
+      "textQuote": "Wildcard Pattern"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0010",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Sequence Patterns",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 9,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0010",
+      "sourceRefId": "src_page_blog_008_pep_0634_0010",
+      "textHash": "sha256_c4338aba0dd6e68de3f9eb268a93f959",
+      "textQuote": "Sequence Patterns"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0011",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Mapping Patterns",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 10,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0011",
+      "sourceRefId": "src_page_blog_008_pep_0634_0011",
+      "textHash": "sha256_c5a8c8d1cb57c44f0dc2af8f4951c849",
+      "textQuote": "Mapping Patterns"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0012",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Side Effects and Undefined Behavior",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 11,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0012",
+      "sourceRefId": "src_page_blog_008_pep_0634_0012",
+      "textHash": "sha256_a9d8bcea07b1e3e54ebc3bd29094b3be",
+      "textQuote": "Side Effects and Undefined Behavior"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0013",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The Standard Library",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 12,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0013",
+      "sourceRefId": "src_page_blog_008_pep_0634_0013",
+      "textHash": "sha256_cc4ff2541e7317b409a7cc76bfbe5528",
+      "textQuote": "The Standard Library"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0014",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Appendix A – Full Grammar",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 13,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0014",
+      "sourceRefId": "src_page_blog_008_pep_0634_0014",
+      "textHash": "sha256_f4ce3a01fbf6693b5656a27be905b96b",
+      "textQuote": "Appendix A – Full Grammar"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0015",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "This PEP is a historical document. The up-to-date, canonical documentation can now be found at The match statement .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 14,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0015",
+      "sourceRefId": "src_page_blog_008_pep_0634_0015",
+      "textHash": "sha256_9122c597780b7a3a2d5c6cefd7c3bc98",
+      "textQuote": "This PEP is a historical document. The up-to-date, canonical documentation can now be found at The match statement ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0016",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "See PEP 1 for how to propose changes.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification"
+      ],
+      "order": 15,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0016",
+      "sourceRefId": "src_page_blog_008_pep_0634_0016",
+      "textHash": "sha256_091252bd2fc74026582afb6591220174",
+      "textQuote": "See PEP 1 for how to propose changes."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0017",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "This PEP provides the technical specification for the match statement. It replaces PEP 622 , which is hereby split in three parts:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Abstract"
+      ],
+      "order": 16,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0017",
+      "sourceRefId": "src_page_blog_008_pep_0634_0017",
+      "textHash": "sha256_463c48d3406d641fb994fe446ccfaa6f",
+      "textQuote": "This PEP provides the technical specification for the match statement. It replaces PEP 622 , which is hereby split in three parts:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0018",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "PEP 634 : Specification",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Abstract"
+      ],
+      "order": 17,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0018",
+      "sourceRefId": "src_page_blog_008_pep_0634_0018",
+      "textHash": "sha256_680ebb78ff33863f745d794d95329487",
+      "textQuote": "PEP 634 : Specification"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0019",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "PEP 635 : Motivation and Rationale",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Abstract"
+      ],
+      "order": 18,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0019",
+      "sourceRefId": "src_page_blog_008_pep_0634_0019",
+      "textHash": "sha256_7ff8a0288998c0326dfa4e86aeff6f0e",
+      "textQuote": "PEP 635 : Motivation and Rationale"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0020",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "PEP 636 : Tutorial",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Abstract"
+      ],
+      "order": 19,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0020",
+      "sourceRefId": "src_page_blog_008_pep_0634_0020",
+      "textHash": "sha256_256262e38f66f207aa595091dc072ec1",
+      "textQuote": "PEP 636 : Tutorial"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0021",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "This PEP is intentionally devoid of commentary; the motivation and all explanations of our design choices are in PEP 635 . First-time readers are encouraged to start with PEP 636 , which provides a gentler introduction to the concepts, syntax and semantics of patterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Abstract"
+      ],
+      "order": 20,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0021",
+      "sourceRefId": "src_page_blog_008_pep_0634_0021",
+      "textHash": "sha256_9e5ef0c2e57c05723b3a50bb284894cb",
+      "textQuote": "This PEP is intentionally devoid of commentary; the motivation and all explanations of our design choices are in PEP 635 . First-time readers are encouraged to start with PEP 636 , which provides a gentler introduction t"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0022",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "See Appendix A for the complete grammar.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics"
+      ],
+      "order": 21,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0022",
+      "sourceRefId": "src_page_blog_008_pep_0634_0022",
+      "textHash": "sha256_00a8046d39b3114b6448d1f3a253ab67",
+      "textQuote": "See Appendix A for the complete grammar."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0023",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The pattern matching process takes as input a pattern (following case ) and a subject value (following match ). Phrases to describe the process include “the pattern is matched with (or against) the subject value” and “we match the pattern against (or with) the subject value”.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Overview and Terminology"
+      ],
+      "order": 22,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0023",
+      "sourceRefId": "src_page_blog_008_pep_0634_0023",
+      "textHash": "sha256_be795125c44dc9fcf472e310c07d6d36",
+      "textQuote": "The pattern matching process takes as input a pattern (following case ) and a subject value (following match ). Phrases to describe the process include “the pattern is matched with (or against) the subject value” and “we"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0024",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The primary outcome of pattern matching is success or failure. In case of success we may say “the pattern succeeds”, “the match succeeds”, or “the pattern matches the subject value”.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Overview and Terminology"
+      ],
+      "order": 23,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0024",
+      "sourceRefId": "src_page_blog_008_pep_0634_0024",
+      "textHash": "sha256_791175e09a0b7a7b2254047428a1767a",
+      "textQuote": "The primary outcome of pattern matching is success or failure. In case of success we may say “the pattern succeeds”, “the match succeeds”, or “the pattern matches the subject value”."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0025",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "In many cases a pattern contains subpatterns, and success or failure is determined by the success or failure of matching those subpatterns against the value (e.g., for OR patterns) or against parts of the value (e.g., for sequence patterns). This process typically processes the subpatterns from left to right until the overall outcome is determined. E.g., an ",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Overview and Terminology"
+      ],
+      "order": 24,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0025",
+      "sourceRefId": "src_page_blog_008_pep_0634_0025",
+      "textHash": "sha256_bd485c6a3db8c6870f415f77f276fc7d",
+      "textQuote": "In many cases a pattern contains subpatterns, and success or failure is determined by the success or failure of matching those subpatterns against the value (e.g., for OR patterns) or against parts of the value (e.g., fo"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0026",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A secondary outcome of pattern matching may be one or more name bindings. We may say “the pattern binds a value to a name”. When subpatterns tried until the first success, only the bindings due to the successful subpattern are valid; when trying until the first failure, the bindings are merged. Several more rules, explained below, apply to these cases.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Overview and Terminology"
+      ],
+      "order": 25,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0026",
+      "sourceRefId": "src_page_blog_008_pep_0634_0026",
+      "textHash": "sha256_f08244ef7d1721f9f69839fcab934f31",
+      "textQuote": "A secondary outcome of pattern matching may be one or more name bindings. We may say “the pattern binds a value to a name”. When subpatterns tried until the first success, only the bindings due to the successful subpatte"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0027",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "match_stmt: \"match\" subject_expr ':' NEWLINE INDENT case_block+ DEDENT subject_expr: | star_named_expression ',' star_named_expressions? | named_expression case_block: \"case\" patterns [guard] ':' block guard: 'if' named_expression",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 26,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0027",
+      "sourceRefId": "src_page_blog_008_pep_0634_0027",
+      "textHash": "sha256_205ca2b2d5bb924a204fc169ed9f245c",
+      "textQuote": "match_stmt: \"match\" subject_expr ':' NEWLINE INDENT case_block+ DEDENT subject_expr: | star_named_expression ',' star_named_expressions? | named_expression case_block: \"case\" patterns [guard] ':' block guard: 'if' named_"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0028",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The rules star_named_expression , star_named_expressions , named_expression and block are part of the standard Python grammar .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 27,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0028",
+      "sourceRefId": "src_page_blog_008_pep_0634_0028",
+      "textHash": "sha256_e285ca8631b650f3f7f73934f7ce87f0",
+      "textQuote": "The rules star_named_expression , star_named_expressions , named_expression and block are part of the standard Python grammar ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0029",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The rule patterns is specified below.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 28,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0029",
+      "sourceRefId": "src_page_blog_008_pep_0634_0029",
+      "textHash": "sha256_a24fadc03d269ff9be348d22077f9589",
+      "textQuote": "The rule patterns is specified below."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0030",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "For context, match_stmt is a new alternative for compound_statement :",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 29,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0030",
+      "sourceRefId": "src_page_blog_008_pep_0634_0030",
+      "textHash": "sha256_7b51727d6168d0583db8096becea8b51",
+      "textQuote": "For context, match_stmt is a new alternative for compound_statement :"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0031",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "compound_statement : | if_stmt ... | match_stmt",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 30,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0031",
+      "sourceRefId": "src_page_blog_008_pep_0634_0031",
+      "textHash": "sha256_fc2a15e7e6010740e00b42dba22eadc8",
+      "textQuote": "compound_statement : | if_stmt ... | match_stmt"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0032",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The match and case keywords are soft keywords, i.e. they are not reserved words in other grammatical contexts (including at the start of a line if there is no colon where expected). This implies that they are recognized as keywords when part of a match statement or case block only, and are allowed to be used in all other contexts as variable or argument name",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement"
+      ],
+      "order": 31,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0032",
+      "sourceRefId": "src_page_blog_008_pep_0634_0032",
+      "textHash": "sha256_12637ac28c4d9642b1dc8e64b7f7f098",
+      "textQuote": "The match and case keywords are soft keywords, i.e. they are not reserved words in other grammatical contexts (including at the start of a line if there is no colon where expected). This implies that they are recognized "
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0033",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The match statement first evaluates the subject expression. If a comma is present a tuple is constructed using the standard rules.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Match Semantics"
+      ],
+      "order": 32,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0033",
+      "sourceRefId": "src_page_blog_008_pep_0634_0033",
+      "textHash": "sha256_0585d08040f92654304a6375b2a56f54",
+      "textQuote": "The match statement first evaluates the subject expression. If a comma is present a tuple is constructed using the standard rules."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0034",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The resulting subject value is then used to select the first case block whose patterns succeeds matching it and whose guard condition (if present) is “truthy”. If no case blocks qualify the match statement is complete; otherwise, the block of the selected case block is executed. The usual rules for executing a block nested inside a compound statement apply (",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Match Semantics"
+      ],
+      "order": 33,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0034",
+      "sourceRefId": "src_page_blog_008_pep_0634_0034",
+      "textHash": "sha256_88ed1e37c0655c3a08f6ca69fbd18e9d",
+      "textQuote": "The resulting subject value is then used to select the first case block whose patterns succeeds matching it and whose guard condition (if present) is “truthy”. If no case blocks qualify the match statement is complete; o"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0035",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Name bindings made during a successful pattern match outlive the executed block and can be used after the match statement.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Match Semantics"
+      ],
+      "order": 34,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0035",
+      "sourceRefId": "src_page_blog_008_pep_0634_0035",
+      "textHash": "sha256_ed747a4ac1c55fbb0a2ba8eb048d88bc",
+      "textQuote": "Name bindings made during a successful pattern match outlive the executed block and can be used after the match statement."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0036",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "During failed pattern matches, some subpatterns may succeed. For example, while matching the pattern (0, x, 1) with the value [0, 1, 2] , the subpattern x may succeed if the list elements are matched from left to right. The implementation may choose to either make persistent bindings for those partial matches or not. User code including a match statement sho",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Match Semantics"
+      ],
+      "order": 35,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0036",
+      "sourceRefId": "src_page_blog_008_pep_0634_0036",
+      "textHash": "sha256_83498117141b789c06b8dcde3caf2ae6",
+      "textQuote": "During failed pattern matches, some subpatterns may succeed. For example, while matching the pattern (0, x, 1) with the value [0, 1, 2] , the subpattern x may succeed if the list elements are matched from left to right. "
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0037",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The precise pattern binding rules vary per pattern type and are specified below.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Match Semantics"
+      ],
+      "order": 36,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0037",
+      "sourceRefId": "src_page_blog_008_pep_0634_0037",
+      "textHash": "sha256_8149dd7f5ba9ae4fd72670cd73b6db23",
+      "textQuote": "The precise pattern binding rules vary per pattern type and are specified below."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0038",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If a guard is present on a case block, once the pattern or patterns in the case block succeed, the expression in the guard is evaluated. If this raises an exception, the exception bubbles up. Otherwise, if the condition is “truthy” the case block is selected; if it is “falsy” the case block is not selected.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Guards"
+      ],
+      "order": 37,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0038",
+      "sourceRefId": "src_page_blog_008_pep_0634_0038",
+      "textHash": "sha256_a14b652bd4e02010bd3819f4baae1b92",
+      "textQuote": "If a guard is present on a case block, once the pattern or patterns in the case block succeed, the expression in the guard is evaluated. If this raises an exception, the exception bubbles up. Otherwise, if the condition "
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0039",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Since guards are expressions they are allowed to have side effects. Guard evaluation must proceed from the first to the last case block, one at a time, skipping case blocks whose pattern(s) don’t all succeed. (I.e., even if determining whether those patterns succeed may happen out of order, guard evaluation must happen in order.) Guard evaluation must stop o",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Guards"
+      ],
+      "order": 38,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0039",
+      "sourceRefId": "src_page_blog_008_pep_0634_0039",
+      "textHash": "sha256_1181713933c01822682d2132a80e22e0",
+      "textQuote": "Since guards are expressions they are allowed to have side effects. Guard evaluation must proceed from the first to the last case block, one at a time, skipping case blocks whose pattern(s) don’t all succeed. (I.e., even"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0040",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A pattern is considered irrefutable if we can prove from its syntax alone that it will always succeed. In particular, capture patterns and wildcard patterns are irrefutable, and so are AS patterns whose left-hand side is irrefutable, OR patterns containing at least one irrefutable pattern, and parenthesized irrefutable patterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Irrefutable case blocks"
+      ],
+      "order": 39,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0040",
+      "sourceRefId": "src_page_blog_008_pep_0634_0040",
+      "textHash": "sha256_6d5ae119e1d57ebfa73b415a37dec8b6",
+      "textQuote": "A pattern is considered irrefutable if we can prove from its syntax alone that it will always succeed. In particular, capture patterns and wildcard patterns are irrefutable, and so are AS patterns whose left-hand side is"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0041",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A case block is considered irrefutable if it has no guard and its pattern is irrefutable.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Irrefutable case blocks"
+      ],
+      "order": 40,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0041",
+      "sourceRefId": "src_page_blog_008_pep_0634_0041",
+      "textHash": "sha256_36363db6b7311c84f0aa816a93a82891",
+      "textQuote": "A case block is considered irrefutable if it has no guard and its pattern is irrefutable."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0042",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A match statement may have at most one irrefutable case block, and it must be last.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "The Match Statement",
+        "Irrefutable case blocks"
+      ],
+      "order": 41,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0042",
+      "sourceRefId": "src_page_blog_008_pep_0634_0042",
+      "textHash": "sha256_72744464e25a9fd74a8d41b37f300093",
+      "textQuote": "A match statement may have at most one irrefutable case block, and it must be last."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0043",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The top-level syntax for patterns is as follows:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns"
+      ],
+      "order": 42,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0043",
+      "sourceRefId": "src_page_blog_008_pep_0634_0043",
+      "textHash": "sha256_444224f714ef8b65839aa461c095fe9f",
+      "textQuote": "The top-level syntax for patterns is as follows:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0044",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "patterns : open_sequence_pattern | pattern pattern : as_pattern | or_pattern as_pattern : or_pattern 'as' capture_pattern or_pattern : '|' . closed_pattern + closed_pattern : | literal_pattern | capture_pattern | wildcard_pattern | value_pattern | group_pattern | sequence_pattern | mapping_pattern | class_pattern",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns"
+      ],
+      "order": 43,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0044",
+      "sourceRefId": "src_page_blog_008_pep_0634_0044",
+      "textHash": "sha256_be14c7e622eeae8997ce4f5517d52ddf",
+      "textQuote": "patterns : open_sequence_pattern | pattern pattern : as_pattern | or_pattern as_pattern : or_pattern 'as' capture_pattern or_pattern : '|' . closed_pattern + closed_pattern : | literal_pattern | capture_pattern | wildcar"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0045",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "as_pattern : or_pattern 'as' capture_pattern",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "AS Patterns"
+      ],
+      "order": 44,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0045",
+      "sourceRefId": "src_page_blog_008_pep_0634_0045",
+      "textHash": "sha256_1b4398684b60daa0c4771bdac961ce53",
+      "textQuote": "as_pattern : or_pattern 'as' capture_pattern"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0046",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "(Note: the name on the right may not be _ .)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "AS Patterns"
+      ],
+      "order": 45,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0046",
+      "sourceRefId": "src_page_blog_008_pep_0634_0046",
+      "textHash": "sha256_fbeeb941c0d8cf94a7dc90002ab18947",
+      "textQuote": "(Note: the name on the right may not be _ .)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0047",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "An AS pattern matches the OR pattern on the left of the as keyword against the subject. If this fails, the AS pattern fails. Otherwise, the AS pattern binds the subject to the name on the right of the as keyword and succeeds.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "AS Patterns"
+      ],
+      "order": 46,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0047",
+      "sourceRefId": "src_page_blog_008_pep_0634_0047",
+      "textHash": "sha256_3b4b435e493ab062b2e7e93b6997d6a5",
+      "textQuote": "An AS pattern matches the OR pattern on the left of the as keyword against the subject. If this fails, the AS pattern fails. Otherwise, the AS pattern binds the subject to the name on the right of the as keyword and succ"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0048",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "or_pattern : '|' . closed_pattern +",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "OR Patterns"
+      ],
+      "order": 47,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0048",
+      "sourceRefId": "src_page_blog_008_pep_0634_0048",
+      "textHash": "sha256_0f73f3344d99754708755db7688dc6b9",
+      "textQuote": "or_pattern : '|' . closed_pattern +"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0049",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "When two or more patterns are separated by vertical bars ( | ), this is called an OR pattern. (A single closed pattern is just that.)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "OR Patterns"
+      ],
+      "order": 48,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0049",
+      "sourceRefId": "src_page_blog_008_pep_0634_0049",
+      "textHash": "sha256_f59986b9fcebb5ef79635ab081cabc78",
+      "textQuote": "When two or more patterns are separated by vertical bars ( | ), this is called an OR pattern. (A single closed pattern is just that.)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0050",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Only the final subpattern may be irrefutable.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "OR Patterns"
+      ],
+      "order": 49,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0050",
+      "sourceRefId": "src_page_blog_008_pep_0634_0050",
+      "textHash": "sha256_94937c7d601edb41f9d0ad8b14f011cc",
+      "textQuote": "Only the final subpattern may be irrefutable."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0051",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Each subpattern must bind the same set of names.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "OR Patterns"
+      ],
+      "order": 50,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0051",
+      "sourceRefId": "src_page_blog_008_pep_0634_0051",
+      "textHash": "sha256_e272b9b35936cb85b0d92a16fc2aec9a",
+      "textQuote": "Each subpattern must bind the same set of names."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0052",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "An OR pattern matches each of its subpatterns in turn to the subject, until one succeeds. The OR pattern is then deemed to succeed. If none of the subpatterns succeed the OR pattern fails.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "OR Patterns"
+      ],
+      "order": 51,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0052",
+      "sourceRefId": "src_page_blog_008_pep_0634_0052",
+      "textHash": "sha256_2a86aa7f02576e4f392587dc0ea9bbbe",
+      "textQuote": "An OR pattern matches each of its subpatterns in turn to the subject, until one succeeds. The OR pattern is then deemed to succeed. If none of the subpatterns succeed the OR pattern fails."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0053",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "literal_pattern : | signed_number | signed_number '+' NUMBER | signed_number '-' NUMBER | strings | 'None' | 'True' | 'False' signed_number : NUMBER | '-' NUMBER",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 52,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0053",
+      "sourceRefId": "src_page_blog_008_pep_0634_0053",
+      "textHash": "sha256_7a72d9bea312b32905cb8b8a5f090f81",
+      "textQuote": "literal_pattern : | signed_number | signed_number '+' NUMBER | signed_number '-' NUMBER | strings | 'None' | 'True' | 'False' signed_number : NUMBER | '-' NUMBER"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0054",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The rule strings and the token NUMBER are defined in the standard Python grammar.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 53,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0054",
+      "sourceRefId": "src_page_blog_008_pep_0634_0054",
+      "textHash": "sha256_0c271849081bd7162401e3bc69dcf7a7",
+      "textQuote": "The rule strings and the token NUMBER are defined in the standard Python grammar."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0055",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Triple-quoted strings are supported. Raw strings and byte strings are supported. F-strings are not supported.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 54,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0055",
+      "sourceRefId": "src_page_blog_008_pep_0634_0055",
+      "textHash": "sha256_e66d92a9ee94ea90536f7ff47ba306de",
+      "textQuote": "Triple-quoted strings are supported. Raw strings and byte strings are supported. F-strings are not supported."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0056",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The forms signed_number '+' NUMBER and signed_number '-' NUMBER are only permitted to express complex numbers; they require a real number on the left and an imaginary number on the right.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 55,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0056",
+      "sourceRefId": "src_page_blog_008_pep_0634_0056",
+      "textHash": "sha256_2b87ce5b39496f857083ad40d8a7e040",
+      "textQuote": "The forms signed_number '+' NUMBER and signed_number '-' NUMBER are only permitted to express complex numbers; they require a real number on the left and an imaginary number on the right."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0057",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A literal pattern succeeds if the subject value compares equal to the value expressed by the literal, using the following comparisons rules:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 56,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0057",
+      "sourceRefId": "src_page_blog_008_pep_0634_0057",
+      "textHash": "sha256_305b64a72e1c0a5f6852560f28e4ca88",
+      "textQuote": "A literal pattern succeeds if the subject value compares equal to the value expressed by the literal, using the following comparisons rules:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0058",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Numbers and strings are compared using the == operator.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 57,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0058",
+      "sourceRefId": "src_page_blog_008_pep_0634_0058",
+      "textHash": "sha256_95449091aa924334ee94a1e00512bf82",
+      "textQuote": "Numbers and strings are compared using the == operator."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0059",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The singleton literals None , True and False are compared using the is operator.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Literal Patterns"
+      ],
+      "order": 58,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0059",
+      "sourceRefId": "src_page_blog_008_pep_0634_0059",
+      "textHash": "sha256_217c58a91c98849a0c3af8adb13422a2",
+      "textQuote": "The singleton literals None , True and False are compared using the is operator."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0060",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "capture_pattern: !\"_\" NAME",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Capture Patterns"
+      ],
+      "order": 59,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0060",
+      "sourceRefId": "src_page_blog_008_pep_0634_0060",
+      "textHash": "sha256_0bb2d4f4edc1d5fa3af2a2700b75c6f5",
+      "textQuote": "capture_pattern: !\"_\" NAME"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0061",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The single underscore ( _ ) is not a capture pattern (this is what !\"_\" expresses). It is treated as a wildcard pattern .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Capture Patterns"
+      ],
+      "order": 60,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0061",
+      "sourceRefId": "src_page_blog_008_pep_0634_0061",
+      "textHash": "sha256_0f52238db511fb94efd24a1fc3e4dd87",
+      "textQuote": "The single underscore ( _ ) is not a capture pattern (this is what !\"_\" expresses). It is treated as a wildcard pattern ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0062",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A capture pattern always succeeds. It binds the subject value to the name using the scoping rules for name binding established for the walrus operator in PEP 572 . (Summary: the name becomes a local variable in the closest containing function scope unless there’s an applicable nonlocal or global statement.)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Capture Patterns"
+      ],
+      "order": 61,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0062",
+      "sourceRefId": "src_page_blog_008_pep_0634_0062",
+      "textHash": "sha256_2fe7c24bf5e9b38ee0da0e6e863b0688",
+      "textQuote": "A capture pattern always succeeds. It binds the subject value to the name using the scoping rules for name binding established for the walrus operator in PEP 572 . (Summary: the name becomes a local variable in the close"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0063",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "In a given pattern, a given name may be bound only once. This disallows for example case x, x: ... but allows case [x] | x: ... .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Capture Patterns"
+      ],
+      "order": 62,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0063",
+      "sourceRefId": "src_page_blog_008_pep_0634_0063",
+      "textHash": "sha256_ed4a141390b001b33644fcd51820f2e9",
+      "textQuote": "In a given pattern, a given name may be bound only once. This disallows for example case x, x: ... but allows case [x] | x: ... ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0064",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "wildcard_pattern : \"_\"",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Wildcard Pattern"
+      ],
+      "order": 63,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0064",
+      "sourceRefId": "src_page_blog_008_pep_0634_0064",
+      "textHash": "sha256_c8036b70adb2c928de913a2931eda18e",
+      "textQuote": "wildcard_pattern : \"_\""
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0065",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A wildcard pattern always succeeds. It binds no name.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Wildcard Pattern"
+      ],
+      "order": 64,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0065",
+      "sourceRefId": "src_page_blog_008_pep_0634_0065",
+      "textHash": "sha256_d282c7c32f0e9e609a044e7697ce1c32",
+      "textQuote": "A wildcard pattern always succeeds. It binds no name."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0066",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "value_pattern : attr attr : name_or_attr '.' NAME name_or_attr : attr | NAME",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Value Patterns"
+      ],
+      "order": 65,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0066",
+      "sourceRefId": "src_page_blog_008_pep_0634_0066",
+      "textHash": "sha256_79071c179f17236473648c6d0157d0b8",
+      "textQuote": "value_pattern : attr attr : name_or_attr '.' NAME name_or_attr : attr | NAME"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0067",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The dotted name in the pattern is looked up using the standard Python name resolution rules. However, when the same value pattern occurs multiple times in the same match statement, the interpreter may cache the first value found and reuse it, rather than repeat the same lookup. (To clarify, this cache is strictly tied to a given execution of a given match st",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Value Patterns"
+      ],
+      "order": 66,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0067",
+      "sourceRefId": "src_page_blog_008_pep_0634_0067",
+      "textHash": "sha256_b083eaaa57056fce019eb7817d41d46b",
+      "textQuote": "The dotted name in the pattern is looked up using the standard Python name resolution rules. However, when the same value pattern occurs multiple times in the same match statement, the interpreter may cache the first val"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0068",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The pattern succeeds if the value found thus compares equal to the subject value (using the == operator).",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Value Patterns"
+      ],
+      "order": 67,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0068",
+      "sourceRefId": "src_page_blog_008_pep_0634_0068",
+      "textHash": "sha256_b7df97a31a9dc54ce9aedc5c3a5a8392",
+      "textQuote": "The pattern succeeds if the value found thus compares equal to the subject value (using the == operator)."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0069",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "group_pattern : '(' pattern ')'",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Group Patterns"
+      ],
+      "order": 68,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0069",
+      "sourceRefId": "src_page_blog_008_pep_0634_0069",
+      "textHash": "sha256_eec855be9d5abbf5db72beee72e491ba",
+      "textQuote": "group_pattern : '(' pattern ')'"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0070",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "(For the syntax of pattern , see Patterns above. Note that it contains no comma – a parenthesized series of items with at least one comma is a sequence pattern, as is () .)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Group Patterns"
+      ],
+      "order": 69,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0070",
+      "sourceRefId": "src_page_blog_008_pep_0634_0070",
+      "textHash": "sha256_c28336c71a94fa37d8130f2b675fc2db",
+      "textQuote": "(For the syntax of pattern , see Patterns above. Note that it contains no comma – a parenthesized series of items with at least one comma is a sequence pattern, as is () .)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0071",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A parenthesized pattern has no additional syntax. It allows users to add parentheses around patterns to emphasize the intended grouping.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Group Patterns"
+      ],
+      "order": 70,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0071",
+      "sourceRefId": "src_page_blog_008_pep_0634_0071",
+      "textHash": "sha256_64736a1917782933947170e4efbbab26",
+      "textQuote": "A parenthesized pattern has no additional syntax. It allows users to add parentheses around patterns to emphasize the intended grouping."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0072",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "sequence_pattern: | '[' [maybe_sequence_pattern] ']' | '(' [open_sequence_pattern] ')' open_sequence_pattern: maybe_star_pattern ',' [maybe_sequence_pattern] maybe_sequence_pattern: ','.maybe_star_pattern+ ','? maybe_star_pattern: star_pattern | pattern star_pattern: '*' (capture_pattern | wildcard_pattern)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 71,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0072",
+      "sourceRefId": "src_page_blog_008_pep_0634_0072",
+      "textHash": "sha256_3e5c88c7e39b45c526f966129459b5a7",
+      "textQuote": "sequence_pattern: | '[' [maybe_sequence_pattern] ']' | '(' [open_sequence_pattern] ')' open_sequence_pattern: maybe_star_pattern ',' [maybe_sequence_pattern] maybe_sequence_pattern: ','.maybe_star_pattern+ ','? maybe_sta"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0073",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "(Note that a single parenthesized pattern without a trailing comma is a group pattern, not a sequence pattern. However a single pattern enclosed in [...] is still a sequence pattern.)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 72,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0073",
+      "sourceRefId": "src_page_blog_008_pep_0634_0073",
+      "textHash": "sha256_4712491393a528103a537ea1565642a0",
+      "textQuote": "(Note that a single parenthesized pattern without a trailing comma is a group pattern, not a sequence pattern. However a single pattern enclosed in [...] is still a sequence pattern.)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0074",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "There is no semantic difference between a sequence pattern using [...] , a sequence pattern using (...) , and an open sequence pattern.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 73,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0074",
+      "sourceRefId": "src_page_blog_008_pep_0634_0074",
+      "textHash": "sha256_4578ebf55e96f3ba9ada47ad081dfc9e",
+      "textQuote": "There is no semantic difference between a sequence pattern using [...] , a sequence pattern using (...) , and an open sequence pattern."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0075",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A sequence pattern may contain at most one star subpattern. The star subpattern may occur in any position. If no star subpattern is present, the sequence pattern is a fixed-length sequence pattern; otherwise it is a variable-length sequence pattern.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 74,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0075",
+      "sourceRefId": "src_page_blog_008_pep_0634_0075",
+      "textHash": "sha256_6b654d4f9f33a7347ebfcb08bbe8aa02",
+      "textQuote": "A sequence pattern may contain at most one star subpattern. The star subpattern may occur in any position. If no star subpattern is present, the sequence pattern is a fixed-length sequence pattern; otherwise it is a vari"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0076",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "For a sequence pattern to succeed the subject must be a sequence, where being a sequence is defined as its class being one of the following:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 75,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0076",
+      "sourceRefId": "src_page_blog_008_pep_0634_0076",
+      "textHash": "sha256_90cda9d21768ec57049e5f036a4b90bc",
+      "textQuote": "For a sequence pattern to succeed the subject must be a sequence, where being a sequence is defined as its class being one of the following:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0077",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a class that inherits from collections.abc.Sequence",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 76,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0077",
+      "sourceRefId": "src_page_blog_008_pep_0634_0077",
+      "textHash": "sha256_05ab943358168b97ef5a1475881f837c",
+      "textQuote": "a class that inherits from collections.abc.Sequence"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0078",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a Python class that has been registered as a collections.abc.Sequence",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 77,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0078",
+      "sourceRefId": "src_page_blog_008_pep_0634_0078",
+      "textHash": "sha256_bf5a711f95bb6bf0f038c70dd4a2e9fe",
+      "textQuote": "a Python class that has been registered as a collections.abc.Sequence"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0079",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a builtin class that has its Py_TPFLAGS_SEQUENCE bit set",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 78,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0079",
+      "sourceRefId": "src_page_blog_008_pep_0634_0079",
+      "textHash": "sha256_d81f96e05c2779bc80ba8a124db78764",
+      "textQuote": "a builtin class that has its Py_TPFLAGS_SEQUENCE bit set"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0080",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a class that inherits from any of the above (including classes defined before a parent’s Sequence registration)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 79,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0080",
+      "sourceRefId": "src_page_blog_008_pep_0634_0080",
+      "textHash": "sha256_5e5bfacb832348ee714d830c46977707",
+      "textQuote": "a class that inherits from any of the above (including classes defined before a parent’s Sequence registration)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0081",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The following standard library classes will have their Py_TPFLAGS_SEQUENCE bit set:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 80,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0081",
+      "sourceRefId": "src_page_blog_008_pep_0634_0081",
+      "textHash": "sha256_9a0966277af9e348c5a929de2a7e68b0",
+      "textQuote": "The following standard library classes will have their Py_TPFLAGS_SEQUENCE bit set:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0082",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "collections.deque",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 81,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0082",
+      "sourceRefId": "src_page_blog_008_pep_0634_0082",
+      "textHash": "sha256_9b47257b2893e7b0353f2fda0985244f",
+      "textQuote": "collections.deque"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0083",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Although str , bytes , and bytearray are usually considered sequences, they are not included in the above list and do not match sequence patterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 82,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0083",
+      "sourceRefId": "src_page_blog_008_pep_0634_0083",
+      "textHash": "sha256_6dfdc509203f9b8c28fdeddf936ae3d5",
+      "textQuote": "Although str , bytes , and bytearray are usually considered sequences, they are not included in the above list and do not match sequence patterns."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0084",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A fixed-length sequence pattern fails if the length of the subject sequence is not equal to the number of subpatterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 83,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0084",
+      "sourceRefId": "src_page_blog_008_pep_0634_0084",
+      "textHash": "sha256_b7f62ebfb937a163d242ee8a7edae7fb",
+      "textQuote": "A fixed-length sequence pattern fails if the length of the subject sequence is not equal to the number of subpatterns."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0085",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A variable-length sequence pattern fails if the length of the subject sequence is less than the number of non-star subpatterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 84,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0085",
+      "sourceRefId": "src_page_blog_008_pep_0634_0085",
+      "textHash": "sha256_ca4ab18b8a76d2acc1368e30b7ebe88f",
+      "textQuote": "A variable-length sequence pattern fails if the length of the subject sequence is less than the number of non-star subpatterns."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0086",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The length of the subject sequence is obtained using the builtin len() function (i.e., via the __len__ protocol). However, the interpreter may cache this value in a similar manner as described for value patterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 85,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0086",
+      "sourceRefId": "src_page_blog_008_pep_0634_0086",
+      "textHash": "sha256_0129646bd5451ace1ffb436aa3559c2b",
+      "textQuote": "The length of the subject sequence is obtained using the builtin len() function (i.e., via the __len__ protocol). However, the interpreter may cache this value in a similar manner as described for value patterns."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0087",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A fixed-length sequence pattern matches the subpatterns to corresponding items of the subject sequence, from left to right. Matching stops (with a failure) as soon as a subpattern fails. If all subpatterns succeed in matching their corresponding item, the sequence pattern succeeds.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 86,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0087",
+      "sourceRefId": "src_page_blog_008_pep_0634_0087",
+      "textHash": "sha256_3533df475d90419f5b752a5d5eed4871",
+      "textQuote": "A fixed-length sequence pattern matches the subpatterns to corresponding items of the subject sequence, from left to right. Matching stops (with a failure) as soon as a subpattern fails. If all subpatterns succeed in mat"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0088",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A variable-length sequence pattern first matches the leading non-star subpatterns to the corresponding items of the subject sequence, as for a fixed-length sequence. If this succeeds, the star subpattern matches a list formed of the remaining subject items, with items removed from the end corresponding to the non-star subpatterns following the star subpatter",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Sequence Patterns"
+      ],
+      "order": 87,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0088",
+      "sourceRefId": "src_page_blog_008_pep_0634_0088",
+      "textHash": "sha256_985c70ec90edb5aaa5ff0f18743a59fa",
+      "textQuote": "A variable-length sequence pattern first matches the leading non-star subpatterns to the corresponding items of the subject sequence, as for a fixed-length sequence. If this succeeds, the star subpattern matches a list f"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0089",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "mapping_pattern: '{' [items_pattern] '}' items_pattern: ','.key_value_pattern+ ','? key_value_pattern: | (literal_pattern | value_pattern) ':' pattern | double_star_pattern double_star_pattern: '**' capture_pattern",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 88,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0089",
+      "sourceRefId": "src_page_blog_008_pep_0634_0089",
+      "textHash": "sha256_9296452c2f78afe2b8e33d230dc6efe0",
+      "textQuote": "mapping_pattern: '{' [items_pattern] '}' items_pattern: ','.key_value_pattern+ ','? key_value_pattern: | (literal_pattern | value_pattern) ':' pattern | double_star_pattern double_star_pattern: '**' capture_pattern"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0090",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "(Note that **_ is disallowed by this syntax.)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 89,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0090",
+      "sourceRefId": "src_page_blog_008_pep_0634_0090",
+      "textHash": "sha256_964dc71899e16139cc538bda465128e7",
+      "textQuote": "(Note that **_ is disallowed by this syntax.)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0091",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A mapping pattern may contain at most one double star pattern, and it must be last.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 90,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0091",
+      "sourceRefId": "src_page_blog_008_pep_0634_0091",
+      "textHash": "sha256_a0c7d4cedd399c462653faa5fb4b5d56",
+      "textQuote": "A mapping pattern may contain at most one double star pattern, and it must be last."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0092",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A mapping pattern may not contain duplicate key values. (If all key patterns are literal patterns this is considered a syntax error; otherwise this is a runtime error and will raise ValueError .)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 91,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0092",
+      "sourceRefId": "src_page_blog_008_pep_0634_0092",
+      "textHash": "sha256_2bef782aca5bb09a3476a5434d596efe",
+      "textQuote": "A mapping pattern may not contain duplicate key values. (If all key patterns are literal patterns this is considered a syntax error; otherwise this is a runtime error and will raise ValueError .)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0093",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "For a mapping pattern to succeed the subject must be a mapping, where being a mapping is defined as its class being one of the following:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 92,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0093",
+      "sourceRefId": "src_page_blog_008_pep_0634_0093",
+      "textHash": "sha256_d3ea741ff17922ccdab8c8cdf9d43b46",
+      "textQuote": "For a mapping pattern to succeed the subject must be a mapping, where being a mapping is defined as its class being one of the following:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0094",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a class that inherits from collections.abc.Mapping",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 93,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0094",
+      "sourceRefId": "src_page_blog_008_pep_0634_0094",
+      "textHash": "sha256_44bbbeff1cd5f8a30edbf16aea650786",
+      "textQuote": "a class that inherits from collections.abc.Mapping"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0095",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a Python class that has been registered as a collections.abc.Mapping",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 94,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0095",
+      "sourceRefId": "src_page_blog_008_pep_0634_0095",
+      "textHash": "sha256_ce4711186c8df215464c0bac4c7fc8b5",
+      "textQuote": "a Python class that has been registered as a collections.abc.Mapping"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0096",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a builtin class that has its Py_TPFLAGS_MAPPING bit set",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 95,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0096",
+      "sourceRefId": "src_page_blog_008_pep_0634_0096",
+      "textHash": "sha256_ffc1985cd5d65874b0b00f74e6cdbd8a",
+      "textQuote": "a builtin class that has its Py_TPFLAGS_MAPPING bit set"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0097",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "a class that inherits from any of the above (including classes defined before a parent’s Mapping registration)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 96,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0097",
+      "sourceRefId": "src_page_blog_008_pep_0634_0097",
+      "textHash": "sha256_c4f115b429722108dae0da37e2d4e98b",
+      "textQuote": "a class that inherits from any of the above (including classes defined before a parent’s Mapping registration)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0098",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The standard library classes dict and mappingproxy will have their Py_TPFLAGS_MAPPING bit set.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 97,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0098",
+      "sourceRefId": "src_page_blog_008_pep_0634_0098",
+      "textHash": "sha256_3db49359c1a03d9f88cde46928e7d321",
+      "textQuote": "The standard library classes dict and mappingproxy will have their Py_TPFLAGS_MAPPING bit set."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0099",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A mapping pattern succeeds if every key given in the mapping pattern is present in the subject mapping, and the pattern for each key matches the corresponding item of the subject mapping. Keys are always compared with the == operator. If a '**' NAME form is present, that name is bound to a dict containing remaining key-value pairs from the subject mapping.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 98,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0099",
+      "sourceRefId": "src_page_blog_008_pep_0634_0099",
+      "textHash": "sha256_3c71adf362aeb5708eeddf6dccdca2b9",
+      "textQuote": "A mapping pattern succeeds if every key given in the mapping pattern is present in the subject mapping, and the pattern for each key matches the corresponding item of the subject mapping. Keys are always compared with th"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0100",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If duplicate keys are detected in the mapping pattern, the pattern is considered invalid, and a ValueError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 99,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0100",
+      "sourceRefId": "src_page_blog_008_pep_0634_0100",
+      "textHash": "sha256_8bd62012eccecf72a37d88012bdaf0f0",
+      "textQuote": "If duplicate keys are detected in the mapping pattern, the pattern is considered invalid, and a ValueError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0101",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Key-value pairs are matched using the two-argument form of the subject’s get() method. As a consequence, matched key-value pairs must already be present in the mapping, and not created on-the-fly by __missing__ or __getitem__ . For example, collections.defaultdict instances will only be matched by patterns with keys that were already present when the match s",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Mapping Patterns"
+      ],
+      "order": 100,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0101",
+      "sourceRefId": "src_page_blog_008_pep_0634_0101",
+      "textHash": "sha256_b0c4a67ae8d838f809cf834edcc47b7f",
+      "textQuote": "Key-value pairs are matched using the two-argument form of the subject’s get() method. As a consequence, matched key-value pairs must already be present in the mapping, and not created on-the-fly by __missing__ or __geti"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0102",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "class_pattern: | name_or_attr '(' [pattern_arguments ','?] ')' pattern_arguments: | positional_patterns [',' keyword_patterns] | keyword_patterns positional_patterns: ','.pattern+ keyword_patterns: ','.keyword_pattern+ keyword_pattern: NAME '=' pattern",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 101,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0102",
+      "sourceRefId": "src_page_blog_008_pep_0634_0102",
+      "textHash": "sha256_c14d82780d44c9829467d345c2c50606",
+      "textQuote": "class_pattern: | name_or_attr '(' [pattern_arguments ','?] ')' pattern_arguments: | positional_patterns [',' keyword_patterns] | keyword_patterns positional_patterns: ','.pattern+ keyword_patterns: ','.keyword_pattern+ k"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0103",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A class pattern may not repeat the same keyword multiple times.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 102,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0103",
+      "sourceRefId": "src_page_blog_008_pep_0634_0103",
+      "textHash": "sha256_48091fa13beb583de8935f67d0623d60",
+      "textQuote": "A class pattern may not repeat the same keyword multiple times."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0104",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If name_or_attr is not an instance of the builtin type , TypeError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 103,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0104",
+      "sourceRefId": "src_page_blog_008_pep_0634_0104",
+      "textHash": "sha256_44e8dd5b006b5bc7cc80f37ca92c7c2e",
+      "textQuote": "If name_or_attr is not an instance of the builtin type , TypeError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0105",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "A class pattern fails if the subject is not an instance of name_or_attr . This is tested using isinstance() .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 104,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0105",
+      "sourceRefId": "src_page_blog_008_pep_0634_0105",
+      "textHash": "sha256_3ddafbb42a31ea2a94589d1e8a4ebaa5",
+      "textQuote": "A class pattern fails if the subject is not an instance of name_or_attr . This is tested using isinstance() ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0106",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If no arguments are present, the pattern succeeds if the isinstance() check succeeds. Otherwise:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 105,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0106",
+      "sourceRefId": "src_page_blog_008_pep_0634_0106",
+      "textHash": "sha256_3798fa6487f4d586e333370c45c6875f",
+      "textQuote": "If no arguments are present, the pattern succeeds if the isinstance() check succeeds. Otherwise:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0107",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If only keyword patterns are present, they are processed as follows, one by one:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 106,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0107",
+      "sourceRefId": "src_page_blog_008_pep_0634_0107",
+      "textHash": "sha256_27def47bec8ed9300e9dbc4fa77f2971",
+      "textQuote": "If only keyword patterns are present, they are processed as follows, one by one:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0108",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The keyword is looked up as an attribute on the subject.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 107,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0108",
+      "sourceRefId": "src_page_blog_008_pep_0634_0108",
+      "textHash": "sha256_f71aacdf16dd0562e840c9f34306bdbe",
+      "textQuote": "The keyword is looked up as an attribute on the subject."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0109",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If this raises an exception other than AttributeError , the exception bubbles up.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 108,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0109",
+      "sourceRefId": "src_page_blog_008_pep_0634_0109",
+      "textHash": "sha256_0596d455686319a77add70c6be3731ab",
+      "textQuote": "If this raises an exception other than AttributeError , the exception bubbles up."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0110",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If this raises AttributeError the class pattern fails.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 109,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0110",
+      "sourceRefId": "src_page_blog_008_pep_0634_0110",
+      "textHash": "sha256_8dc9981730cca2d0dc341fee12c95886",
+      "textQuote": "If this raises AttributeError the class pattern fails."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0111",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Otherwise, the subpattern associated with the keyword is matched against the attribute value. If this fails, the class pattern fails. If it succeeds, the match proceeds to the next keyword.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 110,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0111",
+      "sourceRefId": "src_page_blog_008_pep_0634_0111",
+      "textHash": "sha256_77f95631f110ea8a9996ecd348516d4e",
+      "textQuote": "Otherwise, the subpattern associated with the keyword is matched against the attribute value. If this fails, the class pattern fails. If it succeeds, the match proceeds to the next keyword."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0112",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If all keyword patterns succeed, the class pattern as a whole succeeds.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 111,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0112",
+      "sourceRefId": "src_page_blog_008_pep_0634_0112",
+      "textHash": "sha256_df7a95d9e253c33dd1a98a463e009ff0",
+      "textQuote": "If all keyword patterns succeed, the class pattern as a whole succeeds."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0113",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If any positional patterns are present, they are converted to keyword patterns (see below) and treated as additional keyword patterns, preceding the syntactic keyword patterns (if any).",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 112,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0113",
+      "sourceRefId": "src_page_blog_008_pep_0634_0113",
+      "textHash": "sha256_bc9e9db388699bde080f7efeae4ceea7",
+      "textQuote": "If any positional patterns are present, they are converted to keyword patterns (see below) and treated as additional keyword patterns, preceding the syntactic keyword patterns (if any)."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0114",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Positional patterns are converted to keyword patterns using the __match_args__ attribute on the class designated by name_or_attr , as follows:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 113,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0114",
+      "sourceRefId": "src_page_blog_008_pep_0634_0114",
+      "textHash": "sha256_d182d2c9b45557acd7e0a75074114173",
+      "textQuote": "Positional patterns are converted to keyword patterns using the __match_args__ attribute on the class designated by name_or_attr , as follows:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0115",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "For a number of built-in types (specified below), a single positional subpattern is accepted which will match the entire subject. (Keyword patterns work as for other types here.)",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 114,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0115",
+      "sourceRefId": "src_page_blog_008_pep_0634_0115",
+      "textHash": "sha256_e8a1746db823cfba8a4151038130de79",
+      "textQuote": "For a number of built-in types (specified below), a single positional subpattern is accepted which will match the entire subject. (Keyword patterns work as for other types here.)"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0116",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The equivalent of getattr(cls, \"__match_args__\", ())) is called.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 115,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0116",
+      "sourceRefId": "src_page_blog_008_pep_0634_0116",
+      "textHash": "sha256_405dfb087b901a9d0665e3023294f669",
+      "textQuote": "The equivalent of getattr(cls, \"__match_args__\", ())) is called."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0117",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If this raises an exception the exception bubbles up.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 116,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0117",
+      "sourceRefId": "src_page_blog_008_pep_0634_0117",
+      "textHash": "sha256_4282d1a26e41757d96c13acf656acbd9",
+      "textQuote": "If this raises an exception the exception bubbles up."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0118",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If the returned value is not a tuple, the conversion fails and TypeError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 117,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0118",
+      "sourceRefId": "src_page_blog_008_pep_0634_0118",
+      "textHash": "sha256_6e48682a6f395843f2e6f35511a008ae",
+      "textQuote": "If the returned value is not a tuple, the conversion fails and TypeError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0119",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "If there are more positional patterns than the length of __match_args__ (as obtained using len() ), TypeError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 118,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0119",
+      "sourceRefId": "src_page_blog_008_pep_0634_0119",
+      "textHash": "sha256_6a55a741ff4128c8e14be3e3a55bfc7e",
+      "textQuote": "If there are more positional patterns than the length of __match_args__ (as obtained using len() ), TypeError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0120",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Otherwise, positional pattern i is converted to a keyword pattern using __match_args__[i] as the keyword, provided it the latter is a string; if it is not, TypeError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 119,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0120",
+      "sourceRefId": "src_page_blog_008_pep_0634_0120",
+      "textHash": "sha256_f210f784a2d3aedaa4d05f73c151e94c",
+      "textQuote": "Otherwise, positional pattern i is converted to a keyword pattern using __match_args__[i] as the keyword, provided it the latter is a string; if it is not, TypeError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0121",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "For duplicate keywords, TypeError is raised.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 120,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0121",
+      "sourceRefId": "src_page_blog_008_pep_0634_0121",
+      "textHash": "sha256_227acce6dd48df5836081c2330d40880",
+      "textQuote": "For duplicate keywords, TypeError is raised."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0122",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Once the positional patterns have been converted to keyword patterns, the match proceeds as if there were only keyword patterns.",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 121,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0122",
+      "sourceRefId": "src_page_blog_008_pep_0634_0122",
+      "textHash": "sha256_91ada37f6c1d694e2255e93a6cbcd1c7",
+      "textQuote": "Once the positional patterns have been converted to keyword patterns, the match proceeds as if there were only keyword patterns."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0123",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "As mentioned above, for the following built-in types the handling of positional subpatterns is different: bool , bytearray , bytes , dict , float , frozenset , int , list , set , str , and tuple .",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 122,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0123",
+      "sourceRefId": "src_page_blog_008_pep_0634_0123",
+      "textHash": "sha256_0d1095e235e1a7881c6a674008ccdd81",
+      "textQuote": "As mentioned above, for the following built-in types the handling of positional subpatterns is different: bool , bytearray , bytes , dict , float , frozenset , int , list , set , str , and tuple ."
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0124",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "This behavior is roughly equivalent to the following:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 123,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0124",
+      "sourceRefId": "src_page_blog_008_pep_0634_0124",
+      "textHash": "sha256_46d4b79414a7bdc85b0acf224ab3ac13",
+      "textQuote": "This behavior is roughly equivalent to the following:"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0125",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_008_pep_0634_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "class C : __match_args__ = ( \"__match_self_prop__\" ,) @property def __match_self_prop__ ( self ): return self",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Syntax and Semantics",
+        "Patterns",
+        "Class Patterns"
+      ],
+      "order": 124,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0125",
+      "sourceRefId": "src_page_blog_008_pep_0634_0125",
+      "textHash": "sha256_8d5bc3e16db949b8941da614d4afb23b",
+      "textQuote": "class C : __match_args__ = ( \"__match_self_prop__\" ,) @property def __match_self_prop__ ( self ): return self"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0126",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "The only side-effect produced explicitly by the matching process is the binding of names. However, the process relies on attribute access, instance checks, len() , equality and item access on the subject and some of its components. It also evaluates value patterns and the class name of class patterns. While none of those typically create any side-effects, in",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Side Effects and Undefined Behavior"
+      ],
+      "order": 125,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0126",
+      "sourceRefId": "src_page_blog_008_pep_0634_0126",
+      "textHash": "sha256_4a548f3934f554f904f0281cf0876849",
+      "textQuote": "The only side-effect produced explicitly by the matching process is the binding of names. However, the process relies on attribute access, instance checks, len() , equality and item access on the subject and some of its "
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0127",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "Another undefined behavior is the binding of variables by capture patterns that are followed (in the same case block) by another pattern that fails. These may happen earlier or later depending on the implementation strategy, the only constraint being that capture variables must be set before guards that use them explicitly are evaluated. If a guard consists ",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "Side Effects and Undefined Behavior"
+      ],
+      "order": 126,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0127",
+      "sourceRefId": "src_page_blog_008_pep_0634_0127",
+      "textHash": "sha256_607af629f072543f65fd3ffe8a31e1dc",
+      "textQuote": "Another undefined behavior is the binding of variables by capture patterns that are followed (in the same case block) by another pattern that fails. These may happen earlier or later depending on the implementation strat"
+    },
+    {
+      "blockId": "block_pg_page_blog_008_pep_0634_0128",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_008_pep_0634_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_9882a2ae2f6059e3201c7021ff82b1c908a2932855141dca9c7e5ee927e3948f",
+      "fallbackText": "To facilitate the use of pattern matching, several changes will be made to the standard library:",
+      "headingPath": [
+        "PEP 634 – Structural Pattern Matching: Specification",
+        "The Standard Library"
+      ],
+      "order": 127,
+      "pageId": "page_blog_008_pep_0634",
+      "paragraphId": "pg_page_blog_008_pep_0634_0128",
+      "sourceRefId": "src_page_blog_008_pep_0634_0128",
+      "textHash": "sha256_964d3672449b53d3f3a84970627d9918",
+      "textQuote": "To facilitate the use of pattern matching, several changes will be made to the standard library:"
+    }
+  ],
+  "status": "pass"
+}

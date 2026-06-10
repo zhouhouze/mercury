@@ -1,0 +1,2542 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A-V1.2 107 个验证网页明细</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #647084;
+      --line: #dfe5ee;
+      --bg: #f6f8fb;
+      --panel: #fff;
+      --green: #1f9d6a;
+      --amber: #b7791f;
+      --blue: #4f63ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.52;
+    }
+    header {
+      padding: 36px 42px 24px;
+      background: #172033;
+      color: white;
+    }
+    header h1 { margin: 0 0 8px; font-size: 30px; }
+    header p { margin: 0; color: rgba(255,255,255,.82); }
+    main { max-width: 1500px; margin: 0 auto; padding: 24px 42px 54px; }
+    a { color: #3347d6; text-decoration: none; }
+    .summary { display: grid; grid-template-columns: repeat(5, minmax(150px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .kpi, .page-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 26px rgba(20,32,52,.06);
+    }
+    .kpi { padding: 16px; }
+    .kpi strong { display: block; font-size: 26px; }
+    .kpi span { color: var(--muted); font-size: 13px; }
+    .pages { display: grid; grid-template-columns: repeat(2, minmax(520px, 1fr)); gap: 16px; }
+    .page-card { overflow: hidden; display: grid; grid-template-columns: 320px 1fr; min-height: 280px; }
+    .page-shot { width: 100%; height: 100%; min-height: 280px; object-fit: contain; border-right: 1px solid var(--line); background: #f8fafc; }
+    .page-body { padding: 15px; min-width: 0; }
+    h2 { margin: 0 0 8px; font-size: 16px; overflow-wrap: anywhere; }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; font-size: 12px; color: var(--muted); background: #fafcff; }
+    .status-pass { color: var(--green); font-weight: 800; }
+    .status-degraded { color: var(--amber); font-weight: 800; }
+    .metrics { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 7px; margin: 10px 0; }
+    .metric { background: #f7f9fc; border-radius: 6px; padding: 7px; }
+    .metric strong { display: block; font-size: 14px; }
+    .metric span { color: var(--muted); font-size: 11px; }
+    .url { font-size: 12px; overflow-wrap: anywhere; margin: 8px 0; }
+    ul { padding-left: 18px; margin: 8px 0 0; }
+    li { margin: 5px 0; font-size: 13px; }
+    .note { color: var(--muted); font-size: 12px; }
+    @media (max-width: 1100px) {
+      header, main { padding-left: 18px; padding-right: 18px; }
+      .summary, .pages { grid-template-columns: 1fr; }
+      .page-card { grid-template-columns: 1fr; }
+      .page-shot { height: 240px; border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A-V1.2 107 个验证网页明细</h1>
+    <p>逐条展示真实网页截图、原始链接、A 模块结构化感知结果和关键验收指标。</p>
+  </header>
+  <main>
+    <section class="summary">
+      <div class="kpi"><strong>通过</strong><span>截图复核</span></div>
+      <div class="kpi"><strong>107</strong><span>验证网页</span></div>
+      <div class="kpi"><strong>107</strong><span>截图数量</span></div>
+      <div class="kpi"><strong>0</strong><span>低信号误判通过</span></div>
+      <div class="kpi"><strong>通过</strong><span>Corpus Exit</span></div>
+    </section>
+    <p class="note"><a href="a-v1.2-human-acceptance-report.html">返回总览页</a> · 复核方法：每条记录必须有截图、链接、结果状态；低信号页面不得标记为 pass；非低信号 degraded 页面作为需关注项显示，不隐藏。</p>
+    <p class="note">需关注 degraded 页面：github_001_python_cpython, forum_008_python_discuss_categories, report_008_rfc_3986</p>
+    <section class="pages">
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_001_go_loopvar_preview.png" alt="news_001_go_loopvar_preview 实际网页截图" />
+        <div class="page-body">
+          <h2>001. news_001_go_loopvar_preview</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/loopvar-preview">https://go.dev/blog/loopvar-preview</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 66 · filtered 2 · digest 18 · sourceRefs 68 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Tools have been written to identify these mistakes , but it is hard to analyze whether <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_002_go_121_release.png" alt="news_002_go_121_release 实际网页截图" />
+        <div class="page-body">
+          <h2>002. news_002_go_121_release</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.94</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/go1.21">https://go.dev/blog/go1.21</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 55 · filtered 1 · digest 18 · sourceRefs 56 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Backward Compatibility , Go 1 . 21 , and Go 2 Previous article <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Thanks to everyone who contributed to this release by writing code , filing bugs , sharing <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_003_go_120_release.png" alt="news_003_go_120_release 实际网页截图" />
+        <div class="page-body">
+          <h2>003. news_003_go_120_release</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/go1.20">https://go.dev/blog/go1.20</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 61 · filtered 2 · digest 18 · sourceRefs 63 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Profile - guided optimization preview Previous article : Share your feedback about developing <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · We ’ re particularly excited to launch a preview of profile - guided optimization ( PGO <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_004_go_119_release.png" alt="news_004_go_119_release 实际网页截图" />
+        <div class="page-body">
+          <h2>004. news_004_go_119_release</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.93</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/go1.19">https://go.dev/blog/go1.19</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 45 · filtered 2 · digest 18 · sourceRefs 47 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Finally , Go 1 . 19 includes a wide variety of performance and implementation improvements , <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Next article : Vulnerability Management for Go Previous article : Share your feedback about developing with <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_005_go_118_release.png" alt="news_005_go_118_release 实际网页截图" />
+        <div class="page-body">
+          <h2>005. news_005_go_118_release</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.94</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/go1.18">https://go.dev/blog/go1.18</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 45 · filtered 1 · digest 18 · sourceRefs 46 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : An Introduction To Generics Previous article : Announcing Go 1 . 18 Beta <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · In Go 1 . 18 , we ’ re introducing new support for generic code using <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_006_routing_enhancements.png" alt="news_006_routing_enhancements 实际网页截图" />
+        <div class="page-body">
+          <h2>006. news_006_routing_enhancements</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/routing-enhancements">https://go.dev/blog/routing-enhancements</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 64 · filtered 2 · digest 18 · sourceRefs 66 · screenshot 93355 bytes</p>
+          <ul><li><strong>definition</strong> · Next article : Robust generic functions on slices Previous article : Go 1 . 22 is <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · Some routers disallow overlaps ; others use the pattern that was registered last . Go has <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_007_slog.png" alt="news_007_slog 实际网页截图" />
+        <div class="page-body">
+          <h2>007. news_007_slog</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/slog">https://go.dev/blog/slog</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 89 · filtered 4 · digest 18 · sourceRefs 93 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Perfectly Reproducible , Verified Go Toolchains Previous article : Forward Compatibility and Too... <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · We wanted slog to be fast . For large - scale performance gains , we designed <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/news_008_pgo.png" alt="news_008_pgo 实际网页截图" />
+        <div class="page-body">
+          <h2>008. news_008_pgo</h2>
+          <div class="meta">
+            <span class="pill">news_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/pgo">https://go.dev/blog/pgo</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 122 · filtered 2 · digest 18 · sourceRefs 124 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Scaling gopls for the growing Go ecosystem Previous article : Perfectly Reproducible , <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · When you build a Go binary , the Go compiler performs optimizations to try to generate <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_001_pep_0008.png" alt="blog_001_pep_0008 实际网页截图" />
+        <div class="page-body">
+          <h2>009. blog_001_pep_0008</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.94</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.09</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 127 · filtered 12 · digest 18 · sourceRefs 139 · screenshot 126443 bytes</p>
+          <ul><li><strong>definition</strong> · Wildcard imports ( from &lt; module &gt; import * ) should be avoided , as they <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · When the conditional part of an if - statement is long enough to require that it <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_002_pep_0020.png" alt="blog_002_pep_0020 实际网页截图" />
+        <div class="page-body">
+          <h2>010. blog_002_pep_0020</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.91</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0020/">https://peps.python.org/pep-0020/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.10</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 9 · filtered 1 · digest 9 · sourceRefs 10 · screenshot 89472 bytes</p>
+          <ul><li><strong>code_fact</strong> · Beautiful is better than ugly . Explicit is better than implicit . Simple is better than <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · This document has been placed in the public domain . <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_003_pep_0257.png" alt="blog_003_pep_0257 实际网页截图" />
+        <div class="page-body">
+          <h2>011. blog_003_pep_0257</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0257/">https://peps.python.org/pep-0257/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 59 · filtered 0 · digest 18 · sourceRefs 59 · screenshot 107395 bytes</p>
+          <ul><li><strong>definition</strong> · The docstring of a script ( a stand - alone program ) should be usable as <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · String literals occurring elsewhere in Python code may also act as documentation . They are not <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_004_pep_0484.png" alt="blog_004_pep_0484 实际网页截图" />
+        <div class="page-body">
+          <h2>012. blog_004_pep_0484</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0484/">https://peps.python.org/pep-0484/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 141 · filtered 3 · digest 18 · sourceRefs 144 · screenshot 98017 bytes</p>
+          <ul><li><strong>definition</strong> · While these annotations are available at runtime through the usual __annotations__ attribute , no type checking <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The proposal is strongly inspired by mypy . For example , the type “ sequence of <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_005_pep_0695.png" alt="blog_005_pep_0695 实际网页截图" />
+        <div class="page-body">
+          <h2>013. blog_005_pep_0695</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0695/">https://peps.python.org/pep-0695/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 128 · filtered 2 · digest 18 · sourceRefs 130 · screenshot 109358 bytes</p>
+          <ul><li><strong>definition</strong> · The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The scoping rules for type variables are difficult to understand . Type variables are typically allocated <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_006_pep_0589.png" alt="blog_006_pep_0589 实际网页截图" />
+        <div class="page-body">
+          <h2>014. blog_006_pep_0589</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0589/">https://peps.python.org/pep-0589/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 140 · filtered 2 · digest 18 · sourceRefs 142 · screenshot 98503 bytes</p>
+          <ul><li><strong>evidence</strong> · More generally , representing pure data objects using only Python primitive types such as dictionaries , <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Dataclasses are a more recent alternative to solve this use case , but there is still <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_007_pep_0618.png" alt="blog_007_pep_0618 实际网页截图" />
+        <div class="page-body">
+          <h2>015. blog_007_pep_0618</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0618/">https://peps.python.org/pep-0618/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 104 · filtered 0 · digest 18 · sourceRefs 104 · screenshot 101317 bytes</p>
+          <ul><li><strong>definition</strong> · If both zip and zip_longest lived alongside each other in itertools or as builtins , then <span class="pill">sourceRefs 1</span></li>
+<li><strong>evidence</strong> · It is clear from the author ’ s personal experience and a survey of the standard <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/blog_008_pep_0634.png" alt="blog_008_pep_0634 实际网页截图" />
+        <div class="page-body">
+          <h2>016. blog_008_pep_0634</h2>
+          <div class="meta">
+            <span class="pill">longform_blog</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://peps.python.org/pep-0634/">https://peps.python.org/pep-0634/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 127 · filtered 1 · digest 18 · sourceRefs 128 · screenshot 99262 bytes</p>
+          <ul><li><strong>definition</strong> · Another undefined behavior is the binding of variables by capture patterns that are followed ( in <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · The only side - effect produced explicitly by the matching process is the binding of names <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_001_go_effective.png" alt="tech_001_go_effective 实际网页截图" />
+        <div class="page-body">
+          <h2>017. tech_001_go_effective</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/doc/effective_go">https://go.dev/doc/effective_go</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 124 · filtered 6 · digest 18 · sourceRefs 130 · screenshot 93355 bytes</p>
+          <ul><li><strong>definition</strong> · The Go package sources are intended to serve not only as the core library but also <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Go doesn &#x27; t provide automatic support for getters and setters . There &#x27; s nothing <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_002_python_tutorial_intro.png" alt="tech_002_python_tutorial_intro 实际网页截图" />
+        <div class="page-body">
+          <h2>018. tech_002_python_tutorial_intro</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/introduction.html">https://docs.python.org/3/tutorial/introduction.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 126 · filtered 2 · digest 18 · sourceRefs 128 · screenshot 80362 bytes</p>
+          <ul><li><strong>entity</strong> · Python can manipulate text ( represented by type str , so - called “ strings ” <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The body of the loop is indented : indentation is Python ’ s way of grouping <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_003_python_tutorial_controlflow.png" alt="tech_003_python_tutorial_controlflow 实际网页截图" />
+        <div class="page-body">
+          <h2>019. tech_003_python_tutorial_controlflow</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/controlflow.html">https://docs.python.org/3/tutorial/controlflow.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 146 · filtered 3 · digest 18 · sourceRefs 149 · screenshot 113391 bytes</p>
+          <ul><li><strong>procedure</strong> · A match statement takes an expression and compares its value to successive patterns given as one <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · In a function call , keyword arguments must follow positional arguments . All the keyword arguments <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_004_python_tutorial_datastructures.png" alt="tech_004_python_tutorial_datastructures 实际网页截图" />
+        <div class="page-body">
+          <h2>020. tech_004_python_tutorial_datastructures</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/datastructures.html">https://docs.python.org/3/tutorial/datastructures.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 145 · filtered 0 · digest 18 · sourceRefs 145 · screenshot 86306 bytes</p>
+          <ul><li><strong>evidence</strong> · Note that comparing objects of different types with &lt; or &gt; is legal provided that the <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · As you see , on output tuples are always enclosed in parentheses , so that nested <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_005_go_spec.png" alt="tech_005_go_spec 实际网页截图" />
+        <div class="page-body">
+          <h2>021. tech_005_go_spec</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/ref/spec">https://go.dev/ref/spec</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 129 · filtered 6 · digest 18 · sourceRefs 135 · screenshot 93355 bytes</p>
+          <ul><li><strong>definition</strong> · Although these representations all result in an integer , they have different valid ranges . Octal <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Tokens form the vocabulary of the Go language . There are four classes : identifiers , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_006_python_tutorial_inputoutput.png" alt="tech_006_python_tutorial_inputoutput 实际网页截图" />
+        <div class="page-body">
+          <h2>022. tech_006_python_tutorial_inputoutput</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/inputoutput.html">https://docs.python.org/3/tutorial/inputoutput.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 122 · filtered 1 · digest 18 · sourceRefs 123 · screenshot 84138 bytes</p>
+          <ul><li><strong>definition</strong> · The str . rjust ( ) method of string objects right - justifies a string in <span class="pill">sourceRefs 1</span></li>
+<li><strong>evidence</strong> · Contrary to JSON , pickle is a protocol which allows the serialization of arbitrarily complex Python <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_007_python_tutorial_errors.png" alt="tech_007_python_tutorial_errors 实际网页截图" />
+        <div class="page-body">
+          <h2>023. tech_007_python_tutorial_errors</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/errors.html">https://docs.python.org/3/tutorial/errors.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 117 · filtered 2 · digest 18 · sourceRefs 119 · screenshot 89808 bytes</p>
+          <ul><li><strong>definition</strong> · It is possible to write programs that handle selected exceptions . Look at the following example <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Even if a statement or expression is syntactically correct , it may cause an error when <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_008_python_tutorial_classes.png" alt="tech_008_python_tutorial_classes 实际网页截图" />
+        <div class="page-body">
+          <h2>024. tech_008_python_tutorial_classes</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/tutorial/classes.html">https://docs.python.org/3/tutorial/classes.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 143 · filtered 1 · digest 18 · sourceRefs 144 · screenshot 97101 bytes</p>
+          <ul><li><strong>definition</strong> · It is important to realize that scopes are determined textually : the global scope of a <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · This style of access is clear , concise , and convenient . The use of iterators <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_009_w3c_wcag21.png" alt="tech_009_w3c_wcag21 实际网页截图" />
+        <div class="page-body">
+          <h2>025. tech_009_w3c_wcag21</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 134 · filtered 2 · digest 18 · sourceRefs 136 · screenshot 192218 bytes</p>
+          <ul><li><strong>definition</strong> · The individuals and organizations that use WCAG vary widely and include web designers and developers , <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Note that even content that conforms at the highest level ( AAA ) will not be <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_010_w3c_wcag22.png" alt="tech_010_w3c_wcag22 实际网页截图" />
+        <div class="page-body">
+          <h2>026. tech_010_w3c_wcag22</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 134 · filtered 3 · digest 18 · sourceRefs 137 · screenshot 187187 bytes</p>
+          <ul><li><strong>entity</strong> · Significant challenges were encountered in defining additional criteria to address cognitive , language , and l... <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Web Content Accessibility Guidelines ( WCAG ) 2 . 2 defines how to make web content <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_011_w3c_wai_aria.png" alt="tech_011_w3c_wai_aria 实际网页截图" />
+        <div class="page-body">
+          <h2>027. tech_011_w3c_wai_aria</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 145 · filtered 9 · digest 18 · sourceRefs 154 · screenshot 177451 bytes</p>
+          <ul><li><strong>definition</strong> · States and properties are used to declare important attributes of an element that affect and describe <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · WAI - ARIA introduces navigational landmarks through its Roles Model and the XHTML role landmarks , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/tech_012_w3c_accname.png" alt="tech_012_w3c_accname 实际网页截图" />
+        <div class="page-body">
+          <h2>028. tech_012_w3c_accname</h2>
+          <div class="meta">
+            <span class="pill">technical_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/accname-1.2/">https://www.w3.org/TR/accname-1.2/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 137 · filtered 9 · digest 18 · sourceRefs 146 · screenshot 204618 bytes</p>
+          <ul><li><strong>definition</strong> · This document describes how user agents determine the names and descriptions of accessible objects from web <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The text equivalent computation is used by both the accessible name and accessible description . There <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_001_python_cpython.png" alt="github_001_python_cpython 实际网页截图" />
+        <div class="page-body">
+          <h2>029. github_001_python_cpython</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.87</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/python/cpython/main/README.rst">https://raw.githubusercontent.com/python/cpython/main/README.rst</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.39</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 8 · filtered 5 · digest 8 · sourceRefs 13 · screenshot 437076 bytes</p>
+          <ul><li><strong>procedure</strong> · This is necessary in order to profile the interpreter &#x27; s execution . Note also that <span class="pill">sourceRefs 1</span></li>
+<li><strong>procedure</strong> · You should do a ` ` make clean ` ` at the top - level first <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_002_pallets_flask.png" alt="github_002_pallets_flask 实际网页截图" />
+        <div class="page-body">
+          <h2>030. github_002_pallets_flask</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/pallets/flask/main/README.md">https://raw.githubusercontent.com/pallets/flask/main/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 3 · filtered 0 · digest 3 · sourceRefs 3 · screenshot 92105 bytes</p>
+          <ul><li><strong>definition</strong> · # Flask Flask is a lightweight [ WSGI ] web application framework . It is designed <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · [ WSGI ] : https : / / wsgi . readthedocs . io / [ Werkzeug <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_003_django_django.png" alt="github_003_django_django 实际网页截图" />
+        <div class="page-body">
+          <h2>031. github_003_django_django</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/django/django/main/README.rst">https://raw.githubusercontent.com/django/django/main/README.rst</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 3 · filtered 0 · digest 3 · sourceRefs 3 · screenshot 114472 bytes</p>
+          <ul><li><strong>procedure</strong> · = = = = = = Django = = = = = = Django is a <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · * You &#x27; ll probably want to read through the topical guides ( in ` ` <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_004_numpy_numpy.png" alt="github_004_numpy_numpy 实际网页截图" />
+        <div class="page-body">
+          <h2>032. github_004_numpy_numpy</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.94</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/numpy/numpy/main/README.md">https://raw.githubusercontent.com/numpy/numpy/main/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.17</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 5 · filtered 1 · digest 5 · sourceRefs 6 · screenshot 248028 bytes</p>
+          <ul><li><strong>entity</strong> · You can also : - review pull requests - help us stay on top of new <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Tests can then be run after installation with : python - c &quot; import numpy , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_005_pandas_pandas.png" alt="github_005_pandas_pandas 实际网页截图" />
+        <div class="page-body">
+          <h2>033. github_005_pandas_pandas</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.82</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/pandas-dev/pandas/main/README.md">https://raw.githubusercontent.com/pandas-dev/pandas/main/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 0 · digest 1 · sourceRefs 1 · screenshot 492057 bytes</p>
+          <ul><li><strong>image_metadata</strong> · Image metadata : Pandas Logo <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_006_psf_requests.png" alt="github_006_psf_requests 实际网页截图" />
+        <div class="page-body">
+          <h2>034. github_006_psf_requests</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/psf/requests/main/README.md">https://raw.githubusercontent.com/psf/requests/main/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 4 · filtered 0 · digest 4 · sourceRefs 4 · screenshot 183737 bytes</p>
+          <ul><li><strong>evidence</strong> · ` ` ` python &gt; &gt; &gt; import requests &gt; &gt; &gt; r = requests . <span class="pill">sourceRefs 1</span></li>
+<li><strong>evidence</strong> · Requests is one of the most downloaded Python packages today , pulling in around ` 300M <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_007_fastapi_fastapi.png" alt="github_007_fastapi_fastapi 实际网页截图" />
+        <div class="page-body">
+          <h2>035. github_007_fastapi_fastapi</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.82</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/fastapi/fastapi/master/README.md">https://raw.githubusercontent.com/fastapi/fastapi/master/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 8 · filtered 0 · digest 8 · sourceRefs 8 · screenshot 298416 bytes</p>
+          <ul><li><strong>entity</strong> · FastAPI framework , high performance , easy to learn , fast to code , ready for <span class="pill">sourceRefs 1</span></li>
+<li><strong>image_metadata</strong> · Image metadata : FastAPI Conf &#x27; 26 - October 28 , 2026 - Amsterdam , NL <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/github_008_microsoft_playwright.png" alt="github_008_microsoft_playwright 实际网页截图" />
+        <div class="page-body">
+          <h2>036. github_008_microsoft_playwright</h2>
+          <div class="meta">
+            <span class="pill">github_readme</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.82</span>
+          </div>
+          <p class="url"><a href="https://raw.githubusercontent.com/microsoft/playwright/main/README.md">https://raw.githubusercontent.com/microsoft/playwright/main/README.md</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 0 · digest 1 · sourceRefs 1 · screenshot 506311 bytes</p>
+          <ul><li><strong>image_metadata</strong> · Image metadata : Install in VS Code <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_001_django_tutorial01.png" alt="product_docs_001_django_tutorial01 实际网页截图" />
+        <div class="page-body">
+          <h2>037. product_docs_001_django_tutorial01</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/">https://docs.djangoproject.com/en/stable/intro/tutorial01/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 102 · filtered 0 · digest 18 · sourceRefs 102 · screenshot 82044 bytes</p>
+          <ul><li><strong>code_fact</strong> · Performing system checks . . . System check identified no issues ( 0 silenced ) . <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Kraken is the most - loved operating system for energy . Powered by our Utility - <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_002_django_models.png" alt="product_docs_002_django_models 实际网页截图" />
+        <div class="page-body">
+          <h2>038. product_docs_002_django_models</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.djangoproject.com/en/stable/topics/db/models/">https://docs.djangoproject.com/en/stable/topics/db/models/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.08</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 106 · filtered 9 · digest 18 · sourceRefs 115 · screenshot 82044 bytes</p>
+          <ul><li><strong>procedure</strong> · Each field type , except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Your intermediate model must contain one - and only one - foreign key to the source <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_003_flask_quickstart.png" alt="product_docs_003_flask_quickstart 实际网页截图" />
+        <div class="page-body">
+          <h2>039. product_docs_003_flask_quickstart</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://flask.palletsprojects.com/en/stable/quickstart/">https://flask.palletsprojects.com/en/stable/quickstart/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 141 · filtered 7 · digest 18 · sourceRefs 148 · screenshot 161623 bytes</p>
+          <ul><li><strong>definition</strong> · Dynamic web applications also need static files . That ’ s usually where the CSS and <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Imagine the context being the handling thread . A request comes in and the web server <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_004_fastapi_tutorial.png" alt="product_docs_004_fastapi_tutorial 实际网页截图" />
+        <div class="page-body">
+          <h2>040. product_docs_004_fastapi_tutorial</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.92</span>
+          </div>
+          <p class="url"><a href="https://fastapi.tiangolo.com/tutorial/">https://fastapi.tiangolo.com/tutorial/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 95 · filtered 0 · digest 18 · sourceRefs 95 · screenshot 23738 bytes</p>
+          <ul><li><strong>entity</strong> · Custom Response Classes - File , HTML , Redirect , Streaming , etc . <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Separate OpenAPI Schemas for Input and Output or Not <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_005_github_actions.png" alt="product_docs_005_github_actions 实际网页截图" />
+        <div class="page-body">
+          <h2>041. product_docs_005_github_actions</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.92</span>
+          </div>
+          <p class="url"><a href="https://docs.github.com/en/actions">https://docs.github.com/en/actions</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 114 · filtered 0 · digest 18 · sourceRefs 114 · screenshot 106020 bytes</p>
+          <ul><li><strong>entity</strong> · Reusing workflow configurations <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Notifications for workflow runs <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_006_github_rest.png" alt="product_docs_006_github_rest 实际网页截图" />
+        <div class="page-body">
+          <h2>042. product_docs_006_github_rest</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://docs.github.com/en/rest">https://docs.github.com/en/rest</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 54 · filtered 1 · digest 18 · sourceRefs 55 · screenshot 108708 bytes</p>
+          <ul><li><strong>entity</strong> · Endpoints for GitHub App installation tokens <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Endpoints for GitHub App user tokens <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_007_go_doc_effective.png" alt="product_docs_007_go_doc_effective 实际网页截图" />
+        <div class="page-body">
+          <h2>043. product_docs_007_go_doc_effective</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/doc/effective_go">https://go.dev/doc/effective_go</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 124 · filtered 6 · digest 18 · sourceRefs 130 · screenshot 93355 bytes</p>
+          <ul><li><strong>definition</strong> · The Go package sources are intended to serve not only as the core library but also <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Go doesn &#x27; t provide automatic support for getters and setters . There &#x27; s nothing <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_docs_008_numpy_beginners.png" alt="product_docs_008_numpy_beginners 实际网页截图" />
+        <div class="page-body">
+          <h2>044. product_docs_008_numpy_beginners</h2>
+          <div class="meta">
+            <span class="pill">product_docs</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">https://numpy.org/doc/stable/user/absolute_beginners.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 128 · filtered 2 · digest 18 · sourceRefs 130 · screenshot 70666 bytes</p>
+          <ul><li><strong>evidence</strong> · Depending on the characteristics of the data and the types of operations that need to be <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · A three - dimensional array would be like a set of tables , perhaps stacked as <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_001_book_light_attic.png" alt="product_001_book_light_attic 实际网页截图" />
+        <div class="page-body">
+          <h2>045. product_001_book_light_attic</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html">https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 9 · filtered 0 · digest 9 · sourceRefs 9 · screenshot 117501 bytes</p>
+          <ul><li><strong>open_question</strong> · It &#x27; s hard to imagine a world without A Light in the Attic . This <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 22 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_002_book_tipping_velvet.png" alt="product_002_book_tipping_velvet 实际网页截图" />
+        <div class="page-body">
+          <h2>046. product_002_book_tipping_velvet</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html">https://books.toscrape.com/catalogue/tipping-the-velvet_999/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 11 · filtered 0 · digest 11 · sourceRefs 11 · screenshot 129501 bytes</p>
+          <ul><li><strong>definition</strong> · &quot; Erotic and absorbing . . . Written with starling power . &quot; - - &quot; <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 20 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_003_book_soumission.png" alt="product_003_book_soumission 实际网页截图" />
+        <div class="page-body">
+          <h2>047. product_003_book_soumission</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/soumission_998/index.html">https://books.toscrape.com/catalogue/soumission_998/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 10 · filtered 0 · digest 10 · sourceRefs 10 · screenshot 127148 bytes</p>
+          <ul><li><strong>entity</strong> · Dans une France assez proche de la nôtre , un homme s ’ engage dans la <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 20 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_004_book_sharp_objects.png" alt="product_004_book_sharp_objects 实际网页截图" />
+        <div class="page-body">
+          <h2>048. product_004_book_sharp_objects</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.84</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/sharp-objects_997/index.html">https://books.toscrape.com/catalogue/sharp-objects_997/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.09</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 10 · filtered 1 · digest 10 · sourceRefs 11 · screenshot 161052 bytes</p>
+          <ul><li><strong>key_fact</strong> · In stock ( 20 available ) <span class="pill">sourceRefs 1</span></li>
+<li><strong>table_fact</strong> · In stock ( 20 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_005_book_sapiens.png" alt="product_005_book_sapiens 实际网页截图" />
+        <div class="page-body">
+          <h2>049. product_005_book_sapiens</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html">https://books.toscrape.com/catalogue/sapiens-a-brief-history-of-humankind_996/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 13 · filtered 0 · digest 13 · sourceRefs 13 · screenshot 178925 bytes</p>
+          <ul><li><strong>claim</strong> · From a renowned historian comes a groundbreaking narrative of humanity ’ s creation and evolution — <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 20 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_006_book_requiem_red.png" alt="product_006_book_requiem_red 实际网页截图" />
+        <div class="page-body">
+          <h2>050. product_006_book_requiem_red</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/the-requiem-red_995/index.html">https://books.toscrape.com/catalogue/the-requiem-red_995/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 13 · filtered 0 · digest 13 · sourceRefs 13 · screenshot 128444 bytes</p>
+          <ul><li><strong>key_fact</strong> · In stock ( 19 available ) <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Patient Twenty - nine . A monster roams the halls of Soothing Hills Asylum . Three <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_007_book_dream_job.png" alt="product_007_book_dream_job 实际网页截图" />
+        <div class="page-body">
+          <h2>051. product_007_book_dream_job</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html">https://books.toscrape.com/catalogue/the-dirty-little-secrets-of-getting-your-dream-job_994/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 15 · filtered 0 · digest 15 · sourceRefs 15 · screenshot 178347 bytes</p>
+          <ul><li><strong>key_fact</strong> · In stock ( 19 available ) <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · The Dirty Little Secrets of Getting Your Dream Job <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/product_008_book_coming_woman.png" alt="product_008_book_coming_woman 实际网页截图" />
+        <div class="page-body">
+          <h2>052. product_008_book_coming_woman</h2>
+          <div class="meta">
+            <span class="pill">ecommerce_product</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html">https://books.toscrape.com/catalogue/the-coming-woman-a-novel-based-on-the-life-of-the-infamous-feminist-victoria-woodhull_993/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 15 · filtered 0 · digest 15 · sourceRefs 15 · screenshot 248154 bytes</p>
+          <ul><li><strong>procedure</strong> · &quot; If you have a heart , if you have a soul , Karen Hicks &#x27; <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · In stock ( 19 available ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_001_lobsters_page_1.png" alt="forum_001_lobsters_page_1 实际网页截图" />
+        <div class="page-body">
+          <h2>053. forum_001_lobsters_page_1</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://lobste.rs/">https://lobste.rs/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 47 · filtered 3 · digest 18 · sourceRefs 50 · screenshot 174985 bytes</p>
+          <ul><li><strong>entity</strong> · 14 Self - hosting email the hard way from your own routable IPv4 block up ml <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 1 Cleaning up after AI rockstar developers practices codingwithjesse . com authored by jesseskinner 13 minutes <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_002_lobsters_page_2.png" alt="forum_002_lobsters_page_2 实际网页截图" />
+        <div class="page-body">
+          <h2>054. forum_002_lobsters_page_2</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://lobste.rs/page/2">https://lobste.rs/page/2</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 48 · filtered 2 · digest 18 · sourceRefs 50 · screenshot 162443 bytes</p>
+          <ul><li><strong>entity</strong> · 0 𝜇 ⁢ 𝜆 ⁢ ϵ ⁢ 𝛿 - Calculus : Self Optimizing Language that Seems <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 2 For the 2nd time in weeks , Microsoft packages laced with credential stealer security arstechnica <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_003_lobsters_page_3.png" alt="forum_003_lobsters_page_3 实际网页截图" />
+        <div class="page-body">
+          <h2>055. forum_003_lobsters_page_3</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.87</span>
+          </div>
+          <p class="url"><a href="https://lobste.rs/page/3">https://lobste.rs/page/3</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 49 · filtered 1 · digest 18 · sourceRefs 50 · screenshot 146575 bytes</p>
+          <ul><li><strong>entity</strong> · 12 Thoughts on starting new projects with LLM agents vibecoding eli . thegreenplace . net via <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 35 If LLMs Have Human - Like Attributes , Then So Does Age of Empires II <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_004_lobsters_page_4.png" alt="forum_004_lobsters_page_4 实际网页截图" />
+        <div class="page-body">
+          <h2>056. forum_004_lobsters_page_4</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://lobste.rs/page/4">https://lobste.rs/page/4</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 49 · filtered 1 · digest 18 · sourceRefs 50 · screenshot 158339 bytes</p>
+          <ul><li><strong>entity</strong> · 37 The Empty Field That Wasn &#x27; t : GPS Broadcasts a Numbers Station security lsc <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 1 Using the Screen Capture API to record a browser window javascript web alexwlchan . net <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_005_lobsters_page_5.png" alt="forum_005_lobsters_page_5 实际网页截图" />
+        <div class="page-body">
+          <h2>057. forum_005_lobsters_page_5</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://lobste.rs/page/5">https://lobste.rs/page/5</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 47 · filtered 3 · digest 18 · sourceRefs 50 · screenshot 158354 bytes</p>
+          <ul><li><strong>entity</strong> · 4 Chasing Lightning : Detecting , Characterizing , and Identifying a Powerful Space - Based GNSS <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 11 pg_durable : PostgreSQL in - database durable execution databases github . com / microsoft via <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_006_python_discuss_latest.png" alt="forum_006_python_discuss_latest 实际网页截图" />
+        <div class="page-body">
+          <h2>058. forum_006_python_discuss_latest</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 1.00</span>
+          </div>
+          <p class="url"><a href="https://discuss.python.org/latest">https://discuss.python.org/latest</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 92 · filtered 0 · digest 18 · sourceRefs 92 · screenshot 221760 bytes</p>
+          <ul><li><strong>table_fact</strong> · Announcement : distlib 0 . 4 . 2 released on PyPI - contains security hardening , <span class="pill">sourceRefs 1</span></li>
+<li><strong>table_fact</strong> · What would it look like to have a new archival format for distributions ? Packaging <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_007_python_discuss_top.png" alt="forum_007_python_discuss_top 实际网页截图" />
+        <div class="page-body">
+          <h2>059. forum_007_python_discuss_top</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://discuss.python.org/top">https://discuss.python.org/top</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 112 · filtered 0 · digest 18 · sourceRefs 112 · screenshot 230454 bytes</p>
+          <ul><li><strong>table_fact</strong> · Disclaimer : Unauthorized Use of My Name on LinkedIn and GitHub by a nominee in the <span class="pill">sourceRefs 1</span></li>
+<li><strong>table_fact</strong> · Anthropic has made a large contribution to the Python Software Foundation and open source security PSF <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/forum_008_python_discuss_categories.png" alt="forum_008_python_discuss_categories 实际网页截图" />
+        <div class="page-body">
+          <h2>060. forum_008_python_discuss_categories</h2>
+          <div class="meta">
+            <span class="pill">forum_thread</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.74</span>
+          </div>
+          <p class="url"><a href="https://discuss.python.org/categories">https://discuss.python.org/categories</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.50</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 1 · digest 1 · sourceRefs 2 · screenshot 85800 bytes</p>
+          <ul><li><strong>entity</strong> · Powered by Discourse , best viewed with JavaScript enabled <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_001_rfc_9110.png" alt="report_001_rfc_9110 实际网页截图" />
+        <div class="page-body">
+          <h2>061. report_001_rfc_9110</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.92</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc9110.html">https://www.rfc-editor.org/rfc/rfc9110.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 121 · filtered 4 · digest 18 · sourceRefs 125 · screenshot 175320 bytes</p>
+          <ul><li><strong>definition</strong> · The Hypertext Transfer Protocol ( HTTP ) is a stateless application - level protocol for distributed <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · This document is subject to BCP 78 and the IETF Trust &#x27; s Legal Provisions Relating <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_002_rfc_9111.png" alt="report_002_rfc_9111 实际网页截图" />
+        <div class="page-body">
+          <h2>062. report_002_rfc_9111</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc9111.html">https://www.rfc-editor.org/rfc/rfc9111.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 140 · filtered 7 · digest 18 · sourceRefs 147 · screenshot 188893 bytes</p>
+          <ul><li><strong>definition</strong> · Most commonly , caches store the successful result of a retrieval request : i . e <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · Although caching is an entirely OPTIONAL feature of HTTP , it can be assumed that reusing <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_003_rfc_9112.png" alt="report_003_rfc_9112 实际网页截图" />
+        <div class="page-body">
+          <h2>063. report_003_rfc_9112</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc9112.html">https://www.rfc-editor.org/rfc/rfc9112.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 139 · filtered 7 · digest 18 · sourceRefs 146 · screenshot 167793 bytes</p>
+          <ul><li><strong>definition</strong> · Although the request - line grammar rule requires that each of the component elements be separated <span class="pill">sourceRefs 1</span></li>
+<li><strong>evidence</strong> · The following core rules are included by reference , as defined in [ RFC5234 ] , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_004_rfc_8259.png" alt="report_004_rfc_8259 实际网页截图" />
+        <div class="page-body">
+          <h2>064. report_004_rfc_8259</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc8259.html">https://www.rfc-editor.org/rfc/rfc8259.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.19</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 13 · filtered 3 · digest 13 · sourceRefs 16 · screenshot 211961 bytes</p>
+          <ul><li><strong>code_fact</strong> · RFC 8259 JSON December 2017 This is a JSON array containing two objects : [ { <span class="pill">sourceRefs 1</span></li>
+<li><strong>code_fact</strong> · RFC 8259 JSON December 2017 11 . IANA Considerations The media type for JSON text is <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_005_rfc_6455.png" alt="report_005_rfc_6455 实际网页截图" />
+        <div class="page-body">
+          <h2>065. report_005_rfc_6455</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc6455.html">https://www.rfc-editor.org/rfc/rfc6455.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.21</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 56 · filtered 15 · digest 18 · sourceRefs 71 · screenshot 209130 bytes</p>
+          <ul><li><strong>code_fact</strong> · RFC 6455 The WebSocket Protocol December 2011 Special thanks to Lisa Dusseault for the Apps Area <span class="pill">sourceRefs 1</span></li>
+<li><strong>code_fact</strong> · RFC 6455 The WebSocket Protocol December 2011 [ RFC2817 ] Khare , R . and S <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_006_rfc_8446.png" alt="report_006_rfc_8446 实际网页截图" />
+        <div class="page-body">
+          <h2>066. report_006_rfc_8446</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc8446.html">https://www.rfc-editor.org/rfc/rfc8446.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.17</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 132 · filtered 28 · digest 18 · sourceRefs 160 · screenshot 214650 bytes</p>
+          <ul><li><strong>code_fact</strong> · RFC 8446 TLS August 2018 B . 2 . Alert Messages enum { warning ( 1 <span class="pill">sourceRefs 1</span></li>
+<li><strong>code_fact</strong> · RFC 8446 TLS August 2018 enum { warning ( 1 ) , fatal ( 2 ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_007_rfc_9000.png" alt="report_007_rfc_9000 实际网页截图" />
+        <div class="page-body">
+          <h2>067. report_007_rfc_9000</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.93</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc9000.html">https://www.rfc-editor.org/rfc/rfc9000.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 147 · filtered 3 · digest 18 · sourceRefs 150 · screenshot 199158 bytes</p>
+          <ul><li><strong>entity</strong> · This document defines the core of the QUIC transport protocol . QUIC provides applications with flow <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · This document is subject to BCP 78 and the IETF Trust &#x27; s Legal Provisions Relating <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/report_008_rfc_3986.png" alt="report_008_rfc_3986 实际网页截图" />
+        <div class="page-body">
+          <h2>068. report_008_rfc_3986</h2>
+          <div class="meta">
+            <span class="pill">academic_or_report</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.91</span>
+          </div>
+          <p class="url"><a href="https://www.rfc-editor.org/rfc/rfc3986.html">https://www.rfc-editor.org/rfc/rfc3986.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.29</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 43 · filtered 18 · digest 18 · sourceRefs 61 · screenshot 218316 bytes</p>
+          <ul><li><strong>code_fact</strong> · RFC 3986 URI Generic Syntax January 2005 path - rootless 16 , 22 pchar 23 pct <span class="pill">sourceRefs 1</span></li>
+<li><strong>code_fact</strong> · RFC 3986 URI Generic Syntax January 2005 ftp : / / cnn . example . com <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_001_python_modindex.png" alt="table_001_python_modindex 实际网页截图" />
+        <div class="page-body">
+          <h2>069. table_001_python_modindex</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 82 · filtered 0 · digest 18 · sourceRefs 82 · screenshot 122102 bytes</p>
+          <ul><li><strong>table_fact</strong> · The environment where top - level code is run . Covers command - line interfaces , <span class="pill">sourceRefs 1</span></li>
+<li><strong>table_fact</strong> · Functions for working with calendars , including some emulation of the Unix cal program . <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_002_python_genindex.png" alt="table_002_python_genindex 实际网页截图" />
+        <div class="page-body">
+          <h2>070. table_002_python_genindex</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.85</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/genindex.html">https://docs.python.org/3/genindex.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 10 · filtered 0 · digest 10 · sourceRefs 10 · screenshot 83860 bytes</p>
+          <ul><li><strong>entity</strong> · Symbols | _ | A | B | C | D | E | F | <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Full index on one page ( can be huge ) <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_003_python_stdtypes.png" alt="table_003_python_stdtypes 实际网页截图" />
+        <div class="page-body">
+          <h2>071. table_003_python_stdtypes</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/stdtypes.html">https://docs.python.org/3/library/stdtypes.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 94 · filtered 1 · digest 18 · sourceRefs 95 · screenshot 141104 bytes</p>
+          <ul><li><strong>definition</strong> · Some operations are supported by several object types ; in particular , practically all objects can <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Numbers are created by numeric literals or as the result of built - in functions and <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_004_python_functions.png" alt="table_004_python_functions 实际网页截图" />
+        <div class="page-body">
+          <h2>072. table_004_python_functions</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 139 · filtered 0 · digest 18 · sourceRefs 139 · screenshot 71593 bytes</p>
+          <ul><li><strong>definition</strong> · This function drops you into the debugger at the call site . Specifically , it calls <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · When compiling a string with multi - line code in &#x27; single &#x27; or &#x27; eval <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_005_w3c_wcag21.png" alt="table_005_w3c_wcag21 实际网页截图" />
+        <div class="page-body">
+          <h2>073. table_005_w3c_wcag21</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/WCAG21/">https://www.w3.org/TR/WCAG21/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 134 · filtered 2 · digest 18 · sourceRefs 136 · screenshot 192218 bytes</p>
+          <ul><li><strong>definition</strong> · The individuals and organizations that use WCAG vary widely and include web designers and developers , <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Note that even content that conforms at the highest level ( AAA ) will not be <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_006_w3c_wcag22.png" alt="table_006_w3c_wcag22 实际网页截图" />
+        <div class="page-body">
+          <h2>074. table_006_w3c_wcag22</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 134 · filtered 3 · digest 18 · sourceRefs 137 · screenshot 187187 bytes</p>
+          <ul><li><strong>entity</strong> · Significant challenges were encountered in defining additional criteria to address cognitive , language , and l... <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Web Content Accessibility Guidelines ( WCAG ) 2 . 2 defines how to make web content <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_007_w3c_wai_aria.png" alt="table_007_w3c_wai_aria 实际网页截图" />
+        <div class="page-body">
+          <h2>075. table_007_w3c_wai_aria</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 145 · filtered 9 · digest 18 · sourceRefs 154 · screenshot 177451 bytes</p>
+          <ul><li><strong>definition</strong> · States and properties are used to declare important attributes of an element that affect and describe <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · WAI - ARIA introduces navigational landmarks through its Roles Model and the XHTML role landmarks , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/table_008_w3c_accname.png" alt="table_008_w3c_accname 实际网页截图" />
+        <div class="page-body">
+          <h2>076. table_008_w3c_accname</h2>
+          <div class="meta">
+            <span class="pill">table_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://www.w3.org/TR/accname-1.2/">https://www.w3.org/TR/accname-1.2/</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.06</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 137 · filtered 9 · digest 18 · sourceRefs 146 · screenshot 204618 bytes</p>
+          <ul><li><strong>definition</strong> · This document describes how user agents determine the names and descriptions of accessible objects from web <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The text equivalent computation is used by both the accessible name and accessible description . There <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_001_py_asyncio.png" alt="code_001_py_asyncio 实际网页截图" />
+        <div class="page-body">
+          <h2>077. code_001_py_asyncio</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.90</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 48 · filtered 2 · digest 18 · sourceRefs 50 · screenshot 82321 bytes</p>
+          <ul><li><strong>definition</strong> · asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high - performance <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_002_py_json.png" alt="code_002_py_json 实际网页截图" />
+        <div class="page-body">
+          <h2>078. code_002_py_json</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/json.html">https://docs.python.org/3/library/json.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 109 · filtered 1 · digest 18 · sourceRefs 110 · screenshot 91790 bytes</p>
+          <ul><li><strong>definition</strong> · If check_circular is true ( the default ) , then lists , dicts , and custom <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · parse_constant ( callable | None ) – If set , a function that is called with <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_003_py_pathlib.png" alt="code_003_py_pathlib 实际网页截图" />
+        <div class="page-body">
+          <h2>079. code_003_py_pathlib</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/pathlib.html">https://docs.python.org/3/library/pathlib.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 138 · filtered 2 · digest 18 · sourceRefs 140 · screenshot 98612 bytes</p>
+          <ul><li><strong>entity</strong> · You want to make sure that your code only manipulates paths without actually accessing the OS <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · This behavior conforms to The Open Group Base Specifications Issue 6 , paragraph 4 . 11 <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_004_py_re.png" alt="code_004_py_re 实际网页截图" />
+        <div class="page-body">
+          <h2>080. code_004_py_re</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/re.html">https://docs.python.org/3/library/re.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 136 · filtered 2 · digest 18 · sourceRefs 138 · screenshot 89532 bytes</p>
+          <ul><li><strong>definition</strong> · Regular expressions can be concatenated to form new regular expressions ; if A and B are <span class="pill">sourceRefs 1</span></li>
+<li><strong>procedure</strong> · Repetition operators or quantifiers ( * , + , ? , { m , n } <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_005_py_dataclasses.png" alt="code_005_py_dataclasses 实际网页截图" />
+        <div class="page-body">
+          <h2>081. code_005_py_dataclasses</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 147 · filtered 1 · digest 18 · sourceRefs 148 · screenshot 87296 bytes</p>
+          <ul><li><strong>definition</strong> · Be forewarned about how init = False fields work during a call to replace ( ) <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Creates a new dataclass with name cls_name , fields as defined in fields , base classes <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_006_py_argparse.png" alt="code_006_py_argparse 实际网页截图" />
+        <div class="page-body">
+          <h2>082. code_006_py_argparse</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/argparse.html">https://docs.python.org/3/library/argparse.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 112 · filtered 2 · digest 18 · sourceRefs 114 · screenshot 95880 bytes</p>
+          <ul><li><strong>definition</strong> · Generally , argument defaults are specified either by passing a default to add_argument ( ) or <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Sometimes , when dealing with a particularly long argument list , it may make sense to <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_007_py_unittest.png" alt="code_007_py_unittest 实际网页截图" />
+        <div class="page-body">
+          <h2>083. code_007_py_unittest</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 137 · filtered 4 · digest 18 · sourceRefs 141 · screenshot 95895 bytes</p>
+          <ul><li><strong>entity</strong> · Changed in version 3 . 11 : Test discovery dropped the namespace packages support . It <span class="pill">sourceRefs 1</span></li>
+<li><strong>code_fact</strong> · class MyTestCase ( unittest . TestCase ) : @ unittest . skip ( &quot; demonstrating skipping <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/code_008_py_typing.png" alt="code_008_py_typing 实际网页截图" />
+        <div class="page-body">
+          <h2>084. code_008_py_typing</h2>
+          <div class="meta">
+            <span class="pill">code_heavy_page</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/3/library/typing.html">https://docs.python.org/3/library/typing.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 137 · filtered 1 · digest 18 · sourceRefs 138 · screenshot 124236 bytes</p>
+          <ul><li><strong>definition</strong> · Note that these checks are enforced only by the static type checker . At runtime , <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Callables which take other callables as arguments may indicate that their parameter types are dependent on <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_001_go_image_draw.png" alt="image_001_go_image_draw 实际网页截图" />
+        <div class="page-body">
+          <h2>085. image_001_go_image_draw</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/image-draw">https://go.dev/blog/image-draw</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 64 · filtered 1 · digest 18 · sourceRefs 65 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Learn Go from your browser Previous article : The Go image package Blog <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · The image / draw package implementation demonstrates how to provide an image manipulation function that is <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_002_go_gopher.png" alt="image_002_go_gopher 实际网页截图" />
+        <div class="page-body">
+          <h2>086. image_002_go_gopher</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.94</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/gopher">https://go.dev/blog/gopher</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 54 · filtered 2 · digest 18 · sourceRefs 56 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : GopherCon 2014 Wrap Up Previous article : Go Concurrency Patterns : Pipelines and <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · The gopher next made an appearance at Bell Labs , as Bob Flandrena ’ s avatar <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_003_go_slices.png" alt="image_003_go_slices 实际网页截图" />
+        <div class="page-body">
+          <h2>087. image_003_go_slices</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/generic-slice-functions">https://go.dev/blog/generic-slice-functions</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 90 · filtered 2 · digest 18 · sourceRefs 92 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : More powerful Go execution traces Previous article : Routing Enhancements for Go 1 <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Before Go 1 . 22 , slices . Delete didn ’ t modify the elements between <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_004_go_maps.png" alt="image_004_go_maps 实际网页截图" />
+        <div class="page-body">
+          <h2>088. image_004_go_maps</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/maps">https://go.dev/blog/maps</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 97 · filtered 2 · digest 18 · sourceRefs 99 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Get thee to a Go meetup Previous article : go fmt your code <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · As mentioned earlier , map keys may be of any type that is comparable . The <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_005_go_strings.png" alt="image_005_go_strings 实际网页截图" />
+        <div class="page-body">
+          <h2>089. image_005_go_strings</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/strings">https://go.dev/blog/strings</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.04</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 112 · filtered 5 · digest 18 · sourceRefs 117 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Four years of Go Previous article : Arrays , slices ( and strings <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · The concept of character in computing is therefore ambiguous , or at least confusing , so <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_006_go_json.png" alt="image_006_go_json 实际网页截图" />
+        <div class="page-body">
+          <h2>090. image_006_go_json</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/json">https://go.dev/blog/json</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 107 · filtered 2 · digest 18 · sourceRefs 109 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Go becomes more stable Previous article : Go Slices : usage and internals <span class="pill">sourceRefs 1</span></li>
+<li><strong>evidence</strong> · Unmarshaling that data into a FamilyMember value works as expected , but if we look closely <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_007_go_context.png" alt="image_007_go_context 实际网页截图" />
+        <div class="page-body">
+          <h2>091. image_007_go_context</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/context">https://go.dev/blog/context</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 91 · filtered 1 · digest 18 · sourceRefs 92 · screenshot 93355 bytes</p>
+          <ul><li><strong>procedure</strong> · At Google , we require that Go programmers pass a Context parameter as the first argument <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · In Go servers , each incoming request is handled in its own goroutine . Request handlers <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_008_go_pipelines.png" alt="image_008_go_pipelines 实际网页截图" />
+        <div class="page-body">
+          <h2>092. image_008_go_pipelines</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/pipelines">https://go.dev/blog/pipelines</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 123 · filtered 1 · digest 18 · sourceRefs 124 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : The Go Gopher Previous article : Go talks at FOSDEM 2014 Blog Index <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · The sending goroutines replace their send operation with a select statement that proceeds either when the <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_010_go_defer.png" alt="image_010_go_defer 实际网页截图" />
+        <div class="page-body">
+          <h2>093. image_010_go_defer</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/defer-panic-and-recover">https://go.dev/blog/defer-panic-and-recover</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 71 · filtered 1 · digest 18 · sourceRefs 72 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : Go Wins 2010 Bossie Award Previous article : Share Memory By Communicating Blog <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · Panic is a built - in function that stops the ordinary flow of control and begins <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_011_go_concurrency.png" alt="image_011_go_concurrency 实际网页截图" />
+        <div class="page-body">
+          <h2>094. image_011_go_concurrency</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.88</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/waza-talk">https://go.dev/blog/waza-talk</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.05</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 41 · filtered 2 · digest 18 · sourceRefs 43 · screenshot 93355 bytes</p>
+          <ul><li><strong>entity</strong> · Next article : go fmt your code Previous article : The App Engine SDK and workspaces <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · To clear up this conflation , Rob Pike gave a talk at Heroku ’ s Waza <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/image_012_go_interfaces.png" alt="image_012_go_interfaces 实际网页截图" />
+        <div class="page-body">
+          <h2>095. image_012_go_interfaces</h2>
+          <div class="meta">
+            <span class="pill">image_rich_article</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.99</span>
+          </div>
+          <p class="url"><a href="https://go.dev/blog/laws-of-reflection">https://go.dev/blog/laws-of-reflection</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 123 · filtered 1 · digest 18 · sourceRefs 124 · screenshot 93355 bytes</p>
+          <ul><li><strong>definition</strong> · The expression in this assignment is a type assertion ; what it asserts is that the <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · Note added January 2022 : This blog post was written in 2011 and predates parametric polymorphism <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_001_python_tutorial_index.png" alt="zh_001_python_tutorial_index 实际网页截图" />
+        <div class="page-body">
+          <h2>096. zh_001_python_tutorial_index</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.91</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/index.html">https://docs.python.org/zh-cn/3/tutorial/index.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 31 · filtered 0 · digest 18 · sourceRefs 31 · screenshot 63423 bytes</p>
+          <ul><li><strong>entity</strong> · 本教程被设计为针对新入门 Python 语言的 程序员 ， 而 不是 新入门编程的 初学者 。 <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 本教程非正式地介绍了 Python 语言和系统的基本概念和特性 。 请注意它预期你对于编程的总体概念有基本的了解 。 准备好一个 Python 解释器随时上手练习会很有帮助 ， 但所有的示例都是完备自足的 ， 因此本教程也... <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_002_python_tutorial_intro.png" alt="zh_002_python_tutorial_intro 实际网页截图" />
+        <div class="page-body">
+          <h2>097. zh_002_python_tutorial_intro</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/introduction.html">https://docs.python.org/zh-cn/3/tutorial/introduction.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 108 · filtered 0 · digest 18 · sourceRefs 108 · screenshot 63617 bytes</p>
+          <ul><li><strong>entity</strong> · 除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为 &quot; 字符串 &quot; ） 。 这包括字符 &quot; <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · while 循环只要条件 ( 这里是 a &lt; 10 ) 为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真 <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_003_python_tutorial_controlflow.png" alt="zh_003_python_tutorial_controlflow 实际网页截图" />
+        <div class="page-body">
+          <h2>098. zh_003_python_tutorial_controlflow</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/controlflow.html">https://docs.python.org/zh-cn/3/tutorial/controlflow.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.01</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 117 · filtered 1 · digest 18 · sourceRefs 118 · screenshot 91593 bytes</p>
+          <ul><li><strong>procedure</strong> · 函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ， <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_004_python_tutorial_datastructures.png" alt="zh_004_python_tutorial_datastructures 实际网页截图" />
+        <div class="page-body">
+          <h2>099. zh_004_python_tutorial_datastructures</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.97</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/datastructures.html">https://docs.python.org/zh-cn/3/tutorial/datastructures.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 105 · filtered 0 · digest 18 · sourceRefs 105 · screenshot 71323 bytes</p>
+          <ul><li><strong>procedure</strong> · 序列对象可以与相同序列类型的其他对象比较 。 这种比较使用 字典式 顺序 ： 首先 ， 比较前两个对应元素 ， 如果不相等 ， 则可确定比较结果 ； 如果相等 ， <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 另一个常用的 Python 内置数据类型是 字典 ( 参见 映射类型 - - - dict ) 。 字典在其他编程语言中可能称为 “ 联合内存 <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_005_python_tutorial_modules.png" alt="zh_005_python_tutorial_modules 实际网页截图" />
+        <div class="page-body">
+          <h2>100. zh_005_python_tutorial_modules</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.93</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/modules.html">https://docs.python.org/zh-cn/3/tutorial/modules.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.02</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 103 · filtered 2 · digest 18 · sourceRefs 105 · screenshot 67439 bytes</p>
+          <ul><li><strong>claim</strong> · 假设要为统一处理声音文件与声音数据设计一个模块集 （ “ 包 ” ） 。 声音文件的格式很多 ( 通常以扩展名来识别 ， 例如 . wav ， . <span class="pill">sourceRefs 1</span></li>
+<li><strong>claim</strong> · 每个模块都有它自己的私有符号表 ， 该表被定义在该模块里的所有函数当作全局符号表使用 。 因此 ， 一个模块的作者可以在模块内放心使用全局变量 ， 而不必担心它们会和模块使用者的全局变量发生意外冲突 。 另一方面 ， 如果... <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_006_python_tutorial_inputoutput.png" alt="zh_006_python_tutorial_inputoutput 实际网页截图" />
+        <div class="page-body">
+          <h2>101. zh_006_python_tutorial_inputoutput</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.98</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/inputoutput.html">https://docs.python.org/zh-cn/3/tutorial/inputoutput.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 102 · filtered 0 · digest 18 · sourceRefs 102 · screenshot 69069 bytes</p>
+          <ul><li><strong>evidence</strong> · Python 允许你使用流行的数据交换格式 JSON ( JavaScript Object Notation ) ， 而不是让用户持续编写和调试代码来将复杂的数据类型存入文件中 。 标准库模块 json 可以接受带有层级... <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 请注意 yes_votes 填充了空格并且只为负数添加了负号 。 这个例子还打印了 percentage 乘以 100 的结果 ， 保留 2 位小数并带有一个百分号 ( 请参阅 Format <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_007_python_tutorial_errors.png" alt="zh_007_python_tutorial_errors 实际网页截图" />
+        <div class="page-body">
+          <h2>102. zh_007_python_tutorial_errors</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.96</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/errors.html">https://docs.python.org/zh-cn/3/tutorial/errors.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 88 · filtered 0 · digest 18 · sourceRefs 88 · screenshot 69192 bytes</p>
+          <ul><li><strong>entity</strong> · 错误信息的最后一行说明程序遇到了什么类型的错误 。 异常有不同的类型 ， 而类型名称会作为错误信息的一部分打印出来 ： 上述示例中的异常类型依次是 ： ZeroDivisionError ， NameError 和 Typ... <span class="pill">sourceRefs 1</span></li>
+<li><strong>key_fact</strong> · 当一个异常被创建以引发时 ， 它通常被初始化为描述所发生错误的信息 。 在有些情况下 ， 在异常被捕获后添加信息是很有用的 。 为了这个目的 ， 异常有一个 add_note ( note ) 方法接受一个字符串 <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/zh_008_python_tutorial_classes.png" alt="zh_008_python_tutorial_classes 实际网页截图" />
+        <div class="page-body">
+          <h2>103. zh_008_python_tutorial_classes</h2>
+          <div class="meta">
+            <span class="pill">localized_chinese_page</span>
+            <span class="pill">语言 zh</span>
+            <span class="pill">期望 pass</span>
+            <span class="pill">结果 <span class="status-pass">pass</span></span>
+            <span class="pill">score 0.95</span>
+          </div>
+          <p class="url"><a href="https://docs.python.org/zh-cn/3/tutorial/classes.html">https://docs.python.org/zh-cn/3/tutorial/classes.html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 120 · filtered 0 · digest 18 · sourceRefs 120 · screenshot 79738 bytes</p>
+          <ul><li><strong>entity</strong> · namespace （ 命名空间 ） 是从名称到对象的映射 。 现在 ， 大多数命名空间都使用 Python 字典实现 ， 但除非涉及到性能优化 ， 我们一般不会关注这方面的事情 ， <span class="pill">sourceRefs 1</span></li>
+<li><strong>entity</strong> · 动态调整顺序是有必要的 ， 因为所有多重继承的情况都会显示出一个或更多的菱形关联 （ 即至少有一个上级类可通过多条路径被最底层的类所访问 ） 。 例如 ， 所有类都是继承自 object ， 因此任何多重继承的情况都提供了... <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/low_001_example_com.png" alt="low_001_example_com 实际网页截图" />
+        <div class="page-body">
+          <h2>104. low_001_example_com</h2>
+          <div class="meta">
+            <span class="pill">low_signal_or_paywall_like</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 degraded</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.90</span>
+          </div>
+          <p class="url"><a href="https://example.com">https://example.com</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 0 · digest 1 · sourceRefs 1 · screenshot 17994 bytes</p>
+          <ul><li><strong>definition</strong> · This domain is for use in documentation examples without needing permission . Avoid use in operations <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/low_002_example_org.png" alt="low_002_example_org 实际网页截图" />
+        <div class="page-body">
+          <h2>105. low_002_example_org</h2>
+          <div class="meta">
+            <span class="pill">low_signal_or_paywall_like</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 degraded</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.90</span>
+          </div>
+          <p class="url"><a href="https://www.example.org">https://www.example.org</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 0 · digest 1 · sourceRefs 1 · screenshot 17994 bytes</p>
+          <ul><li><strong>definition</strong> · This domain is for use in documentation examples without needing permission . Avoid use in operations <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/low_003_iana_reserved.png" alt="low_003_iana_reserved 实际网页截图" />
+        <div class="page-body">
+          <h2>106. low_003_iana_reserved</h2>
+          <div class="meta">
+            <span class="pill">low_signal_or_paywall_like</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 degraded</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.92</span>
+          </div>
+          <p class="url"><a href="https://www.iana.org/domains/reserved">https://www.iana.org/domains/reserved</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.03</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 36 · filtered 1 · digest 18 · sourceRefs 37 · screenshot 169740 bytes</p>
+          <ul><li><strong>definition</strong> · We act as both the registrant and registrar for a select number of domains which have <span class="pill">sourceRefs 1</span></li>
+<li><strong>definition</strong> · As described in RFC 2606 and RFC 6761 , a number of domains such as example <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    
+
+      <article class="page-card">
+        <img class="page-shot" src="screenshots/all/low_004_httpbin_html.png" alt="low_004_httpbin_html 实际网页截图" />
+        <div class="page-body">
+          <h2>107. low_004_httpbin_html</h2>
+          <div class="meta">
+            <span class="pill">low_signal_or_paywall_like</span>
+            <span class="pill">语言 en</span>
+            <span class="pill">期望 degraded</span>
+            <span class="pill">结果 <span class="status-degraded">degraded</span></span>
+            <span class="pill">score 0.92</span>
+          </div>
+          <p class="url"><a href="https://httpbin.org/html">https://httpbin.org/html</a></p>
+          <div class="metrics"><div class="metric"><strong>1.00</strong><span>sourceCoverage</span></div>
+<div class="metric"><strong>1.00</strong><span>groundingCompleteness</span></div>
+<div class="metric"><strong>1.00</strong><span>jumpbackCoverage</span></div>
+<div class="metric"><strong>0.00</strong><span>noiseRatio</span></div></div>
+          <p class="note">HighSignal blocks 1 · filtered 0 · digest 1 · sourceRefs 1 · screenshot 193204 bytes</p>
+          <ul><li><strong>entity</strong> · Availing himself of the mild , summer - cool weather that now reigned in these latitudes <span class="pill">sourceRefs 1</span></li></ul>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

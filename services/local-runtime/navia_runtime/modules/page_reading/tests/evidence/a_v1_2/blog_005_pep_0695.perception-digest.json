@@ -1,0 +1,652 @@
+{
+  "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+  "digestId": "digest_page_blog_005_pep_0695",
+  "items": [
+    {
+      "confidence": 0.836,
+      "importance": 0.863,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0130",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0019"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0130"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0130",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0019",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of these are False , the type variable is assumed to be invariant. We propose to add another keyword parameter named infer_variance indicating that a type checker should use inference to determine whether the type variable is invariant, covariant or ",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Auto Variance For TypeVar"
+          ],
+          "order": 129,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0130",
+          "sourceRefId": "src_page_blog_005_pep_0695_0130",
+          "textHash": "sha256_97bd2595231e49af2bb8db0271918e46",
+          "textQuote": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of these are False , the type variable is assumed to be invariant. We propose to add another keyword parameter"
+        }
+      ],
+      "text": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.855,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0030",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0030"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0030",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The scoping rules for type variables are difficult to understand. Type variables are typically allocated within the global scope, but their semantic meaning is valid only when used within the context of a generic class, function, or type alias. A single runtime instance of a type variable may be reused in multiple generic contexts, and it has a different sem",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation",
+            "Points of Confusion"
+          ],
+          "order": 29,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0030",
+          "sourceRefId": "src_page_blog_005_pep_0695_0030",
+          "textHash": "sha256_22a3a8246dbe5a7d4d437851a9f4fbf6",
+          "textQuote": "The scoping rules for type variables are difficult to understand. Type variables are typically allocated within the global scope, but their semantic meaning is valid only when used within the context of a generic class, "
+        }
+      ],
+      "text": "The scoping rules for type variables are difficult to understand . Type variables are typically allocated",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.851,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0032",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "PEP 483 and PEP 484 introduced the concept of “variance” for a type variable used within a generic class. Type variables can be invariant, covariant, or contravariant. The concept of variance is an advanced detail of type theory that is not well understood by most Python developers, yet they must confront this concept today when defining their first generic ",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation",
+            "Points of Confusion"
+          ],
+          "order": 31,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0032",
+          "sourceRefId": "src_page_blog_005_pep_0695_0032",
+          "textHash": "sha256_7f25e4655bd5e460701c1c15b4072a9b",
+          "textQuote": "PEP 483 and PEP 484 introduced the concept of “variance” for a type variable used within a generic class. Type variables can be invariant, covariant, or contravariant. The concept of variance is an advanced detail of typ"
+        }
+      ],
+      "text": "PEP 483 and PEP 484 introduced the concept of “ variance ” for a type variable",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0034",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The practice of sharing a type variable across multiple generic contexts creates other problems today. Modern editors provide features like “find all references” and “rename all references” that operate on symbols at the semantic level. When a type parameter is shared among multiple generic classes, functions, and type aliases, all references are semanticall",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation",
+            "Points of Confusion"
+          ],
+          "order": 33,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0034",
+          "sourceRefId": "src_page_blog_005_pep_0695_0034",
+          "textHash": "sha256_e2ca01916d0ad737ce10c978af8e9768",
+          "textQuote": "The practice of sharing a type variable across multiple generic contexts creates other problems today. Modern editors provide features like “find all references” and “rename all references” that operate on symbols at the"
+        }
+      ],
+      "text": "The practice of sharing a type variable across multiple generic contexts creates other problems today .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0091",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0091"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0091",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "A type parameter declared as part of a generic class is valid within the class body and inner scopes contained therein. Type parameters are also accessible when evaluating the argument list (base classes and any keyword arguments) that comprise the class definition. This allows base classes to be parameterized by these type parameters. Type parameters are no",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 90,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0091",
+          "sourceRefId": "src_page_blog_005_pep_0695_0091",
+          "textHash": "sha256_5cfb45c12e050132f43ed2d777d3b596",
+          "textQuote": "A type parameter declared as part of a generic class is valid within the class body and inner scopes contained therein. Type parameters are also accessible when evaluating the argument list (base classes and any keyword "
+        }
+      ],
+      "text": "A type parameter declared as part of a generic class is valid within the class body",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0035",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "Type variables defined within the global scope also need to be given a name that starts with an underscore to indicate that the variable is private to the module. Globally-defined type variables are also often given names to indicate their variance, leading to cumbersome names like “_T_contra” and “_KT_co”. The current mechanisms for allocating type variable",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation",
+            "Points of Confusion"
+          ],
+          "order": 34,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0035",
+          "sourceRefId": "src_page_blog_005_pep_0695_0035",
+          "textHash": "sha256_9828fc0ccf7661834f60b732ec7da9a3",
+          "textQuote": "Type variables defined within the global scope also need to be given a name that starts with an underscore to indicate that the variable is private to the module. Globally-defined type variables are also often given name"
+        }
+      ],
+      "text": "Type variables defined within the global scope also need to be given a name that starts",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0099",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The lexical scope introduced by the new type parameter syntax is unlike traditional scopes introduced by a def or class statement. A type parameter scope acts more like a temporary “overlay” to the containing scope. The only new symbols contained within its symbol table are the type parameters defined using the new syntax. References to all other symbols are",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 98,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0099",
+          "sourceRefId": "src_page_blog_005_pep_0695_0099",
+          "textHash": "sha256_ddf54f0df276b05c39229aa64c108c7b",
+          "textQuote": "The lexical scope introduced by the new type parameter syntax is unlike traditional scopes introduced by a def or class statement. A type parameter scope acts more like a temporary “overlay” to the containing scope. The "
+        }
+      ],
+      "text": "The lexical scope introduced by the new type parameter syntax is unlike traditional scopes introduced by",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0106",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0106"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0106",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "When the new type parameter syntax is used for a generic class, assignment expressions are not allowed within the argument list for the class definition. Likewise, with functions that use the new type parameter syntax, assignment expressions are not allowed within parameter or return type annotations, nor are they allowed within the expression that defines a",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 105,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0106",
+          "sourceRefId": "src_page_blog_005_pep_0695_0106",
+          "textHash": "sha256_15fc2cf1faafc27670cba021bca93a3c",
+          "textQuote": "When the new type parameter syntax is used for a generic class, assignment expressions are not allowed within the argument list for the class definition. Likewise, with functions that use the new type parameter syntax, a"
+        }
+      ],
+      "text": "When the new type parameter syntax is used for a generic class , assignment expressions are",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0077",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0077"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0077",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "As with typing.TypeAlias , type checkers should restrict the right-hand expression to expression forms that are allowed within type annotations. The use of more complex expression forms (call expressions, ternary operators, arithmetic operators, comparison operators, etc.) should be flagged as an error.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Generic Type Alias"
+          ],
+          "order": 76,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0077",
+          "sourceRefId": "src_page_blog_005_pep_0695_0077",
+          "textHash": "sha256_83bdbaba507a3b07775513140c97315d",
+          "textQuote": "As with typing.TypeAlias , type checkers should restrict the right-hand expression to expression forms that are allowed within type annotations. The use of more complex expression forms (call expressions, ternary operato"
+        }
+      ],
+      "text": "As with typing . TypeAlias , type checkers should restrict the right - hand expression to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0026",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0026"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0026",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "While generic types and type parameters have grown in popularity, the syntax for specifying type parameters still feels “bolted on” to Python. This is a source of confusion among Python developers.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation"
+          ],
+          "order": 25,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0026",
+          "sourceRefId": "src_page_blog_005_pep_0695_0026",
+          "textHash": "sha256_c8b08ee085e66facbbc864ff62828ed6",
+          "textQuote": "While generic types and type parameters have grown in popularity, the syntax for specifying type parameters still feels “bolted on” to Python. This is a source of confusion among Python developers."
+        }
+      ],
+      "text": "While generic types and type parameters have grown in popularity , the syntax for specifying type",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0101",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0101"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0101",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The compiler allows inner scopes to define a local symbol that overrides an outer-scoped type parameter.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 100,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0101",
+          "sourceRefId": "src_page_blog_005_pep_0695_0101",
+          "textHash": "sha256_a900b61eb0b58d7c43c2985e2fba0b7e",
+          "textQuote": "The compiler allows inner scopes to define a local symbol that overrides an outer-scoped type parameter."
+        }
+      ],
+      "text": "The compiler allows inner scopes to define a local symbol that overrides an outer - scoped",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0036",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "Defining type parameters today requires importing the TypeVar and Generic symbols from the typing module. Over the past several releases of Python, efforts have been made to eliminate the need to import typing symbols for common use cases, and the PEP furthers this goal.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Motivation",
+            "Points of Confusion"
+          ],
+          "order": 35,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0036",
+          "sourceRefId": "src_page_blog_005_pep_0695_0036",
+          "textHash": "sha256_1cbc2f97986d601f361609942f9d96bd",
+          "textQuote": "Defining type parameters today requires importing the TypeVar and Generic symbols from the typing module. Over the past several releases of Python, efforts have been made to eliminate the need to import typing symbols fo"
+        }
+      ],
+      "text": "Defining type parameters today requires importing the TypeVar and Generic symbols from the typing module .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0078",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "Type alias expressions are not allowed to use traditional type variables (i.e. those allocated with an explicit TypeVar constructor call). Type checkers should generate an error in this case.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Generic Type Alias"
+          ],
+          "order": 77,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0078",
+          "sourceRefId": "src_page_blog_005_pep_0695_0078",
+          "textHash": "sha256_e35f4f9d12135ba4117debca1043dbf8",
+          "textQuote": "Type alias expressions are not allowed to use traditional type variables (i.e. those allocated with an explicit TypeVar constructor call). Type checkers should generate an error in this case."
+        }
+      ],
+      "text": "Type alias expressions are not allowed to use traditional type variables ( i . e .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0102",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0102"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0102",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "Consistent with the scoping rules defined in PEP 484 , type checkers should generate an error if inner-scoped generic classes, functions, or type aliases reuse the same type parameter name as an outer scope.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 101,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0102",
+          "sourceRefId": "src_page_blog_005_pep_0695_0102",
+          "textHash": "sha256_3c81cea2a65e5c2a4a8693ad6ea91852",
+          "textQuote": "Consistent with the scoping rules defined in PEP 484 , type checkers should generate an error if inner-scoped generic classes, functions, or type aliases reuse the same type parameter name as an outer scope."
+        }
+      ],
+      "text": "Consistent with the scoping rules defined in PEP 484 , type checkers should generate an error",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0022",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0022"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0022",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "This PEP is a historical document: see Variance Inference , Type aliases , Type parameter lists , The type statement and Annotation scopes . for up-to-date specs and documentation. Canonical typing specs are maintained at the typing specs site ; runtime typing behaviour is described in the CPython documentation.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax"
+          ],
+          "order": 21,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0022",
+          "sourceRefId": "src_page_blog_005_pep_0695_0022",
+          "textHash": "sha256_5c47b8e71dcd5b60a4ac1c6c3d84cf49",
+          "textQuote": "This PEP is a historical document: see Variance Inference , Type aliases , Type parameter lists , The type statement and Annotation scopes . for up-to-date specs and documentation. Canonical typing specs are maintained a"
+        }
+      ],
+      "text": "This PEP is a historical document : see Variance Inference , Type aliases , Type parameter",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0070",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "The upper bounds and constraints of TypeVar objects are accessible at runtime through the __bound__ and __constraints__ attributes. For TypeVar objects defined through the new syntax, these attributes become lazily evaluated, as discussed under Lazy Evaluation below.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Runtime Representation of Bounds and Constraints"
+          ],
+          "order": 69,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0070",
+          "sourceRefId": "src_page_blog_005_pep_0695_0070",
+          "textHash": "sha256_db4f4252aa4be735fd2444c6c4c3ad33",
+          "textQuote": "The upper bounds and constraints of TypeVar objects are accessible at runtime through the __bound__ and __constraints__ attributes. For TypeVar objects defined through the new syntax, these attributes become lazily evalu"
+        }
+      ],
+      "text": "The upper bounds and constraints of TypeVar objects are accessible at runtime through the __bound__ and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0081",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "At runtime, a type statement will generate an instance of typing.TypeAliasType . This class represents the type. Its attributes include:",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Runtime Type Alias Class"
+          ],
+          "order": 80,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0081",
+          "sourceRefId": "src_page_blog_005_pep_0695_0081",
+          "textHash": "sha256_63ee55ed0f2b8154f69f767b637b1f41",
+          "textQuote": "At runtime, a type statement will generate an instance of typing.TypeAliasType . This class represents the type. Its attributes include:"
+        }
+      ],
+      "text": "At runtime , a type statement will generate an instance of typing . TypeAliasType . This",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_blog_005_pep_0695_0107",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_blog_005_pep_0695_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_blog_005_pep_0695_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_blog_005_pep_0695_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_blog_005_pep_0695_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+          "fallbackText": "This restriction is necessary because expressions evaluated within the new lexical scope should not introduce symbols within that scope other than the defined type parameters, and should not affect whether the enclosing function is a generator or coroutine.",
+          "headingPath": [
+            "PEP 695 – Type Parameter Syntax",
+            "Specification",
+            "Type Parameter Scopes"
+          ],
+          "order": 106,
+          "pageId": "page_blog_005_pep_0695",
+          "paragraphId": "pg_page_blog_005_pep_0695_0107",
+          "sourceRefId": "src_page_blog_005_pep_0695_0107",
+          "textHash": "sha256_5f4a30facc177d049d675a573ba50a98",
+          "textQuote": "This restriction is necessary because expressions evaluated within the new lexical scope should not introduce symbols within that scope other than the defined type parameters, and should not affect whether the enclosing "
+        }
+      ],
+      "text": "This restriction is necessary because expressions evaluated within the new lexical scope should not introduce symbols",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_blog_005_pep_0695",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.072,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of",
+      "The scoping rules for type variables are difficult to understand . Type variables are typically allocated",
+      "PEP 483 and PEP 484 introduced the concept of “ variance ” for a type variable",
+      "The practice of sharing a type variable across multiple generic contexts creates other problems today .",
+      "A type parameter declared as part of a generic class is valid within the class body"
+    ],
+    "tldr": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of"
+  }
+}

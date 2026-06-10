@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const extensionRoot = fs.realpathSync(path.resolve(__dirname, "../chrome-mv3-unpacked"));
 const repoRoot = path.resolve(__dirname, "../../..");
 const runtimeUrl = "http://127.0.0.1:17861";
-const fixturePath = path.join(repoRoot, "docs/navia_v1_project_docs/fixtures/real_pages/article.html");
+const fixturePath = path.join(repoRoot, "docs/active/project/fixtures/real_pages/article.html");
 const browserMode = process.env.NAVIA_E2E_BROWSER || "chrome";
 
 function wait(ms) {

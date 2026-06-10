@@ -1,0 +1,416 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_forum_008_python_discuss_categories"
+      ],
+      "status": "degraded",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_forum_008_python_discuss_categories"
+      ],
+      "status": "degraded",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_forum_008_python_discuss_categories"
+      ],
+      "status": "degraded",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_forum_008_python_discuss_categories"
+      ],
+      "status": "degraded",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_forum_008_python_discuss_categories"
+      ],
+      "status": "degraded",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio, noiseRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 2,
+        "estimatedNoiseRatio": 0.5,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 74,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 0.875,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_forum_008_python_discuss_categories",
+    "pageKey": "page_forum_008_python_discuss_categories",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+  "filteredEvidence": [
+    {
+      "blockId": "block_pg_page_forum_008_python_discuss_categories_0001",
+      "blockType": "list_item",
+      "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+      "noiseScore": 0.9,
+      "order": 0,
+      "pageId": "page_forum_008_python_discuss_categories",
+      "reason": "footer",
+      "regionType": "footer",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_forum_008_python_discuss_categories_0001",
+          "blockType": "list_item",
+          "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+          "fallbackText": "Terms of Service",
+          "headingPath": [
+            "Discourse Feedback"
+          ],
+          "order": 0,
+          "pageId": "page_forum_008_python_discuss_categories",
+          "paragraphId": "pg_page_forum_008_python_discuss_categories_0001",
+          "sourceRefId": "src_page_forum_008_python_discuss_categories_0001",
+          "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+          "textQuote": "Terms of Service"
+        }
+      ],
+      "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+      "textQuote": "Terms of Service"
+    }
+  ],
+  "highSignalPage": {
+    "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+    "digestRef": "digest_page_forum_008_python_discuss_categories",
+    "filteredBlocks": [
+      {
+        "blockId": "block_pg_page_forum_008_python_discuss_categories_0001",
+        "blockType": "list_item",
+        "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+        "noiseScore": 0.9,
+        "order": 0,
+        "pageId": "page_forum_008_python_discuss_categories",
+        "reason": "footer",
+        "regionType": "footer",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_008_python_discuss_categories_0001",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+            "fallbackText": "Terms of Service",
+            "headingPath": [
+              "Discourse Feedback"
+            ],
+            "order": 0,
+            "pageId": "page_forum_008_python_discuss_categories",
+            "paragraphId": "pg_page_forum_008_python_discuss_categories_0001",
+            "sourceRefId": "src_page_forum_008_python_discuss_categories_0001",
+            "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+            "textQuote": "Terms of Service"
+          }
+        ],
+        "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+        "textQuote": "Terms of Service"
+      }
+    ],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_forum_008_python_discuss_categories_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_forum_008_python_discuss_categories_0001"
+        ],
+        "confidence": 0.812,
+        "contentDensityScore": 0.691,
+        "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+        "importance": 0.802,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_forum_008_python_discuss_categories",
+        "paragraphIds": [
+          "pg_page_forum_008_python_discuss_categories_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_008_python_discuss_categories_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+            "fallbackText": "Powered by Discourse , best viewed with JavaScript enabled",
+            "headingPath": [
+              "Discourse Feedback"
+            ],
+            "order": 1,
+            "pageId": "page_forum_008_python_discuss_categories",
+            "paragraphId": "pg_page_forum_008_python_discuss_categories_0002",
+            "sourceRefId": "src_page_forum_008_python_discuss_categories_0002",
+            "textHash": "sha256_7837d87ef69843e52bf9e1b586a4c653",
+            "textQuote": "Powered by Discourse , best viewed with JavaScript enabled"
+          }
+        ],
+        "text": "Powered by Discourse , best viewed with JavaScript enabled",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 18,
+      "language": "en",
+      "paragraphCount": 2,
+      "wordCount": 340
+    },
+    "pageId": "page_forum_008_python_discuss_categories",
+    "qualityReportRef": "q_page_forum_008_python_discuss_categories",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_forum_008_python_discuss_categories",
+    "sourceMapRef": "smap_page_forum_008_python_discuss_categories",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+      "pageId": "page_forum_008_python_discuss_categories"
+    },
+    "status": "degraded",
+    "warnings": [
+      "quality report is not pass"
+    ]
+  },
+  "pageId": "page_forum_008_python_discuss_categories",
+  "perceptionDigest": {
+    "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+    "digestId": "digest_page_forum_008_python_discuss_categories",
+    "items": [
+      {
+        "confidence": 0.812,
+        "importance": 0.802,
+        "itemId": "item_block_pg_page_forum_008_python_discuss_categories_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_008_python_discuss_categories_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_008_python_discuss_categories_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_008_python_discuss_categories_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+            "fallbackText": "Powered by Discourse , best viewed with JavaScript enabled",
+            "headingPath": [
+              "Discourse Feedback"
+            ],
+            "order": 1,
+            "pageId": "page_forum_008_python_discuss_categories",
+            "paragraphId": "pg_page_forum_008_python_discuss_categories_0002",
+            "sourceRefId": "src_page_forum_008_python_discuss_categories_0002",
+            "textHash": "sha256_7837d87ef69843e52bf9e1b586a4c653",
+            "textQuote": "Powered by Discourse , best viewed with JavaScript enabled"
+          }
+        ],
+        "text": "Powered by Discourse , best viewed with JavaScript enabled",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_forum_008_python_discuss_categories",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.727,
+      "itemCount": 1,
+      "sourceRefCount": 1
+    },
+    "status": "degraded",
+    "summary": {
+      "keyTakeaways": [
+        "Powered by Discourse , best viewed with JavaScript enabled"
+      ],
+      "tldr": "Powered by Discourse , best viewed with JavaScript enabled"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+    "downstreamReadiness": "degraded",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.727,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 74.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 58.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.784
+      },
+      "digestCompressionRatio": {
+        "denominator": 11.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 8.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.727
+      },
+      "groundingCompleteness": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 2.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 2.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 1.0,
+        "passed": false,
+        "threshold": 0.25,
+        "value": 0.5
+      },
+      "sourceCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.74,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_forum_008_python_discuss_categories",
+    "reportId": "q_page_forum_008_python_discuss_categories",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "degraded",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 74,
+    "codeBlockCount": 0,
+    "domain": "discuss.python.org",
+    "headingCount": 18,
+    "htmlAvailable": true,
+    "imageCount": 0,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "forum_008_python_discuss_categories",
+    "url": "https://discuss.python.org/categories",
+    "visibleTextLength": 340
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+    "pageId": "page_forum_008_python_discuss_categories",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_forum_008_python_discuss_categories",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_forum_008_python_discuss_categories_0001",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+        "fallbackText": "Terms of Service",
+        "headingPath": [
+          "Discourse Feedback"
+        ],
+        "order": 0,
+        "pageId": "page_forum_008_python_discuss_categories",
+        "paragraphId": "pg_page_forum_008_python_discuss_categories_0001",
+        "sourceRefId": "src_page_forum_008_python_discuss_categories_0001",
+        "textHash": "sha256_4afa55bf7aec7ddc5dfb904271f881be",
+        "textQuote": "Terms of Service"
+      },
+      {
+        "blockId": "block_pg_page_forum_008_python_discuss_categories_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_forum_008_python_discuss_categories_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4bbc6fec85d80c3415c8ad1dde1eac97ae1853a4855f6c627391717a8b33dc5",
+        "fallbackText": "Powered by Discourse , best viewed with JavaScript enabled",
+        "headingPath": [
+          "Discourse Feedback"
+        ],
+        "order": 1,
+        "pageId": "page_forum_008_python_discuss_categories",
+        "paragraphId": "pg_page_forum_008_python_discuss_categories_0002",
+        "sourceRefId": "src_page_forum_008_python_discuss_categories_0002",
+        "textHash": "sha256_7837d87ef69843e52bf9e1b586a4c653",
+        "textQuote": "Powered by Discourse , best viewed with JavaScript enabled"
+      }
+    ],
+    "status": "degraded"
+  },
+  "status": "degraded",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio, noiseRatio",
+  "warnings": []
+}

@@ -1,0 +1,96 @@
+{
+  "contentHash": "sha256_d8edbd1cc77903f519f9b4fe51cfca329a0dab51b164af6ec5d3f44b9bd81bbc",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "lowSignalHandling": "degraded_with_reason",
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 8.0,
+      "passed": false,
+      "threshold": 0.5,
+      "value": 0.444
+    },
+    "compressionScore": {
+      "denominator": 0.22,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+      "numerator": 0.155,
+      "passed": false,
+      "threshold": 0.75,
+      "value": 0.705
+    },
+    "contentCoverage": {
+      "denominator": 9176.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 9071.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 0.989
+    },
+    "digestCompressionRatio": {
+      "denominator": 1574.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 244.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.155
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 92.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 92.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 92.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.022
+    },
+    "sourceCoverage": {
+      "denominator": 90.0,
+      "denominatorZeroBehavior": "not_applicable",
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 90.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+  "overallScore": 0.954,
+  "overallWeights": {
+    "candidateFactDensity": 0.1,
+    "compressionScore": 0.1,
+    "contentCoverage": 0.1,
+    "groundingCompleteness": 0.2,
+    "inverseNoiseRatio": 0.15,
+    "jumpbackCoverage": 0.15,
+    "sourceCoverage": 0.2
+  },
+  "pageId": "page_image_003_go_slices",
+  "reportId": "q_page_image_003_go_slices",
+  "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+  "status": "pass",
+  "warnings": []
+}

@@ -1,0 +1,497 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_github_002_pallets_flask"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_github_002_pallets_flask"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_github_002_pallets_flask"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_github_002_pallets_flask"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_github_002_pallets_flask"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 3,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 1463,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_github_002_pallets_flask",
+    "pageKey": "page_github_002_pallets_flask",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+    "digestRef": "digest_page_github_002_pallets_flask",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_002_pallets_flask_0001"
+        ],
+        "confidence": 0.843,
+        "contentDensityScore": 0.83,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "importance": 0.878,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphIds": [
+          "pg_page_github_002_pallets_flask_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any de",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0001",
+            "sourceRefId": "src_page_github_002_pallets_flask_0001",
+            "textHash": "sha256_a31abc2f101c339bb8aa57d0c539cab8",
+            "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug]"
+          }
+        ],
+        "text": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any dependencies or project layout. It is up to the developer to choose the tools and libraries they want to use. There are many extensions provided by the community that make adding new functionality easy.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_002_pallets_flask_0001"
+        ],
+        "confidence": 0.839,
+        "contentDensityScore": 0.812,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "importance": 0.869,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphIds": [
+          "pg_page_github_002_pallets_flask_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0002",
+            "sourceRefId": "src_page_github_002_pallets_flask_0002",
+            "textHash": "sha256_7b379f503cfe1e5026d1a734ca9be88b",
+            "textQuote": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(_"
+          }
+        ],
+        "text": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ``` ## Donate The Pallets organization develops and supports Flask and the libraries it uses. In order to grow the community of contributors and users, and allow the maintainers to devote more time to the projects, [please donate today].",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_002_pallets_flask_0002"
+        ],
+        "confidence": 0.822,
+        "contentDensityScore": 0.738,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "importance": 0.828,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphIds": [
+          "pg_page_github_002_pallets_flask_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0003",
+            "sourceRefId": "src_page_github_002_pallets_flask_0003",
+            "textHash": "sha256_4b101438244eee4df8bdb4b31b8d64eb",
+            "textQuote": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or ans"
+          }
+        ],
+        "text": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 3,
+      "wordCount": 218
+    },
+    "pageId": "page_github_002_pallets_flask",
+    "qualityReportRef": "q_page_github_002_pallets_flask",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_github_002_pallets_flask",
+    "sourceMapRef": "smap_page_github_002_pallets_flask",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+      "pageId": "page_github_002_pallets_flask"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_github_002_pallets_flask",
+  "perceptionDigest": {
+    "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+    "digestId": "digest_page_github_002_pallets_flask",
+    "items": [
+      {
+        "confidence": 0.843,
+        "importance": 0.878,
+        "itemId": "item_block_pg_page_github_002_pallets_flask_0001",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_github_002_pallets_flask_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_002_pallets_flask_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any de",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0001",
+            "sourceRefId": "src_page_github_002_pallets_flask_0001",
+            "textHash": "sha256_a31abc2f101c339bb8aa57d0c539cab8",
+            "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug]"
+          }
+        ],
+        "text": "# Flask Flask is a lightweight [ WSGI ] web application framework . It is designed",
+        "warnings": []
+      },
+      {
+        "confidence": 0.839,
+        "importance": 0.869,
+        "itemId": "item_block_pg_page_github_002_pallets_flask_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_github_002_pallets_flask_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_002_pallets_flask_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0002",
+            "sourceRefId": "src_page_github_002_pallets_flask_0002",
+            "textHash": "sha256_7b379f503cfe1e5026d1a734ca9be88b",
+            "textQuote": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(_"
+          }
+        ],
+        "text": "[ WSGI ] : https : / / wsgi . readthedocs . io / [ Werkzeug",
+        "warnings": []
+      },
+      {
+        "confidence": 0.822,
+        "importance": 0.828,
+        "itemId": "item_block_pg_page_github_002_pallets_flask_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_github_002_pallets_flask_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_002_pallets_flask_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_002_pallets_flask_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_002_pallets_flask_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+            "fallbackText": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_002_pallets_flask",
+            "paragraphId": "pg_page_github_002_pallets_flask_0003",
+            "sourceRefId": "src_page_github_002_pallets_flask_0003",
+            "textHash": "sha256_4b101438244eee4df8bdb4b31b8d64eb",
+            "textQuote": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or ans"
+          }
+        ],
+        "text": "[ please donate today ] : https : / / palletsprojects . com / donate #",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_github_002_pallets_flask",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.115,
+      "itemCount": 3,
+      "sourceRefCount": 3
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "# Flask Flask is a lightweight [ WSGI ] web application framework . It is designed",
+        "[ WSGI ] : https : / / wsgi . readthedocs . io / [ Werkzeug",
+        "[ please donate today ] : https : / / palletsprojects . com / donate #"
+      ],
+      "tldr": "# Flask Flask is a lightweight [ WSGI ] web application framework . It is designed"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 1.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.333
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.115,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.523
+      },
+      "contentCoverage": {
+        "denominator": 1463.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 1463.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 218.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 25.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.115
+      },
+      "groundingCompleteness": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.947,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_github_002_pallets_flask",
+    "reportId": "q_page_github_002_pallets_flask",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 1463,
+    "codeBlockCount": 0,
+    "domain": "raw.githubusercontent.com",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 1,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "github_002_pallets_flask",
+    "url": "https://raw.githubusercontent.com/pallets/flask/main/README.md",
+    "visibleTextLength": 218
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+    "pageId": "page_github_002_pallets_flask",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_github_002_pallets_flask",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_002_pallets_flask_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "fallbackText": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and has become one of the most popular Python web application frameworks. Flask offers suggestions, but doesn't enforce any de",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphId": "pg_page_github_002_pallets_flask_0001",
+        "sourceRefId": "src_page_github_002_pallets_flask_0001",
+        "textHash": "sha256_a31abc2f101c339bb8aa57d0c539cab8",
+        "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug]"
+      },
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_002_pallets_flask_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "fallbackText": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(__name__) @app.route(\"/\") def hello(): return \"Hello, World!\" ``` ``` $ flask run * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit) ",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphId": "pg_page_github_002_pallets_flask_0002",
+        "sourceRefId": "src_page_github_002_pallets_flask_0002",
+        "textHash": "sha256_7b379f503cfe1e5026d1a734ca9be88b",
+        "textQuote": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app.py from flask import Flask app = Flask(_"
+      },
+      {
+        "blockId": "block_pg_page_github_002_pallets_flask_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_002_pallets_flask_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+        "fallbackText": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or answering questions, and making PRs. [contrib]: https://palletsprojects.com/contributing/",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_github_002_pallets_flask",
+        "paragraphId": "pg_page_github_002_pallets_flask_0003",
+        "sourceRefId": "src_page_github_002_pallets_flask_0003",
+        "textHash": "sha256_4b101438244eee4df8bdb4b31b8d64eb",
+        "textQuote": "[please donate today]: https://palletsprojects.com/donate ## Contributing See our [detailed contributing documentation][contrib] for many ways to contribute, including reporting issues, requesting features, asking or ans"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore",
+  "warnings": [
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 0, 'recoverable': True}"
+  ]
+}

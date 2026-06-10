@@ -1,0 +1,1141 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_table_002_python_genindex"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_table_002_python_genindex"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_table_002_python_genindex"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_table_002_python_genindex"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_table_002_python_genindex"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 10,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 344,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_table_002_python_genindex",
+    "pageKey": "page_table_002_python_genindex",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+    "digestRef": "digest_page_table_002_python_genindex",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0001",
+            "sourceRefId": "src_page_table_002_python_genindex_0001",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata: Python logo",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0002",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 1,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0002"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 1,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0002",
+            "sourceRefId": "src_page_table_002_python_genindex_0002",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata: Python logo",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0003",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.665,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 2,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0003"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0003",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "3.14.5 Documentation »",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 2,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0003",
+            "sourceRefId": "src_page_table_002_python_genindex_0003",
+            "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+            "textQuote": "3.14.5 Documentation »"
+          }
+        ],
+        "text": "3.14.5 Documentation »",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0004",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 3,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0004"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0004",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Theme Auto Light Dark |",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 3,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0004",
+            "sourceRefId": "src_page_table_002_python_genindex_0004",
+            "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+            "textQuote": "Theme Auto Light Dark |"
+          }
+        ],
+        "text": "Theme Auto Light Dark |",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0005",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.806,
+        "contentDensityScore": 0.665,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.788,
+        "noiseScore": 0.08,
+        "order": 4,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0005"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Index pages by letter:",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 4,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0005",
+            "sourceRefId": "src_page_table_002_python_genindex_0005",
+            "textHash": "sha256_547496c48a2a3eea0a8490e39f9089ac",
+            "textQuote": "Index pages by letter:"
+          }
+        ],
+        "text": "Index pages by letter:",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0006",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.821,
+        "contentDensityScore": 0.731,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.824,
+        "noiseScore": 0.08,
+        "order": 5,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0006"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0006",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 5,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0006",
+            "sourceRefId": "src_page_table_002_python_genindex_0006",
+            "textHash": "sha256_3be402fbc0e0dd072990a321c3b59325",
+            "textQuote": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z"
+          }
+        ],
+        "text": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0007",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.808,
+        "contentDensityScore": 0.675,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.793,
+        "noiseScore": 0.08,
+        "order": 6,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0007"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0007",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Full index on one page (can be huge)",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 6,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0007",
+            "sourceRefId": "src_page_table_002_python_genindex_0007",
+            "textHash": "sha256_957e223022d9c732eb6efe1d8064eafd",
+            "textQuote": "Full index on one page (can be huge)"
+          }
+        ],
+        "text": "Full index on one page (can be huge)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0008",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 7,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0008"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0008",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 7,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0008",
+            "sourceRefId": "src_page_table_002_python_genindex_0008",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata: Python logo",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0009",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.665,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 8,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0009"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0009",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "3.14.5 Documentation »",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 8,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0009",
+            "sourceRefId": "src_page_table_002_python_genindex_0009",
+            "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+            "textQuote": "3.14.5 Documentation »"
+          }
+        ],
+        "text": "3.14.5 Documentation »",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0010",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 9,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphIds": [
+          "pg_page_table_002_python_genindex_0010"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0010",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Theme Auto Light Dark |",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 9,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0010",
+            "sourceRefId": "src_page_table_002_python_genindex_0010",
+            "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+            "textQuote": "Theme Auto Light Dark |"
+          }
+        ],
+        "text": "Theme Auto Light Dark |",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "documentation",
+      "headingCount": 3,
+      "language": "en",
+      "paragraphCount": 10,
+      "wordCount": 159
+    },
+    "pageId": "page_table_002_python_genindex",
+    "qualityReportRef": "q_page_table_002_python_genindex",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_table_002_python_genindex",
+    "sourceMapRef": "smap_page_table_002_python_genindex",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+      "pageId": "page_table_002_python_genindex"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_table_002_python_genindex",
+  "perceptionDigest": {
+    "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+    "digestId": "digest_page_table_002_python_genindex",
+    "items": [
+      {
+        "confidence": 0.821,
+        "importance": 0.824,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0006",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0006"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0006",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 5,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0006",
+            "sourceRefId": "src_page_table_002_python_genindex_0006",
+            "textHash": "sha256_3be402fbc0e0dd072990a321c3b59325",
+            "textQuote": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z"
+          }
+        ],
+        "text": "Symbols | _ | A | B | C | D | E | F |",
+        "warnings": []
+      },
+      {
+        "confidence": 0.808,
+        "importance": 0.793,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0007",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0007"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0007",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Full index on one page (can be huge)",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 6,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0007",
+            "sourceRefId": "src_page_table_002_python_genindex_0007",
+            "textHash": "sha256_957e223022d9c732eb6efe1d8064eafd",
+            "textQuote": "Full index on one page (can be huge)"
+          }
+        ],
+        "text": "Full index on one page ( can be huge )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.806,
+        "importance": 0.788,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0005",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0005",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Index pages by letter:",
+            "headingPath": [
+              "Index"
+            ],
+            "order": 4,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0005",
+            "sourceRefId": "src_page_table_002_python_genindex_0005",
+            "textHash": "sha256_547496c48a2a3eea0a8490e39f9089ac",
+            "textQuote": "Index pages by letter:"
+          }
+        ],
+        "text": "Index pages by letter :",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0003",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "3.14.5 Documentation »",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 2,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0003",
+            "sourceRefId": "src_page_table_002_python_genindex_0003",
+            "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+            "textQuote": "3.14.5 Documentation »"
+          }
+        ],
+        "text": "3 . 14 . 5 Documentation »",
+        "warnings": []
+      },
+      {
+        "confidence": 0.797,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0004",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0004",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Theme Auto Light Dark |",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 3,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0004",
+            "sourceRefId": "src_page_table_002_python_genindex_0004",
+            "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+            "textQuote": "Theme Auto Light Dark |"
+          }
+        ],
+        "text": "Theme Auto Light Dark |",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0009",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0009"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0009",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "3.14.5 Documentation »",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 8,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0009",
+            "sourceRefId": "src_page_table_002_python_genindex_0009",
+            "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+            "textQuote": "3.14.5 Documentation »"
+          }
+        ],
+        "text": "3 . 14 . 5 Documentation »",
+        "warnings": []
+      },
+      {
+        "confidence": 0.797,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0010",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0010"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0010",
+            "blockType": "list_item",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Theme Auto Light Dark |",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 9,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0010",
+            "sourceRefId": "src_page_table_002_python_genindex_0010",
+            "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+            "textQuote": "Theme Auto Light Dark |"
+          }
+        ],
+        "text": "Theme Auto Light Dark |",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.755,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0001",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0001",
+            "sourceRefId": "src_page_table_002_python_genindex_0001",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata : Python logo",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.755,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0002",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0002",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [
+              "Navigation"
+            ],
+            "order": 1,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0002",
+            "sourceRefId": "src_page_table_002_python_genindex_0002",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata : Python logo",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.755,
+        "itemId": "item_block_pg_page_table_002_python_genindex_0008",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_table_002_python_genindex_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_table_002_python_genindex_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_table_002_python_genindex_0008",
+            "blockType": "image",
+            "chunkId": "ck_page_table_002_python_genindex_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+            "fallbackText": "Image metadata: Python logo",
+            "headingPath": [
+              "Index",
+              "Navigation"
+            ],
+            "order": 7,
+            "pageId": "page_table_002_python_genindex",
+            "paragraphId": "pg_page_table_002_python_genindex_0008",
+            "sourceRefId": "src_page_table_002_python_genindex_0008",
+            "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+            "textQuote": "Image metadata: Python logo"
+          }
+        ],
+        "text": "Image metadata : Python logo",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_table_002_python_genindex",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.706,
+      "itemCount": 10,
+      "sourceRefCount": 10
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "Symbols | _ | A | B | C | D | E | F |",
+        "Full index on one page ( can be huge )",
+        "Index pages by letter :",
+        "3 . 14 . 5 Documentation »",
+        "Theme Auto Light Dark |"
+      ],
+      "tldr": "Symbols | _ | A | B | C | D | E | F |"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.706,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 344.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 344.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 68.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 48.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.706
+      },
+      "groundingCompleteness": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.849,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_table_002_python_genindex",
+    "reportId": "q_page_table_002_python_genindex",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 344,
+    "codeBlockCount": 0,
+    "domain": "docs.python.org",
+    "headingCount": 3,
+    "htmlAvailable": true,
+    "imageCount": 3,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "table_002_python_genindex",
+    "url": "https://docs.python.org/3/genindex.html",
+    "visibleTextLength": 159
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+    "pageId": "page_table_002_python_genindex",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_table_002_python_genindex",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Image metadata: Python logo",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0001",
+        "sourceRefId": "src_page_table_002_python_genindex_0001",
+        "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+        "textQuote": "Image metadata: Python logo"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0002",
+        "blockType": "image",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Image metadata: Python logo",
+        "headingPath": [
+          "Navigation"
+        ],
+        "order": 1,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0002",
+        "sourceRefId": "src_page_table_002_python_genindex_0002",
+        "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+        "textQuote": "Image metadata: Python logo"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0003",
+        "blockType": "list_item",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "3.14.5 Documentation »",
+        "headingPath": [
+          "Navigation"
+        ],
+        "order": 2,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0003",
+        "sourceRefId": "src_page_table_002_python_genindex_0003",
+        "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+        "textQuote": "3.14.5 Documentation »"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0004",
+        "blockType": "list_item",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Theme Auto Light Dark |",
+        "headingPath": [
+          "Navigation"
+        ],
+        "order": 3,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0004",
+        "sourceRefId": "src_page_table_002_python_genindex_0004",
+        "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+        "textQuote": "Theme Auto Light Dark |"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0005",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Index pages by letter:",
+        "headingPath": [
+          "Index"
+        ],
+        "order": 4,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0005",
+        "sourceRefId": "src_page_table_002_python_genindex_0005",
+        "textHash": "sha256_547496c48a2a3eea0a8490e39f9089ac",
+        "textQuote": "Index pages by letter:"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0006",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z",
+        "headingPath": [
+          "Index"
+        ],
+        "order": 5,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0006",
+        "sourceRefId": "src_page_table_002_python_genindex_0006",
+        "textHash": "sha256_3be402fbc0e0dd072990a321c3b59325",
+        "textQuote": "Symbols | _ | A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0007",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Full index on one page (can be huge)",
+        "headingPath": [
+          "Index"
+        ],
+        "order": 6,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0007",
+        "sourceRefId": "src_page_table_002_python_genindex_0007",
+        "textHash": "sha256_957e223022d9c732eb6efe1d8064eafd",
+        "textQuote": "Full index on one page (can be huge)"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0008",
+        "blockType": "image",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Image metadata: Python logo",
+        "headingPath": [
+          "Index",
+          "Navigation"
+        ],
+        "order": 7,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0008",
+        "sourceRefId": "src_page_table_002_python_genindex_0008",
+        "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+        "textQuote": "Image metadata: Python logo"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0009",
+        "blockType": "list_item",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "3.14.5 Documentation »",
+        "headingPath": [
+          "Index",
+          "Navigation"
+        ],
+        "order": 8,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0009",
+        "sourceRefId": "src_page_table_002_python_genindex_0009",
+        "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+        "textQuote": "3.14.5 Documentation »"
+      },
+      {
+        "blockId": "block_pg_page_table_002_python_genindex_0010",
+        "blockType": "list_item",
+        "chunkId": "ck_page_table_002_python_genindex_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b8997b11d59fc1d89068e5524e6ac756cc98198938e567d1b2f3b5cd0d92a0a3",
+        "fallbackText": "Theme Auto Light Dark |",
+        "headingPath": [
+          "Index",
+          "Navigation"
+        ],
+        "order": 9,
+        "pageId": "page_table_002_python_genindex",
+        "paragraphId": "pg_page_table_002_python_genindex_0010",
+        "sourceRefId": "src_page_table_002_python_genindex_0010",
+        "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+        "textQuote": "Theme Auto Light Dark |"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio",
+  "warnings": []
+}

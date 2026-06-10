@@ -1,0 +1,1246 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_product_004_book_sharp_objects"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_product_004_book_sharp_objects"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_product_004_book_sharp_objects"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_product_004_book_sharp_objects"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_product_004_book_sharp_objects"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: compressionScore, contentCoverage"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 11,
+        "estimatedNoiseRatio": 0.091,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 1.0,
+        "mainTextChars": 1873,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 0.977,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_product_004_book_sharp_objects",
+    "pageKey": "page_product_004_book_sharp_objects",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+  "filteredEvidence": [
+    {
+      "blockId": "block_pg_page_product_004_book_sharp_objects_0003",
+      "blockType": "paragraph",
+      "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+      "noiseScore": 0.9,
+      "order": 2,
+      "pageId": "page_product_004_book_sharp_objects",
+      "reason": "nav",
+      "regionType": "nav",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_004_book_sharp_objects_0003",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_004_book_sharp_objects_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+          "fallbackText": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily paper where she works brings her reluctantly back to her hometown to cover the murders of two preteen girls. NASTY on her kneecap, BABYDOLL on",
+          "headingPath": [
+            "Sharp Objects",
+            "Product Description"
+          ],
+          "order": 2,
+          "pageId": "page_product_004_book_sharp_objects",
+          "paragraphId": "pg_page_product_004_book_sharp_objects_0003",
+          "sourceRefId": "src_page_product_004_book_sharp_objects_0003",
+          "textHash": "sha256_1ea57fb3221264e9050eb96ec2c458ae",
+          "textQuote": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily pa"
+        }
+      ],
+      "textHash": "sha256_1ea57fb3221264e9050eb96ec2c458ae",
+      "textQuote": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily pa"
+    }
+  ],
+  "highSignalPage": {
+    "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+    "digestRef": "digest_page_product_004_book_sharp_objects",
+    "filteredBlocks": [
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0003",
+        "blockType": "paragraph",
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "noiseScore": 0.9,
+        "order": 2,
+        "pageId": "page_product_004_book_sharp_objects",
+        "reason": "nav",
+        "regionType": "nav",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily paper where she works brings her reluctantly back to her hometown to cover the murders of two preteen girls. NASTY on her kneecap, BABYDOLL on",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Description"
+            ],
+            "order": 2,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0003",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0003",
+            "textHash": "sha256_1ea57fb3221264e9050eb96ec2c458ae",
+            "textQuote": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily pa"
+          }
+        ],
+        "textHash": "sha256_1ea57fb3221264e9050eb96ec2c458ae",
+        "textQuote": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily pa"
+      }
+    ],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Sharp Objects",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0001",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0001",
+            "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+            "textQuote": "Image metadata: Sharp Objects"
+          }
+        ],
+        "text": "Image metadata: Sharp Objects",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0001"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.788,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Sharp Objects"
+            ],
+            "order": 1,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0002",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0002",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock (20 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0004",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.795,
+        "contentDensityScore": 0.661,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 3,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0004"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0004",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "e00eb4fd7b871a48",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 3,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0004",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0004",
+            "textHash": "sha256_f83e01772665745b071db05e9ebc50a5",
+            "textQuote": "e00eb4fd7b871a48"
+          }
+        ],
+        "text": "e00eb4fd7b871a48",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0005",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 4,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0005"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0005",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0005",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price (excl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0006",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 5,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0006"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0006",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0006",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price (incl. tax)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0007",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.797,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.774,
+        "noiseScore": 0.12,
+        "order": 6,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0007"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0007",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0007",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock (20 available)",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0008",
+        "blockType": "table_cell",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.796,
+        "contentDensityScore": 0.662,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.772,
+        "noiseScore": 0.12,
+        "order": 7,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0008"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0008",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0008",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0009",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.668,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.754,
+        "noiseScore": 0.18,
+        "order": 8,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0009"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0009",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed"
+            ],
+            "order": 8,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0009",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0009",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata: Soumission",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0010",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 9,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0010"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed",
+              "Soumission"
+            ],
+            "order": 9,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0010",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0010",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata: Tipping the Velvet",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0011",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.675,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 10,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphIds": [
+          "pg_page_product_004_book_sharp_objects_0011"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0011",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: A Light in the Attic",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed",
+              "Tipping the Velvet"
+            ],
+            "order": 10,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0011",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0011",
+            "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+            "textQuote": "Image metadata: A Light in the Attic"
+          }
+        ],
+        "text": "Image metadata: A Light in the Attic",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "documentation",
+      "headingCount": 7,
+      "language": "en",
+      "paragraphCount": 11,
+      "wordCount": 417
+    },
+    "pageId": "page_product_004_book_sharp_objects",
+    "qualityReportRef": "q_page_product_004_book_sharp_objects",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_product_004_book_sharp_objects",
+    "sourceMapRef": "smap_page_product_004_book_sharp_objects",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+      "pageId": "page_product_004_book_sharp_objects"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_product_004_book_sharp_objects",
+  "perceptionDigest": {
+    "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+    "digestId": "digest_page_product_004_book_sharp_objects",
+    "items": [
+      {
+        "confidence": 0.807,
+        "importance": 0.788,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0002",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Sharp Objects"
+            ],
+            "order": 1,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0002",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0002",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock ( 20 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.797,
+        "importance": 0.774,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0007",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0007"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0007",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "In stock (20 available)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 6,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0007",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0007",
+            "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+            "textQuote": "In stock (20 available)"
+          }
+        ],
+        "text": "In stock ( 20 available )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.795,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0004",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0004",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "e00eb4fd7b871a48",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 3,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0004",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0004",
+            "textHash": "sha256_f83e01772665745b071db05e9ebc50a5",
+            "textQuote": "e00eb4fd7b871a48"
+          }
+        ],
+        "text": "e00eb4fd7b871a48",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0005",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0005",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Price (excl. tax)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 4,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0005",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0005",
+            "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+            "textQuote": "Price (excl. tax)"
+          }
+        ],
+        "text": "Price ( excl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0006",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0006"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0006",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Price (incl. tax)",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 5,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0006",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0006",
+            "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+            "textQuote": "Price (incl. tax)"
+          }
+        ],
+        "text": "Price ( incl . tax )",
+        "warnings": []
+      },
+      {
+        "confidence": 0.796,
+        "importance": 0.772,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0008",
+        "kind": "table_fact",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0008",
+            "blockType": "table_cell",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Number of reviews",
+            "headingPath": [
+              "Sharp Objects",
+              "Product Information"
+            ],
+            "order": 7,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0008",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0008",
+            "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+            "textQuote": "Number of reviews"
+          }
+        ],
+        "text": "Number of reviews",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0010",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0010"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0010",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Tipping the Velvet",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed",
+              "Soumission"
+            ],
+            "order": 9,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0010",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0010",
+            "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+            "textQuote": "Image metadata: Tipping the Velvet"
+          }
+        ],
+        "text": "Image metadata : Tipping the Velvet",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0011",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0011"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0011",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: A Light in the Attic",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed",
+              "Tipping the Velvet"
+            ],
+            "order": 10,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0011",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0011",
+            "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+            "textQuote": "Image metadata: A Light in the Attic"
+          }
+        ],
+        "text": "Image metadata : A Light in the Attic",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.755,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0001",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Sharp Objects",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0001",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0001",
+            "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+            "textQuote": "Image metadata: Sharp Objects"
+          }
+        ],
+        "text": "Image metadata : Sharp Objects",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.754,
+        "itemId": "item_block_pg_page_product_004_book_sharp_objects_0009",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_product_004_book_sharp_objects_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_product_004_book_sharp_objects_0009"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_product_004_book_sharp_objects_0009",
+            "blockType": "image",
+            "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+            "fallbackText": "Image metadata: Soumission",
+            "headingPath": [
+              "Sharp Objects",
+              "Products you recently viewed"
+            ],
+            "order": 8,
+            "pageId": "page_product_004_book_sharp_objects",
+            "paragraphId": "pg_page_product_004_book_sharp_objects_0009",
+            "sourceRefId": "src_page_product_004_book_sharp_objects_0009",
+            "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+            "textQuote": "Image metadata: Soumission"
+          }
+        ],
+        "text": "Image metadata : Soumission",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_product_004_book_sharp_objects",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.115,
+      "itemCount": 10,
+      "sourceRefCount": 10
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "In stock ( 20 available )",
+        "In stock ( 20 available )",
+        "e00eb4fd7b871a48",
+        "Price ( excl . tax )",
+        "Price ( incl . tax )"
+      ],
+      "tldr": "In stock ( 20 available )"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 6.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.6
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.115,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.523
+      },
+      "contentCoverage": {
+        "denominator": 1873.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 238.0,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.127
+      },
+      "digestCompressionRatio": {
+        "denominator": 323.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 37.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.115
+      },
+      "groundingCompleteness": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 11.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 11.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 11.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.091
+      },
+      "sourceCoverage": {
+        "denominator": 10.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 10.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.837,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_product_004_book_sharp_objects",
+    "reportId": "q_page_product_004_book_sharp_objects",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 1873,
+    "codeBlockCount": 0,
+    "domain": "books.toscrape.com",
+    "headingCount": 7,
+    "htmlAvailable": true,
+    "imageCount": 4,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 5,
+    "title": "product_004_book_sharp_objects",
+    "url": "https://books.toscrape.com/catalogue/sharp-objects_997/index.html",
+    "visibleTextLength": 417
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+    "pageId": "page_product_004_book_sharp_objects",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_product_004_book_sharp_objects",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Image metadata: Sharp Objects",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0001",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0001",
+        "textHash": "sha256_3ba6fe8222ae15d06823a11f3e7dc9a2",
+        "textQuote": "Image metadata: Sharp Objects"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "In stock (20 available)",
+        "headingPath": [
+          "Sharp Objects"
+        ],
+        "order": 1,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0002",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0002",
+        "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+        "textQuote": "In stock (20 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily paper where she works brings her reluctantly back to her hometown to cover the murders of two preteen girls. NASTY on her kneecap, BABYDOLL on",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Description"
+        ],
+        "order": 2,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0003",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0003",
+        "textHash": "sha256_1ea57fb3221264e9050eb96ec2c458ae",
+        "textQuote": "WICKED above her hipbone, GIRL across her heart Words are like a road map to reporter Camille Preaker’s troubled past. Fresh from a brief stay at a psych hospital, Camille’s first assignment from the second-rate daily pa"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0004",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "e00eb4fd7b871a48",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Information"
+        ],
+        "order": 3,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0004",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0004",
+        "textHash": "sha256_f83e01772665745b071db05e9ebc50a5",
+        "textQuote": "e00eb4fd7b871a48"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0005",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Price (excl. tax)",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Information"
+        ],
+        "order": 4,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0005",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0005",
+        "textHash": "sha256_7b5a9c2958b147383ee93dbab077c51d",
+        "textQuote": "Price (excl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0006",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Price (incl. tax)",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Information"
+        ],
+        "order": 5,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0006",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0006",
+        "textHash": "sha256_50e70a99f9b31801138ccf4ab5ebd264",
+        "textQuote": "Price (incl. tax)"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0007",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "In stock (20 available)",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Information"
+        ],
+        "order": 6,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0007",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0007",
+        "textHash": "sha256_1dbd3842c87316b35d448c0b200a2403",
+        "textQuote": "In stock (20 available)"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0008",
+        "blockType": "table_cell",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Number of reviews",
+        "headingPath": [
+          "Sharp Objects",
+          "Product Information"
+        ],
+        "order": 7,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0008",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0008",
+        "textHash": "sha256_f38eefc6c5d1032b8ada65a1d2a85321",
+        "textQuote": "Number of reviews"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0009",
+        "blockType": "image",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Image metadata: Soumission",
+        "headingPath": [
+          "Sharp Objects",
+          "Products you recently viewed"
+        ],
+        "order": 8,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0009",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0009",
+        "textHash": "sha256_8c090e17a4e4d5ca367df03f11297bab",
+        "textQuote": "Image metadata: Soumission"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0010",
+        "blockType": "image",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Image metadata: Tipping the Velvet",
+        "headingPath": [
+          "Sharp Objects",
+          "Products you recently viewed",
+          "Soumission"
+        ],
+        "order": 9,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0010",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0010",
+        "textHash": "sha256_252a2110ed31200a0e505e8aff6c4c4b",
+        "textQuote": "Image metadata: Tipping the Velvet"
+      },
+      {
+        "blockId": "block_pg_page_product_004_book_sharp_objects_0011",
+        "blockType": "image",
+        "chunkId": "ck_page_product_004_book_sharp_objects_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_d4f44104d397155f3edd67912716930c37d74bbe2309f261bb7ecaba3764a4d1",
+        "fallbackText": "Image metadata: A Light in the Attic",
+        "headingPath": [
+          "Sharp Objects",
+          "Products you recently viewed",
+          "Tipping the Velvet"
+        ],
+        "order": 10,
+        "pageId": "page_product_004_book_sharp_objects",
+        "paragraphId": "pg_page_product_004_book_sharp_objects_0011",
+        "sourceRefId": "src_page_product_004_book_sharp_objects_0011",
+        "textHash": "sha256_936e90ac8564ddbf3dc20fba54fd2cc1",
+        "textQuote": "Image metadata: A Light in the Attic"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: compressionScore, contentCoverage",
+  "warnings": []
+}

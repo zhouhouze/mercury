@@ -1,0 +1,327 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_github_008_microsoft_playwright"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_github_008_microsoft_playwright"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_github_008_microsoft_playwright"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_github_008_microsoft_playwright"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_github_008_microsoft_playwright"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 1,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 34,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_github_008_microsoft_playwright",
+    "pageKey": "page_github_008_microsoft_playwright",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+    "digestRef": "digest_page_github_008_microsoft_playwright",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_github_008_microsoft_playwright_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_008_microsoft_playwright_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_github_008_microsoft_playwright",
+        "paragraphIds": [
+          "pg_page_github_008_microsoft_playwright_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_008_microsoft_playwright_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_github_008_microsoft_playwright_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+            "fallbackText": "Image metadata: Install in VS Code",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_008_microsoft_playwright",
+            "paragraphId": "pg_page_github_008_microsoft_playwright_0001",
+            "sourceRefId": "src_page_github_008_microsoft_playwright_0001",
+            "textHash": "sha256_6996fb125106780ae362d1f6bc1416ab",
+            "textQuote": "Image metadata: Install in VS Code"
+          }
+        ],
+        "text": "Image metadata: Install in VS Code",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 1,
+      "wordCount": 1410
+    },
+    "pageId": "page_github_008_microsoft_playwright",
+    "qualityReportRef": "q_page_github_008_microsoft_playwright",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_github_008_microsoft_playwright",
+    "sourceMapRef": "smap_page_github_008_microsoft_playwright",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+      "pageId": "page_github_008_microsoft_playwright"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_github_008_microsoft_playwright",
+  "perceptionDigest": {
+    "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+    "digestId": "digest_page_github_008_microsoft_playwright",
+    "items": [
+      {
+        "confidence": 0.783,
+        "importance": 0.758,
+        "itemId": "item_block_pg_page_github_008_microsoft_playwright_0001",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_008_microsoft_playwright_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_008_microsoft_playwright_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_008_microsoft_playwright_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_github_008_microsoft_playwright_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+            "fallbackText": "Image metadata: Install in VS Code",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_008_microsoft_playwright",
+            "paragraphId": "pg_page_github_008_microsoft_playwright_0001",
+            "sourceRefId": "src_page_github_008_microsoft_playwright_0001",
+            "textHash": "sha256_6996fb125106780ae362d1f6bc1416ab",
+            "textQuote": "Image metadata: Install in VS Code"
+          }
+        ],
+        "text": "Image metadata : Install in VS Code",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_github_008_microsoft_playwright",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 1.0,
+      "itemCount": 1,
+      "sourceRefCount": 1
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "Image metadata : Install in VS Code"
+      ],
+      "tldr": "Image metadata : Install in VS Code"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 1.0,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 34.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 34.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 6.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 6.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 1.0
+      },
+      "groundingCompleteness": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 1.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 1.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.82,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_github_008_microsoft_playwright",
+    "reportId": "q_page_github_008_microsoft_playwright",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 34,
+    "codeBlockCount": 0,
+    "domain": "raw.githubusercontent.com",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 1,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "github_008_microsoft_playwright",
+    "url": "https://raw.githubusercontent.com/microsoft/playwright/main/README.md",
+    "visibleTextLength": 1410
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+    "pageId": "page_github_008_microsoft_playwright",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_github_008_microsoft_playwright",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_github_008_microsoft_playwright_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_github_008_microsoft_playwright_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_e80a00a5edc60ccc44f3f64d570e128700fb15ed0407ec7cd2eddfacce36df51",
+        "fallbackText": "Image metadata: Install in VS Code",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_github_008_microsoft_playwright",
+        "paragraphId": "pg_page_github_008_microsoft_playwright_0001",
+        "sourceRefId": "src_page_github_008_microsoft_playwright_0001",
+        "textHash": "sha256_6996fb125106780ae362d1f6bc1416ab",
+        "textQuote": "Image metadata: Install in VS Code"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio",
+  "warnings": []
+}

@@ -1,0 +1,495 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_github_003_django_django"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_github_003_django_django"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_github_003_django_django"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_github_003_django_django"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_github_003_django_django"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: compressionScore"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 3,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 1916,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_github_003_django_django",
+    "pageKey": "page_github_003_django_django",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+    "digestRef": "digest_page_github_003_django_django",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_github_003_django_django_0001",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_003_django_django_0001"
+        ],
+        "confidence": 0.841,
+        "contentDensityScore": 0.821,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "importance": 0.874,
+        "noiseScore": 0.08,
+        "order": 0,
+        "pageId": "page_github_003_django_django",
+        "paragraphIds": [
+          "pg_page_github_003_django_django_0001"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at https://docs.djangoproject.com/en/stable/. If you're just getting started, here's how we recommend you read the docs: * First, read ``docs/in",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0001",
+            "sourceRefId": "src_page_github_003_django_django_0001",
+            "textHash": "sha256_0eb1d334eb5c3b9638c8cbd5a52cf343",
+            "textQuote": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at h"
+          }
+        ],
+        "text": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at https://docs.djangoproject.com/en/stable/. If you're just getting started, here's how we recommend you read the docs: * First, read ``docs/intro/install.txt`` for instructions on installing Django. * Next, work through the tutorials in order (``docs/intro/tutorial01.txt``, ``docs/intro/tutorial02.txt``, etc.). * If you want to set up an actual deployment server, read ``docs/howto/deployment/index.txt`` for instructions.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_003_django_django_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_003_django_django_0001"
+        ],
+        "confidence": 0.838,
+        "contentDensityScore": 0.808,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "importance": 0.866,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_github_003_django_django",
+        "paragraphIds": [
+          "pg_page_github_003_django_django_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory details. * See ``docs/README`` for instructions on building an HTML version of the docs. Docs are updated rigorously. If you find any problems",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0002",
+            "sourceRefId": "src_page_github_003_django_django_0002",
+            "textHash": "sha256_86e2c41a72c54f7628dd3ae476d482bd",
+            "textQuote": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory de"
+          }
+        ],
+        "text": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory details. * See ``docs/README`` for instructions on building an HTML version of the docs. Docs are updated rigorously. If you find any problems in the docs, or think they should be clarified in any way, please take 30 seconds to fill out a ticket here: https://code.djangoproject.com/newticket To get more help: * Join the `Django Discord community\n`_. * Join the community on the `Django Forum\n`_.",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_003_django_django_0003",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_003_django_django_0002"
+        ],
+        "confidence": 0.82,
+        "contentDensityScore": 0.726,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "importance": 0.821,
+        "noiseScore": 0.08,
+        "order": 2,
+        "pageId": "page_github_003_django_django",
+        "paragraphIds": [
+          "pg_page_github_003_django_django_0003"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section of ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at https://docs.djangoproject.com/en/dev/internals/contrib",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0003",
+            "sourceRefId": "src_page_github_003_django_django_0003",
+            "textHash": "sha256_22e7c57398bc76843763aa0daede9199",
+            "textQuote": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section"
+          }
+        ],
+        "text": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section of ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at https://docs.djangoproject.com/en/dev/internals/contributing/writing-code/unit-tests/#running-the-unit-tests Supporting the Development of Django ==================================== Django's development depends on your contributions. If you depend on Django, remember to support the Django Software Foundation: https://www.djangoproject.com/fundraising/",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 3,
+      "wordCount": 293
+    },
+    "pageId": "page_github_003_django_django",
+    "qualityReportRef": "q_page_github_003_django_django",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_github_003_django_django",
+    "sourceMapRef": "smap_page_github_003_django_django",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+      "pageId": "page_github_003_django_django"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_github_003_django_django",
+  "perceptionDigest": {
+    "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+    "digestId": "digest_page_github_003_django_django",
+    "items": [
+      {
+        "confidence": 0.841,
+        "importance": 0.874,
+        "itemId": "item_block_pg_page_github_003_django_django_0001",
+        "kind": "procedure",
+        "relatedChunkIds": [
+          "ck_page_github_003_django_django_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_003_django_django_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at https://docs.djangoproject.com/en/stable/. If you're just getting started, here's how we recommend you read the docs: * First, read ``docs/in",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0001",
+            "sourceRefId": "src_page_github_003_django_django_0001",
+            "textHash": "sha256_0eb1d334eb5c3b9638c8cbd5a52cf343",
+            "textQuote": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at h"
+          }
+        ],
+        "text": "= = = = = = Django = = = = = = Django is a",
+        "warnings": []
+      },
+      {
+        "confidence": 0.838,
+        "importance": 0.866,
+        "itemId": "item_block_pg_page_github_003_django_django_0002",
+        "kind": "definition",
+        "relatedChunkIds": [
+          "ck_page_github_003_django_django_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_003_django_django_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory details. * See ``docs/README`` for instructions on building an HTML version of the docs. Docs are updated rigorously. If you find any problems",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0002",
+            "sourceRefId": "src_page_github_003_django_django_0002",
+            "textHash": "sha256_86e2c41a72c54f7628dd3ae476d482bd",
+            "textQuote": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory de"
+          }
+        ],
+        "text": "* You ' ll probably want to read through the topical guides ( in ` `",
+        "warnings": []
+      },
+      {
+        "confidence": 0.82,
+        "importance": 0.821,
+        "itemId": "item_block_pg_page_github_003_django_django_0003",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_github_003_django_django_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_003_django_django_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_003_django_django_0003",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_003_django_django_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+            "fallbackText": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section of ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at https://docs.djangoproject.com/en/dev/internals/contrib",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_003_django_django",
+            "paragraphId": "pg_page_github_003_django_django_0003",
+            "sourceRefId": "src_page_github_003_django_django_0003",
+            "textHash": "sha256_22e7c57398bc76843763aa0daede9199",
+            "textQuote": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section"
+          }
+        ],
+        "text": "To contribute to Django : * Check out https : / / docs . djangoproject .",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_github_003_django_django",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.082,
+      "itemCount": 3,
+      "sourceRefCount": 3
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "= = = = = = Django = = = = = = Django is a",
+        "* You ' ll probably want to read through the topical guides ( in ` `",
+        "To contribute to Django : * Check out https : / / docs . djangoproject ."
+      ],
+      "tldr": "= = = = = = Django = = = = = = Django is a"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.5,
+        "value": 0.667
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.082,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.373
+      },
+      "contentCoverage": {
+        "denominator": 1916.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 1916.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 293.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 24.0,
+        "passed": true,
+        "threshold": 0.35,
+        "value": 0.082
+      },
+      "groundingCompleteness": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 3.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 3.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.973,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_github_003_django_django",
+    "reportId": "q_page_github_003_django_django",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 1916,
+    "codeBlockCount": 0,
+    "domain": "raw.githubusercontent.com",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 0,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "github_003_django_django",
+    "url": "https://raw.githubusercontent.com/django/django/main/README.rst",
+    "visibleTextLength": 293
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+    "pageId": "page_github_003_django_django",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_github_003_django_django",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_github_003_django_django_0001",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_003_django_django_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "fallbackText": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at https://docs.djangoproject.com/en/stable/. If you're just getting started, here's how we recommend you read the docs: * First, read ``docs/in",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_github_003_django_django",
+        "paragraphId": "pg_page_github_003_django_django_0001",
+        "sourceRefId": "src_page_github_003_django_django_0001",
+        "textHash": "sha256_0eb1d334eb5c3b9638c8cbd5a52cf343",
+        "textQuote": "====== Django ====== Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Thanks for checking it out. All documentation is in the \"``docs``\" directory and online at h"
+      },
+      {
+        "blockId": "block_pg_page_github_003_django_django_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_003_django_django_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "fallbackText": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory details. * See ``docs/README`` for instructions on building an HTML version of the docs. Docs are updated rigorously. If you find any problems",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_github_003_django_django",
+        "paragraphId": "pg_page_github_003_django_django_0002",
+        "sourceRefId": "src_page_github_003_django_django_0002",
+        "textHash": "sha256_86e2c41a72c54f7628dd3ae476d482bd",
+        "textQuote": "* You'll probably want to read through the topical guides (in ``docs/topics``) next; from there you can jump to the HOWTOs (in ``docs/howto``) for specific problems, and check out the reference (``docs/ref``) for gory de"
+      },
+      {
+        "blockId": "block_pg_page_github_003_django_django_0003",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_003_django_django_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+        "fallbackText": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section of ``docs/internals/contributing/writing-code/unit-tests.txt``, published online at https://docs.djangoproject.com/en/dev/internals/contrib",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_github_003_django_django",
+        "paragraphId": "pg_page_github_003_django_django_0003",
+        "sourceRefId": "src_page_github_003_django_django_0003",
+        "textHash": "sha256_22e7c57398bc76843763aa0daede9199",
+        "textQuote": "To contribute to Django: * Check out https://docs.djangoproject.com/en/dev/internals/contributing/ for information about getting involved. To run Django's test suite: * Follow the instructions in the \"Unit tests\" section"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: compressionScore",
+  "warnings": []
+}

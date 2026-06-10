@@ -10,7 +10,7 @@ from navia_runtime.modules.page_reading.runtime import build_high_signal_page_pe
 
 
 FIXTURE_DIR = Path(__file__).resolve().parents[1] / "fixtures"
-SCHEMA_PATH = Path(__file__).resolve().parents[6] / "docs/navia_v1_project_docs/contracts/a_v1_1_high_signal.schema.json"
+SCHEMA_PATH = Path(__file__).resolve().parents[6] / "docs/active/project/contracts/a_v1_1_high_signal.schema.json"
 VALID_FIXTURES = [
     "article_noise.html",
     "news_with_sidebar.html",

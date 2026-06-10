@@ -1,0 +1,636 @@
+{
+  "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+  "digestId": "digest_page_zh_007_python_tutorial_errors",
+  "items": [
+    {
+      "confidence": 0.834,
+      "importance": 0.857,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0012",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0012"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0012",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "错误信息的最后一行说明程序遇到了什么类型的错误。异常有不同的类型，而类型名称会作为错误信息的一部分打印出来：上述示例中的异常类型依次是： ZeroDivisionError ， NameError 和 TypeError 。作为异常类型打印的字符串是发生的内置异常的名称。对于所有内置异常都是如此，但对于用户定义的异常则不一定如此（虽然这种规范很有用）。标准的异常类型是内置的标识符（不是保留关键字）。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.2. 异常 ¶"
+          ],
+          "order": 11,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0012",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0012",
+          "textHash": "sha256_01db0ec94a58809410e8134a96bd5bd2",
+          "textQuote": "错误信息的最后一行说明程序遇到了什么类型的错误。异常有不同的类型，而类型名称会作为错误信息的一部分打印出来：上述示例中的异常类型依次是： ZeroDivisionError ， NameError 和 TypeError 。作为异常类型打印的字符串是发生的内置异常的名称。对于所有内置异常都是如此，但对于用户定义的异常则不一定如此（虽然这种规范很有用）。标准的异常类型是内置的标识符（不是保留关键字）。"
+        }
+      ],
+      "text": "错误信息的最后一行说明程序遇到了什么类型的错误 。 异常有不同的类型 ， 而类型名称会作为错误信息的一部分打印出来 ： 上述示例中的异常类型依次是 ： ZeroDivisionError ， NameError 和 TypeError 。 作为异常类型打印的字符串是发生的内置异常的名称 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.833,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0082",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0082"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0082",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "当一个异常被创建以引发时，它通常被初始化为描述所发生错误的信息。在有些情况下，在异常被捕获后添加信息是很有用的。为了这个目的，异常有一个 add_note(note) 方法接受一个字符串，并将其添加到异常的注释列表。标准的回溯在异常之后按照它们被添加的顺序呈现包括所有的注释。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.10. 用注释细化异常情况 ¶"
+          ],
+          "order": 81,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0082",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0082",
+          "textHash": "sha256_6244ac55fa2618a4df9990fea3af8905",
+          "textQuote": "当一个异常被创建以引发时，它通常被初始化为描述所发生错误的信息。在有些情况下，在异常被捕获后添加信息是很有用的。为了这个目的，异常有一个 add_note(note) 方法接受一个字符串，并将其添加到异常的注释列表。标准的回溯在异常之后按照它们被添加的顺序呈现包括所有的注释。"
+        }
+      ],
+      "text": "当一个异常被创建以引发时 ， 它通常被初始化为描述所发生错误的信息 。 在有些情况下 ， 在异常被捕获后添加信息是很有用的 。 为了这个目的 ， 异常有一个 add_note ( note ) 方法接受一个字符串",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0063",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "如果 finally 子句执行 break 、 continue 或 return 语句，异常不重新引发。这可能会引起混淆，因此不鼓励使用。从 3.14 版开始，编译器会为它发出一个 SyntaxWarning (参见 PEP 765 )。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.7. 定义清理操作 ¶"
+          ],
+          "order": 62,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0063",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0063",
+          "textHash": "sha256_ac22eeb5df0311af38d7fb251f8070e5",
+          "textQuote": "如果 finally 子句执行 break 、 continue 或 return 语句，异常不重新引发。这可能会引起混淆，因此不鼓励使用。从 3.14 版开始，编译器会为它发出一个 SyntaxWarning (参见 PEP 765 )。"
+        }
+      ],
+      "text": "如果 finally 子句执行 break 、 continue 或 return 语句 ， 异常不重新引发 。 这可能会引起混淆 ， 因此不鼓励使用 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0016",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0016"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0016",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "可以编写程序处理选定的异常。下例会要求用户一直输入内容，直到输入有效的整数，但允许用户中断程序（使用 Control - C 或操作系统支持的其他操作）；注意，用户中断程序会触发 KeyboardInterrupt 异常。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.3. 异常的处理 ¶"
+          ],
+          "order": 15,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0016",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0016",
+          "textHash": "sha256_f29905dd49c3f5cae59b7dc769adefc6",
+          "textQuote": "可以编写程序处理选定的异常。下例会要求用户一直输入内容，直到输入有效的整数，但允许用户中断程序（使用 Control - C 或操作系统支持的其他操作）；注意，用户中断程序会触发 KeyboardInterrupt 异常。"
+        }
+      ],
+      "text": "可以编写程序处理选定的异常 。 下例会要求用户一直输入内容 ， 直到输入有效的整数 ， 但允许用户中断程序 （ 使用 Control - C 或操作系统支持的其他操作 ） ； 注意",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0031",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "BaseException 是所有异常的共同基类。它的一个子类， Exception ，是所有非致命异常的基类。不是 Exception 的子类的异常通常不被处理，因为它们被用来指示程序应该终止。它们包括由 sys.exit() 引发的 SystemExit ，以及当用户希望中断程序时引发的 KeyboardInterrupt 。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.3. 异常的处理 ¶"
+          ],
+          "order": 30,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0031",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0031",
+          "textHash": "sha256_b8292e0adaf5a02c5b1adc3f7c6d15a3",
+          "textQuote": "BaseException 是所有异常的共同基类。它的一个子类， Exception ，是所有非致命异常的基类。不是 Exception 的子类的异常通常不被处理，因为它们被用来指示程序应该终止。它们包括由 sys.exit() 引发的 SystemExit ，以及当用户希望中断程序时引发的 KeyboardInterrupt 。"
+        }
+      ],
+      "text": "BaseException 是所有异常的共同基类 。 它的一个子类 ， Exception ， 是所有非致命异常的基类 。 不是 Exception 的子类的异常通常不被处理 ， 因为它们被用来指示程序应该终止 。 它们包括由",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0010",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0010"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0010",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 异常 ，异常不一定导致严重的后果：很快我们就能学会如何处理 Python 的异常。大多数异常不会被程序处理，而是显示下列错误信息：",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.2. 异常 ¶"
+          ],
+          "order": 9,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0010",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0010",
+          "textHash": "sha256_96b5aae45bc48bd85bc72b53abb7673c",
+          "textQuote": "即使语句或表达式使用了正确的语法，执行时仍可能触发错误。执行时检测到的错误称为 异常 ，异常不一定导致严重的后果：很快我们就能学会如何处理 Python 的异常。大多数异常不会被程序处理，而是显示下列错误信息："
+        }
+      ],
+      "text": "即使语句或表达式使用了正确的语法 ， 执行时仍可能触发错误 。 执行时检测到的错误称为 异常 ， 异常不一定导致严重的后果 ： 很快我们就能学会如何处理 Python 的异常 。 大多数异常不会被程序处理 ， 而是显示下列错误信息",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0042",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "raise 唯一的参数就是要触发的异常。这个参数必须是异常实例或异常类（派生自 BaseException 类，例如 Exception 或其子类）。如果传递的是异常类，将通过调用没有参数的构造函数来隐式实例化：",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.4. 触发异常 ¶"
+          ],
+          "order": 41,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0042",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0042",
+          "textHash": "sha256_0ba45b78b1adcddd54d5da7ed5e3d87c",
+          "textQuote": "raise 唯一的参数就是要触发的异常。这个参数必须是异常实例或异常类（派生自 BaseException 类，例如 Exception 或其子类）。如果传递的是异常类，将通过调用没有参数的构造函数来隐式实例化："
+        }
+      ],
+      "text": "raise 唯一的参数就是要触发的异常 。 这个参数必须是异常实例或异常类 （ 派生自 BaseException 类 ， 例如 Exception 或其子类 ） 。 如果传递的是异常类 ，",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0008",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0008"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0008",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "解析器会重复出错的行并显示指向检测到错误的位置的小箭头。请注意这并不一定是需要被修复的位置。在这个例子中，错误在 print() 上被检测到，原因则是在它之前缺少一个冒号 ( ':' )。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.1. 语法错误 ¶"
+          ],
+          "order": 7,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0008",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0008",
+          "textHash": "sha256_8bfae8ce74edda1d477a7b51502f9670",
+          "textQuote": "解析器会重复出错的行并显示指向检测到错误的位置的小箭头。请注意这并不一定是需要被修复的位置。在这个例子中，错误在 print() 上被检测到，原因则是在它之前缺少一个冒号 ( ':' )。"
+        }
+      ],
+      "text": "解析器会重复出错的行并显示指向检测到错误的位置的小箭头 。 请注意这并不一定是需要被修复的位置 。 在这个例子中 ， 错误在 print ( ) 上被检测到 ， 原因则是在它之前缺少一个冒号 ( ' :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0072",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "这个代码的问题在于，执行完代码后，文件在一段不确定的时间内处于打开状态。在简单脚本中这没有问题，但对于较大的应用程序来说可能会出问题。 with 语句支持以及时、正确的清理的方式使用文件对象：",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.8. 预定义的清理操作 ¶"
+          ],
+          "order": 71,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0072",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0072",
+          "textHash": "sha256_f87d20fe93734f083e5c450397f39e76",
+          "textQuote": "这个代码的问题在于，执行完代码后，文件在一段不确定的时间内处于打开状态。在简单脚本中这没有问题，但对于较大的应用程序来说可能会出问题。 with 语句支持以及时、正确的清理的方式使用文件对象："
+        }
+      ],
+      "text": "这个代码的问题在于 ， 执行完代码后 ， 文件在一段不确定的时间内处于打开状态 。 在简单脚本中这没有问题 ， 但对于较大的应用程序来说可能会出问题 。 with 语句支持以及时 、 正确的清理的方式使用文件对象 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0021",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0021"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0021",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "如果发生的异常与 except 子句 中指定的异常不匹配，则它会被传递到外层的 try 语句中；如果没有找到处理器，则它是一个 未处理异常 且执行将停止并输出一条错误消息。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.3. 异常的处理 ¶"
+          ],
+          "order": 20,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0021",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0021",
+          "textHash": "sha256_24828e16c1859eab324d96c471aad800",
+          "textQuote": "如果发生的异常与 except 子句 中指定的异常不匹配，则它会被传递到外层的 try 语句中；如果没有找到处理器，则它是一个 未处理异常 且执行将停止并输出一条错误消息。"
+        }
+      ],
+      "text": "如果发生的异常与 except 子句 中指定的异常不匹配 ， 则它会被传递到外层的 try 语句中 ； 如果没有找到处理器 ， 则它是一个 未处理异常 且执行将停止并输出一条错误消息 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0075",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "在有些情况下，有必要报告几个已经发生的异常。这通常是在并发框架中当几个任务并行失败时的情况，但也有其他的用例，有时需要是继续执行并收集多个错误而不是引发第一个异常。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.9. 引发和处理多个不相关的异常 ¶"
+          ],
+          "order": 74,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0075",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0075",
+          "textHash": "sha256_e34bad3d0bacaed8c84eabb3b40f78c9",
+          "textQuote": "在有些情况下，有必要报告几个已经发生的异常。这通常是在并发框架中当几个任务并行失败时的情况，但也有其他的用例，有时需要是继续执行并收集多个错误而不是引发第一个异常。"
+        }
+      ],
+      "text": "在有些情况下 ， 有必要报告几个已经发生的异常 。 这通常是在并发框架中当几个任务并行失败时的情况 ， 但也有其他的用例 ， 有时需要是继续执行并收集多个错误而不是引发第一个异常 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0054",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "程序可以通过创建新的异常类命名自己的异常 (Python 类的内容详见 类 )。 不论是以直接还是间接的方式，异常都应从 Exception 类派生。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.6. 用户自定义异常 ¶"
+          ],
+          "order": 53,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0054",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0054",
+          "textHash": "sha256_d5e78d74f4e3aff7e0dcf13ec4d0e74c",
+          "textQuote": "程序可以通过创建新的异常类命名自己的异常 (Python 类的内容详见 类 )。 不论是以直接还是间接的方式，异常都应从 Exception 类派生。"
+        }
+      ],
+      "text": "程序可以通过创建新的异常类命名自己的异常 ( Python 类的内容详见 类 ) 。 不论是以直接还是间接的方式 ， 异常都应从 Exception 类派生 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0005",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "至此，本教程还未深入介绍错误信息，但如果您尝试过本教程前文中的例子，应该已经看到过一些错误信息。错误可（至少）被分为两种： 语法错误 和 异常 。",
+          "headingPath": [
+            "8. 错误和异常 ¶"
+          ],
+          "order": 4,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0005",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0005",
+          "textHash": "sha256_17a6faf92b7185be61d6e44a33601cc9",
+          "textQuote": "至此，本教程还未深入介绍错误信息，但如果您尝试过本教程前文中的例子，应该已经看到过一些错误信息。错误可（至少）被分为两种： 语法错误 和 异常 。"
+        }
+      ],
+      "text": "至此 ， 本教程还未深入介绍错误信息 ， 但如果您尝试过本教程前文中的例子 ， 应该已经看到过一些错误信息 。 错误可 （ 至少 ） 被分为两种 ： 语法错误 和",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.807,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0032",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "Exception 可以被用作通配符，捕获（几乎）一切。然而，好的做法是，尽可能具体地说明我们打算处理的异常类型，并允许任何意外的异常传播下去。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.3. 异常的处理 ¶"
+          ],
+          "order": 31,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0032",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0032",
+          "textHash": "sha256_72a290184e698dcd56ae91640f134d82",
+          "textQuote": "Exception 可以被用作通配符，捕获（几乎）一切。然而，好的做法是，尽可能具体地说明我们打算处理的异常类型，并允许任何意外的异常传播下去。"
+        }
+      ],
+      "text": "Exception 可以被用作通配符 ， 捕获 （ 几乎 ） 一切 。 然而 ， 好的做法是 ， 尽可能具体地说明我们打算处理的异常类型 ， 并允许任何意外的异常传播下去",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.807,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0076",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0076"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0076",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "内置的 ExceptionGroup 打包了一个异常实例的列表，这样它们就可以一起被引发。它本身就是一个异常，所以它可以像其他异常一样被捕获。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.9. 引发和处理多个不相关的异常 ¶"
+          ],
+          "order": 75,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0076",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0076",
+          "textHash": "sha256_257d41726d862fa9bb4be4332b25e888",
+          "textQuote": "内置的 ExceptionGroup 打包了一个异常实例的列表，这样它们就可以一起被引发。它本身就是一个异常，所以它可以像其他异常一样被捕获。"
+        }
+      ],
+      "text": "内置的 ExceptionGroup 打包了一个异常实例的列表 ， 这样它们就可以一起被引发 。 它本身就是一个异常 ， 所以它可以像其他异常一样被捕获 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0070",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "某些对象定义了不需要该对象时要执行的标准清理操作。无论使用该对象的操作是否成功，都会执行清理操作。比如，下例要打开一个文件，并输出文件内容：",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.8. 预定义的清理操作 ¶"
+          ],
+          "order": 69,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0070",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0070",
+          "textHash": "sha256_49907ce7e46d634fa0830bffaf4fb31b",
+          "textQuote": "某些对象定义了不需要该对象时要执行的标准清理操作。无论使用该对象的操作是否成功，都会执行清理操作。比如，下例要打开一个文件，并输出文件内容："
+        }
+      ],
+      "text": "某些对象定义了不需要该对象时要执行的标准清理操作 。 无论使用该对象的操作是否成功 ， 都会执行清理操作 。 比如 ， 下例要打开一个文件 ， 并输出文件内容 ：",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0084",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "例如，当把异常收集到一个异常组时，我们可能想为各个错误添加上下文信息。在下文中，组中的每个异常都有一个说明，指出这个错误是什么时候发生的。",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.10. 用注释细化异常情况 ¶"
+          ],
+          "order": 83,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0084",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0084",
+          "textHash": "sha256_438faaf622abe61abd438b941b06409d",
+          "textQuote": "例如，当把异常收集到一个异常组时，我们可能想为各个错误添加上下文信息。在下文中，组中的每个异常都有一个说明，指出这个错误是什么时候发生的。"
+        }
+      ],
+      "text": "例如 ， 当把异常收集到一个异常组时 ， 我们可能想为各个错误添加上下文信息 。 在下文中 ， 组中的每个异常都有一个说明 ， 指出这个错误是什么时候发生的 。",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_zh_007_python_tutorial_errors_0080",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_zh_007_python_tutorial_errors_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_zh_007_python_tutorial_errors_0080"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_zh_007_python_tutorial_errors_0080",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_zh_007_python_tutorial_errors_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_b6eb38f2d16c8cd207f09ad03b59c21e28ac207d60390fb590340b486f664aa3",
+          "fallbackText": "注意，嵌套在一个异常组中的异常必须是实例，而不是类型。这是因为在实践中，这些异常通常是那些已经被程序提出并捕获的异常，其模式如下:",
+          "headingPath": [
+            "8. 错误和异常 ¶",
+            "8.9. 引发和处理多个不相关的异常 ¶"
+          ],
+          "order": 79,
+          "pageId": "page_zh_007_python_tutorial_errors",
+          "paragraphId": "pg_page_zh_007_python_tutorial_errors_0080",
+          "sourceRefId": "src_page_zh_007_python_tutorial_errors_0080",
+          "textHash": "sha256_300733bd3d931c90562531ef0b85fc31",
+          "textQuote": "注意，嵌套在一个异常组中的异常必须是实例，而不是类型。这是因为在实践中，这些异常通常是那些已经被程序提出并捕获的异常，其模式如下:"
+        }
+      ],
+      "text": "注意 ， 嵌套在一个异常组中的异常必须是实例 ， 而不是类型 。 这是因为在实践中 ， 这些异常通常是那些已经被程序提出并捕获的异常 ， 其模式如下 :",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_zh_007_python_tutorial_errors",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.097,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "错误信息的最后一行说明程序遇到了什么类型的错误 。 异常有不同的类型 ， 而类型名称会作为错误信息的一部分打印出来 ： 上述示例中的异常类型依次是 ： ZeroDivisionError ， NameError 和 TypeError 。 作为异常类型打印的字符串是发生的内置异常的名称 。",
+      "当一个异常被创建以引发时 ， 它通常被初始化为描述所发生错误的信息 。 在有些情况下 ， 在异常被捕获后添加信息是很有用的 。 为了这个目的 ， 异常有一个 add_note ( note ) 方法接受一个字符串",
+      "如果 finally 子句执行 break 、 continue 或 return 语句 ， 异常不重新引发 。 这可能会引起混淆 ， 因此不鼓励使用 。",
+      "可以编写程序处理选定的异常 。 下例会要求用户一直输入内容 ， 直到输入有效的整数 ， 但允许用户中断程序 （ 使用 Control - C 或操作系统支持的其他操作 ） ； 注意",
+      "BaseException 是所有异常的共同基类 。 它的一个子类 ， Exception ， 是所有非致命异常的基类 。 不是 Exception 的子类的异常通常不被处理 ， 因为它们被用来指示程序应该终止 。 它们包括由"
+    ],
+    "tldr": "错误信息的最后一行说明程序遇到了什么类型的错误 。 异常有不同的类型 ， 而类型名称会作为错误信息的一部分打印出来 ： 上述示例中的异常类型依次是 ： ZeroDivisionError ， NameError 和 TypeError 。 作为异常类型打印的字符串是发生的内置异常的名称 。"
+  }
+}

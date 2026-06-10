@@ -1,6 +1,6 @@
 # A Contracts
 
-Module-local contracts must stay compatible with `docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md`.
+Module-local contracts must stay compatible with `docs/active/project/contracts/v1_2_adapter_contracts.md`.
 
 Allowed local refinements:
 

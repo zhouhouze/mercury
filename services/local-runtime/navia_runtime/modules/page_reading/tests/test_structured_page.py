@@ -6,7 +6,7 @@ from navia_runtime.modules.page_reading.runtime import build_structured_page_con
 
 
 FIXTURE_DIR = Path(__file__).resolve().parents[1] / "fixtures"
-REAL_PAGE_FIXTURE_DIR = Path(__file__).resolve().parents[6] / "docs/navia_v1_project_docs/fixtures/real_pages"
+REAL_PAGE_FIXTURE_DIR = Path(__file__).resolve().parents[6] / "docs/active/project/fixtures/real_pages"
 
 
 def test_builds_structured_context_from_html_fixture() -> None:

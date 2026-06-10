@@ -1,0 +1,2416 @@
+{
+  "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+  "pageId": "page_blog_005_pep_0695",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_blog_005_pep_0695",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0001",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "PEP 695 – Type Parameter Syntax",
+      "headingPath": [
+        "Python Enhancement Proposals"
+      ],
+      "order": 0,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0001",
+      "sourceRefId": "src_page_blog_005_pep_0695_0001",
+      "textHash": "sha256_1db1e84569d576bed7cbf5d2adf2f70c",
+      "textQuote": "PEP 695 – Type Parameter Syntax"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0002",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Table of Contents",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 1,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0002",
+      "sourceRefId": "src_page_blog_005_pep_0695_0002",
+      "textHash": "sha256_a9360e0212a4d173581c91da68494d02",
+      "textQuote": "Table of Contents"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0003",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Points of Confusion",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 2,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0003",
+      "sourceRefId": "src_page_blog_005_pep_0695_0003",
+      "textHash": "sha256_703bf31a49bb9ad374b927bc310bff4e",
+      "textQuote": "Points of Confusion"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0004",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Summary Examples",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 3,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0004",
+      "sourceRefId": "src_page_blog_005_pep_0695_0004",
+      "textHash": "sha256_2f74f469000f26dfce55d81aa2fb4486",
+      "textQuote": "Summary Examples"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0005",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type Parameter Declarations",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 4,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0005",
+      "sourceRefId": "src_page_blog_005_pep_0695_0005",
+      "textHash": "sha256_525955d4a66d9f7b5896b21f94479024",
+      "textQuote": "Type Parameter Declarations"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0006",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Upper Bound Specification",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 5,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0006",
+      "sourceRefId": "src_page_blog_005_pep_0695_0006",
+      "textHash": "sha256_6db026f6a3567d880c8ffa51cd6b3f20",
+      "textQuote": "Upper Bound Specification"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0007",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Constrained Type Specification",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 6,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0007",
+      "sourceRefId": "src_page_blog_005_pep_0695_0007",
+      "textHash": "sha256_7836d3ebfd76698cd9df2ec769eeb8e9",
+      "textQuote": "Constrained Type Specification"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0008",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Runtime Representation of Bounds and Constraints",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 7,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0008",
+      "sourceRefId": "src_page_blog_005_pep_0695_0008",
+      "textHash": "sha256_982cf3f5bc081b15cbf0c33ff6d72477",
+      "textQuote": "Runtime Representation of Bounds and Constraints"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0009",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Generic Type Alias",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 8,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0009",
+      "sourceRefId": "src_page_blog_005_pep_0695_0009",
+      "textHash": "sha256_59d9e819e5e47844921998297ff52818",
+      "textQuote": "Generic Type Alias"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0010",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Runtime Type Alias Class",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 9,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0010",
+      "sourceRefId": "src_page_blog_005_pep_0695_0010",
+      "textHash": "sha256_5316fc41b683a279a052c6b872e2cc9b",
+      "textQuote": "Runtime Type Alias Class"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0011",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type Parameter Scopes",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 10,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0011",
+      "sourceRefId": "src_page_blog_005_pep_0695_0011",
+      "textHash": "sha256_0bd271f7c3a17be9741c2c9aea6345ff",
+      "textQuote": "Type Parameter Scopes"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0012",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Accessing Type Parameters at Runtime",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 11,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0012",
+      "sourceRefId": "src_page_blog_005_pep_0695_0012",
+      "textHash": "sha256_8a3c9232926cffca69d7d37970fe64bf",
+      "textQuote": "Accessing Type Parameters at Runtime"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0013",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Variance Inference",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 12,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0013",
+      "sourceRefId": "src_page_blog_005_pep_0695_0013",
+      "textHash": "sha256_f1e0bb93093990cef924bb3d7cb18c45",
+      "textQuote": "Variance Inference"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0014",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Auto Variance For TypeVar",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 13,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0014",
+      "sourceRefId": "src_page_blog_005_pep_0695_0014",
+      "textHash": "sha256_5b9727efd32d4e88372ff6c7b2a2c717",
+      "textQuote": "Auto Variance For TypeVar"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0015",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Compatibility with Traditional TypeVars",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 14,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0015",
+      "sourceRefId": "src_page_blog_005_pep_0695_0015",
+      "textHash": "sha256_55f85b77b20ed166e25f23d1ed1bad5d",
+      "textQuote": "Compatibility with Traditional TypeVars"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0016",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Runtime Implementation",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 15,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0016",
+      "sourceRefId": "src_page_blog_005_pep_0695_0016",
+      "textHash": "sha256_52f66239484aa8ef5cc019f24ca17eed",
+      "textQuote": "Runtime Implementation"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0017",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Scoping Behavior",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 16,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0017",
+      "sourceRefId": "src_page_blog_005_pep_0695_0017",
+      "textHash": "sha256_7bcfbed570d0cf78388d7e3a3e5172b4",
+      "textQuote": "Scoping Behavior"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0018",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Reference Implementation",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 17,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0018",
+      "sourceRefId": "src_page_blog_005_pep_0695_0018",
+      "textHash": "sha256_e02148512803f593fb83f3034133f07d",
+      "textQuote": "Reference Implementation"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0019",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Explicit Variance",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 18,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0019",
+      "sourceRefId": "src_page_blog_005_pep_0695_0019",
+      "textHash": "sha256_a95e12bab4b66dcb606a6d2f959d8365",
+      "textQuote": "Explicit Variance"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0020",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Appendix A: Survey of Type Parameter Syntax",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 19,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0020",
+      "sourceRefId": "src_page_blog_005_pep_0695_0020",
+      "textHash": "sha256_d2258225b1ee848068786e41602b89c9",
+      "textQuote": "Appendix A: Survey of Type Parameter Syntax"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0021",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Acknowledgements",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 20,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0021",
+      "sourceRefId": "src_page_blog_005_pep_0695_0021",
+      "textHash": "sha256_c9015d53b90846454375a2fdf2829c66",
+      "textQuote": "Acknowledgements"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0022",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "This PEP is a historical document: see Variance Inference , Type aliases , Type parameter lists , The type statement and Annotation scopes . for up-to-date specs and documentation. Canonical typing specs are maintained at the typing specs site ; runtime typing behaviour is described in the CPython documentation.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 21,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0022",
+      "sourceRefId": "src_page_blog_005_pep_0695_0022",
+      "textHash": "sha256_5c47b8e71dcd5b60a4ac1c6c3d84cf49",
+      "textQuote": "This PEP is a historical document: see Variance Inference , Type aliases , Type parameter lists , The type statement and Annotation scopes . for up-to-date specs and documentation. Canonical typing specs are maintained a"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0023",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "See the typing specification update process for how to propose changes to the typing spec.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax"
+      ],
+      "order": 22,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0023",
+      "sourceRefId": "src_page_blog_005_pep_0695_0023",
+      "textHash": "sha256_88cec9aae328d2e18adb9c7233afa180",
+      "textQuote": "See the typing specification update process for how to propose changes to the typing spec."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0024",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "This PEP specifies an improved syntax for specifying type parameters within a generic class, function, or type alias. It also introduces a new statement for declaring type aliases.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Abstract"
+      ],
+      "order": 23,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0024",
+      "sourceRefId": "src_page_blog_005_pep_0695_0024",
+      "textHash": "sha256_19a8954424edc2f807ba2929432b6930",
+      "textQuote": "This PEP specifies an improved syntax for specifying type parameters within a generic class, function, or type alias. It also introduces a new statement for declaring type aliases."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0025",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "PEP 484 introduced type variables into the language. PEP 612 built upon this concept by introducing parameter specifications, and PEP 646 added variadic type variables.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation"
+      ],
+      "order": 24,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0025",
+      "sourceRefId": "src_page_blog_005_pep_0695_0025",
+      "textHash": "sha256_56eb866a88cf8ebef79dbc593688768b",
+      "textQuote": "PEP 484 introduced type variables into the language. PEP 612 built upon this concept by introducing parameter specifications, and PEP 646 added variadic type variables."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0026",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "While generic types and type parameters have grown in popularity, the syntax for specifying type parameters still feels “bolted on” to Python. This is a source of confusion among Python developers.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation"
+      ],
+      "order": 25,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0026",
+      "sourceRefId": "src_page_blog_005_pep_0695_0026",
+      "textHash": "sha256_c8b08ee085e66facbbc864ff62828ed6",
+      "textQuote": "While generic types and type parameters have grown in popularity, the syntax for specifying type parameters still feels “bolted on” to Python. This is a source of confusion among Python developers."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0027",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "There is consensus within the Python static typing community that it is time to provide a formal syntax that is similar to other modern programming languages that support generic types.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation"
+      ],
+      "order": 26,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0027",
+      "sourceRefId": "src_page_blog_005_pep_0695_0027",
+      "textHash": "sha256_202933fe6378dbc950a677fe95b33193",
+      "textQuote": "There is consensus within the Python static typing community that it is time to provide a formal syntax that is similar to other modern programming languages that support generic types."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0028",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "An analysis of 25 popular typed Python libraries revealed that type variables (in particular, the typing.TypeVar symbol) were used in 14% of modules.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation"
+      ],
+      "order": 27,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0028",
+      "sourceRefId": "src_page_blog_005_pep_0695_0028",
+      "textHash": "sha256_3088ebd47e1259b0082003edd9ccd4f8",
+      "textQuote": "An analysis of 25 popular typed Python libraries revealed that type variables (in particular, the typing.TypeVar symbol) were used in 14% of modules."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0029",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "While the use of type variables has become widespread, the manner in which they are specified within code is the source of confusion among many Python developers. There are a couple of factors that contribute to this confusion.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 28,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0029",
+      "sourceRefId": "src_page_blog_005_pep_0695_0029",
+      "textHash": "sha256_de78efaa4f458c70e24f5a148b006ed9",
+      "textQuote": "While the use of type variables has become widespread, the manner in which they are specified within code is the source of confusion among many Python developers. There are a couple of factors that contribute to this con"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0030",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The scoping rules for type variables are difficult to understand. Type variables are typically allocated within the global scope, but their semantic meaning is valid only when used within the context of a generic class, function, or type alias. A single runtime instance of a type variable may be reused in multiple generic contexts, and it has a different sem",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 29,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0030",
+      "sourceRefId": "src_page_blog_005_pep_0695_0030",
+      "textHash": "sha256_22a3a8246dbe5a7d4d437851a9f4fbf6",
+      "textQuote": "The scoping rules for type variables are difficult to understand. Type variables are typically allocated within the global scope, but their semantic meaning is valid only when used within the context of a generic class, "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0031",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Generic type aliases are often misused because it is not clear to developers that a type argument must be supplied when the type alias is used. This leads to an implied type argument of Any , which is rarely the intent. This PEP proposes to add new syntax that makes generic type alias declarations clear.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 30,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0031",
+      "sourceRefId": "src_page_blog_005_pep_0695_0031",
+      "textHash": "sha256_17ff44d8780eb72b244176e808ff8663",
+      "textQuote": "Generic type aliases are often misused because it is not clear to developers that a type argument must be supplied when the type alias is used. This leads to an implied type argument of Any , which is rarely the intent. "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0032",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "PEP 483 and PEP 484 introduced the concept of “variance” for a type variable used within a generic class. Type variables can be invariant, covariant, or contravariant. The concept of variance is an advanced detail of type theory that is not well understood by most Python developers, yet they must confront this concept today when defining their first generic ",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 31,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0032",
+      "sourceRefId": "src_page_blog_005_pep_0695_0032",
+      "textHash": "sha256_7f25e4655bd5e460701c1c15b4072a9b",
+      "textQuote": "PEP 483 and PEP 484 introduced the concept of “variance” for a type variable used within a generic class. Type variables can be invariant, covariant, or contravariant. The concept of variance is an advanced detail of typ"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0033",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "When more than one type parameter is used with a generic class or type alias, the rules for type parameter ordering can be confusing. It is normally based on the order in which they first appear within a class or type alias declaration statement. However, this can be overridden in a class definition by including a “Generic” or “Protocol” base class. For exam",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 32,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0033",
+      "sourceRefId": "src_page_blog_005_pep_0695_0033",
+      "textHash": "sha256_422da28a2fb8539de99b35e6e4d028da",
+      "textQuote": "When more than one type parameter is used with a generic class or type alias, the rules for type parameter ordering can be confusing. It is normally based on the order in which they first appear within a class or type al"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0034",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The practice of sharing a type variable across multiple generic contexts creates other problems today. Modern editors provide features like “find all references” and “rename all references” that operate on symbols at the semantic level. When a type parameter is shared among multiple generic classes, functions, and type aliases, all references are semanticall",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 33,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0034",
+      "sourceRefId": "src_page_blog_005_pep_0695_0034",
+      "textHash": "sha256_e2ca01916d0ad737ce10c978af8e9768",
+      "textQuote": "The practice of sharing a type variable across multiple generic contexts creates other problems today. Modern editors provide features like “find all references” and “rename all references” that operate on symbols at the"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0035",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type variables defined within the global scope also need to be given a name that starts with an underscore to indicate that the variable is private to the module. Globally-defined type variables are also often given names to indicate their variance, leading to cumbersome names like “_T_contra” and “_KT_co”. The current mechanisms for allocating type variable",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 34,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0035",
+      "sourceRefId": "src_page_blog_005_pep_0695_0035",
+      "textHash": "sha256_9828fc0ccf7661834f60b732ec7da9a3",
+      "textQuote": "Type variables defined within the global scope also need to be given a name that starts with an underscore to indicate that the variable is private to the module. Globally-defined type variables are also often given name"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0036",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Defining type parameters today requires importing the TypeVar and Generic symbols from the typing module. Over the past several releases of Python, efforts have been made to eliminate the need to import typing symbols for common use cases, and the PEP furthers this goal.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Motivation",
+        "Points of Confusion"
+      ],
+      "order": 35,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0036",
+      "sourceRefId": "src_page_blog_005_pep_0695_0036",
+      "textHash": "sha256_1cbc2f97986d601f361609942f9d96bd",
+      "textQuote": "Defining type parameters today requires importing the TypeVar and Generic symbols from the typing module. Over the past several releases of Python, efforts have been made to eliminate the need to import typing symbols fo"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0037",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Defining a generic class prior to this PEP looks something like this.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 36,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0037",
+      "sourceRefId": "src_page_blog_005_pep_0695_0037",
+      "textHash": "sha256_0aeda8624202ffb762cbd69f932aa145",
+      "textQuote": "Defining a generic class prior to this PEP looks something like this."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0038",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "from typing import Generic , TypeVar _T_co = TypeVar ( \"_T_co\" , covariant = True , bound = str ) class ClassA ( Generic [ _T_co ]): def method1 ( self ) -> _T_co : ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 37,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0038",
+      "sourceRefId": "src_page_blog_005_pep_0695_0038",
+      "textHash": "sha256_21f47cebd41cdf8bee42726fd9a3adba",
+      "textQuote": "from typing import Generic , TypeVar _T_co = TypeVar ( \"_T_co\" , covariant = True , bound = str ) class ClassA ( Generic [ _T_co ]): def method1 ( self ) -> _T_co : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0039",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "With the new syntax, it looks like this.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 38,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0039",
+      "sourceRefId": "src_page_blog_005_pep_0695_0039",
+      "textHash": "sha256_5dd7de7ec8cbddd83bca4b2c15aa9c86",
+      "textQuote": "With the new syntax, it looks like this."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0040",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T : str ]: def method1 ( self ) -> T : ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 39,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0040",
+      "sourceRefId": "src_page_blog_005_pep_0695_0040",
+      "textHash": "sha256_b8c0ae0431ff9f22276529587d19f276",
+      "textQuote": "class ClassA [ T : str ]: def method1 ( self ) -> T : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0041",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Here is an example of a generic function today.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 40,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0041",
+      "sourceRefId": "src_page_blog_005_pep_0695_0041",
+      "textHash": "sha256_627a8bb61191e307620cd9aad5a56b80",
+      "textQuote": "Here is an example of a generic function today."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0042",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "from typing import TypeVar _T = TypeVar ( \"_T\" ) def func ( a : _T , b : _T ) -> _T : ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 41,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0042",
+      "sourceRefId": "src_page_blog_005_pep_0695_0042",
+      "textHash": "sha256_73512a78edf3882e726df2a69baeba67",
+      "textQuote": "from typing import TypeVar _T = TypeVar ( \"_T\" ) def func ( a : _T , b : _T ) -> _T : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0043",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "And the new syntax.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 42,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0043",
+      "sourceRefId": "src_page_blog_005_pep_0695_0043",
+      "textHash": "sha256_d8182a68846035e13bfd1459eb68e911",
+      "textQuote": "And the new syntax."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0044",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "def func [ T ]( a : T , b : T ) -> T : ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 43,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0044",
+      "sourceRefId": "src_page_blog_005_pep_0695_0044",
+      "textHash": "sha256_14759f5540a0f910bb5c1c5784f57609",
+      "textQuote": "def func [ T ]( a : T , b : T ) -> T : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0045",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Here is an example of a generic type alias today.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 44,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0045",
+      "sourceRefId": "src_page_blog_005_pep_0695_0045",
+      "textHash": "sha256_b326b6cc2a190c9fbfd9fd5d3b873703",
+      "textQuote": "Here is an example of a generic type alias today."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0046",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "from typing import TypeAlias _T = TypeVar ( \"_T\" ) ListOrSet : TypeAlias = list [ _T ] | set [ _T ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 45,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0046",
+      "sourceRefId": "src_page_blog_005_pep_0695_0046",
+      "textHash": "sha256_c8f1785bd5e82d4617b31b8befa9d74c",
+      "textQuote": "from typing import TypeAlias _T = TypeVar ( \"_T\" ) ListOrSet : TypeAlias = list [ _T ] | set [ _T ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0047",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "And with the new syntax.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 46,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0047",
+      "sourceRefId": "src_page_blog_005_pep_0695_0047",
+      "textHash": "sha256_f524e6e4f69d16956c5c56f96a460ec4",
+      "textQuote": "And with the new syntax."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0048",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "type ListOrSet [ T ] = list [ T ] | set [ T ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Summary Examples"
+      ],
+      "order": 47,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0048",
+      "sourceRefId": "src_page_blog_005_pep_0695_0048",
+      "textHash": "sha256_60e4789fe016663016c276b3936495b4",
+      "textQuote": "type ListOrSet [ T ] = list [ T ] | set [ T ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0049",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Here is a new syntax for declaring type parameters for generic classes, functions, and type aliases. The syntax adds support for a comma-delimited list of type parameters in square brackets after the name of the class, function, or type alias.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 48,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0049",
+      "sourceRefId": "src_page_blog_005_pep_0695_0049",
+      "textHash": "sha256_5303fb39b00790ab2903ff895f4d61e9",
+      "textQuote": "Here is a new syntax for declaring type parameters for generic classes, functions, and type aliases. The syntax adds support for a comma-delimited list of type parameters in square brackets after the name of the class, f"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0050",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Simple (non-variadic) type variables are declared with an unadorned name. Variadic type variables are preceded by * (see PEP 646 for details). Parameter specifications are preceded by ** (see PEP 612 for details).",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 49,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0050",
+      "sourceRefId": "src_page_blog_005_pep_0695_0050",
+      "textHash": "sha256_9442dd40134df9717502695637d222fd",
+      "textQuote": "Simple (non-variadic) type variables are declared with an unadorned name. Variadic type variables are preceded by * (see PEP 646 for details). Parameter specifications are preceded by ** (see PEP 612 for details)."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0051",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "# This generic class is parameterized by a TypeVar T, a # TypeVarTuple Ts, and a ParamSpec P. class ChildClass [ T , * Ts , ** P ]: ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 50,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0051",
+      "sourceRefId": "src_page_blog_005_pep_0695_0051",
+      "textHash": "sha256_4b33aab31207b8e74ee7025d73c9c56d",
+      "textQuote": "# This generic class is parameterized by a TypeVar T, a # TypeVarTuple Ts, and a ParamSpec P. class ChildClass [ T , * Ts , ** P ]: ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0052",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "There is no need to include Generic as a base class. Its inclusion as a base class is implied by the presence of type parameters, and it will automatically be included in the __mro__ and __orig_bases__ attributes for the class. The explicit use of a Generic base class will result in a runtime error.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 51,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0052",
+      "sourceRefId": "src_page_blog_005_pep_0695_0052",
+      "textHash": "sha256_1bdc80f88928bbe11c25fa30a53cfc6e",
+      "textQuote": "There is no need to include Generic as a base class. Its inclusion as a base class is implied by the presence of type parameters, and it will automatically be included in the __mro__ and __orig_bases__ attributes for the"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0053",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T ]( Generic [ T ]): ... # Runtime error",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 52,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0053",
+      "sourceRefId": "src_page_blog_005_pep_0695_0053",
+      "textHash": "sha256_dc776e4283e3b0a8c39d4fd372c2dff9",
+      "textQuote": "class ClassA [ T ]( Generic [ T ]): ... # Runtime error"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0054",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A Protocol base class with type arguments may generate a runtime error. Type checkers should generate an error in this case because the use of type arguments is not needed, and the order of type parameters for the class are no longer dictated by their order in the Protocol base class.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 53,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0054",
+      "sourceRefId": "src_page_blog_005_pep_0695_0054",
+      "textHash": "sha256_ce681aacb2307b81973962765ed4e32f",
+      "textQuote": "A Protocol base class with type arguments may generate a runtime error. Type checkers should generate an error in this case because the use of type arguments is not needed, and the order of type parameters for the class "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0055",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ S , T ]( Protocol ): ... # OK class ClassB [ S , T ]( Protocol [ S , T ]): ... # Recommended type checker error",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 54,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0055",
+      "sourceRefId": "src_page_blog_005_pep_0695_0055",
+      "textHash": "sha256_e721efc75c731aef2fe00fa4e76b5232",
+      "textQuote": "class ClassA [ S , T ]( Protocol ): ... # OK class ClassB [ S , T ]( Protocol [ S , T ]): ... # Recommended type checker error"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0056",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type parameter names within a generic class, function, or type alias must be unique within that same class, function, or type alias. A duplicate name generates a syntax error at compile time. This is consistent with the requirement that parameter names within a function signature must be unique.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 55,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0056",
+      "sourceRefId": "src_page_blog_005_pep_0695_0056",
+      "textHash": "sha256_42ab27de41dc368113593b0f40ed8d5e",
+      "textQuote": "Type parameter names within a generic class, function, or type alias must be unique within that same class, function, or type alias. A duplicate name generates a syntax error at compile time. This is consistent with the "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0057",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T , * T ]: ... # Syntax Error def func1 [ T , ** T ](): ... # Syntax Error",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 56,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0057",
+      "sourceRefId": "src_page_blog_005_pep_0695_0057",
+      "textHash": "sha256_9b03296751e53ae079880c43bb0640aa",
+      "textQuote": "class ClassA [ T , * T ]: ... # Syntax Error def func1 [ T , ** T ](): ... # Syntax Error"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0058",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Class type parameter names are mangled if they begin with a double underscore, to avoid complicating the name lookup mechanism for names used within the class. However, the __name__ attribute of the type parameter will hold the non-mangled name.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Declarations"
+      ],
+      "order": 57,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0058",
+      "sourceRefId": "src_page_blog_005_pep_0695_0058",
+      "textHash": "sha256_a7ff2ea6ce60b3dd19817828fe66ba9b",
+      "textQuote": "Class type parameter names are mangled if they begin with a double underscore, to avoid complicating the name lookup mechanism for names used within the class. However, the __name__ attribute of the type parameter will h"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0059",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "For a non-variadic type parameter, an “upper bound” type can be specified through the use of a type annotation expression. If an upper bound is not specified, the upper bound is assumed to be object .",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Upper Bound Specification"
+      ],
+      "order": 58,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0059",
+      "sourceRefId": "src_page_blog_005_pep_0695_0059",
+      "textHash": "sha256_596f0c5f8ce4eeeba869d8da4703f09f",
+      "textQuote": "For a non-variadic type parameter, an “upper bound” type can be specified through the use of a type annotation expression. If an upper bound is not specified, the upper bound is assumed to be object ."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0060",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T : str ]: ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Upper Bound Specification"
+      ],
+      "order": 59,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0060",
+      "sourceRefId": "src_page_blog_005_pep_0695_0060",
+      "textHash": "sha256_e42be17d1234bd27e761790864d9fd63",
+      "textQuote": "class ClassA [ T : str ]: ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0061",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The specified upper bound type must use an expression form that is allowed in type annotations. More complex expression forms should be flagged as an error by a type checker. Quoted forward references are allowed.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Upper Bound Specification"
+      ],
+      "order": 60,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0061",
+      "sourceRefId": "src_page_blog_005_pep_0695_0061",
+      "textHash": "sha256_e914c76404d3444b24dca86be17dce29",
+      "textQuote": "The specified upper bound type must use an expression form that is allowed in type annotations. More complex expression forms should be flagged as an error by a type checker. Quoted forward references are allowed."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0062",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The specified upper bound type must be concrete. An attempt to use a generic type should be flagged as an error by a type checker. This is consistent with the existing rules enforced by type checkers for a TypeVar constructor call.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Upper Bound Specification"
+      ],
+      "order": 61,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0062",
+      "sourceRefId": "src_page_blog_005_pep_0695_0062",
+      "textHash": "sha256_a6f6ae99adbcf58caa559d61f647fcb2",
+      "textQuote": "The specified upper bound type must be concrete. An attempt to use a generic type should be flagged as an error by a type checker. This is consistent with the existing rules enforced by type checkers for a TypeVar constr"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0063",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T : dict [ str , int ]]: ... # OK class ClassB [ T : \"ForwardReference\" ]: ... # OK class ClassC [ V ]: class ClassD [ T : dict [ str , V ]]: ... # Type checker error: generic type class ClassE [ T : [ str , int ]]: ... # Type checker error: illegal expression form",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Upper Bound Specification"
+      ],
+      "order": 62,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0063",
+      "sourceRefId": "src_page_blog_005_pep_0695_0063",
+      "textHash": "sha256_e763ffc5707a9538322a058d0e55d4b1",
+      "textQuote": "class ClassA [ T : dict [ str , int ]]: ... # OK class ClassB [ T : \"ForwardReference\" ]: ... # OK class ClassC [ V ]: class ClassD [ T : dict [ str , V ]]: ... # Type checker error: generic type class ClassE [ T : [ str"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0064",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "PEP 484 introduced the concept of a “constrained type variable” which is constrained to a set of two or more types. The new syntax supports this type of constraint through the use of a literal tuple expression that contains two or more types.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 63,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0064",
+      "sourceRefId": "src_page_blog_005_pep_0695_0064",
+      "textHash": "sha256_8c64ed13c61b87069d2b8fb2da8ce391",
+      "textQuote": "PEP 484 introduced the concept of a “constrained type variable” which is constrained to a set of two or more types. The new syntax supports this type of constraint through the use of a literal tuple expression that conta"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0065",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ AnyStr : ( str , bytes )]: ... # OK class ClassB [ T : ( \"ForwardReference\" , bytes )]: ... # OK class ClassC [ T : ()]: ... # Type checker error: two or more types required class ClassD [ T : ( str , )]: ... # Type checker error: two or more types required t1 = ( bytes , str ) class ClassE [ T : t1 ]: ... # Type checker error: literal tuple e",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 64,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0065",
+      "sourceRefId": "src_page_blog_005_pep_0695_0065",
+      "textHash": "sha256_0a08e3977a5e4e106e74f8dfe595c9e5",
+      "textQuote": "class ClassA [ AnyStr : ( str , bytes )]: ... # OK class ClassB [ T : ( \"ForwardReference\" , bytes )]: ... # OK class ClassC [ T : ()]: ... # Type checker error: two or more types required class ClassD [ T : ( str , )]: "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0066",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "If the specified type is not a tuple expression or the tuple expression includes complex expression forms that are not allowed in a type annotation, a type checker should generate an error. Quoted forward references are allowed.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 65,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0066",
+      "sourceRefId": "src_page_blog_005_pep_0695_0066",
+      "textHash": "sha256_f3578f789722790420755fec97652046",
+      "textQuote": "If the specified type is not a tuple expression or the tuple expression includes complex expression forms that are not allowed in a type annotation, a type checker should generate an error. Quoted forward references are "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0067",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassF [ T : ( 3 , bytes )]: ... # Type checker error: invalid expression form",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 66,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0067",
+      "sourceRefId": "src_page_blog_005_pep_0695_0067",
+      "textHash": "sha256_a0262cf5016dcfef29628b1089acb1f4",
+      "textQuote": "class ClassF [ T : ( 3 , bytes )]: ... # Type checker error: invalid expression form"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0068",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The specified constrained types must be concrete. An attempt to use a generic type should be flagged as an error by a type checker. This is consistent with the existing rules enforced by type checkers for a TypeVar constructor call.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 67,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0068",
+      "sourceRefId": "src_page_blog_005_pep_0695_0068",
+      "textHash": "sha256_82040bcf0e275a480cb724564f568cf5",
+      "textQuote": "The specified constrained types must be concrete. An attempt to use a generic type should be flagged as an error by a type checker. This is consistent with the existing rules enforced by type checkers for a TypeVar const"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0069",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassG [ T : ( list [ S ], str )]: ... # Type checker error: generic type",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Constrained Type Specification"
+      ],
+      "order": 68,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0069",
+      "sourceRefId": "src_page_blog_005_pep_0695_0069",
+      "textHash": "sha256_0b57e27da8c909cf7bb214383efb70d7",
+      "textQuote": "class ClassG [ T : ( list [ S ], str )]: ... # Type checker error: generic type"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0070",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The upper bounds and constraints of TypeVar objects are accessible at runtime through the __bound__ and __constraints__ attributes. For TypeVar objects defined through the new syntax, these attributes become lazily evaluated, as discussed under Lazy Evaluation below.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Representation of Bounds and Constraints"
+      ],
+      "order": 69,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0070",
+      "sourceRefId": "src_page_blog_005_pep_0695_0070",
+      "textHash": "sha256_db4f4252aa4be735fd2444c6c4c3ad33",
+      "textQuote": "The upper bounds and constraints of TypeVar objects are accessible at runtime through the __bound__ and __constraints__ attributes. For TypeVar objects defined through the new syntax, these attributes become lazily evalu"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0071",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "We propose to introduce a new statement for declaring type aliases. Similar to class and def statements, a type statement defines a scope for type parameters.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 70,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0071",
+      "sourceRefId": "src_page_blog_005_pep_0695_0071",
+      "textHash": "sha256_8cf250ee399f972660789210b2e258b1",
+      "textQuote": "We propose to introduce a new statement for declaring type aliases. Similar to class and def statements, a type statement defines a scope for type parameters."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0072",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "# A non-generic type alias type IntOrStr = int | str # A generic type alias type ListOrSet [ T ] = list [ T ] | set [ T ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 71,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0072",
+      "sourceRefId": "src_page_blog_005_pep_0695_0072",
+      "textHash": "sha256_c6f8a47baf159d157c44989cb4a6ed48",
+      "textQuote": "# A non-generic type alias type IntOrStr = int | str # A generic type alias type ListOrSet [ T ] = list [ T ] | set [ T ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0073",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type aliases can refer to themselves without the use of quotes.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 72,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0073",
+      "sourceRefId": "src_page_blog_005_pep_0695_0073",
+      "textHash": "sha256_77e803796ea625705c8dc071d49dcbfa",
+      "textQuote": "Type aliases can refer to themselves without the use of quotes."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0074",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "# A type alias that includes a forward reference type AnimalOrVegetable = Animal | \"Vegetable\" # A generic self-referential type alias type RecursiveList [ T ] = T | list [ RecursiveList [ T ]]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 73,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0074",
+      "sourceRefId": "src_page_blog_005_pep_0695_0074",
+      "textHash": "sha256_a873ad100dab06af7045b23afe4d284f",
+      "textQuote": "# A type alias that includes a forward reference type AnimalOrVegetable = Animal | \"Vegetable\" # A generic self-referential type alias type RecursiveList [ T ] = T | list [ RecursiveList [ T ]]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0075",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The type keyword is a new soft keyword. It is interpreted as a keyword only in this part of the grammar. In all other locations, it is assumed to be an identifier name.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 74,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0075",
+      "sourceRefId": "src_page_blog_005_pep_0695_0075",
+      "textHash": "sha256_b989da573d28b0d4b93fc2b707be4adb",
+      "textQuote": "The type keyword is a new soft keyword. It is interpreted as a keyword only in this part of the grammar. In all other locations, it is assumed to be an identifier name."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0076",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type parameters declared as part of a generic type alias are valid only when evaluating the right-hand side of the type alias.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 75,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0076",
+      "sourceRefId": "src_page_blog_005_pep_0695_0076",
+      "textHash": "sha256_4572f69ee0f8ebc9dc284ceee12e32e5",
+      "textQuote": "Type parameters declared as part of a generic type alias are valid only when evaluating the right-hand side of the type alias."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0077",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "As with typing.TypeAlias , type checkers should restrict the right-hand expression to expression forms that are allowed within type annotations. The use of more complex expression forms (call expressions, ternary operators, arithmetic operators, comparison operators, etc.) should be flagged as an error.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 76,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0077",
+      "sourceRefId": "src_page_blog_005_pep_0695_0077",
+      "textHash": "sha256_83bdbaba507a3b07775513140c97315d",
+      "textQuote": "As with typing.TypeAlias , type checkers should restrict the right-hand expression to expression forms that are allowed within type annotations. The use of more complex expression forms (call expressions, ternary operato"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0078",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type alias expressions are not allowed to use traditional type variables (i.e. those allocated with an explicit TypeVar constructor call). Type checkers should generate an error in this case.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 77,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0078",
+      "sourceRefId": "src_page_blog_005_pep_0695_0078",
+      "textHash": "sha256_e35f4f9d12135ba4117debca1043dbf8",
+      "textQuote": "Type alias expressions are not allowed to use traditional type variables (i.e. those allocated with an explicit TypeVar constructor call). Type checkers should generate an error in this case."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0079",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "T = TypeVar ( \"T\" ) type MyList = list [ T ] # Type checker error: traditional type variable usage",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 78,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0079",
+      "sourceRefId": "src_page_blog_005_pep_0695_0079",
+      "textHash": "sha256_8f5af67e78fdf2e95f56f7032f885122",
+      "textQuote": "T = TypeVar ( \"T\" ) type MyList = list [ T ] # Type checker error: traditional type variable usage"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0080",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "We propose to deprecate the existing typing.TypeAlias introduced in PEP 613 . The new syntax eliminates its need entirely.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Generic Type Alias"
+      ],
+      "order": 79,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0080",
+      "sourceRefId": "src_page_blog_005_pep_0695_0080",
+      "textHash": "sha256_8e7ecc48e891009cb33ca1f233cf15ce",
+      "textQuote": "We propose to deprecate the existing typing.TypeAlias introduced in PEP 613 . The new syntax eliminates its need entirely."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0081",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "At runtime, a type statement will generate an instance of typing.TypeAliasType . This class represents the type. Its attributes include:",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 80,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0081",
+      "sourceRefId": "src_page_blog_005_pep_0695_0081",
+      "textHash": "sha256_63ee55ed0f2b8154f69f767b637b1f41",
+      "textQuote": "At runtime, a type statement will generate an instance of typing.TypeAliasType . This class represents the type. Its attributes include:"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0082",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "__name__ is a str representing the name of the type alias",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 81,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0082",
+      "sourceRefId": "src_page_blog_005_pep_0695_0082",
+      "textHash": "sha256_25abe6d353523330a900b064629aad81",
+      "textQuote": "__name__ is a str representing the name of the type alias"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0083",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "__type_params__ is a tuple of TypeVar , TypeVarTuple , or ParamSpec objects that parameterize the type alias if it is generic",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 82,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0083",
+      "sourceRefId": "src_page_blog_005_pep_0695_0083",
+      "textHash": "sha256_04bc7d023530040fc91ab3b2edbccccf",
+      "textQuote": "__type_params__ is a tuple of TypeVar , TypeVarTuple , or ParamSpec objects that parameterize the type alias if it is generic"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0084",
+      "blockType": "list_item",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "__value__ is the evaluated value of the type alias",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 83,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0084",
+      "sourceRefId": "src_page_blog_005_pep_0695_0084",
+      "textHash": "sha256_74763293e2ea1746083f99ec93c3f8ca",
+      "textQuote": "__value__ is the evaluated value of the type alias"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0085",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "All of these attributes are read-only.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 84,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0085",
+      "sourceRefId": "src_page_blog_005_pep_0695_0085",
+      "textHash": "sha256_c45c58cc142f72929aa1f1af6cc9fdb9",
+      "textQuote": "All of these attributes are read-only."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0086",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The value of the type alias is evaluated lazily (see Lazy Evaluation below).",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Runtime Type Alias Class"
+      ],
+      "order": 85,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0086",
+      "sourceRefId": "src_page_blog_005_pep_0695_0086",
+      "textHash": "sha256_6bc811d4988ef550c3d8c348aec5bc1d",
+      "textQuote": "The value of the type alias is evaluated lazily (see Lazy Evaluation below)."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0087",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "When the new syntax is used, a new lexical scope is introduced, and this scope includes the type parameters. Type parameters can be accessed by name within inner scopes. As with other symbols in Python, an inner scope can define its own symbol that overrides an outer-scope symbol of the same name. This section provides a verbal description of the new scoping",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 86,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0087",
+      "sourceRefId": "src_page_blog_005_pep_0695_0087",
+      "textHash": "sha256_6d2fa8e98898521d26974a31335461f1",
+      "textQuote": "When the new syntax is used, a new lexical scope is introduced, and this scope includes the type parameters. Type parameters can be accessed by name within inner scopes. As with other symbols in Python, an inner scope ca"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0088",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type parameters are visible to other type parameters declared elsewhere in the list. This allows type parameters to use other type parameters within their definition. While there is currently no use for this capability, it preserves the ability in the future to support upper bound expressions or type argument defaults that depend on earlier type parameters.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 87,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0088",
+      "sourceRefId": "src_page_blog_005_pep_0695_0088",
+      "textHash": "sha256_ccfb30aca79dc730b11c7314fb01f41c",
+      "textQuote": "Type parameters are visible to other type parameters declared elsewhere in the list. This allows type parameters to use other type parameters within their definition. While there is currently no use for this capability, "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0089",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A compiler error or runtime exception is generated if the definition of an earlier type parameter references a later type parameter even if the name is defined in an outer scope.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 88,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0089",
+      "sourceRefId": "src_page_blog_005_pep_0695_0089",
+      "textHash": "sha256_f2a254fa78733ee7b4b55494fac3d554",
+      "textQuote": "A compiler error or runtime exception is generated if the definition of an earlier type parameter references a later type parameter even if the name is defined in an outer scope."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0090",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "# The following generates no compiler error, but a type checker # should generate an error because an upper bound type must be concrete, # and ``Sequence[S]`` is generic. Future extensions to the type system may # eliminate this limitation. class ClassA [ S , T : Sequence [ S ]]: ... # The following generates no compiler error, because the bound for ``S`` # ",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 89,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0090",
+      "sourceRefId": "src_page_blog_005_pep_0695_0090",
+      "textHash": "sha256_57a4d7fb20d25c5c57f1bd1c8fa59eca",
+      "textQuote": "# The following generates no compiler error, but a type checker # should generate an error because an upper bound type must be concrete, # and ``Sequence[S]`` is generic. Future extensions to the type system may # elimin"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0091",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A type parameter declared as part of a generic class is valid within the class body and inner scopes contained therein. Type parameters are also accessible when evaluating the argument list (base classes and any keyword arguments) that comprise the class definition. This allows base classes to be parameterized by these type parameters. Type parameters are no",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 90,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0091",
+      "sourceRefId": "src_page_blog_005_pep_0695_0091",
+      "textHash": "sha256_5cfb45c12e050132f43ed2d777d3b596",
+      "textQuote": "A type parameter declared as part of a generic class is valid within the class body and inner scopes contained therein. Type parameters are also accessible when evaluating the argument list (base classes and any keyword "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0092",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T ]( BaseClass [ T ], param = Foo [ T ]): ... # OK print ( T ) # Runtime error: 'T' is not defined @dec ( Foo [ T ]) # Runtime error: 'T' is not defined class ClassA [ T ]: ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 91,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0092",
+      "sourceRefId": "src_page_blog_005_pep_0695_0092",
+      "textHash": "sha256_98d802c3ea9091c065b338a0596aafd2",
+      "textQuote": "class ClassA [ T ]( BaseClass [ T ], param = Foo [ T ]): ... # OK print ( T ) # Runtime error: 'T' is not defined @dec ( Foo [ T ]) # Runtime error: 'T' is not defined class ClassA [ T ]: ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0093",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A type parameter declared as part of a generic function is valid within the function body and any scopes contained therein. It is also valid within parameter and return type annotations. Default argument values for function parameters are evaluated outside of this scope, so type parameters are not accessible in default value expressions. Likewise, type param",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 92,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0093",
+      "sourceRefId": "src_page_blog_005_pep_0695_0093",
+      "textHash": "sha256_68c4a4052633e1008642082fef3a1459",
+      "textQuote": "A type parameter declared as part of a generic function is valid within the function body and any scopes contained therein. It is also valid within parameter and return type annotations. Default argument values for funct"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0094",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "def func1 [ T ]( a : T ) -> T : ... # OK print ( T ) # Runtime error: 'T' is not defined def func2 [ T ]( a = list [ T ]): ... # Runtime error: 'T' is not defined @dec ( list [ T ]) # Runtime error: 'T' is not defined def func3 [ T ](): ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 93,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0094",
+      "sourceRefId": "src_page_blog_005_pep_0695_0094",
+      "textHash": "sha256_98245b02a830515c0aea23e616c9eb8a",
+      "textQuote": "def func1 [ T ]( a : T ) -> T : ... # OK print ( T ) # Runtime error: 'T' is not defined def func2 [ T ]( a = list [ T ]): ... # Runtime error: 'T' is not defined @dec ( list [ T ]) # Runtime error: 'T' is not defined de"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0095",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A type parameter declared as part of a generic type alias is valid within the type alias expression.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 94,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0095",
+      "sourceRefId": "src_page_blog_005_pep_0695_0095",
+      "textHash": "sha256_a65a77a2eadf842c3e075b8b1c82cf2e",
+      "textQuote": "A type parameter declared as part of a generic type alias is valid within the type alias expression."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0096",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "type Alias1 [ K , V ] = Mapping [ K , V ] | Sequence [ K ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 95,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0096",
+      "sourceRefId": "src_page_blog_005_pep_0695_0096",
+      "textHash": "sha256_a57a549d181be4364908be15786132a4",
+      "textQuote": "type Alias1 [ K , V ] = Mapping [ K , V ] | Sequence [ K ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0097",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type parameter symbols defined in outer scopes cannot be bound with nonlocal statements in inner scopes.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 96,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0097",
+      "sourceRefId": "src_page_blog_005_pep_0695_0097",
+      "textHash": "sha256_c41a4ef170cf69dc7983d9e28ee525f7",
+      "textQuote": "Type parameter symbols defined in outer scopes cannot be bound with nonlocal statements in inner scopes."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0098",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "S = 0 def outer1 [ S ](): S = 1 T = 1 def outer2 [ T ](): def inner1 (): nonlocal S # OK because it binds variable S from outer1 nonlocal T # Syntax error: nonlocal binding not allowed for type parameter def inner2 (): global S # OK because it binds variable S from global scope",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 97,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0098",
+      "sourceRefId": "src_page_blog_005_pep_0695_0098",
+      "textHash": "sha256_2779d8477481853f8b8f9a10e8dd3992",
+      "textQuote": "S = 0 def outer1 [ S ](): S = 1 T = 1 def outer2 [ T ](): def inner1 (): nonlocal S # OK because it binds variable S from outer1 nonlocal T # Syntax error: nonlocal binding not allowed for type parameter def inner2 (): g"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0099",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The lexical scope introduced by the new type parameter syntax is unlike traditional scopes introduced by a def or class statement. A type parameter scope acts more like a temporary “overlay” to the containing scope. The only new symbols contained within its symbol table are the type parameters defined using the new syntax. References to all other symbols are",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 98,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0099",
+      "sourceRefId": "src_page_blog_005_pep_0695_0099",
+      "textHash": "sha256_ddf54f0df276b05c39229aa64c108c7b",
+      "textQuote": "The lexical scope introduced by the new type parameter syntax is unlike traditional scopes introduced by a def or class statement. A type parameter scope acts more like a temporary “overlay” to the containing scope. The "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0100",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class Outer : class Private : pass # If the type parameter scope was like a traditional scope, # the base class 'Private' would not be accessible here. class Inner [ T ]( Private , Sequence [ T ]): pass # Likewise, 'Inner' would not be available in these type annotations. def method1 [ T ]( self , a : Inner [ T ]) -> Inner [ T ]: return a",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 99,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0100",
+      "sourceRefId": "src_page_blog_005_pep_0695_0100",
+      "textHash": "sha256_ebd17cafc63cdcc0d4208f94f8dddc08",
+      "textQuote": "class Outer : class Private : pass # If the type parameter scope was like a traditional scope, # the base class 'Private' would not be accessible here. class Inner [ T ]( Private , Sequence [ T ]): pass # Likewise, 'Inne"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0101",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The compiler allows inner scopes to define a local symbol that overrides an outer-scoped type parameter.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 100,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0101",
+      "sourceRefId": "src_page_blog_005_pep_0695_0101",
+      "textHash": "sha256_a900b61eb0b58d7c43c2985e2fba0b7e",
+      "textQuote": "The compiler allows inner scopes to define a local symbol that overrides an outer-scoped type parameter."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0102",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Consistent with the scoping rules defined in PEP 484 , type checkers should generate an error if inner-scoped generic classes, functions, or type aliases reuse the same type parameter name as an outer scope.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 101,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0102",
+      "sourceRefId": "src_page_blog_005_pep_0695_0102",
+      "textHash": "sha256_3c81cea2a65e5c2a4a8693ad6ea91852",
+      "textQuote": "Consistent with the scoping rules defined in PEP 484 , type checkers should generate an error if inner-scoped generic classes, functions, or type aliases reuse the same type parameter name as an outer scope."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0103",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "T = 0 @decorator ( T ) # Argument expression `T` evaluates to 0 class ClassA [ T ]( Sequence [ T ]): T = 1 # All methods below should result in a type checker error # \"type parameter 'T' already in use\" because they are using the # type parameter 'T', which is already in use by the outer scope # 'ClassA'. def method1 [ T ]( self ): ... def method2 [ T ]( sel",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 102,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0103",
+      "sourceRefId": "src_page_blog_005_pep_0695_0103",
+      "textHash": "sha256_8a2450f99930648aa499bd5d8e25d8f7",
+      "textQuote": "T = 0 @decorator ( T ) # Argument expression `T` evaluates to 0 class ClassA [ T ]( Sequence [ T ]): T = 1 # All methods below should result in a type checker error # \"type parameter 'T' already in use\" because they are "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0104",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Symbols referenced in inner scopes are resolved using existing rules except that type parameter scopes are also considered during name resolution.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 103,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0104",
+      "sourceRefId": "src_page_blog_005_pep_0695_0104",
+      "textHash": "sha256_3a862f95bd522fcc02a5649c89a428c1",
+      "textQuote": "Symbols referenced in inner scopes are resolved using existing rules except that type parameter scopes are also considered during name resolution."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0105",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "T = 0 # T refers to the global variable print ( T ) # Prints 0 class Outer [ T ]: T = 1 # T refers to the local variable scoped to class 'Outer' print ( T ) # Prints 1 class Inner1 : T = 2 # T refers to the local type variable within 'Inner1' print ( T ) # Prints 2 def inner_method ( self ): # T refers to the type parameter scoped to class 'Outer'; # If 'Out",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 104,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0105",
+      "sourceRefId": "src_page_blog_005_pep_0695_0105",
+      "textHash": "sha256_dbd795fe483c43a8d565ac386efdc5f0",
+      "textQuote": "T = 0 # T refers to the global variable print ( T ) # Prints 0 class Outer [ T ]: T = 1 # T refers to the local variable scoped to class 'Outer' print ( T ) # Prints 1 class Inner1 : T = 2 # T refers to the local type va"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0106",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "When the new type parameter syntax is used for a generic class, assignment expressions are not allowed within the argument list for the class definition. Likewise, with functions that use the new type parameter syntax, assignment expressions are not allowed within parameter or return type annotations, nor are they allowed within the expression that defines a",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 105,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0106",
+      "sourceRefId": "src_page_blog_005_pep_0695_0106",
+      "textHash": "sha256_15fc2cf1faafc27670cba021bca93a3c",
+      "textQuote": "When the new type parameter syntax is used for a generic class, assignment expressions are not allowed within the argument list for the class definition. Likewise, with functions that use the new type parameter syntax, a"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0107",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "This restriction is necessary because expressions evaluated within the new lexical scope should not introduce symbols within that scope other than the defined type parameters, and should not affect whether the enclosing function is a generator or coroutine.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 106,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0107",
+      "sourceRefId": "src_page_blog_005_pep_0695_0107",
+      "textHash": "sha256_5f4a30facc177d049d675a573ba50a98",
+      "textQuote": "This restriction is necessary because expressions evaluated within the new lexical scope should not introduce symbols within that scope other than the defined type parameters, and should not affect whether the enclosing "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0108",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T ](( x := Sequence [ T ])): ... # Syntax error: assignment expression not allowed def func1 [ T ]( val : ( x := int )): ... # Syntax error: assignment expression not allowed def func2 [ T ]() -> ( x := Sequence [ T ]): ... # Syntax error: assignment expression not allowed type Alias1 [ T ] = ( x := list [ T ]) # Syntax error: assignment expre",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Type Parameter Scopes"
+      ],
+      "order": 107,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0108",
+      "sourceRefId": "src_page_blog_005_pep_0695_0108",
+      "textHash": "sha256_41366a103d3b97899aec1fba54603b6e",
+      "textQuote": "class ClassA [ T ](( x := Sequence [ T ])): ... # Syntax error: assignment expression not allowed def func1 [ T ]( val : ( x := int )): ... # Syntax error: assignment expression not allowed def func2 [ T ]() -> ( x := Se"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0109",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "A new attribute called __type_params__ is available on generic classes, functions, and type aliases. This attribute is a tuple of the type parameters that parameterize the class, function, or alias. The tuple contains TypeVar , ParamSpec , and TypeVarTuple instances.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Accessing Type Parameters at Runtime"
+      ],
+      "order": 108,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0109",
+      "sourceRefId": "src_page_blog_005_pep_0695_0109",
+      "textHash": "sha256_2d594d582ee840395b828942f6cbd82f",
+      "textQuote": "A new attribute called __type_params__ is available on generic classes, functions, and type aliases. This attribute is a tuple of the type parameters that parameterize the class, function, or alias. The tuple contains Ty"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0110",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Type parameters declared using the new syntax will not appear within the dictionary returned by globals() or locals() .",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Accessing Type Parameters at Runtime"
+      ],
+      "order": 109,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0110",
+      "sourceRefId": "src_page_blog_005_pep_0695_0110",
+      "textHash": "sha256_85ca1ba7d368a1514c3f21ca040c404e",
+      "textQuote": "Type parameters declared using the new syntax will not appear within the dictionary returned by globals() or locals() ."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0111",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "This PEP eliminates the need for variance to be specified for type parameters. Instead, type checkers will infer the variance of type parameters based on their usage within a class. Type parameters are inferred to be invariant, covariant, or contravariant depending on how they are used.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 110,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0111",
+      "sourceRefId": "src_page_blog_005_pep_0695_0111",
+      "textHash": "sha256_d706f5e2d66badf4a4f763f3a6a8296a",
+      "textQuote": "This PEP eliminates the need for variance to be specified for type parameters. Instead, type checkers will infer the variance of type parameters based on their usage within a class. Type parameters are inferred to be inv"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0112",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Python type checkers already include the ability to determine the variance of type parameters for the purpose of validating variance within a generic protocol class. This capability can be used for all classes (whether or not they are protocols) to calculate the variance of each type parameter.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 111,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0112",
+      "sourceRefId": "src_page_blog_005_pep_0695_0112",
+      "textHash": "sha256_1e4c3a07b49802de1e69a5c7efb54cbe",
+      "textQuote": "Python type checkers already include the ability to determine the variance of type parameters for the purpose of validating variance within a generic protocol class. This capability can be used for all classes (whether o"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0113",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The algorithm for computing the variance of a type parameter is as follows.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 112,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0113",
+      "sourceRefId": "src_page_blog_005_pep_0695_0113",
+      "textHash": "sha256_ac2d2b2e6bd91cd31d52b69b97b90bde",
+      "textQuote": "The algorithm for computing the variance of a type parameter is as follows."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0114",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "For each type parameter in a generic class:",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 113,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0114",
+      "sourceRefId": "src_page_blog_005_pep_0695_0114",
+      "textHash": "sha256_c4595107e9ccdf6dfadb419ce80e5a8f",
+      "textQuote": "For each type parameter in a generic class:"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0115",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "1. If the type parameter is variadic ( TypeVarTuple ) or a parameter specification ( ParamSpec ), it is always considered invariant. No further inference is needed.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 114,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0115",
+      "sourceRefId": "src_page_blog_005_pep_0695_0115",
+      "textHash": "sha256_a7c55fa7c805af42e482aeef0d1cd9a7",
+      "textQuote": "1. If the type parameter is variadic ( TypeVarTuple ) or a parameter specification ( ParamSpec ), it is always considered invariant. No further inference is needed."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0116",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "2. If the type parameter comes from a traditional TypeVar declaration and is not specified as infer_variance (see below), its variance is specified by the TypeVar constructor call. No further inference is needed.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 115,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0116",
+      "sourceRefId": "src_page_blog_005_pep_0695_0116",
+      "textHash": "sha256_905513781d8f6f92683e872fc6c2a18b",
+      "textQuote": "2. If the type parameter comes from a traditional TypeVar declaration and is not specified as infer_variance (see below), its variance is specified by the TypeVar constructor call. No further inference is needed."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0117",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "3. Create two specialized versions of the class. We’ll refer to these as upper and lower specializations. In both of these specializations, replace all type parameters other than the one being inferred by a dummy type instance (a concrete anonymous class that is type compatible with itself and assumed to meet the bounds or constraints of the type parameter).",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 116,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0117",
+      "sourceRefId": "src_page_blog_005_pep_0695_0117",
+      "textHash": "sha256_537174381bf9f79008f4e13c6d5b8c4b",
+      "textQuote": "3. Create two specialized versions of the class. We’ll refer to these as upper and lower specializations. In both of these specializations, replace all type parameters other than the one being inferred by a dummy type in"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0118",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "4. Determine whether lower can be assigned to upper using normal type compatibility rules. If so, the target type parameter is covariant. If not, determine whether upper can be assigned to lower . If so, the target type parameter is contravariant. If neither of these combinations are assignable, the target type parameter is invariant.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 117,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0118",
+      "sourceRefId": "src_page_blog_005_pep_0695_0118",
+      "textHash": "sha256_8f9a28ab779a321046eb641fcff37ae5",
+      "textQuote": "4. Determine whether lower can be assigned to upper using normal type compatibility rules. If so, the target type parameter is covariant. If not, determine whether upper can be assigned to lower . If so, the target type "
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0119",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Here is an example.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 118,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0119",
+      "sourceRefId": "src_page_blog_005_pep_0695_0119",
+      "textHash": "sha256_3330d580d705feb76ce5bf90ef5ca1bd",
+      "textQuote": "Here is an example."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0120",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "class ClassA [ T1 , T2 , T3 ]( list [ T1 ]): def method1 ( self , a : T2 ) -> None : ... def method2 ( self ) -> T3 : ...",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 119,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0120",
+      "sourceRefId": "src_page_blog_005_pep_0695_0120",
+      "textHash": "sha256_69f9a4bcfced9b758ebcfc165605c36f",
+      "textQuote": "class ClassA [ T1 , T2 , T3 ]( list [ T1 ]): def method1 ( self , a : T2 ) -> None : ... def method2 ( self ) -> T3 : ..."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0121",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "To determine the variance of T1 , we specialize ClassA as follows:",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 120,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0121",
+      "sourceRefId": "src_page_blog_005_pep_0695_0121",
+      "textHash": "sha256_7a27111de0edd54c4efb35ae7e6a89f0",
+      "textQuote": "To determine the variance of T1 , we specialize ClassA as follows:"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0122",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "upper = ClassA [ object , Dummy , Dummy ] lower = ClassA [ T1 , Dummy , Dummy ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 121,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0122",
+      "sourceRefId": "src_page_blog_005_pep_0695_0122",
+      "textHash": "sha256_871636b973498ae7d5acecab29374bbb",
+      "textQuote": "upper = ClassA [ object , Dummy , Dummy ] lower = ClassA [ T1 , Dummy , Dummy ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0123",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "We find that upper is not assignable to lower using normal type compatibility rules defined in PEP 484 . Likewise, lower is not assignable to upper , so we conclude that T1 is invariant.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 122,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0123",
+      "sourceRefId": "src_page_blog_005_pep_0695_0123",
+      "textHash": "sha256_80c5040273f9a6ad144f10c4eb8f6d78",
+      "textQuote": "We find that upper is not assignable to lower using normal type compatibility rules defined in PEP 484 . Likewise, lower is not assignable to upper , so we conclude that T1 is invariant."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0124",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "To determine the variance of T2 , we specialize ClassA as follows:",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 123,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0124",
+      "sourceRefId": "src_page_blog_005_pep_0695_0124",
+      "textHash": "sha256_32bf23b1979ae8f3154864eaf7255ded",
+      "textQuote": "To determine the variance of T2 , we specialize ClassA as follows:"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0125",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "upper = ClassA [ Dummy , object , Dummy ] lower = ClassA [ Dummy , T2 , Dummy ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 124,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0125",
+      "sourceRefId": "src_page_blog_005_pep_0695_0125",
+      "textHash": "sha256_b48f888db12302b55d92ea98b245625c",
+      "textQuote": "upper = ClassA [ Dummy , object , Dummy ] lower = ClassA [ Dummy , T2 , Dummy ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0126",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Since upper is assignable to lower , T2 is contravariant.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 125,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0126",
+      "sourceRefId": "src_page_blog_005_pep_0695_0126",
+      "textHash": "sha256_14b31a4e00b94d7fe1c7581ef4054f39",
+      "textQuote": "Since upper is assignable to lower , T2 is contravariant."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0127",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "To determine the variance of T3 , we specialize ClassA as follows:",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 126,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0127",
+      "sourceRefId": "src_page_blog_005_pep_0695_0127",
+      "textHash": "sha256_a6d7db1512329e394e2b25f682851353",
+      "textQuote": "To determine the variance of T3 , we specialize ClassA as follows:"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0128",
+      "blockType": "code",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "upper = ClassA [ Dummy , Dummy , object ] lower = ClassA [ Dummy , Dummy , T3 ]",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 127,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0128",
+      "sourceRefId": "src_page_blog_005_pep_0695_0128",
+      "textHash": "sha256_d60b4cd4742eb7a5e3588de7ee4d4008",
+      "textQuote": "upper = ClassA [ Dummy , Dummy , object ] lower = ClassA [ Dummy , Dummy , T3 ]"
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0129",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "Since lower is assignable to upper , T3 is covariant.",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Variance Inference"
+      ],
+      "order": 128,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0129",
+      "sourceRefId": "src_page_blog_005_pep_0695_0129",
+      "textHash": "sha256_67b0a77ee4e24eaccbdeded1f4c591b8",
+      "textQuote": "Since lower is assignable to upper , T3 is covariant."
+    },
+    {
+      "blockId": "block_pg_page_blog_005_pep_0695_0130",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_blog_005_pep_0695_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_2d2ab4b072f9c6d7e9b6f1ad6e72f3cb5ae29ba5f9b2302f4f004577da5f4f72",
+      "fallbackText": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of these are False , the type variable is assumed to be invariant. We propose to add another keyword parameter named infer_variance indicating that a type checker should use inference to determine whether the type variable is invariant, covariant or ",
+      "headingPath": [
+        "PEP 695 – Type Parameter Syntax",
+        "Specification",
+        "Auto Variance For TypeVar"
+      ],
+      "order": 129,
+      "pageId": "page_blog_005_pep_0695",
+      "paragraphId": "pg_page_blog_005_pep_0695_0130",
+      "sourceRefId": "src_page_blog_005_pep_0695_0130",
+      "textHash": "sha256_97bd2595231e49af2bb8db0271918e46",
+      "textQuote": "The existing TypeVar class constructor accepts keyword parameters named covariant and contravariant . If both of these are False , the type variable is assumed to be invariant. We propose to add another keyword parameter"
+    }
+  ],
+  "status": "pass"
+}

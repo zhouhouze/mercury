@@ -11,7 +11,7 @@ from navia_runtime.provider_settings import ProviderRegistry
 
 
 ROOT = Path(__file__).resolve().parents[3]
-CONTRACTS = ROOT / "docs/navia_v1_project_docs/contracts"
+CONTRACTS = ROOT / "docs/active/project/contracts"
 SECRET = "sk-secret-1234567890"
 
 

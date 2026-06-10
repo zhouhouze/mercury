@@ -1,0 +1,133 @@
+{
+  "captured": 107,
+  "capturedAt": "2026-06-09T02:42:31Z",
+  "failed": 5,
+  "failures": [
+    {
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/doc/tutorial/getting-started']' returned non-zero exit status 35.",
+      "pageKey": "code_009_go_tutorial_start",
+      "url": "https://go.dev/doc/tutorial/getting-started"
+    },
+    {
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/doc/tutorial/create-module']' returned non-zero exit status 35.",
+      "pageKey": "code_010_go_tutorial_module",
+      "url": "https://go.dev/doc/tutorial/create-module"
+    },
+    {
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/doc/tutorial/call-module-code']' returned non-zero exit status 35.",
+      "pageKey": "code_011_go_tutorial_call",
+      "url": "https://go.dev/doc/tutorial/call-module-code"
+    },
+    {
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/doc/tutorial/handle-errors']' returned non-zero exit status 35.",
+      "pageKey": "code_012_go_tutorial_error",
+      "url": "https://go.dev/doc/tutorial/handle-errors"
+    },
+    {
+      "error": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/error-handling-and-go']' returned non-zero exit status 35.",
+      "pageKey": "image_009_go_error_handling",
+      "url": "https://go.dev/blog/error-handling-and-go"
+    }
+  ],
+  "freshCaptured": 88,
+  "requested": 112,
+  "reused": [
+    {
+      "pageKey": "blog_001_pep_0008",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://peps.python.org/pep-0008/']' returned non-zero exit status 28.",
+      "url": "https://peps.python.org/pep-0008/"
+    },
+    {
+      "pageKey": "tech_007_python_tutorial_errors",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://docs.python.org/3/tutorial/errors.html']' returned non-zero exit status 28.",
+      "url": "https://docs.python.org/3/tutorial/errors.html"
+    },
+    {
+      "pageKey": "tech_008_python_tutorial_classes",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://docs.python.org/3/tutorial/classes.html']' returned non-zero exit status 28.",
+      "url": "https://docs.python.org/3/tutorial/classes.html"
+    },
+    {
+      "pageKey": "github_002_pallets_flask",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/pallets/flask/main/README.md']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/pallets/flask/main/README.md"
+    },
+    {
+      "pageKey": "github_003_django_django",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/django/django/main/README.rst']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/django/django/main/README.rst"
+    },
+    {
+      "pageKey": "github_004_numpy_numpy",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/numpy/numpy/main/README.md']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/numpy/numpy/main/README.md"
+    },
+    {
+      "pageKey": "github_005_pandas_pandas",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/pandas-dev/pandas/main/README.md']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/pandas-dev/pandas/main/README.md"
+    },
+    {
+      "pageKey": "github_007_fastapi_fastapi",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/fastapi/fastapi/master/README.md']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/fastapi/fastapi/master/README.md"
+    },
+    {
+      "pageKey": "github_008_microsoft_playwright",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://raw.githubusercontent.com/microsoft/playwright/main/README.md']' returned non-zero exit status 28.",
+      "url": "https://raw.githubusercontent.com/microsoft/playwright/main/README.md"
+    },
+    {
+      "pageKey": "product_docs_007_go_doc_effective",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/doc/effective_go']' returned non-zero exit status 28.",
+      "url": "https://go.dev/doc/effective_go"
+    },
+    {
+      "pageKey": "image_001_go_image_draw",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/image-draw']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/image-draw"
+    },
+    {
+      "pageKey": "image_002_go_gopher",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/gopher']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/gopher"
+    },
+    {
+      "pageKey": "image_003_go_slices",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/generic-slice-functions']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/generic-slice-functions"
+    },
+    {
+      "pageKey": "image_004_go_maps",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/maps']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/maps"
+    },
+    {
+      "pageKey": "image_005_go_strings",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/strings']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/strings"
+    },
+    {
+      "pageKey": "image_006_go_json",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/json']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/json"
+    },
+    {
+      "pageKey": "image_007_go_context",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/context']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/context"
+    },
+    {
+      "pageKey": "image_008_go_pipelines",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/pipelines']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/pipelines"
+    },
+    {
+      "pageKey": "image_010_go_defer",
+      "reason": "Command '['curl', '-L', '--fail', '--silent', '--show-error', '--compressed', '--max-time', '12', '--user-agent', 'NaviaA-V1.2CorpusCapture/1.0 (+https://github.com/zhouhouze/mercury)', '--header', 'Accept: text/html,application/xhtml+xml', 'https://go.dev/blog/defer-panic-and-recover']' returned non-zero exit status 35.",
+      "url": "https://go.dev/blog/defer-panic-and-recover"
+    }
+  ],
+  "reusedSnapshots": 19,
+  "schemaVersion": "a-v1.2-corpus-capture-report-2026-06-08"
+}

@@ -1,0 +1,541 @@
+{
+  "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+  "digestId": "digest_page_report_006_rfc_8446",
+  "items": [
+    {
+      "confidence": 0.861,
+      "importance": 0.936,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0123",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0123"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0123",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 B.2 . Alert Messages enum { warning(1), fatal(2), (255) } AlertLevel; enum { close_notify(0), unexpected_message(10), bad_record_mac(20), decryption_failed_RESERVED(21), record_overflow(22), decompression_failure_RESERVED(30), handshake_failure(40), no_certificate_RESERVED(41), bad_certificate(42), unsupported_certificate(43), certif",
+          "headingPath": [],
+          "order": 122,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0123",
+          "sourceRefId": "src_page_report_006_rfc_8446_0123",
+          "textHash": "sha256_7a4d2820e92919d32e161b138f30bda3",
+          "textQuote": "RFC 8446 TLS August 2018 B.2 . Alert Messages enum { warning(1), fatal(2), (255) } AlertLevel; enum { close_notify(0), unexpected_message(10), bad_record_mac(20), decryption_failed_RESERVED(21), record_overflow(22), deco"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 B . 2 . Alert Messages enum { warning ( 1",
+      "warnings": []
+    },
+    {
+      "confidence": 0.861,
+      "importance": 0.935,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0086",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0086",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 enum { warning(1), fatal(2), (255) } AlertLevel; enum { close_notify(0), unexpected_message(10), bad_record_mac(20), record_overflow(22), handshake_failure(40), bad_certificate(42), unsupported_certificate(43), certificate_revoked(44), certificate_expired(45), certificate_unknown(46), illegal_parameter(47), unknown_ca(48), access_den",
+          "headingPath": [],
+          "order": 85,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0086",
+          "sourceRefId": "src_page_report_006_rfc_8446_0086",
+          "textHash": "sha256_1fdfc90edff0e9697ad47ffd09806433",
+          "textQuote": "RFC 8446 TLS August 2018 enum { warning(1), fatal(2), (255) } AlertLevel; enum { close_notify(0), unexpected_message(10), bad_record_mac(20), record_overflow(22), handshake_failure(40), bad_certificate(42), unsupported_c"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 enum { warning ( 1 ) , fatal ( 2 )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.846,
+      "importance": 0.898,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0130",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0130"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0130",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 B.3.1.4 . Supported Groups Extension enum { unallocated_RESERVED(0x0000), /* Elliptic Curve Groups (ECDHE) */ obsolete_RESERVED(0x0001..0x0016), secp256r1(0x0017), secp384r1(0x0018), secp521r1(0x0019), obsolete_RESERVED(0x001A..0x001C), x25519(0x001D), x448(0x001E), /* Finite Field Groups (DHE) */ ffdhe2048(0x0100), ffdhe3072(0x0101)",
+          "headingPath": [],
+          "order": 129,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0130",
+          "sourceRefId": "src_page_report_006_rfc_8446_0130",
+          "textHash": "sha256_5ab932e7a9c67fbaa86ece95fd283375",
+          "textQuote": "RFC 8446 TLS August 2018 B.3.1.4 . Supported Groups Extension enum { unallocated_RESERVED(0x0000), /* Elliptic Curve Groups (ECDHE) */ obsolete_RESERVED(0x0001..0x0016), secp256r1(0x0017), secp384r1(0x0018), secp521r1(0x"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 B . 3 . 1 . 4 . Supported Groups Extension",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.887,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0129",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0129"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0129",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 B.3.1.3 . Signature Algorithm Extension enum { /* RSASSA-PKCS1-v1_5 algorithms */ rsa_pkcs1_sha256(0x0401), rsa_pkcs1_sha384(0x0501), rsa_pkcs1_sha512(0x0601), /* ECDSA algorithms */ ecdsa_secp256r1_sha256(0x0403), ecdsa_secp384r1_sha384(0x0503), ecdsa_secp521r1_sha512(0x0603), /* RSASSA-PSS algorithms with public key OID rsaEncrypti",
+          "headingPath": [],
+          "order": 128,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0129",
+          "sourceRefId": "src_page_report_006_rfc_8446_0129",
+          "textHash": "sha256_43209a97c3e51da1c1d2123956dcfab9",
+          "textQuote": "RFC 8446 TLS August 2018 B.3.1.3 . Signature Algorithm Extension enum { /* RSASSA-PKCS1-v1_5 algorithms */ rsa_pkcs1_sha256(0x0401), rsa_pkcs1_sha384(0x0501), rsa_pkcs1_sha512(0x0601), /* ECDSA algorithms */ ecdsa_secp25"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 B . 3 . 1 . 3 . Signature Algorithm Extension",
+      "warnings": []
+    },
+    {
+      "confidence": 0.842,
+      "importance": 0.887,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0160",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0160"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0160",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Filippo Valsorda Cloudflare Inc. filippo@cloudflare.com Thyla van der Merwe Royal Holloway, University of London tjvdmerwe@gmail.com Victor Vasiliev Google vasilvv@google.com Hoeteck Wee Ecole Normale Superieure, Paris hoeteck@alum.mit.edu Tom Weinstein David Wong NCC Group david.wong@nccgroup.trust Christopher A. Wood Apple Inc. caw",
+          "headingPath": [],
+          "order": 159,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0160",
+          "sourceRefId": "src_page_report_006_rfc_8446_0160",
+          "textHash": "sha256_ecd622f3c369fd01f62ff79e70d4f68b",
+          "textQuote": "RFC 8446 TLS August 2018 Filippo Valsorda Cloudflare Inc. filippo@cloudflare.com Thyla van der Merwe Royal Holloway, University of London tjvdmerwe@gmail.com Victor Vasiliev Google vasilvv@google.com Hoeteck Wee Ecole No"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Filippo Valsorda Cloudflare Inc . filippo @ cloudflare . com Thyla",
+      "warnings": []
+    },
+    {
+      "confidence": 0.839,
+      "importance": 0.88,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0157",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0157"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0157",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Xiaoyin Liu University of North Carolina at Chapel Hill xiaoyin.l@outlook.com Ilari Liusvaara Independent ilariliusvaara@welho.com Atul Luykx K.U. Leuven atul.luykx@kuleuven.be Colm MacCarthaigh Amazon Web Services colm@allcosts.net Carl Mehner USAA carl.mehner@usaa.com Jan Mikkelsen Transactionware janm@transactionware.com Bodo Moel",
+          "headingPath": [],
+          "order": 156,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0157",
+          "sourceRefId": "src_page_report_006_rfc_8446_0157",
+          "textHash": "sha256_8f8c322d02b3e6eb91c4e8c22c20848b",
+          "textQuote": "RFC 8446 TLS August 2018 Xiaoyin Liu University of North Carolina at Chapel Hill xiaoyin.l@outlook.com Ilari Liusvaara Independent ilariliusvaara@welho.com Atul Luykx K.U. Leuven atul.luykx@kuleuven.be Colm MacCarthaigh "
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Xiaoyin Liu University of North Carolina at Chapel Hill xiaoyin .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.838,
+      "importance": 0.878,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0042",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_report_006_rfc_8446_0042"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0042",
+          "blockType": "code",
+          "chunkId": "ck_page_report_006_rfc_8446_0042",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 The \"extension_data\" field of these extensions contains a SignatureSchemeList value: enum { /* RSASSA-PKCS1-v1_5 algorithms */ rsa_pkcs1_sha256(0x0401), rsa_pkcs1_sha384(0x0501), rsa_pkcs1_sha512(0x0601), /* ECDSA algorithms */ ecdsa_secp256r1_sha256(0x0403), ecdsa_secp384r1_sha384(0x0503), ecdsa_secp521r1_sha512(0x0603), /* RSASSA-P",
+          "headingPath": [],
+          "order": 41,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0042",
+          "sourceRefId": "src_page_report_006_rfc_8446_0042",
+          "textHash": "sha256_55e3fe1c65d1f9bf0b60a196c58774a6",
+          "textQuote": "RFC 8446 TLS August 2018 The \"extension_data\" field of these extensions contains a SignatureSchemeList value: enum { /* RSASSA-PKCS1-v1_5 algorithms */ rsa_pkcs1_sha256(0x0401), rsa_pkcs1_sha384(0x0501), rsa_pkcs1_sha512"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 The \" extension_data \" field of these extensions contains a SignatureSchemeList",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.871,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0155",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0155"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0155",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Anil Gangolli anil@busybuddha.org David M. Garrett dave@nulldereference.com Illya Gerasymchuk Independent illya@iluxonchik.me Alessandro Ghedini Cloudflare Inc. alessandro@cloudflare.com Daniel Kahn Gillmor ACLU dkg@fifthhorseman.net Matthew Green Johns Hopkins University mgreen@cs.jhu.edu Jens Guballa ETAS jens.guballa@etas.com Feli",
+          "headingPath": [],
+          "order": 154,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0155",
+          "sourceRefId": "src_page_report_006_rfc_8446_0155",
+          "textHash": "sha256_ef6905247f2cd4ef23300bd6bb542c55",
+          "textQuote": "RFC 8446 TLS August 2018 Anil Gangolli anil@busybuddha.org David M. Garrett dave@nulldereference.com Illya Gerasymchuk Independent illya@iluxonchik.me Alessandro Ghedini Cloudflare Inc. alessandro@cloudflare.com Daniel K"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Anil Gangolli anil @ busybuddha . org David M . Garrett",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.863,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0156",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0156"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0156",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Marko Horvat MPI-SWS mhorvat@mpi-sws.org Jonathan Hoyland Royal Holloway, University of London jonathan.hoyland@gmail.com Subodh Iyengar Facebook subodh@fb.com Benjamin Kaduk Akamai Technologies kaduk@mit.edu Hubert Kario Red Hat Inc. hkario@redhat.com Phil Karlton (co-author of SSL 3.0) Leon Klingele Independent mail@leonklingele.de",
+          "headingPath": [],
+          "order": 155,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0156",
+          "sourceRefId": "src_page_report_006_rfc_8446_0156",
+          "textHash": "sha256_231dd65768c785a08518008ad9279b8f",
+          "textQuote": "RFC 8446 TLS August 2018 Marko Horvat MPI-SWS mhorvat@mpi-sws.org Jonathan Hoyland Royal Holloway, University of London jonathan.hoyland@gmail.com Subodh Iyengar Facebook subodh@fb.com Benjamin Kaduk Akamai Technologies "
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Marko Horvat MPI - SWS mhorvat @ mpi - sws .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.862,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0124",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0124"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0124",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 B.3 . Handshake Protocol enum { hello_request_RESERVED(0), client_hello(1), server_hello(2), hello_verify_request_RESERVED(3), new_session_ticket(4), end_of_early_data(5), hello_retry_request_RESERVED(6), encrypted_extensions(8), certificate(11), server_key_exchange_RESERVED(12), certificate_request(13), server_hello_done_RESERVED(14",
+          "headingPath": [],
+          "order": 123,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0124",
+          "sourceRefId": "src_page_report_006_rfc_8446_0124",
+          "textHash": "sha256_b258e9790fce33d1fd14459e1aa14256",
+          "textQuote": "RFC 8446 TLS August 2018 B.3 . Handshake Protocol enum { hello_request_RESERVED(0), client_hello(1), server_hello(2), hello_verify_request_RESERVED(3), new_session_ticket(4), end_of_early_data(5), hello_retry_request_RES"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 B . 3 . Handshake Protocol enum { hello_request_RESERVED ( 0",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.862,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0159",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0159"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0159",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Sam Scott Royal Holloway, University of London me@samjs.co.uk Thomas Shrimpton University of Florida teshrim@ufl.edu Dan Simon Microsoft, Inc. dansimon@microsoft.com Brian Smith Independent brian@briansmith.org Brian Sniffen Akamai Technologies ietf@bts.evenmere.org Nick Sullivan Cloudflare Inc. nick@cloudflare.com Bjoern Tackmann Un",
+          "headingPath": [],
+          "order": 158,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0159",
+          "sourceRefId": "src_page_report_006_rfc_8446_0159",
+          "textHash": "sha256_19596fbaa78a41b20a40c40fce1d5f84",
+          "textQuote": "RFC 8446 TLS August 2018 Sam Scott Royal Holloway, University of London me@samjs.co.uk Thomas Shrimpton University of Florida teshrim@ufl.edu Dan Simon Microsoft, Inc. dansimon@microsoft.com Brian Smith Independent brian"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Sam Scott Royal Holloway , University of London me @ samjs",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.858,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0024",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_report_006_rfc_8446_0024"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0024"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0024",
+          "blockType": "code",
+          "chunkId": "ck_page_report_006_rfc_8446_0024",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 For example: enum { apple(0), orange(1) } VariantTag; struct { uint16 number; opaque string<0..10>; /* variable length */ } V1; struct { uint32 number; opaque string[10]; /* fixed length */ } V2; struct { VariantTag type; select (VariantRecord.type) { case apple: V1; case orange: V2; }; } VariantRecord; 4 . Handshake Protocol The han",
+          "headingPath": [],
+          "order": 23,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0024",
+          "sourceRefId": "src_page_report_006_rfc_8446_0024",
+          "textHash": "sha256_d0b85007d8d8a29ec58e1d5dfcc34779",
+          "textQuote": "RFC 8446 TLS August 2018 For example: enum { apple(0), orange(1) } VariantTag; struct { uint16 number; opaque string<0..10>; /* variable length */ } V1; struct { uint32 number; opaque string[10]; /* fixed length */ } V2;"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 For example : enum { apple ( 0 ) , orange",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.857,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0119",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0119"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0119",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 [ RSA ] Rivest, R., Shamir, A., and L. Adleman, \"A Method for Obtaining Digital Signatures and Public-Key Cryptosystems\", Communications of the ACM, Vol. 21 No. 2, pp. 120-126, DOI 10.1145/359340.359342, February 1978. [ SIGMA ] Krawczyk, H., \"SIGMA: The 'SIGn-and-MAc' Approach to Authenticated Diffie-Hellman and its Use in the IKE P",
+          "headingPath": [],
+          "order": 118,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0119",
+          "sourceRefId": "src_page_report_006_rfc_8446_0119",
+          "textHash": "sha256_78481f9af3cfbe6d7a06c2515e3986a4",
+          "textQuote": "RFC 8446 TLS August 2018 [ RSA ] Rivest, R., Shamir, A., and L. Adleman, \"A Method for Obtaining Digital Signatures and Public-Key Cryptosystems\", Communications of the ACM, Vol. 21 No. 2, pp. 120-126, DOI 10.1145/359340"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 [ RSA ] Rivest , R . , Shamir , A",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0122",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0122"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0122",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Appendix B . Protocol Data Structures and Constant Values This appendix provides the normative protocol types and the definitions for constants. Values listed as \"_RESERVED\" were used in previous versions of TLS and are listed here for completeness. TLS 1.3 implementations MUST NOT send them but might receive them from older TLS impl",
+          "headingPath": [],
+          "order": 121,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0122",
+          "sourceRefId": "src_page_report_006_rfc_8446_0122",
+          "textHash": "sha256_3e2b002d71609067d4b8dc813231511c",
+          "textQuote": "RFC 8446 TLS August 2018 Appendix B . Protocol Data Structures and Constant Values This appendix provides the normative protocol types and the definitions for constants. Values listed as \"_RESERVED\" were used in previous"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Appendix B . Protocol Data Structures and Constant Values This appendix",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.849,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0153",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0153"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0153",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Contributors Martin Abadi University of California, Santa Cruz abadi@cs.ucsc.edu Christopher Allen (co-editor of TLS 1.0) Alacrity Ventures ChristopherA@AlacrityManagement.com Richard Barnes Cisco rlb@ipv.sx Steven M. Bellovin Columbia University smb@cs.columbia.edu David Benjamin Google davidben@google.com Benjamin Beurdouche INRIA ",
+          "headingPath": [],
+          "order": 152,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0153",
+          "sourceRefId": "src_page_report_006_rfc_8446_0153",
+          "textHash": "sha256_d5e940b03a6541b7052d94241b57284c",
+          "textQuote": "RFC 8446 TLS August 2018 Contributors Martin Abadi University of California, Santa Cruz abadi@cs.ucsc.edu Christopher Allen (co-editor of TLS 1.0) Alacrity Ventures ChristopherA@AlacrityManagement.com Richard Barnes Cisc"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Contributors Martin Abadi University of California , Santa Cruz abadi @",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0158",
+      "kind": "code_fact",
+      "relatedChunkIds": [],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0158"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0158",
+          "blockType": "code",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 Kenny Paterson Royal Holloway, University of London kenny.paterson@rhul.ac.uk Christopher Patton University of Florida cjpatton@ufl.edu Alfredo Pironti (co-author of [ RFC7627 ]) INRIA alfredo.pironti@inria.fr Andrei Popov Microsoft andrei.popov@microsoft.com Marsh Ray (co-author of [ RFC7627 ]) Microsoft maray@microsoft.com Robert R",
+          "headingPath": [],
+          "order": 157,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0158",
+          "sourceRefId": "src_page_report_006_rfc_8446_0158",
+          "textHash": "sha256_babdf03a7f00522c202f94a2c0ab2ad2",
+          "textQuote": "RFC 8446 TLS August 2018 Kenny Paterson Royal Holloway, University of London kenny.paterson@rhul.ac.uk Christopher Patton University of Florida cjpatton@ufl.edu Alfredo Pironti (co-author of [ RFC7627 ]) INRIA alfredo.pi"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 Kenny Paterson Royal Holloway , University of London kenny . paterson",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0010",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_report_006_rfc_8446_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0010"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0010",
+          "blockType": "code",
+          "chunkId": "ck_page_report_006_rfc_8446_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 2 . Protocol Overview The cryptographic parameters used by the secure channel are produced by the TLS handshake protocol. This sub-protocol of TLS is used by the client and server when first communicating with each other. The handshake protocol allows peers to negotiate a protocol version, select cryptographic algorithms, optionally ",
+          "headingPath": [],
+          "order": 9,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0010",
+          "sourceRefId": "src_page_report_006_rfc_8446_0010",
+          "textHash": "sha256_06777c4c24cadb58c0384d5ea3405373",
+          "textQuote": "RFC 8446 TLS August 2018 2 . Protocol Overview The cryptographic parameters used by the secure channel are produced by the TLS handshake protocol. This sub-protocol of TLS is used by the client and server when first comm"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 2 . Protocol Overview The cryptographic parameters used by the secure",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_report_006_rfc_8446_0035",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_report_006_rfc_8446_0035"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_report_006_rfc_8446_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_report_006_rfc_8446_0035",
+          "blockType": "code",
+          "chunkId": "ck_page_report_006_rfc_8446_0035",
+          "confidence": 0.92,
+          "contentHash": "sha256_86ffc1379d41bf4cf9cc6d6fb36e0033f5bda2c1868d4be1447840aed47f2c57",
+          "fallbackText": "RFC 8446 TLS August 2018 4.2 . Extensions A number of TLS messages contain tag-length-value encoded extensions structures. struct { ExtensionType extension_type; opaque extension_data<0..2^16-1>; } Extension; enum { server_name(0), /* RFC 6066 */ max_fragment_length(1), /* RFC 6066 */ status_request(5), /* RFC 6066 */ supported_groups(10), /* RFC 8422 , 7919",
+          "headingPath": [],
+          "order": 34,
+          "pageId": "page_report_006_rfc_8446",
+          "paragraphId": "pg_page_report_006_rfc_8446_0035",
+          "sourceRefId": "src_page_report_006_rfc_8446_0035",
+          "textHash": "sha256_ce2c4d13b5061a3ce71add706583f635",
+          "textQuote": "RFC 8446 TLS August 2018 4.2 . Extensions A number of TLS messages contain tag-length-value encoded extensions structures. struct { ExtensionType extension_type; opaque extension_data<0..2^16-1>; } Extension; enum { serv"
+        }
+      ],
+      "text": "RFC 8446 TLS August 2018 4 . 2 . Extensions A number of TLS messages contain",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_report_006_rfc_8446",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.006,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "RFC 8446 TLS August 2018 B . 2 . Alert Messages enum { warning ( 1",
+      "RFC 8446 TLS August 2018 enum { warning ( 1 ) , fatal ( 2 )",
+      "RFC 8446 TLS August 2018 B . 3 . 1 . 4 . Supported Groups Extension",
+      "RFC 8446 TLS August 2018 B . 3 . 1 . 3 . Signature Algorithm Extension",
+      "RFC 8446 TLS August 2018 Filippo Valsorda Cloudflare Inc . filippo @ cloudflare . com Thyla"
+    ],
+    "tldr": "RFC 8446 TLS August 2018 B . 2 . Alert Messages enum { warning ( 1"
+  }
+}

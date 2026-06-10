@@ -18,27 +18,27 @@ Integration wires old entrypoints to module implementations.
 
 | Workpack | Owns | Primary directory | Stage gate |
 |---|---|---|---|
-| A Page Reading | Extract, clean, annotate, chunk, and summarize page facts | `services/local-runtime/navia_runtime/modules/page_reading/` | `docs/navia_v1_project_docs/stage-gates/v1.2-a-page-reading.md` |
-| B Renderer | Render SSE, structured summaries, artifacts, debug, and mindmaps | `apps/chrome-extension/src/modules/` | `docs/navia_v1_project_docs/stage-gates/v1.2-b-chat-renderer.md` |
-| C Mindmap | Generate Mermaid and source maps from structured page JSON | `services/local-runtime/navia_runtime/modules/mindmap/` | `docs/navia_v1_project_docs/stage-gates/v1.2-c-mindmap.md` |
-| D CoreProvider / Adapter | Adapt CoreProvider, enforce governance, map ToolResult/Artifact/Event/Trace | `services/local-runtime/navia_runtime/modules/agent_loop/`, `services/local-runtime/navia_runtime/modules/adapters/` | `docs/navia_v1_project_docs/stage-gates/v1.2-d-agentic-loop.md` |
-| Integration | Wire A/B/C/D to existing app/runtime entrypoints and run E2E | existing entrypoints listed in V1.2-E | `docs/navia_v1_project_docs/stage-gates/v1.2-e-integration.md` |
+| A Page Reading | Extract, clean, annotate, chunk, and summarize page facts | `services/local-runtime/navia_runtime/modules/page_reading/` | `docs/active/project/stage-gates/v1.2-a-page-reading.md` |
+| B Renderer | Render SSE, structured summaries, artifacts, debug, and mindmaps | `apps/chrome-extension/src/modules/` | `docs/active/project/stage-gates/v1.2-b-chat-renderer.md` |
+| C Mindmap | Generate Mermaid and source maps from structured page JSON | `services/local-runtime/navia_runtime/modules/mindmap/` | `docs/active/project/stage-gates/v1.2-c-mindmap.md` |
+| D CoreProvider / Adapter | Adapt CoreProvider, enforce governance, map ToolResult/Artifact/Event/Trace | `services/local-runtime/navia_runtime/modules/agent_loop/`, `services/local-runtime/navia_runtime/modules/adapters/` | `docs/active/project/stage-gates/v1.2-d-agentic-loop.md` |
+| Integration | Wire A/B/C/D to existing app/runtime entrypoints and run E2E | existing entrypoints listed in V1.2-E | `docs/active/project/stage-gates/v1.2-e-integration.md` |
 
 ## Required Reading Before Editing
 
 Read these first:
 
 ```text
-docs/navia_v1_project_docs/01-prd.md
-PRD/窗口交互_PRD.md
-docs/navia_v1_project_docs/design/v1.2-ai-reading-workspace-partition.md
-docs/navia_v1_project_docs/design/v1.2-integration-contract-matrix.md
-docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md
-docs/navia_v1_project_docs/AGENT_ONBOARDING.md
-docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md
+docs/active/project/01-prd.md
+docs/active/project/interaction-prd/窗口交互_PRD.md
+docs/active/project/design/v1.2-ai-reading-workspace-partition.md
+docs/active/project/design/v1.2-integration-contract-matrix.md
+docs/active/project/contracts/v1_2_adapter_contracts.md
+docs/active/project/AGENT_ONBOARDING.md
+docs/active/project/V1_2_AGENT_WORKPACKS.md
 ```
 
-Then read your module README and module-local docs.
+Then read the matching module package under `docs/active/modules/`. Implementation directories keep only code, fixtures, tests, and short README pointers.
 
 ## Hard Rules
 
@@ -67,6 +67,5 @@ Before handoff, add or update evidence in your module area and provide:
 Use:
 
 ```text
-docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md
+docs/active/project/MODULE_HANDOFF_TEMPLATE.md
 ```
-

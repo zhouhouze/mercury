@@ -1,0 +1,634 @@
+{
+  "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+  "digestId": "digest_page_code_004_py_re",
+  "items": [
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_code_004_py_re_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Regular expressions can be concatenated to form new regular expressions; if A and B are both regular expressions, then AB is also a regular expression. In general, if a string p matches A and another string q matches B , the string pq will match AB. This holds unless A or B contain low precedence operations; boundary conditions between A and B ; or have numb",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 30,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0031",
+          "sourceRefId": "src_page_code_004_py_re_0031",
+          "textHash": "sha256_e763a98e4419edc6278b320856a6a23f",
+          "textQuote": "Regular expressions can be concatenated to form new regular expressions; if A and B are both regular expressions, then AB is also a regular expression. In general, if a string p matches A and another string q matches B ,"
+        }
+      ],
+      "text": "Regular expressions can be concatenated to form new regular expressions ; if A and B are",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.858,
+      "itemId": "item_block_pg_page_code_004_py_re_0035",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Repetition operators or quantifiers ( * , + , ? , {m,n} , etc) cannot be directly nested. This avoids ambiguity with the non-greedy modifier suffix ? , and with other modifiers in other implementations. To apply a second repetition to an inner repetition, parentheses may be used. For example, the expression (?:a{6})* matches any multiple of six 'a' character",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 34,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0035",
+          "sourceRefId": "src_page_code_004_py_re_0035",
+          "textHash": "sha256_f58df6097188a9664c8d2fcf3de509d3",
+          "textQuote": "Repetition operators or quantifiers ( * , + , ? , {m,n} , etc) cannot be directly nested. This avoids ambiguity with the non-greedy modifier suffix ? , and with other modifiers in other implementations. To apply a second"
+        }
+      ],
+      "text": "Repetition operators or quantifiers ( * , + , ? , { m , n }",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.851,
+      "itemId": "item_block_pg_page_code_004_py_re_0060",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Support of nested sets and set operations as in Unicode Technical Standard #18 might be added in the future. This would change the syntax, so to facilitate this change a FutureWarning will be raised in ambiguous cases for the time being. That includes sets starting with a literal '[' or containing literal character sequences '--' , '&&' , '~~' , and '||' . T",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 59,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0060",
+          "sourceRefId": "src_page_code_004_py_re_0060",
+          "textHash": "sha256_450a8a9c86a35a95ac122a91aaf52a3a",
+          "textQuote": "Support of nested sets and set operations as in Unicode Technical Standard #18 might be added in the future. This would change the syntax, so to facilitate this change a FutureWarning will be raised in ambiguous cases fo"
+        }
+      ],
+      "text": "Support of nested sets and set operations as in Unicode Technical Standard # 18 might be",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_code_004_py_re_0062",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "A|B , where A and B can be arbitrary REs, creates a regular expression that will match either A or B . An arbitrary number of REs can be separated by the '|' in this way. This can be used inside groups (see below) as well. As the target string is scanned, REs separated by '|' are tried from left to right. When one pattern completely matches, that branch is a",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 61,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0062",
+          "sourceRefId": "src_page_code_004_py_re_0062",
+          "textHash": "sha256_7edc4fa9214f93a09ad97738cb0f9895",
+          "textQuote": "A|B , where A and B can be arbitrary REs, creates a regular expression that will match either A or B . An arbitrary number of REs can be separated by the '|' in this way. This can be used inside groups (see below) as wel"
+        }
+      ],
+      "text": "A | B , where A and B can be arbitrary REs , creates a regular",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_code_004_py_re_0028",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0028"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0028",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "It is important to note that most regular expression operations are available as module-level functions and methods on compiled regular expressions . The functions are shortcuts that don’t require you to compile a regex object first, but miss some fine-tuning parameters.",
+          "headingPath": [
+            "re — Regular expression operations ¶"
+          ],
+          "order": 27,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0028",
+          "sourceRefId": "src_page_code_004_py_re_0028",
+          "textHash": "sha256_d393196483611490f14fa04029359a12",
+          "textQuote": "It is important to note that most regular expression operations are available as module-level functions and methods on compiled regular expressions . The functions are shortcuts that don’t require you to compile a regex "
+        }
+      ],
+      "text": "It is important to note that most regular expression operations are available as module - level",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_code_004_py_re_0033",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Regular expressions can contain both special and ordinary characters. Most ordinary characters, like 'A' , 'a' , or '0' , are the simplest regular expressions; they simply match themselves. You can concatenate ordinary characters, so last matches the string 'last' . (In the rest of this section, we’ll write RE’s in this special style , usually without quotes",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 32,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0033",
+          "sourceRefId": "src_page_code_004_py_re_0033",
+          "textHash": "sha256_38a2952a5f138f9a6aa34e3e077a58a1",
+          "textQuote": "Regular expressions can contain both special and ordinary characters. Most ordinary characters, like 'A' , 'a' , or '0' , are the simplest regular expressions; they simply match themselves. You can concatenate ordinary c"
+        }
+      ],
+      "text": "Regular expressions can contain both special and ordinary characters . Most ordinary characters , like '",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_code_004_py_re_0112",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0112"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0112",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches the contents of the group of the same number. Groups are numbered starting from 1. For example, (.+) \\1 matches 'the the' or '55 55' , but not 'thethe' (note the space after the group). This special sequence can only be used to match one of the first 99 groups. If the first digit of number is 0, or number is 3 octal digits long, it will not be interp",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 111,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0112",
+          "sourceRefId": "src_page_code_004_py_re_0112",
+          "textHash": "sha256_d7621ceac52d06d87acb043d12b938bd",
+          "textQuote": "Matches the contents of the group of the same number. Groups are numbered starting from 1. For example, (.+) \\1 matches 'the the' or '55 55' , but not 'thethe' (note the space after the group). This special sequence can "
+        }
+      ],
+      "text": "Matches the contents of the group of the same number . Groups are numbered starting from",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_page_code_004_py_re_0103",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0103"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0103",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches if the current position in the string is preceded by a match for ... that ends at the current position. This is called a positive lookbehind assertion . (?<=abc)def will find a match in 'abcdef' , since the lookbehind will back up 3 characters and check if the contained pattern matches. The contained pattern must only match strings of some fixed leng",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 102,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0103",
+          "sourceRefId": "src_page_code_004_py_re_0103",
+          "textHash": "sha256_5f576bf98cb910391bc024e00472967a",
+          "textQuote": "Matches if the current position in the string is preceded by a match for ... that ends at the current position. This is called a positive lookbehind assertion . (?<=abc)def will find a match in 'abcdef' , since the lookb"
+        }
+      ],
+      "text": "Matches if the current position in the string is preceded by a match for . .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_code_004_py_re_0124",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0124"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0124",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches Unicode whitespace characters (as defined by str.isspace() ). This includes [ \\t\\n\\r\\f\\v] , and also many other characters, for example the non-breaking spaces mandated by typography rules in many languages.",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 123,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0124",
+          "sourceRefId": "src_page_code_004_py_re_0124",
+          "textHash": "sha256_f8ae442658bc44eca1ae6cc399f57efd",
+          "textQuote": "Matches Unicode whitespace characters (as defined by str.isspace() ). This includes [ \\t\\n\\r\\f\\v] , and also many other characters, for example the non-breaking spaces mandated by typography rules in many languages."
+        }
+      ],
+      "text": "Matches Unicode whitespace characters ( as defined by str . isspace ( ) ) . This",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_code_004_py_re_0043",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0043"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "The '*' , '+' , and '?' quantifiers are all greedy ; they match as much text as possible. Sometimes this behaviour isn’t desired; if the RE <.*> is matched against '<a> b <c>' , it will match the entire string, and not just '<a>' . Adding ? after the quantifier makes it perform the match in non-greedy or minimal fashion; as few characters as possible will be",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 42,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0043",
+          "sourceRefId": "src_page_code_004_py_re_0043",
+          "textHash": "sha256_b3697c0473732896b0398ff177f0cfa2",
+          "textQuote": "The '*' , '+' , and '?' quantifiers are all greedy ; they match as much text as possible. Sometimes this behaviour isn’t desired; if the RE <.*> is matched against '<a> b <c>' , it will match the entire string, and not j"
+        }
+      ],
+      "text": "The ' * ' , ' + ' , and ' ? ' quantifiers are all",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_code_004_py_re_0026",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0026"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0026",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Regular expressions use the backslash character ( '\\' ) to indicate special forms or to allow special characters to be used without invoking their special meaning. This collides with Python’s usage of the same character for the same purpose in string literals; for example, to match a literal backslash, one might have to write '\\\\\\\\' as the pattern string, be",
+          "headingPath": [
+            "re — Regular expression operations ¶"
+          ],
+          "order": 25,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0026",
+          "sourceRefId": "src_page_code_004_py_re_0026",
+          "textHash": "sha256_d5c15c516db06a92498dcc0397effa1e",
+          "textQuote": "Regular expressions use the backslash character ( '\\' ) to indicate special forms or to allow special characters to be used without invoking their special meaning. This collides with Python’s usage of the same character "
+        }
+      ],
+      "text": "Regular expressions use the backslash character ( ' \\ ' ) to indicate special forms or",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_code_004_py_re_0108",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0108"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0108",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches if the current position in the string is not preceded by a match for ... . This is called a negative lookbehind assertion . Similar to positive lookbehind assertions, the contained pattern must only match strings of some fixed length. Patterns which start with negative lookbehind assertions may match at the beginning of the string being searched.",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 107,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0108",
+          "sourceRefId": "src_page_code_004_py_re_0108",
+          "textHash": "sha256_f490225302b6b8bb913d937d00e6b529",
+          "textQuote": "Matches if the current position in the string is not preceded by a match for ... . This is called a negative lookbehind assertion . Similar to positive lookbehind assertions, the contained pattern must only match strings"
+        }
+      ],
+      "text": "Matches if the current position in the string is not preceded by a match for .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_code_004_py_re_0047",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible. For example, a{3,5} will match from 3 to 5 'a' characters. Omitting m specifies a lower bound of zero, and omitting n specifies an infinite upper bound. As an example, a{4,}b will match 'aaaab' or a thousand 'a' characters follow",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 46,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0047",
+          "sourceRefId": "src_page_code_004_py_re_0047",
+          "textHash": "sha256_0662998e031538a0012193098236c13e",
+          "textQuote": "Causes the resulting RE to match from m to n repetitions of the preceding RE, attempting to match as many repetitions as possible. For example, a{3,5} will match from 3 to 5 'a' characters. Omitting m specifies a lower b"
+        }
+      ],
+      "text": "Causes the resulting RE to match from m to n repetitions of the preceding RE ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_code_004_py_re_0126",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0126"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0126",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches characters considered whitespace in the ASCII character set; this is equivalent to [ \\t\\n\\r\\f\\v] .",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 125,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0126",
+          "sourceRefId": "src_page_code_004_py_re_0126",
+          "textHash": "sha256_fd18d237dc5c5a8cb9928852ccef59a1",
+          "textQuote": "Matches characters considered whitespace in the ASCII character set; this is equivalent to [ \\t\\n\\r\\f\\v] ."
+        }
+      ],
+      "text": "Matches characters considered whitespace in the ASCII character set ; this is equivalent to [ \\",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_code_004_py_re_0063",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0063"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0063",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches whatever regular expression is inside the parentheses, and indicates the start and end of a group; the contents of a group can be retrieved after a match has been performed, and can be matched later in the string with the \\number special sequence, described below. To match the literals '(' or ')' , use \\( or \\) , or enclose them inside a character cl",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 62,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0063",
+          "sourceRefId": "src_page_code_004_py_re_0063",
+          "textHash": "sha256_6769b106ce1be0b21ace6ed63e4ae6a3",
+          "textQuote": "Matches whatever regular expression is inside the parentheses, and indicates the start and end of a group; the contents of a group can be retrieved after a match has been performed, and can be matched later in the string"
+        }
+      ],
+      "text": "Matches whatever regular expression is inside the parentheses , and indicates the start and end of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_code_004_py_re_0089",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Named groups can be referenced in three contexts. If the pattern is (?P<quote>['\"]).*?(?P=quote) (i.e. matching a string quoted with either single or double quotes):",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 88,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0089",
+          "sourceRefId": "src_page_code_004_py_re_0089",
+          "textHash": "sha256_8b4abc20b8a9c0b3479806e45744edfc",
+          "textQuote": "Named groups can be referenced in three contexts. If the pattern is (?P<quote>['\"]).*?(?P=quote) (i.e. matching a string quoted with either single or double quotes):"
+        }
+      ],
+      "text": "Named groups can be referenced in three contexts . If the pattern is ( ? P",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_code_004_py_re_0117",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0117"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0117",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "Matches the empty string, but only when it is not at the beginning or end of a word. This means that r'at\\B' matches 'athens' , 'atom' , 'attorney' , but not 'at' , 'at.' , or 'at!' . \\B is the opposite of \\b , so word characters in Unicode (str) patterns are Unicode alphanumerics or the underscore, although this can be changed by using the ASCII flag. Word ",
+          "headingPath": [
+            "re — Regular expression operations ¶",
+            "Regular Expression Syntax ¶"
+          ],
+          "order": 116,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0117",
+          "sourceRefId": "src_page_code_004_py_re_0117",
+          "textHash": "sha256_809209ce0f10e0f59f97b5f1d7f0da23",
+          "textQuote": "Matches the empty string, but only when it is not at the beginning or end of a word. This means that r'at\\B' matches 'athens' , 'atom' , 'attorney' , but not 'at' , 'at.' , or 'at!' . \\B is the opposite of \\b , so word c"
+        }
+      ],
+      "text": "Matches the empty string , but only when it is not at the beginning or end",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_code_004_py_re_0029",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_code_004_py_re_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_code_004_py_re_0029"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_code_004_py_re_0029",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_code_004_py_re_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_495ff312528aa51b414be9aaaea25b59289b3c92abcbe42d25547c9b6e48b0de",
+          "fallbackText": "The third-party regex module, which has an API compatible with the standard library re module, but offers additional functionality and a more thorough Unicode support.",
+          "headingPath": [
+            "re — Regular expression operations ¶"
+          ],
+          "order": 28,
+          "pageId": "page_code_004_py_re",
+          "paragraphId": "pg_page_code_004_py_re_0029",
+          "sourceRefId": "src_page_code_004_py_re_0029",
+          "textHash": "sha256_7ba6c66646f6d6edc494b742c3b6936e",
+          "textQuote": "The third-party regex module, which has an API compatible with the standard library re module, but offers additional functionality and a more thorough Unicode support."
+        }
+      ],
+      "text": "The third - party regex module , which has an API compatible with the standard library",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_code_004_py_re",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.059,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Regular expressions can be concatenated to form new regular expressions ; if A and B are",
+      "Repetition operators or quantifiers ( * , + , ? , { m , n }",
+      "Support of nested sets and set operations as in Unicode Technical Standard # 18 might be",
+      "A | B , where A and B can be arbitrary REs , creates a regular",
+      "It is important to note that most regular expression operations are available as module - level"
+    ],
+    "tldr": "Regular expressions can be concatenated to form new regular expressions ; if A and B are"
+  }
+}

@@ -1,65 +1,9 @@
-# C Mindmap Service Module
+# Mindmap Module
 
-Owner: C module Agent.
-
-## Responsibility
-
-Generate traceable Mermaid mindmaps from A module structured page facts:
-
-- consume `StructuredPageContext`.
-- choose bounded headings/chunks/paragraphs.
-- generate Mermaid source.
-- validate Mermaid.
-- repair at most once.
-- produce `MindmapNodeSourceMap`.
-
-## Inputs
-
-- `StructuredPageContext`
-- paragraph annotations.
-- chunks and heading tree.
-
-## Outputs
-
-- mindmap artifact content.
-- `metadata.format="mermaid"`.
-- `metadata.nodeSourceMap`.
-- `sourcePageId`, `sourceChunkIds`, `paragraphIds`.
-
-## Allowed Files
+Active development documents live in:
 
 ```text
-services/local-runtime/navia_runtime/modules/mindmap/
-docs/navia_v1_project_docs/stage-gates/v1.2-c-mindmap.md
+docs/active/modules/runtime/mindmap/
 ```
 
-## Forbidden Files
-
-- A page extraction logic.
-- B renderer modules.
-- D CoreProvider/adapters modules.
-- existing Runtime entrypoints such as `tools.py`.
-- public artifact schema unless V1.2-0 is reopened.
-
-## Required Docs Before Coding
-
-```text
-docs/navia_v1_project_docs/V1_2_AGENT_WORKPACKS.md
-docs/navia_v1_project_docs/contracts/v1_2_adapter_contracts.md
-docs/navia_v1_project_docs/design/v1.2-integration-contract-matrix.md
-docs/navia_v1_project_docs/stage-gates/v1.2-c-mindmap.md
-docs/public-api.md
-docs/executable-contract.md
-docs/fixture-spec.md
-docs/test-and-evidence-plan.md
-```
-
-## Validation Evidence
-
-- Mermaid output from real page fixtures.
-- validation result recorded in evidence.
-- repair count is `0` or `1`.
-- primary nodes trace to paragraph/chunk IDs.
-- source fallback is possible even when DOM jump-back fails.
-
-Use `docs/navia_v1_project_docs/MODULE_HANDOFF_TEMPLATE.md` for handoff.
+This directory should contain implementation code, fixtures, runtime adapters, and tests only.

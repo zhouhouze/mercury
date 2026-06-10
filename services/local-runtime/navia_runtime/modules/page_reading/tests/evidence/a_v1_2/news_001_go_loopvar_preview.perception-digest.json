@@ -1,0 +1,628 @@
+{
+  "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+  "digestId": "digest_page_news_001_go_loopvar_preview",
+  "items": [
+    {
+      "confidence": 0.844,
+      "importance": 0.882,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0062",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0062"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0062",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Go",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "More Information"
+          ],
+          "order": 61,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0062",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0062",
+          "textHash": "sha256_1ed2bf4d46b55728feb10a1540923e54",
+          "textQuote": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About"
+        }
+      ],
+      "text": "Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why",
+      "warnings": []
+    },
+    {
+      "confidence": 0.84,
+      "importance": 0.871,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0041",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0041"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0041",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false negatives and false positives. The loopclosure analyzer used by go vet and gopls opts for false negatives, only reporting when it is sure there is a problem but missing others. Othe",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 40,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0041",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0041",
+          "textHash": "sha256_52c79c4047ec27d11038f340c33f1a33",
+          "textQuote": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false negatives and false positives. The loopcl"
+        }
+      ],
+      "text": "Tools have been written to identify these mistakes , but it is hard to analyze whether",
+      "warnings": []
+    },
+    {
+      "confidence": 0.836,
+      "importance": 0.863,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0050",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0050"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0050",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a particular package. As a consequence of our forward compatibility work , Go 1.21 will not attempt to compile code that declares go 1.22 or later. We included a special case with the sam",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Fix"
+          ],
+          "order": 49,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0050",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0050",
+          "textHash": "sha256_3542860db4451b6d69104fe9d1e6d986",
+          "textQuote": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a particular package. As a consequence of our f"
+        }
+      ],
+      "text": "Old code will continue to mean exactly what it means today : the fix only applies",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.853,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0038",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0038"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop variable was spread across multiple functions and much more difficult to notice:",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 37,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0038",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0038",
+          "textHash": "sha256_fd9d61aeed2b96abd777b75240c0337d",
+          "textQuote": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop variable was spread across multiple func"
+        }
+      ],
+      "text": "This kind of mistake has caused production problems at many companies , including a publicly documented",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.839,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0048",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no longer buggy Go programs; it will end the production problems caused by such mistakes; and it will remove the need for imprecise tools that prompt users to make unnecessary changes t",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Fix"
+          ],
+          "order": 47,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0048",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0048",
+          "textHash": "sha256_8d6d658619ce6b18ba386ed90a2db07a",
+          "textQuote": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no longer buggy Go programs; it will end the "
+        }
+      ],
+      "text": "For Go 1 . 22 , we plan to change for loops to make these variables",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0049",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This per-module decision provides developer control of a gradual update to the new semantics throughout a codebase. It is also possible to use //go:build lines to control the decision on",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Fix"
+          ],
+          "order": 48,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0049",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0049",
+          "textHash": "sha256_30271bc5b8c5f3f322c2cc27388a2c34",
+          "textQuote": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This per-module decision provides developer co"
+        }
+      ],
+      "text": "To ensure backwards compatibility with existing code , the new semantics will only apply in packages",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0059",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0059"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0059",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "If you run into other problems, the FAQ has links to examples and details about using a tool we’ve written to identify which specific loop is causing a test failure when the new semantics are applied.",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "Fixing Buggy Tests"
+          ],
+          "order": 58,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0059",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0059",
+          "textHash": "sha256_e2205b618daa839e880544fb095cdc6d",
+          "textQuote": "If you run into other problems, the FAQ has links to examples and details about using a tool we’ve written to identify which specific loop is causing a test failure when the new semantics are applied."
+        }
+      ],
+      "text": "If you run into other problems , the FAQ has links to examples and details about",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0039",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0039",
+          "blockType": "code",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "// authz2ModelMapToPB converts a mapping of domain name to authz2Models into a // protobuf authorizations map func authz2ModelMapToPB(m map[string]authz2Model) (*sapb.Authorizations, error) { resp := &sapb.Authorizations{} for k, v := range m { // Make a copy of k because it will be reassigned with each loop. kCopy := k authzPB, err := modelToAuthzPB(&v) if ",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 38,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0039",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0039",
+          "textHash": "sha256_b6799c2dfd148927f5c36972b67aed10",
+          "textQuote": "// authz2ModelMapToPB converts a mapping of domain name to authz2Models into a // protobuf authorizations map func authz2ModelMapToPB(m map[string]authz2Model) (*sapb.Authorizations, error) { resp := &sapb.Authorizations"
+        }
+      ],
+      "text": "/ / authz2ModelMapToPB converts a mapping of domain name to authz2Models into a / / protobuf",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0036",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0036"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0036",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Although concurrency is often involved, it need not be. This example has the same problem but no goroutines:",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 35,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0036",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0036",
+          "textHash": "sha256_737a8e55656c023036f8119052ffe6c4",
+          "textQuote": "Although concurrency is often involved, it need not be. This example has the same problem but no goroutines:"
+        }
+      ],
+      "text": "Although concurrency is often involved , it need not be . This example has the same",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0035",
+      "kind": "open_question",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 34,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0035",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0035",
+          "textHash": "sha256_63cc6083baedc866b4b0bc31018a910d",
+          "textQuote": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”"
+        }
+      ],
+      "text": "The Go FAQ entry “ What happens with closures running as goroutines ? ” , gives",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0032",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "If you’ve written any amount of Go code, you’ve probably made the mistake of keeping a reference to a loop variable past the end of its iteration, at which point it takes on a new value that you didn’t want. For example, consider this program:",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 31,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0032",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0032",
+          "textHash": "sha256_cbf4b8e7a38361d96fd98333c5abc186",
+          "textQuote": "If you’ve written any amount of Go code, you’ve probably made the mistake of keeping a reference to a loop variable past the end of its iteration, at which point it takes on a new value that you didn’t want. For example,"
+        }
+      ],
+      "text": "If you ’ ve written any amount of Go code , you ’ ve probably made",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0051",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0051"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0051",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignoring the go.mod go lines). For example, to check whether your tests still pass with the new loop semantics applied to your package and all your dependencies:",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "Previewing The Fix"
+          ],
+          "order": 50,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0051",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0051",
+          "textHash": "sha256_db911e89e5699b3633495f034cb1a16e",
+          "textQuote": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignoring the go.mod go lines). For example, t"
+        }
+      ],
+      "text": "Go 1 . 21 includes a preview of the scoping change . If you compile your",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0053",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems in production code.",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "Previewing The Fix"
+          ],
+          "order": 52,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0053",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0053",
+          "textHash": "sha256_2d1d6d0961b1488c91919222aa6e6c77",
+          "textQuote": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems in production code."
+        }
+      ],
+      "text": "We patched our internal Go toolchain at Google to force this mode during all builds at",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0042",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "One pair of examples we found was particularly illuminating:",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 41,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0042",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0042",
+          "textHash": "sha256_58de30a5807d62fcf1fcf621b3fbac54",
+          "textQuote": "One pair of examples we found was particularly illuminating:"
+        }
+      ],
+      "text": "One pair of examples we found was particularly illuminating :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0020",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0040",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0040"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0040",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "The author of this code clearly understood the general problem, because they made a copy of k , but it turns out modelToAuthzPB used pointers to fields in v when constructing its result, so the loop also needed to make a copy of v .",
+          "headingPath": [
+            "Fixing For Loops in Go 1.22",
+            "The Problem"
+          ],
+          "order": 39,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0040",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0040",
+          "textHash": "sha256_a94844b80016de364686c80d5ab1ad6d",
+          "textQuote": "The author of this code clearly understood the general problem, because they made a copy of k , but it turns out modelToAuthzPB used pointers to fields in v when constructing its result, so the loop also needed to make a"
+        }
+      ],
+      "text": "The author of this code clearly understood the general problem , because they made a copy",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0013",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.811,
+      "importance": 0.799,
+      "itemId": "item_block_pg_page_news_001_go_loopvar_preview_0009",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_news_001_go_loopvar_preview_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_news_001_go_loopvar_preview_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_news_001_go_loopvar_preview_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_news_001_go_loopvar_preview_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_d93f42437fc5451c38114cbd9c56183bb54f64c874259a3a25e6c6095b058cc5",
+          "fallbackText": "A complete introduction to building software with Go",
+          "headingPath": [],
+          "order": 8,
+          "pageId": "page_news_001_go_loopvar_preview",
+          "paragraphId": "pg_page_news_001_go_loopvar_preview_0009",
+          "sourceRefId": "src_page_news_001_go_loopvar_preview_0009",
+          "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+          "textQuote": "A complete introduction to building software with Go"
+        }
+      ],
+      "text": "A complete introduction to building software with Go",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_news_001_go_loopvar_preview",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.16,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why",
+      "Tools have been written to identify these mistakes , but it is hard to analyze whether",
+      "Old code will continue to mean exactly what it means today : the fix only applies",
+      "This kind of mistake has caused production problems at many companies , including a publicly documented",
+      "For Go 1 . 22 , we plan to change for loops to make these variables"
+    ],
+    "tldr": "Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why"
+  }
+}

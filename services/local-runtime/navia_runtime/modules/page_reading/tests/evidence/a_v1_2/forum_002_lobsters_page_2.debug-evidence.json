@@ -1,0 +1,3450 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_forum_002_lobsters_page_2"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_forum_002_lobsters_page_2"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_forum_002_lobsters_page_2"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_forum_002_lobsters_page_2"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_forum_002_lobsters_page_2"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 50,
+        "estimatedNoiseRatio": 0.04,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 3477,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 0.99,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_forum_002_lobsters_page_2",
+    "pageKey": "page_forum_002_lobsters_page_2",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+  "filteredEvidence": [
+    {
+      "blockId": "block_pg_page_forum_002_lobsters_page_2_0010",
+      "blockType": "list_item",
+      "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+      "noiseScore": 0.9,
+      "order": 9,
+      "pageId": "page_forum_002_lobsters_page_2",
+      "reason": "footer",
+      "regionType": "footer",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_forum_002_lobsters_page_2_0010",
+          "blockType": "list_item",
+          "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+          "fallbackText": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches",
+          "headingPath": [],
+          "order": 9,
+          "pageId": "page_forum_002_lobsters_page_2",
+          "paragraphId": "pg_page_forum_002_lobsters_page_2_0010",
+          "sourceRefId": "src_page_forum_002_lobsters_page_2_0010",
+          "textHash": "sha256_e5083f797ce97253c2ce0a4a08b5119e",
+          "textQuote": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches"
+        }
+      ],
+      "textHash": "sha256_e5083f797ce97253c2ce0a4a08b5119e",
+      "textQuote": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches"
+    },
+    {
+      "blockId": "block_pg_page_forum_002_lobsters_page_2_0022",
+      "blockType": "list_item",
+      "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+      "noiseScore": 0.9,
+      "order": 21,
+      "pageId": "page_forum_002_lobsters_page_2",
+      "reason": "comment",
+      "regionType": "comment",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_forum_002_lobsters_page_2_0022",
+          "blockType": "list_item",
+          "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+          "fallbackText": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27",
+          "headingPath": [],
+          "order": 21,
+          "pageId": "page_forum_002_lobsters_page_2",
+          "paragraphId": "pg_page_forum_002_lobsters_page_2_0022",
+          "sourceRefId": "src_page_forum_002_lobsters_page_2_0022",
+          "textHash": "sha256_e69caf8b405ec7fb4a992f356eccf1b1",
+          "textQuote": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27"
+        }
+      ],
+      "textHash": "sha256_e69caf8b405ec7fb4a992f356eccf1b1",
+      "textQuote": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27"
+    }
+  ],
+  "highSignalPage": {
+    "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+    "digestRef": "digest_page_forum_002_lobsters_page_2",
+    "filteredBlocks": [
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0010",
+        "blockType": "list_item",
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "noiseScore": 0.9,
+        "order": 9,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "reason": "footer",
+        "regionType": "footer",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0010",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches",
+            "headingPath": [],
+            "order": 9,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0010",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0010",
+            "textHash": "sha256_e5083f797ce97253c2ce0a4a08b5119e",
+            "textQuote": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches"
+          }
+        ],
+        "textHash": "sha256_e5083f797ce97253c2ce0a4a08b5119e",
+        "textQuote": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0022",
+        "blockType": "list_item",
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "noiseScore": 0.9,
+        "order": 21,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "reason": "comment",
+        "regionType": "comment",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0022",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27",
+            "headingPath": [],
+            "order": 21,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0022",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0022",
+            "textHash": "sha256_e69caf8b405ec7fb4a992f356eccf1b1",
+            "textQuote": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27"
+          }
+        ],
+        "textHash": "sha256_e69caf8b405ec7fb4a992f356eccf1b1",
+        "textQuote": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27"
+      }
+    ],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: veqq avatar",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0001",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0001",
+            "textHash": "sha256_691d338ca6ed4884305d91a4b999e860",
+            "textQuote": "Image metadata: veqq avatar"
+          }
+        ],
+        "text": "Image metadata: veqq avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0002",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.818,
+        "contentDensityScore": 0.765,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.829,
+        "noiseScore": 0.12,
+        "order": 1,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0002"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0002",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0002",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0002",
+            "textHash": "sha256_b02ff5403215154e5ece8bb2a21ffcf3",
+            "textQuote": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches"
+          }
+        ],
+        "text": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0003",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.671,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.756,
+        "noiseScore": 0.18,
+        "order": 2,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0003"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0003",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: ashishb avatar",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0003",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0003",
+            "textHash": "sha256_f5f76ad66018228aaf3cb787b6860fdb",
+            "textQuote": "Image metadata: ashishb avatar"
+          }
+        ],
+        "text": "Image metadata: ashishb avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0004",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.814,
+        "contentDensityScore": 0.744,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.817,
+        "noiseScore": 0.12,
+        "order": 3,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0004"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0004",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0004",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0004",
+            "textHash": "sha256_37063b05ae8f07dd1ef8b667979eb5d0",
+            "textQuote": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches"
+          }
+        ],
+        "text": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0005",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 4,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0005"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0005",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: hawski avatar",
+            "headingPath": [],
+            "order": 4,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0005",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0005",
+            "textHash": "sha256_2a11d099d79387877b03aadff5698c17",
+            "textQuote": "Image metadata: hawski avatar"
+          }
+        ],
+        "text": "Image metadata: hawski avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0006",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.795,
+        "contentDensityScore": 0.659,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.77,
+        "noiseScore": 0.12,
+        "order": 5,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0006"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0006",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "12 zalloc: Use zig allocators in your c code c zig github.com/d-berg via hawski 16 hours ago | caches",
+            "headingPath": [],
+            "order": 5,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0006",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0006",
+            "textHash": "sha256_bba7f710038f20bd659d818492bf08d2",
+            "textQuote": "12 zalloc: Use zig allocators in your c code c zig github.com/d-berg via hawski 16 hours ago | caches"
+          }
+        ],
+        "text": "12 zalloc: Use zig allocators in your c code c zig github.com/d-berg via hawski 16 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0007",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 6,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0007"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0007",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: nickmonad avatar",
+            "headingPath": [],
+            "order": 6,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0007",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0007",
+            "textHash": "sha256_4437d6371cd222258675e797d42bf456",
+            "textQuote": "Image metadata: nickmonad avatar"
+          }
+        ],
+        "text": "Image metadata: nickmonad avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0008",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.811,
+        "contentDensityScore": 0.732,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.811,
+        "noiseScore": 0.12,
+        "order": 7,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0008"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0008",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches",
+            "headingPath": [],
+            "order": 7,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0008",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0008",
+            "textHash": "sha256_f1e6b5fa65540d772c27f3fd4a50550d",
+            "textQuote": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches"
+          }
+        ],
+        "text": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0009",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 8,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0009"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0009",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: achivetta avatar",
+            "headingPath": [],
+            "order": 8,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0009",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0009",
+            "textHash": "sha256_29aebed038a7b6b4d70cc9119983f328",
+            "textQuote": "Image metadata: achivetta avatar"
+          }
+        ],
+        "text": "Image metadata: achivetta avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0011",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 10,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0011"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0011",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: kamila avatar",
+            "headingPath": [],
+            "order": 10,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0011",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0011",
+            "textHash": "sha256_183ee44d70458a0c356a284c14ba3eb2",
+            "textQuote": "Image metadata: kamila avatar"
+          }
+        ],
+        "text": "Image metadata: kamila avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0012",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.798,
+        "contentDensityScore": 0.673,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.778,
+        "noiseScore": 0.12,
+        "order": 11,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0012"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0012",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "25 Gleam and the value of small video gleam youtube.com via kamila 29 hours ago | caches",
+            "headingPath": [],
+            "order": 11,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0012",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0012",
+            "textHash": "sha256_6678bb1fc2aafb5a76c8aef7fb75e46a",
+            "textQuote": "25 Gleam and the value of small video gleam youtube.com via kamila 29 hours ago | caches"
+          }
+        ],
+        "text": "25 Gleam and the value of small video gleam youtube.com via kamila 29 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0013",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 12,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0013"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0013",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: linkdd avatar",
+            "headingPath": [],
+            "order": 12,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0013",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0013",
+            "textHash": "sha256_445fea43036e7c662fc5b74b337f2c6a",
+            "textQuote": "Image metadata: linkdd avatar"
+          }
+        ],
+        "text": "Image metadata: linkdd avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0014",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.793,
+        "contentDensityScore": 0.648,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.764,
+        "noiseScore": 0.12,
+        "order": 13,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0014"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0014",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "17 The EU Open Source Strategy culture digital-strategy.ec.europa.eu via linkdd 15 hours ago | caches",
+            "headingPath": [],
+            "order": 13,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0014",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0014",
+            "textHash": "sha256_e8ac5d43f9e47a712877055910ae27db",
+            "textQuote": "17 The EU Open Source Strategy culture digital-strategy.ec.europa.eu via linkdd 15 hours ago | caches"
+          }
+        ],
+        "text": "17 The EU Open Source Strategy culture digital-strategy.ec.europa.eu via linkdd 15 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0015",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.784,
+        "contentDensityScore": 0.678,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.76,
+        "noiseScore": 0.18,
+        "order": 14,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0015"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0015",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: FedericoSchonborn avatar",
+            "headingPath": [],
+            "order": 14,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0015",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0015",
+            "textHash": "sha256_74e9f69a895d07b19f0668f6ff14b709",
+            "textQuote": "Image metadata: FedericoSchonborn avatar"
+          }
+        ],
+        "text": "Image metadata: FedericoSchonborn avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0016",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.801,
+        "contentDensityScore": 0.687,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.786,
+        "noiseScore": 0.12,
+        "order": 15,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0016"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0016",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches",
+            "headingPath": [],
+            "order": 15,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0016",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0016",
+            "textHash": "sha256_26405a21aa919c7c58aa2d5964d002f6",
+            "textQuote": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches"
+          }
+        ],
+        "text": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0017",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 16,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0017"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0017",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: meithecatte avatar",
+            "headingPath": [],
+            "order": 16,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0017",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0017",
+            "textHash": "sha256_2036b4184a44353aad6f1bfa0946d164",
+            "textQuote": "Image metadata: meithecatte avatar"
+          }
+        ],
+        "text": "Image metadata: meithecatte avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0018",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.812,
+        "contentDensityScore": 0.738,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.814,
+        "noiseScore": 0.12,
+        "order": 17,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0018"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0018",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches",
+            "headingPath": [],
+            "order": 17,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0018",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0018",
+            "textHash": "sha256_092878106370d0bb309e844a60f36109",
+            "textQuote": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches"
+          }
+        ],
+        "text": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0019",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 18,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0019"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0019",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: snej avatar",
+            "headingPath": [],
+            "order": 18,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0019",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0019",
+            "textHash": "sha256_72c4ad737bee6c2244663dcdd8a71e0c",
+            "textQuote": "Image metadata: snej avatar"
+          }
+        ],
+        "text": "Image metadata: snej avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0020",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.814,
+        "contentDensityScore": 0.744,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.817,
+        "noiseScore": 0.12,
+        "order": 19,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0020"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0020",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches",
+            "headingPath": [],
+            "order": 19,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0020",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0020",
+            "textHash": "sha256_8c2ec4360e031e9b77bbded40d523624",
+            "textQuote": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches"
+          }
+        ],
+        "text": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0021",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 20,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0021"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0021",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: Riolku avatar",
+            "headingPath": [],
+            "order": 20,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0021",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0021",
+            "textHash": "sha256_fea3e5f15f51bcf6a0abf617ac5a7e1e",
+            "textQuote": "Image metadata: Riolku avatar"
+          }
+        ],
+        "text": "Image metadata: Riolku avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0023",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 22,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0023"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0023",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: raymii avatar",
+            "headingPath": [],
+            "order": 22,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0023",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0023",
+            "textHash": "sha256_2aea855c73e15de03751b843cf52d813",
+            "textQuote": "Image metadata: raymii avatar"
+          }
+        ],
+        "text": "Image metadata: raymii avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0024",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.808,
+        "contentDensityScore": 0.717,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.802,
+        "noiseScore": 0.12,
+        "order": 23,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0024"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0024",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches",
+            "headingPath": [],
+            "order": 23,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0024",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0024",
+            "textHash": "sha256_0006467f5e4f97876954a114905f4d04",
+            "textQuote": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches"
+          }
+        ],
+        "text": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0025",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 24,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0025"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0025",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: spc476 avatar",
+            "headingPath": [],
+            "order": 24,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0025",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0025",
+            "textHash": "sha256_9a0e7ea3d9185b7a6f13dbf7d48fbe01",
+            "textQuote": "Image metadata: spc476 avatar"
+          }
+        ],
+        "text": "Image metadata: spc476 avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0026",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.803,
+        "contentDensityScore": 0.694,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.79,
+        "noiseScore": 0.12,
+        "order": 25,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0026"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0026",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches",
+            "headingPath": [],
+            "order": 25,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0026",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0026",
+            "textHash": "sha256_506dfe78466e7b6190e377cc1aef33f8",
+            "textQuote": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches"
+          }
+        ],
+        "text": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0027",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 26,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0027"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0027",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: mrunix avatar",
+            "headingPath": [],
+            "order": 26,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0027",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0027",
+            "textHash": "sha256_4293c1fbd9bff89a677a2779e0577410",
+            "textQuote": "Image metadata: mrunix avatar"
+          }
+        ],
+        "text": "Image metadata: mrunix avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0028",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.714,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.801,
+        "noiseScore": 0.12,
+        "order": 27,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0028"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0028",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches",
+            "headingPath": [],
+            "order": 27,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0028",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0028",
+            "textHash": "sha256_93c6e4ffb438677fda55ddbd50bb3118",
+            "textQuote": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches"
+          }
+        ],
+        "text": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0029",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 28,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0029"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0029",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: polywolf avatar",
+            "headingPath": [],
+            "order": 28,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0029",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0029",
+            "textHash": "sha256_5c31795386c908b67007cda83ac51071",
+            "textQuote": "Image metadata: polywolf avatar"
+          }
+        ],
+        "text": "Image metadata: polywolf avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0030",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.804,
+        "contentDensityScore": 0.698,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.792,
+        "noiseScore": 0.12,
+        "order": 29,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0030"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0030",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches",
+            "headingPath": [],
+            "order": 29,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0030",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0030",
+            "textHash": "sha256_50a83dfa123afa20e65a22e0f3cfa6de",
+            "textQuote": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches"
+          }
+        ],
+        "text": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0031",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 30,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0031"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0031",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: alemi avatar",
+            "headingPath": [],
+            "order": 30,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0031",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0031",
+            "textHash": "sha256_d167fbf04e63ce504bd2e6f745f2c6c8",
+            "textQuote": "Image metadata: alemi avatar"
+          }
+        ],
+        "text": "Image metadata: alemi avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0032",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.8,
+        "contentDensityScore": 0.682,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.783,
+        "noiseScore": 0.12,
+        "order": 31,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0032"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0032",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches",
+            "headingPath": [],
+            "order": 31,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0032",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0032",
+            "textHash": "sha256_3a6ed77a3f570d4512355c49b4bddbcf",
+            "textQuote": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches"
+          }
+        ],
+        "text": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0033",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.671,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.756,
+        "noiseScore": 0.18,
+        "order": 32,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0033"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0033",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: carlana avatar",
+            "headingPath": [],
+            "order": 32,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0033",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0033",
+            "textHash": "sha256_5ac7213520e3fe042af519c3075c388e",
+            "textQuote": "Image metadata: carlana avatar"
+          }
+        ],
+        "text": "Image metadata: carlana avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0034",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.804,
+        "contentDensityScore": 0.698,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.792,
+        "noiseScore": 0.12,
+        "order": 33,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0034"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0034",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches",
+            "headingPath": [],
+            "order": 33,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0034",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0034",
+            "textHash": "sha256_1e2768c4776d88c394bb982e94ff0ddc",
+            "textQuote": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches"
+          }
+        ],
+        "text": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0035",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 34,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0035"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0035",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: cohix avatar",
+            "headingPath": [],
+            "order": 34,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0035",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0035",
+            "textHash": "sha256_c122358b39e9a68adbcdeaf780b017bf",
+            "textQuote": "Image metadata: cohix avatar"
+          }
+        ],
+        "text": "Image metadata: cohix avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0036",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.807,
+        "contentDensityScore": 0.715,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.801,
+        "noiseScore": 0.12,
+        "order": 35,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0036"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0036",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches",
+            "headingPath": [],
+            "order": 35,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0036",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0036",
+            "textHash": "sha256_0335479b34b6453597c2aadfd28694da",
+            "textQuote": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches"
+          }
+        ],
+        "text": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0037",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.671,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.756,
+        "noiseScore": 0.18,
+        "order": 36,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0037"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0037",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: JordiGH avatar",
+            "headingPath": [],
+            "order": 36,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0037",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0037",
+            "textHash": "sha256_0969b1cb9dfc48852371cc058c28ef7d",
+            "textQuote": "Image metadata: JordiGH avatar"
+          }
+        ],
+        "text": "Image metadata: JordiGH avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0038",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.799,
+        "contentDensityScore": 0.677,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.78,
+        "noiseScore": 0.12,
+        "order": 37,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0038"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0038",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches",
+            "headingPath": [],
+            "order": 37,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0038",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0038",
+            "textHash": "sha256_a3210f2ce08dc2b2a1d2c3b28e219f68",
+            "textQuote": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches"
+          }
+        ],
+        "text": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0039",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 38,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0039"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0039",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: jmillikin avatar",
+            "headingPath": [],
+            "order": 38,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0039",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0039",
+            "textHash": "sha256_d8b639f861a200e95fb6a0b715d8d971",
+            "textQuote": "Image metadata: jmillikin avatar"
+          }
+        ],
+        "text": "Image metadata: jmillikin avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0040",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.798,
+        "contentDensityScore": 0.673,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.778,
+        "noiseScore": 0.12,
+        "order": 39,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0040"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0040",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "52 Winners of the 2025 International Obfuscated C Code Contest (IOCCC 29) c ioccc.org via jmillikin 42 hours ago | caches",
+            "headingPath": [],
+            "order": 39,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0040",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0040",
+            "textHash": "sha256_e683571d34b36227b059b5776b101486",
+            "textQuote": "52 Winners of the 2025 International Obfuscated C Code Contest (IOCCC 29) c ioccc.org via jmillikin 42 hours ago | caches"
+          }
+        ],
+        "text": "52 Winners of the 2025 International Obfuscated C Code Contest (IOCCC 29) c ioccc.org via jmillikin 42 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0041",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.674,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.758,
+        "noiseScore": 0.18,
+        "order": 40,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0041"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0041",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: crowdhailer avatar",
+            "headingPath": [],
+            "order": 40,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0041",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0041",
+            "textHash": "sha256_9a8b04cac21416fd136de49a37f54094",
+            "textQuote": "Image metadata: crowdhailer avatar"
+          }
+        ],
+        "text": "Image metadata: crowdhailer avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0042",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.794,
+        "contentDensityScore": 0.656,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.769,
+        "noiseScore": 0.12,
+        "order": 41,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0042"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0042",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "0 A programming language for humans programming vibecoding crowdhailer.me authored by crowdhailer 9 hours ago | caches",
+            "headingPath": [],
+            "order": 41,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0042",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0042",
+            "textHash": "sha256_f58bde1dc821ef8eee4ee24add7d064c",
+            "textQuote": "0 A programming language for humans programming vibecoding crowdhailer.me authored by crowdhailer 9 hours ago | caches"
+          }
+        ],
+        "text": "0 A programming language for humans programming vibecoding crowdhailer.me authored by crowdhailer 9 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0043",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.67,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 42,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0043"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0043",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: calvin avatar",
+            "headingPath": [],
+            "order": 42,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0043",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0043",
+            "textHash": "sha256_433fdf9682f28147ae5a5ce8d0353e6f",
+            "textQuote": "Image metadata: calvin avatar"
+          }
+        ],
+        "text": "Image metadata: calvin avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0044",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.81,
+        "contentDensityScore": 0.728,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.808,
+        "noiseScore": 0.12,
+        "order": 43,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0044"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0044",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches",
+            "headingPath": [],
+            "order": 43,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0044",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0044",
+            "textHash": "sha256_84f6f79d44cae192bcf3df09fed6326f",
+            "textQuote": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches"
+          }
+        ],
+        "text": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0045",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.784,
+        "contentDensityScore": 0.677,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.759,
+        "noiseScore": 0.18,
+        "order": 44,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0045"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0045",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: juliethefoxcoon avatar",
+            "headingPath": [],
+            "order": 44,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0045",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0045",
+            "textHash": "sha256_9b3485224064c3b385e1d3d80e5030f6",
+            "textQuote": "Image metadata: juliethefoxcoon avatar"
+          }
+        ],
+        "text": "Image metadata: juliethefoxcoon avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0046",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.804,
+        "contentDensityScore": 0.702,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.794,
+        "noiseScore": 0.12,
+        "order": 45,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0046"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0046",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches",
+            "headingPath": [],
+            "order": 45,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0046",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0046",
+            "textHash": "sha256_e0050dfd6fb12f6029fd7f7f49b7131f",
+            "textQuote": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches"
+          }
+        ],
+        "text": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0047",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.673,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 46,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0047"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0047",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: hongminhee avatar",
+            "headingPath": [],
+            "order": 46,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0047",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0047",
+            "textHash": "sha256_4b9ec9d050e8b37833f25c7c389c9977",
+            "textQuote": "Image metadata: hongminhee avatar"
+          }
+        ],
+        "text": "Image metadata: hongminhee avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0048",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.805,
+        "contentDensityScore": 0.706,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.796,
+        "noiseScore": 0.12,
+        "order": 47,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0048"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0048",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches",
+            "headingPath": [],
+            "order": 47,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0048",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0048",
+            "textHash": "sha256_230b5531ce268d5239a1ad03808072df",
+            "textQuote": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches"
+          }
+        ],
+        "text": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0049",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.669,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.755,
+        "noiseScore": 0.18,
+        "order": 48,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0049"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0049",
+            "blockType": "image",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "Image metadata: veqq avatar",
+            "headingPath": [],
+            "order": 48,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0049",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0049",
+            "textHash": "sha256_691d338ca6ed4884305d91a4b999e860",
+            "textQuote": "Image metadata: veqq avatar"
+          }
+        ],
+        "text": "Image metadata: veqq avatar",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0050",
+        "blockType": "list_item",
+        "chunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "confidence": 0.805,
+        "contentDensityScore": 0.705,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "importance": 0.796,
+        "noiseScore": 0.12,
+        "order": 49,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0050"
+        ],
+        "regionType": "section",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0050",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches",
+            "headingPath": [],
+            "order": 49,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0050",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0050",
+            "textHash": "sha256_09f7352f4310243d5a870640bed80af1",
+            "textQuote": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches"
+          }
+        ],
+        "text": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "search_result",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 50,
+      "wordCount": 720
+    },
+    "pageId": "page_forum_002_lobsters_page_2",
+    "qualityReportRef": "q_page_forum_002_lobsters_page_2",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_forum_002_lobsters_page_2",
+    "sourceMapRef": "smap_page_forum_002_lobsters_page_2",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+      "pageId": "page_forum_002_lobsters_page_2"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_forum_002_lobsters_page_2",
+  "perceptionDigest": {
+    "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+    "digestId": "digest_page_forum_002_lobsters_page_2",
+    "items": [
+      {
+        "confidence": 0.818,
+        "importance": 0.829,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0002",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0002",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0002",
+            "textHash": "sha256_b02ff5403215154e5ece8bb2a21ffcf3",
+            "textQuote": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches"
+          }
+        ],
+        "text": "0 𝜇 ⁢ 𝜆 ⁢ ϵ ⁢ 𝛿 - Calculus : Self Optimizing Language that Seems",
+        "warnings": []
+      },
+      {
+        "confidence": 0.814,
+        "importance": 0.817,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0004",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0004",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0004",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0004",
+            "textHash": "sha256_37063b05ae8f07dd1ef8b667979eb5d0",
+            "textQuote": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches"
+          }
+        ],
+        "text": "2 For the 2nd time in weeks , Microsoft packages laced with credential stealer security arstechnica",
+        "warnings": []
+      },
+      {
+        "confidence": 0.814,
+        "importance": 0.817,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0020",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0020"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0020",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches",
+            "headingPath": [],
+            "order": 19,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0020",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0020",
+            "textHash": "sha256_8c2ec4360e031e9b77bbded40d523624",
+            "textQuote": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches"
+          }
+        ],
+        "text": "4 Scientists finally complete Schrödinger ’ s 100 - year - old color theory graphics science",
+        "warnings": []
+      },
+      {
+        "confidence": 0.812,
+        "importance": 0.814,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0018",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0018"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0018",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches",
+            "headingPath": [],
+            "order": 17,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0018",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0018",
+            "textHash": "sha256_092878106370d0bb309e844a60f36109",
+            "textQuote": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches"
+          }
+        ],
+        "text": "2 More dirty coding tricks from game developers ( 2015 ) games historical gamedeveloper . com",
+        "warnings": []
+      },
+      {
+        "confidence": 0.811,
+        "importance": 0.811,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0008",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0008",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches",
+            "headingPath": [],
+            "order": 7,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0008",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0008",
+            "textHash": "sha256_f1e6b5fa65540d772c27f3fd4a50550d",
+            "textQuote": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches"
+          }
+        ],
+        "text": "66 The User Doesn ' t Care - But you should practices vibecoding lewiscampbell . tech",
+        "warnings": []
+      },
+      {
+        "confidence": 0.81,
+        "importance": 0.808,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0044",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0044"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0044",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches",
+            "headingPath": [],
+            "order": 43,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0044",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0044",
+            "textHash": "sha256_84f6f79d44cae192bcf3df09fed6326f",
+            "textQuote": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches"
+          }
+        ],
+        "text": "12 Making a game in Visual Studio from 1997 video games programming youtube . com via",
+        "warnings": []
+      },
+      {
+        "confidence": 0.808,
+        "importance": 0.802,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0024",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0024"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0024",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches",
+            "headingPath": [],
+            "order": 23,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0024",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0024",
+            "textHash": "sha256_0006467f5e4f97876954a114905f4d04",
+            "textQuote": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches"
+          }
+        ],
+        "text": "11 How to fix a laptop that reboots randomly hardware j11g . com via raymii 22",
+        "warnings": []
+      },
+      {
+        "confidence": 0.807,
+        "importance": 0.801,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0028",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0028"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0028",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches",
+            "headingPath": [],
+            "order": 27,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0028",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0028",
+            "textHash": "sha256_93c6e4ffb438677fda55ddbd50bb3118",
+            "textQuote": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches"
+          }
+        ],
+        "text": "3 AstralOS : Audio , USB , NsCDE and more osdev astral - os . org",
+        "warnings": []
+      },
+      {
+        "confidence": 0.807,
+        "importance": 0.801,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0036",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0036"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0036",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches",
+            "headingPath": [],
+            "order": 35,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0036",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0036",
+            "textHash": "sha256_0335479b34b6453597c2aadfd28694da",
+            "textQuote": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches"
+          }
+        ],
+        "text": "16 Dancing mad with sandboxing security vibecoding xeiaso . net via cohix 32 hours ago |",
+        "warnings": []
+      },
+      {
+        "confidence": 0.805,
+        "importance": 0.796,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0048",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0048"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0048",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches",
+            "headingPath": [],
+            "order": 47,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0048",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0048",
+            "textHash": "sha256_230b5531ce268d5239a1ad03808072df",
+            "textQuote": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches"
+          }
+        ],
+        "text": "44 Moving beyond fork ( ) + exec ( ) unix lwn . net via hongminhee",
+        "warnings": []
+      },
+      {
+        "confidence": 0.805,
+        "importance": 0.796,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0050",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0050"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0050",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches",
+            "headingPath": [],
+            "order": 49,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0050",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0050",
+            "textHash": "sha256_09f7352f4310243d5a870640bed80af1",
+            "textQuote": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches"
+          }
+        ],
+        "text": "24 mold - desktop lisp osdev codeberg . org / mmontone via veqq 40 hours ago",
+        "warnings": []
+      },
+      {
+        "confidence": 0.804,
+        "importance": 0.794,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0046",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0003"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0046"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0046",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches",
+            "headingPath": [],
+            "order": 45,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0046",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0046",
+            "textHash": "sha256_e0050dfd6fb12f6029fd7f7f49b7131f",
+            "textQuote": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches"
+          }
+        ],
+        "text": "5 A critical look at the UX of various linux desktops video linux youtube . com",
+        "warnings": []
+      },
+      {
+        "confidence": 0.804,
+        "importance": 0.792,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0030",
+        "kind": "key_fact",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0030"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0030",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches",
+            "headingPath": [],
+            "order": 29,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0030",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0030",
+            "textHash": "sha256_50a83dfa123afa20e65a22e0f3cfa6de",
+            "textQuote": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches"
+          }
+        ],
+        "text": "21 verifying / proc linux bal - e . org via polywolf 32 hours ago |",
+        "warnings": []
+      },
+      {
+        "confidence": 0.804,
+        "importance": 0.792,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0034",
+        "kind": "open_question",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0034"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0034",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches",
+            "headingPath": [],
+            "order": 33,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0034",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0034",
+            "textHash": "sha256_1e2768c4776d88c394bb982e94ff0ddc",
+            "textQuote": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches"
+          }
+        ],
+        "text": "2 How ' s Linear so fast ? A technical breakdown javascript performance performance . dev",
+        "warnings": []
+      },
+      {
+        "confidence": 0.803,
+        "importance": 0.79,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0026",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0026"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0026",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches",
+            "headingPath": [],
+            "order": 25,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0026",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0026",
+            "textHash": "sha256_506dfe78466e7b6190e377cc1aef33f8",
+            "textQuote": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches"
+          }
+        ],
+        "text": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex . substack . com via spc476",
+        "warnings": []
+      },
+      {
+        "confidence": 0.801,
+        "importance": 0.786,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0016",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0016"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0016",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches",
+            "headingPath": [],
+            "order": 15,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0016",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0016",
+            "textHash": "sha256_26405a21aa919c7c58aa2d5964d002f6",
+            "textQuote": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches"
+          }
+        ],
+        "text": "1 DOOM on Neo Geo progress video games retrocomputing youtube . com via FedericoSchonborn 1 hour",
+        "warnings": []
+      },
+      {
+        "confidence": 0.8,
+        "importance": 0.783,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0032",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0032"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0032",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches",
+            "headingPath": [],
+            "order": 31,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0032",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0032",
+            "textHash": "sha256_3a6ed77a3f570d4512355c49b4bddbcf",
+            "textQuote": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches"
+          }
+        ],
+        "text": "2 Ubuntu 26 . 10 Experimenting x86 - 64 - v3 Packages linux phoronix . com",
+        "warnings": []
+      },
+      {
+        "confidence": 0.799,
+        "importance": 0.78,
+        "itemId": "item_block_pg_page_forum_002_lobsters_page_2_0038",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_forum_002_lobsters_page_2_0002"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_forum_002_lobsters_page_2_0038"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_forum_002_lobsters_page_2_0038",
+            "blockType": "list_item",
+            "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+            "confidence": 0.92,
+            "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+            "fallbackText": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches",
+            "headingPath": [],
+            "order": 37,
+            "pageId": "page_forum_002_lobsters_page_2",
+            "paragraphId": "pg_page_forum_002_lobsters_page_2_0038",
+            "sourceRefId": "src_page_forum_002_lobsters_page_2_0038",
+            "textHash": "sha256_a3210f2ce08dc2b2a1d2c3b28e219f68",
+            "textQuote": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches"
+          }
+        ],
+        "text": "20 Recapping the London Mercurial sprint vcs mercurial - scm . org via JordiGH 33 hours",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_forum_002_lobsters_page_2",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.423,
+      "itemCount": 18,
+      "sourceRefCount": 18
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "0 𝜇 ⁢ 𝜆 ⁢ ϵ ⁢ 𝛿 - Calculus : Self Optimizing Language that Seems",
+        "2 For the 2nd time in weeks , Microsoft packages laced with credential stealer security arstechnica",
+        "4 Scientists finally complete Schrödinger ’ s 100 - year - old color theory graphics science",
+        "2 More dirty coding tricks from game developers ( 2015 ) games historical gamedeveloper . com",
+        "66 The User Doesn ' t Care - But you should practices vibecoding lewiscampbell . tech"
+      ],
+      "tldr": "0 𝜇 ⁢ 𝜆 ⁢ ϵ ⁢ 𝛿 - Calculus : Self Optimizing Language that Seems"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 18.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 3.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.167
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.423,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.077
+      },
+      "contentCoverage": {
+        "denominator": 3477.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 3241.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 0.932
+      },
+      "digestCompressionRatio": {
+        "denominator": 563.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 238.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.423
+      },
+      "groundingCompleteness": {
+        "denominator": 18.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 18.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 50.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 50.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 50.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 2.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.04
+      },
+      "sourceCoverage": {
+        "denominator": 48.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 48.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.881,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_forum_002_lobsters_page_2",
+    "reportId": "q_page_forum_002_lobsters_page_2",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 3477,
+    "codeBlockCount": 0,
+    "domain": "lobste.rs",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 25,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "forum_002_lobsters_page_2",
+    "url": "https://lobste.rs/page/2",
+    "visibleTextLength": 720
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+    "pageId": "page_forum_002_lobsters_page_2",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_forum_002_lobsters_page_2",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: veqq avatar",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0001",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0001",
+        "textHash": "sha256_691d338ca6ed4884305d91a4b999e860",
+        "textQuote": "Image metadata: veqq avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0002",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0002",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0002",
+        "textHash": "sha256_b02ff5403215154e5ece8bb2a21ffcf3",
+        "textQuote": "0 𝜇⁢𝜆⁢ϵ⁢𝛿-Calculus: Self Optimizing Language that Seems to Exhibit Paradoxical Transfinite Cognitive Capabilities compsci plt arxiv.org via veqq 1 hour ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0003",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: ashishb avatar",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0003",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0003",
+        "textHash": "sha256_f5f76ad66018228aaf3cb787b6860fdb",
+        "textQuote": "Image metadata: ashishb avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0004",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches",
+        "headingPath": [],
+        "order": 3,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0004",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0004",
+        "textHash": "sha256_37063b05ae8f07dd1ef8b667979eb5d0",
+        "textQuote": "2 For the 2nd time in weeks, Microsoft packages laced with credential stealer security arstechnica.com via ashishb 1 hour ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0005",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: hawski avatar",
+        "headingPath": [],
+        "order": 4,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0005",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0005",
+        "textHash": "sha256_2a11d099d79387877b03aadff5698c17",
+        "textQuote": "Image metadata: hawski avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0006",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "12 zalloc: Use zig allocators in your c code c zig github.com/d-berg via hawski 16 hours ago | caches",
+        "headingPath": [],
+        "order": 5,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0006",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0006",
+        "textHash": "sha256_bba7f710038f20bd659d818492bf08d2",
+        "textQuote": "12 zalloc: Use zig allocators in your c code c zig github.com/d-berg via hawski 16 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0007",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: nickmonad avatar",
+        "headingPath": [],
+        "order": 6,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0007",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0007",
+        "textHash": "sha256_4437d6371cd222258675e797d42bf456",
+        "textQuote": "Image metadata: nickmonad avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0008",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches",
+        "headingPath": [],
+        "order": 7,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0008",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0008",
+        "textHash": "sha256_f1e6b5fa65540d772c27f3fd4a50550d",
+        "textQuote": "66 The User Doesn't Care - But you should practices vibecoding lewiscampbell.tech via nickmonad 38 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0009",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: achivetta avatar",
+        "headingPath": [],
+        "order": 8,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0009",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0009",
+        "textHash": "sha256_29aebed038a7b6b4d70cc9119983f328",
+        "textQuote": "Image metadata: achivetta avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0010",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches",
+        "headingPath": [],
+        "order": 9,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0010",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0010",
+        "textHash": "sha256_e5083f797ce97253c2ce0a4a08b5119e",
+        "textQuote": "3 Expanding Private Cloud Compute - Apple Security Research ai privacy security security.apple.com via achivetta 5 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0011",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: kamila avatar",
+        "headingPath": [],
+        "order": 10,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0011",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0011",
+        "textHash": "sha256_183ee44d70458a0c356a284c14ba3eb2",
+        "textQuote": "Image metadata: kamila avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0012",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "25 Gleam and the value of small video gleam youtube.com via kamila 29 hours ago | caches",
+        "headingPath": [],
+        "order": 11,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0012",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0012",
+        "textHash": "sha256_6678bb1fc2aafb5a76c8aef7fb75e46a",
+        "textQuote": "25 Gleam and the value of small video gleam youtube.com via kamila 29 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0013",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: linkdd avatar",
+        "headingPath": [],
+        "order": 12,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0013",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0013",
+        "textHash": "sha256_445fea43036e7c662fc5b74b337f2c6a",
+        "textQuote": "Image metadata: linkdd avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0014",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "17 The EU Open Source Strategy culture digital-strategy.ec.europa.eu via linkdd 15 hours ago | caches",
+        "headingPath": [],
+        "order": 13,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0014",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0014",
+        "textHash": "sha256_e8ac5d43f9e47a712877055910ae27db",
+        "textQuote": "17 The EU Open Source Strategy culture digital-strategy.ec.europa.eu via linkdd 15 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0015",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: FedericoSchonborn avatar",
+        "headingPath": [],
+        "order": 14,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0015",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0015",
+        "textHash": "sha256_74e9f69a895d07b19f0668f6ff14b709",
+        "textQuote": "Image metadata: FedericoSchonborn avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0016",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches",
+        "headingPath": [],
+        "order": 15,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0016",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0016",
+        "textHash": "sha256_26405a21aa919c7c58aa2d5964d002f6",
+        "textQuote": "1 DOOM on Neo Geo progress video games retrocomputing youtube.com via FedericoSchonborn 1 hour ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0017",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: meithecatte avatar",
+        "headingPath": [],
+        "order": 16,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0017",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0017",
+        "textHash": "sha256_2036b4184a44353aad6f1bfa0946d164",
+        "textQuote": "Image metadata: meithecatte avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0018",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches",
+        "headingPath": [],
+        "order": 17,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0018",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0018",
+        "textHash": "sha256_092878106370d0bb309e844a60f36109",
+        "textQuote": "2 More dirty coding tricks from game developers (2015) games historical gamedeveloper.com via meithecatte 5 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0019",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: snej avatar",
+        "headingPath": [],
+        "order": 18,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0019",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0019",
+        "textHash": "sha256_72c4ad737bee6c2244663dcdd8a71e0c",
+        "textQuote": "Image metadata: snej avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0020",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches",
+        "headingPath": [],
+        "order": 19,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0020",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0020",
+        "textHash": "sha256_8c2ec4360e031e9b77bbded40d523624",
+        "textQuote": "4 Scientists finally complete Schrödinger’s 100-year-old color theory graphics science sciencedaily.com via snej 10 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0021",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: Riolku avatar",
+        "headingPath": [],
+        "order": 20,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0021",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0021",
+        "textHash": "sha256_fea3e5f15f51bcf6a0abf617ac5a7e1e",
+        "textQuote": "Image metadata: Riolku avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0022",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27",
+        "headingPath": [],
+        "order": 21,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0022",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0022",
+        "textHash": "sha256_e69caf8b405ec7fb4a992f356eccf1b1",
+        "textQuote": "7 How do I get SEO Email Spam to stop? ☶ ask practices authored by Riolku 21 hours ago | 27 comments 27"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0023",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: raymii avatar",
+        "headingPath": [],
+        "order": 22,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0023",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0023",
+        "textHash": "sha256_2aea855c73e15de03751b843cf52d813",
+        "textQuote": "Image metadata: raymii avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0024",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches",
+        "headingPath": [],
+        "order": 23,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0024",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0024",
+        "textHash": "sha256_0006467f5e4f97876954a114905f4d04",
+        "textQuote": "11 How to fix a laptop that reboots randomly hardware j11g.com via raymii 22 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0025",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: spc476 avatar",
+        "headingPath": [],
+        "order": 24,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0025",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0025",
+        "textHash": "sha256_9a0e7ea3d9185b7a6f13dbf7d48fbe01",
+        "textQuote": "Image metadata: spc476 avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0026",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches",
+        "headingPath": [],
+        "order": 25,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0026",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0026",
+        "textHash": "sha256_506dfe78466e7b6190e377cc1aef33f8",
+        "textQuote": "1 CMOC vs VBCC vs GCC6809 compilers performance retrocomputing vectrex.substack.com via spc476 3 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0027",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: mrunix avatar",
+        "headingPath": [],
+        "order": 26,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0027",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0027",
+        "textHash": "sha256_4293c1fbd9bff89a677a2779e0577410",
+        "textQuote": "Image metadata: mrunix avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0028",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches",
+        "headingPath": [],
+        "order": 27,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0028",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0028",
+        "textHash": "sha256_93c6e4ffb438677fda55ddbd50bb3118",
+        "textQuote": "3 AstralOS: Audio, USB, NsCDE and more osdev astral-os.org via mrunix 11 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0029",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: polywolf avatar",
+        "headingPath": [],
+        "order": 28,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0029",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0029",
+        "textHash": "sha256_5c31795386c908b67007cda83ac51071",
+        "textQuote": "Image metadata: polywolf avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0030",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches",
+        "headingPath": [],
+        "order": 29,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0030",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0030",
+        "textHash": "sha256_50a83dfa123afa20e65a22e0f3cfa6de",
+        "textQuote": "21 verifying /proc linux bal-e.org via polywolf 32 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0031",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: alemi avatar",
+        "headingPath": [],
+        "order": 30,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0031",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0031",
+        "textHash": "sha256_d167fbf04e63ce504bd2e6f745f2c6c8",
+        "textQuote": "Image metadata: alemi avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0032",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches",
+        "headingPath": [],
+        "order": 31,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0032",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0032",
+        "textHash": "sha256_3a6ed77a3f570d4512355c49b4bddbcf",
+        "textQuote": "2 Ubuntu 26.10 Experimenting x86-64-v3 Packages linux phoronix.com via alemi 10 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0033",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: carlana avatar",
+        "headingPath": [],
+        "order": 32,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0033",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0033",
+        "textHash": "sha256_5ac7213520e3fe042af519c3075c388e",
+        "textQuote": "Image metadata: carlana avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0034",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches",
+        "headingPath": [],
+        "order": 33,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0034",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0034",
+        "textHash": "sha256_1e2768c4776d88c394bb982e94ff0ddc",
+        "textQuote": "2 How's Linear so fast? A technical breakdown javascript performance performance.dev via carlana 10 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0035",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: cohix avatar",
+        "headingPath": [],
+        "order": 34,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0035",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0035",
+        "textHash": "sha256_c122358b39e9a68adbcdeaf780b017bf",
+        "textQuote": "Image metadata: cohix avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0036",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches",
+        "headingPath": [],
+        "order": 35,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0036",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0036",
+        "textHash": "sha256_0335479b34b6453597c2aadfd28694da",
+        "textQuote": "16 Dancing mad with sandboxing security vibecoding xeiaso.net via cohix 32 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0037",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: JordiGH avatar",
+        "headingPath": [],
+        "order": 36,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0037",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0037",
+        "textHash": "sha256_0969b1cb9dfc48852371cc058c28ef7d",
+        "textQuote": "Image metadata: JordiGH avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0038",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches",
+        "headingPath": [],
+        "order": 37,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0038",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0038",
+        "textHash": "sha256_a3210f2ce08dc2b2a1d2c3b28e219f68",
+        "textQuote": "20 Recapping the London Mercurial sprint vcs mercurial-scm.org via JordiGH 33 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0039",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0002",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: jmillikin avatar",
+        "headingPath": [],
+        "order": 38,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0039",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0039",
+        "textHash": "sha256_d8b639f861a200e95fb6a0b715d8d971",
+        "textQuote": "Image metadata: jmillikin avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0040",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "52 Winners of the 2025 International Obfuscated C Code Contest (IOCCC 29) c ioccc.org via jmillikin 42 hours ago | caches",
+        "headingPath": [],
+        "order": 39,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0040",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0040",
+        "textHash": "sha256_e683571d34b36227b059b5776b101486",
+        "textQuote": "52 Winners of the 2025 International Obfuscated C Code Contest (IOCCC 29) c ioccc.org via jmillikin 42 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0041",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: crowdhailer avatar",
+        "headingPath": [],
+        "order": 40,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0041",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0041",
+        "textHash": "sha256_9a8b04cac21416fd136de49a37f54094",
+        "textQuote": "Image metadata: crowdhailer avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0042",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "0 A programming language for humans programming vibecoding crowdhailer.me authored by crowdhailer 9 hours ago | caches",
+        "headingPath": [],
+        "order": 41,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0042",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0042",
+        "textHash": "sha256_f58bde1dc821ef8eee4ee24add7d064c",
+        "textQuote": "0 A programming language for humans programming vibecoding crowdhailer.me authored by crowdhailer 9 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0043",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: calvin avatar",
+        "headingPath": [],
+        "order": 42,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0043",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0043",
+        "textHash": "sha256_433fdf9682f28147ae5a5ce8d0353e6f",
+        "textQuote": "Image metadata: calvin avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0044",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches",
+        "headingPath": [],
+        "order": 43,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0044",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0044",
+        "textHash": "sha256_84f6f79d44cae192bcf3df09fed6326f",
+        "textQuote": "12 Making a game in Visual Studio from 1997 video games programming youtube.com via calvin 31 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0045",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: juliethefoxcoon avatar",
+        "headingPath": [],
+        "order": 44,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0045",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0045",
+        "textHash": "sha256_9b3485224064c3b385e1d3d80e5030f6",
+        "textQuote": "Image metadata: juliethefoxcoon avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0046",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches",
+        "headingPath": [],
+        "order": 45,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0046",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0046",
+        "textHash": "sha256_e0050dfd6fb12f6029fd7f7f49b7131f",
+        "textQuote": "5 A critical look at the UX of various linux desktops video linux youtube.com via juliethefoxcoon 25 hours ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0047",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: hongminhee avatar",
+        "headingPath": [],
+        "order": 46,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0047",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0047",
+        "textHash": "sha256_4b9ec9d050e8b37833f25c7c389c9977",
+        "textQuote": "Image metadata: hongminhee avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0048",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches",
+        "headingPath": [],
+        "order": 47,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0048",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0048",
+        "textHash": "sha256_230b5531ce268d5239a1ad03808072df",
+        "textQuote": "44 Moving beyond fork() + exec() unix lwn.net via hongminhee 2 days ago | caches"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0049",
+        "blockType": "image",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "Image metadata: veqq avatar",
+        "headingPath": [],
+        "order": 48,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0049",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0049",
+        "textHash": "sha256_691d338ca6ed4884305d91a4b999e860",
+        "textQuote": "Image metadata: veqq avatar"
+      },
+      {
+        "blockId": "block_pg_page_forum_002_lobsters_page_2_0050",
+        "blockType": "list_item",
+        "chunkId": "ck_page_forum_002_lobsters_page_2_0003",
+        "confidence": 0.92,
+        "contentHash": "sha256_b09e270c566fcc3f2764fa25ab334813cc28b68e3addfb258c610c22734154c2",
+        "fallbackText": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches",
+        "headingPath": [],
+        "order": 49,
+        "pageId": "page_forum_002_lobsters_page_2",
+        "paragraphId": "pg_page_forum_002_lobsters_page_2_0050",
+        "sourceRefId": "src_page_forum_002_lobsters_page_2_0050",
+        "textHash": "sha256_09f7352f4310243d5a870640bed80af1",
+        "textQuote": "24 mold-desktop lisp osdev codeberg.org/mmontone via veqq 40 hours ago | caches"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio",
+  "warnings": []
+}

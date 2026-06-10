@@ -1,0 +1,650 @@
+{
+  "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+  "digestId": "digest_page_tech_012_w3c_accname",
+  "items": [
+    {
+      "confidence": 0.842,
+      "importance": 0.878,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0004",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0004"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0004",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "This document describes how user agents determine the names and descriptions of accessible objects from web content languages. This information is in turn exposed through accessibility APIs so that assistive technologies can identify these objects and present their names or descriptions to users. Documenting the algorithm through which names and descriptions",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "Abstract"
+          ],
+          "order": 3,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0004",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0004",
+          "textHash": "sha256_e00085085520deafa96a6d0f178f1b30",
+          "textQuote": "This document describes how user agents determine the names and descriptions of accessible objects from web content languages. This information is in turn exposed through accessibility APIs so that assistive technologies"
+        }
+      ],
+      "text": "This document describes how user agents determine the names and descriptions of accessible objects from web",
+      "warnings": []
+    },
+    {
+      "confidence": 0.84,
+      "importance": 0.873,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0076",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0076"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0076",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "The text equivalent computation is used by both the accessible name and accessible description . There are different rules provided for several different types of elements , nodes , and combinations of markup. Text alternatives are built up, when appropriate, from all the relevant content contained within an element . This is accomplished via steps 2.2 and 2",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation"
+          ],
+          "order": 75,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0076",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0076",
+          "textHash": "sha256_b0c2fa8148afb536b7ab025eecefa02e",
+          "textQuote": "The text equivalent computation is used by both the accessible name and accessible description . There are different rules provided for several different types of elements , nodes , and combinations of markup. Text alter"
+        }
+      ],
+      "text": "The text equivalent computation is used by both the accessible name and accessible description . There",
+      "warnings": []
+    },
+    {
+      "confidence": 0.835,
+      "importance": 0.859,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0146",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0146"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0146",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "This step can apply to the child nodes themselves, which means the computation is recursive and results in text collected from all the elements in the current node 's subtree, no matter how deep it is. However, any given descendant node's text alternative can result from higher precedent markup described in steps B through D above, where \"Namefrom: author\" a",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation",
+            "4.3.2 Computation steps"
+          ],
+          "order": 145,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0146",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0146",
+          "textHash": "sha256_a8ddbbbe9e5812a6b2a04e4593663759",
+          "textQuote": "This step can apply to the child nodes themselves, which means the computation is recursive and results in text collected from all the elements in the current node 's subtree, no matter how deep it is. However, any given"
+        }
+      ],
+      "text": "This step can apply to the child nodes themselves , which means the computation is recursive",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0128",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0128"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0128",
+          "blockType": "list_item",
+          "chunkId": "ck_page_tech_012_w3c_accname_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "Host Language Label: Otherwise, if the current node 's native markup provides an attribute (e.g. alt ) or element (e.g. HTML label or SVG title ) that defines a text alternative, return that alternative in the form of a flat string as defined by the host language (e.g., HTML -AAM ), unless the current node is exposed as presentational ( role=\"presentation\" o",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation",
+            "4.3.2 Computation steps"
+          ],
+          "order": 127,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0128",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0128",
+          "textHash": "sha256_2938db135e0540ed941c4a02e13d1b91",
+          "textQuote": "Host Language Label: Otherwise, if the current node 's native markup provides an attribute (e.g. alt ) or element (e.g. HTML label or SVG title ) that defines a text alternative, return that alternative in the form of a "
+        }
+      ],
+      "text": "Host Language Label : Otherwise , if the current node ' s native markup provides an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.834,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0011",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0011"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0011",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "This document was produced by a group operating under the W3C Patent Policy . W3C maintains a public list of any patent disclosures made in connection with the deliverables of the group; that page also includes instructions for disclosing a patent. An individual who has actual knowledge of a patent that the individual believes contains Essential Claim(s) mus",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "Status of This Document"
+          ],
+          "order": 10,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0011",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0011",
+          "textHash": "sha256_9d795df7c29c2a84a339024875c6b84e",
+          "textQuote": "This document was produced by a group operating under the W3C Patent Policy . W3C maintains a public list of any patent disclosures made in connection with the deliverables of the group; that page also includes instructi"
+        }
+      ],
+      "text": "This document was produced by a group operating under the W3C Patent Policy . W3C maintains",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0145",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0145"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0145",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "Important : Each node in the subtree is consulted only once. If text has been collected from a descendant, but is referenced by another IDREF in some descendant node, then that second, or subsequent, reference is not followed. This is done to avoid infinite loops.",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation",
+            "4.3.2 Computation steps"
+          ],
+          "order": 144,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0145",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0145",
+          "textHash": "sha256_05472a06d76b2b91a3e89f23efdd980c",
+          "textQuote": "Important : Each node in the subtree is consulted only once. If text has been collected from a descendant, but is referenced by another IDREF in some descendant node, then that second, or subsequent, reference is not fol"
+        }
+      ],
+      "text": "Important : Each node in the subtree is consulted only once . If text has been",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.831,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0058",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0058"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0058",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "An important factor is the element's role , that determines which content contributes to the name string. Roles have a nameFrom RDF property, with three possible values:",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description"
+          ],
+          "order": 57,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0058",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0058",
+          "textHash": "sha256_299c7c59da733d18ab27ed0267365fef",
+          "textQuote": "An important factor is the element's role , that determines which content contributes to the name string. Roles have a nameFrom RDF property, with three possible values:"
+        }
+      ],
+      "text": "An important factor is the element ' s role , that determines which content contributes to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0005",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "The accessible name and description computation specification defines support that applies across multiple content technologies. This includes accessible name and description provided by general-purpose WAI-ARIA [ WAI-ARIA ] roles , states , and properties as well as features specific to individual content languages.",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "Abstract"
+          ],
+          "order": 4,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0005",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0005",
+          "textHash": "sha256_2cc48d192470b0fe656ceeeb411f5143",
+          "textQuote": "The accessible name and description computation specification defines support that applies across multiple content technologies. This includes accessible name and description provided by general-purpose WAI-ARIA [ WAI-AR"
+        }
+      ],
+      "text": "The accessible name and description computation specification defines support that applies across multiple content technologies .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.825,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0047",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0047",
+          "blockType": "list_item",
+          "chunkId": "ck_page_tech_012_w3c_accname_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "alternate input technologies (including head pointers, on-screen keyboards, single switches, and sip/puff devices), which are used to simulate the keyboard;",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "2. Important Terms"
+          ],
+          "order": 46,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0047",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0047",
+          "textHash": "sha256_01a97b2798574be1a9821b5e8b3c9cb5",
+          "textQuote": "alternate input technologies (including head pointers, on-screen keyboards, single switches, and sip/puff devices), which are used to simulate the keyboard;"
+        }
+      ],
+      "text": "alternate input technologies ( including head pointers , on - screen keyboards , single switches ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0055",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0055"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0055",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "Normative sections provide requirements that authors, user agents and assistive technologies MUST follow for an implementation to conform to this specification.",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "3. Conformance"
+          ],
+          "order": 54,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0055",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0055",
+          "textHash": "sha256_9ce6a6a1edc5c603e5f2344443413c1d",
+          "textQuote": "Normative sections provide requirements that authors, user agents and assistive technologies MUST follow for an implementation to conform to this specification."
+        }
+      ],
+      "text": "Normative sections provide requirements that authors , user agents and assistive technologies MUST follow for an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0061",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "The following table provides the order of precedence for markup that can be applied to compute an accessible description . User agents MUST use the first applicable entry from the table where the listed conditions are met, as described in the last column. The user agent MUST NOT use any markup other that the first relevant markup found, even if that markup r",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.2 Description Computation"
+          ],
+          "order": 60,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0061",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0061",
+          "textHash": "sha256_4aafe8bf8d0d3e7cc824add9cb34cd8b",
+          "textQuote": "The following table provides the order of precedence for markup that can be applied to compute an accessible description . User agents MUST use the first applicable entry from the table where the listed conditions are me"
+        }
+      ],
+      "text": "The following table provides the order of precedence for markup that can be applied to compute",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0097",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0097"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0097",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "By default, assistive technologies do not relay hidden information, but an author can explicitly override that and include hidden text as part of the accessible name or accessible description by using aria-labelledby or aria-describedby .",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation",
+            "4.3.2 Computation steps"
+          ],
+          "order": 96,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0097",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0097",
+          "textHash": "sha256_d085315b702d8e21380c5ac16e534b35",
+          "textQuote": "By default, assistive technologies do not relay hidden information, but an author can explicitly override that and include hidden text as part of the accessible name or accessible description by using aria-labelledby or "
+        }
+      ],
+      "text": "By default , assistive technologies do not relay hidden information , but an author can explicitly",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0051",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0051"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0051",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "A simple use for the accessible name property may be illustrated by an \"OK\" button. The text \"OK\" is the accessible name. When the button receives focus, assistive technologies may concatenate the platform's role description with the accessible name. For example, a screen reader may speak \"push-button OK\" or \"OK button\". The order of concatenation and specif",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "2. Important Terms"
+          ],
+          "order": 50,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0051",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0051",
+          "textHash": "sha256_129f6a5e842166393cba75e88179834d",
+          "textQuote": "A simple use for the accessible name property may be illustrated by an \"OK\" button. The text \"OK\" is the accessible name. When the button receives focus, assistive technologies may concatenate the platform's role descrip"
+        }
+      ],
+      "text": "A simple use for the accessible name property may be illustrated by an \" OK \"",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0033",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "Accessibility APIs currently support flat, unstructured strings for accessible names and descriptions. The result of the name/description computation is thus a flat string.",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "1. Introduction"
+          ],
+          "order": 32,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0033",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0033",
+          "textHash": "sha256_b2c4b04f9fae8279f52e50881dc3d867",
+          "textQuote": "Accessibility APIs currently support flat, unstructured strings for accessible names and descriptions. The result of the name/description computation is thus a flat string."
+        }
+      ],
+      "text": "Accessibility APIs currently support flat , unstructured strings for accessible names and descriptions . The result",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0044",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0044"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0044",
+          "blockType": "list_item",
+          "chunkId": "ck_page_tech_012_w3c_accname_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "screen readers, which are most-often used to convey information through synthesized speech or a refreshable Braille display;",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "2. Important Terms"
+          ],
+          "order": 43,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0044",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0044",
+          "textHash": "sha256_90183c43297df7833a70f6f0b5e63465",
+          "textQuote": "screen readers, which are most-often used to convey information through synthesized speech or a refreshable Braille display;"
+        }
+      ],
+      "text": "screen readers , which are most - often used to convey information through synthesized speech or",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.811,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0009",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "Publication as a Working Draft does not imply endorsement by W3C and its Members.",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "Status of This Document"
+          ],
+          "order": 8,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0009",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0009",
+          "textHash": "sha256_50e45c1ffaa769c458f06c5e0b86cecb",
+          "textQuote": "Publication as a Working Draft does not imply endorsement by W3C and its Members."
+        }
+      ],
+      "text": "Publication as a Working Draft does not imply endorsement by W3C and its Members .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0060",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "User agents MUST compute an accessible name using the rules outlined below in the section titled Text Equivalent Computation .",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.1 Name Computation"
+          ],
+          "order": 59,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0060",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0060",
+          "textHash": "sha256_4768287f63f6f31eb47dc09322c26449",
+          "textQuote": "User agents MUST compute an accessible name using the rules outlined below in the section titled Text Equivalent Computation ."
+        }
+      ],
+      "text": "User agents MUST compute an accessible name using the rules outlined below in the section titled",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.804,
+      "itemId": "item_block_pg_page_tech_012_w3c_accname_0086",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_012_w3c_accname_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_012_w3c_accname_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_012_w3c_accname_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_012_w3c_accname_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_787de0c70b4b98d82db4c86766fa45aa315f55cc3ef408a7672fc0c622ffc76c",
+          "fallbackText": "The text alternative for a given element is computed as follows:",
+          "headingPath": [
+            "Accessible Name and Description Computation 1.2",
+            "4. Name and Description",
+            "4.3 Text Equivalent Computation",
+            "4.3.2 Computation steps"
+          ],
+          "order": 85,
+          "pageId": "page_tech_012_w3c_accname",
+          "paragraphId": "pg_page_tech_012_w3c_accname_0086",
+          "sourceRefId": "src_page_tech_012_w3c_accname_0086",
+          "textHash": "sha256_bba475c2bd15ef6d76bd427c2e5a8825",
+          "textQuote": "The text alternative for a given element is computed as follows:"
+        }
+      ],
+      "text": "The text alternative for a given element is computed as follows :",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_012_w3c_accname",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.078,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "This document describes how user agents determine the names and descriptions of accessible objects from web",
+      "The text equivalent computation is used by both the accessible name and accessible description . There",
+      "This step can apply to the child nodes themselves , which means the computation is recursive",
+      "Host Language Label : Otherwise , if the current node ' s native markup provides an",
+      "This document was produced by a group operating under the W3C Patent Policy . W3C maintains"
+    ],
+    "tldr": "This document describes how user agents determine the names and descriptions of accessible objects from web"
+  }
+}

@@ -1,0 +1,2703 @@
+{
+  "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+  "pageId": "page_report_007_rfc_9000",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_report_007_rfc_9000",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0001",
+      "blockType": "table_cell",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "QUIC Transport Protocol",
+      "headingPath": [],
+      "order": 0,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0001",
+      "sourceRefId": "src_page_report_007_rfc_9000_0001",
+      "textHash": "sha256_909e7bbcd0c4a79801366f53e1b1d090",
+      "textQuote": "QUIC Transport Protocol"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0002",
+      "blockType": "table_cell",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "Iyengar & Thomson",
+      "headingPath": [],
+      "order": 1,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0002",
+      "sourceRefId": "src_page_report_007_rfc_9000_0002",
+      "textHash": "sha256_dd0fb62716be508dd33c911630c041c2",
+      "textQuote": "Iyengar & Thomson"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0003",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "This document defines the core of the QUIC transport protocol. QUIC provides applications with flow-controlled streams for structured communication, low-latency connection establishment, and network path migration. QUIC includes security measures that ensure confidentiality, integrity, and availability in a range of deployment circumstances. Accompanying doc",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Abstract"
+      ],
+      "order": 2,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0003",
+      "sourceRefId": "src_page_report_007_rfc_9000_0003",
+      "textHash": "sha256_c20df7a72acaf4f3e040311db4c04da3",
+      "textQuote": "This document defines the core of the QUIC transport protocol. QUIC provides applications with flow-controlled streams for structured communication, low-latency connection establishment, and network path migration. QUIC "
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0004",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "This is an Internet Standards Track document. ¶",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Status of This Memo"
+      ],
+      "order": 3,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0004",
+      "sourceRefId": "src_page_report_007_rfc_9000_0004",
+      "textHash": "sha256_e20a7a870661c4103cb90e87eb2485c7",
+      "textQuote": "This is an Internet Standards Track document. ¶"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0005",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "This document is a product of the Internet Engineering Task Force (IETF). It represents the consensus of the IETF community. It has received public review and has been approved for publication by the Internet Engineering Steering Group (IESG). Further information on Internet Standards is available in Section 2 of RFC 7841. ¶",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Status of This Memo"
+      ],
+      "order": 4,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0005",
+      "sourceRefId": "src_page_report_007_rfc_9000_0005",
+      "textHash": "sha256_44b8f6aade35a31e4aebac9ba789c7b6",
+      "textQuote": "This document is a product of the Internet Engineering Task Force (IETF). It represents the consensus of the IETF community. It has received public review and has been approved for publication by the Internet Engineering"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0006",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9000 . ¶",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Status of This Memo"
+      ],
+      "order": 5,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0006",
+      "sourceRefId": "src_page_report_007_rfc_9000_0006",
+      "textHash": "sha256_152327c6f8124c537ee217e2f5acc93e",
+      "textQuote": "Information about the current status of this document, any errata, and how to provide feedback on it may be obtained at https://www.rfc-editor.org/info/rfc9000 . ¶"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0007",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "Copyright (c) 2021 IETF Trust and the persons identified as the document authors. All rights reserved. ¶",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Copyright Notice"
+      ],
+      "order": 6,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0007",
+      "sourceRefId": "src_page_report_007_rfc_9000_0007",
+      "textHash": "sha256_bcf5545dbbe785109c42f6c24569c2c4",
+      "textQuote": "Copyright (c) 2021 IETF Trust and the persons identified as the document authors. All rights reserved. ¶"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0008",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these documents carefully, as they describe your rights and restrictions with respect to this document. Code Components extracted from this document ",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Copyright Notice"
+      ],
+      "order": 7,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0008",
+      "sourceRefId": "src_page_report_007_rfc_9000_0008",
+      "textHash": "sha256_03935199b9faaf1f20b4e891320a9d9f",
+      "textQuote": "This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents ( https://trustee.ietf.org/license-info ) in effect on the date of publication of this document. Please review these doc"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0009",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "1.1 . Document Structure",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 8,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0009",
+      "sourceRefId": "src_page_report_007_rfc_9000_0009",
+      "textHash": "sha256_8135160c1368961db03eba2e034e49f5",
+      "textQuote": "1.1 . Document Structure"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0010",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "1.2 . Terms and Definitions",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 9,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0010",
+      "sourceRefId": "src_page_report_007_rfc_9000_0010",
+      "textHash": "sha256_3ad2ffbeab8061646bc85420352be1cd",
+      "textQuote": "1.2 . Terms and Definitions"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0011",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "1.3 . Notational Conventions",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 10,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0011",
+      "sourceRefId": "src_page_report_007_rfc_9000_0011",
+      "textHash": "sha256_dc7e14cad657f8a1a5338c785131e242",
+      "textQuote": "1.3 . Notational Conventions"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0012",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "2.1 . Stream Types and Identifiers",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 11,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0012",
+      "sourceRefId": "src_page_report_007_rfc_9000_0012",
+      "textHash": "sha256_ee57501ecbbabc69560455d1caa6285e",
+      "textQuote": "2.1 . Stream Types and Identifiers"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0013",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "2.2 . Sending and Receiving Data",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 12,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0013",
+      "sourceRefId": "src_page_report_007_rfc_9000_0013",
+      "textHash": "sha256_593cc2900972161480f0df96a426c755",
+      "textQuote": "2.2 . Sending and Receiving Data"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0014",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "2.3 . Stream Prioritization",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 13,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0014",
+      "sourceRefId": "src_page_report_007_rfc_9000_0014",
+      "textHash": "sha256_816c68b6b91ed2f0a434ce90379013da",
+      "textQuote": "2.3 . Stream Prioritization"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0015",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "2.4 . Operations on Streams",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 14,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0015",
+      "sourceRefId": "src_page_report_007_rfc_9000_0015",
+      "textHash": "sha256_ddffa92e8949474f3550d6e5d8c423ea",
+      "textQuote": "2.4 . Operations on Streams"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0016",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3 . Stream States",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 15,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0016",
+      "sourceRefId": "src_page_report_007_rfc_9000_0016",
+      "textHash": "sha256_221892ad2b729b550f8801f6dfae4fce",
+      "textQuote": "3 . Stream States"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0017",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3.1 . Sending Stream States",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 16,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0017",
+      "sourceRefId": "src_page_report_007_rfc_9000_0017",
+      "textHash": "sha256_033c04de6ab1e93813ec76c600d6c357",
+      "textQuote": "3.1 . Sending Stream States"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0018",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3.2 . Receiving Stream States",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 17,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0018",
+      "sourceRefId": "src_page_report_007_rfc_9000_0018",
+      "textHash": "sha256_d8d90332f6ecf9522014c58e0412f1b0",
+      "textQuote": "3.2 . Receiving Stream States"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0019",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3.3 . Permitted Frame Types",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 18,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0019",
+      "sourceRefId": "src_page_report_007_rfc_9000_0019",
+      "textHash": "sha256_044a39b2f0b2ab288dd0622675828bcd",
+      "textQuote": "3.3 . Permitted Frame Types"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0020",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3.4 . Bidirectional Stream States",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 19,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0020",
+      "sourceRefId": "src_page_report_007_rfc_9000_0020",
+      "textHash": "sha256_476af8091f5a646a282f31c2da26ff6f",
+      "textQuote": "3.4 . Bidirectional Stream States"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0021",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "3.5 . Solicited State Transitions",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 20,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0021",
+      "sourceRefId": "src_page_report_007_rfc_9000_0021",
+      "textHash": "sha256_22beba92eea3960be87de822491facd8",
+      "textQuote": "3.5 . Solicited State Transitions"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0022",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4 . Flow Control",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 21,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0022",
+      "sourceRefId": "src_page_report_007_rfc_9000_0022",
+      "textHash": "sha256_633b771d7f0dd9af2040fa8aeb159e08",
+      "textQuote": "4 . Flow Control"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0023",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.1 . Data Flow Control",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 22,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0023",
+      "sourceRefId": "src_page_report_007_rfc_9000_0023",
+      "textHash": "sha256_4d7e7f64d9f55500805f9c17b211842c",
+      "textQuote": "4.1 . Data Flow Control"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0024",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.2 . Increasing Flow Control Limits",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 23,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0024",
+      "sourceRefId": "src_page_report_007_rfc_9000_0024",
+      "textHash": "sha256_f718c494770595d947cf65659aed0733",
+      "textQuote": "4.2 . Increasing Flow Control Limits"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0025",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.3 . Flow Control Performance",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 24,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0025",
+      "sourceRefId": "src_page_report_007_rfc_9000_0025",
+      "textHash": "sha256_c631d30b2f7424b1c117141ba96abdec",
+      "textQuote": "4.3 . Flow Control Performance"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0026",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.4 . Handling Stream Cancellation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 25,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0026",
+      "sourceRefId": "src_page_report_007_rfc_9000_0026",
+      "textHash": "sha256_f11dfaa3d7583878d7620c9e747d1093",
+      "textQuote": "4.4 . Handling Stream Cancellation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0027",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.5 . Stream Final Size",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 26,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0027",
+      "sourceRefId": "src_page_report_007_rfc_9000_0027",
+      "textHash": "sha256_4d4945ae9fb8d6cec3d73fee9cfff71f",
+      "textQuote": "4.5 . Stream Final Size"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0028",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "4.6 . Controlling Concurrency",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 27,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0028",
+      "sourceRefId": "src_page_report_007_rfc_9000_0028",
+      "textHash": "sha256_541fc335152f5fd3f24db61a86dde410",
+      "textQuote": "4.6 . Controlling Concurrency"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0029",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.1 . Connection ID",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 28,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0029",
+      "sourceRefId": "src_page_report_007_rfc_9000_0029",
+      "textHash": "sha256_c426515292c4578eacf1ef97882ba463",
+      "textQuote": "5.1 . Connection ID"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0030",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.1.1 . Issuing Connection IDs",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 29,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0030",
+      "sourceRefId": "src_page_report_007_rfc_9000_0030",
+      "textHash": "sha256_48db720ff113cf2b33abe9a7796d311d",
+      "textQuote": "5.1.1 . Issuing Connection IDs"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0031",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.1.2 . Consuming and Retiring Connection IDs",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 30,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0031",
+      "sourceRefId": "src_page_report_007_rfc_9000_0031",
+      "textHash": "sha256_767479fe3edf67244599260e1641f794",
+      "textQuote": "5.1.2 . Consuming and Retiring Connection IDs"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0032",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.2 . Matching Packets to Connections",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 31,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0032",
+      "sourceRefId": "src_page_report_007_rfc_9000_0032",
+      "textHash": "sha256_0fd993c305369ddb1bd65ae62ca52e2c",
+      "textQuote": "5.2 . Matching Packets to Connections"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0033",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.2.1 . Client Packet Handling",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 32,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0033",
+      "sourceRefId": "src_page_report_007_rfc_9000_0033",
+      "textHash": "sha256_fd8cdbf54908fb5637e8ec984836208a",
+      "textQuote": "5.2.1 . Client Packet Handling"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0034",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.2.2 . Server Packet Handling",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 33,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0034",
+      "sourceRefId": "src_page_report_007_rfc_9000_0034",
+      "textHash": "sha256_a9c7465adc6128f0acff018a8b0a9bc9",
+      "textQuote": "5.2.2 . Server Packet Handling"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0035",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.2.3 . Considerations for Simple Load Balancers",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 34,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0035",
+      "sourceRefId": "src_page_report_007_rfc_9000_0035",
+      "textHash": "sha256_9634277294dac70b2d1329b4ac77a138",
+      "textQuote": "5.2.3 . Considerations for Simple Load Balancers"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0036",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "5.3 . Operations on Connections",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 35,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0036",
+      "sourceRefId": "src_page_report_007_rfc_9000_0036",
+      "textHash": "sha256_afde62200eeccd8d53c93b1f1fd89cbd",
+      "textQuote": "5.3 . Operations on Connections"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0037",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "6 . Version Negotiation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 36,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0037",
+      "sourceRefId": "src_page_report_007_rfc_9000_0037",
+      "textHash": "sha256_7d5d871fb440efc31da178b2c9ed5c1e",
+      "textQuote": "6 . Version Negotiation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0038",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "6.1 . Sending Version Negotiation Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 37,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0038",
+      "sourceRefId": "src_page_report_007_rfc_9000_0038",
+      "textHash": "sha256_32698e67ffb1ad0ac2c640d8445ce617",
+      "textQuote": "6.1 . Sending Version Negotiation Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0039",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "6.2 . Handling Version Negotiation Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 38,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0039",
+      "sourceRefId": "src_page_report_007_rfc_9000_0039",
+      "textHash": "sha256_c87fbad975a46a2ffbe5b07a341df961",
+      "textQuote": "6.2 . Handling Version Negotiation Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0040",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "6.3 . Using Reserved Versions",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 39,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0040",
+      "sourceRefId": "src_page_report_007_rfc_9000_0040",
+      "textHash": "sha256_3dd42e3bd6f299060195e9b1d7bf2f68",
+      "textQuote": "6.3 . Using Reserved Versions"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0041",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7 . Cryptographic and Transport Handshake",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 40,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0041",
+      "sourceRefId": "src_page_report_007_rfc_9000_0041",
+      "textHash": "sha256_416f48a75d96ba3f8aef127449c2005f",
+      "textQuote": "7 . Cryptographic and Transport Handshake"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0042",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.1 . Example Handshake Flows",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 41,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0042",
+      "sourceRefId": "src_page_report_007_rfc_9000_0042",
+      "textHash": "sha256_bcb1d2a8468fda506e852aa5b24826af",
+      "textQuote": "7.1 . Example Handshake Flows"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0043",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.2 . Negotiating Connection IDs",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 42,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0043",
+      "sourceRefId": "src_page_report_007_rfc_9000_0043",
+      "textHash": "sha256_b225f4b6fb0ddc36c1f203cddd46593d",
+      "textQuote": "7.2 . Negotiating Connection IDs"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0044",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.3 . Authenticating Connection IDs",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 43,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0044",
+      "sourceRefId": "src_page_report_007_rfc_9000_0044",
+      "textHash": "sha256_cea332a0c07296980808ecc24c25e674",
+      "textQuote": "7.3 . Authenticating Connection IDs"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0045",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.4 . Transport Parameters",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 44,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0045",
+      "sourceRefId": "src_page_report_007_rfc_9000_0045",
+      "textHash": "sha256_14b88a9297139e163ea1bf19ecdcd011",
+      "textQuote": "7.4 . Transport Parameters"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0046",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.4.1 . Values of Transport Parameters for 0-RTT",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 45,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0046",
+      "sourceRefId": "src_page_report_007_rfc_9000_0046",
+      "textHash": "sha256_1021a82ce091e4af3b09034b02d4e3b8",
+      "textQuote": "7.4.1 . Values of Transport Parameters for 0-RTT"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0047",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.4.2 . New Transport Parameters",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 46,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0047",
+      "sourceRefId": "src_page_report_007_rfc_9000_0047",
+      "textHash": "sha256_87bd13527ba3310dda4dea11b66f2dd2",
+      "textQuote": "7.4.2 . New Transport Parameters"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0048",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "7.5 . Cryptographic Message Buffering",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 47,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0048",
+      "sourceRefId": "src_page_report_007_rfc_9000_0048",
+      "textHash": "sha256_c472b3011d74c64d31e81ddcade4d238",
+      "textQuote": "7.5 . Cryptographic Message Buffering"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0049",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8 . Address Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 48,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0049",
+      "sourceRefId": "src_page_report_007_rfc_9000_0049",
+      "textHash": "sha256_d7e8418f2974d50337f6d48d5ca4e0a2",
+      "textQuote": "8 . Address Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0050",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.1 . Address Validation during Connection Establishment",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 49,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0050",
+      "sourceRefId": "src_page_report_007_rfc_9000_0050",
+      "textHash": "sha256_f67872d9b0d2329aefb5b8f2ad10575f",
+      "textQuote": "8.1 . Address Validation during Connection Establishment"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0051",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.1.1 . Token Construction",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 50,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0051",
+      "sourceRefId": "src_page_report_007_rfc_9000_0051",
+      "textHash": "sha256_ebec1da8a093f5001da1845218f25132",
+      "textQuote": "8.1.1 . Token Construction"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0052",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.1.2 . Address Validation Using Retry Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 51,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0052",
+      "sourceRefId": "src_page_report_007_rfc_9000_0052",
+      "textHash": "sha256_0947535acca361456cfae1078a996d5f",
+      "textQuote": "8.1.2 . Address Validation Using Retry Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0053",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.1.3 . Address Validation for Future Connections",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 52,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0053",
+      "sourceRefId": "src_page_report_007_rfc_9000_0053",
+      "textHash": "sha256_1867c4deb3c0f963101706a268a258a8",
+      "textQuote": "8.1.3 . Address Validation for Future Connections"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0054",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.1.4 . Address Validation Token Integrity",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 53,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0054",
+      "sourceRefId": "src_page_report_007_rfc_9000_0054",
+      "textHash": "sha256_c18f1adbef839d1c2e1d766832a7c4b0",
+      "textQuote": "8.1.4 . Address Validation Token Integrity"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0055",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.2 . Path Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 54,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0055",
+      "sourceRefId": "src_page_report_007_rfc_9000_0055",
+      "textHash": "sha256_34dc8ac6f7533648d8ac3046b6282b3f",
+      "textQuote": "8.2 . Path Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0056",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.2.1 . Initiating Path Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 55,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0056",
+      "sourceRefId": "src_page_report_007_rfc_9000_0056",
+      "textHash": "sha256_ba1858553a3988e71eeca3014b2bba74",
+      "textQuote": "8.2.1 . Initiating Path Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0057",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.2.2 . Path Validation Responses",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 56,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0057",
+      "sourceRefId": "src_page_report_007_rfc_9000_0057",
+      "textHash": "sha256_febfb95ff49966522ac0b99d8bcb7e21",
+      "textQuote": "8.2.2 . Path Validation Responses"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0058",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.2.3 . Successful Path Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 57,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0058",
+      "sourceRefId": "src_page_report_007_rfc_9000_0058",
+      "textHash": "sha256_2a20f196783c9fe947889029f5c38e3d",
+      "textQuote": "8.2.3 . Successful Path Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0059",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "8.2.4 . Failed Path Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 58,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0059",
+      "sourceRefId": "src_page_report_007_rfc_9000_0059",
+      "textHash": "sha256_0ebe4102de37bc6c17307844890e30ef",
+      "textQuote": "8.2.4 . Failed Path Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0060",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9 . Connection Migration",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 59,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0060",
+      "sourceRefId": "src_page_report_007_rfc_9000_0060",
+      "textHash": "sha256_f198bd0135ea7bd8e4436eefcf0d3362",
+      "textQuote": "9 . Connection Migration"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0061",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.1 . Probing a New Path",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 60,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0061",
+      "sourceRefId": "src_page_report_007_rfc_9000_0061",
+      "textHash": "sha256_a3222231437095aa886afe77a058b47d",
+      "textQuote": "9.1 . Probing a New Path"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0062",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.2 . Initiating Connection Migration",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 61,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0062",
+      "sourceRefId": "src_page_report_007_rfc_9000_0062",
+      "textHash": "sha256_666fd0eecc6590179728615c509069df",
+      "textQuote": "9.2 . Initiating Connection Migration"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0063",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.3 . Responding to Connection Migration",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 62,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0063",
+      "sourceRefId": "src_page_report_007_rfc_9000_0063",
+      "textHash": "sha256_e916dbc54a5e063c9f1d99ba99d0e155",
+      "textQuote": "9.3 . Responding to Connection Migration"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0064",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.3.1 . Peer Address Spoofing",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 63,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0064",
+      "sourceRefId": "src_page_report_007_rfc_9000_0064",
+      "textHash": "sha256_c2af318509b29bf772c29eb5c27576ac",
+      "textQuote": "9.3.1 . Peer Address Spoofing"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0065",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.3.2 . On-Path Address Spoofing",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 64,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0065",
+      "sourceRefId": "src_page_report_007_rfc_9000_0065",
+      "textHash": "sha256_ff3a05dcb67263686bf60fc8fd10872c",
+      "textQuote": "9.3.2 . On-Path Address Spoofing"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0066",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.3.3 . Off-Path Packet Forwarding",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 65,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0066",
+      "sourceRefId": "src_page_report_007_rfc_9000_0066",
+      "textHash": "sha256_4589e3e2c630aaef7701eba611227d55",
+      "textQuote": "9.3.3 . Off-Path Packet Forwarding"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0067",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.4 . Loss Detection and Congestion Control",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 66,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0067",
+      "sourceRefId": "src_page_report_007_rfc_9000_0067",
+      "textHash": "sha256_bb7ea94c3e8f7a1136483bf9e221196b",
+      "textQuote": "9.4 . Loss Detection and Congestion Control"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0068",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.5 . Privacy Implications of Connection Migration",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 67,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0068",
+      "sourceRefId": "src_page_report_007_rfc_9000_0068",
+      "textHash": "sha256_bf89615ca4e4aeec16fd9411158e9db3",
+      "textQuote": "9.5 . Privacy Implications of Connection Migration"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0069",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.6 . Server's Preferred Address",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 68,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0069",
+      "sourceRefId": "src_page_report_007_rfc_9000_0069",
+      "textHash": "sha256_9881d4def821bdfebab6ae8a8cb98967",
+      "textQuote": "9.6 . Server's Preferred Address"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0070",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.6.1 . Communicating a Preferred Address",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 69,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0070",
+      "sourceRefId": "src_page_report_007_rfc_9000_0070",
+      "textHash": "sha256_b7647f428ad54c2882b01748f6eb6b3d",
+      "textQuote": "9.6.1 . Communicating a Preferred Address"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0071",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.6.2 . Migration to a Preferred Address",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 70,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0071",
+      "sourceRefId": "src_page_report_007_rfc_9000_0071",
+      "textHash": "sha256_14a750a55ff5aba49fee8cafe6704452",
+      "textQuote": "9.6.2 . Migration to a Preferred Address"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0072",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.6.3 . Interaction of Client Migration and Preferred Address",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 71,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0072",
+      "sourceRefId": "src_page_report_007_rfc_9000_0072",
+      "textHash": "sha256_d9f683a790c065a6c5090c35ba31881c",
+      "textQuote": "9.6.3 . Interaction of Client Migration and Preferred Address"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0073",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "9.7 . Use of IPv6 Flow Label and Migration",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 72,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0073",
+      "sourceRefId": "src_page_report_007_rfc_9000_0073",
+      "textHash": "sha256_3f46388bb09fc778c8233c43071439e8",
+      "textQuote": "9.7 . Use of IPv6 Flow Label and Migration"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0074",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10 . Connection Termination",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 73,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0074",
+      "sourceRefId": "src_page_report_007_rfc_9000_0074",
+      "textHash": "sha256_099df79b036c5143550d66fc357fd9c1",
+      "textQuote": "10 . Connection Termination"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0075",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.1 . Idle Timeout",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 74,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0075",
+      "sourceRefId": "src_page_report_007_rfc_9000_0075",
+      "textHash": "sha256_4a3c458b70fdf7e16e6edef285153ae7",
+      "textQuote": "10.1 . Idle Timeout"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0076",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.1.1 . Liveness Testing",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 75,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0076",
+      "sourceRefId": "src_page_report_007_rfc_9000_0076",
+      "textHash": "sha256_44f10cac171f67e253fab17a61f5f730",
+      "textQuote": "10.1.1 . Liveness Testing"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0077",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.1.2 . Deferring Idle Timeout",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 76,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0077",
+      "sourceRefId": "src_page_report_007_rfc_9000_0077",
+      "textHash": "sha256_a7e1ca07b2f32b642993031238d3bfa7",
+      "textQuote": "10.1.2 . Deferring Idle Timeout"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0078",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.2 . Immediate Close",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 77,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0078",
+      "sourceRefId": "src_page_report_007_rfc_9000_0078",
+      "textHash": "sha256_349c10be5a7ac98b9b6aebc325bc7cba",
+      "textQuote": "10.2 . Immediate Close"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0079",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.2.1 . Closing Connection State",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 78,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0079",
+      "sourceRefId": "src_page_report_007_rfc_9000_0079",
+      "textHash": "sha256_d9c06054dd66ad1eb1eb0b680ffb3685",
+      "textQuote": "10.2.1 . Closing Connection State"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0080",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.2.2 . Draining Connection State",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 79,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0080",
+      "sourceRefId": "src_page_report_007_rfc_9000_0080",
+      "textHash": "sha256_2d058a36416cb686cc9ee6e66a608fe3",
+      "textQuote": "10.2.2 . Draining Connection State"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0081",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.2.3 . Immediate Close during the Handshake",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 80,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0081",
+      "sourceRefId": "src_page_report_007_rfc_9000_0081",
+      "textHash": "sha256_7ecfee7eeb3554fd48b2960b03ab4604",
+      "textQuote": "10.2.3 . Immediate Close during the Handshake"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0082",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.3 . Stateless Reset",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 81,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0082",
+      "sourceRefId": "src_page_report_007_rfc_9000_0082",
+      "textHash": "sha256_51453a28c7d05178ebae86a6eef86a7b",
+      "textQuote": "10.3 . Stateless Reset"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0083",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.3.1 . Detecting a Stateless Reset",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 82,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0083",
+      "sourceRefId": "src_page_report_007_rfc_9000_0083",
+      "textHash": "sha256_894c46115fa2b8a39f6de57e04302217",
+      "textQuote": "10.3.1 . Detecting a Stateless Reset"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0084",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.3.2 . Calculating a Stateless Reset Token",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 83,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0084",
+      "sourceRefId": "src_page_report_007_rfc_9000_0084",
+      "textHash": "sha256_d0b3812ac39e9f7f2ab51398afc0613a",
+      "textQuote": "10.3.2 . Calculating a Stateless Reset Token"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0085",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "10.3.3 . Looping",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 84,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0085",
+      "sourceRefId": "src_page_report_007_rfc_9000_0085",
+      "textHash": "sha256_5fd5a95e1835c47caa52d0009ca8fcc6",
+      "textQuote": "10.3.3 . Looping"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0086",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "11 . Error Handling",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 85,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0086",
+      "sourceRefId": "src_page_report_007_rfc_9000_0086",
+      "textHash": "sha256_a143811f44c111838ac155f1d39541b8",
+      "textQuote": "11 . Error Handling"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0087",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "11.1 . Connection Errors",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 86,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0087",
+      "sourceRefId": "src_page_report_007_rfc_9000_0087",
+      "textHash": "sha256_e8524e15e20d0d14ef0299ff78fbadbe",
+      "textQuote": "11.1 . Connection Errors"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0088",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "11.2 . Stream Errors",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 87,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0088",
+      "sourceRefId": "src_page_report_007_rfc_9000_0088",
+      "textHash": "sha256_0edeb0d33301a6e62cd669c27ff9d86f",
+      "textQuote": "11.2 . Stream Errors"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0089",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12 . Packets and Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 88,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0089",
+      "sourceRefId": "src_page_report_007_rfc_9000_0089",
+      "textHash": "sha256_1d3046e86b4695fd5a94c7f18aec572d",
+      "textQuote": "12 . Packets and Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0090",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12.1 . Protected Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 89,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0090",
+      "sourceRefId": "src_page_report_007_rfc_9000_0090",
+      "textHash": "sha256_21a9251f215ffc71a04db959d92c6810",
+      "textQuote": "12.1 . Protected Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0091",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12.2 . Coalescing Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 90,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0091",
+      "sourceRefId": "src_page_report_007_rfc_9000_0091",
+      "textHash": "sha256_703ab8dd2e16571fc228321309f94d48",
+      "textQuote": "12.2 . Coalescing Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0092",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12.3 . Packet Numbers",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 91,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0092",
+      "sourceRefId": "src_page_report_007_rfc_9000_0092",
+      "textHash": "sha256_35ca9e978b403ca9d60d045774b59be2",
+      "textQuote": "12.3 . Packet Numbers"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0093",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12.4 . Frames and Frame Types",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 92,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0093",
+      "sourceRefId": "src_page_report_007_rfc_9000_0093",
+      "textHash": "sha256_2922a3d7e71125242d3c6353565bee81",
+      "textQuote": "12.4 . Frames and Frame Types"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0094",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "12.5 . Frames and Number Spaces",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 93,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0094",
+      "sourceRefId": "src_page_report_007_rfc_9000_0094",
+      "textHash": "sha256_cb250216c52f240e1ec296b40201a6f6",
+      "textQuote": "12.5 . Frames and Number Spaces"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0095",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13 . Packetization and Reliability",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 94,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0095",
+      "sourceRefId": "src_page_report_007_rfc_9000_0095",
+      "textHash": "sha256_acaddf14dbb9d4b86a6d07a422c7f779",
+      "textQuote": "13 . Packetization and Reliability"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0096",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.1 . Packet Processing",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 95,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0096",
+      "sourceRefId": "src_page_report_007_rfc_9000_0096",
+      "textHash": "sha256_4e287c0143cf69f309101101e371fd3f",
+      "textQuote": "13.1 . Packet Processing"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0097",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2 . Generating Acknowledgments",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 96,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0097",
+      "sourceRefId": "src_page_report_007_rfc_9000_0097",
+      "textHash": "sha256_123b07e3c274b5aab1d7145bc3a6798f",
+      "textQuote": "13.2 . Generating Acknowledgments"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0098",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.1 . Sending ACK Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 97,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0098",
+      "sourceRefId": "src_page_report_007_rfc_9000_0098",
+      "textHash": "sha256_226c1b7ee96fd10eb7fa00c4c586c8cd",
+      "textQuote": "13.2.1 . Sending ACK Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0099",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.2 . Acknowledgment Frequency",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 98,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0099",
+      "sourceRefId": "src_page_report_007_rfc_9000_0099",
+      "textHash": "sha256_a7e61fc787194c5addd6008e4b456b3b",
+      "textQuote": "13.2.2 . Acknowledgment Frequency"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0100",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.3 . Managing ACK Ranges",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 99,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0100",
+      "sourceRefId": "src_page_report_007_rfc_9000_0100",
+      "textHash": "sha256_04cd0607da60614145d95e80ac66e602",
+      "textQuote": "13.2.3 . Managing ACK Ranges"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0101",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.4 . Limiting Ranges by Tracking ACK Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 100,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0101",
+      "sourceRefId": "src_page_report_007_rfc_9000_0101",
+      "textHash": "sha256_6205d390a791a99dcf06eb4f41bb1c4e",
+      "textQuote": "13.2.4 . Limiting Ranges by Tracking ACK Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0102",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.5 . Measuring and Reporting Host Delay",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 101,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0102",
+      "sourceRefId": "src_page_report_007_rfc_9000_0102",
+      "textHash": "sha256_2d25b468535fd15ec175a7528a0dc0df",
+      "textQuote": "13.2.5 . Measuring and Reporting Host Delay"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0103",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.6 . ACK Frames and Packet Protection",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 102,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0103",
+      "sourceRefId": "src_page_report_007_rfc_9000_0103",
+      "textHash": "sha256_ebb46f97fa6f2134d284e711716a668c",
+      "textQuote": "13.2.6 . ACK Frames and Packet Protection"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0104",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.2.7 . PADDING Frames Consume Congestion Window",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 103,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0104",
+      "sourceRefId": "src_page_report_007_rfc_9000_0104",
+      "textHash": "sha256_626bdd8759cd7a6c0d598403c0a1965d",
+      "textQuote": "13.2.7 . PADDING Frames Consume Congestion Window"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0105",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.3 . Retransmission of Information",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 104,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0105",
+      "sourceRefId": "src_page_report_007_rfc_9000_0105",
+      "textHash": "sha256_110e5b670e69395475ef15ce55241412",
+      "textQuote": "13.3 . Retransmission of Information"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0106",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.4 . Explicit Congestion Notification",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 105,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0106",
+      "sourceRefId": "src_page_report_007_rfc_9000_0106",
+      "textHash": "sha256_77f734b1ed55079bcf831197d7a803c6",
+      "textQuote": "13.4 . Explicit Congestion Notification"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0107",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.4.1 . Reporting ECN Counts",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 106,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0107",
+      "sourceRefId": "src_page_report_007_rfc_9000_0107",
+      "textHash": "sha256_d77e3854d42b99874d13b326e0952e2c",
+      "textQuote": "13.4.1 . Reporting ECN Counts"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0108",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "13.4.2 . ECN Validation",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 107,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0108",
+      "sourceRefId": "src_page_report_007_rfc_9000_0108",
+      "textHash": "sha256_864e4163c1357c310c14ff93c84f0d6c",
+      "textQuote": "13.4.2 . ECN Validation"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0109",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14 . Datagram Size",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 108,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0109",
+      "sourceRefId": "src_page_report_007_rfc_9000_0109",
+      "textHash": "sha256_8f216fdbd0a1053d119c67294dbf97d3",
+      "textQuote": "14 . Datagram Size"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0110",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.1 . Initial Datagram Size",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 109,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0110",
+      "sourceRefId": "src_page_report_007_rfc_9000_0110",
+      "textHash": "sha256_0692be1fc8b9e51b594daeafc0eae3cb",
+      "textQuote": "14.1 . Initial Datagram Size"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0111",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.2 . Path Maximum Transmission Unit",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 110,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0111",
+      "sourceRefId": "src_page_report_007_rfc_9000_0111",
+      "textHash": "sha256_c5dd691ee1de35eec980535fd469e0c7",
+      "textQuote": "14.2 . Path Maximum Transmission Unit"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0112",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.2.1 . Handling of ICMP Messages by PMTUD",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 111,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0112",
+      "sourceRefId": "src_page_report_007_rfc_9000_0112",
+      "textHash": "sha256_c3ddcf833034146bcc408ee98ed8beb3",
+      "textQuote": "14.2.1 . Handling of ICMP Messages by PMTUD"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0113",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.3 . Datagram Packetization Layer PMTU Discovery",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 112,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0113",
+      "sourceRefId": "src_page_report_007_rfc_9000_0113",
+      "textHash": "sha256_103e6af1dc2d492dc8ba0f00ca9b60c9",
+      "textQuote": "14.3 . Datagram Packetization Layer PMTU Discovery"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0114",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.3.1 . DPLPMTUD and Initial Connectivity",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 113,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0114",
+      "sourceRefId": "src_page_report_007_rfc_9000_0114",
+      "textHash": "sha256_37751bc01f13465f8820d509195912b5",
+      "textQuote": "14.3.1 . DPLPMTUD and Initial Connectivity"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0115",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.3.2 . Validating the Network Path with DPLPMTUD",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 114,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0115",
+      "sourceRefId": "src_page_report_007_rfc_9000_0115",
+      "textHash": "sha256_44752b9a7ba914c82aa4e90f0693b7dd",
+      "textQuote": "14.3.2 . Validating the Network Path with DPLPMTUD"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0116",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.3.3 . Handling of ICMP Messages by DPLPMTUD",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 115,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0116",
+      "sourceRefId": "src_page_report_007_rfc_9000_0116",
+      "textHash": "sha256_bbc9b1ee960f08afc438211defd4230d",
+      "textQuote": "14.3.3 . Handling of ICMP Messages by DPLPMTUD"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0117",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.4 . Sending QUIC PMTU Probes",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 116,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0117",
+      "sourceRefId": "src_page_report_007_rfc_9000_0117",
+      "textHash": "sha256_28d3bde95198caba07115c0d0919db98",
+      "textQuote": "14.4 . Sending QUIC PMTU Probes"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0118",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "14.4.1 . PMTU Probes Containing Source Connection ID",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 117,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0118",
+      "sourceRefId": "src_page_report_007_rfc_9000_0118",
+      "textHash": "sha256_9a358d3de79e8204b9ffb82e1b805b01",
+      "textQuote": "14.4.1 . PMTU Probes Containing Source Connection ID"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0119",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "16 . Variable-Length Integer Encoding",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 118,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0119",
+      "sourceRefId": "src_page_report_007_rfc_9000_0119",
+      "textHash": "sha256_4ad117bbdfa43ca2d8e74f4d4ecec649",
+      "textQuote": "16 . Variable-Length Integer Encoding"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0120",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17 . Packet Formats",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 119,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0120",
+      "sourceRefId": "src_page_report_007_rfc_9000_0120",
+      "textHash": "sha256_53db103e195ddec33e1ea1ef2132cbc4",
+      "textQuote": "17 . Packet Formats"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0121",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.1 . Packet Number Encoding and Decoding",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 120,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0121",
+      "sourceRefId": "src_page_report_007_rfc_9000_0121",
+      "textHash": "sha256_b39ea5efa117ee0603f6aff39b1eb3d9",
+      "textQuote": "17.1 . Packet Number Encoding and Decoding"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0122",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.2 . Long Header Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 121,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0122",
+      "sourceRefId": "src_page_report_007_rfc_9000_0122",
+      "textHash": "sha256_2c2dbd7fc806c2340e7c2f8c5181bf69",
+      "textQuote": "17.2 . Long Header Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0123",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.2.1 . Version Negotiation Packet",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 122,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0123",
+      "sourceRefId": "src_page_report_007_rfc_9000_0123",
+      "textHash": "sha256_e912dbdfeebc9a82675fd8ea1b2564ca",
+      "textQuote": "17.2.1 . Version Negotiation Packet"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0124",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.2.2 . Initial Packet",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 123,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0124",
+      "sourceRefId": "src_page_report_007_rfc_9000_0124",
+      "textHash": "sha256_b73785490b7a55c6a3ba53b6f170d71a",
+      "textQuote": "17.2.2 . Initial Packet"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0125",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.2.4 . Handshake Packet",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 124,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0125",
+      "sourceRefId": "src_page_report_007_rfc_9000_0125",
+      "textHash": "sha256_28f18c78f0085c9f7109db12e30ec0e0",
+      "textQuote": "17.2.4 . Handshake Packet"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0126",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.2.5 . Retry Packet",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 125,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0126",
+      "sourceRefId": "src_page_report_007_rfc_9000_0126",
+      "textHash": "sha256_c1499e561076d60c1e7770a84d1b4e0c",
+      "textQuote": "17.2.5 . Retry Packet"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0127",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.3 . Short Header Packets",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 126,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0127",
+      "sourceRefId": "src_page_report_007_rfc_9000_0127",
+      "textHash": "sha256_acb417476b981e8ec187c075a01e73b0",
+      "textQuote": "17.3 . Short Header Packets"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0128",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.3.1 . 1-RTT Packet",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 127,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0128",
+      "sourceRefId": "src_page_report_007_rfc_9000_0128",
+      "textHash": "sha256_d0c4c63105f68e2d07f0ab68712cc31e",
+      "textQuote": "17.3.1 . 1-RTT Packet"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0129",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "17.4 . Latency Spin Bit",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 128,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0129",
+      "sourceRefId": "src_page_report_007_rfc_9000_0129",
+      "textHash": "sha256_29acecd623c69899b25c78dbe61c8042",
+      "textQuote": "17.4 . Latency Spin Bit"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0130",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "18 . Transport Parameter Encoding",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 129,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0130",
+      "sourceRefId": "src_page_report_007_rfc_9000_0130",
+      "textHash": "sha256_c9ea158fdac9b73833fd19ba9f0e256b",
+      "textQuote": "18 . Transport Parameter Encoding"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0131",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "18.1 . Reserved Transport Parameters",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 130,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0131",
+      "sourceRefId": "src_page_report_007_rfc_9000_0131",
+      "textHash": "sha256_e8adc71cac6c5e0aec094ddda216bed8",
+      "textQuote": "18.1 . Reserved Transport Parameters"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0132",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "18.2 . Transport Parameter Definitions",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 131,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0132",
+      "sourceRefId": "src_page_report_007_rfc_9000_0132",
+      "textHash": "sha256_be0a6bc29ebb0a295533c834ad9f6b68",
+      "textQuote": "18.2 . Transport Parameter Definitions"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0133",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19 . Frame Types and Formats",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 132,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0133",
+      "sourceRefId": "src_page_report_007_rfc_9000_0133",
+      "textHash": "sha256_1ad512e4dd287b9e97c5014aca0fe892",
+      "textQuote": "19 . Frame Types and Formats"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0134",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.1 . PADDING Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 133,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0134",
+      "sourceRefId": "src_page_report_007_rfc_9000_0134",
+      "textHash": "sha256_2ccddb20223184f205dc400a1fc047fe",
+      "textQuote": "19.1 . PADDING Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0135",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.2 . PING Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 134,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0135",
+      "sourceRefId": "src_page_report_007_rfc_9000_0135",
+      "textHash": "sha256_4ab78ef5338bca957498e6b23fdb9ff2",
+      "textQuote": "19.2 . PING Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0136",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.3 . ACK Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 135,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0136",
+      "sourceRefId": "src_page_report_007_rfc_9000_0136",
+      "textHash": "sha256_9050fe1cd17920a3d1ffb2a365051314",
+      "textQuote": "19.3 . ACK Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0137",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.3.1 . ACK Ranges",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 136,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0137",
+      "sourceRefId": "src_page_report_007_rfc_9000_0137",
+      "textHash": "sha256_346c3c010fb7ac21e99cddc8976e492e",
+      "textQuote": "19.3.1 . ACK Ranges"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0138",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.3.2 . ECN Counts",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 137,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0138",
+      "sourceRefId": "src_page_report_007_rfc_9000_0138",
+      "textHash": "sha256_9fdae8b930a66c0282db085daef55317",
+      "textQuote": "19.3.2 . ECN Counts"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0139",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.4 . RESET_STREAM Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 138,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0139",
+      "sourceRefId": "src_page_report_007_rfc_9000_0139",
+      "textHash": "sha256_1d685fdb9866f3695c6bce80b46e5659",
+      "textQuote": "19.4 . RESET_STREAM Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0140",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.5 . STOP_SENDING Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 139,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0140",
+      "sourceRefId": "src_page_report_007_rfc_9000_0140",
+      "textHash": "sha256_c76b79cd1d929419554227c59c0c79ab",
+      "textQuote": "19.5 . STOP_SENDING Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0141",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.6 . CRYPTO Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 140,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0141",
+      "sourceRefId": "src_page_report_007_rfc_9000_0141",
+      "textHash": "sha256_b0c1f6fd5378d8e65815ad2bde27e578",
+      "textQuote": "19.6 . CRYPTO Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0142",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.7 . NEW_TOKEN Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 141,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0142",
+      "sourceRefId": "src_page_report_007_rfc_9000_0142",
+      "textHash": "sha256_7657323a07c1f0b6d5311de655d5fd2b",
+      "textQuote": "19.7 . NEW_TOKEN Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0143",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.8 . STREAM Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 142,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0143",
+      "sourceRefId": "src_page_report_007_rfc_9000_0143",
+      "textHash": "sha256_403625768a80ee36ca6c247e37a22156",
+      "textQuote": "19.8 . STREAM Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0144",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.9 . MAX_DATA Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 143,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0144",
+      "sourceRefId": "src_page_report_007_rfc_9000_0144",
+      "textHash": "sha256_017cf7c54511cab23f1315e3983e3b35",
+      "textQuote": "19.9 . MAX_DATA Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0145",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.10 . MAX_STREAM_DATA Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 144,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0145",
+      "sourceRefId": "src_page_report_007_rfc_9000_0145",
+      "textHash": "sha256_31cac4425b9786cada14ec4d585d8f89",
+      "textQuote": "19.10 . MAX_STREAM_DATA Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0146",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.11 . MAX_STREAMS Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 145,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0146",
+      "sourceRefId": "src_page_report_007_rfc_9000_0146",
+      "textHash": "sha256_3b597fb8927c32e411cfff6e7dca01eb",
+      "textQuote": "19.11 . MAX_STREAMS Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0147",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.12 . DATA_BLOCKED Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 146,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0147",
+      "sourceRefId": "src_page_report_007_rfc_9000_0147",
+      "textHash": "sha256_d992dafa81a2c102aae85732addce645",
+      "textQuote": "19.12 . DATA_BLOCKED Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0148",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.13 . STREAM_DATA_BLOCKED Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 147,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0148",
+      "sourceRefId": "src_page_report_007_rfc_9000_0148",
+      "textHash": "sha256_86c013299429940dec77bf0809084b8f",
+      "textQuote": "19.13 . STREAM_DATA_BLOCKED Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0149",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.14 . STREAMS_BLOCKED Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 148,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0149",
+      "sourceRefId": "src_page_report_007_rfc_9000_0149",
+      "textHash": "sha256_e01909e812e6b1790f9a2ab55031afa9",
+      "textQuote": "19.14 . STREAMS_BLOCKED Frames"
+    },
+    {
+      "blockId": "block_pg_page_report_007_rfc_9000_0150",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_report_007_rfc_9000_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_166d955a2a2a179f799a9f63edf71c5cc7b9e7730de56eae16aa64045800f288",
+      "fallbackText": "19.15 . NEW_CONNECTION_ID Frames",
+      "headingPath": [
+        "QUIC: A UDP-Based Multiplexed and Secure Transport",
+        "Table of Contents"
+      ],
+      "order": 149,
+      "pageId": "page_report_007_rfc_9000",
+      "paragraphId": "pg_page_report_007_rfc_9000_0150",
+      "sourceRefId": "src_page_report_007_rfc_9000_0150",
+      "textHash": "sha256_cb25140f9112fd76420166b23fcb5bb9",
+      "textQuote": "19.15 . NEW_CONNECTION_ID Frames"
+    }
+  ],
+  "status": "pass"
+}

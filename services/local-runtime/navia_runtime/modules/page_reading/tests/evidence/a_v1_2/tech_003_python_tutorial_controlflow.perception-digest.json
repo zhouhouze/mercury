@@ -1,0 +1,641 @@
+{
+  "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+  "digestId": "digest_page_tech_003_python_tutorial_controlflow",
+  "items": [
+    {
+      "confidence": 0.843,
+      "importance": 0.88,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0075",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "A match statement takes an expression and compares its value to successive patterns given as one or more case blocks. This is superficially similar to a switch statement in C, Java or JavaScript (and many other languages), but it’s more similar to pattern matching in languages like Rust or Haskell. Only the first pattern that matches gets executed and it can",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 74,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0075",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0075",
+          "textHash": "sha256_5196c6ce072fd1e68055beb0ecd37e9b",
+          "textQuote": "A match statement takes an expression and compares its value to successive patterns given as one or more case blocks. This is superficially similar to a switch statement in C, Java or JavaScript (and many other languages"
+        }
+      ],
+      "text": "A match statement takes an expression and compares its value to successive patterns given as one",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0140",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0140"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0140",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "In a function call, keyword arguments must follow positional arguments. All the keyword arguments passed must match one of the arguments accepted by the function (e.g. actor is not a valid argument for the parrot function), and their order is not important. This also includes non-optional arguments (e.g. parrot(voltage=1000) is valid too). No argument may re",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.9. More on Defining Functions ¶",
+            "4.9.2. Keyword Arguments ¶"
+          ],
+          "order": 139,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0140",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0140",
+          "textHash": "sha256_20ba6ebfe0e2f1578ce1eb4d89049f62",
+          "textQuote": "In a function call, keyword arguments must follow positional arguments. All the keyword arguments passed must match one of the arguments accepted by the function (e.g. actor is not a valid argument for the parrot functio"
+        }
+      ],
+      "text": "In a function call , keyword arguments must follow positional arguments . All the keyword arguments",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0086",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "You can use positional parameters with some builtin classes that provide an ordering for their attributes (e.g. dataclasses). You can also define a specific position for attributes in patterns by setting the __match_args__ special attribute in your classes. If it’s set to (“x”, “y”), the following patterns are all equivalent (and all bind the y attribute to ",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 85,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0086",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0086",
+          "textHash": "sha256_f120e928f31d743371b2c32a3f5f7e47",
+          "textQuote": "You can use positional parameters with some builtin classes that provide an ordering for their attributes (e.g. dataclasses). You can also define a specific position for attributes in patterns by setting the __match_args"
+        }
+      ],
+      "text": "You can use positional parameters with some builtin classes that provide an ordering for their attributes",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.844,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0107",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string, or docstring . (More about docstrings can be found in the section Documentation Strings .) There are tools which use docstrings to automatically produce online or printed documentation, or to let the user interactively brow",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.8. Defining Functions ¶"
+          ],
+          "order": 106,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0107",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0107",
+          "textHash": "sha256_47bc2a5f6c25489e0c10644b6366b5c9",
+          "textQuote": "The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string, or docstring . (More about docstrings can be found in the section Documentation Str"
+        }
+      ],
+      "text": "The first statement of the function body can optionally be a string literal ; this string",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0096",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Mapping patterns: {\"bandwidth\": b, \"latency\": l} captures the \"bandwidth\" and \"latency\" values from a dictionary. Unlike sequence patterns, extra keys are ignored. An unpacking like **rest is also supported. (But **_ would be redundant, so it is not allowed.)",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 95,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0096",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0096",
+          "textHash": "sha256_947e88526bdeb222b7a3d733a578da68",
+          "textQuote": "Mapping patterns: {\"bandwidth\": b, \"latency\": l} captures the \"bandwidth\" and \"latency\" values from a dictionary. Unlike sequence patterns, extra keys are ignored. An unpacking like **rest is also supported. (But **_ wou"
+        }
+      ],
+      "text": "Mapping patterns : { \" bandwidth \" : b , \" latency \" : l }",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0142",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0142"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0142",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "When a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict ) containing all keyword arguments except for those corresponding to a formal parameter. This may be combined with a formal parameter of the form *name (described in the next subsection) which receives a tuple containing the positional arguments be",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.9. More on Defining Functions ¶",
+            "4.9.2. Keyword Arguments ¶"
+          ],
+          "order": 141,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0142",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0142",
+          "textHash": "sha256_5346425f9c1a2f48903bd2f65b09a182",
+          "textQuote": "When a final formal parameter of the form **name is present, it receives a dictionary (see Mapping Types — dict ) containing all keyword arguments except for those corresponding to a formal parameter. This may be combine"
+        }
+      ],
+      "text": "When a final formal parameter of the form * * name is present , it receives",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0038",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0038"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "The for statement in Python differs a bit from what you may be used to in C or Pascal. Rather than always iterating over an arithmetic progression of numbers (like in Pascal), or giving the user the ability to define both the iteration step and halting condition (as C), Python’s for statement iterates over the items of any sequence (a list or a string), in t",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.2. for Statements ¶"
+          ],
+          "order": 37,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0038",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0038",
+          "textHash": "sha256_1e844d7464cb745f4f7677810b06142d",
+          "textQuote": "The for statement in Python differs a bit from what you may be used to in C or Pascal. Rather than always iterating over an arithmetic progression of numbers (like in Pascal), or giving the user the ability to define bot"
+        }
+      ],
+      "text": "The for statement in Python differs a bit from what you may be used to in",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0112",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0014"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0112"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0112",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0014",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Coming from other languages, you might object that fib is not a function but a procedure since it doesn’t return a value. In fact, even functions without a return statement do return a value, albeit a rather boring one. This value is called None (it’s a built-in name). Writing the value None is normally suppressed by the interpreter if it would be the only v",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.8. Defining Functions ¶"
+          ],
+          "order": 111,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0112",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0112",
+          "textHash": "sha256_59dd5b5ec68f6dda6bdf7d9181ea7d02",
+          "textQuote": "Coming from other languages, you might object that fib is not a function but a procedure since it doesn’t return a value. In fact, even functions without a return statement do return a value, albeit a rather boring one. "
+        }
+      ],
+      "text": "Coming from other languages , you might object that fib is not a function but a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0074",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0074"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0074",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "For this last case, many people use the ellipsis literal ... instead of pass . This use has no special meaning to Python, and is not part of the language definition (you could use any constant expression here), but ... is used conventionally as a placeholder body as well. See The Ellipsis Object .",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.6. pass Statements ¶"
+          ],
+          "order": 73,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0074",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0074",
+          "textHash": "sha256_405371940b0dec1eeb741176193be178",
+          "textQuote": "For this last case, many people use the ellipsis literal ... instead of pass . This use has no special meaning to Python, and is not part of the language definition (you could use any constant expression here), but ... i"
+        }
+      ],
+      "text": "For this last case , many people use the ellipsis literal . . . instead of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Like unpacking assignments, tuple and list patterns have exactly the same meaning and actually match arbitrary sequences. An important exception is that they don’t match iterators or strings.",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 93,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0094",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0094",
+          "textHash": "sha256_fb83d373ed92604188dead0d66b0ec9e",
+          "textQuote": "Like unpacking assignments, tuple and list patterns have exactly the same meaning and actually match arbitrary sequences. An important exception is that they don’t match iterators or strings."
+        }
+      ],
+      "text": "Like unpacking assignments , tuple and list patterns have exactly the same meaning and actually match",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0129",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0129"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0129",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accumulates the arguments passed to it on subsequent calls:",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.9. More on Defining Functions ¶",
+            "4.9.1. Default Argument Values ¶"
+          ],
+          "order": 128,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0129",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0129",
+          "textHash": "sha256_49918bd6057dcd93a3962645d2c82b09",
+          "textQuote": "Important warning: The default value is evaluated only once. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes. For example, the following function accu"
+        }
+      ],
+      "text": "Important warning : The default value is evaluated only once . This makes a difference when",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0101",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0101"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0101",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Patterns may use named constants. These must be dotted names to prevent them from being interpreted as capture variables:",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 100,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0101",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0101",
+          "textHash": "sha256_b2f18c5bd0c3a9260721487e205f8486",
+          "textQuote": "Patterns may use named constants. These must be dotted names to prevent them from being interpreted as capture variables:"
+        }
+      ],
+      "text": "Patterns may use named constants . These must be dotted names to prevent them from being",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0119",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0119"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0119",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "It is also possible to define functions with a variable number of arguments. There are three forms, which can be combined.",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.9. More on Defining Functions ¶"
+          ],
+          "order": 118,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0119",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0119",
+          "textHash": "sha256_621e5f25e08d9bcbf9b55fe2dc9173dc",
+          "textQuote": "It is also possible to define functions with a variable number of arguments. There are three forms, which can be combined."
+        }
+      ],
+      "text": "It is also possible to define functions with a variable number of arguments . There are",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0136",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0136"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0136",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "accepts one required argument ( voltage ) and three optional arguments ( state , action , and type ). This function can be called in any of the following ways:",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.9. More on Defining Functions ¶",
+            "4.9.2. Keyword Arguments ¶"
+          ],
+          "order": 135,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0136",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0136",
+          "textHash": "sha256_72f6eba483400864d8e29572bc0462c2",
+          "textQuote": "accepts one required argument ( voltage ) and three optional arguments ( state , action , and type ). This function can be called in any of the following ways:"
+        }
+      ],
+      "text": "accepts one required argument ( voltage ) and three optional arguments ( state , action ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0083",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0083"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0083",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Study that one carefully! The first pattern has two literals, and can be thought of as an extension of the literal pattern shown above. But the next two patterns combine a literal and a variable, and the variable binds a value from the subject ( point ). The fourth pattern captures two values, which makes it conceptually similar to the unpacking assignment (",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 82,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0083",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0083",
+          "textHash": "sha256_fb8f915a50e0e6c9d74a14fb8653aa5b",
+          "textQuote": "Study that one carefully! The first pattern has two literals, and can be thought of as an extension of the literal pattern shown above. But the next two patterns combine a literal and a variable, and the variable binds a"
+        }
+      ],
+      "text": "Study that one carefully ! The first pattern has two literals , and can be thought",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0048",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "In most such cases, however, it is convenient to use the enumerate() function, see Looping Techniques .",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.3. The range() Function ¶"
+          ],
+          "order": 47,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0048",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0048",
+          "textHash": "sha256_2750c0850cd8dbffd49324baaf529761",
+          "textQuote": "In most such cases, however, it is convenient to use the enumerate() function, see Looping Techniques ."
+        }
+      ],
+      "text": "In most such cases , however , it is convenient to use the enumerate ( )",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0084",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0084"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0084",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "If you are using classes to structure your data you can use the class name followed by an argument list resembling a constructor, but with the ability to capture attributes into variables:",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 83,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0084",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0084",
+          "textHash": "sha256_2ff3d4aebec3278c03ca774529482eb8",
+          "textQuote": "If you are using classes to structure your data you can use the class name followed by an argument list resembling a constructor, but with the ability to capture attributes into variables:"
+        }
+      ],
+      "text": "If you are using classes to structure your data you can use the class name followed",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_page_tech_003_python_tutorial_controlflow_0089",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_tech_003_python_tutorial_controlflow_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_tech_003_python_tutorial_controlflow_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_tech_003_python_tutorial_controlflow_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_tech_003_python_tutorial_controlflow_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_4df23e5ebce40ae329fac20f8fd485fd736d3c37a1ab417c0e7afd17143a18f2",
+          "fallbackText": "Patterns can be arbitrarily nested. For example, if we have a short list of Points, with __match_args__ added, we could match it like this:",
+          "headingPath": [
+            "4. More Control Flow Tools ¶",
+            "4.7. match Statements ¶"
+          ],
+          "order": 88,
+          "pageId": "page_tech_003_python_tutorial_controlflow",
+          "paragraphId": "pg_page_tech_003_python_tutorial_controlflow_0089",
+          "sourceRefId": "src_page_tech_003_python_tutorial_controlflow_0089",
+          "textHash": "sha256_fe8bcd35bddccf36cd6dd99b9961d452",
+          "textQuote": "Patterns can be arbitrarily nested. For example, if we have a short list of Points, with __match_args__ added, we could match it like this:"
+        }
+      ],
+      "text": "Patterns can be arbitrarily nested . For example , if we have a short list of",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_tech_003_python_tutorial_controlflow",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.063,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "A match statement takes an expression and compares its value to successive patterns given as one",
+      "In a function call , keyword arguments must follow positional arguments . All the keyword arguments",
+      "You can use positional parameters with some builtin classes that provide an ordering for their attributes",
+      "The first statement of the function body can optionally be a string literal ; this string",
+      "Mapping patterns : { \" bandwidth \" : b , \" latency \" : l }"
+    ],
+    "tldr": "A match statement takes an expression and compares its value to successive patterns given as one"
+  }
+}

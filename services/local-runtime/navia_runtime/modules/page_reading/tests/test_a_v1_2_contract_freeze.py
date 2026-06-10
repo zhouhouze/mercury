@@ -9,7 +9,7 @@ from jsonschema import Draft202012Validator
 
 
 REPO_ROOT = Path(__file__).resolve().parents[6]
-SCHEMA_PATH = REPO_ROOT / "docs/navia_v1_project_docs/contracts/a_v1_2_page_perception.schema.json"
+SCHEMA_PATH = REPO_ROOT / "docs/active/project/contracts/a_v1_2_page_perception.schema.json"
 
 
 def load_schema() -> dict[str, Any]:
@@ -204,6 +204,7 @@ def extractor_comparison(winner: str = "dom_baseline") -> dict[str, Any]:
                 "status": "available",
                 "blockCount": 2,
                 "mainTextChars": 200,
+                "mainTextCoverage": 1.0,
                 "estimatedNoiseRatio": 0.1,
                 "headingCoverage": 0.8,
                 "sourceRefCoverage": 1.0,
@@ -216,6 +217,7 @@ def extractor_comparison(winner: str = "dom_baseline") -> dict[str, Any]:
                 "status": "rejected",
                 "blockCount": 0,
                 "mainTextChars": 0,
+                "mainTextCoverage": 0.0,
                 "estimatedNoiseRatio": 1.0,
                 "headingCoverage": 0.0,
                 "sourceRefCoverage": 0.0,

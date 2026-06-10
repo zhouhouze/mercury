@@ -1,0 +1,631 @@
+{
+  "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+  "digestId": "digest_page_image_012_go_interfaces",
+  "items": [
+    {
+      "confidence": 0.829,
+      "importance": 0.843,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0053",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "The expression in this assignment is a type assertion; what it asserts is that the item inside r also implements io.Writer , and so we can assign it to w . After the assignment, w will contain the pair ( tty , *os.File ). That’s the same pair as was held in r . The static type of the interface determines what methods may be invoked with an interface variable",
+          "headingPath": [
+            "The Laws of Reflection",
+            "The representation of an interface"
+          ],
+          "order": 52,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0053",
+          "sourceRefId": "src_page_image_012_go_interfaces_0053",
+          "textHash": "sha256_d1f7ba111e80f6eb6f84b06be0dc738e",
+          "textQuote": "The expression in this assignment is a type assertion; what it asserts is that the item inside r also implements io.Writer , and so we can assign it to w . After the assignment, w will contain the pair ( tty , *os.File )"
+        }
+      ],
+      "text": "The expression in this assignment is a type assertion ; what it asserts is that the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0033",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Note added January 2022: This blog post was written in 2011 and predates parametric polymorphism (a.k.a. generics) in Go. Although nothing important in the article has become incorrect as a result of that development in the language, it has been tweaked in a few places to avoid confusing someone familiar with modern Go.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Introduction"
+          ],
+          "order": 32,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0033",
+          "sourceRefId": "src_page_image_012_go_interfaces_0033",
+          "textHash": "sha256_4640175faba3e4d8dbbabe8932684da3",
+          "textQuote": "Note added January 2022: This blog post was written in 2011 and predates parametric polymorphism (a.k.a. generics) in Go. Although nothing important in the article has become incorrect as a result of that development in "
+        }
+      ],
+      "text": "Note added January 2022 : This blog post was written in 2011 and predates parametric polymorphism",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0038",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0038"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "One important category of type is interface types, which represent fixed sets of methods. (When discussing reflection, we can ignore the use of interface definitions as constraints within polymorphic code.) An interface variable can store any concrete (non-interface) value as long as that value implements the interface’s methods. A well-known pair of example",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Types and interfaces"
+          ],
+          "order": 37,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0038",
+          "sourceRefId": "src_page_image_012_go_interfaces_0038",
+          "textHash": "sha256_b1c56cac802a53c4bf3996ce066cdda0",
+          "textQuote": "One important category of type is interface types, which represent fixed sets of methods. (When discussing reflection, we can ignore the use of interface definitions as constraints within polymorphic code.) An interface "
+        }
+      ],
+      "text": "One important category of type is interface types , which represent fixed sets of methods .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.834,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0086",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "We can do even better, though. The arguments to fmt.Println , fmt.Printf and so on are all passed as empty interface values, which are then unpacked by the fmt package internally just as we have been doing in the previous examples. Therefore all it takes to print the contents of a reflect.Value correctly is to pass the result of the Interface method to the f",
+          "headingPath": [
+            "The Laws of Reflection",
+            "2. Reflection goes from reflection object to interface value."
+          ],
+          "order": 85,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0086",
+          "sourceRefId": "src_page_image_012_go_interfaces_0086",
+          "textHash": "sha256_bb5f680c4dbf84660af2dbec0ca6f563",
+          "textQuote": "We can do even better, though. The arguments to fmt.Println , fmt.Printf and so on are all passed as empty interface values, which are then unpacked by the fmt package internally just as we have been doing in the previou"
+        }
+      ],
+      "text": "We can do even better , though . The arguments to fmt . Println , fmt",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.826,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "At the basic level, reflection is just a mechanism to examine the type and value pair stored inside an interface variable. To get started, there are two types we need to know about in package reflect : Type and Value . Those two types give access to the contents of an interface variable, and two simple functions, called reflect.TypeOf and reflect.ValueOf , r",
+          "headingPath": [
+            "The Laws of Reflection",
+            "1. Reflection goes from interface value to reflection object."
+          ],
+          "order": 59,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0060",
+          "sourceRefId": "src_page_image_012_go_interfaces_0060",
+          "textHash": "sha256_7b8b4bac295e6274d5664a24ddda43e8",
+          "textQuote": "At the basic level, reflection is just a mechanism to examine the type and value pair stored inside an interface variable. To get started, there are two types we need to know about in package reflect : Type and Value . T"
+        }
+      ],
+      "text": "At the basic level , reflection is just a mechanism to examine the type and value",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0075",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "The reflection library has a couple of properties worth singling out. First, to keep the API simple, the “getter” and “setter” methods of Value operate on the largest type that can hold the value: int64 for all the signed integers, for instance. That is, the Int method of Value returns an int64 and the SetInt value takes an int64 ; it may be necessary to con",
+          "headingPath": [
+            "The Laws of Reflection",
+            "1. Reflection goes from interface value to reflection object."
+          ],
+          "order": 74,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0075",
+          "sourceRefId": "src_page_image_012_go_interfaces_0075",
+          "textHash": "sha256_7c609e031808e3a2136bbb91f245fa64",
+          "textQuote": "The reflection library has a couple of properties worth singling out. First, to keep the API simple, the “getter” and “setter” methods of Value operate on the largest type that can hold the value: int64 for all the signe"
+        }
+      ],
+      "text": "The reflection library has a couple of properties worth singling out . First , to keep",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0048",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Russ Cox has written a detailed blog post about the representation of interface values in Go. It’s not necessary to repeat the full story here, but a simplified summary is in order.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "The representation of an interface"
+          ],
+          "order": 47,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0048",
+          "sourceRefId": "src_page_image_012_go_interfaces_0048",
+          "textHash": "sha256_074412e6a0a2e69a60e51c151c455f4a",
+          "textQuote": "Russ Cox has written a detailed blog post about the representation of interface values in Go. It’s not necessary to repeat the full story here, but a simplified summary is in order."
+        }
+      ],
+      "text": "Russ Cox has written a detailed blog post about the representation of interface values in Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0034",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0034",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Because reflection builds on the type system, let’s start with a refresher about types in Go.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Types and interfaces"
+          ],
+          "order": 33,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0034",
+          "sourceRefId": "src_page_image_012_go_interfaces_0034",
+          "textHash": "sha256_97ba4363fef1f5c786f663c6044d2b48",
+          "textQuote": "Because reflection builds on the type system, let’s start with a refresher about types in Go."
+        }
+      ],
+      "text": "Because reflection builds on the type system , let ’ s start with a refresher about",
+      "warnings": []
+    },
+    {
+      "confidence": 0.816,
+      "importance": 0.812,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0035",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0035"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0035",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Go is statically typed. Every variable has a static type, that is, exactly one type known and fixed at compile time: int , float32 , *MyType , []byte , and so on. If we declare",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Types and interfaces"
+          ],
+          "order": 34,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0035",
+          "sourceRefId": "src_page_image_012_go_interfaces_0035",
+          "textHash": "sha256_e97e7823c2cfe330763844838b74c53f",
+          "textQuote": "Go is statically typed. Every variable has a static type, that is, exactly one type known and fixed at compile time: int , float32 , *MyType , []byte , and so on. If we declare"
+        }
+      ],
+      "text": "Go is statically typed . Every variable has a static type , that is , exactly",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.809,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0071",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Both reflect.Type and reflect.Value have lots of methods to let us examine and manipulate them. One important example is that Value has a Type method that returns the Type of a reflect.Value . Another is that both Type and Value have a Kind method that returns a constant indicating what sort of item is stored: Uint , Float64 , Slice , and so on. Also methods",
+          "headingPath": [
+            "The Laws of Reflection",
+            "1. Reflection goes from interface value to reflection object."
+          ],
+          "order": 70,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0071",
+          "sourceRefId": "src_page_image_012_go_interfaces_0071",
+          "textHash": "sha256_fca241ff7a10774d59a3d3bf3b3b2b61",
+          "textQuote": "Both reflect.Type and reflect.Value have lots of methods to let us examine and manipulate them. One important example is that Value has a Type method that returns the Type of a reflect.Value . Another is that both Type a"
+        }
+      ],
+      "text": "Both reflect . Type and reflect . Value have lots of methods to let us examine",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.808,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0096",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "The third law is the most subtle and confusing, but it’s easy enough to understand if we start from first principles.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "3. To modify a reflection object, the value must be settable."
+          ],
+          "order": 95,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0096",
+          "sourceRefId": "src_page_image_012_go_interfaces_0096",
+          "textHash": "sha256_666a50210e8b8c2141587214bccb7ca3",
+          "textQuote": "The third law is the most subtle and confusing, but it’s easy enough to understand if we start from first principles."
+        }
+      ],
+      "text": "The third law is the most subtle and confusing , but it ’ s easy enough",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "In this article we attempt to clarify things by explaining how reflection works in Go. Each language’s reflection model is different (and many languages don’t support it at all), but this article is about Go, so for the rest of this article the word “reflection” should be taken to mean “reflection in Go”.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Introduction"
+          ],
+          "order": 31,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0032",
+          "sourceRefId": "src_page_image_012_go_interfaces_0032",
+          "textHash": "sha256_d04cb830c7d191e171195ba1b940adc9",
+          "textQuote": "In this article we attempt to clarify things by explaining how reflection works in Go. Each language’s reflection model is different (and many languages don’t support it at all), but this article is about Go, so for the "
+        }
+      ],
+      "text": "In this article we attempt to clarify things by explaining how reflection works in Go .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0113",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0113"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0113",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Let’s do that. First we initialize x as usual and then create a reflection value that points to it, called p .",
+          "headingPath": [
+            "The Laws of Reflection",
+            "3. To modify a reflection object, the value must be settable."
+          ],
+          "order": 112,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0113",
+          "sourceRefId": "src_page_image_012_go_interfaces_0113",
+          "textHash": "sha256_d46533bb31c8a6274f0025aa7b4e59f7",
+          "textQuote": "Let’s do that. First we initialize x as usual and then create a reflection value that points to it, called p ."
+        }
+      ],
+      "text": "Let ’ s do that . First we initialize x as usual and then create a",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.805,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0119",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0119"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0119",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Now v is a settable reflection object, as the output demonstrates,",
+          "headingPath": [
+            "The Laws of Reflection",
+            "3. To modify a reflection object, the value must be settable."
+          ],
+          "order": 118,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0119",
+          "sourceRefId": "src_page_image_012_go_interfaces_0119",
+          "textHash": "sha256_b09ecfe55e0a745409ccf7bcfb391a58",
+          "textQuote": "Now v is a settable reflection object, as the output demonstrates,"
+        }
+      ],
+      "text": "Now v is a settable reflection object , as the output demonstrates ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0099",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "If you run this code, it will panic with the cryptic message",
+          "headingPath": [
+            "The Laws of Reflection",
+            "3. To modify a reflection object, the value must be settable."
+          ],
+          "order": 98,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0099",
+          "sourceRefId": "src_page_image_012_go_interfaces_0099",
+          "textHash": "sha256_f9a3ea5941edfc0540d0ac2e98c04891",
+          "textQuote": "If you run this code, it will panic with the cryptic message"
+        }
+      ],
+      "text": "If you run this code , it will panic with the cryptic message",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0020",
+          "sourceRefId": "src_page_image_012_go_interfaces_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0013",
+          "sourceRefId": "src_page_image_012_go_interfaces_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_page_image_012_go_interfaces_0046",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_012_go_interfaces_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_012_go_interfaces_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_012_go_interfaces_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_012_go_interfaces_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_00cf1dda3bb1b714a0dcf0b9086c8995d4078e0c6217d8167e2847588b8fb67d",
+          "fallbackText": "Some people say that Go’s interfaces are dynamically typed, but that is misleading. They are statically typed: a variable of interface type always has the same static type, and even though at run time the value stored in the interface variable may change type, that value will always satisfy the interface.",
+          "headingPath": [
+            "The Laws of Reflection",
+            "Types and interfaces"
+          ],
+          "order": 45,
+          "pageId": "page_image_012_go_interfaces",
+          "paragraphId": "pg_page_image_012_go_interfaces_0046",
+          "sourceRefId": "src_page_image_012_go_interfaces_0046",
+          "textHash": "sha256_b2e2dc069c43c769eae560523a58c9fa",
+          "textQuote": "Some people say that Go’s interfaces are dynamically typed, but that is misleading. They are statically typed: a variable of interface type always has the same static type, and even though at run time the value stored in"
+        }
+      ],
+      "text": "Some people say that Go ’ s interfaces are dynamically typed , but that is misleading",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_012_go_interfaces",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.091,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "The expression in this assignment is a type assertion ; what it asserts is that the",
+      "Note added January 2022 : This blog post was written in 2011 and predates parametric polymorphism",
+      "One important category of type is interface types , which represent fixed sets of methods .",
+      "We can do even better , though . The arguments to fmt . Println , fmt",
+      "At the basic level , reflection is just a mechanism to examine the type and value"
+    ],
+    "tldr": "The expression in this assignment is a type assertion ; what it asserts is that the"
+  }
+}

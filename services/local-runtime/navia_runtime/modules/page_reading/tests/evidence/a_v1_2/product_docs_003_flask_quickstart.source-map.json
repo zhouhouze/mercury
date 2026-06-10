@@ -1,0 +1,2734 @@
+{
+  "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+  "pageId": "page_product_docs_003_flask_quickstart",
+  "schemaVersion": "a-v1.2-source-map-2026-06-05",
+  "sourceMapId": "smap_page_product_docs_003_flask_quickstart",
+  "sourceRefs": [
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0001",
+      "blockType": "list_item",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Flask Documentation (3.1.x) »",
+      "headingPath": [
+        "Navigation"
+      ],
+      "order": 0,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0001",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0001",
+      "textHash": "sha256_61dab4e7f35ffa5ba042b4c399617155",
+      "textQuote": "Flask Documentation (3.1.x) »"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0002",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Eager to get started? This page gives a good introduction to Flask. Follow Installation to set up a project and install Flask first.",
+      "headingPath": [
+        "Quickstart ¶"
+      ],
+      "order": 1,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0002",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0002",
+      "textHash": "sha256_7b6b0650de76fdef62e523d7d440a646",
+      "textQuote": "Eager to get started? This page gives a good introduction to Flask. Follow Installation to set up a project and install Flask first."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0003",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "A minimal Flask application looks something like this:",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 2,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0003",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0003",
+      "textHash": "sha256_6aeeaeee391f526c2e34966cd7377e9e",
+      "textQuote": "A minimal Flask application looks something like this:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0004",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import Flask app = Flask ( __name__ ) @app . route ( \"/\" ) def hello_world (): return \"<p>Hello, World!</p>\"",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 3,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0004",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0004",
+      "textHash": "sha256_06a8507e3a95a8e03c1d7d4142642b07",
+      "textQuote": "from flask import Flask app = Flask ( __name__ ) @app . route ( \"/\" ) def hello_world (): return \"<p>Hello, World!</p>\""
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0005",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "So what did that code do?",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 4,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0005",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0005",
+      "textHash": "sha256_cd9a3c503cc43b5c40e167638a5dc88c",
+      "textQuote": "So what did that code do?"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0006",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "First we imported the Flask class. An instance of this class will be our WSGI application.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 5,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0006",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0006",
+      "textHash": "sha256_e491d0465c030b3ec44216caf796e0de",
+      "textQuote": "First we imported the Flask class. An instance of this class will be our WSGI application."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0007",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Next we create an instance of this class. The first argument is the name of the application’s module or package. __name__ is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask knows where to look for resources such as templates and static files.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 6,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0007",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0007",
+      "textHash": "sha256_f75135636046b243c3e05cec72e6e333",
+      "textQuote": "Next we create an instance of this class. The first argument is the name of the application’s module or package. __name__ is a convenient shortcut for this that is appropriate for most cases. This is needed so that Flask"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0008",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "We then use the route() decorator to tell Flask what URL should trigger our function.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 7,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0008",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0008",
+      "textHash": "sha256_ed8574e5db0595817cf31c171931a54b",
+      "textQuote": "We then use the route() decorator to tell Flask what URL should trigger our function."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0009",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 8,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0009",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0009",
+      "textHash": "sha256_eb93357767e3309cf09e3b737a062ef0",
+      "textQuote": "The function returns the message we want to display in the user’s browser. The default content type is HTML, so HTML in the string will be rendered by the browser."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0010",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Save it as hello.py or something similar. Make sure to not call your application flask.py because this would conflict with Flask itself.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 9,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0010",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0010",
+      "textHash": "sha256_669f8a4f6467231724cc4723809235cc",
+      "textQuote": "Save it as hello.py or something similar. Make sure to not call your application flask.py because this would conflict with Flask itself."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0011",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To run the application, use the flask command or python -m flask . You need to tell the Flask where your application is with the --app option.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 10,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0011",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0011",
+      "textHash": "sha256_2d8c9d4359efa324ea70ec950ced9383",
+      "textQuote": "To run the application, use the flask command or python -m flask . You need to tell the Flask where your application is with the --app option."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0012",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0001",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "$ flask --app hello run * Serving Flask app 'hello' * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 11,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0012",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0012",
+      "textHash": "sha256_b071cd6253a697fc3970cbb641812866",
+      "textQuote": "$ flask --app hello run * Serving Flask app 'hello' * Running on http://127.0.0.1:5000 (Press CTRL+C to quit)"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0013",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Application Discovery Behavior",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 12,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0013",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0013",
+      "textHash": "sha256_6fe173d9c7e4053e8a47881510f3950a",
+      "textQuote": "Application Discovery Behavior"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0014",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "As a shortcut, if the file is named app.py or wsgi.py , you don’t have to use --app . See Command Line Interface for more details.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 13,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0014",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0014",
+      "textHash": "sha256_85385db7dd317cbae88b87320d589268",
+      "textQuote": "As a shortcut, if the file is named app.py or wsgi.py , you don’t have to use --app . See Command Line Interface for more details."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0015",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "This launches a very simple builtin server, which is good enough for testing but probably not what you want to use in production. For deployment options see Deploying to Production .",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 14,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0015",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0015",
+      "textHash": "sha256_c6c4777c6220cbd01e6ffbc039aa9e4d",
+      "textQuote": "This launches a very simple builtin server, which is good enough for testing but probably not what you want to use in production. For deployment options see Deploying to Production ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0016",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Now head over to http://127.0.0.1:5000/ , and you should see your hello world greeting.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 15,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0016",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0016",
+      "textHash": "sha256_94544b25d26de2ae12d1b36a3d8a0aa8",
+      "textQuote": "Now head over to http://127.0.0.1:5000/ , and you should see your hello world greeting."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0017",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If another program is already using port 5000, you’ll see OSError: [Errno 98] or OSError: [WinError 10013] when the server tries to start. See Address already in use for how to handle that.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 16,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0017",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0017",
+      "textHash": "sha256_5b7e1e61818eee86581923334ac679a6",
+      "textQuote": "If another program is already using port 5000, you’ll see OSError: [Errno 98] or OSError: [WinError 10013] when the server tries to start. See Address already in use for how to handle that."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0018",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Externally Visible Server",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 17,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0018",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0018",
+      "textHash": "sha256_dcc403da1d1dae35c86995aee58dab91",
+      "textQuote": "Externally Visible Server"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0019",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If you run the server you will notice that the server is only accessible from your own computer, not from any other in the network. This is the default because in debugging mode a user of the application can execute arbitrary Python code on your computer.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 18,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0019",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0019",
+      "textHash": "sha256_a6b4917114ccd52fac55af8a9139215d",
+      "textQuote": "If you run the server you will notice that the server is only accessible from your own computer, not from any other in the network. This is the default because in debugging mode a user of the application can execute arbi"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0020",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If you have the debugger disabled or trust the users on your network, you can make the server publicly available simply by adding --host=0.0.0.0 to the command line:",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 19,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0020",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0020",
+      "textHash": "sha256_7d6a0a3a6e2e3afb823acd77ee793905",
+      "textQuote": "If you have the debugger disabled or trust the users on your network, you can make the server publicly available simply by adding --host=0.0.0.0 to the command line:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0021",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "$ flask run --host=0.0.0.0",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 20,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0021",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0021",
+      "textHash": "sha256_a1426259991dba40dde261a42a01ba57",
+      "textQuote": "$ flask run --host=0.0.0.0"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0022",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "This tells your operating system to listen on all public IPs.",
+      "headingPath": [
+        "Quickstart ¶",
+        "A Minimal Application ¶"
+      ],
+      "order": 21,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0022",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0022",
+      "textHash": "sha256_cce82c880ca7df1ed94b7ec2c8b74b43",
+      "textQuote": "This tells your operating system to listen on all public IPs."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0023",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0002",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The flask run command can do more than just start the development server. By enabling debug mode, the server will automatically reload if code changes, and will show an interactive debugger in the browser if an error occurs during a request.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 22,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0023",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0023",
+      "textHash": "sha256_47f785be107a839e40ec272f13e2312b",
+      "textQuote": "The flask run command can do more than just start the development server. By enabling debug mode, the server will automatically reload if code changes, and will show an interactive debugger in the browser if an error occ"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0024",
+      "blockType": "image",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Image metadata: The interactive debugger in action.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 23,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0024",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0024",
+      "textHash": "sha256_4d29fb48f68ce5dbe6cfdaea7c917d75",
+      "textQuote": "Image metadata: The interactive debugger in action."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0025",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The debugger allows executing arbitrary Python code from the browser. It is protected by a pin, but still represents a major security risk. Do not run the development server or debugger in a production environment.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 24,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0025",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0025",
+      "textHash": "sha256_6030507421fddfd78cfe49b23b2324f7",
+      "textQuote": "The debugger allows executing arbitrary Python code from the browser. It is protected by a pin, but still represents a major security risk. Do not run the development server or debugger in a production environment."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0026",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To enable debug mode, use the --debug option.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 25,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0026",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0026",
+      "textHash": "sha256_6200ffd7e569b7e1218f04e36c72f5f3",
+      "textQuote": "To enable debug mode, use the --debug option."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0027",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "$ flask --app hello run --debug * Serving Flask app 'hello' * Debug mode: on * Running on http://127.0.0.1:5000 (Press CTRL+C to quit) * Restarting with stat * Debugger is active! * Debugger PIN: nnn-nnn-nnn",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 26,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0027",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0027",
+      "textHash": "sha256_8a000ea74e9b9863129f7af9c664785e",
+      "textQuote": "$ flask --app hello run --debug * Serving Flask app 'hello' * Debug mode: on * Running on http://127.0.0.1:5000 (Press CTRL+C to quit) * Restarting with stat * Debugger is active! * Debugger PIN: nnn-nnn-nnn"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0028",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Development Server and Command Line Interface for information about running in debug mode.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 27,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0028",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0028",
+      "textHash": "sha256_fc74fbaac21a8309e5981c67f8971003",
+      "textQuote": "Development Server and Command Line Interface for information about running in debug mode."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0029",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Debugging Application Errors for information about using the built-in debugger and other debuggers.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 28,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0029",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0029",
+      "textHash": "sha256_38770eef11c4d2285685c8b1f65a3fdd",
+      "textQuote": "Debugging Application Errors for information about using the built-in debugger and other debuggers."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0030",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Logging and Handling Application Errors to log errors and display nice error pages.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Debug Mode ¶"
+      ],
+      "order": 29,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0030",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0030",
+      "textHash": "sha256_583ce07c76b150ba711be99bde6364f3",
+      "textQuote": "Logging and Handling Application Errors to log errors and display nice error pages."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0031",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "When returning HTML (the default response type in Flask), any user-provided values rendered in the output must be escaped to protect from injection attacks. HTML templates rendered with Jinja, introduced later, will do this automatically.",
+      "headingPath": [
+        "Quickstart ¶",
+        "HTML Escaping ¶"
+      ],
+      "order": 30,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0031",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0031",
+      "textHash": "sha256_4a918a9dc25ca3e81b21fa035430362e",
+      "textQuote": "When returning HTML (the default response type in Flask), any user-provided values rendered in the output must be escaped to protect from injection attacks. HTML templates rendered with Jinja, introduced later, will do t"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0032",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "escape() , shown here, can be used manually. It is omitted in most examples for brevity, but you should always be aware of how you’re using untrusted data.",
+      "headingPath": [
+        "Quickstart ¶",
+        "HTML Escaping ¶"
+      ],
+      "order": 31,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0032",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0032",
+      "textHash": "sha256_a9bb73f43a082d16f414e05897bf11b6",
+      "textQuote": "escape() , shown here, can be used manually. It is omitted in most examples for brevity, but you should always be aware of how you’re using untrusted data."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0033",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0003",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request from markupsafe import escape @app . route ( \"/hello\" ) def hello (): name = request . args . get ( \"name\" , \"Flask\" ) return f \"Hello, { escape ( name ) } !\"",
+      "headingPath": [
+        "Quickstart ¶",
+        "HTML Escaping ¶"
+      ],
+      "order": 32,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0033",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0033",
+      "textHash": "sha256_a963605fdbb9a4972cc84885ef4b4134",
+      "textQuote": "from flask import request from markupsafe import escape @app . route ( \"/hello\" ) def hello (): name = request . args . get ( \"name\" , \"Flask\" ) return f \"Hello, { escape ( name ) } !\""
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0034",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If a user submits /hello?name=<script>alert(\"bad\")</script> , escaping causes it to be rendered as text, rather than running the script in the user’s browser.",
+      "headingPath": [
+        "Quickstart ¶",
+        "HTML Escaping ¶"
+      ],
+      "order": 33,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0034",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0034",
+      "textHash": "sha256_cece249c344bfe982626106bd7182aa2",
+      "textQuote": "If a user submits /hello?name=<script>alert(\"bad\")</script> , escaping causes it to be rendered as text, rather than running the script in the user’s browser."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0035",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back if the page uses a meaningful URL they can remember and use to directly visit a page.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶"
+      ],
+      "order": 34,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0035",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0035",
+      "textHash": "sha256_8eac65fcf657385a4d11a844f1fdfc4e",
+      "textQuote": "Modern web applications use meaningful URLs to help users. Users are more likely to like a page and come back if the page uses a meaningful URL they can remember and use to directly visit a page."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0036",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Use the route() decorator to bind a function to a URL.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶"
+      ],
+      "order": 35,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0036",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0036",
+      "textHash": "sha256_363aea745565ccfc0df6f560bb4fc5ca",
+      "textQuote": "Use the route() decorator to bind a function to a URL."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0037",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "@app . route ( '/' ) def index (): return 'Index Page' @app . route ( '/hello' ) def hello (): return 'Hello, World'",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶"
+      ],
+      "order": 36,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0037",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0037",
+      "textHash": "sha256_c0c742579822c7f378043ba2ad270c56",
+      "textQuote": "@app . route ( '/' ) def index (): return 'Index Page' @app . route ( '/hello' ) def hello (): return 'Hello, World'"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0038",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You can do more! You can make parts of the URL dynamic and attach multiple rules to a function.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶"
+      ],
+      "order": 37,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0038",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0038",
+      "textHash": "sha256_627cb8f1759d3712dd4c378b01a640e1",
+      "textQuote": "You can do more! You can make parts of the URL dynamic and attach multiple rules to a function."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0039",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You can add variable sections to a URL by marking sections with <variable_name> . Your function then receives the <variable_name> as a keyword argument. Optionally, you can use a converter to specify the type of the argument like <converter:variable_name> .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 38,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0039",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0039",
+      "textHash": "sha256_35ad06668813d4303bf2da92ed08a899",
+      "textQuote": "You can add variable sections to a URL by marking sections with <variable_name> . Your function then receives the <variable_name> as a keyword argument. Optionally, you can use a converter to specify the type of the argu"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0040",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from markupsafe import escape @app . route ( '/user/<username>' ) def show_user_profile ( username ): # show the user profile for that user return f 'User { escape ( username ) } ' @app . route ( '/post/<int:post_id>' ) def show_post ( post_id ): # show the post with the given id, the id is an integer return f 'Post { post_id } ' @app . route ( '/path/<path:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 39,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0040",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0040",
+      "textHash": "sha256_81e027d19a38660c37b76ad5305f1c50",
+      "textQuote": "from markupsafe import escape @app . route ( '/user/<username>' ) def show_user_profile ( username ): # show the user profile for that user return f 'User { escape ( username ) } ' @app . route ( '/post/<int:post_id>' ) "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0041",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0004",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Converter types:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 40,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0041",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0041",
+      "textHash": "sha256_2d2fa365a76bd00bdf7b79329d476062",
+      "textQuote": "Converter types:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0042",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "(default) accepts any text without a slash",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 41,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0042",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0042",
+      "textHash": "sha256_4c9da26b6f88e8a3667b0d1a6c6623f1",
+      "textQuote": "(default) accepts any text without a slash"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0043",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "accepts positive integers",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 42,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0043",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0043",
+      "textHash": "sha256_6b9d05a287d56444f0fb29a0fcd3d3d1",
+      "textQuote": "accepts positive integers"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0044",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "accepts positive floating point values",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 43,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0044",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0044",
+      "textHash": "sha256_d159653b07674aca0653d8013811d1d6",
+      "textQuote": "accepts positive floating point values"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0045",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "like string but also accepts slashes",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 44,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0045",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0045",
+      "textHash": "sha256_40a2bd16e664feffa1de9d8fbaccb505",
+      "textQuote": "like string but also accepts slashes"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0046",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "accepts UUID strings",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Variable Rules ¶"
+      ],
+      "order": 45,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0046",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0046",
+      "textHash": "sha256_0dcb7ec238a147a0e7f022ea5cf43b31",
+      "textQuote": "accepts UUID strings"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0047",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The following two rules differ in their use of a trailing slash.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Unique URLs / Redirection Behavior ¶"
+      ],
+      "order": 46,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0047",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0047",
+      "textHash": "sha256_64bc4a80a366a6792588865d95c21ee0",
+      "textQuote": "The following two rules differ in their use of a trailing slash."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0048",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "@app . route ( '/projects/' ) def projects (): return 'The project page' @app . route ( '/about' ) def about (): return 'The about page'",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Unique URLs / Redirection Behavior ¶"
+      ],
+      "order": 47,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0048",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0048",
+      "textHash": "sha256_6be47db9bed886d19c8e103f5f36ce88",
+      "textQuote": "@app . route ( '/projects/' ) def projects (): return 'The project page' @app . route ( '/about' ) def about (): return 'The about page'"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0049",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The canonical URL for the projects endpoint has a trailing slash. It’s similar to a folder in a file system. If you access the URL without a trailing slash ( /projects ), Flask redirects you to the canonical URL with the trailing slash ( /projects/ ).",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Unique URLs / Redirection Behavior ¶"
+      ],
+      "order": 48,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0049",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0049",
+      "textHash": "sha256_fd31770094e0de581b1cb16b523d0fea",
+      "textQuote": "The canonical URL for the projects endpoint has a trailing slash. It’s similar to a folder in a file system. If you access the URL without a trailing slash ( /projects ), Flask redirects you to the canonical URL with the"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0050",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The canonical URL for the about endpoint does not have a trailing slash. It’s similar to the pathname of a file. Accessing the URL with a trailing slash ( /about/ ) produces a 404 “Not Found” error. This helps keep URLs unique for these resources, which helps search engines avoid indexing the same page twice.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "Unique URLs / Redirection Behavior ¶"
+      ],
+      "order": 49,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0050",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0050",
+      "textHash": "sha256_a8e16942f946438bdcf823dcf0146d67",
+      "textQuote": "The canonical URL for the about endpoint does not have a trailing slash. It’s similar to the pathname of a file. Accessing the URL with a trailing slash ( /about/ ) produces a 404 “Not Found” error. This helps keep URLs "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0051",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To build a URL to a specific function, use the url_for() function. It accepts the name of the function as its first argument and any number of keyword arguments, each corresponding to a variable part of the URL rule. Unknown variable parts are appended to the URL as query parameters.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 50,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0051",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0051",
+      "textHash": "sha256_4fcfc393c264023edf216407d9c9ca31",
+      "textQuote": "To build a URL to a specific function, use the url_for() function. It accepts the name of the function as its first argument and any number of keyword arguments, each corresponding to a variable part of the URL rule. Unk"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0052",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into your templates?",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 51,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0052",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0052",
+      "textHash": "sha256_cfd973d82c409d3fd8395cff4e063164",
+      "textQuote": "Why would you want to build URLs using the URL reversing function url_for() instead of hard-coding them into your templates?"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0053",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0005",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Reversing is often more descriptive than hard-coding the URLs.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 52,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0053",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0053",
+      "textHash": "sha256_c537a77b6bbb7fb88c7512bedb01a252",
+      "textQuote": "Reversing is often more descriptive than hard-coding the URLs."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0054",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 53,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0054",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0054",
+      "textHash": "sha256_f94d108062973fc1b93e17d62751e6f7",
+      "textQuote": "You can change your URLs in one go instead of needing to remember to manually change hard-coded URLs."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0055",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "URL building handles escaping of special characters transparently.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 54,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0055",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0055",
+      "textHash": "sha256_505bb26f563b679fd6d014cce95b87c0",
+      "textQuote": "URL building handles escaping of special characters transparently."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0056",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 55,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0056",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0056",
+      "textHash": "sha256_073d3b27d7e50bca28c71406ed85295f",
+      "textQuote": "The generated paths are always absolute, avoiding unexpected behavior of relative paths in browsers."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0057",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If your application is placed outside the URL root, for example, in /myapplication instead of / , url_for() properly handles that for you.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 56,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0057",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0057",
+      "textHash": "sha256_b22512a04b75c454fb0285f3752f0cba",
+      "textQuote": "If your application is placed outside the URL root, for example, in /myapplication instead of / , url_for() properly handles that for you."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0058",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For example, here we use the test_request_context() method to try out url_for() . test_request_context() tells Flask to behave as though it’s handling a request even while we use a Python shell. See Context Locals .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 57,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0058",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0058",
+      "textHash": "sha256_15031d1376b8e6c29e39a3782cd8b792",
+      "textQuote": "For example, here we use the test_request_context() method to try out url_for() . test_request_context() tells Flask to behave as though it’s handling a request even while we use a Python shell. See Context Locals ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0059",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import url_for @app . route ( '/' ) def index (): return 'index' @app . route ( '/login' ) def login (): return 'login' @app . route ( '/user/<username>' ) def profile ( username ): return f ' { username } \\' s profile' with app . test_request_context (): print ( url_for ( 'index' )) print ( url_for ( 'login' )) print ( url_for ( 'login' , next = ",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 58,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0059",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0059",
+      "textHash": "sha256_9c7a0894cee6f90a74ae37dccbde6aad",
+      "textQuote": "from flask import url_for @app . route ( '/' ) def index (): return 'index' @app . route ( '/login' ) def login (): return 'login' @app . route ( '/user/<username>' ) def profile ( username ): return f ' { username } \\' "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0060",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "/ /login /login?next=/ /user/John%20Doe",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "URL Building ¶"
+      ],
+      "order": 59,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0060",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0060",
+      "textHash": "sha256_6c5bca824c163609edf0004900205bf0",
+      "textQuote": "/ /login /login?next=/ /user/John%20Doe"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0061",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0006",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Web applications use different HTTP methods when accessing URLs. You should familiarize yourself with the HTTP methods as you work with Flask. By default, a route only answers to GET requests. You can use the methods argument of the route() decorator to handle different HTTP methods.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 60,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0061",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0061",
+      "textHash": "sha256_9d7dc59000052ce1122617372a52b2e6",
+      "textQuote": "Web applications use different HTTP methods when accessing URLs. You should familiarize yourself with the HTTP methods as you work with Flask. By default, a route only answers to GET requests. You can use the methods arg"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0062",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request @app . route ( '/login' , methods = [ 'GET' , 'POST' ]) def login (): if request . method == 'POST' : return do_the_login () else : return show_the_login_form ()",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 61,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0062",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0062",
+      "textHash": "sha256_de9c91051487a136cb9e4691c4c3018e",
+      "textQuote": "from flask import request @app . route ( '/login' , methods = [ 'GET' , 'POST' ]) def login (): if request . method == 'POST' : return do_the_login () else : return show_the_login_form ()"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0063",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The example above keeps all methods for the route within one function, which can be useful if each part uses some common data.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 62,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0063",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0063",
+      "textHash": "sha256_4ead7d0f23d2af5e72fa489e2ce0f35d",
+      "textQuote": "The example above keeps all methods for the route within one function, which can be useful if each part uses some common data."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0064",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You can also separate views for different methods into different functions. Flask provides a shortcut for decorating such routes with get() , post() , etc. for each common HTTP method.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 63,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0064",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0064",
+      "textHash": "sha256_1dbfe3e73bcd16c45f8a26e341c29a19",
+      "textQuote": "You can also separate views for different methods into different functions. Flask provides a shortcut for decorating such routes with get() , post() , etc. for each common HTTP method."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0065",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "@app . get ( '/login' ) def login_get (): return show_the_login_form () @app . post ( '/login' ) def login_post (): return do_the_login ()",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 64,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0065",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0065",
+      "textHash": "sha256_1de019d911e26df3b89952cb8e2bbef4",
+      "textQuote": "@app . get ( '/login' ) def login_get (): return show_the_login_form () @app . post ( '/login' ) def login_post (): return do_the_login ()"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0066",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the HTTP RFC . Likewise, OPTIONS is automatically implemented for you.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Routing ¶",
+        "HTTP Methods ¶"
+      ],
+      "order": 65,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0066",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0066",
+      "textHash": "sha256_ebcb5f0d270b19142e82bc007d5ccb04",
+      "textQuote": "If GET is present, Flask automatically adds support for the HEAD method and handles HEAD requests according to the HTTP RFC . Likewise, OPTIONS is automatically implemented for you."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0067",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Dynamic web applications also need static files. That’s usually where the CSS and JavaScript files are coming from. Ideally your web server is configured to serve them for you, but during development Flask can do that as well. Just create a folder called static in your package or next to your module and it will be available at /static on the application.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Static Files ¶"
+      ],
+      "order": 66,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0067",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0067",
+      "textHash": "sha256_b6910651a7990a4707d564f2b18576ff",
+      "textQuote": "Dynamic web applications also need static files. That’s usually where the CSS and JavaScript files are coming from. Ideally your web server is configured to serve them for you, but during development Flask can do that as"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0068",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To generate URLs for static files, use the special 'static' endpoint name:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Static Files ¶"
+      ],
+      "order": 67,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0068",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0068",
+      "textHash": "sha256_d3c1df66b48aa530c1ed1d7299243cef",
+      "textQuote": "To generate URLs for static files, use the special 'static' endpoint name:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0069",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "url_for ( 'static' , filename = 'style.css' )",
+      "headingPath": [
+        "Quickstart ¶",
+        "Static Files ¶"
+      ],
+      "order": 68,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0069",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0069",
+      "textHash": "sha256_838717393a545f33f225acb2e0c32cf0",
+      "textQuote": "url_for ( 'static' , filename = 'style.css' )"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0070",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0007",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The file has to be stored on the filesystem as static/style.css .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Static Files ¶"
+      ],
+      "order": 69,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0070",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0070",
+      "textHash": "sha256_ed1e05de682397e45dc414ddd074b8d2",
+      "textQuote": "The file has to be stored on the filesystem as static/style.css ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0071",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja template engine for you automatically.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 70,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0071",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0071",
+      "textHash": "sha256_c7305bb8c54a34fc0eff9bcc8236cc29",
+      "textQuote": "Generating HTML from within Python is not fun, and actually pretty cumbersome because you have to do the HTML escaping on your own to keep the application secure. Because of that Flask configures the Jinja template engin"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0072",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Templates can be used to generate any type of text file. For web applications, you’ll primarily be generating HTML pages, but you can also generate markdown, plain text for emails, and anything else.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 71,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0072",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0072",
+      "textHash": "sha256_619806f644eefe750862d979035c57c5",
+      "textQuote": "Templates can be used to generate any type of text file. For web applications, you’ll primarily be generating HTML pages, but you can also generate markdown, plain text for emails, and anything else."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0073",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For a reference to HTML, CSS, and other web APIs, use the MDN Web Docs .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 72,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0073",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0073",
+      "textHash": "sha256_98a822a24529fc0e84a31e59aa2398cc",
+      "textQuote": "For a reference to HTML, CSS, and other web APIs, use the MDN Web Docs ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0074",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To render a template you can use the render_template() method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here’s a simple example of how to render a template:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 73,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0074",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0074",
+      "textHash": "sha256_a3210c721ca945d355b857d194899f8e",
+      "textQuote": "To render a template you can use the render_template() method. All you have to do is provide the name of the template and the variables you want to pass to the template engine as keyword arguments. Here’s a simple exampl"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0075",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import render_template @app . route ( '/hello/' ) @app . route ( '/hello/<name>' ) def hello ( name = None ): return render_template ( 'hello.html' , person = name )",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 74,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0075",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0075",
+      "textHash": "sha256_75304b8e354be80eaa967e49f6179617",
+      "textQuote": "from flask import render_template @app . route ( '/hello/' ) @app . route ( '/hello/<name>' ) def hello ( name = None ): return render_template ( 'hello.html' , person = name )"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0076",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Flask will look for templates in the templates folder. So if your application is a module, this folder is next to that module, if it’s a package it’s actually inside your package:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 75,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0076",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0076",
+      "textHash": "sha256_859560543aa9e9aef3c5c5e1e1689260",
+      "textQuote": "Flask will look for templates in the templates folder. So if your application is a module, this folder is next to that module, if it’s a package it’s actually inside your package:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0077",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Case 1 : a module:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 76,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0077",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0077",
+      "textHash": "sha256_c06df2c8081ea356b08cd4527f42f1df",
+      "textQuote": "Case 1 : a module:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0078",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "/ application . py / templates / hello . html",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 77,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0078",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0078",
+      "textHash": "sha256_365d28badbf08132c0a35ec2ae30773c",
+      "textQuote": "/ application . py / templates / hello . html"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0079",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Case 2 : a package:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 78,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0079",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0079",
+      "textHash": "sha256_e4ab33c1a765261c0943080c44e5eae8",
+      "textQuote": "Case 2 : a package:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0080",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "/ application / __init__ . py / templates / hello . html",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 79,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0080",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0080",
+      "textHash": "sha256_f29def14257c6bb30d97a0767af00cdc",
+      "textQuote": "/ application / __init__ . py / templates / hello . html"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0081",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0008",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For templates you can use the full power of Jinja templates. Head over to the official Jinja Template Documentation for more information.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 80,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0081",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0081",
+      "textHash": "sha256_4359c9713097349b97bad8c7ea417e1d",
+      "textQuote": "For templates you can use the full power of Jinja templates. Head over to the official Jinja Template Documentation for more information."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0082",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Here is an example template:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 81,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0082",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0082",
+      "textHash": "sha256_2e9df4e7c39abf0bf993a2475cbdbe22",
+      "textQuote": "Here is an example template:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0083",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "<!doctype html> < title > Hello from Flask </ title > {% if person %} < h1 > Hello {{ person }} ! </ h1 > {% else %} < h1 > Hello, World! </ h1 > {% endif %}",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 82,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0083",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0083",
+      "textHash": "sha256_62152332ce11c22c36df3767748b2bd7",
+      "textQuote": "<!doctype html> < title > Hello from Flask </ title > {% if person %} < h1 > Hello {{ person }} ! </ h1 > {% else %} < h1 > Hello, World! </ h1 > {% endif %}"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0084",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Inside templates you also have access to the config , request , session and g [ 1 ] objects as well as the url_for() and get_flashed_messages() functions.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 83,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0084",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0084",
+      "textHash": "sha256_fc04d62c546dfb7c0dffea2379234990",
+      "textQuote": "Inside templates you also have access to the config , request , session and g [ 1 ] objects as well as the url_for() and get_flashed_messages() functions."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0085",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Templates are especially useful if inheritance is used. If you want to know how that works, see Template Inheritance . Basically template inheritance makes it possible to keep certain elements on each page (like header, navigation and footer).",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 84,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0085",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0085",
+      "textHash": "sha256_bdff99af48142f5925f1fd775cd8fec4",
+      "textQuote": "Templates are especially useful if inheritance is used. If you want to know how that works, see Template Inheritance . Basically template inheritance makes it possible to keep certain elements on each page (like header, "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0086",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Automatic escaping is enabled, so if person contains HTML it will be escaped automatically. If you can trust a variable and you know that it will be safe HTML (for example because it came from a module that converts wiki markup to HTML) you can mark it as safe by using the Markup class or by using the |safe filter in the template. Head over to the Jinja 2 do",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 85,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0086",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0086",
+      "textHash": "sha256_9a2e4542c80b89bee9a1d67540f3e78f",
+      "textQuote": "Automatic escaping is enabled, so if person contains HTML it will be escaped automatically. If you can trust a variable and you know that it will be safe HTML (for example because it came from a module that converts wiki"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0087",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Here is a basic introduction to how the Markup class works:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 86,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0087",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0087",
+      "textHash": "sha256_f9a318e3b8c6856f85640ca3e9335021",
+      "textQuote": "Here is a basic introduction to how the Markup class works:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0088",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0009",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": ">>> from markupsafe import Markup >>> Markup ( '<strong>Hello %s !</strong>' ) % '<blink>hacker</blink>' Markup('<strong>Hello <blink>hacker</blink>!</strong>') >>> Markup . escape ( '<blink>hacker</blink>' ) Markup('<blink>hacker</blink>') >>> Markup ( '<em>Marked up</em> » HTML' ) . striptags () 'Marked up » HTML'",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 87,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0088",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0088",
+      "textHash": "sha256_1026c753dc089a43b8443c0f9e064d8f",
+      "textQuote": ">>> from markupsafe import Markup >>> Markup ( '<strong>Hello %s !</strong>' ) % '<blink>hacker</blink>' Markup('<strong>Hello <blink>hacker</blink>!</strong>') >>> Markup . escape ( '<blink>hacker</blink>' ) Markup('<bl"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0089",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Changed in version 0.5: Autoescaping is no longer enabled for all templates. The following extensions for templates trigger autoescaping: .html , .htm , .xml , .xhtml . Templates loaded from a string will have autoescaping disabled.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 88,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0089",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0089",
+      "textHash": "sha256_192d8355bb85a910ea22f708e4af26af",
+      "textQuote": "Changed in version 0.5: Autoescaping is no longer enabled for all templates. The following extensions for templates trigger autoescaping: .html , .htm , .xml , .xhtml . Templates loaded from a string will have autoescapi"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0090",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Unsure what that g object is? It’s something in which you can store information for your own needs. See the documentation for flask.g and Using SQLite 3 with Flask .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Rendering Templates ¶"
+      ],
+      "order": 89,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0090",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0090",
+      "textHash": "sha256_aaf2e33892924677f6c1e37c73a84af4",
+      "textQuote": "Unsure what that g object is? It’s something in which you can store information for your own needs. See the documentation for flask.g and Using SQLite 3 with Flask ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0091",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For web applications it’s crucial to react to the data a client sends to the server. In Flask this information is provided by the global request object. If you have some experience with Python you might be wondering how that object can be global and how Flask manages to still be threadsafe. The answer is context locals:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶"
+      ],
+      "order": 90,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0091",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0091",
+      "textHash": "sha256_4d2f4ccb4f2cf927eed4092f8ceb9b1f",
+      "textQuote": "For web applications it’s crucial to react to the data a client sends to the server. In Flask this information is provided by the global request object. If you have some experience with Python you might be wondering how "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0092",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Insider Information",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 91,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0092",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0092",
+      "textHash": "sha256_b21182cff9a9f00d684a3c667c84b106",
+      "textQuote": "Insider Information"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0093",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If you want to understand how that works and how you can implement tests with context locals, read this section, otherwise just skip it.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 92,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0093",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0093",
+      "textHash": "sha256_9ad1511702dee7f4d5db45486ab2c8a4",
+      "textQuote": "If you want to understand how that works and how you can implement tests with context locals, read this section, otherwise just skip it."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0094",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0010",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Certain objects in Flask are global objects, but not of the usual kind. These objects are actually proxies to objects that are local to a specific context. What a mouthful. But that is actually quite easy to understand.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 93,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0094",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0094",
+      "textHash": "sha256_d8375a312165893c95b70255808783e8",
+      "textQuote": "Certain objects in Flask are global objects, but not of the usual kind. These objects are actually proxies to objects that are local to a specific context. What a mouthful. But that is actually quite easy to understand."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0095",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Imagine the context being the handling thread. A request comes in and the web server decides to spawn a new thread (or something else, the underlying object is capable of dealing with concurrency systems other than threads). When Flask starts its internal request handling it figures out that the current thread is the active context and binds the current appl",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 94,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0095",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0095",
+      "textHash": "sha256_4130c2c4b96c9c7b95b74c1e64df4951",
+      "textQuote": "Imagine the context being the handling thread. A request comes in and the web server decides to spawn a new thread (or something else, the underlying object is capable of dealing with concurrency systems other than threa"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0096",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "So what does this mean to you? Basically you can completely ignore that this is the case unless you are doing something like unit testing. You will notice that code which depends on a request object will suddenly break because there is no request object. The solution is creating a request object yourself and binding it to the context. The easiest solution fo",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 95,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0096",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0096",
+      "textHash": "sha256_ac57b4ff847168747ee1f3af6b433130",
+      "textQuote": "So what does this mean to you? Basically you can completely ignore that this is the case unless you are doing something like unit testing. You will notice that code which depends on a request object will suddenly break b"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0097",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0011",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request with app . test_request_context ( '/hello' , method = 'POST' ): # now you can do something with the request until the # end of the with block, such as basic assertions: assert request . path == '/hello' assert request . method == 'POST'",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 96,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0097",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0097",
+      "textHash": "sha256_f8639f81fae2e7e4527940a6343d2db1",
+      "textQuote": "from flask import request with app . test_request_context ( '/hello' , method = 'POST' ): # now you can do something with the request until the # end of the with block, such as basic assertions: assert request . path == "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0098",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The other possibility is passing a whole WSGI environment to the request_context() method:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 97,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0098",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0098",
+      "textHash": "sha256_6cbfd4a29ef4a356091bc73513976366",
+      "textQuote": "The other possibility is passing a whole WSGI environment to the request_context() method:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0099",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "with app . request_context ( environ ): assert request . method == 'POST'",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Context Locals ¶"
+      ],
+      "order": 98,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0099",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0099",
+      "textHash": "sha256_69fcfc65031531c02997502dd30dea0e",
+      "textQuote": "with app . request_context ( environ ): assert request . method == 'POST'"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0100",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The request object is documented in the API section and we will not cover it here in detail (see Request ). Here is a broad overview of some of the most common operations. First of all you have to import it from the flask module:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 99,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0100",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0100",
+      "textHash": "sha256_5ee048e637cde730c6729d84758a3966",
+      "textQuote": "The request object is documented in the API section and we will not cover it here in detail (see Request ). Here is a broad overview of some of the most common operations. First of all you have to import it from the flas"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0101",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 100,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0101",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0101",
+      "textHash": "sha256_0a32b643971a18a33ce05a2da930a7da",
+      "textQuote": "from flask import request"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0102",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The current request method is available by using the method attribute. To access form data (data transmitted in a POST or PUT request) you can use the form attribute. Here is a full example of the two attributes mentioned above:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 101,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0102",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0102",
+      "textHash": "sha256_d9aaa97db0e68dec4e0a538d24f61ed3",
+      "textQuote": "The current request method is available by using the method attribute. To access form data (data transmitted in a POST or PUT request) you can use the form attribute. Here is a full example of the two attributes mentione"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0103",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "@app . route ( '/login' , methods = [ 'POST' , 'GET' ]) def login (): error = None if request . method == 'POST' : if valid_login ( request . form [ 'username' ], request . form [ 'password' ]): return log_the_user_in ( request . form [ 'username' ]) else : error = 'Invalid username/password' # the code below is executed if the request method # was GET or th",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 102,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0103",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0103",
+      "textHash": "sha256_7dd0e7bd0be6a46b3ac38bd7f110cfcc",
+      "textQuote": "@app . route ( '/login' , methods = [ 'POST' , 'GET' ]) def login (): error = None if request . method == 'POST' : if valid_login ( request . form [ 'username' ], request . form [ 'password' ]): return log_the_user_in ( "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0104",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0012",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "What happens if the key does not exist in the form attribute? In that case a special KeyError is raised. You can catch it like a standard KeyError but if you don’t do that, a HTTP 400 Bad Request error page is shown instead. So for many situations you don’t have to deal with that problem.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 103,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0104",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0104",
+      "textHash": "sha256_2b83a8c5b1012947bc468b4fd3ebd313",
+      "textQuote": "What happens if the key does not exist in the form attribute? In that case a special KeyError is raised. You can catch it like a standard KeyError but if you don’t do that, a HTTP 400 Bad Request error page is shown inst"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0105",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To access parameters submitted in the URL ( ?key=value ) you can use the args attribute:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 104,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0105",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0105",
+      "textHash": "sha256_9db570d421c97375da402c78048610be",
+      "textQuote": "To access parameters submitted in the URL ( ?key=value ) you can use the args attribute:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0106",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "searchword = request . args . get ( 'key' , '' )",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 105,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0106",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0106",
+      "textHash": "sha256_93770c7a17ee3f3d71750ae963d3f3c9",
+      "textQuote": "searchword = request . args . get ( 'key' , '' )"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0107",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "We recommend accessing URL parameters with get or by catching the KeyError because users might change the URL and presenting them a 400 bad request page in that case is not user friendly.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 106,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0107",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0107",
+      "textHash": "sha256_58d1a25aadb3937350d3a3676590ed06",
+      "textQuote": "We recommend accessing URL parameters with get or by catching the KeyError because users might change the URL and presenting them a 400 bad request page in that case is not user friendly."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0108",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For a full list of methods and attributes of the request object, head over to the Request documentation.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "The Request Object ¶"
+      ],
+      "order": 107,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0108",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0108",
+      "textHash": "sha256_9ea1a21a1c49147a3587a2217952c202",
+      "textQuote": "For a full list of methods and attributes of the request object, head over to the Request documentation."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0109",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You can handle uploaded files with Flask easily. Just make sure not to forget to set the enctype=\"multipart/form-data\" attribute on your HTML form, otherwise the browser will not transmit your files at all.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 108,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0109",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0109",
+      "textHash": "sha256_561b78902129d1ab76a7cc5cf187eb06",
+      "textQuote": "You can handle uploaded files with Flask easily. Just make sure not to forget to set the enctype=\"multipart/form-data\" attribute on your HTML form, otherwise the browser will not transmit your files at all."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0110",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Uploaded files are stored in memory or at a temporary location on the filesystem. You can access those files by looking at the files attribute on the request object. Each uploaded file is stored in that dictionary. It behaves just like a standard Python file object, but it also has a save() method that allows you to store that file on the filesystem of the s",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 109,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0110",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0110",
+      "textHash": "sha256_6b4e3a11ddbd2c5c6d63f55c62afab0b",
+      "textQuote": "Uploaded files are stored in memory or at a temporary location on the filesystem. You can access those files by looking at the files attribute on the request object. Each uploaded file is stored in that dictionary. It be"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0111",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0013",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request @app . route ( '/upload' , methods = [ 'GET' , 'POST' ]) def upload_file (): if request . method == 'POST' : f = request . files [ 'the_file' ] f . save ( '/var/www/uploads/uploaded_file.txt' ) ...",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 110,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0111",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0111",
+      "textHash": "sha256_c504b0e9dd73ab25a067e91b56338385",
+      "textQuote": "from flask import request @app . route ( '/upload' , methods = [ 'GET' , 'POST' ]) def upload_file (): if request . method == 'POST' : f = request . files [ 'the_file' ] f . save ( '/var/www/uploads/uploaded_file.txt' ) "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0112",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If you want to know how the file was named on the client before it was uploaded to your application, you can access the filename attribute. However please keep in mind that this value can be forged so never ever trust that value. If you want to use the filename of the client to store the file on the server, pass it through the secure_filename() function that",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 111,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0112",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0112",
+      "textHash": "sha256_e3aa181e6960c3ac990bd8eb012b7a72",
+      "textQuote": "If you want to know how the file was named on the client before it was uploaded to your application, you can access the filename attribute. However please keep in mind that this value can be forged so never ever trust th"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0113",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from werkzeug.utils import secure_filename @app . route ( '/upload' , methods = [ 'GET' , 'POST' ]) def upload_file (): if request . method == 'POST' : file = request . files [ 'the_file' ] file . save ( f \"/var/www/uploads/ { secure_filename ( file . filename ) } \" ) ...",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 112,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0113",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0113",
+      "textHash": "sha256_8bc11198d59db36ab77bc7aa426f41f6",
+      "textQuote": "from werkzeug.utils import secure_filename @app . route ( '/upload' , methods = [ 'GET' , 'POST' ]) def upload_file (): if request . method == 'POST' : file = request . files [ 'the_file' ] file . save ( f \"/var/www/uplo"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0114",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For some better examples, see Uploading Files .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "File Uploads ¶"
+      ],
+      "order": 113,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0114",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0114",
+      "textHash": "sha256_a7b509f22e62f3e2200f21d6d65c4bda",
+      "textQuote": "For some better examples, see Uploading Files ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0115",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To access cookies you can use the cookies attribute. To set cookies you can use the set_cookie method of response objects. The cookies attribute of request objects is a dictionary with all the cookies the client transmits. If you want to use sessions, do not use the cookies directly but instead use the Sessions in Flask that add some security on top of cooki",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 114,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0115",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0115",
+      "textHash": "sha256_01856d38c1f1194295d7324eadabb5a3",
+      "textQuote": "To access cookies you can use the cookies attribute. To set cookies you can use the set_cookie method of response objects. The cookies attribute of request objects is a dictionary with all the cookies the client transmit"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0116",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Reading cookies:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 115,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0116",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0116",
+      "textHash": "sha256_b00a80d2b1822045c3be33a556c1c666",
+      "textQuote": "Reading cookies:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0117",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import request @app . route ( '/' ) def index (): username = request . cookies . get ( 'username' ) # use cookies.get(key) instead of cookies[key] to not get a # KeyError if the cookie is missing.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 116,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0117",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0117",
+      "textHash": "sha256_e4899932a48814344babfd3b1b552ed3",
+      "textQuote": "from flask import request @app . route ( '/' ) def index (): username = request . cookies . get ( 'username' ) # use cookies.get(key) instead of cookies[key] to not get a # KeyError if the cookie is missing."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0118",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0014",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Storing cookies:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 117,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0118",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0118",
+      "textHash": "sha256_a4e98cc2e76725965d03003c9456ebe0",
+      "textQuote": "Storing cookies:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0119",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import make_response @app . route ( '/' ) def index (): resp = make_response ( render_template ( ... )) resp . set_cookie ( 'username' , 'the username' ) return resp",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 118,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0119",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0119",
+      "textHash": "sha256_e555a5be6aac7426b1b2a520d45659cf",
+      "textQuote": "from flask import make_response @app . route ( '/' ) def index (): resp = make_response ( render_template ( ... )) resp . set_cookie ( 'username' , 'the username' ) return resp"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0120",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Note that cookies are set on response objects. Since you normally just return strings from the view functions Flask will convert them into response objects for you. If you explicitly want to do that you can use the make_response() function and then modify it.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 119,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0120",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0120",
+      "textHash": "sha256_c709e2e9bad81cb42858dc9b595eaa65",
+      "textQuote": "Note that cookies are set on response objects. Since you normally just return strings from the view functions Flask will convert them into response objects for you. If you explicitly want to do that you can use the make_"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0121",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Sometimes you might want to set a cookie at a point where the response object does not exist yet. This is possible by utilizing the Deferred Request Callbacks pattern.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 120,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0121",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0121",
+      "textHash": "sha256_110c6f665133aadc9fa4d91ef685fbe5",
+      "textQuote": "Sometimes you might want to set a cookie at a point where the response object does not exist yet. This is possible by utilizing the Deferred Request Callbacks pattern."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0122",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For this also see About Responses .",
+      "headingPath": [
+        "Quickstart ¶",
+        "Accessing Request Data ¶",
+        "Cookies ¶"
+      ],
+      "order": 121,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0122",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0122",
+      "textHash": "sha256_3636fee7dd1b22fb314fc1f41a746c7a",
+      "textQuote": "For this also see About Responses ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0123",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "To redirect a user to another endpoint, use the redirect() function; to abort a request early with an error code, use the abort() function:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 122,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0123",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0123",
+      "textHash": "sha256_c2118258252e084b70a44dccbd77b6a9",
+      "textQuote": "To redirect a user to another endpoint, use the redirect() function; to abort a request early with an error code, use the abort() function:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0124",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import abort , redirect , url_for @app . route ( '/' ) def index (): return redirect ( url_for ( 'login' )) @app . route ( '/login' ) def login (): abort ( 401 ) this_is_never_executed ()",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 123,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0124",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0124",
+      "textHash": "sha256_a5725d299edfabac7bd4de59df38d148",
+      "textQuote": "from flask import abort , redirect , url_for @app . route ( '/' ) def index (): return redirect ( url_for ( 'login' )) @app . route ( '/login' ) def login (): abort ( 401 ) this_is_never_executed ()"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0125",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "This is a rather pointless example because a user will be redirected from the index to a page they cannot access (401 means access denied) but it shows how that works.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 124,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0125",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0125",
+      "textHash": "sha256_d9c69d954e3fcdd4becf30aab9141997",
+      "textQuote": "This is a rather pointless example because a user will be redirected from the index to a page they cannot access (401 means access denied) but it shows how that works."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0126",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0015",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "By default a black and white error page is shown for each error code. If you want to customize the error page, you can use the errorhandler() decorator:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 125,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0126",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0126",
+      "textHash": "sha256_3659c85c7add55687be558ea4348fd3c",
+      "textQuote": "By default a black and white error page is shown for each error code. If you want to customize the error page, you can use the errorhandler() decorator:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0127",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import render_template @app . errorhandler ( 404 ) def page_not_found ( error ): return render_template ( 'page_not_found.html' ), 404",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 126,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0127",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0127",
+      "textHash": "sha256_3a2dee0bafc11222207ee4b2bf2905bb",
+      "textQuote": "from flask import render_template @app . errorhandler ( 404 ) def page_not_found ( error ): return render_template ( 'page_not_found.html' ), 404"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0128",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Note the 404 after the render_template() call. This tells Flask that the status code of that page should be 404 which means not found. By default 200 is assumed which translates to: all went well.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 127,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0128",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0128",
+      "textHash": "sha256_80d9c67de532dcf06a67e6e14ac8aeb1",
+      "textQuote": "Note the 404 after the render_template() call. This tells Flask that the status code of that page should be 404 which means not found. By default 200 is assumed which translates to: all went well."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0129",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "See Handling Application Errors for more details.",
+      "headingPath": [
+        "Quickstart ¶",
+        "Redirects and Errors ¶"
+      ],
+      "order": 128,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0129",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0129",
+      "textHash": "sha256_93b6d342fa33333cb1cd940f66585609",
+      "textQuote": "See Handling Application Errors for more details."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0130",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "The return value from a view function is automatically converted into a response object for you. If the return value is a string it’s converted into a response object with the string as response body, a 200 OK status code and a text/html mimetype. If the return value is a dict or list, jsonify() is called to produce a response. The logic that Flask applies t",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 129,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0130",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0130",
+      "textHash": "sha256_ae4aa6b5a48f9d99947485d5c46b604d",
+      "textQuote": "The return value from a view function is automatically converted into a response object for you. If the return value is a string it’s converted into a response object with the string as response body, a 200 OK status cod"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0131",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If a response object of the correct type is returned it’s directly returned from the view.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 130,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0131",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0131",
+      "textHash": "sha256_a46bc6fa6ca6b2f41649015d450a8721",
+      "textQuote": "If a response object of the correct type is returned it’s directly returned from the view."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0132",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If it’s a string, a response object is created with that data and the default parameters.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 131,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0132",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0132",
+      "textHash": "sha256_36c46ad593431057867610a630157d96",
+      "textQuote": "If it’s a string, a response object is created with that data and the default parameters."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0133",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If it’s an iterator or generator returning strings or bytes, it is treated as a streaming response.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 132,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0133",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0133",
+      "textHash": "sha256_fe8a995563ba52458978bd103f37d05f",
+      "textQuote": "If it’s an iterator or generator returning strings or bytes, it is treated as a streaming response."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0134",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0016",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If it’s a dict or list, a response object is created using jsonify() .",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 133,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0134",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0134",
+      "textHash": "sha256_b0cf2eea75ae6be48c0a2f27c401e5b2",
+      "textQuote": "If it’s a dict or list, a response object is created using jsonify() ."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0135",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If a tuple is returned the items in the tuple can provide extra information. Such tuples have to be in the form (response, status) , (response, headers) , or (response, status, headers) . The status value will override the status code and headers can be a list or dictionary of additional header values.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 134,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0135",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0135",
+      "textHash": "sha256_5d8361ff7f866ba15536c7705c906a4d",
+      "textQuote": "If a tuple is returned the items in the tuple can provide extra information. Such tuples have to be in the form (response, status) , (response, headers) , or (response, status, headers) . The status value will override t"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0136",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If none of that works, Flask will assume the return value is a valid WSGI application and convert that into a response object.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 135,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0136",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0136",
+      "textHash": "sha256_70f648368bd276a86a251cbf8cf4cdd9",
+      "textQuote": "If none of that works, Flask will assume the return value is a valid WSGI application and convert that into a response object."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0137",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "If you want to get hold of the resulting response object inside the view you can use the make_response() function.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 136,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0137",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0137",
+      "textHash": "sha256_a4cd30fa893f8cc9f95af063c77a8a9c",
+      "textQuote": "If you want to get hold of the resulting response object inside the view you can use the make_response() function."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0138",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "Imagine you have a view like this:",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 137,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0138",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0138",
+      "textHash": "sha256_a962b3d8226309a9297f4c3655d74e3e",
+      "textQuote": "Imagine you have a view like this:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0139",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import render_template @app . errorhandler ( 404 ) def not_found ( error ): return render_template ( 'error.html' ), 404",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 138,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0139",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0139",
+      "textHash": "sha256_6cf8517ae38833fb7b575682f6edf94c",
+      "textQuote": "from flask import render_template @app . errorhandler ( 404 ) def not_found ( error ): return render_template ( 'error.html' ), 404"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0140",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "You just need to wrap the return expression with make_response() and get the response object to modify it, then return it:",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 139,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0140",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0140",
+      "textHash": "sha256_e76b511f7df75a245c915b1b40c501d0",
+      "textQuote": "You just need to wrap the return expression with make_response() and get the response object to modify it, then return it:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0141",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import make_response @app . errorhandler ( 404 ) def not_found ( error ): resp = make_response ( render_template ( 'error.html' ), 404 ) resp . headers [ 'X-Something' ] = 'A value' return resp",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶"
+      ],
+      "order": 140,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0141",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0141",
+      "textHash": "sha256_c2067346c3df709e997a1069e5806d9a",
+      "textQuote": "from flask import make_response @app . errorhandler ( 404 ) def not_found ( error ): resp = make_response ( render_template ( 'error.html' ), 404 ) resp . headers [ 'X-Something' ] = 'A value' return resp"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0142",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0017",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "A common response format when writing an API is JSON. It’s easy to get started writing such an API with Flask. If you return a dict or list from a view, it will be converted to a JSON response.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶",
+        "APIs with JSON ¶"
+      ],
+      "order": 141,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0142",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0142",
+      "textHash": "sha256_2e6de0b9270e5e6795114b43a9bd465a",
+      "textQuote": "A common response format when writing an API is JSON. It’s easy to get started writing such an API with Flask. If you return a dict or list from a view, it will be converted to a JSON response."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0143",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "@app . route ( \"/me\" ) def me_api (): user = get_current_user () return { \"username\" : user . username , \"theme\" : user . theme , \"image\" : url_for ( \"user_image\" , filename = user . image ), } @app . route ( \"/users\" ) def users_api (): users = get_all_users () return [ user . to_json () for user in users ]",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶",
+        "APIs with JSON ¶"
+      ],
+      "order": 142,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0143",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0143",
+      "textHash": "sha256_77b126d62362d92f7684ed5c4365b678",
+      "textQuote": "@app . route ( \"/me\" ) def me_api (): user = get_current_user () return { \"username\" : user . username , \"theme\" : user . theme , \"image\" : url_for ( \"user_image\" , filename = user . image ), } @app . route ( \"/users\" ) "
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0144",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "This is a shortcut to passing the data to the jsonify() function, which will serialize any supported JSON data type. That means that all the data in the dict or list must be JSON serializable.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶",
+        "APIs with JSON ¶"
+      ],
+      "order": 143,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0144",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0144",
+      "textHash": "sha256_76c334b52ba53812ff3616238f192df1",
+      "textQuote": "This is a shortcut to passing the data to the jsonify() function, which will serialize any supported JSON data type. That means that all the data in the dict or list must be JSON serializable."
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0145",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "For complex types such as database models, you’ll want to use a serialization library to convert the data to valid JSON types first. There are many serialization libraries and Flask API extensions maintained by the community that support more complex applications.",
+      "headingPath": [
+        "Quickstart ¶",
+        "About Responses ¶",
+        "APIs with JSON ¶"
+      ],
+      "order": 144,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0145",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0145",
+      "textHash": "sha256_a1476e03bfb9167e77d55e21ef139c42",
+      "textQuote": "For complex types such as database models, you’ll want to use a serialization library to convert the data to valid JSON types first. There are many serialization libraries and Flask API extensions maintained by the commu"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0146",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "In addition to the request object there is also a second object called session which allows you to store information specific to a user from one request to the next. This is implemented on top of cookies for you and signs the cookies cryptographically. What this means is that the user could look at the contents of your cookie but not modify it, unless they k",
+      "headingPath": [
+        "Quickstart ¶",
+        "Sessions ¶"
+      ],
+      "order": 145,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0146",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0146",
+      "textHash": "sha256_1ce695f5cb5b6843e312484f5ca6f634",
+      "textQuote": "In addition to the request object there is also a second object called session which allows you to store information specific to a user from one request to the next. This is implemented on top of cookies for you and sign"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0147",
+      "blockType": "paragraph",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0018",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "In order to use sessions you have to set a secret key. Here is how sessions work:",
+      "headingPath": [
+        "Quickstart ¶",
+        "Sessions ¶"
+      ],
+      "order": 146,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0147",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0147",
+      "textHash": "sha256_6ad9298d73d2fddc933d4a3b7ef298d3",
+      "textQuote": "In order to use sessions you have to set a secret key. Here is how sessions work:"
+    },
+    {
+      "blockId": "block_pg_page_product_docs_003_flask_quickstart_0148",
+      "blockType": "code",
+      "chunkId": "ck_page_product_docs_003_flask_quickstart_0019",
+      "confidence": 0.92,
+      "contentHash": "sha256_da4ca2cf0e4be383b6929b50f617a63ff72f89adf10481890a7dba6cea297e5e",
+      "fallbackText": "from flask import session # Set the secret key to some random bytes. Keep this really secret! app . secret_key = b '_5#y2L\"F4Q8z \\n\\xec ]/' @app . route ( '/' ) def index (): if 'username' in session : return f 'Logged in as { session [ \"username\" ] } ' return 'You are not logged in' @app . route ( '/login' , methods = [ 'GET' , 'POST' ]) def login (): if re",
+      "headingPath": [
+        "Quickstart ¶",
+        "Sessions ¶"
+      ],
+      "order": 147,
+      "pageId": "page_product_docs_003_flask_quickstart",
+      "paragraphId": "pg_page_product_docs_003_flask_quickstart_0148",
+      "sourceRefId": "src_page_product_docs_003_flask_quickstart_0148",
+      "textHash": "sha256_ee0309150fe6bb092d54b4e7d5b5cb0a",
+      "textQuote": "from flask import session # Set the secret key to some random bytes. Keep this really secret! app . secret_key = b '_5#y2L\"F4Q8z \\n\\xec ]/' @app . route ( '/' ) def index (): if 'username' in session : return f 'Logged i"
+    }
+  ],
+  "status": "pass"
+}

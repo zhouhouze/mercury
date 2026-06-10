@@ -1,0 +1,662 @@
+{
+  "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+  "digestId": "digest_page_product_docs_002_django_models",
+  "items": [
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0058",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0058"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0058",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "Each field type, except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first positional argument – a verbose name. If the verbose name isn’t given, Django will automatically create it using the field’s attribute name, converting underscores to spaces.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Verbose field names ¶"
+          ],
+          "order": 57,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0058",
+          "sourceRefId": "src_page_product_docs_002_django_models_0058",
+          "textHash": "sha256_5802f1d9246ad728a2344f957c545080",
+          "textQuote": "Each field type, except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first positional argument – a verbose name. If the verbose name isn’t given, Django will automatically create it using the fi"
+        }
+      ],
+      "text": "Each field type , except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.836,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0094",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0094"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0094",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "Your intermediate model must contain one - and only one - foreign key to the source model (this would be Group in our example), or you must explicitly specify the foreign keys Django should use for the relationship using ManyToManyField.through_fields . If you have more than one foreign key and through_fields is not specified, a validation error will be rais",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 93,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0094",
+          "sourceRefId": "src_page_product_docs_002_django_models_0094",
+          "textHash": "sha256_c18b7a1b6f491ba7820e59bf000492e3",
+          "textQuote": "Your intermediate model must contain one - and only one - foreign key to the source model (this would be Group in our example), or you must explicitly specify the foreign keys Django should use for the relationship using"
+        }
+      ],
+      "text": "Your intermediate model must contain one - and only one - foreign key to the source",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0102",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0102"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0102",
+          "blockType": "code",
+          "chunkId": "ck_page_product_docs_002_django_models_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": ">>> Membership . objects . create ( ... person = ringo , ... group = beatles , ... date_joined = date ( 1968 , 9 , 4 ), ... invite_reason = \"You've been gone for a month and we miss you.\" , ... ) >>> beatles . members . all () <QuerySet [<Person: Ringo Starr>, <Person: Paul McCartney>, <Person: Ringo Starr>]> >>> # This deletes both of the intermediate model",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 101,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0102",
+          "sourceRefId": "src_page_product_docs_002_django_models_0102",
+          "textHash": "sha256_afb1afdbc17578cbcd3a7bf76d2c6930",
+          "textQuote": ">>> Membership . objects . create ( ... person = ringo , ... group = beatles , ... date_joined = date ( 1968 , 9 , 4 ), ... invite_reason = \"You've been gone for a month and we miss you.\" , ... ) >>> beatles . members . "
+        }
+      ],
+      "text": "> > > Membership . objects . create ( . . . person = ringo ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.828,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0086",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0086"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0086",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "ManyToManyField fields also accept a number of extra arguments which are explained in the model field reference . These options help define how the relationship should work; all are optional.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Many-to-many relationships ¶"
+          ],
+          "order": 85,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0086",
+          "sourceRefId": "src_page_product_docs_002_django_models_0086",
+          "textHash": "sha256_cc1cec173e4e7427db3e5beb2ec65281",
+          "textQuote": "ManyToManyField fields also accept a number of extra arguments which are explained in the model field reference . These options help define how the relationship should work; all are optional."
+        }
+      ],
+      "text": "ManyToManyField fields also accept a number of extra arguments which are explained in the model field",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0057",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "Each model requires exactly one field to have primary_key=True (either explicitly declared or automatically added).",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Automatic primary key fields ¶"
+          ],
+          "order": 56,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0057",
+          "sourceRefId": "src_page_product_docs_002_django_models_0057",
+          "textHash": "sha256_5c5ad15c3cdda5734e5f6c2776fb54ff",
+          "textQuote": "Each model requires exactly one field to have primary_key=True (either explicitly declared or automatically added)."
+        }
+      ],
+      "text": "Each model requires exactly one field to have primary_key = True ( either explicitly declared or",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.824,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0074",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0074"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0074",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "ForeignKey fields accept a number of extra arguments which are explained in the model field reference . These options help define how the relationship should work; all are optional.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Many-to-one relationships ¶"
+          ],
+          "order": 73,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0074",
+          "sourceRefId": "src_page_product_docs_002_django_models_0074",
+          "textHash": "sha256_8fa3e18a3c2e24e4b892497d3fd7de74",
+          "textQuote": "ForeignKey fields accept a number of extra arguments which are explained in the model field reference . These options help define how the relationship should work; all are optional."
+        }
+      ],
+      "text": "ForeignKey fields accept a number of extra arguments which are explained in the model field reference",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0014",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0014"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0014",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "An id field is added automatically, but this behavior can be overridden. See Automatic primary key fields .",
+          "headingPath": [
+            "Models ¶",
+            "Quick example ¶"
+          ],
+          "order": 13,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0014",
+          "sourceRefId": "src_page_product_docs_002_django_models_0014",
+          "textHash": "sha256_a6ebdfe7db1508eef8e3d34f85fbb79c",
+          "textQuote": "An id field is added automatically, but this behavior can be overridden. See Automatic primary key fields ."
+        }
+      ],
+      "text": "An id field is added automatically , but this behavior can be overridden . See Automatic",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0006",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0006"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0006",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "With all of this, Django gives you an automatically-generated database-access API; see Making queries .",
+          "headingPath": [
+            "Models ¶"
+          ],
+          "order": 5,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0006",
+          "sourceRefId": "src_page_product_docs_002_django_models_0006",
+          "textHash": "sha256_8769172998e6f718b24a807460be5fee",
+          "textQuote": "With all of this, Django gives you an automatically-generated database-access API; see Making queries ."
+        }
+      ],
+      "text": "With all of this , Django gives you an automatically - generated database - access API",
+      "warnings": []
+    },
+    {
+      "confidence": 0.815,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0034",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0034"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0034",
+          "blockType": "code",
+          "chunkId": "ck_page_product_docs_002_django_models_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "YEAR_IN_SCHOOL_CHOICES = [ ( \"FR\" , \"Freshman\" ), ( \"SO\" , \"Sophomore\" ), ( \"JR\" , \"Junior\" ), ( \"SR\" , \"Senior\" ), ( \"GR\" , \"Graduate\" ), ]",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Field options ¶"
+          ],
+          "order": 33,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0034",
+          "sourceRefId": "src_page_product_docs_002_django_models_0034",
+          "textHash": "sha256_05f9fd50a3169ecde04664f9da6a2a06",
+          "textQuote": "YEAR_IN_SCHOOL_CHOICES = [ ( \"FR\" , \"Freshman\" ), ( \"SO\" , \"Sophomore\" ), ( \"JR\" , \"Junior\" ), ( \"SR\" , \"Senior\" ), ( \"GR\" , \"Graduate\" ), ]"
+        }
+      ],
+      "text": "YEAR_IN_SCHOOL_CHOICES = [ ( \" FR \" , \" Freshman \" ) , ( \" SO",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0089",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "For these situations, Django allows you to specify the model that will be used to govern the many-to-many relationship. You can then put extra fields on the intermediate model. The intermediate model is associated with the ManyToManyField using the through argument to point to the model that will act as an intermediary. For our musician example, the code wou",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 88,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0089",
+          "sourceRefId": "src_page_product_docs_002_django_models_0089",
+          "textHash": "sha256_28e5318246539efdfb258bad93809f50",
+          "textQuote": "For these situations, Django allows you to specify the model that will be used to govern the many-to-many relationship. You can then put extra fields on the intermediate model. The intermediate model is associated with t"
+        }
+      ],
+      "text": "For these situations , Django allows you to specify the model that will be used to",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0088",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0088"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0088",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "For example, consider the case of an application tracking the musical groups which musicians belong to. There is a many-to-many relationship between a person and the groups of which they are a member, so you could use a ManyToManyField to represent this relationship. However, there is a lot of detail about the membership that you might want to collect, such ",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 87,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0088",
+          "sourceRefId": "src_page_product_docs_002_django_models_0088",
+          "textHash": "sha256_fda4d3362c969244c225250595006b24",
+          "textQuote": "For example, consider the case of an application tracking the musical groups which musicians belong to. There is a many-to-many relationship between a person and the groups of which they are a member, so you could use a "
+        }
+      ],
+      "text": "For example , consider the case of an application tracking the musical groups which musicians belong",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0095",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0095"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0095",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "For a model which has a many-to-many relationship to itself through an intermediary model, two foreign keys to the same model are permitted, but they will be treated as the two (different) sides of the many-to-many relationship. If through_fields is not specified, the first foreign key will be taken to represent the source side of the ManyToManyField , while",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 94,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0095",
+          "sourceRefId": "src_page_product_docs_002_django_models_0095",
+          "textHash": "sha256_5703d65b2decad8a0a37288a4a102fe0",
+          "textQuote": "For a model which has a many-to-many relationship to itself through an intermediary model, two foreign keys to the same model are permitted, but they will be treated as the two (different) sides of the many-to-many relat"
+        }
+      ],
+      "text": "For a model which has a many - to - many relationship to itself through an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0024",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0024"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0024",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "The default HTML widget to use when rendering a form field (e.g. <input type=\"text\"> , <select> ).",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Field types ¶"
+          ],
+          "order": 23,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0024",
+          "sourceRefId": "src_page_product_docs_002_django_models_0024",
+          "textHash": "sha256_d28282183b7650fae2d0b71370017fa2",
+          "textQuote": "The default HTML widget to use when rendering a form field (e.g. <input type=\"text\"> , <select> )."
+        }
+      ],
+      "text": "The default HTML widget to use when rendering a form field ( e . g .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0054",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "By default, Django gives each model an auto-incrementing primary key with the type specified per app in AppConfig.default_auto_field or globally in the DEFAULT_AUTO_FIELD setting. For example:",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Automatic primary key fields ¶"
+          ],
+          "order": 53,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0054",
+          "sourceRefId": "src_page_product_docs_002_django_models_0054",
+          "textHash": "sha256_f562aefea5762376cb1f37b62f6631a2",
+          "textQuote": "By default, Django gives each model an auto-incrementing primary key with the type specified per app in AppConfig.default_auto_field or globally in the DEFAULT_AUTO_FIELD setting. For example:"
+        }
+      ],
+      "text": "By default , Django gives each model an auto - incrementing primary key with the type",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0071",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "You can also create recursive relationships (an object with a many-to-one relationship to itself) and relationships to models not yet defined ; see the model field reference for details.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Many-to-one relationships ¶"
+          ],
+          "order": 70,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0071",
+          "sourceRefId": "src_page_product_docs_002_django_models_0071",
+          "textHash": "sha256_6bb85b60b610726af3114fe35487a41d",
+          "textQuote": "You can also create recursive relationships (an object with a many-to-one relationship to itself) and relationships to models not yet defined ; see the model field reference for details."
+        }
+      ],
+      "text": "You can also create recursive relationships ( an object with a many - to - one",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0046",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0046",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "Extra “help” text to be displayed with the form widget. It’s useful for documentation even if your field isn’t used on a form.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Field options ¶"
+          ],
+          "order": 45,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0046",
+          "sourceRefId": "src_page_product_docs_002_django_models_0046",
+          "textHash": "sha256_037538b8c50ec161f7e5d4f035e5113a",
+          "textQuote": "Extra “help” text to be displayed with the form widget. It’s useful for documentation even if your field isn’t used on a form."
+        }
+      ],
+      "text": "Extra “ help ” text to be displayed with the form widget . It ’ s",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0092",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0092"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0092",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_product_docs_002_django_models_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": "If you don’t want multiple associations between the same instances, add a UniqueConstraint including the from and to fields. Django’s automatically generated many-to-many tables include such a constraint.",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 91,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0092",
+          "sourceRefId": "src_page_product_docs_002_django_models_0092",
+          "textHash": "sha256_49623b98108bc5646918cc5272a6f62a",
+          "textQuote": "If you don’t want multiple associations between the same instances, add a UniqueConstraint including the from and to fields. Django’s automatically generated many-to-many tables include such a constraint."
+        }
+      ],
+      "text": "If you don ’ t want multiple associations between the same instances , add a UniqueConstraint",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.813,
+      "itemId": "item_block_pg_page_product_docs_002_django_models_0110",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_product_docs_002_django_models_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_product_docs_002_django_models_0110"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_product_docs_002_django_models_0110",
+          "blockType": "code",
+          "chunkId": "ck_page_product_docs_002_django_models_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_8d9f1536644ac4b5f4c9bc364a27a8e2ed5bf018ba93febe238f8068877bc3cd",
+          "fallbackText": ">>> ringos_membership = Membership . objects . get ( group = beatles , person = ringo ) >>> ringos_membership . date_joined datetime.date(1962, 8, 16) >>> ringos_membership . invite_reason 'Needed a new drummer.'",
+          "headingPath": [
+            "Models ¶",
+            "Fields ¶",
+            "Relationships ¶",
+            "Extra fields on many-to-many relationships ¶"
+          ],
+          "order": 109,
+          "pageId": "page_product_docs_002_django_models",
+          "paragraphId": "pg_page_product_docs_002_django_models_0110",
+          "sourceRefId": "src_page_product_docs_002_django_models_0110",
+          "textHash": "sha256_b22b6e01dfd834987abd1e3ca5962bf2",
+          "textQuote": ">>> ringos_membership = Membership . objects . get ( group = beatles , person = ringo ) >>> ringos_membership . date_joined datetime.date(1962, 8, 16) >>> ringos_membership . invite_reason 'Needed a new drummer.'"
+        }
+      ],
+      "text": "> > > ringos_membership = Membership . objects . get ( group = beatles , person",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_product_docs_002_django_models",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.074,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Each field type , except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first",
+      "Your intermediate model must contain one - and only one - foreign key to the source",
+      "> > > Membership . objects . create ( . . . person = ringo ,",
+      "ManyToManyField fields also accept a number of extra arguments which are explained in the model field",
+      "Each model requires exactly one field to have primary_key = True ( either explicitly declared or"
+    ],
+    "tldr": "Each field type , except for ForeignKey , ManyToManyField and OneToOneField , takes an optional first"
+  }
+}

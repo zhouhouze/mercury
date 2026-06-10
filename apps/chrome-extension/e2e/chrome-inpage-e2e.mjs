@@ -15,7 +15,7 @@ const extensionRoot = fs.existsSync(path.join(visibleExtensionRoot, "manifest.js
   ? fs.realpathSync(visibleExtensionRoot)
   : fs.realpathSync(legacyHiddenExtensionRoot);
 const runtimeUrl = "http://127.0.0.1:17861";
-const fixturePath = path.join(repoRoot, "docs/navia_v1_project_docs/fixtures/real_pages/article.html");
+const fixturePath = path.join(repoRoot, "docs/active/project/fixtures/real_pages/article.html");
 const browserMode = process.env.NAVIA_E2E_BROWSER || "chromium";
 const headless = process.env.NAVIA_E2E_HEADLESS !== "false";
 const stepTimeout = 20000;

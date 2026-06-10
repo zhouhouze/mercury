@@ -1,0 +1,933 @@
+{
+  "auditTrail": [
+    {
+      "relatedIds": [
+        "page_github_007_fastapi_fastapi"
+      ],
+      "status": "pass",
+      "step": "extraction",
+      "summary": "DOM baseline generated structured page context."
+    },
+    {
+      "relatedIds": [
+        "page_github_007_fastapi_fastapi"
+      ],
+      "status": "pass",
+      "step": "filtering",
+      "summary": "Noise and high-signal blocks were classified deterministically."
+    },
+    {
+      "relatedIds": [
+        "digest_page_github_007_fastapi_fastapi"
+      ],
+      "status": "pass",
+      "step": "digest",
+      "summary": "Digest items were generated from high-signal blocks."
+    },
+    {
+      "relatedIds": [
+        "smap_page_github_007_fastapi_fastapi"
+      ],
+      "status": "pass",
+      "step": "source_map",
+      "summary": "SourceRefs include textQuote or fallbackText for jumpback."
+    },
+    {
+      "relatedIds": [
+        "q_page_github_007_fastapi_fastapi"
+      ],
+      "status": "pass",
+      "step": "quality",
+      "summary": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio"
+    }
+  ],
+  "candidateExtraction": {
+    "candidates": [
+      {
+        "blockCount": 8,
+        "estimatedNoiseRatio": 0.0,
+        "extractorName": "dom_baseline",
+        "headingCoverage": 0.0,
+        "mainTextChars": 332,
+        "mainTextCoverage": 1.0,
+        "rejectionReason": "none",
+        "score": 1.0,
+        "sourceRefCoverage": 1.0,
+        "status": "available",
+        "warnings": []
+      }
+    ],
+    "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+    "fallbackReason": "tie_to_dom_baseline",
+    "fallbackUsed": true,
+    "pageId": "page_github_007_fastapi_fastapi",
+    "pageKey": "page_github_007_fastapi_fastapi",
+    "schemaVersion": "a-v1.2-extractor-comparison-2026-06-05",
+    "selectionFormula": "0.35*sourceRefCoverage + 0.25*(1-estimatedNoiseRatio) + 0.20*headingCoverage + 0.20*mainTextCoverage",
+    "tieBreaker": "highest_score_then_dom_baseline_then_sourceRefCoverage_then_mainTextChars",
+    "warnings": [],
+    "winner": "dom_baseline"
+  },
+  "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+  "filteredEvidence": [],
+  "highSignalPage": {
+    "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+    "digestRef": "digest_page_github_007_fastapi_fastapi",
+    "filteredBlocks": [],
+    "highSignalBlocks": [
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0001",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.666,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.753,
+        "noiseScore": 0.18,
+        "order": 0,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0001"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0001",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0001",
+            "textHash": "sha256_324d5281e531621b4bebd04bb568dc6a",
+            "textQuote": "Image metadata: FastAPI"
+          }
+        ],
+        "text": "Image metadata: FastAPI",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0002",
+        "blockType": "paragraph",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.805,
+        "contentDensityScore": 0.66,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.785,
+        "noiseScore": 0.08,
+        "order": 1,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0002"
+        ],
+        "regionType": "main",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0002",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0002",
+            "textHash": "sha256_cf547d8c2a4ffb8eaf9fe90d4b4e2316",
+            "textQuote": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+          }
+        ],
+        "text": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0003",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.781,
+        "contentDensityScore": 0.664,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.752,
+        "noiseScore": 0.18,
+        "order": 2,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0003"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0003",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Test",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0003",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0003",
+            "textHash": "sha256_88b0315239c45321e2c90352c55e989b",
+            "textQuote": "Image metadata: Test"
+          }
+        ],
+        "text": "Image metadata: Test",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0004",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.782,
+        "contentDensityScore": 0.667,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.754,
+        "noiseScore": 0.18,
+        "order": 3,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0004"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0004",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Coverage",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0004",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0004",
+            "textHash": "sha256_8dbe7b5d9f8e56a452823916a5ac6912",
+            "textQuote": "Image metadata: Coverage"
+          }
+        ],
+        "text": "Image metadata: Coverage",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0005",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.783,
+        "contentDensityScore": 0.672,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.757,
+        "noiseScore": 0.18,
+        "order": 4,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0005"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0005",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Package version",
+            "headingPath": [],
+            "order": 4,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0005",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0005",
+            "textHash": "sha256_95bc42ae96912a5dc458ed670c44d83e",
+            "textQuote": "Image metadata: Package version"
+          }
+        ],
+        "text": "Image metadata: Package version",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0006",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.784,
+        "contentDensityScore": 0.679,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.76,
+        "noiseScore": 0.18,
+        "order": 5,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0006"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0006",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Supported Python versions",
+            "headingPath": [],
+            "order": 5,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0006",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0006",
+            "textHash": "sha256_08213809567be1a6023b3369e9306f36",
+            "textQuote": "Image metadata: Supported Python versions"
+          }
+        ],
+        "text": "Image metadata: Supported Python versions",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0007",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.788,
+        "contentDensityScore": 0.697,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.77,
+        "noiseScore": 0.18,
+        "order": 6,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0007"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0007",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL",
+            "headingPath": [],
+            "order": 6,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0007",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0007",
+            "textHash": "sha256_c949f529345147a06374ea82bc9e3611",
+            "textQuote": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL"
+          }
+        ],
+        "text": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL",
+        "warnings": []
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0008",
+        "blockType": "image",
+        "chunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "confidence": 0.784,
+        "contentDensityScore": 0.678,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "importance": 0.76,
+        "noiseScore": 0.18,
+        "order": 7,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0008"
+        ],
+        "regionType": "metadata",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0008",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI Mini Documentary",
+            "headingPath": [],
+            "order": 7,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0008",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0008",
+            "textHash": "sha256_bb9ce3a08148487338acd101f995a24b",
+            "textQuote": "Image metadata: FastAPI Mini Documentary"
+          }
+        ],
+        "text": "Image metadata: FastAPI Mini Documentary",
+        "warnings": []
+      }
+    ],
+    "metadata": {
+      "contentType": "readme",
+      "headingCount": 0,
+      "language": "en",
+      "paragraphCount": 8,
+      "wordCount": 2370
+    },
+    "pageId": "page_github_007_fastapi_fastapi",
+    "qualityReportRef": "q_page_github_007_fastapi_fastapi",
+    "schemaVersion": "a-v1.2-page-perception-2026-06-05",
+    "sessionId": "a_v1_2_github_007_fastapi_fastapi",
+    "sourceMapRef": "smap_page_github_007_fastapi_fastapi",
+    "sourceStructuredPageRef": {
+      "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+      "pageId": "page_github_007_fastapi_fastapi"
+    },
+    "status": "ready",
+    "warnings": []
+  },
+  "pageId": "page_github_007_fastapi_fastapi",
+  "perceptionDigest": {
+    "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+    "digestId": "digest_page_github_007_fastapi_fastapi",
+    "items": [
+      {
+        "confidence": 0.805,
+        "importance": 0.785,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0002",
+        "kind": "entity",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0002"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0002",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+            "headingPath": [],
+            "order": 1,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0002",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0002",
+            "textHash": "sha256_cf547d8c2a4ffb8eaf9fe90d4b4e2316",
+            "textQuote": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+          }
+        ],
+        "text": "FastAPI framework , high performance , easy to learn , fast to code , ready for",
+        "warnings": []
+      },
+      {
+        "confidence": 0.788,
+        "importance": 0.77,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0007",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0007"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0007",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL",
+            "headingPath": [],
+            "order": 6,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0007",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0007",
+            "textHash": "sha256_c949f529345147a06374ea82bc9e3611",
+            "textQuote": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL"
+          }
+        ],
+        "text": "Image metadata : FastAPI Conf ' 26 - October 28 , 2026 - Amsterdam , NL",
+        "warnings": []
+      },
+      {
+        "confidence": 0.784,
+        "importance": 0.76,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0006",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0006"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0006",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Supported Python versions",
+            "headingPath": [],
+            "order": 5,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0006",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0006",
+            "textHash": "sha256_08213809567be1a6023b3369e9306f36",
+            "textQuote": "Image metadata: Supported Python versions"
+          }
+        ],
+        "text": "Image metadata : Supported Python versions",
+        "warnings": []
+      },
+      {
+        "confidence": 0.784,
+        "importance": 0.76,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0008",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0008"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0008",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI Mini Documentary",
+            "headingPath": [],
+            "order": 7,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0008",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0008",
+            "textHash": "sha256_bb9ce3a08148487338acd101f995a24b",
+            "textQuote": "Image metadata: FastAPI Mini Documentary"
+          }
+        ],
+        "text": "Image metadata : FastAPI Mini Documentary",
+        "warnings": []
+      },
+      {
+        "confidence": 0.783,
+        "importance": 0.757,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0005",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0005"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0005",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Package version",
+            "headingPath": [],
+            "order": 4,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0005",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0005",
+            "textHash": "sha256_95bc42ae96912a5dc458ed670c44d83e",
+            "textQuote": "Image metadata: Package version"
+          }
+        ],
+        "text": "Image metadata : Package version",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.754,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0004",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0004"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0004",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Coverage",
+            "headingPath": [],
+            "order": 3,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0004",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0004",
+            "textHash": "sha256_8dbe7b5d9f8e56a452823916a5ac6912",
+            "textQuote": "Image metadata: Coverage"
+          }
+        ],
+        "text": "Image metadata : Coverage",
+        "warnings": []
+      },
+      {
+        "confidence": 0.782,
+        "importance": 0.753,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0001",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0001"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0001",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: FastAPI",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0001",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0001",
+            "textHash": "sha256_324d5281e531621b4bebd04bb568dc6a",
+            "textQuote": "Image metadata: FastAPI"
+          }
+        ],
+        "text": "Image metadata : FastAPI",
+        "warnings": []
+      },
+      {
+        "confidence": 0.781,
+        "importance": 0.752,
+        "itemId": "item_block_pg_page_github_007_fastapi_fastapi_0003",
+        "kind": "image_metadata",
+        "relatedChunkIds": [
+          "ck_page_github_007_fastapi_fastapi_0001"
+        ],
+        "relatedParagraphIds": [
+          "pg_page_github_007_fastapi_fastapi_0003"
+        ],
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_github_007_fastapi_fastapi_0003",
+            "blockType": "image",
+            "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+            "fallbackText": "Image metadata: Test",
+            "headingPath": [],
+            "order": 2,
+            "pageId": "page_github_007_fastapi_fastapi",
+            "paragraphId": "pg_page_github_007_fastapi_fastapi_0003",
+            "sourceRefId": "src_page_github_007_fastapi_fastapi_0003",
+            "textHash": "sha256_88b0315239c45321e2c90352c55e989b",
+            "textQuote": "Image metadata: Test"
+          }
+        ],
+        "text": "Image metadata : Test",
+        "warnings": []
+      }
+    ],
+    "pageId": "page_github_007_fastapi_fastapi",
+    "rejectedItems": [],
+    "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+    "stats": {
+      "compressionRatio": 0.978,
+      "itemCount": 8,
+      "sourceRefCount": 8
+    },
+    "status": "pass",
+    "summary": {
+      "keyTakeaways": [
+        "FastAPI framework , high performance , easy to learn , fast to code , ready for",
+        "Image metadata : FastAPI Conf ' 26 - October 28 , 2026 - Amsterdam , NL",
+        "Image metadata : Supported Python versions",
+        "Image metadata : FastAPI Mini Documentary",
+        "Image metadata : Package version"
+      ],
+      "tldr": "FastAPI framework , high performance , easy to learn , fast to code , ready for"
+    }
+  },
+  "qualityReport": {
+    "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+    "downstreamReadiness": "pass",
+    "fatalIssues": [],
+    "lowSignalHandling": "degraded_with_reason",
+    "metrics": {
+      "candidateFactDensity": {
+        "denominator": 8.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestCandidateFactItems / digestItemCount",
+        "numerator": 0.0,
+        "passed": false,
+        "threshold": 0.5,
+        "value": 0.0
+      },
+      "compressionScore": {
+        "denominator": 0.22,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "1 - min(abs(digestCompressionRatio - 0.22) / 0.22, 1)",
+        "numerator": 0.978,
+        "passed": false,
+        "threshold": 0.75,
+        "value": 0.0
+      },
+      "contentCoverage": {
+        "denominator": 332.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalContentChars / readableContentChars",
+        "numerator": 332.0,
+        "passed": true,
+        "threshold": 0.75,
+        "value": 1.0
+      },
+      "digestCompressionRatio": {
+        "denominator": 46.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "numerator": 45.0,
+        "passed": false,
+        "threshold": 0.35,
+        "value": 0.978
+      },
+      "groundingCompleteness": {
+        "denominator": 8.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "numerator": 8.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "jumpbackCoverage": {
+        "denominator": 8.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "numerator": 8.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "noiseRatio": {
+        "denominator": 8.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "numerator": 0.0,
+        "passed": true,
+        "threshold": 0.25,
+        "value": 0.0
+      },
+      "sourceCoverage": {
+        "denominator": 8.0,
+        "denominatorZeroBehavior": "not_applicable",
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "numerator": 8.0,
+        "passed": true,
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "overallFormula": "0.20*sourceCoverage + 0.20*groundingCompleteness + 0.15*jumpbackCoverage + 0.15*(1-noiseRatio) + 0.10*contentCoverage + 0.10*compressionScore + 0.10*candidateFactDensity",
+    "overallScore": 0.822,
+    "overallWeights": {
+      "candidateFactDensity": 0.1,
+      "compressionScore": 0.1,
+      "contentCoverage": 0.1,
+      "groundingCompleteness": 0.2,
+      "inverseNoiseRatio": 0.15,
+      "jumpbackCoverage": 0.15,
+      "sourceCoverage": 0.2
+    },
+    "pageId": "page_github_007_fastapi_fastapi",
+    "reportId": "q_page_github_007_fastapi_fastapi",
+    "schemaVersion": "a-v1.2-quality-report-2026-06-05",
+    "status": "pass",
+    "warnings": []
+  },
+  "rawSignals": {
+    "capturedAt": "2026-06-09T02:42:31Z",
+    "cleanedTextLength": 332,
+    "codeBlockCount": 0,
+    "domain": "raw.githubusercontent.com",
+    "headingCount": 0,
+    "htmlAvailable": true,
+    "imageCount": 27,
+    "languageHint": "en",
+    "linkCount": 0,
+    "tableCount": 0,
+    "title": "github_007_fastapi_fastapi",
+    "url": "https://raw.githubusercontent.com/fastapi/fastapi/master/README.md",
+    "visibleTextLength": 2370
+  },
+  "schemaVersion": "a-v1.2-debug-evidence-2026-06-05",
+  "sourceMap": {
+    "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+    "pageId": "page_github_007_fastapi_fastapi",
+    "schemaVersion": "a-v1.2-source-map-2026-06-05",
+    "sourceMapId": "smap_page_github_007_fastapi_fastapi",
+    "sourceRefs": [
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0001",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: FastAPI",
+        "headingPath": [],
+        "order": 0,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0001",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0001",
+        "textHash": "sha256_324d5281e531621b4bebd04bb568dc6a",
+        "textQuote": "Image metadata: FastAPI"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0002",
+        "blockType": "paragraph",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+        "headingPath": [],
+        "order": 1,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0002",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0002",
+        "textHash": "sha256_cf547d8c2a4ffb8eaf9fe90d4b4e2316",
+        "textQuote": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0003",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: Test",
+        "headingPath": [],
+        "order": 2,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0003",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0003",
+        "textHash": "sha256_88b0315239c45321e2c90352c55e989b",
+        "textQuote": "Image metadata: Test"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0004",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: Coverage",
+        "headingPath": [],
+        "order": 3,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0004",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0004",
+        "textHash": "sha256_8dbe7b5d9f8e56a452823916a5ac6912",
+        "textQuote": "Image metadata: Coverage"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0005",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: Package version",
+        "headingPath": [],
+        "order": 4,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0005",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0005",
+        "textHash": "sha256_95bc42ae96912a5dc458ed670c44d83e",
+        "textQuote": "Image metadata: Package version"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0006",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: Supported Python versions",
+        "headingPath": [],
+        "order": 5,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0006",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0006",
+        "textHash": "sha256_08213809567be1a6023b3369e9306f36",
+        "textQuote": "Image metadata: Supported Python versions"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0007",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL",
+        "headingPath": [],
+        "order": 6,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0007",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0007",
+        "textHash": "sha256_c949f529345147a06374ea82bc9e3611",
+        "textQuote": "Image metadata: FastAPI Conf '26 - October 28, 2026 - Amsterdam, NL"
+      },
+      {
+        "blockId": "block_pg_page_github_007_fastapi_fastapi_0008",
+        "blockType": "image",
+        "chunkId": "ck_page_github_007_fastapi_fastapi_0001",
+        "confidence": 0.92,
+        "contentHash": "sha256_133d5b2ca4808b01470d398816bbacc91aaf51a510dcc57e29c6a036320b6bbc",
+        "fallbackText": "Image metadata: FastAPI Mini Documentary",
+        "headingPath": [],
+        "order": 7,
+        "pageId": "page_github_007_fastapi_fastapi",
+        "paragraphId": "pg_page_github_007_fastapi_fastapi_0008",
+        "sourceRefId": "src_page_github_007_fastapi_fastapi_0008",
+        "textHash": "sha256_bb9ce3a08148487338acd101f995a24b",
+        "textQuote": "Image metadata: FastAPI Mini Documentary"
+      }
+    ],
+    "status": "pass"
+  },
+  "status": "pass",
+  "statusReason": "Quality gates failed: candidateFactDensity, compressionScore, digestCompressionRatio",
+  "warnings": [
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 5, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 6, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 7, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 8, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 9, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 10, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 11, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 12, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 13, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 14, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 15, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 16, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 17, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 18, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 19, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 20, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 21, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 22, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 23, 'recoverable': True}",
+    "{'code': 'IMAGE_METADATA_UNKNOWN', 'message': 'Image has no DOM-readable alt, title, or aria-label metadata.', 'order': 26, 'recoverable': True}"
+  ]
+}

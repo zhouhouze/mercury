@@ -1,0 +1,637 @@
+{
+  "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+  "digestId": "digest_page_image_008_go_pipelines",
+  "items": [
+    {
+      "confidence": 0.842,
+      "importance": 0.878,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0118",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0118"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0118",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Next article: The Go Gopher Previous article: Go talks at FOSDEM 2014 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Golang Weekly ",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Conclusion"
+          ],
+          "order": 117,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0118",
+          "sourceRefId": "src_page_image_008_go_pipelines_0118",
+          "textHash": "sha256_de1ab72eb46e5b970955953372f3eb1f",
+          "textQuote": "Next article: The Go Gopher Previous article: Go talks at FOSDEM 2014 Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Bl"
+        }
+      ],
+      "text": "Next article : The Go Gopher Previous article : Go talks at FOSDEM 2014 Blog Index",
+      "warnings": []
+    },
+    {
+      "confidence": 0.839,
+      "importance": 0.869,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0072",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "The sending goroutines replace their send operation with a select statement that proceeds either when the send on out happens or when they receive a value from done . The value type of done is the empty struct because the value doesn’t matter: it is the receive event that indicates the send on out should be abandoned. The output goroutines continue looping o",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 71,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0072",
+          "sourceRefId": "src_page_image_008_go_pipelines_0072",
+          "textHash": "sha256_aa68b01af5435e4a7a8cfde49855fd83",
+          "textQuote": "The sending goroutines replace their send operation with a select statement that proceeds either when the send on out happens or when they receive a value from done . The value type of done is the empty struct because th"
+        }
+      ],
+      "text": "The sending goroutines replace their send operation with a select statement that proceeds either when the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.839,
+      "importance": 0.869,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0112",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0112"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0112",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "This article has presented techniques for constructing streaming data pipelines in Go. Dealing with failures in such pipelines is tricky, since each stage in the pipeline may block attempting to send values downstream, and the downstream stages may no longer care about the incoming data. We showed how closing a channel can broadcast a “done” signal to all th",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Conclusion"
+          ],
+          "order": 111,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0112",
+          "sourceRefId": "src_page_image_008_go_pipelines_0112",
+          "textHash": "sha256_0962bf7cf2869f5345777fbfe3b3ae93",
+          "textQuote": "This article has presented techniques for constructing streaming data pipelines in Go. Dealing with failures in such pipelines is tricky, since each stage in the pipeline may block attempting to send values downstream, a"
+        }
+      ],
+      "text": "This article has presented techniques for constructing streaming data pipelines in Go . Dealing with failures",
+      "warnings": []
+    },
+    {
+      "confidence": 0.832,
+      "importance": 0.852,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0031",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Go’s concurrency primitives make it easy to construct streaming data pipelines that make efficient use of I/O and multiple CPUs. This article presents examples of such pipelines, highlights subtleties that arise when operations fail, and introduces techniques for dealing with failures cleanly.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0031",
+          "sourceRefId": "src_page_image_008_go_pipelines_0031",
+          "textHash": "sha256_58e57af0958e4127afe504127738e28b",
+          "textQuote": "Go’s concurrency primitives make it easy to construct streaming data pipelines that make efficient use of I/O and multiple CPUs. This article presents examples of such pipelines, highlights subtleties that arise when ope"
+        }
+      ],
+      "text": "Go ’ s concurrency primitives make it easy to construct streaming data pipelines that make efficient",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.847,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0077",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0077"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0077",
+          "blockType": "code",
+          "chunkId": "ck_page_image_008_go_pipelines_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "func main() { // Set up a done channel that's shared by the whole pipeline, // and close that channel when this pipeline exits, as a signal // for all the goroutines we started to exit. done := make(chan struct{}) defer close(done) in := gen(done, 2, 3) // Distribute the sq work across two goroutines that both read from in. c1 := sq(done, in) c2 := sq(done, ",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 76,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0077",
+          "sourceRefId": "src_page_image_008_go_pipelines_0077",
+          "textHash": "sha256_62767664cd6d94b0a687820f1b267018",
+          "textQuote": "func main() { // Set up a done channel that's shared by the whole pipeline, // and close that channel when this pipeline exits, as a signal // for all the goroutines we started to exit. done := make(chan struct{}) defer "
+        }
+      ],
+      "text": "func main ( ) { / / Set up a done channel that ' s shared",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0058",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0058"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0058",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "But in real pipelines, stages don’t always receive all the inbound values. Sometimes this is by design: the receiver may only need a subset of values to make progress. More often, a stage exits early because an inbound value represents an error in an earlier stage. In either case the receiver should not have to wait for the remaining values to arrive, and we",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Stopping short"
+          ],
+          "order": 57,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0058",
+          "sourceRefId": "src_page_image_008_go_pipelines_0058",
+          "textHash": "sha256_eac65883433756103ef0f6e50825cb90",
+          "textQuote": "But in real pipelines, stages don’t always receive all the inbound values. Sometimes this is by design: the receiver may only need a subset of values to make progress. More often, a stage exits early because an inbound v"
+        }
+      ],
+      "text": "But in real pipelines , stages don ’ t always receive all the inbound values .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0089",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0089"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0089",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Our example program is like md5sum but instead takes a single directory as an argument and prints the digest values for each regular file under that directory, sorted by path name.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Digesting a tree"
+          ],
+          "order": 88,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0089",
+          "sourceRefId": "src_page_image_008_go_pipelines_0089",
+          "textHash": "sha256_b4d1f7361c0d44ba63df64a201c53a14",
+          "textQuote": "Our example program is like md5sum but instead takes a single directory as an argument and prints the digest values for each regular file under that directory, sorted by path name."
+        }
+      ],
+      "text": "Our example program is like md5sum but instead takes a single directory as an argument and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0075",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0075"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0075",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "We need a way to tell an unknown and unbounded number of goroutines to stop sending their values downstream. In Go, we can do this by closing a channel, because a receive operation on a closed channel can always proceed immediately, yielding the element type’s zero value.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 74,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0075",
+          "sourceRefId": "src_page_image_008_go_pipelines_0075",
+          "textHash": "sha256_d064675b968c9dd223178dd4b4453931",
+          "textQuote": "We need a way to tell an unknown and unbounded number of goroutines to stop sending their values downstream. In Go, we can do this by closing a channel, because a receive operation on a closed channel can always proceed "
+        }
+      ],
+      "text": "We need a way to tell an unknown and unbounded number of goroutines to stop sending",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0057",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "This pattern allows each receiving stage to be written as a range loop and ensures that all goroutines exit once all values have been successfully sent downstream.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Stopping short"
+          ],
+          "order": 56,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0057",
+          "sourceRefId": "src_page_image_008_go_pipelines_0057",
+          "textHash": "sha256_c561e90577967033123dc94ba814bf4b",
+          "textQuote": "This pattern allows each receiving stage to be written as a range loop and ensures that all goroutines exit once all values have been successfully sent downstream."
+        }
+      ],
+      "text": "This pattern allows each receiving stage to be written as a range loop and ensures that",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0074",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0074"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0074",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "This approach has a problem: each downstream receiver needs to know the number of potentially blocked upstream senders and arrange to signal those senders on early return. Keeping track of these counts is tedious and error-prone.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 73,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0074",
+          "sourceRefId": "src_page_image_008_go_pipelines_0074",
+          "textHash": "sha256_28c7fbfcbede5e1c5c410eed63cc0830",
+          "textQuote": "This approach has a problem: each downstream receiver needs to know the number of potentially blocked upstream senders and arrange to signal those senders on early return. Keeping track of these counts is tedious and err"
+        }
+      ],
+      "text": "This approach has a problem : each downstream receiver needs to know the number of potentially",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0078",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0078"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0078",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Each of our pipeline stages is now free to return as soon as done is closed. The output routine in merge can return without draining its inbound channel, since it knows the upstream sender, sq , will stop attempting to send when done is closed. output ensures wg.Done is called on all return paths via a defer statement:",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 77,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0078",
+          "sourceRefId": "src_page_image_008_go_pipelines_0078",
+          "textHash": "sha256_8851e8585affc5d3a5649e3502ac5a3c",
+          "textQuote": "Each of our pipeline stages is now free to return as soon as done is closed. The output routine in merge can return without draining its inbound channel, since it knows the upstream sender, sq , will stop attempting to s"
+        }
+      ],
+      "text": "Each of our pipeline stages is now free to return as soon as done is closed",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0105",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "The middle stage starts a fixed number of digester goroutines that receive file names from paths and send results on channel c :",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Bounded parallelism"
+          ],
+          "order": 104,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0105",
+          "sourceRefId": "src_page_image_008_go_pipelines_0105",
+          "textHash": "sha256_0c6991560b8884ad3f1977b90918f79a",
+          "textQuote": "The middle stage starts a fixed number of digester goroutines that receive file names from paths and send results on channel c :"
+        }
+      ],
+      "text": "The middle stage starts a fixed number of digester goroutines that receive file names from paths",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0107",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Unlike our previous examples, digester does not close its output channel, as multiple goroutines are sending on a shared channel. Instead, code in MD5All arranges for the channel to be closed when all the digesters are done:",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Bounded parallelism"
+          ],
+          "order": 106,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0107",
+          "sourceRefId": "src_page_image_008_go_pipelines_0107",
+          "textHash": "sha256_02ae520dbb9444b526795111878add0e",
+          "textQuote": "Unlike our previous examples, digester does not close its output channel, as multiple goroutines are sending on a shared channel. Instead, code in MD5All arranges for the channel to be closed when all the digesters are d"
+        }
+      ],
+      "text": "Unlike our previous examples , digester does not close its output channel , as multiple goroutines",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.822,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0061",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "This is a resource leak: goroutines consume memory and runtime resources, and heap references in goroutine stacks keep data from being garbage collected. Goroutines are not garbage collected; they must exit on their own.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Stopping short"
+          ],
+          "order": 60,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0061",
+          "sourceRefId": "src_page_image_008_go_pipelines_0061",
+          "textHash": "sha256_b59d101835daf83fc290478f199b453f",
+          "textQuote": "This is a resource leak: goroutines consume memory and runtime resources, and heap references in goroutine stacks keep data from being garbage collected. Goroutines are not garbage collected; they must exit on their own."
+        }
+      ],
+      "text": "This is a resource leak : goroutines consume memory and runtime resources , and heap references",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0109",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0109"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0109",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "We could instead have each digester create and return its own output channel, but then we would need additional goroutines to fan-in the results.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Bounded parallelism"
+          ],
+          "order": 108,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0109",
+          "sourceRefId": "src_page_image_008_go_pipelines_0109",
+          "textHash": "sha256_278d317796d90d859f807b5cc768fd16",
+          "textQuote": "We could instead have each digester create and return its own output channel, but then we would need additional goroutines to fan-in the results."
+        }
+      ],
+      "text": "We could instead have each digester create and return its own output channel , but then",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0070",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0070",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "When main decides to exit without receiving all the values from out , it must tell the goroutines in the upstream stages to abandon the values they’re trying to send. It does so by sending values on a channel called done . It sends two values since there are potentially two blocked senders:",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Explicit cancellation"
+          ],
+          "order": 69,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0070",
+          "sourceRefId": "src_page_image_008_go_pipelines_0070",
+          "textHash": "sha256_0650056c944770ba987db82b553e3403",
+          "textQuote": "When main decides to exit without receiving all the values from out , it must tell the goroutines in the upstream stages to abandon the values they’re trying to send. It does so by sending values on a channel called done"
+        }
+      ],
+      "text": "When main decides to exit without receiving all the values from out , it must tell",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.816,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0116",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0016"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0116"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0116",
+          "blockType": "list_item",
+          "chunkId": "ck_page_image_008_go_pipelines_0016",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Douglas McIlroy’s paper Squinting at Power Series shows how Go-like concurrency provides elegant support for complex calculations.",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Conclusion"
+          ],
+          "order": 115,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0116",
+          "sourceRefId": "src_page_image_008_go_pipelines_0116",
+          "textHash": "sha256_8368787929e53f858013e367aede39fb",
+          "textQuote": "Douglas McIlroy’s paper Squinting at Power Series shows how Go-like concurrency provides elegant support for complex calculations."
+        }
+      ],
+      "text": "Douglas McIlroy ’ s paper Squinting at Power Series shows how Go - like concurrency provides",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.814,
+      "itemId": "item_block_pg_page_image_008_go_pipelines_0052",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_page_image_008_go_pipelines_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_page_image_008_go_pipelines_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_image_008_go_pipelines_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_image_008_go_pipelines_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_7f9c5b5c1972c8484ab84cd52b90b7a6eb4223ae08ad177ef4093ba8a0300449",
+          "fallbackText": "Sends on a closed channel panic, so it’s important to ensure all sends are done before calling close. The sync.WaitGroup type provides a simple way to arrange this synchronization:",
+          "headingPath": [
+            "Go Concurrency Patterns: Pipelines and cancellation",
+            "Fan-out, fan-in"
+          ],
+          "order": 51,
+          "pageId": "page_image_008_go_pipelines",
+          "paragraphId": "pg_page_image_008_go_pipelines_0052",
+          "sourceRefId": "src_page_image_008_go_pipelines_0052",
+          "textHash": "sha256_a085ff770f7155cfbbaf53ba87a44397",
+          "textQuote": "Sends on a closed channel panic, so it’s important to ensure all sends are done before calling close. The sync.WaitGroup type provides a simple way to arrange this synchronization:"
+        }
+      ],
+      "text": "Sends on a closed channel panic , so it ’ s important to ensure all sends",
+      "warnings": []
+    }
+  ],
+  "pageId": "page_image_008_go_pipelines",
+  "rejectedItems": [],
+  "schemaVersion": "a-v1.2-perception-digest-2026-06-05",
+  "stats": {
+    "compressionRatio": 0.075,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "status": "pass",
+  "summary": {
+    "keyTakeaways": [
+      "Next article : The Go Gopher Previous article : Go talks at FOSDEM 2014 Blog Index",
+      "The sending goroutines replace their send operation with a select statement that proceeds either when the",
+      "This article has presented techniques for constructing streaming data pipelines in Go . Dealing with failures",
+      "Go ’ s concurrency primitives make it easy to construct streaming data pipelines that make efficient",
+      "func main ( ) { / / Set up a done channel that ' s shared"
+    ],
+    "tldr": "Next article : The Go Gopher Previous article : Go talks at FOSDEM 2014 Blog Index"
+  }
+}
