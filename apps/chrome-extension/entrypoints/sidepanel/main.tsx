@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 import type { ExtractedPageContext } from "../../src/pageContext";
@@ -8,7 +8,8 @@ import { DeferredCapabilityNotice } from "../../src/modules/chat_renderer/Deferr
 import { InlineStatusRow } from "../../src/modules/chat_renderer/InlineStatusRow";
 import { UserMessage } from "../../src/modules/chat_renderer/UserMessage";
 import { chatViewReducer, createChatViewState } from "../../src/modules/chat_renderer/chatViewReducer";
-import { createChatProviderTestCollector } from "../../src/settingsDiagnostics";
+import { canSubmitChatInput, shouldSubmitOnKeyDown } from "../../src/chatInputShortcuts";
+import { createChatProviderTestCollector, type ChatProviderTestStatus } from "../../src/settingsDiagnostics";
 import {
   checkRuntimeHealth,
   clearLastSessionId,
@@ -81,7 +82,14 @@ function App() {
   const [chatView, dispatchChatView] = useReducer(chatViewReducer, undefined, () => createChatViewState("chat"));
   const [streamStatus, setStreamStatus] = useState("idle");
   const [activeView, setActiveView] = useState<SideView>("chat");
+  const [isComposing, setIsComposing] = useState(false);
+  const [isSubmittingChat, setIsSubmittingChat] = useState(false);
+  const isSubmittingChatRef = useRef(false);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const canChat = runtimeStatus === "online" && streamStatus !== "streaming";
+  const isStreamingOrExecuting = streamStatus === "streaming" || chatTurnState === "executing_chat" || chatTurnState === "streaming_response";
+  const canStartChatAction = canChat && !isSubmittingChat && !isStreamingOrExecuting;
+  const canSubmitCurrentInput = canSubmitChatInput({ value: input, canChat, isSubmitting: isSubmittingChat, isStreamingOrExecuting });
 
   function normalizeView(value: string | null | undefined): SideView {
     if (value === "agent" || value === "debug" || value === "settings" || value === "chat") return value;
@@ -324,7 +332,7 @@ function App() {
       await withTimeout(
         streamRuntimeChat(id, CHAT_PROVIDER_TEST_PROMPT, (event) => {
           const status = collector.accept(event);
-          if (status === "tool_boundary" || status === "provider_error") {
+          if (isTerminalChatProviderTestStatus(status)) {
             throw new ChatProviderTestTerminalError();
           }
         }, { ...chatProviderDraft, intentHint: "general_chat", autoContext: false, profile: "chat" }),
@@ -347,6 +355,43 @@ function App() {
       setSettingsDiagnosticEvent(result?.rawEvent ?? null);
       setSettingsMessage(result?.message ?? (error instanceof Error ? error.message : "Chat Provider 测试失败。"));
     }
+  }
+
+  async function submitMessage() {
+    if (
+      !canSubmitChatInput({
+        value: input,
+        canChat,
+        isSubmitting: isSubmittingChatRef.current || isSubmittingChat,
+        isStreamingOrExecuting
+      })
+    ) {
+      return;
+    }
+    isSubmittingChatRef.current = true;
+    setIsSubmittingChat(true);
+    try {
+      await sendChat(input);
+    } finally {
+      isSubmittingChatRef.current = false;
+      setIsSubmittingChat(false);
+      textareaRef.current?.focus();
+    }
+  }
+
+  function handleInputKeyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+    const shouldSubmit = shouldSubmitOnKeyDown({
+      key: event.key,
+      shiftKey: event.shiftKey,
+      metaKey: event.metaKey,
+      ctrlKey: event.ctrlKey,
+      eventIsComposing: (event as React.KeyboardEvent<HTMLTextAreaElement> & { isComposing?: boolean }).isComposing,
+      nativeIsComposing: event.nativeEvent?.isComposing,
+      composingState: isComposing
+    });
+    if (!shouldSubmit) return;
+    event.preventDefault();
+    void submitMessage();
   }
 
   async function sendChat(message: string, intentHint?: ChatIntent, retriedAfterCapture = false) {
@@ -494,30 +539,34 @@ function App() {
               <div className="toolbar panel-strip pill-strip">
                 <button disabled={runtimeStatus !== "online"} onClick={captureCurrentPage} type="button">读取当前页面</button>
                 <button disabled={runtimeStatus !== "online"} onClick={submitPageContext} type="button">提交上下文</button>
-                <button disabled={!canChat} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
-                <button disabled={!canChat} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
-                <button disabled={!canChat} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
-                <button disabled={!canChat} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
+                <button disabled={!canStartChatAction} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
+                <button disabled={!canStartChatAction} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
+                <button disabled={!canStartChatAction} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
+                <button disabled={!canStartChatAction} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
               </div>
 
               <form
                 className="chat-form composer-container"
                 onSubmit={(event) => {
                   event.preventDefault();
-                  sendChat(input);
+                  void submitMessage();
                 }}
               >
                 <textarea
+                  ref={textareaRef}
                   value={input}
                   onChange={(event) => {
                     setInput(event.target.value);
                     event.currentTarget.style.height = "auto";
                     event.currentTarget.style.height = `${Math.min(event.currentTarget.scrollHeight, 160)}px`;
                   }}
-                  placeholder={runtimeStatus === "online" ? "你可以直接提问。需要页面内容时，我会自动读取当前页面。" : "请先连接 Runtime。"}
+                  onCompositionStart={() => setIsComposing(true)}
+                  onCompositionEnd={() => setIsComposing(false)}
+                  onKeyDown={handleInputKeyDown}
+                  placeholder={runtimeStatus === "online" ? "你可以直接提问。Enter 发送，Shift+Enter 换行。需要页面内容时，我会自动读取当前页面。" : "请先连接 Runtime。"}
                   rows={2}
                 />
-                <button disabled={!canChat} type="submit">发送</button>
+                <button disabled={!canSubmitCurrentInput} title="Enter 发送，Shift+Enter 换行" type="submit">发送</button>
               </form>
             </div>
           </section>
@@ -822,6 +871,17 @@ function App() {
         </button>
       </aside>
     </main>
+  );
+}
+
+function isTerminalChatProviderTestStatus(status: ChatProviderTestStatus): boolean {
+  return (
+    status === "tool_boundary" ||
+    status === "provider_error" ||
+    status === "pi_rpc_no_text" ||
+    status === "pi_normalizer_no_delta" ||
+    status === "provider_auth_failed" ||
+    status === "piagent_provider_config_missing"
   );
 }
 

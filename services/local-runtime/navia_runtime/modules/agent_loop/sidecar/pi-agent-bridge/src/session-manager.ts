@@ -17,6 +17,11 @@ type SessionRecord = {
   queue: BridgeEvent[];
   context: { requestId?: string; turnId?: string; traceId?: string };
   normalizer: PiEventNormalizer;
+  streamDebug: boolean;
+  stdoutLineCount: number;
+  stderrLineCount: number;
+  stdoutPreviews: string[];
+  stderrPreviews: string[];
 };
 
 export class SessionManager {
@@ -37,6 +42,7 @@ export class SessionManager {
     const toolNames = sanitizeToolNames(request.toolNames);
     const modelProvider = sanitizeModelProvider(request.modelProvider);
     const systemPrompt = sanitizeSystemPrompt(request.systemPrompt);
+    const streamDebug = process.env.NAVIA_PI_STREAM_DEBUG === "true";
     const child = this.processFactory(this.command, ["--mode", "rpc", "--no-session"], { cwd: cwd ?? this.safeCwd });
     const record: SessionRecord = {
       sessionId,
@@ -50,6 +56,11 @@ export class SessionManager {
       child,
       queue: [],
       context: {},
+      streamDebug,
+      stdoutLineCount: 0,
+      stderrLineCount: 0,
+      stdoutPreviews: [],
+      stderrPreviews: [],
       normalizer: createPiEventNormalizer({
         systemPromptInjectionMode: systemPrompt ? "prompt_envelope" : undefined,
         systemPromptPreview: preview(systemPrompt)
@@ -61,6 +72,7 @@ export class SessionManager {
     if (systemPrompt) {
       record.queue.push({ type: "state", state: "system_prompt.injected", systemPromptInjectionMode: "prompt_envelope", systemPromptPreview: preview(systemPrompt) });
     }
+    record.queue.push({ type: "state", state: "pi.session.provider", ...providerDiagnostic(modelProvider) });
     return { sessionId, naviaSessionId, status: "created", toolNames, modelProvider: publicModelProvider(modelProvider) };
   }
 
@@ -87,6 +99,18 @@ export class SessionManager {
   drainEvents(sessionId: string): BridgeEvent[] {
     const record = this.requireSession(sessionId);
     const events = [...record.queue];
+    if (record.streamDebug) {
+      events.push({
+        type: "state",
+        state: "pi.stdio.debug",
+        stdoutLineCount: record.stdoutLineCount,
+        stderrLineCount: record.stderrLineCount,
+        stdoutPreviews: [...record.stdoutPreviews],
+        stderrPreviews: [...record.stderrPreviews],
+        ...providerDiagnostic(record.modelProvider),
+        ...record.context
+      });
+    }
     record.queue.length = 0;
     return events;
   }
@@ -111,7 +135,10 @@ export class SessionManager {
       }
     });
     record.child.stderr.on("data", (chunk: Buffer | string) => {
-      record.queue.push({ type: "error", code: "piagent_stderr", message: redactSecrets(chunk.toString()), recoverable: true, ...record.context });
+      const message = redactSecrets(chunk.toString());
+      record.stderrLineCount += countNonEmptyLines(message);
+      pushPreview(record.stderrPreviews, message);
+      record.queue.push({ type: "error", code: stderrErrorCode(message), message, recoverable: true, ...record.context });
     });
     record.child.on("error", (error) => {
       record.queue.push({ type: "error", code: "piagent_process_error", message: error.message, recoverable: true, ...record.context });
@@ -122,6 +149,8 @@ export class SessionManager {
   }
 
   private acceptRawLine(record: SessionRecord, line: string): void {
+    record.stdoutLineCount += 1;
+    pushPreview(record.stdoutPreviews, line);
     try {
       const raw = JSON.parse(line) as unknown;
       record.queue.push(...record.normalizer.normalize(raw, { ...record.context, sessionId: record.sessionId }));
@@ -176,5 +205,29 @@ function publicModelProvider(value: ModelProviderConfig | undefined): { type?: s
 }
 
 function redactSecrets(value: string): string {
-  return value.replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****");
+  return value.replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****").replace(/Bearer\s+[A-Za-z0-9._-]+/gi, "Bearer [redacted]");
+}
+
+function providerDiagnostic(value: ModelProviderConfig | undefined): Partial<Extract<BridgeEvent, { type: "state" }>> {
+  return {
+    providerType: value?.type,
+    providerBaseUrl: value?.baseUrl,
+    providerModel: value?.model,
+    providerHasApiKeyRef: typeof value?.apiKeyRef === "string" && value.apiKeyRef.length > 0,
+    providerHasApiKey: typeof value?.apiKey === "string" && value.apiKey.length > 0
+  };
+}
+
+function pushPreview(target: string[], value: string): void {
+  const text = redactSecrets(value).replace(/\s+/g, " ").trim();
+  if (!text) return;
+  if (target.length < 5) target.push(text.slice(0, 120));
+}
+
+function countNonEmptyLines(value: string): number {
+  return value.split(/\r?\n/).filter((line) => line.trim()).length || (value.trim() ? 1 : 0);
+}
+
+function stderrErrorCode(message: string): string {
+  return /auth|unauthori[sz]ed|401|403|api[_ -]?key|invalid key|permission/i.test(message) ? "provider_auth_failed" : "piagent_stderr";
 }

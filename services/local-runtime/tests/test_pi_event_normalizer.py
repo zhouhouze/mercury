@@ -37,6 +37,32 @@ def test_pi_raw_summary_is_kept_on_state_event() -> None:
     assert events[0].data["raw_summary"] == "{\"type\":\"message\"}"
 
 
+def test_pi_stdio_and_provider_diagnostics_are_kept_on_state_event() -> None:
+    events = normalize_pi_event(
+        {
+            "type": "state",
+            "state": "pi.stdio.debug",
+            "stdoutLineCount": 2,
+            "stderrLineCount": 1,
+            "stdoutPreviews": ["{\"type\":\"agent_end\"}"],
+            "stderrPreviews": ["401 invalid api key sk-****"],
+            "providerType": "deepseek",
+            "providerBaseUrl": "https://api.deepseek.com",
+            "providerModel": "deepseek-v4-flash",
+            "providerHasApiKeyRef": True,
+            "providerHasApiKey": False,
+        },
+        core_input(),
+    )
+
+    assert events[0].type == CoreEventType.STATE
+    assert events[0].data["to"] == "pi.stdio.debug"
+    assert events[0].data["stdoutLineCount"] == 2
+    assert events[0].data["stderrLineCount"] == 1
+    assert events[0].data["providerType"] == "deepseek"
+    assert events[0].data["providerHasApiKeyRef"] is True
+
+
 def test_pi_error_is_sanitized() -> None:
     events = normalize_pi_event({"type": "error", "message": "boom\nstack trace"}, core_input())
 

@@ -2,7 +2,7 @@ import { IncomingMessage, ServerResponse } from "node:http";
 import { SessionManager } from "./session-manager.js";
 
 const startedAt = new Date().toISOString();
-const buildVersion = "v1.5.1";
+const buildVersion = "v1.6.1-diagnostics";
 
 export async function routeRequest(request: IncomingMessage, response: ServerResponse, manager: SessionManager): Promise<void> {
   const url = new URL(request.url ?? "/", "http://127.0.0.1");

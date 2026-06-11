@@ -1,6 +1,15 @@
 import type { AgentEvent } from "./sse";
 
-export type ChatProviderTestStatus = "pending" | "ok" | "provider_error" | "tool_boundary" | "invalid_response";
+export type ChatProviderTestStatus =
+  | "pending"
+  | "ok"
+  | "provider_error"
+  | "tool_boundary"
+  | "invalid_response"
+  | "pi_rpc_no_text"
+  | "pi_normalizer_no_delta"
+  | "provider_auth_failed"
+  | "piagent_provider_config_missing";
 
 export type ChatProviderTestResult = {
   status: Exclude<ChatProviderTestStatus, "pending">;
@@ -52,7 +61,7 @@ export function createChatProviderTestCollector(): ChatProviderTestCollector {
       }
       if (event.type === "error") {
         draft.errorEvent = event;
-        return "provider_error";
+        return classifyRuntimeErrorStatus(event);
       }
       if (event.type === "response.delta" && typeof event.data.text === "string") {
         draft.receivedText += event.data.text;
@@ -79,10 +88,11 @@ function classifyChatProviderTest(draft: ChatProviderTestDraft, reason: "complet
     };
   }
   if (draft.errorEvent) {
+    const status = classifyRuntimeErrorStatus(draft.errorEvent);
     return {
-      status: "provider_error",
+      status,
       receivedText,
-      message: String(draft.errorEvent.data.message ?? "Chat Provider 测试失败。"),
+      message: runtimeErrorMessage(status, draft.errorEvent),
       errorCode: typeof draft.errorEvent.data.code === "string" ? draft.errorEvent.data.code : undefined,
       recoverable: typeof draft.errorEvent.data.recoverable === "boolean" ? draft.errorEvent.data.recoverable : undefined,
       rawEvent: draft.errorEvent
@@ -121,6 +131,23 @@ function classifyChatProviderTest(draft: ChatProviderTestDraft, reason: "complet
     receivedText,
     message: `Chat Provider 测试通过：${receivedText.slice(0, 80)}`
   };
+}
+
+function classifyRuntimeErrorStatus(event: AgentEvent): Exclude<ChatProviderTestStatus, "pending" | "ok" | "tool_boundary" | "invalid_response"> {
+  const code = typeof event.data.code === "string" ? event.data.code : "";
+  if (code === "pi_rpc_no_text") return "pi_rpc_no_text";
+  if (code === "pi_normalizer_no_delta") return "pi_normalizer_no_delta";
+  if (code === "provider_auth_failed") return "provider_auth_failed";
+  if (code === "piagent_provider_config_missing") return "piagent_provider_config_missing";
+  return "provider_error";
+}
+
+function runtimeErrorMessage(status: ChatProviderTestStatus, event: AgentEvent): string {
+  if (status === "pi_rpc_no_text") return "Chat Provider 测试未通过：PiAgent raw 输出没有普通文本，请检查 pi RPC 协议是否兼容。";
+  if (status === "pi_normalizer_no_delta") return "Chat Provider 测试未通过：PiAgent raw event 疑似包含文本，但 normalizer 没有转换出普通文本 delta。";
+  if (status === "provider_auth_failed") return "Chat Provider 测试未通过：DeepSeek Provider 鉴权失败，请检查 API Key。";
+  if (status === "piagent_provider_config_missing") return "Chat Provider 测试未通过：PiAgent 没有收到完整的 DeepSeek Provider 配置。";
+  return String(event.data.message ?? "Chat Provider 测试失败。");
 }
 
 function isToolBoundaryEvent(event: AgentEvent): boolean {

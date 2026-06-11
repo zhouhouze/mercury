@@ -23,6 +23,15 @@ export type BridgeEvent =
       emittedDeltaPreview?: string;
       systemPromptInjectionMode?: string;
       systemPromptPreview?: string;
+      stdoutLineCount?: number;
+      stderrLineCount?: number;
+      stdoutPreviews?: string[];
+      stderrPreviews?: string[];
+      providerType?: string;
+      providerBaseUrl?: string;
+      providerModel?: string;
+      providerHasApiKeyRef?: boolean;
+      providerHasApiKey?: boolean;
       requestId?: string;
       turnId?: string;
       traceId?: string;

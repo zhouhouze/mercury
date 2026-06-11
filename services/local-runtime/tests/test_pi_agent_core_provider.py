@@ -52,7 +52,15 @@ def core_input(message: str = "hello") -> CoreTurnInput:
         budget={},
         adapters=[],
         mode="chat",
-        provider_config={"provider": "piagent"},
+        provider_config={
+            "provider": "piagent",
+            "modelProvider": {
+                "type": "deepseek",
+                "baseUrl": "https://api.deepseek.com",
+                "model": "deepseek-v4-flash",
+                "apiKeyRef": "sqlite:provider:api_key",
+            },
+        },
     )
 
 
@@ -84,8 +92,35 @@ def test_pi_agent_core_provider_done_without_text_yields_empty_response_error() 
     events = collect(PiAgentCoreProvider(client=fake, max_polls=1))
 
     assert [event.type for event in events] == [CoreEventType.STATE, CoreEventType.STATE, CoreEventType.ERROR]
-    assert events[2].data["code"] == "piagent_empty_response"
+    assert events[2].data["code"] == "pi_rpc_no_text"
     assert events[2].data["recoverable"] is True
+
+
+def test_pi_agent_core_provider_raw_text_without_delta_yields_normalizer_error() -> None:
+    fake = FakePiClient(events=[{"type": "state", "state": "pi.raw", "rawSummary": "{\"message\":{\"content\":\"hello\"}}"}, {"type": "response.done"}])
+    events = collect(PiAgentCoreProvider(client=fake, max_polls=1))
+
+    assert events[2].data["code"] == "pi_normalizer_no_delta"
+
+
+def test_pi_agent_core_provider_missing_model_provider_is_explicit() -> None:
+    async def run():
+        input_data = core_input()
+        input_data.provider_config.clear()
+        return [event async for event in PiAgentCoreProvider(client=FakePiClient(), max_polls=1).run_turn(input_data)]
+
+    events = asyncio.run(run())
+
+    assert events[0].type == CoreEventType.ERROR
+    assert events[0].data["code"] == "piagent_provider_config_missing"
+
+
+def test_pi_agent_core_provider_preserves_provider_auth_failed() -> None:
+    fake = FakePiClient(events=[{"type": "error", "code": "provider_auth_failed", "message": "401 invalid api key", "recoverable": True}])
+    events = collect(PiAgentCoreProvider(client=fake, max_polls=1))
+
+    assert events[1].type == CoreEventType.ERROR
+    assert events[1].data["code"] == "provider_auth_failed"
 
 
 def test_pi_agent_core_provider_offline_yields_recoverable_error() -> None:

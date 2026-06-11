@@ -103,7 +103,7 @@ def test_core_provider_runner_piagent_returns_recoverable_error() -> None:
 
     assert result["status"] == "failed"
     assert result["events"][0]["type"] == AgentEventType.ERROR.value
-    assert result["events"][0]["data"]["code"] == "piagent_unavailable"
+    assert result["events"][0]["data"]["code"] == "piagent_provider_config_missing"
     assert result["events"][0]["data"]["recoverable"] is True
 
 

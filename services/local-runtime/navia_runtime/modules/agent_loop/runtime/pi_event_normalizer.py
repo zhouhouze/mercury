@@ -40,6 +40,15 @@ def normalize_pi_event(raw: dict[str, Any], input: CoreTurnInput) -> list[CoreEv
             "previousSnapshotLength",
             "emittedDeltaLength",
             "emittedDeltaPreview",
+            "stdoutLineCount",
+            "stderrLineCount",
+            "stdoutPreviews",
+            "stderrPreviews",
+            "providerType",
+            "providerBaseUrl",
+            "providerModel",
+            "providerHasApiKeyRef",
+            "providerHasApiKey",
         ):
             if key in raw:
                 data[key] = raw[key]

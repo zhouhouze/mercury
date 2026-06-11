@@ -71,6 +71,46 @@ describe("Chat Provider settings diagnostics", () => {
     expect(result.rawEvent?.type).toBe("error");
   });
 
+  it("classifies pi rpc no-text errors distinctly", () => {
+    const collector = createChatProviderTestCollector();
+    const status = collector.accept(event("error", { message: "done without text", code: "pi_rpc_no_text", recoverable: true }));
+    const result = collector.finalize();
+
+    expect(status).toBe("pi_rpc_no_text");
+    expect(result.status).toBe("pi_rpc_no_text");
+    expect(result.message).toContain("pi RPC 协议");
+  });
+
+  it("classifies normalizer no-delta errors distinctly", () => {
+    const collector = createChatProviderTestCollector();
+    const status = collector.accept(event("error", { message: "text exists but no delta", code: "pi_normalizer_no_delta", recoverable: true }));
+    const result = collector.finalize();
+
+    expect(status).toBe("pi_normalizer_no_delta");
+    expect(result.status).toBe("pi_normalizer_no_delta");
+    expect(result.message).toContain("normalizer");
+  });
+
+  it("classifies provider auth failures distinctly", () => {
+    const collector = createChatProviderTestCollector();
+    const status = collector.accept(event("error", { message: "auth failed", code: "provider_auth_failed", recoverable: true }));
+    const result = collector.finalize();
+
+    expect(status).toBe("provider_auth_failed");
+    expect(result.status).toBe("provider_auth_failed");
+    expect(result.message).toContain("API Key");
+  });
+
+  it("classifies missing piagent provider config distinctly", () => {
+    const collector = createChatProviderTestCollector();
+    const status = collector.accept(event("error", { message: "missing config", code: "piagent_provider_config_missing", recoverable: true }));
+    const result = collector.finalize();
+
+    expect(status).toBe("piagent_provider_config_missing");
+    expect(result.status).toBe("piagent_provider_config_missing");
+    expect(result.message).toContain("DeepSeek Provider 配置");
+  });
+
   it("classifies done without text as invalid_response", () => {
     const collector = createChatProviderTestCollector();
     collector.accept(event("response.done"));
