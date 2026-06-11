@@ -9,9 +9,7 @@
     "zip": "wxt zip",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
-    "e2e:chrome": "node e2e/chrome-sidepanel-e2e.mjs",
-    "e2e:inpage": "node e2e/chrome-inpage-e2e.mjs",
-    "e2e:visual": "node e2e/chrome-inpage-visual-e2e.mjs"
+    "e2e:chrome": "node e2e/chrome-sidepanel-e2e.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",

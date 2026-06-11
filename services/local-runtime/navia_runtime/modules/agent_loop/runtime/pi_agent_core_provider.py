@@ -4,6 +4,7 @@ import asyncio
 from collections.abc import AsyncIterator
 
 from navia_runtime.contracts import ErrorCode
+from navia_runtime.modules.agent_loop.runtime.chat_profile_prompt import CHAT_PROFILE_SYSTEM_PROMPT, build_prompt_envelope
 from navia_runtime.modules.agent_loop.runtime.core_types import CoreEvent, CoreEventType, CoreTurnInput
 from navia_runtime.modules.agent_loop.runtime.pi_event_normalizer import normalize_pi_event
 from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarClient, PiSidecarError
@@ -30,10 +31,27 @@ class PiAgentCoreProvider:
             self.client.health()
             pi_session_id = self._sessions.get(input.session_id)
             if pi_session_id is None:
-                created = self.client.create_session(input.session_id, model_provider=self.model_provider or input.provider_config.get("modelProvider"))
+                created = self.client.create_session(
+                    input.session_id,
+                    model_provider=self.model_provider or input.provider_config.get("modelProvider"),
+                    system_prompt=CHAT_PROFILE_SYSTEM_PROMPT,
+                    profile="chat",
+                    tool_policy="disabled",
+                )
                 pi_session_id = str(created["sessionId"])
                 self._sessions[input.session_id] = pi_session_id
-            self.client.send_prompt(pi_session_id, input.user_message, input.request_id, input.turn_id, input.trace_id)
+            # Some pi RPC builds do not yet honor session-level systemPrompt. The
+            # prompt envelope keeps Chat Profile behavior stable without exposing
+            # the instruction text to the ordinary chat UI.
+            yield CoreEvent(
+                type=CoreEventType.STATE,
+                session_id=input.session_id,
+                turn_id=input.turn_id,
+                trace_id=input.trace_id,
+                request_id=input.request_id,
+                data={"from": "piagent", "to": "system_prompt.injected", "systemPromptInjectionMode": "prompt_envelope"},
+            )
+            self.client.send_prompt(pi_session_id, build_prompt_envelope(input.user_message), input.request_id, input.turn_id, input.trace_id)
             done = False
             saw_text_delta = False
             for _ in range(self.max_polls):
@@ -55,11 +73,11 @@ class PiAgentCoreProvider:
                 if done:
                     return
                 await asyncio.sleep(self.poll_interval_seconds)
-            yield self._error(input, "piagent_timeout", "Pi agent sidecar did not finish in time.")
+            yield self._error(input, "piagent_timeout", "PiAgent 服务响应超时，请稍后重试。")
         except (KeyError, PiSidecarError) as exc:
-            yield self._error(input, "piagent_unavailable", "Pi agent sidecar is unavailable or returned an invalid response.")
+            yield self._error(input, "piagent_unavailable", "PiAgent 服务暂不可用或返回了无效响应。")
         except RuntimeError:
-            yield self._error(input, "piagent_failed", "Pi agent provider failed.")
+            yield self._error(input, "piagent_failed", "PiAgent 服务调用失败。")
 
     def _error(self, input: CoreTurnInput, code: str, message: str) -> CoreEvent:
         return CoreEvent(

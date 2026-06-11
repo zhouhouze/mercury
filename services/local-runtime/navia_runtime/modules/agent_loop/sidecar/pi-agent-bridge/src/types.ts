@@ -2,7 +2,31 @@ export type BridgeEvent =
   | { type: "response.delta"; text: string; requestId?: string; turnId?: string; traceId?: string }
   | { type: "response.done"; requestId?: string; turnId?: string; traceId?: string }
   | { type: "error"; message: string; code?: string; recoverable?: boolean; requestId?: string; turnId?: string; traceId?: string }
-  | { type: "state"; state: string; rawSummary?: string; requestId?: string; turnId?: string; traceId?: string }
+  | {
+      type: "state";
+      state: string;
+      rawSummary?: string;
+      rawEventType?: string;
+      rawEventKeys?: string[];
+      messageId?: string;
+      assistantMessageId?: string;
+      assistantMessageIndex?: number;
+      sessionId?: string;
+      snapshotKey?: string;
+      snapshotKeySource?: string;
+      snapshotKeyFallback?: boolean;
+      isTextDelta?: boolean;
+      isSnapshot?: boolean;
+      fullTextLength?: number;
+      previousSnapshotLength?: number;
+      emittedDeltaLength?: number;
+      emittedDeltaPreview?: string;
+      systemPromptInjectionMode?: string;
+      systemPromptPreview?: string;
+      requestId?: string;
+      turnId?: string;
+      traceId?: string;
+    }
   | { type: "tool.requested"; toolName: string; toolCallId: string; requestId?: string; turnId?: string; traceId?: string }
   | { type: "tool.denied"; toolName: string; toolCallId: string; message: string; requestId?: string; turnId?: string; traceId?: string };
 
@@ -11,6 +35,10 @@ export type SessionCreateRequest = {
   cwd?: string;
   toolNames?: string[];
   modelProvider?: ModelProviderConfig;
+  systemPrompt?: string;
+  profile?: string;
+  toolPolicy?: string;
+  messages?: unknown[];
 };
 
 export type ModelProviderConfig = {

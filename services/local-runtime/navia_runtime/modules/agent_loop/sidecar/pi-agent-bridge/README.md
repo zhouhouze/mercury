@@ -1,6 +1,6 @@
 # Navia Pi Agent Bridge
 
-Local-only Node sidecar for Mercury V1.2. It wraps a pi RPC subprocess and exposes a small HTTP API for the Python Runtime.
+Local-only Node bridge for Mercury. It wraps a pi RPC subprocess and exposes a small HTTP API for the Python Runtime.
 
 ## API
 
@@ -16,7 +16,7 @@ Local-only Node sidecar for Mercury V1.2. It wraps a pi RPC subprocess and expos
 
 ## Safety
 
-The bridge binds to `127.0.0.1` by default and always creates sessions with `toolNames=[]`. Local tools such as read, write, edit, bash, grep, find, and ls are denied in V1.2.
+The bridge binds to `127.0.0.1` by default. Chat Profile sessions keep local tools unavailable and route any unexpected tool request through the Runtime safety boundary.
 
 ## Run
 
@@ -26,4 +26,3 @@ pnpm build
 pnpm test
 NAVIA_PI_COMMAND=pi pnpm start
 ```
-

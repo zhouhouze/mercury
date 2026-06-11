@@ -13,7 +13,22 @@ import {
 } from "./chatViewTypes";
 
 const INITIAL_MESSAGE = "你可以直接提问。需要页面内容时，我会自动读取当前页面。";
-const TECHNICAL_TERMS = ["PiAgentCoreProvider", "CoreEvent", "sidecar", "toolNames", "raw event", "agent loop"];
+const TECHNICAL_TERMS = [
+  "PiAgentCoreProvider",
+  "CoreEvent",
+  "sidecar",
+  "toolNames",
+  "raw event",
+  "agent loop",
+  "coding agent",
+  "code task",
+  "这是代码任务",
+  "这不是代码任务",
+  "我在编程项目中工作",
+  "我可以帮你写数据抓取代码",
+  "让我看看当前目录",
+  "当前正在 pi-agent-bridge 模块中工作"
+];
 
 export function createChatViewState(profile: ChatProfile = "chat", initialMessage = INITIAL_MESSAGE): ChatViewState {
   return {
@@ -338,11 +353,18 @@ function appendAssistantText(
     ...state,
     messages: state.messages.map((message) =>
       message.role === "assistant" && message.turnId === turnId
-        ? { ...message, text: `${message.text}${text}`, status: options.status ?? message.status }
+        ? { ...message, text: appendConservativeDelta(message.text, text), status: options.status ?? message.status }
         : message
     ),
     activeStatus: options.closeStatus && state.activeStatus?.turnId === turnId ? undefined : state.activeStatus
   };
+}
+
+function appendConservativeDelta(current: string, incoming: string): string {
+  if (!incoming) return current;
+  if (incoming.startsWith(current)) return `${current}${incoming.slice(current.length)}`;
+  if (current.endsWith(incoming)) return current;
+  return `${current}${incoming}`;
 }
 
 function attachArtifact(state: ChatViewState, turnId: string, artifact: ArtifactRecord | null): ChatViewState {

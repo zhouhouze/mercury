@@ -124,6 +124,46 @@ describe("ChatViewReducer turn lifecycle", () => {
     expect(state.messages.filter((message) => message.role === "system").map((message) => message.text)).not.toContain("正在生成回答……");
     expect(afterDelta.activeStatus).toBeUndefined();
   });
+
+  it("applies a conservative duplicate-prefix guard when provider sends snapshots as deltas", () => {
+    const state = reduce([
+      { type: "start_turn", turnId: "turn_snapshot", text: "聊聊马刺" },
+      { type: "agent_event", event: event("response.delta", { text: "马刺" }, "turn_snapshot") },
+      { type: "agent_event", event: event("response.delta", { text: "马刺能夺冠" }, "turn_snapshot") },
+      { type: "agent_event", event: event("response.delta", { text: "能夺冠" }, "turn_snapshot") },
+      { type: "agent_event", event: event("response.done", {}, "turn_snapshot") }
+    ]);
+
+    expect(assistantTexts(state)).toEqual(["马刺能夺冠"]);
+    expect(state.messages.filter((message) => message.role === "assistant")).toHaveLength(1);
+  });
+
+  it("keeps chatbot mode free of coding-agent personality text for ordinary questions", () => {
+    const state = reduce([
+      { type: "start_turn", turnId: "turn_persona", text: "我今天有点累，怎么调整一下？" },
+      { type: "agent_event", event: event("response.delta", { text: "这不是代码任务。我在编程项目中工作，但我可以帮你写数据抓取代码。建议先休息。" }, "turn_persona") },
+      { type: "agent_event", event: event("response.done", {}, "turn_persona") }
+    ]);
+    const visible = JSON.stringify(state.messages);
+
+    expect(visible).not.toContain("这不是代码任务");
+    expect(visible).not.toContain("我在编程项目中工作");
+    expect(visible).not.toContain("我可以帮你写数据抓取代码");
+    expect(assistantTexts(state)[0]).toContain("建议先休息");
+  });
+
+  it("keeps pi normalizer debug events out of the ordinary message list", () => {
+    const state = reduce([
+      { type: "start_turn", turnId: "turn_debug", text: "你好" },
+      { type: "agent_event", event: event("state", { from: "piagent", to: "pi.normalizer.debug", snapshotKey: "turn_debug:assistant:0", emittedDeltaPreview: "你好" }, "turn_debug") },
+      { type: "agent_event", event: event("response.delta", { text: "你好！" }, "turn_debug") }
+    ]);
+    const visible = JSON.stringify(state.messages);
+
+    expect(visible).not.toContain("pi.normalizer.debug");
+    expect(visible).not.toContain("snapshotKey");
+    expect(assistantTexts(state)).toEqual(["你好！"]);
+  });
 });
 
 describe("provider consistency golden UI shape", () => {

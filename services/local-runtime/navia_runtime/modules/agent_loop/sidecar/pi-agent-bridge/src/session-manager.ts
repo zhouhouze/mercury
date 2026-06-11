@@ -1,18 +1,22 @@
 import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { BridgeEvent, ModelProviderConfig, PromptRequest, RpcChild, RpcProcessFactory, SessionCreateRequest } from "./types.js";
-import { normalizeRawEvent } from "./event-normalizer.js";
+import { PiEventNormalizer, createPiEventNormalizer, normalizeRawEvent } from "./event-normalizer.js";
 import { sanitizeToolNames } from "./tool-policy.js";
 
 type SessionRecord = {
   sessionId: string;
   naviaSessionId: string;
-  cwd: string;
+  cwd?: string;
   toolNames: string[];
+  profile: string;
+  toolPolicy: string;
   modelProvider?: ModelProviderConfig;
+  systemPrompt?: string;
   child: RpcChild;
   queue: BridgeEvent[];
   context: { requestId?: string; turnId?: string; traceId?: string };
+  normalizer: PiEventNormalizer;
 };
 
 export class SessionManager {
@@ -27,21 +31,43 @@ export class SessionManager {
   createSession(request: SessionCreateRequest): { sessionId: string; naviaSessionId: string; status: "created"; toolNames: string[]; modelProvider?: { type?: string; model?: string } } {
     const sessionId = `pi_sess_${randomUUID().replaceAll("-", "")}`;
     const naviaSessionId = request.naviaSessionId ?? "";
-    const cwd = this.safeCwd;
+    const profile = typeof request.profile === "string" ? request.profile : "chat";
+    const toolPolicy = typeof request.toolPolicy === "string" ? request.toolPolicy : "disabled";
+    const cwd = profile === "chat" ? undefined : this.safeCwd;
     const toolNames = sanitizeToolNames(request.toolNames);
     const modelProvider = sanitizeModelProvider(request.modelProvider);
-    const child = this.processFactory(this.command, ["--mode", "rpc", "--no-session"], { cwd });
-    const record: SessionRecord = { sessionId, naviaSessionId, cwd, toolNames, modelProvider, child, queue: [], context: {} };
+    const systemPrompt = sanitizeSystemPrompt(request.systemPrompt);
+    const child = this.processFactory(this.command, ["--mode", "rpc", "--no-session"], { cwd: cwd ?? this.safeCwd });
+    const record: SessionRecord = {
+      sessionId,
+      naviaSessionId,
+      cwd,
+      toolNames,
+      profile,
+      toolPolicy,
+      modelProvider,
+      systemPrompt,
+      child,
+      queue: [],
+      context: {},
+      normalizer: createPiEventNormalizer({
+        systemPromptInjectionMode: systemPrompt ? "prompt_envelope" : undefined,
+        systemPromptPreview: preview(systemPrompt)
+      })
+    };
     this.sessions.set(sessionId, record);
     this.attachChild(record);
-    this.writeLine(record, { type: "session.init", naviaSessionId, cwd, toolNames, modelProvider });
+    this.writeLine(record, { type: "session.init", naviaSessionId, cwd, toolNames, tools: [], messages: [], profile, toolPolicy, modelProvider, systemPrompt });
+    if (systemPrompt) {
+      record.queue.push({ type: "state", state: "system_prompt.injected", systemPromptInjectionMode: "prompt_envelope", systemPromptPreview: preview(systemPrompt) });
+    }
     return { sessionId, naviaSessionId, status: "created", toolNames, modelProvider: publicModelProvider(modelProvider) };
   }
 
   prompt(sessionId: string, request: PromptRequest): { accepted: true; sessionId: string } {
     const record = this.requireSession(sessionId);
     record.context = { requestId: request.requestId, turnId: request.turnId, traceId: request.traceId };
-    this.writeLine(record, { type: "prompt", message: request.message ?? "", ...record.context });
+    this.writeLine(record, { type: "prompt", message: request.message ?? "", systemPrompt: record.systemPrompt, ...record.context });
     return { accepted: true, sessionId };
   }
 
@@ -67,6 +93,7 @@ export class SessionManager {
 
   destroy(sessionId: string): { deleted: true } {
     const record = this.requireSession(sessionId);
+    record.normalizer.destroy();
     record.child.kill("SIGTERM");
     this.sessions.delete(sessionId);
     return { deleted: true };
@@ -97,7 +124,7 @@ export class SessionManager {
   private acceptRawLine(record: SessionRecord, line: string): void {
     try {
       const raw = JSON.parse(line) as unknown;
-      record.queue.push(...normalizeRawEvent(raw, record.context));
+      record.queue.push(...record.normalizer.normalize(raw, { ...record.context, sessionId: record.sessionId }));
     } catch {
       record.queue.push(...normalizeRawEvent({ type: "response.delta", text: line }, record.context));
     }
@@ -114,6 +141,17 @@ export class SessionManager {
     }
     return record;
   }
+}
+
+function sanitizeSystemPrompt(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+}
+
+function preview(value: string | undefined): string | undefined {
+  if (!value) return undefined;
+  return value.replace(/\s+/g, " ").slice(0, 80);
 }
 
 function defaultProcessFactory(command: string, args: string[], options: { cwd: string }): RpcChild {

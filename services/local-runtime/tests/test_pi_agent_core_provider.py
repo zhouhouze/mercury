@@ -3,6 +3,7 @@ from __future__ import annotations
 import asyncio
 
 from navia_runtime.modules.agent_loop.runtime.core_types import CoreEventType, CoreTurnInput
+from navia_runtime.modules.agent_loop.runtime.chat_profile_prompt import CHAT_PROFILE_SYSTEM_PROMPT
 from navia_runtime.modules.agent_loop.runtime.pi_agent_core_provider import PiAgentCoreProvider
 from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarError
 
@@ -12,6 +13,10 @@ class FakePiClient:
         self.events = events or [{"type": "response.delta", "text": "hello"}, {"type": "response.done"}]
         self.fail_health = fail_health
         self.created_body_tool_names = None
+        self.system_prompt = None
+        self.profile = None
+        self.tool_policy = None
+        self.prompt_message = None
         self.prompted = False
 
     def health(self):
@@ -19,12 +24,16 @@ class FakePiClient:
             raise PiSidecarError("offline")
         return {"status": "ok"}
 
-    def create_session(self, navia_session_id: str, model_provider=None):
+    def create_session(self, navia_session_id: str, model_provider=None, system_prompt=None, profile="chat", tool_policy="disabled"):
         self.created_body_tool_names = []
+        self.system_prompt = system_prompt
+        self.profile = profile
+        self.tool_policy = tool_policy
         return {"sessionId": f"pi_{navia_session_id}", "toolNames": []}
 
     def send_prompt(self, session_id: str, message: str, request_id: str, turn_id: str, trace_id: str):
         self.prompted = True
+        self.prompt_message = message
         return {"accepted": True, "sessionId": session_id}
 
     def stream_events(self, session_id: str):
@@ -58,18 +67,25 @@ def test_pi_agent_core_provider_yields_delta_done() -> None:
     fake = FakePiClient()
     events = collect(PiAgentCoreProvider(client=fake, max_polls=1))
 
-    assert [event.type for event in events] == [CoreEventType.RESPONSE_DELTA, CoreEventType.RESPONSE_DONE]
+    assert [event.type for event in events] == [CoreEventType.STATE, CoreEventType.RESPONSE_DELTA, CoreEventType.RESPONSE_DONE]
     assert fake.prompted is True
     assert fake.created_body_tool_names == []
+    assert fake.profile == "chat"
+    assert fake.tool_policy == "disabled"
+    assert fake.system_prompt == CHAT_PROFILE_SYSTEM_PROMPT
+    assert fake.prompt_message is not None
+    assert "网页伴读 Chatbot" in fake.prompt_message
+    assert "hello" in fake.prompt_message
+    assert events[0].data["systemPromptInjectionMode"] == "prompt_envelope"
 
 
 def test_pi_agent_core_provider_done_without_text_yields_empty_response_error() -> None:
     fake = FakePiClient(events=[{"type": "state", "state": "pi.raw", "rawSummary": "{\"type\":\"agent_end\"}"}, {"type": "response.done"}])
     events = collect(PiAgentCoreProvider(client=fake, max_polls=1))
 
-    assert [event.type for event in events] == [CoreEventType.STATE, CoreEventType.ERROR]
-    assert events[1].data["code"] == "piagent_empty_response"
-    assert events[1].data["recoverable"] is True
+    assert [event.type for event in events] == [CoreEventType.STATE, CoreEventType.STATE, CoreEventType.ERROR]
+    assert events[2].data["code"] == "piagent_empty_response"
+    assert events[2].data["recoverable"] is True
 
 
 def test_pi_agent_core_provider_offline_yields_recoverable_error() -> None:
@@ -86,3 +102,12 @@ def test_pi_agent_tool_request_is_denied_without_started() -> None:
     assert CoreEventType.TOOL_REQUESTED in [event.type for event in events]
     assert CoreEventType.TOOL_DENIED in [event.type for event in events]
     assert CoreEventType.TOOL_STARTED not in [event.type for event in events]
+
+
+def test_chat_profile_prompt_does_not_leak_coding_agent_mindset() -> None:
+    forbidden = ["这是代码任务", "这不是代码任务", "我在编程项目中工作", "我可以帮你写数据抓取代码", "让我看看当前目录", "PiAgentCoreProvider", "sidecar", "toolNames", "工具已禁用"]
+
+    assert "网页伴读 Chatbot" in CHAT_PROFILE_SYSTEM_PROMPT
+    assert "默认先给结论" in CHAT_PROFILE_SYSTEM_PROMPT
+    for phrase in forbidden:
+        assert phrase not in CHAT_PROFILE_SYSTEM_PROMPT

@@ -36,10 +36,18 @@ def test_sidecar_health_and_prompt() -> None:
     client = client_with_transport(handler)
 
     assert client.health()["status"] == "ok"
-    assert client.create_session("sess")["sessionId"] == "pi_sess"
+    assert client.create_session("sess", system_prompt="通用网页伴读 Chatbot")["sessionId"] == "pi_sess"
     assert client.send_prompt("pi_sess", "hello", "req", "turn", "trace")["accepted"] is True
     assert [event["type"] for event in client.stream_events("pi_sess")] == ["response.delta", "response.done"]
-    assert seen[1][2] == {"naviaSessionId": "sess", "toolNames": []}
+    assert seen[1][2] == {
+        "naviaSessionId": "sess",
+        "profile": "chat",
+        "messages": [],
+        "tools": [],
+        "toolNames": [],
+        "toolPolicy": "disabled",
+        "systemPrompt": "通用网页伴读 Chatbot",
+    }
 
 
 def test_sidecar_offline_is_recoverable_error() -> None:

@@ -20,10 +20,19 @@ class PiSidecarClient:
     def health(self) -> dict[str, Any]:
         return self._json("GET", "/health")
 
-    def create_session(self, navia_session_id: str, model_provider: dict[str, Any] | None = None) -> dict[str, Any]:
-        body: dict[str, Any] = {"naviaSessionId": navia_session_id, "toolNames": []}
+    def create_session(
+        self,
+        navia_session_id: str,
+        model_provider: dict[str, Any] | None = None,
+        system_prompt: str | None = None,
+        profile: str = "chat",
+        tool_policy: str = "disabled",
+    ) -> dict[str, Any]:
+        body: dict[str, Any] = {"naviaSessionId": navia_session_id, "profile": profile, "messages": [], "tools": [], "toolNames": [], "toolPolicy": tool_policy}
         if model_provider:
             body["modelProvider"] = model_provider
+        if system_prompt:
+            body["systemPrompt"] = system_prompt
         return self._json("POST", "/sessions", body)
 
     def send_prompt(self, session_id: str, message: str, request_id: str, turn_id: str, trace_id: str) -> dict[str, Any]:
@@ -50,7 +59,7 @@ class PiSidecarClient:
         try:
             return json.loads(text) if text else {}
         except json.JSONDecodeError as exc:
-            raise PiSidecarError("Pi sidecar returned invalid JSON.") from exc
+            raise PiSidecarError("PiAgent bridge returned invalid JSON.") from exc
 
     def _text(self, method: str, path: str, body: dict[str, Any] | None = None) -> str:
         try:
@@ -59,4 +68,4 @@ class PiSidecarClient:
                 response.raise_for_status()
                 return response.text
         except httpx.HTTPError as exc:
-            raise PiSidecarError("Pi sidecar is unavailable or returned an error.") from exc
+            raise PiSidecarError("PiAgent bridge is unavailable or returned an error.") from exc

@@ -6,6 +6,7 @@ from collections.abc import AsyncIterator, Callable
 import httpx
 
 from navia_runtime.contracts import ErrorCode, new_id
+from navia_runtime.modules.agent_loop.runtime.chat_profile_prompt import CHAT_PROFILE_SYSTEM_PROMPT
 from navia_runtime.modules.agent_loop.runtime.core_types import CoreEvent, CoreEventType, CoreTurnInput
 
 
@@ -49,7 +50,7 @@ class LLMDirectProvider:
             yield self._error(input, "provider_call_failed", "LLM Provider 调用失败，请检查 Settings 配置。")
 
     def _messages(self, input: CoreTurnInput) -> list[dict[str, str]]:
-        messages = [{"role": "system", "content": "You are Navia, a concise companion reading assistant."}]
+        messages = [{"role": "system", "content": CHAT_PROFILE_SYSTEM_PROMPT}]
         if input.active_page:
             messages.append({"role": "system", "content": f"Page context:\n{json.dumps(input.active_page, ensure_ascii=False)[:12000]}"})
         messages.append({"role": "user", "content": input.user_message})
@@ -72,4 +73,3 @@ class LLMDirectProvider:
             input.request_id,
             {"code": code or ErrorCode.MODEL_UNAVAILABLE.value, "message": message, "recoverable": True},
         )
-

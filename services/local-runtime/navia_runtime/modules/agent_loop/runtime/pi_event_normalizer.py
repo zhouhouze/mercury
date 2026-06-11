@@ -20,6 +20,29 @@ def normalize_pi_event(raw: dict[str, Any], input: CoreTurnInput) -> list[CoreEv
         data: dict[str, Any] = {"from": "piagent", "to": str(raw.get("state") or "running")}
         if isinstance(raw.get("rawSummary"), str):
             data["raw_summary"] = str(raw["rawSummary"])[:800]
+        if isinstance(raw.get("systemPromptInjectionMode"), str):
+            data["systemPromptInjectionMode"] = str(raw["systemPromptInjectionMode"])[:80]
+        if isinstance(raw.get("systemPromptPreview"), str):
+            data["systemPromptPreview"] = str(raw["systemPromptPreview"])[:120]
+        if isinstance(raw.get("snapshotKeyFallback"), bool):
+            data["snapshotKeyFallback"] = bool(raw["snapshotKeyFallback"])
+        for key in (
+            "rawEventType",
+            "rawEventKeys",
+            "messageId",
+            "assistantMessageId",
+            "assistantMessageIndex",
+            "snapshotKey",
+            "snapshotKeySource",
+            "isTextDelta",
+            "isSnapshot",
+            "fullTextLength",
+            "previousSnapshotLength",
+            "emittedDeltaLength",
+            "emittedDeltaPreview",
+        ):
+            if key in raw:
+                data[key] = raw[key]
         return [_event(input, CoreEventType.STATE, data, request_id, turn_id, trace_id)]
     if event_type == "error":
         return [
