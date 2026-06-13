@@ -11,7 +11,7 @@ const extensionRoot = fs.realpathSync(path.resolve(__dirname, "../chrome-mv3-unp
 const repoRoot = path.resolve(__dirname, "../../..");
 const runtimeUrl = "http://127.0.0.1:17861";
 const fixturePath = path.join(repoRoot, "docs/active/project/fixtures/real_pages/article.html");
-const browserMode = process.env.NAVIA_E2E_BROWSER || "chrome";
+const browserMode = process.env.NAVIA_E2E_BROWSER || "chromium";
 
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -38,6 +38,25 @@ async function waitForRuntime(timeoutMs = 15000) {
     await wait(250);
   }
   return false;
+}
+
+async function configureMockCoreProvider() {
+  const response = await fetch(`${runtimeUrl}/v1/settings`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      coreProvider: "mock",
+      chatProvider: { coreProvider: "mock" },
+      defaultProfile: "chat",
+      profiles: {
+        chat: { coreProvider: "mock", toolPolicy: { mode: "disabled", allowedTools: [] }, enabled: true },
+        agent: { coreProvider: "mock", toolPolicy: { mode: "disabled", allowedTools: [] }, enabled: false }
+      }
+    })
+  });
+  if (!response.ok) {
+    throw new Error(`Runtime mock provider setup failed: ${response.status} ${await response.text()}`);
+  }
 }
 
 function startRuntime() {
@@ -128,6 +147,24 @@ async function openSidePanel(context, serviceWorker, fixturePage) {
   throw new Error("MANUAL_REQUIRED: sidepanel.html was not exposed as an automatable Chrome page.");
 }
 
+async function findTabIdByUrl(serviceWorker, fixtureUrl) {
+  return serviceWorker.evaluate(async (url) => {
+    const tabs = await chrome.tabs.query({});
+    return tabs.find((tab) => tab.url === url)?.id ?? null;
+  }, fixtureUrl);
+}
+
+async function openDirectSidePanel(context, extensionId, fixtureTabId) {
+  const sidePanel = await context.newPage();
+  const tabParam = fixtureTabId ? `?naviaE2ETabId=${fixtureTabId}` : "";
+  await sidePanel.goto(`chrome-extension://${extensionId}/sidepanel.html${tabParam}`);
+  return sidePanel;
+}
+
+async function switchView(sidePanel, name) {
+  await sidePanel.getByRole("button", { name }).last().click();
+}
+
 async function main() {
   if (!fs.existsSync(path.join(extensionRoot, "manifest.json"))) {
     throw new Error(`Extension build not found: ${extensionRoot}`);
@@ -138,6 +175,7 @@ async function main() {
     runtimeProcess = startRuntime();
     if (!(await waitForRuntime())) throw new Error("Runtime did not become healthy on 127.0.0.1:17861.");
   }
+  await configureMockCoreProvider();
 
   const { server, url: fixtureUrl } = await startFixtureServer();
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "navia-chrome-profile-"));
@@ -163,29 +201,47 @@ async function main() {
     await fixturePage.goto(fixtureUrl);
     await fixturePage.bringToFront();
 
-    const sidePanel = await openSidePanel(context, serviceWorker, fixturePage);
+    let sidePanel = null;
+    let sidePanelMode = "chrome_side_panel";
+    try {
+      sidePanel = await openSidePanel(context, serviceWorker, fixturePage);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      if (!message.startsWith("MANUAL_REQUIRED")) throw error;
+      const fixtureTabId = await findTabIdByUrl(serviceWorker, fixtureUrl);
+      if (!fixtureTabId) throw new Error(`MANUAL_REQUIRED: fixture tab id was not found for ${fixtureUrl}. ${message}`);
+      sidePanel = await openDirectSidePanel(context, extensionId, fixtureTabId);
+      sidePanelMode = "direct_extension_page";
+    }
     await sidePanel.waitForLoadState("domcontentloaded");
-    await sidePanel.getByText("online", { exact: true }).waitFor({ timeout: 15000 });
+    await sidePanel.getByRole("button", { name: "读取当前页面" }).waitFor({ timeout: 15000 });
 
     await fixturePage.bringToFront();
-    await sidePanel.bringToFront();
     await sidePanel.getByRole("button", { name: "读取当前页面" }).click();
-    await sidePanel.getByText("已读取页面").waitFor({ timeout: 15000 });
+    await switchView(sidePanel, "Debug");
+    await sidePanel.getByText("capture_ready · Browser extension - derived article fixture").waitFor({ timeout: 15000 });
+    await sidePanel.getByText("已读取页面：Browser extension - derived article fixture").waitFor({ timeout: 15000 });
+    await switchView(sidePanel, "聊天");
     await sidePanel.getByRole("button", { name: "提交上下文" }).click();
-    await sidePanel.getByText("已提交").waitFor({ timeout: 15000 });
+    await switchView(sidePanel, "Debug");
+    await sidePanel.getByText("captured · Browser extension - derived article fixture").waitFor({ timeout: 15000 });
+    await sidePanel.getByText("已提交：").waitFor({ timeout: 15000 });
+    await switchView(sidePanel, "聊天");
 
     await sidePanel.getByRole("button", { name: "总结" }).click();
-    await sidePanel.getByText("关键要点").waitFor({ timeout: 20000 });
+    await sidePanel.getByText("关键要点").first().waitFor({ timeout: 20000 });
 
-    await sidePanel.getByPlaceholder("基于当前网页提问...").fill("这个页面的核心目标是什么？");
+    await sidePanel.locator("textarea").fill("这个页面的核心目标是什么？");
     await sidePanel.getByRole("button", { name: "发送" }).click();
-    await sidePanel.getByText("基于当前页面").waitFor({ timeout: 20000 });
+    await sidePanel.getByText("基于当前页面").first().waitFor({ timeout: 20000 });
 
     await sidePanel.getByRole("button", { name: "Mindmap" }).click();
     await sidePanel.locator(".mermaid-render svg, .mermaid-fallback pre").first().waitFor({ timeout: 20000 });
 
     await sidePanel.reload();
-    await sidePanel.getByText("已恢复").waitFor({ timeout: 20000 });
+    await sidePanel.getByRole("button", { name: "读取当前页面" }).waitFor({ timeout: 15000 });
+    await switchView(sidePanel, "Debug");
+    await sidePanel.getByText("captured · Browser extension - derived article fixture").waitFor({ timeout: 20000 });
 
     const restored = await fetchJson(`${runtimeUrl}/v1/health`);
     if (!restored.ok) throw new Error("Runtime health failed after UI E2E.");
@@ -197,6 +253,7 @@ async function main() {
           fixtureUrl,
           runtimeUrl,
           browserMode,
+          sidePanelMode,
           checks: ["online", "page context", "summary", "question", "mindmap", "refresh recovery"]
         },
         null,

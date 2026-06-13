@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import asyncio
+
 from navia_runtime.contracts import ErrorCode
-from navia_runtime.modules.agent_loop.runtime import create_core_provider, run_agentic_turn
+from navia_runtime.modules.agent_loop.runtime import CoreTurnInput, create_core_provider, run_agentic_turn
+from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarError
 
 
 def active_page() -> dict[str, object]:
@@ -144,10 +147,38 @@ def test_adapter_failure_maps_to_tool_done_and_error_without_artifact() -> None:
     assert result["toolResults"][0]["status"] == "failed"  # type: ignore[index]
 
 
-def test_piagent_provider_is_contract_only_until_dependency_lock() -> None:
-    try:
-        create_core_provider({"provider": "piagent"})
-    except NotImplementedError as exc:
-        assert "contract-only" in str(exc) or "Only MockCoreProvider" in str(exc)
-    else:
-        raise AssertionError("piAgentProvider must not be implemented before dependency lock.")
+def test_piagent_provider_shell_returns_recoverable_error_when_sidecar_unavailable() -> None:
+    provider = create_core_provider({"provider": "piagent"})
+    assert provider.provider_id == "piagent"
+
+    class UnavailableClient:
+        def health(self):
+            raise PiSidecarError("offline")
+
+    provider.client = UnavailableClient()
+    events = asyncio.run(
+        _collect_async_events(
+            provider.run_turn(
+                CoreTurnInput(
+                    session_id="sess_pi_shell",
+                    turn_id="turn_pi_shell",
+                    trace_id="trace_pi_shell",
+                    request_id="req_pi_shell",
+                    user_message="hello",
+                    active_page=active_page(),
+                    recent_messages=[],
+                    budget={},
+                    adapters=[],
+                    mode="chat",
+                    provider_config={},
+                )
+            )
+        )
+    )
+    assert events[0].type == "error"
+    assert events[0].data["code"] == "piagent_unavailable"
+    assert events[0].data["recoverable"] is True
+
+
+async def _collect_async_events(iterator):
+    return [event async for event in iterator]

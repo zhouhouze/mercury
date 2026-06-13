@@ -7,15 +7,20 @@ Owner: C module Agent.
 Generate traceable Mermaid mindmaps from A module structured page facts:
 
 - consume `StructuredPageContext`.
+- consume `PerceptionDigest`, `SourceMap / SourceRef`, and `PagePerceptionQualityReport` when the AC stage Runtime main path provides them.
 - choose bounded headings/chunks/paragraphs.
+- prefer digest items and source refs when `downstreamReadiness = "pass"`.
 - generate Mermaid source.
 - validate Mermaid.
 - repair at most once.
-- produce `MindmapNodeSourceMap`.
+- produce SourceRef-backed `MindmapNodeSourceMap`.
 
 ## Inputs
 
 - `StructuredPageContext`
+- `PerceptionDigest`
+- `SourceMap / SourceRef`
+- `PagePerceptionQualityReport`
 - paragraph annotations.
 - chunks and heading tree.
 
@@ -23,7 +28,7 @@ Generate traceable Mermaid mindmaps from A module structured page facts:
 
 - mindmap artifact content.
 - `metadata.format="mermaid"`.
-- `metadata.nodeSourceMap`.
+- `metadata.nodeSourceMap` with `sourceRefIds`, `fallbackText`, and paragraph/chunk fallback.
 - `sourcePageId`, `sourceChunkIds`, `paragraphIds`.
 
 ## Allowed Files
@@ -59,7 +64,10 @@ docs/test-and-evidence-plan.md
 - Mermaid output from real page fixtures.
 - validation result recorded in evidence.
 - repair count is `0` or `1`.
-- primary nodes trace to paragraph/chunk IDs.
+- when quality readiness is `pass`, primary nodes are selected from `PerceptionDigest.items` before heading fallback.
+- primary nodes trace to A `SourceRef` IDs or explicit paragraph/chunk fallback.
+- every jumpable node has `textQuote` or `fallbackText`.
 - source fallback is possible even when DOM jump-back fails.
+- degraded/fail pages do not produce fake high-signal mindmaps.
 
 Use `docs/active/project/MODULE_HANDOFF_TEMPLATE.md` for handoff.

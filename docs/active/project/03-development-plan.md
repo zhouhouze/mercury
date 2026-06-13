@@ -895,6 +895,57 @@ V1.2 No-Go 条件：
 - A-V1.2 使用 URL-only、`planned` 或 `annotated` gold 页面计入最终通过率。
 - A-V1.2 Debug JSON 不能解释 pass / degraded / fail，却声明质量评估通过。
 
+### 13.5 当前阶段：A 优化、C 补强与 AC 联动
+
+本阶段承接当前实现事实：
+
+```text
+A：已有 StructuredPageContext、高信号感知、107-page corpus evidence
+C：已有 deterministic Mermaid generator、validator、repair once、nodeSourceMap
+D：已有 CoreProvider / Adapter Layer 和 c_mindmap_adapter wiring
+B：以 Side Panel / Debug 承载当前用户验收
+```
+
+阶段目标不是重新规划 V1.2 全量模块，而是把 A 和 C 从“各自可用”推进到“主链路可联动”：
+
+```text
+V1.2-AC-0：阶段合同与验收冻结
+V1.2-AC-1：A high-signal perception bundle 进入 Runtime 主链路
+V1.2-AC-2：A Debug JSON 可视化与质量状态可见
+V1.2-AC-3：C digest-first Mindmap 生成
+V1.2-AC-4：C nodeSourceMap 对齐 A SourceRef
+V1.2-AC-5：AC 端到端联调，读取网页 -> A JSON -> C Mermaid -> Debug/Artifact 展示
+V1.2-AC-6：真实网页验收、PRD 复检、false-green audit
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.2-AC-0` | 冻结 `PerceptionBundle` 在 Runtime / Debug / C 输入中的字段映射，不新增公共事件类型 | 文档、schema、测试计划无重大规格偏差 |
+| `V1.2-AC-1` | `/v1/page/context` 在保持旧 activePage 兼容的同时产出 high-signal perception bundle | 真实 HTML fixture 和 Chrome PageContext 均能返回 structured + highSignal + digest + sourceMap + quality |
+| `V1.2-AC-2` | Debug 页展示 A JSON 和 quality state | 人类可快速判断 A 是否提取出高质量结构化内容 |
+| `V1.2-AC-3` | C 支持优先消费 `PerceptionDigest.items`，headingTree 仅 fallback | 同一页面的 mindmap 节点来自 digest item，且节点数、层级、标签受限 |
+| `V1.2-AC-4` | C `nodeSourceMap` 绑定 A `SourceRef` | 每个主要节点具备 sourceRefId、textQuote/fallbackText、paragraphId/chunkId |
+| `V1.2-AC-5` | D adapter 以 ToolResult / Artifact 形式串起 A/C，不让 A/C 写 EventStore | `/v1/chat/stream` 输出 tool、artifact、response 事件；artifact 可追踪 sourcePageId/turnId/toolCallId |
+| `V1.2-AC-6` | 真实网页 E2E、PRD 复检、false-green audit | 未通过则打回对应 AC 子阶段 |
+
+本阶段验收数据：
+
+- 至少 12 个真实网页或可复现 snapshot：文章、技术文档、GitHub README、表格页、代码页、图片富集页、中文页、低信号页均需覆盖。
+- 至少 3 个真实 Chrome 页面手工或自动验收，必须包含 1 个中文复杂网页。
+- 可复用 A-V1.2 107-page corpus 作为回归证据，但不能只引用旧报告声明 AC 联动完成。
+
+本阶段 No-Go：
+
+- A high-signal 输出只在离线 evidence 存在，Runtime 主链路不可见。
+- C 仍只消费 headingTree / paragraph fallback，却声明已基于 A 高信号生成。
+- Mindmap 节点没有 SourceRef 或 fallbackText。
+- Debug 页只能显示原始大 JSON，不能解释 quality pass / degraded / fail。
+- A 直接创建 artifact、SSE、EventStore 或调用 C/D/B。
+- C 直接抽取网页正文或调用 Chrome DOM。
+- D 被绕过，工具结果没有 ToolResult envelope、ArtifactRecord 或 trace。
+
 ---
 
 ## 14. 推荐开发顺序

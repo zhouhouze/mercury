@@ -416,9 +416,30 @@ type MindmapNodeSourceMap = Record<
   string,
   {
     nodeLabel: string
+    digestItemIds?: string[]
+    sourceRefIds?: string[]
     paragraphIds: string[]
     chunkIds: string[]
     excerpt: string
+    textQuote?: string
+    fallbackText: string
+    jumpback:
+      | {
+          mode: "dom"
+          selector?: string
+          domPath?: string
+          startOffset?: number
+          endOffset?: number
+        }
+      | {
+          mode: "fallback"
+          reason:
+            | "selector_missing"
+            | "selector_failed"
+            | "source_ref_missing"
+            | "low_signal"
+            | "unsupported"
+        }
   }
 >
 ```
@@ -426,6 +447,8 @@ type MindmapNodeSourceMap = Record<
 约束：
 
 - `nodeSourceMap` 由 C 模块生成并写入 `ArtifactRecord.metadata.nodeSourceMap`。
+- 当前 AC 阶段中，`sourceRefIds` 优先引用 A `SourceMap.sourceRefs`，paragraph/chunk 只作为兼容 fallback。
+- 每个主要节点必须有 `fallbackText`；DOM selector / domPath 不能作为唯一反跳机制。
 - B 只读取 `nodeSourceMap` 做视觉反跳或 excerpt fallback，不修改 ArtifactRecord。
 - Integration Codex 只负责把 C 输出映射进 D 创建的 ArtifactRecord。
 

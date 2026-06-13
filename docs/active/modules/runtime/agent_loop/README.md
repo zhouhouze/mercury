@@ -8,6 +8,8 @@ Provide the stable boundary between Navia Runtime and replaceable Agent Core pro
 
 - define `CoreProvider`.
 - build `CoreTurnInput`.
+- include A perception bundle in turn context when available.
+- enforce readiness rules before high-signal context is used by summary, QA, or mindmap adapters.
 - normalize `CoreTurnResult`.
 - provide `MockCoreProvider` for deterministic contract tests.
 - define `piAgentProvider` adapter contract.
@@ -17,6 +19,10 @@ Provide the stable boundary between Navia Runtime and replaceable Agent Core pro
 
 - user message.
 - active structured page.
+- active page `HighSignalPageContext`.
+- active page `PerceptionDigest`.
+- active page `SourceMap / SourceRef`.
+- active page `PagePerceptionQualityReport`.
 - recent session messages.
 - adapter specs.
 - budget and governance config.
@@ -67,6 +73,8 @@ docs/test-and-evidence-plan.md
 - Implement mock-first behavior before real provider integration.
 - `piAgentProvider` real integration requires repository, version or commit, license, runtime, and tool invocation model lock.
 - CoreProvider must not write ArtifactRecord, SSE, EventStore, Trace, or UI directly.
+- D may use A high-signal outputs as primary context only when `PagePerceptionQualityReport.downstreamReadiness = "pass"`.
+- `degraded` may only be used as fallback or Debug evidence; `fail` must fall back to `StructuredPageContext` or return `PAGE_CONTEXT_REQUIRED`.
 - Adapter/tool calls must pass governance before `tool.started`.
 - No RAG, long-term memory, multi-agent, browser automation, default local file access, or high-risk side effects.
 
@@ -75,5 +83,7 @@ docs/test-and-evidence-plan.md
 - fake adapter turn evidence with `turnId` and `toolCallId`.
 - denied adapter evidence with no `tool.started`.
 - trace evidence containing state, budget, tool, artifact, response, and error paths.
+- readiness-gate evidence for `pass`, `degraded`, and `fail` page perception inputs.
+- mindmap adapter evidence proving C receives `PerceptionDigest` and `SourceMap` through D, not by direct B/C calls.
 
 Use `docs/active/project/MODULE_HANDOFF_TEMPLATE.md` for handoff.

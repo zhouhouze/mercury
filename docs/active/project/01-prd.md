@@ -29,7 +29,7 @@ V1 的重点不是“大而全”，而是完成一个稳定闭环：
 
 ## 2. 一句话定位
 
-Navia / 伴航是一个常驻在网页边缘的本地伴随式 AI 助手。V1 前端页面体验以当前 active 文档 `docs/active/project/interaction-prd/窗口交互_PRD.md` 为准：页面边缘悬浮球作为入口，hover 后出现小长条，点击后在网页内展开 AI 双轨聊天面板，并支持窄距/半屏挤压网页、宽工作区覆盖网页和点击悬浮球收起。系统能够理解当前网页，提供伴读问答、摘要生成、Mermaid 思维导图，并以可观测、可监督的 Headless AgentCore 为后续个人知识库、观影观赛陪伴、个人秘书与多端产品化打基础。
+Navia / 伴航是一个常驻在网页边缘的本地伴随式 AI 助手。V1 前端页面体验以当前 active 文档 `docs/active/project/interaction-prd/窗口交互_PRD.md` 为准；当前实现基线暂时收敛为无悬浮球、默认右侧侧边栏聊天面板，悬浮球与 hover 小长条保留为后续前端体验优化阶段的设计参考。系统能够理解当前网页，提供伴读问答、摘要生成、Mermaid 思维导图，并以可观测、可监督的 Headless AgentCore 为后续个人知识库、观影观赛陪伴、个人秘书与多端产品化打基础。
 
 ---
 
@@ -269,6 +269,36 @@ A-V1.2 用户验收场景：
 - 电商 / 论坛 / 新闻页：推荐、广告、评论、导航和 cookie banner 被过滤或降级，并在 filtered evidence 中可见。
 - 图片富集页：只能基于 DOM metadata 形成图片相关事实；没有 alt/caption/nearby text 时必须标记 unknown。
 - 低信号 / 登录墙 / 付费墙：必须 fail 或 degraded，不能产出看似正常的高信号摘要。
+
+### 5.5 当前阶段：A 高信号主链路与 C Mindmap 补强
+
+当前阶段在已存在的 A-V1.2 和 C-V1.0 基线之上继续推进，不扩大到 V2。阶段目标是：
+
+```text
+先优化 A
+-> 再补强 C
+-> 最后完成 AC 联动并在 Debug/侧边栏中可验收
+```
+
+本阶段必须解决的产品问题：
+
+- A 已有 HighSignal / Digest / QualityReport 证据，但主链路仍主要消费 `StructuredPageContext`；用户难以判断“系统到底读懂了什么”。
+- C 已能生成 Mermaid，但节点选择主要来自 heading / paragraph fallback，没有优先使用 A 的高信号 digest 和 SourceRef。
+- Debug 体验需要能同时查看 A 的结构化感知结果和 C 的思维导图来源，形成可人工快速验收的阅读证据链。
+
+本阶段用户可见目标：
+
+- 用户读取网页后，Debug 页能展示 A 的 `StructuredPageContext`、`HighSignalPageContext`、`PerceptionDigest`、`SourceMap` 和 `PagePerceptionQualityReport`。
+- 用户点击 Mindmap 后，C 优先使用 A 的 `PerceptionDigest` 和 `SourceMap / SourceRef` 生成节点，而不是只依赖标题树。
+- Mindmap 每个主要节点都能回指 A 的 `sourceRefs`；DOM 跳转失败时仍可展示 `textQuote` 或 `fallbackText`。
+- 缺少页面上下文、A 质量为 `fail` 或来源证据不足时，不生成假摘要、假回答或假思维导图。
+
+本阶段明确不做：
+
+- 不新增 RAG、长期记忆、多 Agent、浏览器自动操作、联网搜索、OCR/VLM/ASR/video/live engine。
+- 不让 A 创建 `ArtifactRecord`、SSE、EventStore 或 Trace。
+- 不让 C 自行抽取网页正文；C 只能消费 A/Runtime 提供的结构化页面事实。
+- 不把 piAgent 真实接入质量作为本阶段完成条件；D 只负责保持 CoreProvider / Adapter Layer 边界不被 A/C 绕过。
 
 ---
 

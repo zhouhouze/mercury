@@ -1,0 +1,350 @@
+{
+  "events": [
+    {
+      "data": {
+        "from": "waiting_user",
+        "to": "detecting_intent"
+      },
+      "event_id": "evt_00000000000000000000000007",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter_id": "mindmap.generate",
+        "confidence": 1.0,
+        "provider": "mock"
+      },
+      "event_id": "evt_00000000000000000000000008",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "intent.detected"
+    },
+    {
+      "data": {
+        "from": "detecting_intent",
+        "to": "planning"
+      },
+      "event_id": "evt_00000000000000000000000009",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "planning",
+        "to": "budget_checking"
+      },
+      "event_id": "evt_00000000000000000000000010",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "maxContextBytes": 262144,
+        "maxRetries": 1,
+        "maxToolCalls": 5,
+        "status": "ok"
+      },
+      "event_id": "evt_00000000000000000000000011",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "budget.checked"
+    },
+    {
+      "data": {
+        "from": "budget_checking",
+        "to": "running_tool"
+      },
+      "event_id": "evt_00000000000000000000000013",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "adapter": {
+          "adapterId": "mindmap.generate",
+          "budgetHint": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 0,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "capability": "mindmap_generation",
+          "kind": "internal_tool",
+          "name": "Generate Mindmap",
+          "requiredContext": [
+            "activePage"
+          ],
+          "riskLevel": "safe"
+        },
+        "tool_call_id": "tc_00000000000000000000000012",
+        "tool_name": "mindmap.generate"
+      },
+      "event_id": "evt_00000000000000000000000014",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "tool.started"
+    },
+    {
+      "data": {
+        "status": "succeeded",
+        "tool_call_id": "tc_00000000000000000000000012",
+        "tool_name": "mindmap.generate",
+        "tool_result": {
+          "artifact_ids": [
+            "art_00000000000000000000000015"
+          ],
+          "budget_cost": {
+            "context_bytes": 0,
+            "input_tokens": 0,
+            "model_calls": 0,
+            "output_tokens": 32,
+            "runtime_ms": 1,
+            "tool_calls": 1
+          },
+          "content": {
+            "answer": "已基于当前页面生成 Mermaid 思维导图。",
+            "mermaid": "mindmap\n  root((Browser extension - derived article fixture))\n    A browser extension is a small software module that changes or e"
+          },
+          "status": "succeeded",
+          "tool_call_id": "tc_00000000000000000000000012",
+          "tool_name": "mindmap.generate",
+          "warnings": []
+        }
+      },
+      "event_id": "evt_00000000000000000000000016",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "tool.done"
+    },
+    {
+      "data": {
+        "artifact": {
+          "artifactId": "art_00000000000000000000000015",
+          "content": "mindmap\n  root((Browser extension - derived article fixture))\n    A browser extension is a small software module that changes or e",
+          "createdAt": "2026-06-11T13:54:30Z",
+          "metadata": {
+            "format": "mermaid",
+            "nodeSourceMap": {
+              "node_1": {
+                "chunkIds": [
+                  "ck_page_01HZYT000000000000000001_0001"
+                ],
+                "digestItemIds": [
+                  "item_block_pg_page_01HZYT000000000000000001_0001"
+                ],
+                "excerpt": "A browser extension is a small software module that changes or extends a web browser .",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                "jumpback": {
+                  "mode": "fallback",
+                  "reason": "selector_missing"
+                },
+                "nodeLabel": "A browser extension is a small software module that changes or e",
+                "paragraphIds": [
+                  "pg_page_01HZYT000000000000000001_0001"
+                ],
+                "sourceRefIds": [
+                  "src_page_01HZYT000000000000000001_0001"
+                ],
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+              },
+              "root": {
+                "chunkIds": [
+                  "ck_page_01HZYT000000000000000001_0001"
+                ],
+                "digestItemIds": [],
+                "excerpt": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla",
+                "jumpback": {
+                  "mode": "fallback",
+                  "reason": "selector_missing"
+                },
+                "nodeLabel": "Browser extension - derived article fixture",
+                "paragraphIds": [
+                  "pg_page_01HZYT000000000000000001_0001"
+                ],
+                "sourceRefIds": [
+                  "src_page_01HZYT000000000000000001_0001"
+                ],
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+              }
+            },
+            "nodesCount": 2,
+            "repairCount": 0,
+            "sourcePageId": "page_01HZYT000000000000000001",
+            "validation": {
+              "error": null,
+              "status": "passed",
+              "valid": true
+            }
+          },
+          "sessionId": "sess_00000000000000000000000001",
+          "source": "page",
+          "sourceChunkIds": [
+            "ck_page_01HZYT000000000000000001_0001"
+          ],
+          "sourcePageId": "page_01HZYT000000000000000001",
+          "toolCallId": "tc_00000000000000000000000012",
+          "turnId": "turn_00000000000000000000000005",
+          "type": "mindmap"
+        },
+        "artifact_id": "art_00000000000000000000000015",
+        "metadata": {
+          "format": "mermaid",
+          "nodeSourceMap": {
+            "node_1": {
+              "chunkIds": [
+                "ck_page_01HZYT000000000000000001_0001"
+              ],
+              "digestItemIds": [
+                "item_block_pg_page_01HZYT000000000000000001_0001"
+              ],
+              "excerpt": "A browser extension is a small software module that changes or extends a web browser .",
+              "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "jumpback": {
+                "mode": "fallback",
+                "reason": "selector_missing"
+              },
+              "nodeLabel": "A browser extension is a small software module that changes or e",
+              "paragraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "sourceRefIds": [
+                "src_page_01HZYT000000000000000001_0001"
+              ],
+              "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+            },
+            "root": {
+              "chunkIds": [
+                "ck_page_01HZYT000000000000000001_0001"
+              ],
+              "digestItemIds": [],
+              "excerpt": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla",
+              "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla",
+              "jumpback": {
+                "mode": "fallback",
+                "reason": "selector_missing"
+              },
+              "nodeLabel": "Browser extension - derived article fixture",
+              "paragraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "sourceRefIds": [
+                "src_page_01HZYT000000000000000001_0001"
+              ],
+              "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+            }
+          },
+          "nodesCount": 2,
+          "repairCount": 0,
+          "sourcePageId": "page_01HZYT000000000000000001",
+          "validation": {
+            "error": null,
+            "status": "passed",
+            "valid": true
+          }
+        }
+      },
+      "event_id": "evt_00000000000000000000000017",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "artifact.created"
+    },
+    {
+      "data": {
+        "from": "running_tool",
+        "to": "streaming_response"
+      },
+      "event_id": "evt_00000000000000000000000018",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "text": "已基于当前页面生成 Mermaid 思维导图。"
+      },
+      "event_id": "evt_00000000000000000000000019",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "response.delta"
+    },
+    {
+      "data": {
+        "message_id": "msg_00000000000000000000000020"
+      },
+      "event_id": "evt_00000000000000000000000021",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "response.done"
+    },
+    {
+      "data": {
+        "from": "streaming_response",
+        "to": "persisting_turn"
+      },
+      "event_id": "evt_00000000000000000000000022",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    },
+    {
+      "data": {
+        "from": "persisting_turn",
+        "to": "waiting_user"
+      },
+      "event_id": "evt_00000000000000000000000023",
+      "request_id": "req_v12_ac_evidence",
+      "session_id": "sess_00000000000000000000000001",
+      "timestamp": "2026-06-11T13:54:30Z",
+      "trace_id": "trace_00000000000000000000000006",
+      "turn_id": "turn_00000000000000000000000005",
+      "type": "state.transition"
+    }
+  ]
+}

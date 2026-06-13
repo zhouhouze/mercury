@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia V1.2-AC 架构与用户场景验收报告</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --ink: #162033;
+      --muted: #667085;
+      --line: #dde5ef;
+      --blue: #3158f5;
+      --blue-soft: #eef3ff;
+      --green: #0f8a5f;
+      --green-soft: #eaf8f2;
+      --yellow: #a66d00;
+      --yellow-soft: #fff6e5;
+      --red: #b42318;
+      --red-soft: #fff1ef;
+      --purple: #7248d8;
+      --purple-soft: #f3efff;
+      --slate: #263244;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.58;
+    }
+    header {
+      padding: 34px 44px;
+      background: linear-gradient(135deg, #101827 0%, #1c2740 100%);
+      color: #fff;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    header p {
+      margin: 0;
+      max-width: 1120px;
+      color: #d7deeb;
+      font-size: 15px;
+    }
+    main {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 28px 28px 64px;
+    }
+    section {
+      margin: 0 0 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+      overflow: hidden;
+    }
+    h2 {
+      margin: 0;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfe;
+      font-size: 20px;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 8px 0 0; padding-left: 22px; }
+    li { margin: 4px 0; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #eef2ff;
+      color: #283593;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .body { padding: 20px 22px; }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      min-height: 116px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+    }
+    .metric strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 15px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .pass { color: #fff; background: var(--green); }
+    .warn { color: #fff; background: var(--yellow); }
+    .fail { color: #fff; background: var(--red); }
+    .info { color: #fff; background: var(--blue); }
+    .plain { color: #23304a; background: #e8edf6; }
+    .muted { color: var(--muted); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .callout {
+      padding: 14px 16px;
+      border: 1px solid #c9d5ff;
+      border-left: 5px solid var(--blue);
+      border-radius: 9px;
+      background: var(--blue-soft);
+    }
+    .callout.good {
+      border-color: #bfe8d8;
+      border-left-color: var(--green);
+      background: var(--green-soft);
+    }
+    .callout.warn {
+      border-color: #f2d199;
+      border-left-color: var(--yellow);
+      background: var(--yellow-soft);
+    }
+    .callout.risk {
+      border-color: #ffc7c0;
+      border-left-color: var(--red);
+      background: var(--red-soft);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: #f8fafc; color: #344054; }
+    tr:last-child td { border-bottom: 0; }
+    .arch {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .lane {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .lane-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 82px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #f8fafc;
+      font-weight: 700;
+      text-align: center;
+    }
+    .lane-flow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+    }
+    .node {
+      min-width: 150px;
+      max-width: 220px;
+      padding: 12px;
+      border-radius: 9px;
+      border: 1px solid #cfd8e6;
+      background: #ffffff;
+      text-align: center;
+      font-size: 14px;
+    }
+    .node.blue { border-color: #b8c8ff; background: var(--blue-soft); }
+    .node.green { border-color: #bfe8d8; background: var(--green-soft); }
+    .node.purple { border-color: #d8cdfa; background: var(--purple-soft); }
+    .node.yellow { border-color: #f2d199; background: var(--yellow-soft); }
+    .arrow {
+      color: #667085;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .shot {
+      margin: 0 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .shot-head {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfe;
+    }
+    .shot-head p { color: var(--muted); }
+    .shot img {
+      display: block;
+      width: 100%;
+      background: #fff;
+    }
+    .shot.small img {
+      max-height: 560px;
+      object-fit: contain;
+      background: #fff;
+    }
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .check {
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .footer {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 980px) {
+      header { padding: 24px; }
+      main { padding: 18px; }
+      .summary-grid, .two-col, .checklist { grid-template-columns: 1fr; }
+      .lane { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia V1.2-AC 架构与用户场景验收报告</h1>
+    <p>本报告使用当前仓库中的真实截图、真实 Runtime、真实扩展构建和真实 Chromium 自动化验收结果，说明 V1.2-AC 阶段的目标架构、当前实现架构、用户可体验路径与未覆盖范围。报告不做虚假验收，不把未验证内容描述为已完成。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>一页结论</h2>
+      <div class="body">
+        <div class="summary-grid">
+          <div class="metric">
+            <strong>验收范围</strong>
+            <span class="pill info">V1.2-AC</span>
+            <p class="muted">A 高信号主链路与 C Mindmap 桥接。</p>
+          </div>
+          <div class="metric">
+            <strong>可视化验收</strong>
+            <span class="pill pass">通过</span>
+            <p class="muted">8 张截图覆盖主要用户路径。</p>
+          </div>
+          <div class="metric">
+            <strong>自动化回归</strong>
+            <span class="pill pass">通过</span>
+            <p class="muted">后端 150 passed，前端 39 passed。</p>
+          </div>
+          <div class="metric">
+            <strong>完成声明</strong>
+            <span class="pill warn">限定完成</span>
+            <p class="muted">不声明完整 V1.2 / V1 完成。</p>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-top: 16px;">
+          <div class="callout good">
+            <h3>本轮可以真实声明</h3>
+            <ul>
+              <li>Runtime 可接收网页上下文并保存 activePage。</li>
+              <li>A perception bundle 已进入 Runtime 主链路。</li>
+              <li>Debug 页可显示读取与提交状态。</li>
+              <li>聊天页可基于当前页面做摘要和问答。</li>
+              <li>C 可生成 Mermaid Mindmap，B 可渲染为可视化 artifact。</li>
+              <li>刷新扩展页后，session / activePage 状态可恢复。</li>
+            </ul>
+          </div>
+          <div class="callout warn">
+            <h3>本轮不能声明</h3>
+            <ul>
+              <li>不能声明完整 V1.2 或完整 V1 已完成。</li>
+              <li>不能声明 A-V1.2 100 页生产级门槛本轮重新完成。</li>
+              <li>不能声明原生 Chrome Side Panel 窗口自动化完全覆盖；本轮使用 direct extension page fallback。</li>
+              <li>不能声明复杂中文网站、B 站、多真实网页全部完成体验验收。</li>
+              <li>不能声明 RAG、长期记忆、多 Agent、浏览器自动操作、语音或 PPT 能力 ready。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>目标架构</h2>
+      <div class="body">
+        <p>V1.2-AC 的目标不是重做整个 AgentCore，而是把 A/C 的能力接入已有 D Adapter / Runtime 主链路，并让 B 负责可验证呈现。</p>
+
+        <div class="arch">
+          <div class="lane">
+            <div class="lane-title">用户与前端 B</div>
+            <div class="lane-flow">
+              <div class="node blue">Chrome Extension<br />聊天 / Debug / Artifact</div>
+              <div class="arrow">→</div>
+              <div class="node blue">B Renderer<br />只渲染，不拥有 AgentCore 状态</div>
+              <div class="arrow">→</div>
+              <div class="node blue">Mermaid / Source Fallback<br />可视化与证据展示</div>
+            </div>
+          </div>
+
+          <div class="lane">
+            <div class="lane-title">Runtime 与 D</div>
+            <div class="lane-flow">
+              <div class="node purple">FastAPI Runtime<br />/v1/page/context<br />/v1/chat/stream</div>
+              <div class="arrow">→</div>
+              <div class="node purple">D Adapter Layer<br />ToolResult / Artifact / Event / Trace 映射出口</div>
+              <div class="arrow">→</div>
+              <div class="node purple">CoreProvider<br />当前以 mock / piAgent 适配基线为主</div>
+            </div>
+          </div>
+
+          <div class="lane">
+            <div class="lane-title">A 感知层</div>
+            <div class="lane-flow">
+              <div class="node green">PageContext / HTML Snapshot</div>
+              <div class="arrow">→</div>
+              <div class="node green">StructuredPageContext</div>
+              <div class="arrow">→</div>
+              <div class="node green">HighSignal / Digest / SourceMap / QualityReport</div>
+            </div>
+          </div>
+
+          <div class="lane">
+            <div class="lane-title">C 思维导图</div>
+            <div class="lane-flow">
+              <div class="node yellow">PerceptionDigest.items<br />优先输入</div>
+              <div class="arrow">→</div>
+              <div class="node yellow">Mermaid Mindmap</div>
+              <div class="arrow">→</div>
+              <div class="node yellow">SourceRef-backed<br />nodeSourceMap</div>
+            </div>
+          </div>
+        </div>
+
+        <table style="margin-top: 16px;">
+          <thead>
+            <tr>
+              <th>模块</th>
+              <th>目标职责</th>
+              <th>边界</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A Page Perception</td>
+              <td>读取网页、结构化页面事实、生成高信号 digest、source map 和 quality report。</td>
+              <td>不生成最终回答，不生成 Mindmap，不写 Artifact / SSE / EventStore / Trace。</td>
+            </tr>
+            <tr>
+              <td>C Mindmap</td>
+              <td>基于 A 的 digest/source refs 生成 Mermaid 和节点来源映射。</td>
+              <td>不读 DOM，不绕过 D 写 Artifact 或事件。</td>
+            </tr>
+            <tr>
+              <td>D Adapter Layer</td>
+              <td>统一 ToolResult、Artifact、Event、Trace 映射，维持 AgentCore 边界。</td>
+              <td>不把 A/C 的内部实现泄漏给前端。</td>
+            </tr>
+            <tr>
+              <td>B Renderer</td>
+              <td>展示聊天、Debug JSON、Mermaid、source fallback 和错误状态。</td>
+              <td>不直接调用 A/C/D 服务，不拥有 AgentCore 状态。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>当前架构实现</h2>
+      <div class="body">
+        <table>
+          <thead>
+            <tr>
+              <th>架构目标</th>
+              <th>当前实现状态</th>
+              <th>证据 / 说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A perception bundle 进入 Runtime 主链路</td>
+              <td><span class="pill pass">已实现本阶段主链路</span></td>
+              <td><code>/v1/page/context</code> 返回并保存 <code>structuredPage</code>、<code>highSignalPage</code>、<code>perceptionDigest</code>、<code>sourceMap</code>、<code>qualityReport</code>。</td>
+            </tr>
+            <tr>
+              <td>旧 activePage 兼容</td>
+              <td><span class="pill pass">已保留</span></td>
+              <td>刷新恢复截图显示 Debug 页仍能恢复 <code>captured</code> activePage 状态。</td>
+            </tr>
+            <tr>
+              <td>C digest-first Mindmap</td>
+              <td><span class="pill pass">已接入本阶段路径</span></td>
+              <td>Mindmap artifact 截图显示 Mermaid 已渲染为可视图谱；C 单测覆盖 digest/source map 路径。</td>
+            </tr>
+            <tr>
+              <td>B Debug / Chat / Mermaid 展示</td>
+              <td><span class="pill pass">已覆盖核心路径</span></td>
+              <td>Debug、摘要、问答、Mindmap、刷新恢复均有截图证据。</td>
+            </tr>
+            <tr>
+              <td>原生 Chrome Side Panel 自动化</td>
+              <td><span class="pill warn">未完整声明</span></td>
+              <td>本轮为真实 Chromium 扩展页面 direct extension page fallback，不把它说成原生 Side Panel 全覆盖。</td>
+            </tr>
+            <tr>
+              <td>100 页生产级 A 模块门槛</td>
+              <td><span class="pill warn">本轮未重新执行</span></td>
+              <td>本报告只覆盖 V1.2-AC 单页可视链路和自动化回归，不声明重新完成 100 页验收。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>已验证的用户场景体验路径</h2>
+      <div class="body">
+        <div class="checklist">
+          <div class="check">
+            <h3>路径 1：读取当前网页</h3>
+            <p>用户打开网页后，在 Navia 中点击「读取当前页面」，Debug 页出现页面标题和 <code>capture_ready</code>。</p>
+          </div>
+          <div class="check">
+            <h3>路径 2：提交 Runtime 上下文</h3>
+            <p>用户点击「提交上下文」，Runtime 创建 session，Debug 状态变为 <code>captured</code>。</p>
+          </div>
+          <div class="check">
+            <h3>路径 3：基于网页总结</h3>
+            <p>用户点击「总结」，聊天区出现来自当前页面的摘要和关键要点。</p>
+          </div>
+          <div class="check">
+            <h3>路径 4：基于网页问答</h3>
+            <p>用户输入问题，系统返回“基于当前页面”的回答。</p>
+          </div>
+          <div class="check">
+            <h3>路径 5：生成 Mindmap</h3>
+            <p>用户点击「Mindmap」，系统生成 Mermaid 图谱并在前端渲染。</p>
+          </div>
+          <div class="check">
+            <h3>路径 6：刷新恢复</h3>
+            <p>用户刷新扩展页面，Debug 页仍可恢复 captured 状态。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>截图证据</h2>
+      <div class="body">
+        <article class="shot">
+          <div class="shot-head">
+            <h3>1. 真实网页快照标签页</h3>
+            <p>证据说明：验收页面来自本地 HTTP 服务打开的可复现 HTML snapshot，而不是空白 mock。人类复核重点：页面标题和正文与浏览器扩展文章一致。</p>
+          </div>
+          <a href="01-fixture-page.png" target="_blank"><img src="01-fixture-page.png" alt="真实网页快照标签页" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>2. 聊天页初始态</h3>
+            <p>证据说明：Navia 扩展页面可打开，主操作包括读取当前页面、提交上下文、总结、Mindmap。人类复核重点：不是 Runtime offline 或空白页面。</p>
+          </div>
+          <a href="02-chat-initial.png" target="_blank"><img src="02-chat-initial.png" alt="聊天页初始态" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>3. Debug：读取页面后</h3>
+            <p>证据说明：点击读取页面后，Debug 显示 <code>capture_ready</code> 和页面标题。人类复核重点：A/B 集成已读到当前网页。</p>
+          </div>
+          <a href="03-debug-after-read.png" target="_blank"><img src="03-debug-after-read.png" alt="读取页面后的 Debug 状态" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>4. Debug：提交 Runtime 后</h3>
+            <p>证据说明：提交上下文后，Debug 显示 <code>captured</code> 和已提交提示。人类复核重点：页面上下文进入 Runtime session。</p>
+          </div>
+          <a href="04-debug-after-submit.png" target="_blank"><img src="04-debug-after-submit.png" alt="提交 Runtime 后的 Debug 状态" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>5. 聊天：网页摘要</h3>
+            <p>证据说明：点击总结后，聊天区显示页面摘要和关键要点。人类复核重点：内容来自当前网页，不是空响应。</p>
+          </div>
+          <a href="05-summary.png" target="_blank"><img src="05-summary.png" alt="网页摘要截图" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>6. 聊天：基于页面问答</h3>
+            <p>证据说明：用户提问“这个页面的核心目标是什么？”，系统返回基于当前页面的回答。人类复核重点：问答链路可用；本轮不评估最终语义质量上限。</p>
+          </div>
+          <a href="06-page-question.png" target="_blank"><img src="06-page-question.png" alt="基于页面内容问答截图" /></a>
+        </article>
+
+        <article class="shot small">
+          <div class="shot-head">
+            <h3>7. Mindmap artifact</h3>
+            <p>证据说明：点击 Mindmap 后，前端渲染出 Mermaid 可视图谱。此图为 artifact 区域直接截图，不再使用只能看到 artifact 标题的旧截图。人类复核重点：能看到中心节点与多个分支节点。</p>
+          </div>
+          <a href="07-mindmap-artifact.png" target="_blank"><img src="07-mindmap-artifact.png" alt="Mindmap artifact 截图" /></a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>8. 刷新恢复</h3>
+            <p>证据说明：刷新扩展页面后，Debug 页仍显示 <code>captured</code> 状态。人类复核重点：不是纯 UI 临时状态，至少能从 Runtime session 恢复 activePage。</p>
+          </div>
+          <a href="08-refresh-recovery.png" target="_blank"><img src="08-refresh-recovery.png" alt="刷新恢复截图" /></a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>自动化验收记录</h2>
+      <div class="body">
+        <table>
+          <thead>
+            <tr>
+              <th>验收项</th>
+              <th>命令 / 数据</th>
+              <th>结果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>后端 Runtime / A / C / D 回归</td>
+              <td><code>PYTHONPATH=services/local-runtime python3 -m pytest -q ...</code></td>
+              <td><span class="pill pass">150 passed</span></td>
+            </tr>
+            <tr>
+              <td>前端单测</td>
+              <td><code>pnpm --dir apps/chrome-extension test</code></td>
+              <td><span class="pill pass">8 files / 39 tests passed</span></td>
+            </tr>
+            <tr>
+              <td>前端类型检查</td>
+              <td><code>pnpm --dir apps/chrome-extension typecheck</code></td>
+              <td><span class="pill pass">通过</span></td>
+            </tr>
+            <tr>
+              <td>Chrome 扩展构建</td>
+              <td><code>pnpm --dir apps/chrome-extension build</code></td>
+              <td><span class="pill pass">通过</span>，存在 chunk size warning</td>
+            </tr>
+            <tr>
+              <td>真实 Chromium 可见截图验收</td>
+              <td><code>pnpm --dir apps/chrome-extension e2e:chrome:visual</code></td>
+              <td><span class="pill pass">通过</span></td>
+            </tr>
+            <tr>
+              <td>空白 / 行尾检查</td>
+              <td><code>git diff --check</code></td>
+              <td><span class="pill pass">通过</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>当前风险与下一步</h2>
+      <div class="body">
+        <div class="two-col">
+          <div class="callout risk">
+            <h3>仍需补齐的验收</h3>
+            <ul>
+              <li>3 个不同真实 Chrome 页面截图验收。</li>
+              <li>至少 1 个中文复杂网页场景。</li>
+              <li>低信号页面 degraded/fail 可视化路径。</li>
+              <li>原生 Chrome Side Panel 窗口自动化稳定性。</li>
+              <li>A-V1.2 100-page production gate 如需声明，必须单独重新跑并出报告。</li>
+            </ul>
+          </div>
+          <div class="callout">
+            <h3>建议下一步</h3>
+            <ul>
+              <li>先扩展 V1.2-AC 可视化脚本，覆盖中文复杂网页与低信号页。</li>
+              <li>再增强 Debug 页面展示 A 的 high-signal JSON、quality metrics、source refs。</li>
+              <li>随后补齐 C nodeSourceMap 的前端 source fallback 交互。</li>
+              <li>最后再做原生 Side Panel 与真实多站点体验验收。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>原始证据文件</h2>
+      <div class="body">
+        <ul>
+          <li>机器验收结果：<a href="result.json" target="_blank"><code>result.json</code></a></li>
+          <li>基础截图报告：<a href="index.html" target="_blank"><code>index.html</code></a></li>
+          <li>上一版人类可读报告：<a href="human-acceptance-report.html" target="_blank"><code>human-acceptance-report.html</code></a></li>
+          <li>本报告目录：<code>docs/active/project/evidence/v1_2_ac/visual-chrome-cli/</code></li>
+          <li>可视化验收脚本：<code>apps/chrome-extension/e2e/chrome-sidepanel-visual-e2e.mjs</code></li>
+          <li>阶段门禁文档：<code>docs/active/project/stage-gates/v1.2-ac-page-perception-mindmap-bridge.md</code></li>
+        </ul>
+        <p class="footer">生成日期：2026-06-12。本报告中的结论只基于上述命令输出、截图与 active 文档，不包含未验证能力的完成声明。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

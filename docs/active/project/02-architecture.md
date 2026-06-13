@@ -258,6 +258,60 @@ A-V1.2 边界：
 - A 不直接调用 D/C/B、MCP、Skill、外部 API、OCR、VLM、ASR、视频或直播 engine。
 - 第三方正文抽取库只允许作为 candidate extractor，输出必须映射回 A-owned block graph 后才能进入 Navia 公共合同。
 
+#### 当前阶段目标架构：A 高信号主链路与 C 补强
+
+当前代码基线中，`/v1/page/context` 已接入 A 的 `StructuredPageContext`，C 的 `mindmap.generate` 已通过 Runtime adapter 接入；但 A 的 `HighSignalPageContext / PerceptionDigest / SourceMap / QualityReport` 还没有成为 Runtime 主链路的稳定消费事实，C 的节点选择也还没有优先使用 A 的高信号 digest。
+
+本阶段目标架构：
+
+```text
+Chrome / Side Panel
+  -> /v1/page/context
+  -> A Page Perception
+       StructuredPageContext
+       HighSignalPageContext
+       PerceptionDigest
+       SourceMap / SourceRef
+       PagePerceptionQualityReport
+  -> Session.activePage.perception
+  -> D Adapter Layer
+       readiness gate
+       ToolResult / Artifact / Event mapping
+  -> C Mindmap
+       digest-first node selection
+       SourceRef-backed nodeSourceMap
+       Mermaid validation / repair <= 1
+  -> B Debug / Artifact renderer
+       A JSON
+       quality state
+       Mermaid visual
+       source fallback / evidence card
+```
+
+当前架构与目标差异：
+
+| 维度 | 当前实现 | 本阶段目标 |
+|---|---|---|
+| A 主链路 | Runtime 主要持久化 `StructuredPageContext` | Runtime 同步保存或返回 high-signal perception bundle，并保留旧字段兼容 |
+| D 消费 | 工具基于 `activePage` 里的基础段落和 summaryDraft | D 在 quality pass 时优先使用 `PerceptionDigest`，degraded/fail 时回退或阻断 |
+| C 输入 | C 主要从 headingTree / paragraph fallback 选节点 | C 优先从 digest item / sourceRefs 选节点，headingTree 仅 fallback |
+| 来源反跳 | nodeSourceMap 可回到 paragraph/chunk | nodeSourceMap 直接绑定 A SourceRef，必须有 textQuote/fallbackText |
+| Debug 验收 | 结构化 JSON 可见性有限 | Debug 可同时查看 A quality、digest、source map 和 C mindmap source map |
+
+调用边界：
+
+- A 仍是纯感知层，不创建 artifact、不发 SSE、不写 EventStore。
+- C 不读取 DOM，不重新抽取页面正文，不绕过 A 做感知。
+- D 是唯一 ToolResult / Artifact / Event / Trace 映射出口。
+- B 只渲染 Runtime 返回的数据，不拥有 AgentCore 状态，不直接调用 A/C 服务。
+
+关键质量门槛：
+
+- `PagePerceptionQualityReport.downstreamReadiness = "pass"` 时，D/C 才能将 high-signal 输出作为主输入。
+- `degraded` 只能进入 fallback 或 Debug 提示。
+- `fail` 不得触发基于高信号内容的 summary / answer / mindmap。
+- C 的每个主要 mindmap 节点必须至少关联一个 A SourceRef 或明确 fallback reason。
+
 ### 3.3 Session Plane
 
 职责：

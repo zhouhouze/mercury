@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from typing import Any, Callable
 
 from navia_runtime.contracts import ErrorCode, new_id, utc_now
+from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
 
 
 AdapterHandler = Callable[[dict[str, Any]], dict[str, Any]]
@@ -166,29 +167,29 @@ def mindmap_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
             content={},
             error={"code": ErrorCode.PAGE_CONTEXT_REQUIRED.value, "message": "Active page is required.", "recoverable": True},
         )
-    title = page_title(page).replace("(", "").replace(")", "")[:60] or "当前页面"
-    headings = page.get("headingTree") if isinstance(page.get("headingTree"), list) else []
-    labels = [str(item.get("text") or "").strip() for item in headings if isinstance(item, dict) and item.get("text")]
-    if not labels:
-        labels = [text[:48] for text in paragraph_texts(page, 6)]
-    mermaid = "\n".join(["mindmap", f"  root(({title}))", *[f"    {label[:60]}" for label in labels[:12] if label]])
-    source_map = {
-        f"node_{index + 1}": {
-            "nodeLabel": label[:60],
-            "paragraphIds": [str(paragraph.get("paragraphId")) for paragraph in page_paragraphs(page)[index : index + 1] if paragraph.get("paragraphId")],
-            "chunkIds": [str(chunk.get("chunkId") or chunk.get("chunk_id")) for chunk in page_chunks(page)[index : index + 1] if chunk.get("chunkId") or chunk.get("chunk_id")],
-            "excerpt": (paragraph_texts(page, 12)[index] if index < len(paragraph_texts(page, 12)) else "")[:180],
+    perception = page.get("perception") if isinstance(page.get("perception"), dict) else {}
+    result = generate_mindmap_payload(
+        {
+            "sessionId": invocation["sessionId"],
+            "turnId": invocation["turnId"],
+            "toolCallId": invocation["toolCallId"],
+            "structuredPage": page,
+            "perceptionDigest": perception.get("perceptionDigest") or page.get("perceptionDigest"),
+            "sourceMap": perception.get("sourceMap") or page.get("sourceMap"),
+            "qualityReport": perception.get("qualityReport") or page.get("qualityReport"),
         }
-        for index, label in enumerate(labels[:12])
-    }
+    )
+    if not result["ok"]:
+        return adapter_result(invocation, status="failed", content={}, error=result["error"], warnings=result.get("warnings", []))
     record = artifact(
         invocation,
         artifact_type="mindmap",
         source="page",
-        content=mermaid,
-        metadata={"format": "mermaid", "model": "mock-core-provider", "nodeSourceMap": source_map, "validation": {"status": "mock-passed", "repairAttempts": 0}},
+        content=result["mermaidSource"],
+        metadata={**result["metadata"], "model": "mock-core-provider"},
+        source_chunk_ids=result["sourceChunkIds"],
     )
-    return adapter_result(invocation, status="succeeded", content={"answer": "已生成页面思维导图。", "mermaid": mermaid}, artifacts=[record], cost=budget_cost(output_tokens=max(1, len(mermaid) // 4)))
+    return adapter_result(invocation, status="succeeded", content={"answer": "已生成页面思维导图。", "mermaid": result["mermaidSource"]}, artifacts=[record], cost=budget_cost(output_tokens=max(1, len(str(result["mermaidSource"])) // 4)), warnings=result.get("warnings", []))
 
 
 def failing_adapter(invocation: dict[str, Any]) -> dict[str, Any]:

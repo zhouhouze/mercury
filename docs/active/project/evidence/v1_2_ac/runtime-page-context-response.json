@@ -1,0 +1,1333 @@
+{
+  "data": {
+    "content_hash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+    "highSignalPage": {
+      "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "digestRef": "digest_page_01HZYT000000000000000001",
+      "filteredBlocks": [],
+      "highSignalBlocks": [
+        {
+          "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+          "blockType": "paragraph",
+          "chunkIds": [
+            "ck_page_01HZYT000000000000000001_0001"
+          ],
+          "confidence": 0.82,
+          "contentDensityScore": 0.729,
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "importance": 0.823,
+          "noiseScore": 0.08,
+          "order": 0,
+          "pageId": "page_01HZYT000000000000000001",
+          "paragraphIds": [
+            "pg_page_01HZYT000000000000000001_0001"
+          ],
+          "regionType": "main",
+          "sourceRefs": [
+            {
+              "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+              "blockType": "paragraph",
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "confidence": 0.92,
+              "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+              "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "headingPath": [],
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+              "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+              "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+              "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+            }
+          ],
+          "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+          "warnings": []
+        }
+      ],
+      "metadata": {
+        "contentType": "article",
+        "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+        "headingCount": 5,
+        "language": "en",
+        "paragraphCount": 1,
+        "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+        "wordCount": 31
+      },
+      "pageId": "page_01HZYT000000000000000001",
+      "qualityReportRef": "q_page_01HZYT000000000000000001",
+      "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+      "sessionId": "sess_00000000000000000000000001",
+      "sourceMapRef": "smap_page_01HZYT000000000000000001",
+      "sourceStructuredPageRef": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "pageId": "page_01HZYT000000000000000001"
+      },
+      "status": "ready",
+      "warnings": []
+    },
+    "page_id": "page_01HZYT000000000000000001",
+    "perception": {
+      "candidateExtraction": {
+        "blocks": [
+          {
+            "blockType": "paragraph",
+            "candidateBlockId": "cand_page_01HZYT000000000000000001_0001",
+            "metadata": {
+              "headingPath": []
+            },
+            "order": 0,
+            "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+          }
+        ],
+        "confidence": 0.76,
+        "extractorName": "dom_baseline",
+        "metadata": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "pageId": "page_01HZYT000000000000000001",
+          "paragraphCount": 1
+        },
+        "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+        "title": "Browser extension - derived article fixture",
+        "version": "a-v1.1-dom-baseline",
+        "warnings": []
+      },
+      "highSignalPage": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "digestRef": "digest_page_01HZYT000000000000000001",
+        "filteredBlocks": [],
+        "highSignalBlocks": [
+          {
+            "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+            "blockType": "paragraph",
+            "chunkIds": [
+              "ck_page_01HZYT000000000000000001_0001"
+            ],
+            "confidence": 0.82,
+            "contentDensityScore": 0.729,
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "importance": 0.823,
+            "noiseScore": 0.08,
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "regionType": "main",
+            "sourceRefs": [
+              {
+                "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                "blockType": "paragraph",
+                "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                "confidence": 0.92,
+                "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                "headingPath": [],
+                "order": 0,
+                "pageId": "page_01HZYT000000000000000001",
+                "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+              }
+            ],
+            "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+            "warnings": []
+          }
+        ],
+        "metadata": {
+          "contentType": "article",
+          "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+          "headingCount": 5,
+          "language": "en",
+          "paragraphCount": 1,
+          "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+          "wordCount": 31
+        },
+        "pageId": "page_01HZYT000000000000000001",
+        "qualityReportRef": "q_page_01HZYT000000000000000001",
+        "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+        "sessionId": "sess_00000000000000000000000001",
+        "sourceMapRef": "smap_page_01HZYT000000000000000001",
+        "sourceStructuredPageRef": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "pageId": "page_01HZYT000000000000000001"
+        },
+        "status": "ready",
+        "warnings": []
+      },
+      "perceptionDigest": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "digestId": "digest_page_01HZYT000000000000000001",
+        "items": [
+          {
+            "confidence": 0.82,
+            "importance": 0.823,
+            "itemId": "item_block_pg_page_01HZYT000000000000000001_0001",
+            "kind": "definition",
+            "relatedChunkIds": [
+              "ck_page_01HZYT000000000000000001_0001"
+            ],
+            "relatedParagraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "sourceRefs": [
+              {
+                "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                "blockType": "paragraph",
+                "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                "confidence": 0.92,
+                "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                "headingPath": [],
+                "order": 0,
+                "pageId": "page_01HZYT000000000000000001",
+                "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+              }
+            ],
+            "text": "A browser extension is a small software module that changes or extends a web browser .",
+            "warnings": []
+          }
+        ],
+        "pageId": "page_01HZYT000000000000000001",
+        "rejectedItems": [],
+        "stats": {
+          "compressionRatio": 0.484,
+          "itemCount": 1,
+          "sourceRefCount": 1
+        },
+        "summary": {
+          "keyTakeaways": [
+            "A browser extension is a small software module that changes or extends a web browser ."
+          ],
+          "tldr": "A browser extension is a small software module that changes or extends a web browser ."
+        }
+      },
+      "qualityReport": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "downstreamReadiness": "pass",
+        "fatalIssues": [],
+        "metrics": {
+          "candidateFactDensity": {
+            "denominator": 1.0,
+            "method": "digestCandidateFactItems / digestItemCount",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.5,
+            "value": 1.0
+          },
+          "contentCoverage": {
+            "denominator": 233.0,
+            "method": "highSignalContentChars / readableContentChars",
+            "numerator": 233.0,
+            "passed": true,
+            "threshold": 0.75,
+            "value": 1.0
+          },
+          "digestCompressionRatio": {
+            "denominator": 31.0,
+            "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+            "numerator": 15.0,
+            "passed": false,
+            "threshold": 0.35,
+            "value": 0.484
+          },
+          "groundingCompleteness": {
+            "denominator": 1.0,
+            "method": "digestItemsWithSourceRefs / digestItemsTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          },
+          "jumpbackCoverage": {
+            "denominator": 1.0,
+            "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          },
+          "noiseRatio": {
+            "denominator": 1.0,
+            "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+            "numerator": 0.0,
+            "passed": true,
+            "threshold": 0.25,
+            "value": 0.0
+          },
+          "sourceCoverage": {
+            "denominator": 1.0,
+            "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          }
+        },
+        "overallScore": 0.952,
+        "pageId": "page_01HZYT000000000000000001",
+        "reportId": "q_page_01HZYT000000000000000001",
+        "warnings": []
+      },
+      "sourceMap": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "pageId": "page_01HZYT000000000000000001",
+        "sourceMapId": "smap_page_01HZYT000000000000000001",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_01HZYT000000000000000001_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+            "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+            "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+            "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+          }
+        ]
+      },
+      "structuredPage": {
+        "annotations": [
+          {
+            "chunkId": "ck_page_01HZYT000000000000000001_0001",
+            "confidence": 0.72,
+            "densityScore": 0.729,
+            "importance": "high",
+            "labels": [
+              "definition"
+            ],
+            "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+            "role": "definition"
+          }
+        ],
+        "capturedAt": "2026-06-01T00:00:00Z",
+        "captured_at": "2026-06-01T00:00:00Z",
+        "chunks": [
+          {
+            "chunkId": "ck_page_01HZYT000000000000000001_0001",
+            "chunk_id": "ck_page_01HZYT000000000000000001_0001",
+            "headingPath": [],
+            "heading_path": [],
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "page_id": "page_01HZYT000000000000000001",
+            "paragraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+            "tokenEstimate": 58,
+            "token_estimate": 58
+          }
+        ],
+        "cleaned_text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "content_hash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "domain": "en.wikipedia.org",
+        "headingTree": [
+          {
+            "headingId": "hd_0001",
+            "level": 1,
+            "order": 0,
+            "paragraphIds": [],
+            "text": "Browser extension"
+          },
+          {
+            "headingId": "hd_0002",
+            "level": 2,
+            "order": 1,
+            "paragraphIds": [],
+            "parentHeadingId": "hd_0001",
+            "text": "Purpose"
+          },
+          {
+            "headingId": "hd_0003",
+            "level": 2,
+            "order": 2,
+            "paragraphIds": [],
+            "parentHeadingId": "hd_0001",
+            "text": "Architecture"
+          },
+          {
+            "headingId": "hd_0004",
+            "level": 2,
+            "order": 3,
+            "paragraphIds": [],
+            "parentHeadingId": "hd_0001",
+            "text": "Security and privacy"
+          },
+          {
+            "headingId": "hd_0005",
+            "level": 2,
+            "order": 4,
+            "paragraphIds": [],
+            "parentHeadingId": "hd_0001",
+            "text": "Relevance to Navia"
+          }
+        ],
+        "headings": [
+          {
+            "level": 1,
+            "text": "Browser extension"
+          },
+          {
+            "level": 2,
+            "text": "Purpose"
+          },
+          {
+            "level": 2,
+            "text": "Architecture"
+          },
+          {
+            "level": 2,
+            "text": "Security and privacy"
+          },
+          {
+            "level": 2,
+            "text": "Relevance to Navia"
+          }
+        ],
+        "imageMetadata": [],
+        "metadata": {
+          "contentType": "article",
+          "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+          "headingCount": 5,
+          "language": "en",
+          "paragraphCount": 1,
+          "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+          "wordCount": 31
+        },
+        "pageId": "page_01HZYT000000000000000001",
+        "page_id": "page_01HZYT000000000000000001",
+        "paragraphs": [
+          {
+            "chunkId": "ck_page_01HZYT000000000000000001_0001",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+            "sourceBlockType": "paragraph",
+            "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+          }
+        ],
+        "selected_text": null,
+        "sessionId": "sess_00000000000000000000000001",
+        "session_id": "sess_00000000000000000000000001",
+        "summaryDraft": {
+          "format": "json",
+          "keyPoints": [
+            "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+          ],
+          "structure": [
+            {
+              "headingPath": [],
+              "paragraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "summary": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+            }
+          ],
+          "suggestedQuestions": [
+            "这篇内容的核心观点是什么？",
+            "哪些段落最值得深入阅读？",
+            "可以把这篇内容整理成思维导图吗？"
+          ],
+          "title": "Browser extension - derived article fixture",
+          "tldr": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+        },
+        "tab_id": 101,
+        "title": "Browser extension - derived article fixture",
+        "url": "https://en.wikipedia.org/wiki/Browser_extension",
+        "visible_text": null
+      }
+    },
+    "perceptionDigest": {
+      "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "digestId": "digest_page_01HZYT000000000000000001",
+      "items": [
+        {
+          "confidence": 0.82,
+          "importance": 0.823,
+          "itemId": "item_block_pg_page_01HZYT000000000000000001_0001",
+          "kind": "definition",
+          "relatedChunkIds": [
+            "ck_page_01HZYT000000000000000001_0001"
+          ],
+          "relatedParagraphIds": [
+            "pg_page_01HZYT000000000000000001_0001"
+          ],
+          "sourceRefs": [
+            {
+              "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+              "blockType": "paragraph",
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "confidence": 0.92,
+              "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+              "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "headingPath": [],
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+              "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+              "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+              "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+            }
+          ],
+          "text": "A browser extension is a small software module that changes or extends a web browser .",
+          "warnings": []
+        }
+      ],
+      "pageId": "page_01HZYT000000000000000001",
+      "rejectedItems": [],
+      "stats": {
+        "compressionRatio": 0.484,
+        "itemCount": 1,
+        "sourceRefCount": 1
+      },
+      "summary": {
+        "keyTakeaways": [
+          "A browser extension is a small software module that changes or extends a web browser ."
+        ],
+        "tldr": "A browser extension is a small software module that changes or extends a web browser ."
+      }
+    },
+    "qualityReport": {
+      "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "downstreamReadiness": "pass",
+      "fatalIssues": [],
+      "metrics": {
+        "candidateFactDensity": {
+          "denominator": 1.0,
+          "method": "digestCandidateFactItems / digestItemCount",
+          "numerator": 1.0,
+          "passed": true,
+          "threshold": 0.5,
+          "value": 1.0
+        },
+        "contentCoverage": {
+          "denominator": 233.0,
+          "method": "highSignalContentChars / readableContentChars",
+          "numerator": 233.0,
+          "passed": true,
+          "threshold": 0.75,
+          "value": 1.0
+        },
+        "digestCompressionRatio": {
+          "denominator": 31.0,
+          "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+          "numerator": 15.0,
+          "passed": false,
+          "threshold": 0.35,
+          "value": 0.484
+        },
+        "groundingCompleteness": {
+          "denominator": 1.0,
+          "method": "digestItemsWithSourceRefs / digestItemsTotal",
+          "numerator": 1.0,
+          "passed": true,
+          "threshold": 0.95,
+          "value": 1.0
+        },
+        "jumpbackCoverage": {
+          "denominator": 1.0,
+          "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+          "numerator": 1.0,
+          "passed": true,
+          "threshold": 0.95,
+          "value": 1.0
+        },
+        "noiseRatio": {
+          "denominator": 1.0,
+          "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+          "numerator": 0.0,
+          "passed": true,
+          "threshold": 0.25,
+          "value": 0.0
+        },
+        "sourceCoverage": {
+          "denominator": 1.0,
+          "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+          "numerator": 1.0,
+          "passed": true,
+          "threshold": 0.95,
+          "value": 1.0
+        }
+      },
+      "overallScore": 0.952,
+      "pageId": "page_01HZYT000000000000000001",
+      "reportId": "q_page_01HZYT000000000000000001",
+      "warnings": []
+    },
+    "sourceMap": {
+      "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "pageId": "page_01HZYT000000000000000001",
+      "sourceMapId": "smap_page_01HZYT000000000000000001",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+          "blockType": "paragraph",
+          "chunkId": "ck_page_01HZYT000000000000000001_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+          "headingPath": [],
+          "order": 0,
+          "pageId": "page_01HZYT000000000000000001",
+          "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+          "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+          "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+          "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+        }
+      ]
+    },
+    "status": "accepted",
+    "structuredPage": {
+      "annotations": [
+        {
+          "chunkId": "ck_page_01HZYT000000000000000001_0001",
+          "confidence": 0.72,
+          "densityScore": 0.729,
+          "importance": "high",
+          "labels": [
+            "definition"
+          ],
+          "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+          "role": "definition"
+        }
+      ],
+      "capturedAt": "2026-06-01T00:00:00Z",
+      "captured_at": "2026-06-01T00:00:00Z",
+      "chunks": [
+        {
+          "chunkId": "ck_page_01HZYT000000000000000001_0001",
+          "chunk_id": "ck_page_01HZYT000000000000000001_0001",
+          "headingPath": [],
+          "heading_path": [],
+          "order": 0,
+          "pageId": "page_01HZYT000000000000000001",
+          "page_id": "page_01HZYT000000000000000001",
+          "paragraphIds": [
+            "pg_page_01HZYT000000000000000001_0001"
+          ],
+          "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+          "tokenEstimate": 58,
+          "token_estimate": 58
+        }
+      ],
+      "cleaned_text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+      "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "content_hash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+      "domain": "en.wikipedia.org",
+      "headingTree": [
+        {
+          "headingId": "hd_0001",
+          "level": 1,
+          "order": 0,
+          "paragraphIds": [],
+          "text": "Browser extension"
+        },
+        {
+          "headingId": "hd_0002",
+          "level": 2,
+          "order": 1,
+          "paragraphIds": [],
+          "parentHeadingId": "hd_0001",
+          "text": "Purpose"
+        },
+        {
+          "headingId": "hd_0003",
+          "level": 2,
+          "order": 2,
+          "paragraphIds": [],
+          "parentHeadingId": "hd_0001",
+          "text": "Architecture"
+        },
+        {
+          "headingId": "hd_0004",
+          "level": 2,
+          "order": 3,
+          "paragraphIds": [],
+          "parentHeadingId": "hd_0001",
+          "text": "Security and privacy"
+        },
+        {
+          "headingId": "hd_0005",
+          "level": 2,
+          "order": 4,
+          "paragraphIds": [],
+          "parentHeadingId": "hd_0001",
+          "text": "Relevance to Navia"
+        }
+      ],
+      "headings": [
+        {
+          "level": 1,
+          "text": "Browser extension"
+        },
+        {
+          "level": 2,
+          "text": "Purpose"
+        },
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "text": "Security and privacy"
+        },
+        {
+          "level": 2,
+          "text": "Relevance to Navia"
+        }
+      ],
+      "highSignalPage": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "digestRef": "digest_page_01HZYT000000000000000001",
+        "filteredBlocks": [],
+        "highSignalBlocks": [
+          {
+            "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+            "blockType": "paragraph",
+            "chunkIds": [
+              "ck_page_01HZYT000000000000000001_0001"
+            ],
+            "confidence": 0.82,
+            "contentDensityScore": 0.729,
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "importance": 0.823,
+            "noiseScore": 0.08,
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "regionType": "main",
+            "sourceRefs": [
+              {
+                "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                "blockType": "paragraph",
+                "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                "confidence": 0.92,
+                "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                "headingPath": [],
+                "order": 0,
+                "pageId": "page_01HZYT000000000000000001",
+                "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+              }
+            ],
+            "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+            "warnings": []
+          }
+        ],
+        "metadata": {
+          "contentType": "article",
+          "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+          "headingCount": 5,
+          "language": "en",
+          "paragraphCount": 1,
+          "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+          "wordCount": 31
+        },
+        "pageId": "page_01HZYT000000000000000001",
+        "qualityReportRef": "q_page_01HZYT000000000000000001",
+        "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+        "sessionId": "sess_00000000000000000000000001",
+        "sourceMapRef": "smap_page_01HZYT000000000000000001",
+        "sourceStructuredPageRef": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "pageId": "page_01HZYT000000000000000001"
+        },
+        "status": "ready",
+        "warnings": []
+      },
+      "imageMetadata": [],
+      "metadata": {
+        "contentType": "article",
+        "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+        "headingCount": 5,
+        "language": "en",
+        "paragraphCount": 1,
+        "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+        "wordCount": 31
+      },
+      "pageId": "page_01HZYT000000000000000001",
+      "page_id": "page_01HZYT000000000000000001",
+      "paragraphs": [
+        {
+          "chunkId": "ck_page_01HZYT000000000000000001_0001",
+          "headingPath": [],
+          "order": 0,
+          "pageId": "page_01HZYT000000000000000001",
+          "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+          "sourceBlockType": "paragraph",
+          "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+        }
+      ],
+      "perception": {
+        "candidateExtraction": {
+          "blocks": [
+            {
+              "blockType": "paragraph",
+              "candidateBlockId": "cand_page_01HZYT000000000000000001_0001",
+              "metadata": {
+                "headingPath": []
+              },
+              "order": 0,
+              "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+            }
+          ],
+          "confidence": 0.76,
+          "extractorName": "dom_baseline",
+          "metadata": {
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphCount": 1
+          },
+          "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+          "title": "Browser extension - derived article fixture",
+          "version": "a-v1.1-dom-baseline",
+          "warnings": []
+        },
+        "highSignalPage": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "digestRef": "digest_page_01HZYT000000000000000001",
+          "filteredBlocks": [],
+          "highSignalBlocks": [
+            {
+              "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+              "blockType": "paragraph",
+              "chunkIds": [
+                "ck_page_01HZYT000000000000000001_0001"
+              ],
+              "confidence": 0.82,
+              "contentDensityScore": 0.729,
+              "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+              "importance": 0.823,
+              "noiseScore": 0.08,
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "paragraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "regionType": "main",
+              "sourceRefs": [
+                {
+                  "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                  "blockType": "paragraph",
+                  "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                  "confidence": 0.92,
+                  "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                  "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                  "headingPath": [],
+                  "order": 0,
+                  "pageId": "page_01HZYT000000000000000001",
+                  "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                  "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                  "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                  "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+                }
+              ],
+              "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "warnings": []
+            }
+          ],
+          "metadata": {
+            "contentType": "article",
+            "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+            "headingCount": 5,
+            "language": "en",
+            "paragraphCount": 1,
+            "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+            "wordCount": 31
+          },
+          "pageId": "page_01HZYT000000000000000001",
+          "qualityReportRef": "q_page_01HZYT000000000000000001",
+          "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+          "sessionId": "sess_00000000000000000000000001",
+          "sourceMapRef": "smap_page_01HZYT000000000000000001",
+          "sourceStructuredPageRef": {
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "pageId": "page_01HZYT000000000000000001"
+          },
+          "status": "ready",
+          "warnings": []
+        },
+        "perceptionDigest": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "digestId": "digest_page_01HZYT000000000000000001",
+          "items": [
+            {
+              "confidence": 0.82,
+              "importance": 0.823,
+              "itemId": "item_block_pg_page_01HZYT000000000000000001_0001",
+              "kind": "definition",
+              "relatedChunkIds": [
+                "ck_page_01HZYT000000000000000001_0001"
+              ],
+              "relatedParagraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "sourceRefs": [
+                {
+                  "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                  "blockType": "paragraph",
+                  "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                  "confidence": 0.92,
+                  "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                  "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                  "headingPath": [],
+                  "order": 0,
+                  "pageId": "page_01HZYT000000000000000001",
+                  "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                  "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                  "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                  "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+                }
+              ],
+              "text": "A browser extension is a small software module that changes or extends a web browser .",
+              "warnings": []
+            }
+          ],
+          "pageId": "page_01HZYT000000000000000001",
+          "rejectedItems": [],
+          "stats": {
+            "compressionRatio": 0.484,
+            "itemCount": 1,
+            "sourceRefCount": 1
+          },
+          "summary": {
+            "keyTakeaways": [
+              "A browser extension is a small software module that changes or extends a web browser ."
+            ],
+            "tldr": "A browser extension is a small software module that changes or extends a web browser ."
+          }
+        },
+        "qualityReport": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "downstreamReadiness": "pass",
+          "fatalIssues": [],
+          "metrics": {
+            "candidateFactDensity": {
+              "denominator": 1.0,
+              "method": "digestCandidateFactItems / digestItemCount",
+              "numerator": 1.0,
+              "passed": true,
+              "threshold": 0.5,
+              "value": 1.0
+            },
+            "contentCoverage": {
+              "denominator": 233.0,
+              "method": "highSignalContentChars / readableContentChars",
+              "numerator": 233.0,
+              "passed": true,
+              "threshold": 0.75,
+              "value": 1.0
+            },
+            "digestCompressionRatio": {
+              "denominator": 31.0,
+              "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+              "numerator": 15.0,
+              "passed": false,
+              "threshold": 0.35,
+              "value": 0.484
+            },
+            "groundingCompleteness": {
+              "denominator": 1.0,
+              "method": "digestItemsWithSourceRefs / digestItemsTotal",
+              "numerator": 1.0,
+              "passed": true,
+              "threshold": 0.95,
+              "value": 1.0
+            },
+            "jumpbackCoverage": {
+              "denominator": 1.0,
+              "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+              "numerator": 1.0,
+              "passed": true,
+              "threshold": 0.95,
+              "value": 1.0
+            },
+            "noiseRatio": {
+              "denominator": 1.0,
+              "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+              "numerator": 0.0,
+              "passed": true,
+              "threshold": 0.25,
+              "value": 0.0
+            },
+            "sourceCoverage": {
+              "denominator": 1.0,
+              "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+              "numerator": 1.0,
+              "passed": true,
+              "threshold": 0.95,
+              "value": 1.0
+            }
+          },
+          "overallScore": 0.952,
+          "pageId": "page_01HZYT000000000000000001",
+          "reportId": "q_page_01HZYT000000000000000001",
+          "warnings": []
+        },
+        "sourceMap": {
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "pageId": "page_01HZYT000000000000000001",
+          "sourceMapId": "smap_page_01HZYT000000000000000001",
+          "sourceRefs": [
+            {
+              "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+              "blockType": "paragraph",
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "confidence": 0.92,
+              "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+              "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "headingPath": [],
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+              "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+              "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+              "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+            }
+          ]
+        },
+        "structuredPage": {
+          "annotations": [
+            {
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "confidence": 0.72,
+              "densityScore": 0.729,
+              "importance": "high",
+              "labels": [
+                "definition"
+              ],
+              "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+              "role": "definition"
+            }
+          ],
+          "capturedAt": "2026-06-01T00:00:00Z",
+          "captured_at": "2026-06-01T00:00:00Z",
+          "chunks": [
+            {
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "chunk_id": "ck_page_01HZYT000000000000000001_0001",
+              "headingPath": [],
+              "heading_path": [],
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "page_id": "page_01HZYT000000000000000001",
+              "paragraphIds": [
+                "pg_page_01HZYT000000000000000001_0001"
+              ],
+              "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+              "tokenEstimate": 58,
+              "token_estimate": 58
+            }
+          ],
+          "cleaned_text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+          "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "content_hash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+          "domain": "en.wikipedia.org",
+          "headingTree": [
+            {
+              "headingId": "hd_0001",
+              "level": 1,
+              "order": 0,
+              "paragraphIds": [],
+              "text": "Browser extension"
+            },
+            {
+              "headingId": "hd_0002",
+              "level": 2,
+              "order": 1,
+              "paragraphIds": [],
+              "parentHeadingId": "hd_0001",
+              "text": "Purpose"
+            },
+            {
+              "headingId": "hd_0003",
+              "level": 2,
+              "order": 2,
+              "paragraphIds": [],
+              "parentHeadingId": "hd_0001",
+              "text": "Architecture"
+            },
+            {
+              "headingId": "hd_0004",
+              "level": 2,
+              "order": 3,
+              "paragraphIds": [],
+              "parentHeadingId": "hd_0001",
+              "text": "Security and privacy"
+            },
+            {
+              "headingId": "hd_0005",
+              "level": 2,
+              "order": 4,
+              "paragraphIds": [],
+              "parentHeadingId": "hd_0001",
+              "text": "Relevance to Navia"
+            }
+          ],
+          "headings": [
+            {
+              "level": 1,
+              "text": "Browser extension"
+            },
+            {
+              "level": 2,
+              "text": "Purpose"
+            },
+            {
+              "level": 2,
+              "text": "Architecture"
+            },
+            {
+              "level": 2,
+              "text": "Security and privacy"
+            },
+            {
+              "level": 2,
+              "text": "Relevance to Navia"
+            }
+          ],
+          "imageMetadata": [],
+          "metadata": {
+            "contentType": "article",
+            "fixture_path": "docs/active/project/fixtures/real_pages/article.html",
+            "headingCount": 5,
+            "language": "en",
+            "paragraphCount": 1,
+            "source_url": "https://en.wikipedia.org/wiki/Browser_extension",
+            "wordCount": 31
+          },
+          "pageId": "page_01HZYT000000000000000001",
+          "page_id": "page_01HZYT000000000000000001",
+          "paragraphs": [
+            {
+              "chunkId": "ck_page_01HZYT000000000000000001_0001",
+              "headingPath": [],
+              "order": 0,
+              "pageId": "page_01HZYT000000000000000001",
+              "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+              "sourceBlockType": "paragraph",
+              "text": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+            }
+          ],
+          "selected_text": null,
+          "sessionId": "sess_00000000000000000000000001",
+          "session_id": "sess_00000000000000000000000001",
+          "summaryDraft": {
+            "format": "json",
+            "keyPoints": [
+              "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+            ],
+            "structure": [
+              {
+                "headingPath": [],
+                "paragraphIds": [
+                  "pg_page_01HZYT000000000000000001_0001"
+                ],
+                "summary": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+              }
+            ],
+            "suggestedQuestions": [
+              "这篇内容的核心观点是什么？",
+              "哪些段落最值得深入阅读？",
+              "可以把这篇内容整理成思维导图吗？"
+            ],
+            "title": "Browser extension - derived article fixture",
+            "tldr": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+          },
+          "tab_id": 101,
+          "title": "Browser extension - derived article fixture",
+          "url": "https://en.wikipedia.org/wiki/Browser_extension",
+          "visible_text": null
+        }
+      },
+      "perceptionDigest": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "digestId": "digest_page_01HZYT000000000000000001",
+        "items": [
+          {
+            "confidence": 0.82,
+            "importance": 0.823,
+            "itemId": "item_block_pg_page_01HZYT000000000000000001_0001",
+            "kind": "definition",
+            "relatedChunkIds": [
+              "ck_page_01HZYT000000000000000001_0001"
+            ],
+            "relatedParagraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "sourceRefs": [
+              {
+                "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+                "blockType": "paragraph",
+                "chunkId": "ck_page_01HZYT000000000000000001_0001",
+                "confidence": 0.92,
+                "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+                "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+                "headingPath": [],
+                "order": 0,
+                "pageId": "page_01HZYT000000000000000001",
+                "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+                "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+                "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+                "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+              }
+            ],
+            "text": "A browser extension is a small software module that changes or extends a web browser .",
+            "warnings": []
+          }
+        ],
+        "pageId": "page_01HZYT000000000000000001",
+        "rejectedItems": [],
+        "stats": {
+          "compressionRatio": 0.484,
+          "itemCount": 1,
+          "sourceRefCount": 1
+        },
+        "summary": {
+          "keyTakeaways": [
+            "A browser extension is a small software module that changes or extends a web browser ."
+          ],
+          "tldr": "A browser extension is a small software module that changes or extends a web browser ."
+        }
+      },
+      "qualityReport": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "downstreamReadiness": "pass",
+        "fatalIssues": [],
+        "metrics": {
+          "candidateFactDensity": {
+            "denominator": 1.0,
+            "method": "digestCandidateFactItems / digestItemCount",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.5,
+            "value": 1.0
+          },
+          "contentCoverage": {
+            "denominator": 233.0,
+            "method": "highSignalContentChars / readableContentChars",
+            "numerator": 233.0,
+            "passed": true,
+            "threshold": 0.75,
+            "value": 1.0
+          },
+          "digestCompressionRatio": {
+            "denominator": 31.0,
+            "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+            "numerator": 15.0,
+            "passed": false,
+            "threshold": 0.35,
+            "value": 0.484
+          },
+          "groundingCompleteness": {
+            "denominator": 1.0,
+            "method": "digestItemsWithSourceRefs / digestItemsTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          },
+          "jumpbackCoverage": {
+            "denominator": 1.0,
+            "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          },
+          "noiseRatio": {
+            "denominator": 1.0,
+            "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+            "numerator": 0.0,
+            "passed": true,
+            "threshold": 0.25,
+            "value": 0.0
+          },
+          "sourceCoverage": {
+            "denominator": 1.0,
+            "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+            "numerator": 1.0,
+            "passed": true,
+            "threshold": 0.95,
+            "value": 1.0
+          }
+        },
+        "overallScore": 0.952,
+        "pageId": "page_01HZYT000000000000000001",
+        "reportId": "q_page_01HZYT000000000000000001",
+        "warnings": []
+      },
+      "selected_text": null,
+      "sessionId": "sess_00000000000000000000000001",
+      "session_id": "sess_00000000000000000000000001",
+      "sourceMap": {
+        "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+        "pageId": "page_01HZYT000000000000000001",
+        "sourceMapId": "smap_page_01HZYT000000000000000001",
+        "sourceRefs": [
+          {
+            "blockId": "block_pg_page_01HZYT000000000000000001_0001",
+            "blockType": "paragraph",
+            "chunkId": "ck_page_01HZYT000000000000000001_0001",
+            "confidence": 0.92,
+            "contentHash": "sha256_dfc3cb66281d5b6659e093c387a95a977a397987461785df12dd8e2fb0eff434",
+            "fallbackText": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities.",
+            "headingPath": [],
+            "order": 0,
+            "pageId": "page_01HZYT000000000000000001",
+            "paragraphId": "pg_page_01HZYT000000000000000001_0001",
+            "sourceRefId": "src_page_01HZYT000000000000000001_0001",
+            "textHash": "sha256_71526b6d01421e385adf21ea12f9420a",
+            "textQuote": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and develop"
+          }
+        ]
+      },
+      "summaryDraft": {
+        "format": "json",
+        "keyPoints": [
+          "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+        ],
+        "structure": [
+          {
+            "headingPath": [],
+            "paragraphIds": [
+              "pg_page_01HZYT000000000000000001_0001"
+            ],
+            "summary": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page transla"
+          }
+        ],
+        "suggestedQuestions": [
+          "这篇内容的核心观点是什么？",
+          "哪些段落最值得深入阅读？",
+          "可以把这篇内容整理成思维导图吗？"
+        ],
+        "title": "Browser extension - derived article fixture",
+        "tldr": "A browser extension is a small software module that changes or extends a web browser. Common extension uses include productivity tools, filtering, password management, page translation, accessibility helpers, and developer utilities."
+      },
+      "tab_id": 101,
+      "title": "Browser extension - derived article fixture",
+      "url": "https://en.wikipedia.org/wiki/Browser_extension",
+      "visible_text": null
+    }
+  },
+  "error": null,
+  "ok": true,
+  "request_id": "req_00000000000000000000000003"
+}

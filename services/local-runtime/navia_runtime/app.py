@@ -14,7 +14,7 @@ from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, fail
 from navia_runtime.modules.adapters.runtime import AdapterRegistry, default_adapter_registry
 from navia_runtime.modules.agent_loop.runtime import run_agentic_turn, run_core_provider_turn_async
 from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
-from navia_runtime.modules.page_reading.runtime import build_structured_page_context
+from navia_runtime.modules.page_reading.runtime import build_high_signal_page_perception
 from navia_runtime.provider_settings import (
     DeepSeekProvider,
     ProviderMissingError,
@@ -268,6 +268,7 @@ def get_session(session_id: str, request: Request):
                 "domain": active_page.get("domain"),
                 "content_hash": active_page.get("content_hash"),
                 "captured_at": active_page.get("captured_at"),
+                "perception": active_page.get("perception"),
             }
             if active_page
             else None,
@@ -309,33 +310,32 @@ async def page_context(request: Request):
             ),
         )
 
-    structured_result = build_structured_page_context(
-        {
-            "sessionId": session_id,
-            "pageId": body.get("page_id"),
-            "url": body["url"],
-            "title": body["title"],
-            "domain": body["domain"],
-            "capturedAt": body.get("captured_at") or utc_now(),
-            "headings": body.get("headings", []),
-            "selectedText": body.get("selected_text"),
-            "visibleText": body.get("visible_text"),
-            "cleanedText": body.get("cleaned_text") or body.get("visible_text") or "",
-            "metadata": body.get("metadata", {}),
-        }
-    )
-    if not structured_result["ok"]:
+    perception_result = build_high_signal_page_perception(page_reading_input(session_id, body))
+    if not perception_result["ok"]:
         return JSONResponse(
             status_code=400,
             content=failure(
                 ErrorCode.PAGE_CONTEXT_REQUIRED,
-                structured_result["error"]["message"],
+                perception_result["error"]["message"],
                 request_id=request_id,
                 recoverable=True,
                 details={"source": "page_reading"},
             ),
         )
-    page = with_legacy_page_aliases(structured_result["structuredPage"], body)
+    page = with_legacy_page_aliases(perception_result["structuredPage"], body)
+    structured_page_snapshot = dict(page)
+    page["perception"] = {
+        "structuredPage": structured_page_snapshot,
+        "highSignalPage": perception_result["highSignalPage"],
+        "perceptionDigest": perception_result["perceptionDigest"],
+        "sourceMap": perception_result["sourceMap"],
+        "qualityReport": perception_result["qualityReport"],
+        "candidateExtraction": perception_result.get("candidateExtraction"),
+    }
+    page["highSignalPage"] = perception_result["highSignalPage"]
+    page["perceptionDigest"] = perception_result["perceptionDigest"]
+    page["sourceMap"] = perception_result["sourceMap"]
+    page["qualityReport"] = perception_result["qualityReport"]
     page_id = page["page_id"]
     content_hash = page["content_hash"]
     session_store.set_active_page(session_id, page)
@@ -353,6 +353,11 @@ async def page_context(request: Request):
             "content_hash": content_hash,
             "status": "accepted",
             "structuredPage": page,
+            "highSignalPage": perception_result["highSignalPage"],
+            "perceptionDigest": perception_result["perceptionDigest"],
+            "sourceMap": perception_result["sourceMap"],
+            "qualityReport": perception_result["qualityReport"],
+            "perception": page["perception"],
         },
         request_id=request_id,
     )
@@ -828,6 +833,23 @@ def model_provider_payload(provider: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def page_reading_input(session_id: str, body: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "sessionId": session_id,
+        "pageId": body.get("page_id") or body.get("pageId"),
+        "url": body["url"],
+        "title": body["title"],
+        "domain": body["domain"],
+        "capturedAt": body.get("captured_at") or body.get("capturedAt") or utc_now(),
+        "headings": body.get("headings", []),
+        "selectedText": body.get("selected_text") or body.get("selectedText"),
+        "visibleText": body.get("visible_text") or body.get("visibleText"),
+        "cleanedText": body.get("cleaned_text") or body.get("cleanedText") or body.get("visible_text") or body.get("visibleText") or "",
+        "html": body.get("html"),
+        "metadata": body.get("metadata", {}),
+    }
+
+
 def with_legacy_page_aliases(page: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:
     page_id = str(page["pageId"])
     content_hash = str(page["contentHash"])
@@ -982,12 +1004,20 @@ def integration_adapter_registry() -> AdapterRegistry:
 
 def c_mindmap_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
     page = invocation.get("input", {}).get("activePage")
+    page_record = page if isinstance(page, dict) else {}
+    perception = page_record.get("perception") if isinstance(page_record.get("perception"), dict) else {}
+    perception_digest = perception.get("perceptionDigest") or page_record.get("perceptionDigest")
+    source_map = perception.get("sourceMap") or page_record.get("sourceMap")
+    quality_report = perception.get("qualityReport") or page_record.get("qualityReport")
     result = generate_mindmap_payload(
         {
             "sessionId": invocation["sessionId"],
             "turnId": invocation["turnId"],
             "toolCallId": invocation["toolCallId"],
             "structuredPage": page,
+            "perceptionDigest": perception_digest,
+            "sourceMap": source_map,
+            "qualityReport": quality_report,
         }
     )
     if not result["ok"]:

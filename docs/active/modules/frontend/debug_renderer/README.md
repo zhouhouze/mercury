@@ -8,6 +8,9 @@ Render diagnostics outside the primary Chat experience:
 
 - Runtime online/offline state.
 - PageContext diagnostics.
+- A high-signal perception JSON diagnostics.
+- A quality report and pass / degraded / fail reasons.
+- C mindmap node source map diagnostics.
 - trace diagnostics.
 - unknown SSE/event diagnostics.
 
@@ -15,12 +18,21 @@ Render diagnostics outside the primary Chat experience:
 
 - Runtime status.
 - debug signals from B renderers.
+- `StructuredPageContext`.
+- `HighSignalPageContext`.
+- `PerceptionDigest`.
+- `SourceMap / SourceRef`.
+- `PagePerceptionQualityReport`.
+- `MindmapNodeSourceMap`.
 - recorded diagnostic fixtures.
 
 ## Outputs
 
 - debug panel view model or renderer components.
 - visible runtime and trace diagnostics.
+- collapsible JSON views for A perception bundle.
+- readable quality metric table with numerator / denominator / threshold / pass state.
+- source fallback card for SourceRef or Mindmap node jumpback failure.
 
 ## Allowed Files
 
@@ -52,12 +64,18 @@ docs/test-and-evidence-plan.md
 
 - Keep debug-only content out of the primary Chat tab.
 - Do not use debug state as AgentCore truth.
+- Do not call A/C/D services directly; render only data delivered by Runtime / D / Integration.
+- Unknown or new diagnostic fields must not crash the UI.
 - Runtime offline must be visible.
 
 ## Validation Evidence
 
 - runtime offline fixture.
 - PageContext missing fixture.
+- high-signal JSON fixture.
+- quality degraded/fail fixture.
+- SourceRef fallback fixture.
+- mindmap node source map fixture.
 - unknown event fixture.
 - trace diagnostic fixture.
 

@@ -206,6 +206,40 @@ A-V1.2 子阶段打回规则：
 - `A-V1.2-6/7` quality report 不能解释 pass/degraded/fail、指标缺 numerator/denominator/method、Debug JSON 不可审计时，打回 quality / debug 阶段。
 - `A-V1.2-8` corpus-level report 未达到 pass rate 或类别门槛时，按失败最多的类别和指标打回对应子阶段。
 
+### 2.7 当前阶段 AC 联动 Gate
+
+当前阶段验收目标是证明 A 的高信号感知结果能进入 Runtime 主链路，并被 C 用于生成可反跳 Mindmap。
+
+必须通过：
+
+- [ ] `/v1/page/context` 或等价 Runtime 主链路返回 / 持久化 A perception bundle，至少包含 `structuredPage`、`highSignalPage`、`perceptionDigest`、`sourceMap`、`qualityReport`。
+- [ ] 保持旧 `activePage` 字段兼容，既有总结和问答工具不因 A 扩展字段断裂。
+- [ ] Debug 页能展示 A high-signal JSON、digest、source refs、quality metrics 和 pass / degraded / fail 原因。
+- [ ] `PagePerceptionQualityReport.downstreamReadiness = "pass"` 时，C 优先使用 `PerceptionDigest.items` 生成 mindmap 节点。
+- [ ] `degraded` 或 `fail` 页面必须在 Debug 和聊天区域给出可见降级/失败提示，不得生成假 high-signal mindmap。
+- [ ] C 输出的 `metadata.nodeSourceMap` 至少覆盖 root 和主要节点；每个主要节点关联 A `sourceRefId` 或 paragraph/chunk fallback。
+- [ ] 每个可反跳节点必须有 `textQuote` 或 `fallbackText`。
+- [ ] Mermaid source 通过 validator；repair 次数 `<= 1`。
+- [ ] D / Integration 创建 `ArtifactRecord(type="mindmap", metadata.format="mermaid")`，artifact 必须包含 `sourcePageId`、`turnId`、`toolCallId`。
+- [ ] `/v1/chat/stream` trace 可看到 state、intent、budget、tool、artifact、response 事件。
+- [ ] A 不创建 Artifact、不发 SSE、不写 EventStore；C 不读取 DOM；B 不直接调用 A/C/D。
+
+真实数据验收：
+
+- [ ] 至少 12 个真实网页或 snapshot 覆盖文章、技术文档、GitHub README、表格页、代码页、图片富集页、中文页和低信号页。
+- [ ] 至少 3 个真实 Chrome 页面完成读取 -> Debug JSON -> Mindmap -> source fallback 验收。
+- [ ] 至少 1 个中文复杂网页，A 输出的 digest 和 C 输出的 mindmap 需要人工抽样复核。
+- [ ] 至少 1 个 low-signal 页面必须 degraded/fail，且不生成伪正常 mindmap。
+
+AC 联动 No-Go：
+
+- [ ] 只跑 A 离线 corpus，不跑 Runtime 主链路，却声明 AC 完成。
+- [ ] C 仍只基于 headingTree 生成，却声明 digest-first。
+- [ ] nodeSourceMap 只有 label，没有 sourceRef / paragraph / chunk / fallback。
+- [ ] Debug 页只能显示不可读原始 JSON，不能解释质量和来源。
+- [ ] 任一工具绕过 D Adapter Layer。
+- [ ] 端到端验收只使用 mock 页面或不可复现数据。
+
 ---
 
 ## 3. 模块验收

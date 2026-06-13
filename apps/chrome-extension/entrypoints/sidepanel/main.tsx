@@ -441,7 +441,7 @@ function App() {
                 id,
                 trimmed,
                 (nextEvent) => dispatchChatView({ type: "agent_event", event: nextEvent }),
-                { ...chatProviderDraft, intentHint: intent, autoContext: false, profile: "chat" }
+                chatStreamOptions(intent, false, chatProviderDraft)
               );
             } else {
               dispatchChatView({ type: "agent_event", event: syntheticEvent("error", turnId, { message: contextResult.message, recoverable: true }) });
@@ -450,7 +450,7 @@ function App() {
           }
           dispatchChatView({ type: "agent_event", event });
         },
-        { ...chatProviderDraft, intentHint: intent, autoContext: intentRequiresPageContext(intent, trimmed), profile: "chat" }
+        chatStreamOptions(intent, intentRequiresPageContext(intent, trimmed), chatProviderDraft)
       );
       setStreamStatus("done");
       setChatTurnState("done");
@@ -888,7 +888,7 @@ function isTerminalChatProviderTestStatus(status: ChatProviderTestStatus): boole
 class PageUnsupportedError extends Error {}
 
 async function readCurrentPageContext(): Promise<ExtractedPageContext> {
-  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  const tab = await resolveReadableTab();
   if (!tab.id || !tab.url) {
     throw new Error("无法定位当前标签页。");
   }
@@ -916,6 +916,16 @@ async function readCurrentPageContext(): Promise<ExtractedPageContext> {
     throw new Error("页面未返回上下文。");
   }
   return context;
+}
+
+async function resolveReadableTab(): Promise<chrome.tabs.Tab> {
+  const e2eTabId = new URLSearchParams(window.location.search).get("naviaE2ETabId");
+  if (e2eTabId && /^\d+$/.test(e2eTabId)) {
+    const tab = await chrome.tabs.get(Number(e2eTabId));
+    if (tab?.id) return tab;
+  }
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  return tab;
 }
 
 function detectChatIntent(message: string): ChatIntent {
@@ -962,6 +972,18 @@ function syntheticEvent(type: string, turnId: string, data: Record<string, unkno
 function intentRequiresPageContext(intent: ChatIntent, message: string): boolean {
   if (intent === "page_qa" || intent === "summarize_page" || intent === "mindmap_page" || intent === "explain_selection") return true;
   return /(当前页面|这个页面|这页|这篇|这篇文章|这段|上面内容)/i.test(message);
+}
+
+function chatStreamOptions(
+  intent: ChatIntent,
+  autoContext: boolean,
+  provider: ChatProviderConfig
+): Partial<ChatProviderConfig> & { intentHint: ChatIntent; autoContext: boolean; profile: "chat" } {
+  const base = { intentHint: intent, autoContext, profile: "chat" } as const;
+  if (intent === "page_qa" || intent === "summarize_page" || intent === "mindmap_page" || intent === "explain_selection") {
+    return base;
+  }
+  return { ...provider, ...base };
 }
 
 function extractPageContextInTab(): ExtractedPageContext {
@@ -1016,6 +1038,11 @@ function resolveChatProviderDraft(settings: MercurySettings): ChatProviderConfig
 
 async function getActiveTabUrl(): Promise<string | null> {
   try {
+    const e2eTabId = new URLSearchParams(window.location.search).get("naviaE2ETabId");
+    if (e2eTabId && /^\d+$/.test(e2eTabId)) {
+      const tab = await chrome.tabs.get(Number(e2eTabId));
+      return typeof tab?.url === "string" ? tab.url : null;
+    }
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     return typeof tab?.url === "string" ? tab.url : null;
   } catch {

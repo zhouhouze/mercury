@@ -348,6 +348,11 @@ def test_v1_0_e_mindmap_creates_mermaid_artifact_and_trace() -> None:
     assert artifact["sourcePageId"].startswith("page_")
     assert artifact["turnId"] == artifact_event["turn_id"]
     assert artifact["toolCallId"].startswith("tc_")
+    node_source_map = artifact["metadata"]["nodeSourceMap"]
+    primary_nodes = [node for node_id, node in node_source_map.items() if node_id != "root"]
+    assert primary_nodes
+    assert any(node.get("sourceRefIds") for node in primary_nodes)
+    assert all(node.get("fallbackText") for node in primary_nodes)
 
 
 def test_v1_0_d_page_context_endpoint_records_active_page_and_event() -> None:
@@ -362,7 +367,17 @@ def test_v1_0_d_page_context_endpoint_records_active_page_and_event() -> None:
     body = response.json()
     validate("api-response.schema.json", body)
     assert body["data"]["status"] == "accepted"
+    assert body["data"]["structuredPage"]["page_id"] == sample["page_id"]
+    assert body["data"]["highSignalPage"]["pageId"] == sample["page_id"]
+    assert body["data"]["perceptionDigest"]["items"]
+    assert body["data"]["sourceMap"]["sourceRefs"]
+    assert body["data"]["qualityReport"]["downstreamReadiness"] in {"pass", "degraded", "fail"}
     assert session_store.sessions[session_id]["active_page"]["page_id"] == sample["page_id"]
+    active_page = session_store.get_active_page(session_id)
+    assert active_page is not None
+    assert active_page["perception"]["perceptionDigest"]["items"]
+    restored = client.get(f"/v1/sessions/{session_id}").json()
+    assert restored["data"]["activePage"]["perception"]["qualityReport"]["downstreamReadiness"] in {"pass", "degraded", "fail"}
     events = event_store.list_by_session(session_id)
     assert any(event["type"] == "page.context.received" for event in events)
 

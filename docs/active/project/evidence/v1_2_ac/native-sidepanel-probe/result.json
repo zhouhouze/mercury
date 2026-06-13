@@ -1,0 +1,37 @@
+{
+  "status": "visual_probe_only",
+  "browserMode": "chromium",
+  "runtimeUrl": "http://127.0.0.1:17861",
+  "fixtureUrl": "http://127.0.0.1:57754/article.html",
+  "extensionId": "nnnoagjogjdnodhkdhinndompnjjnkkg",
+  "openAttempts": [
+    {
+      "ok": false,
+      "method": "chrome.sidePanel.open",
+      "message": "`sidePanel.open()` may only be called in response to a user gesture."
+    },
+    {
+      "ok": true,
+      "method": "Playwright Alt+Shift+N sent"
+    },
+    {
+      "ok": true,
+      "method": "System Events Option+Shift+N sent"
+    }
+  ],
+  "pages": [
+    "about:blank",
+    "http://127.0.0.1:57754/article.html"
+  ],
+  "workers": [
+    "chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js"
+  ],
+  "screenshots": [
+    "01-browser-before-action.png",
+    "02-browser-after-action.png"
+  ],
+  "acceptance": {
+    "nativeSidePanelUxAccepted": false,
+    "reason": "This probe only captures the browser window after attempting to open the native side panel. Human or image review must confirm whether the right-side native Side Panel is visible before UX acceptance can pass."
+  }
+}

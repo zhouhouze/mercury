@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia 原生 Chrome Side Panel 重新验收报告</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #fff;
+      --ink: #152033;
+      --muted: #667085;
+      --line: #dce4ef;
+      --green: #0f8a5f;
+      --yellow: #a66d00;
+      --red: #b42318;
+      --blue: #3158f5;
+      --green-soft: #eaf8f2;
+      --yellow-soft: #fff7e6;
+      --red-soft: #fff1ef;
+      --blue-soft: #eef3ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.58;
+    }
+    header { padding: 32px 42px; background: #111827; color: #fff; }
+    header h1 { margin: 0 0 10px; font-size: 30px; }
+    header p { margin: 0; max-width: 1120px; color: #d6deeb; }
+    main { max-width: 1240px; margin: 0 auto; padding: 28px 28px 64px; }
+    section {
+      margin: 0 0 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+    }
+    h2 {
+      margin: 0;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfe;
+      font-size: 20px;
+    }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    p { margin: 0 0 10px; }
+    ul, ol { margin: 8px 0 0; padding-left: 22px; }
+    li { margin: 4px 0; }
+    code {
+      padding: 2px 5px;
+      border-radius: 5px;
+      background: #eef2ff;
+      color: #27348b;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    .body { padding: 20px 22px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .metric {
+      min-height: 112px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: #fff;
+    }
+    .metric strong { display: block; margin-bottom: 5px; }
+    .pill {
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      padding: 2px 9px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .pass { background: var(--green); }
+    .warn { background: var(--yellow); }
+    .fail { background: var(--red); }
+    .info { background: var(--blue); }
+    .muted { color: var(--muted); }
+    .callout {
+      padding: 14px 16px;
+      border: 1px solid #c9d5ff;
+      border-left: 5px solid var(--blue);
+      border-radius: 9px;
+      background: var(--blue-soft);
+    }
+    .callout.good { border-color: #bfe8d8; border-left-color: var(--green); background: var(--green-soft); }
+    .callout.warnbox { border-color: #f2d199; border-left-color: var(--yellow); background: var(--yellow-soft); }
+    .callout.failbox { border-color: #ffc7c0; border-left-color: var(--red); background: var(--red-soft); }
+    table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; font-size: 14px; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #f8fafc; color: #344054; }
+    tr:last-child td { border-bottom: 0; }
+    .shot { margin: 0 0 18px; border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: #fff; }
+    .shot-head { padding: 14px 16px; border-bottom: 1px solid var(--line); background: #fbfcfe; }
+    .shot-head p { color: var(--muted); }
+    .shot img { display: block; width: 100%; background: #fff; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 900px) {
+      header { padding: 24px; }
+      main { padding: 18px; }
+      .grid, .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia 原生 Chrome Side Panel 重新验收报告</h1>
+    <p>本报告按新标准重新执行验收：只有真实网页与右侧 Chrome 原生 Side Panel 同屏出现，才承认侧边插件状态。最新复测没有稳定打开原生侧栏，因此当前结论是“原生侧栏打开不稳定 / 最新复测未通过，完整侧栏内用户流程未通过”。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>结论摘要</h2>
+      <div class="body">
+        <div class="grid">
+          <div class="metric">
+            <strong>原生 Side Panel 打开</strong>
+            <span class="pill fail">不稳定 / 未通过</span>
+            <p class="muted">最新复测截图未出现右侧 Navia 原生侧栏。</p>
+          </div>
+          <div class="metric">
+            <strong>侧栏内完整 UX 流程</strong>
+            <span class="pill fail">未通过 / 阻塞</span>
+            <p class="muted">后续坐标自动化截图不可靠，未形成合格证据。</p>
+          </div>
+          <div class="metric">
+            <strong>direct extension page</strong>
+            <span class="pill warn">仅功能冒烟</span>
+            <p class="muted">不再作为侧边栏 UX 通过证据。</p>
+          </div>
+        </div>
+
+        <div class="callout warnbox" style="margin-top: 16px;">
+          <h3>本轮新增事实</h3>
+          <p>曾有一次系统级 Option+Shift+N 触发后出现真实网页与右侧 Navia 原生侧栏同屏截图，但最新复测未能稳定复现。按严格验收口径，不能声明“原生侧栏打开通过”。</p>
+        </div>
+
+        <div class="callout failbox" style="margin-top: 12px;">
+          <h3>仍然不能通过的部分</h3>
+          <p>读取页面、Debug、提交上下文、总结、问答、Mindmap 的完整侧栏内流程没有形成可信截图证据。尝试用坐标自动化继续操作时，曾截到终端和无关窗口；这批截图已删除，不能作为验收材料。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>本轮执行记录</h2>
+      <div class="body">
+        <table>
+          <thead>
+            <tr>
+              <th>验收项</th>
+              <th>方式 / 命令</th>
+              <th>结果</th>
+              <th>判定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>打开原生 Side Panel</td>
+              <td><code>node apps/chrome-extension/e2e/chrome-native-sidepanel-probe.mjs</code></td>
+              <td>系统级 Option+Shift+N 可触发 Runtime 访问，但最新截图没有出现右侧 Navia Side Panel。</td>
+              <td><span class="pill fail">未通过</span></td>
+            </tr>
+            <tr>
+              <td>直接调用 <code>chrome.sidePanel.open()</code></td>
+              <td>service worker evaluate</td>
+              <td>失败：<code>sidePanel.open()</code> 只能响应 user gesture。</td>
+              <td><span class="pill warn">预期限制</span></td>
+            </tr>
+            <tr>
+              <td>direct extension page 功能链路</td>
+              <td><code>pnpm --dir apps/chrome-extension e2e:chrome:visual</code></td>
+              <td>摘要、问答、Mindmap 功能链路曾通过，但运行在全屏扩展页。</td>
+              <td><span class="pill warn">仅冒烟</span></td>
+            </tr>
+            <tr>
+              <td>原生侧栏内完整流程</td>
+              <td>曾尝试坐标自动化，未纳入正式验收脚本</td>
+              <td>继续点击读取、Debug、提交、摘要等步骤时截图区域不稳定，误截无关窗口；相关截图和脚本已删除。</td>
+              <td><span class="pill fail">未通过</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>截图证据</h2>
+      <div class="body">
+        <article class="shot">
+          <div class="shot-head">
+            <h3>1. 打开 Side Panel 前</h3>
+            <p>浏览器显示真实 fixture 页面，尚未打开右侧 Navia。用于对照打开前后的窗口形态。</p>
+          </div>
+          <a href="01-browser-before-action.png" target="_blank">
+            <img src="01-browser-before-action.png" alt="打开 Side Panel 前的真实网页" />
+          </a>
+        </article>
+
+        <article class="shot">
+          <div class="shot-head">
+            <h3>2. 触发扩展后</h3>
+            <p>不合格证据：最新复测截图只显示真实网页和 Chrome 翻译弹窗，没有出现右侧 Navia Side Panel。因此不能作为侧边栏通过证据。</p>
+          </div>
+          <a href="02-browser-after-action.png" target="_blank">
+            <img src="02-browser-after-action.png" alt="打开原生 Side Panel 后的 Navia" />
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>被降级或拒绝的证据</h2>
+      <div class="body">
+        <div class="two-col">
+          <div class="callout warnbox">
+            <h3>全屏扩展页截图</h3>
+            <p><code>visual-chrome-cli</code> 中的摘要、问答、Mindmap 截图只能证明功能链路冒烟，不能证明真实侧边栏 UX。</p>
+          </div>
+          <div class="callout failbox">
+            <h3>坐标流程截图</h3>
+            <p><code>native-sidepanel-ux</code> 尝试中误截终端和无关窗口，已删除，不作为任何验收依据。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>下一步修复建议</h2>
+      <div class="body">
+        <ol>
+          <li>先把原生 Side Panel 内的按钮操作接入可自动定位的方式，避免用屏幕坐标点击。</li>
+          <li>为 Side Panel 验收提供稳定的 test id、可访问自动化入口，或通过原生 Side Panel page target 获取 DOM。</li>
+          <li>修复 side panel 窄宽度下快捷按钮横向溢出问题，当前 Mindmap 按钮在原生宽度下可见性不足。</li>
+          <li>重新跑侧栏内完整流程：读取页面、Debug、提交上下文、总结、问答、Mindmap、刷新恢复。</li>
+          <li>只有上述流程都有“真实网页 + 右侧 Side Panel”截图后，才能声明原生侧边栏 UX 验收通过。</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

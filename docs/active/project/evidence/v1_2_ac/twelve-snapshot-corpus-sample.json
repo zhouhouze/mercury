@@ -1,0 +1,260 @@
+{
+  "count": 12,
+  "pages": [
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "news_article",
+      "complexityTags": [
+        "longform",
+        "mixed_language"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "date_noise",
+        "event_timeline",
+        "sidebar"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "news_001_go_loopvar_preview",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/news_001_go_loopvar_preview.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://go.dev/blog/loopvar-preview"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "longform_blog",
+      "complexityTags": [
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "long_context",
+        "section_hierarchy"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "blog_001_pep_0008",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/blog_001_pep_0008.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation; reused previously captured snapshot after transient network failure",
+      "url": "https://peps.python.org/pep-0008/"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "technical_docs",
+      "complexityTags": [
+        "longform",
+        "code_heavy"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "multi_level_headings",
+        "api_terms"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "tech_001_go_effective",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/tech_001_go_effective.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://go.dev/doc/effective_go"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "github_readme",
+      "complexityTags": [
+        "code_heavy",
+        "sidebar"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "repo_navigation",
+        "badges",
+        "code_blocks"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "github_001_python_cpython",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/github_001_python_cpython.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/README.rst"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "product_docs",
+      "complexityTags": [
+        "sidebar",
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "version_switcher",
+        "navigation_noise"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "product_docs_001_django_tutorial01",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/product_docs_001_django_tutorial01.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://docs.djangoproject.com/en/stable/intro/tutorial01/"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "ecommerce_product",
+      "complexityTags": [
+        "sidebar"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "price",
+        "ratings",
+        "recommendation"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "product_001_book_light_attic",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/product_001_book_light_attic.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "forum_thread",
+      "complexityTags": [
+        "comments",
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "multi_author",
+        "reply_noise",
+        "quoted_text"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "forum_001_lobsters_page_1",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/forum_001_lobsters_page_1.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://lobste.rs/"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "academic_or_report",
+      "complexityTags": [
+        "longform",
+        "table_heavy"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "formal_sections",
+        "references"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "report_001_rfc_9110",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/report_001_rfc_9110.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "table_heavy_page",
+      "complexityTags": [
+        "table_heavy"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "large_tables",
+        "header_scope"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "table_001_python_modindex",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/table_001_python_modindex.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://docs.python.org/3/py-modindex.html"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "code_heavy_page",
+      "complexityTags": [
+        "code_heavy",
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "code_blocks",
+        "api_terms"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "code_001_py_asyncio",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/code_001_py_asyncio.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://docs.python.org/3/library/asyncio.html"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "image_rich_article",
+      "complexityTags": [
+        "image_rich",
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "image_alt",
+        "caption",
+        "gallery_noise"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "en",
+      "pageKey": "image_001_go_image_draw",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/image_001_go_image_draw.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation; reused previously captured snapshot after transient network failure",
+      "url": "https://go.dev/blog/image-draw"
+    },
+    {
+      "allowedNetworkAtCapture": true,
+      "capturedAt": "2026-06-09T02:42:31Z",
+      "category": "localized_chinese_page",
+      "complexityTags": [
+        "mixed_language",
+        "longform"
+      ],
+      "expectedOutcome": "pass",
+      "expectedRisks": [
+        "chinese_segmentation",
+        "site_navigation"
+      ],
+      "goldStatus": "semi_auto_accepted",
+      "language": "zh",
+      "pageKey": "zh_001_python_tutorial_index",
+      "schemaVersion": "a-v1.2-corpus-page-2026-06-05",
+      "snapshotPath": "snapshots/zh_001_python_tutorial_index.html",
+      "sourceLicenseNote": "public web snapshot captured for A-V1.2 evaluation",
+      "url": "https://docs.python.org/zh-cn/3/tutorial/index.html"
+    }
+  ],
+  "source": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/corpus-manifest.json"
+}

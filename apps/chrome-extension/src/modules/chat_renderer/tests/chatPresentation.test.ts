@@ -32,7 +32,14 @@ const mindmapArtifact = {
   metadata: {
     format: "mermaid",
     nodeSourceMap: {
-      root: { paragraphIds: ["pg_0001"], chunkIds: ["ck_0001"], excerpt: "Navia extracts page context." }
+      root: {
+        sourceRefIds: ["src_0001"],
+        paragraphIds: ["pg_0001"],
+        chunkIds: ["ck_0001"],
+        excerpt: "Navia extracts page context.",
+        fallbackText: "Navia extracts page context.",
+        jumpback: { mode: "fallback", reason: "selector_missing" }
+      }
     }
   }
 };
@@ -70,6 +77,7 @@ describe("chat renderer presentation reducer", () => {
     expect(viewModel.mindmaps[0].renderMode).toBe("mermaid");
     expect(fallback.renderMode).toBe("source_fallback");
     expect(fallback.sourceFallback).toContain("mindmap");
+    expect(fallback.sourceFallback).toContain("Navia extracts page context.");
     expect(fallback.nodeSourceMap.root).toBeTruthy();
   });
 

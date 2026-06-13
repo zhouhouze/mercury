@@ -668,17 +668,42 @@ type MindmapNodeSourceMap = Record<
   string,
   {
     nodeLabel: string
+    digestItemIds?: string[]
+    sourceRefIds?: string[]
     paragraphIds: string[]
     chunkIds: string[]
     excerpt: string
+    textQuote?: string
+    fallbackText: string
+    jumpback:
+      | {
+          mode: "dom"
+          selector?: string
+          domPath?: string
+          startOffset?: number
+          endOffset?: number
+        }
+      | {
+          mode: "fallback"
+          reason:
+            | "selector_missing"
+            | "selector_failed"
+            | "source_ref_missing"
+            | "low_signal"
+            | "unsupported"
+        }
   }
 >
 ```
 
 约束：
 
-- C 必须为主要 Mindmap 节点提供 source map。
-- B 点击节点时优先 DOM 回跳；失败时展示 excerpt fallback。
+- C 必须为 root 和主要 Mindmap 节点提供 source map。
+- 当前 AC 阶段中，C 在 `qualityReport.downstreamReadiness = "pass"` 时必须优先使用 `PerceptionDigest.items` 与 A `SourceRef` 生成节点；`headingTree` / paragraph fallback 只能作为降级路径。
+- `sourceRefIds` 优先指向 A `SourceMap.sourceRefs`；没有可用 SourceRef 时必须写明 fallback reason。
+- `paragraphIds` / `chunkIds` 保留用于兼容旧 StructuredPageContext 和 DOM 回跳失败 fallback。
+- B 点击节点时优先 DOM 回跳；失败时展示 `fallbackText` / `textQuote` 证据卡片。
+- `fallbackText` 必填，DOM selector / domPath 不得作为唯一反跳机制。
 - source map 写入 `ArtifactRecord.metadata.nodeSourceMap`。
 
 ---

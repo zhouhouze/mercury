@@ -15,6 +15,7 @@ docs/history/
 | `v1.2-0-ai-reading-contract-and-workspace-freeze.md` | 当前 V1.2 基础门禁 | 冻结 A/B/C/D/Integration 工作区、公共合同和跨模块变更规则 |
 | `v1.2-a-page-reading.md` | 当前 A 模块工作区门禁 | A Page Perception / AgentCore Eyes 的工作区、边界和交接规则 |
 | `v1.2-a-v1.2-production-page-perception.md` | 当前 A-V1.2 主门禁 | 高质量网页感知、结构化页面摘要、可反跳证据、Debug JSON、100-page corpus gate |
+| `v1.2-ac-page-perception-mindmap-bridge.md` | 当前 AC 联动门禁 | A high-signal 主链路、C digest-first Mindmap、SourceRef 反跳和 Debug 验收 |
 | `v1.2-b-chat-renderer.md` | V1.2 B 模块门禁 | 前端结构化渲染、流式输出、Debug 和 Mindmap 展示 |
 | `v1.2-c-mindmap.md` | V1.2 C 模块门禁 | Mermaid / Mindmap 生成、source map 和反跳来源 |
 | `v1.2-d-agentic-loop.md` | V1.2 D 模块门禁 | CoreProvider / Adapter Layer、治理桥和 ToolResult / Artifact / Event / Trace 映射 |

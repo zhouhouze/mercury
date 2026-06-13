@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>V1.2-AC Chrome 可见截图验收报告</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #f6f7f9; color: #172033; }
+    header { padding: 28px 36px; background: #111827; color: white; }
+    header h1 { margin: 0 0 8px; font-size: 28px; }
+    header p { margin: 0; color: #d1d5db; }
+    main { padding: 24px 36px 48px; display: grid; gap: 18px; }
+    .summary, .card { background: white; border: 1px solid #e5e7eb; border-radius: 8px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); }
+    .summary { padding: 18px 20px; }
+    .summary pre { white-space: pre-wrap; background: #f3f4f6; padding: 12px; border-radius: 6px; overflow: auto; }
+    .card { overflow: hidden; }
+    .meta { padding: 16px 18px 10px; }
+    .meta h2 { margin: 0 0 6px; font-size: 18px; }
+    .meta p { margin: 0; color: #4b5563; line-height: 1.5; }
+    img { display: block; width: 100%; border-top: 1px solid #e5e7eb; background: #fff; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>V1.2-AC Chrome 可见截图验收报告</h1>
+    <p>覆盖读取页面、Debug 状态、提交 Runtime、摘要、页面问答、Mindmap 与刷新恢复。</p>
+  </header>
+  <main>
+    <section class="summary">
+      <h2>自动化结论</h2>
+      <pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;browserMode&quot;: &quot;chromium&quot;,
+  &quot;sidePanelMode&quot;: &quot;direct_extension_page&quot;,
+  &quot;runtimeUrl&quot;: &quot;http://127.0.0.1:17861&quot;,
+  &quot;fixtureUrl&quot;: &quot;http://127.0.0.1:58015/article.html&quot;,
+  &quot;extensionId&quot;: &quot;nnnoagjogjdnodhkdhinndompnjjnkkg&quot;,
+  &quot;report&quot;: &quot;/Users/Zhuanz/Desktop/workspace/navia/docs/active/project/evidence/v1_2_ac/visual-chrome-cli/index.html&quot;,
+  &quot;screenshots&quot;: [
+    &quot;01-fixture-page.png&quot;,
+    &quot;02-chat-initial.png&quot;,
+    &quot;03-debug-after-read.png&quot;,
+    &quot;04-debug-after-submit.png&quot;,
+    &quot;05-summary.png&quot;,
+    &quot;06-page-question.png&quot;,
+    &quot;07-mindmap-artifact.png&quot;,
+    &quot;08-refresh-recovery.png&quot;
+  ],
+  &quot;checks&quot;: [
+    &quot;fixture tab&quot;,
+    &quot;chat initial&quot;,
+    &quot;read page&quot;,
+    &quot;submit runtime&quot;,
+    &quot;summary&quot;,
+    &quot;page question&quot;,
+    &quot;mindmap&quot;,
+    &quot;refresh recovery&quot;
+  ]
+}</pre>
+    </section>
+    
+        <section class="card">
+          <div class="meta">
+            <h2>真实网页标签页</h2>
+            <p>隔离浏览器中打开真实 HTML fixture，后续扩展会读取这个 active tab。</p>
+          </div>
+          <a href="01-fixture-page.png" target="_blank">
+            <img src="01-fixture-page.png" alt="真实网页标签页" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>聊天页初始态</h2>
+            <p>Runtime online 后，聊天页显示读取页面、提交、总结、Mindmap 等主操作。</p>
+          </div>
+          <a href="02-chat-initial.png" target="_blank">
+            <img src="02-chat-initial.png" alt="聊天页初始态" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>Debug：已读取页面</h2>
+            <p>Debug 页显示 Page 状态为 capture_ready，并展示已读取页面标题。</p>
+          </div>
+          <a href="03-debug-after-read.png" target="_blank">
+            <img src="03-debug-after-read.png" alt="Debug：已读取页面" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>Debug：已提交 Runtime</h2>
+            <p>Runtime session 已创建，页面上下文进入 captured 状态。</p>
+          </div>
+          <a href="04-debug-after-submit.png" target="_blank">
+            <img src="04-debug-after-submit.png" alt="Debug：已提交 Runtime" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>聊天：网页摘要</h2>
+            <p>点击总结后，Runtime 通过阅读工具返回包含关键要点的摘要。</p>
+          </div>
+          <a href="05-summary.png" target="_blank">
+            <img src="05-summary.png" alt="聊天：网页摘要" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>聊天：基于当前页面问答</h2>
+            <p>用户提问后，回答明确基于当前页面内容生成。</p>
+          </div>
+          <a href="06-page-question.png" target="_blank">
+            <img src="06-page-question.png" alt="聊天：基于当前页面问答" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>聊天：Mindmap 渲染</h2>
+            <p>C 模块生成 Mermaid mindmap，B 侧完成可见渲染；此截图直接截取 Mindmap artifact 区域。</p>
+          </div>
+          <a href="07-mindmap-artifact.png" target="_blank">
+            <img src="07-mindmap-artifact.png" alt="聊天：Mindmap 渲染" />
+          </a>
+        </section>
+
+        <section class="card">
+          <div class="meta">
+            <h2>刷新恢复</h2>
+            <p>刷新扩展页后，session 与 activePage 状态可恢复。</p>
+          </div>
+          <a href="08-refresh-recovery.png" target="_blank">
+            <img src="08-refresh-recovery.png" alt="刷新恢复" />
+          </a>
+        </section>
+  </main>
+</body>
+</html>

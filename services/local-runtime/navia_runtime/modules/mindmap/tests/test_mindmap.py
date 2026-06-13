@@ -16,6 +16,10 @@ def structured_page(name: str) -> dict[str, object]:
     return evidence["structuredPage"]
 
 
+def evidence_payload(name: str, suffix: str) -> dict[str, object]:
+    return json.loads((A_EVIDENCE_DIR / f"{name}.{suffix}.json").read_text(encoding="utf-8"))
+
+
 def test_article_docs_and_readme_generate_valid_traceable_mindmaps() -> None:
     for name in ["article", "docs", "github_readme"]:
         result = generate_mindmap_payload(
@@ -87,3 +91,46 @@ def test_sparse_heading_tree_uses_paragraph_fallback_with_source_refs() -> None:
     assert result["paragraphIds"]
     assert result["sourceChunkIds"]
     assert len(result["metadata"]["nodeSourceMap"]) >= 2
+
+
+def test_pass_quality_uses_digest_items_and_source_refs_first() -> None:
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_digest",
+            "turnId": "turn_c_digest",
+            "toolCallId": "tc_c_digest",
+            "structuredPage": structured_page("article"),
+            "perceptionDigest": evidence_payload("article", "perception-digest"),
+            "sourceMap": evidence_payload("article", "source-map"),
+            "qualityReport": evidence_payload("article", "quality-report"),
+        }
+    )
+
+    assert result["ok"] is True
+    node_source_map = result["metadata"]["nodeSourceMap"]
+    primary_nodes = [node for node_id, node in node_source_map.items() if node_id != "root"]
+    assert primary_nodes
+    assert any(node["digestItemIds"] for node in primary_nodes)
+    assert any(node["sourceRefIds"] for node in primary_nodes)
+    assert all(node["fallbackText"] for node in primary_nodes)
+
+
+def test_fail_quality_does_not_create_fake_high_signal_mindmap() -> None:
+    quality = evidence_payload("article", "quality-report")
+    quality = {**quality, "downstreamReadiness": "fail"}
+
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_fail",
+            "turnId": "turn_c_fail",
+            "toolCallId": "tc_c_fail",
+            "structuredPage": structured_page("article"),
+            "perceptionDigest": evidence_payload("article", "perception-digest"),
+            "sourceMap": evidence_payload("article", "source-map"),
+            "qualityReport": quality,
+        }
+    )
+
+    assert result["ok"] is False
+    assert result["mermaidSource"] is None
+    assert result["error"]["code"] == ErrorCode.PAGE_CONTEXT_REQUIRED.value
