@@ -71,8 +71,8 @@ docs/history/
 | `design/v1.2-automation-readiness-gap.md` | V1.2 自动化开发就绪度 Gap |
 | `design/v1.2-prd-coverage-matrix.md` | V1.2 PRD 覆盖矩阵 |
 | `design/v1.2-integration-contract-matrix.md` | V1.2 Integration 合同矩阵 |
-| `design/v1.2-ai-reading-automation-gap.md` | V1.2 Draw.io companion |
-| `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 自动化开发 gap 图谱 |
+| `design/v1.2-ai-reading-automation-gap.md` | V1.2 项目级 drawio companion：当前实现、目标架构、目标功能形态、阶段划分和最终用户体验路径 |
+| `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 项目级目标架构总图：A/B/C/D、Runtime、Side Panel、最终网页内体验，以及 Memory Plane、Tool / Skill / MCP Plane、Cloud Plane 预留位置 |
 | `design/v1.2-a-page-perception-gap.md` | A-V1.2 Draw.io companion |
 | `design/v1.2-a-page-perception-gap.drawio` | A-V1.2 专属 gap 图谱 |
 | `design/v1.2-ac-native-sidepanel-gap.md` | V1.2-AC-Native 原生 Side Panel gap 图谱说明 |
