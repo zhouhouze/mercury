@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "audit": {
+    "passed": true,
+    "checks": [
+      {
+        "id": "native_ux_report_passed",
+        "passed": true,
+        "evidence": "native-sidepanel-ux/report.json"
+      },
+      {
+        "id": "no_structured_blockers",
+        "passed": true,
+        "evidence": "report.blockers"
+      },
+      {
+        "id": "required_page_count",
+        "passed": true,
+        "evidence": "pagesPassed=5, pagesRequired=5"
+      },
+      {
+        "id": "chinese_complex_coverage",
+        "passed": true,
+        "evidence": "includesChineseComplexPage=true"
+      },
+      {
+        "id": "low_signal_degraded_or_failed",
+        "passed": true,
+        "evidence": "lowSignalOutcome!=pass"
+      },
+      {
+        "id": "screenshot_metadata_complete",
+        "passed": true,
+        "evidence": "27 screenshots, missing=0, invalid=0"
+      },
+      {
+        "id": "production_build_no_e2e_bridge",
+        "passed": true,
+        "evidence": "84 production files checked"
+      }
+    ],
+    "metadata": {
+      "total": 27,
+      "missing": [],
+      "invalid": [],
+      "passed": true
+    },
+    "bridgeLeak": {
+      "passed": true,
+      "checkedFiles": 84,
+      "matches": []
+    }
+  }
+}

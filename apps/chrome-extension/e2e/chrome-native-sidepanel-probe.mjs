@@ -12,6 +12,8 @@ const repoRoot = path.resolve(__dirname, "../../..");
 const runtimeUrl = "http://127.0.0.1:17861";
 const fixturePath = path.join(repoRoot, "docs/active/project/fixtures/real_pages/article.html");
 const evidenceRoot = path.join(repoRoot, "docs/active/project/evidence/v1_2_ac/native-sidepanel-probe");
+const screenshotRoot = path.join(evidenceRoot, "screenshots");
+const blockerRoot = path.join(evidenceRoot, "blockers");
 const browserMode = process.env.NAVIA_NATIVE_BROWSER || "chromium";
 
 function wait(ms) {
@@ -132,12 +134,33 @@ async function pressSystemShortcutForNavia() {
 }
 
 async function regionScreenshot(name) {
-  const file = path.join(evidenceRoot, name);
+  const file = path.join(screenshotRoot, name);
   const result = await run("screencapture", ["-x", "-R", "40,40,1360,860", file]);
   if (result.code !== 0) {
     throw new Error(`screencapture failed: ${result.stderr || result.stdout}`);
   }
-  return file;
+  return path.relative(evidenceRoot, file);
+}
+
+function writeJson(relativePath, value) {
+  const absolutePath = path.join(evidenceRoot, relativePath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(value, null, 2));
+}
+
+function createBlocker({ stage = "native-probe", pageUrl, browser, extensionId, reason, evidencePaths, attemptedActions, nextAction }) {
+  return {
+    blockerId: `native_blocker_${Date.now()}`,
+    stage,
+    pageUrl,
+    browser,
+    extensionId,
+    reason,
+    evidencePaths,
+    attemptedActions,
+    nextAction,
+    blocksCompletion: true
+  };
 }
 
 async function tryOpenSidePanel(serviceWorker, fixturePage) {
@@ -186,9 +209,11 @@ async function main() {
     throw new Error(`Extension build not found: ${extensionRoot}`);
   }
   fs.mkdirSync(evidenceRoot, { recursive: true });
-  for (const file of ["01-browser-before-action.png", "02-browser-after-action.png", "result.json"]) {
-    fs.rmSync(path.join(evidenceRoot, file), { force: true });
-  }
+  fs.rmSync(screenshotRoot, { recursive: true, force: true });
+  fs.rmSync(blockerRoot, { recursive: true, force: true });
+  fs.rmSync(path.join(evidenceRoot, "report.json"), { force: true });
+  fs.mkdirSync(screenshotRoot, { recursive: true });
+  fs.mkdirSync(blockerRoot, { recursive: true });
 
   let runtimeProcess = null;
   if (!(await isRuntimeOnline())) {
@@ -221,19 +246,35 @@ async function main() {
     await fixturePage.goto(fixtureUrl);
     await bringBrowserWindowToVisibleArea(fixturePage);
     await activateBrowserApp(browserMode === "chrome" ? "Google Chrome" : "Google Chrome for Testing");
-    await regionScreenshot("01-browser-before-action.png");
+    const beforeScreenshot = await regionScreenshot("01-browser-before-action.png");
 
     const serviceWorker = await findExtensionServiceWorker(context);
     const extensionId = serviceWorker ? new URL(serviceWorker.url()).host : null;
     const openAttempts = await tryOpenSidePanel(serviceWorker, fixturePage);
     await activateBrowserApp(browserMode === "chrome" ? "Google Chrome" : "Google Chrome for Testing");
-    await regionScreenshot("02-browser-after-action.png");
+    const afterScreenshot = await regionScreenshot("02-browser-after-action.png");
 
     const pages = context.pages().map((page) => page.url());
     const workers = context.serviceWorkers().map((worker) => worker.url());
     const sidePanelPage = context.pages().find((page) => page.url().endsWith("/sidepanel.html"));
+    const evidencePaths = [beforeScreenshot, afterScreenshot];
+    const blocker = sidePanelPage
+      ? null
+      : createBlocker({
+          pageUrl: fixtureUrl,
+          browser: browserMode,
+          extensionId,
+          reason: "cannot_distinguish_native_panel",
+          evidencePaths,
+          attemptedActions: openAttempts.map((attempt) => `${attempt.method ?? "unknown"}:${attempt.ok ? "ok" : "failed"}`),
+          nextAction: "Use native-ux automation if the side panel page is exposed; otherwise perform human screenshot review before claiming UX pass."
+        });
+    if (blocker) writeJson(`blockers/${blocker.blockerId}.json`, blocker);
     const summary = {
-      status: sidePanelPage ? "automatable_sidepanel_page_exposed" : "visual_probe_only",
+      schemaVersion: "v1.2-ac-native-probe.1",
+      passed: Boolean(sidePanelPage),
+      status: sidePanelPage ? "automatable_sidepanel_page_exposed" : "structured_blocker_required",
+      stage: "native-probe",
       browserMode,
       runtimeUrl,
       fixtureUrl,
@@ -241,14 +282,15 @@ async function main() {
       openAttempts,
       pages,
       workers,
-      screenshots: ["01-browser-before-action.png", "02-browser-after-action.png"],
+      screenshots: evidencePaths,
+      blockers: blocker ? [`blockers/${blocker.blockerId}.json`] : [],
       acceptance: {
         nativeSidePanelUxAccepted: false,
         reason:
-          "This probe only captures the browser window after attempting to open the native side panel. Human or image review must confirm whether the right-side native Side Panel is visible before UX acceptance can pass."
+          "native-probe only checks whether the native side panel can be opened or exposed. native-ux or human-confirmed equivalent screenshot evidence is required for UX acceptance."
       }
     };
-    fs.writeFileSync(path.join(evidenceRoot, "result.json"), JSON.stringify(summary, null, 2));
+    writeJson("report.json", summary);
     console.log(JSON.stringify(summary, null, 2));
   } finally {
     if (context) await context.close();

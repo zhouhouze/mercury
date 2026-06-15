@@ -3,6 +3,11 @@ import { defineConfig } from "wxt";
 export default defineConfig({
   outDir: "chrome-mv3-unpacked",
   outDirTemplate: ".",
+  vite: () => ({
+    define: {
+      __NAVIA_E2E_BRIDGE__: JSON.stringify(process.env.NAVIA_E2E_BRIDGE === "1")
+    }
+  }),
   manifest: {
     name: "Navia",
     description: "In-page companion reading with a local headless runtime.",

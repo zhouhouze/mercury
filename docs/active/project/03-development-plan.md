@@ -946,6 +946,147 @@ V1.2-AC-6：真实网页验收、PRD 复检、false-green audit
 - C 直接抽取网页正文或调用 Chrome DOM。
 - D 被绕过，工具结果没有 ToolResult envelope、ArtifactRecord 或 trace。
 
+### 13.6 当前体验补强阶段：V1.2-AC-Native 原生 Side Panel 稳定化
+
+本阶段承接 V1.2-AC 功能链路，不重写 A/C/D，也不扩大 V1.2 范围。阶段目标是把已在 direct extension page 中跑通的读取、Debug、总结、问答、Mindmap 和 source fallback，稳定放回 Chrome 原生 Side Panel 容器中完成验收。
+
+当前差异：
+
+| 维度 | 当前状态 | 目标状态 |
+|---|---|---|
+| 入口 | direct extension page 烟测可用，原生 Side Panel 打开不稳定 | 扩展 action / 快捷键可稳定打开右侧原生 Side Panel |
+| 证据 | 部分截图是全屏 `chrome-extension://.../sidepanel.html` | 截图必须同时包含真实网页和右侧 Navia Side Panel |
+| 布局 | 窄宽度下部分入口可能被挤出或不可见 | 读取、提交、总结、Mindmap、Debug 入口在 Side Panel 宽度内可达 |
+| 自动化 | probe 可证明失败/阻塞，但不能完整 UX pass | `native-probe` + `native-ux` 分层验收；无法自动化时产出结构化 blocker |
+| 声明口径 | direct page 只能作为功能 smoke | 只有原生 Side Panel 完整路径通过，才能声明 Native 阶段完成 |
+
+阶段拆分：
+
+```text
+V1.2-AC-Native-0：阶段合同、验收口径和截图标准冻结
+V1.2-AC-Native-1：Chrome action / keyboard -> native Side Panel 打开稳定化
+V1.2-AC-Native-2：Side Panel 窄宽度 UI 可达性和状态展示
+V1.2-AC-Native-3：自动化锚点、test id、probe / UX 脚本分层
+V1.2-AC-Native-4：原生 Side Panel 中完成读取 -> Debug -> 摘要/问答 -> Mindmap
+V1.2-AC-Native-5：真实网页验收、PRD 复检、false-green audit 和出门报告
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.2-AC-Native-0` | 冻结 native-only 通过口径、截图命名、证据路径、No-Go 条款 | 外部审计无 fatal / major；direct page 不再作为 UX 通过依据 |
+| `V1.2-AC-Native-1` | 修正 manifest / background / sidePanel API / action 绑定，保证真实网页内可打开原生 Side Panel | Chrome 可见截图中同时出现网页和右侧 Navia；失败时有结构化 blocker |
+| `V1.2-AC-Native-2` | 调整 Side Panel 宽度下的 Chat / Debug / Mindmap 布局、滚动和按钮可达性 | `读取当前页面`、`提交上下文`、`总结`、`Mindmap`、Debug 入口在窄宽度内可见或可滚动到 |
+| `V1.2-AC-Native-3` | 增加稳定 `data-testid`、自动化 target 识别、probe 与 UX 脚本拆分 | 自动化不依赖脆弱坐标；未知 Chrome 行为必须生成 blocker 而不是 pass |
+| `V1.2-AC-Native-4` | 在原生 Side Panel 中串起 activePage、A Debug、C Mindmap、summary / QA 工具 | 同一真实网页完成读取、Debug JSON、总结、问答、Mindmap、source fallback |
+| `V1.2-AC-Native-5` | 真实网页矩阵、截图报告、PRD 复检、false-green audit | 至少 3 个真实 Chrome 页面、1 个中文复杂页、1 个 low-signal 页完成 native gate |
+
+自动化证据输出要求：
+
+- `native-sidepanel-probe/report.json` 只能证明原生 Side Panel 是否可打开，不得单独声明体验通过。
+- `native-sidepanel-ux/report.json` 才能承载完整用户体验通过结论。
+- 每张计入通过的截图必须配套同名 `*.metadata.json`。
+- 自动化无法稳定复核时必须输出 structured blocker JSON；`blocksCompletion=true` 时不得进入阶段完成声明。
+
+本阶段验收数据：
+
+- 至少 3 个真实 Chrome 页面，必须包含普通文章 / 技术文档或 README / 中文复杂网页。
+- 至少 1 个 low-signal 或空内容页面，必须在 Side Panel 中可见 degraded / fail，不得伪正常通过。
+- 每个通过页必须保留截图、URL、Runtime 状态、activePage 状态、工具结果和结论。
+- 可复用 AC 功能 smoke 和 A corpus 作为背景证据，但不得替代 native Side Panel 体验验收。
+
+本阶段 No-Go：
+
+- 使用全屏 `chrome-extension://.../sidepanel.html` 截图声明原生 Side Panel 通过。
+- 真实 Chrome 截图中没有右侧 Navia Side Panel。
+- 只通过 direct extension page 功能烟测，却声明用户体验完成。
+- Side Panel 打开依赖无法复现的鼠标坐标，且没有稳定自动化锚点或 blocker。
+- `Mindmap` 或 Debug 入口在原生 Side Panel 宽度下不可达。
+- Runtime offline、PageContext missing、tool failure 或 Mermaid render failure 在原生 Side Panel 中不可见。
+
+### 13.7 下一阶段：V1.2-AC-Quality A/C 质量深化与真实网页扩展
+
+本阶段承接 V1.2-AC-Native 的原生 Side Panel 验收成果，不重做 B 容器，不扩大 D 的 CoreProvider 范围。目标是继续增强 A 高质量网页感知和 C digest-first Mindmap，让当前 AC 链路在更多真实网页中稳定、可解释、可反跳。
+
+阶段拆分：
+
+```text
+V1.2-AC-Quality-0：阶段合同、真实网页矩阵和审计口径冻结
+V1.2-AC-Quality-1：A 真实网页样本扩展与质量基线
+V1.2-AC-Quality-2：A 高信号 digest / sourceRef / quality report 强化
+V1.2-AC-Quality-3：C digest-first Mindmap 与 fallback 原因显式化
+V1.2-AC-Quality-4：AC Debug 可读性与 source evidence 复核增强
+V1.2-AC-Quality-5：原生 Side Panel 真实网页矩阵 E2E 与 HTML 报告
+V1.2-AC-Quality-6：PRD 复检、false-green audit 和阶段出门
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.2-AC-Quality-0` | 冻结本阶段不改公共合同、不新增能力、不声明完整 V1.2 的口径；确定真实网页矩阵 | 外部审计无 fatal / major；样本分类、证据路径、No-Go 固化 |
+| `V1.2-AC-Quality-1` | 扩展真实网页 / snapshot 样本，至少覆盖中文复杂、图文混排、技术文档、README、低信号、长内容 | 每个样本有 URL 或 snapshotPath、category、expectedRisk、goldStatus 或审计备注 |
+| `V1.2-AC-Quality-2` | 优化 A 噪声过滤、digest 密度、SourceRef 覆盖和 low-signal 降级解释 | `sourceCoverage`、`groundingCompleteness`、`jumpbackCoverage` 可机器校验；low-signal 不得 pass |
+| `V1.2-AC-Quality-3` | C 在 readiness pass 时优先使用 `PerceptionDigest.items + SourceRef`，fallback 必须写明原因 | Mindmap 主要节点具备 `sourceRefIds` 或明确 `fallbackReason` |
+| `V1.2-AC-Quality-4` | Debug 展示 A quality、digest item、sourceRef、C nodeSourceMap、fallback reason | 人类能在 Debug 中快速判断 A/C 质量，不需要读原始大 JSON |
+| `V1.2-AC-Quality-5` | 原生 Side Panel 中跑真实网页矩阵：读取 -> Debug -> Mindmap -> source fallback | HTML 报告列出页面、截图、quality、mindmap、source 证据和结论 |
+| `V1.2-AC-Quality-6` | PRD 复检、false-green audit、阶段出门文档 | 没有 fatal / major；未通过则打回对应子阶段 |
+
+本阶段验收数据：
+
+- 至少 12 个真实网页或可复现 snapshot，必须覆盖不少于 6 类页面。
+- 至少 5 个真实 Chrome 原生 Side Panel 页面验收，必须包含 1 个中文复杂页和 1 个 low-signal degraded/fail 页。
+- 可复用 A-V1.2 107-page corpus 作为回归背景，但不能只引用旧报告声明本阶段完成。
+- 每个通过页必须保留 URL、截图、metadata、A quality、C source map、Runtime 状态和结论。
+
+样本矩阵最小字段：
+
+```text
+pageId
+url
+snapshotPath optional
+category
+complexityTags[]
+expectedRisk[]
+expectedReadiness
+goldStatus
+runtimeEvidencePath
+nativeScreenshotPaths[]
+qualityReportPath
+mindmapEvidencePath
+conclusion
+```
+
+阶段证据包必须产出：
+
+```text
+docs/active/project/evidence/v1_2_ac_quality/matrix.json
+docs/active/project/evidence/v1_2_ac_quality/report.json
+docs/active/project/evidence/v1_2_ac_quality/acceptance-report.html
+docs/active/project/evidence/v1_2_ac_quality/false-green-audit.md
+docs/active/project/evidence/v1_2_ac_quality/prd-review.md
+```
+
+子阶段打回规则：
+
+- `V1.2-AC-Quality-1` 样本少于 12 页、类别少于 6、缺少中文复杂页或 low-signal 页时，打回样本矩阵阶段。
+- `V1.2-AC-Quality-2` low-signal 被标记 pass、quality 指标缺 numerator / denominator / method / threshold / passed 时，打回 A 强化阶段。
+- `V1.2-AC-Quality-3` C 主要节点缺 sourceRefIds / fallbackText / fallbackReason，或 heading-only 被声明 digest-first 时，打回 C 强化阶段。
+- `V1.2-AC-Quality-4` Debug 仍需阅读原始大 JSON 才能判断质量时，打回 Debug 可读性阶段。
+- `V1.2-AC-Quality-5` 原生 Side Panel 截图缺网页主体、缺右侧 Navia、缺 metadata 或 report 结论与截图不一致时，打回 E2E 阶段。
+- `V1.2-AC-Quality-6` PRD 复检或 false-green audit 出现 fatal / major 时，打回对应开发阶段。
+
+本阶段 No-Go：
+
+- A/C 质量增强只在离线脚本中存在，Runtime 主链路不可见。
+- C 使用 heading-only fallback，却声明 digest-first。
+- Mindmap 主要节点没有 sourceRef / fallbackText / fallbackReason。
+- Debug 页仍然只能显示不可读原始 JSON。
+- low-signal 页面被标记为 pass。
+- A 或 C 绕过 D 写 Artifact、SSE、EventStore 或 Trace。
+- 借本阶段引入 RAG、长期记忆、多 Agent、浏览器自动操作、OCR/VLM/ASR/video/live engine。
+
 ---
 
 ## 14. 推荐开发顺序

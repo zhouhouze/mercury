@@ -28,11 +28,11 @@ class PiAgentCoreProvider:
 
     async def run_turn(self, input: CoreTurnInput) -> AsyncIterator[CoreEvent]:
         try:
+            self.client.health()
             model_provider = self.model_provider or input.provider_config.get("modelProvider")
             if self._missing_model_provider(model_provider):
                 yield self._error(input, "piagent_provider_config_missing", "PiAgent 缺少 Chat Provider 配置，请在 Settings 中选择 DeepSeek Provider 和模型。")
                 return
-            self.client.health()
             pi_session_id = self._sessions.get(input.session_id)
             if pi_session_id is None:
                 created = self.client.create_session(

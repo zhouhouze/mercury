@@ -259,11 +259,16 @@ def build_quality_report(
     fatal_issues = []
     warnings = []
     fixture_class = str(input_data.get("fixtureClass") or input_data.get("fixture_class") or "")
+    low_signal = raw_tokens < 40
     if not high_blocks:
         fatal_issues.append(issue("NO_HIGH_SIGNAL_BLOCKS", "No high-signal blocks were produced.", "fatal"))
+    if low_signal and not fatal_issues:
+        warnings.append(issue("LOW_SIGNAL_PAGE_DEGRADED", "Page has too little grounded readable content to be marked pass.", "major"))
     if fixture_class == "planning_only":
         warnings.append(issue("PLANNING_ONLY_MEDIA", "Media fixture is planning-only and not real perception ready.", "major"))
     downstream = readiness(score, metrics, fatal_issues, fixture_class)
+    if low_signal and downstream == "pass":
+        downstream = "degraded"
     return {
         "reportId": f"q_{page['pageId']}",
         "pageId": page["pageId"],

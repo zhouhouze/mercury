@@ -43,6 +43,31 @@ async def run_core_provider_turn_async(input_data: dict[str, Any]) -> dict[str, 
     tool_results: list[dict[str, Any]] = []
     artifacts: list[dict[str, Any]] = []
 
+    if config.provider == "piagent" and _missing_piagent_model_provider(config.options.get("modelProvider")):
+        events.append(
+            agent_event(
+                AgentEventType.ERROR,
+                session_id=context["sessionId"],
+                turn_id=context["turnId"],
+                trace_id=context["traceId"],
+                request_id=context["requestId"],
+                data={
+                    "code": "piagent_provider_config_missing",
+                    "message": "PiAgent 缺少 Chat Provider 配置，请在 Settings 中选择 DeepSeek Provider 和模型。",
+                    "recoverable": True,
+                },
+            )
+        )
+        return {
+            **context,
+            "status": "failed",
+            "events": events,
+            "toolResults": tool_results,
+            "artifacts": artifacts,
+            "trace": trace_summary(context, events, tool_results, artifacts),
+            "createdAt": utc_now(),
+        }
+
     try:
         provider = create_core_provider(config)
         async for core_event in provider.run_turn(core_input):
@@ -92,6 +117,17 @@ def _provider_config_dict(config: CoreProviderConfig) -> dict[str, Any]:
     if isinstance(config.options.get("modelProvider"), dict):
         payload["modelProvider"] = config.options["modelProvider"]
     return payload
+
+
+def _missing_piagent_model_provider(value: object) -> bool:
+    if not isinstance(value, dict):
+        return True
+    required = ("type", "baseUrl", "model")
+    if any(not isinstance(value.get(key), str) or not str(value.get(key)).strip() for key in required):
+        return True
+    has_secret_ref = isinstance(value.get("apiKeyRef"), str) and bool(str(value.get("apiKeyRef")).strip())
+    has_secret = isinstance(value.get("apiKey"), str) and bool(str(value.get("apiKey")).strip())
+    return not (has_secret_ref or has_secret)
 
 
 def _status_from_events(events: list[dict[str, Any]]) -> str:

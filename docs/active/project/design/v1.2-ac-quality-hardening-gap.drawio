@@ -1,0 +1,245 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="6">
+  <diagram id="v12-ac-quality-architecture" name="01 目标架构">
+    <mxGraphModel dx="1580" dy="852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="V1.2-AC-Quality 目标架构：A 作为眼睛，C 生成可反跳 Mindmap，D 负责映射，B 只渲染" vertex="1">
+          <mxGeometry height="60" width="1480" x="40" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="web" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;" value="真实网页 / snapshot&#xa;正文、标题、图片元数据、低信号页" vertex="1">
+          <mxGeometry height="100" width="210" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="side" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Chrome 原生 Side Panel&#xa;B 触发读取 / Debug / Mindmap" vertex="1">
+          <mxGeometry height="100" width="230" x="330" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="runtime" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" value="Runtime API Gateway&#xa;/v1/page/context&#xa;/v1/chat/stream" vertex="1">
+          <mxGeometry height="100" width="230" x="620" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" value="A Page Reading Pipeline&#xa;StructuredPage&#xa;HighSignalPage&#xa;PerceptionDigest&#xa;SourceMap / QualityReport" vertex="1">
+          <mxGeometry height="160" width="260" x="930" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="D Adapter Layer&#xa;ToolResult envelope&#xa;Artifact / Event / Trace 映射" vertex="1">
+          <mxGeometry height="120" width="260" x="930" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffe6cc;strokeColor=#d79b00;" value="C Mindmap Generator&#xa;digest-first Mermaid&#xa;MindmapNodeSourceMap&#xa;source fallback" vertex="1">
+          <mxGeometry height="120" width="260" x="605" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e1d5e7;strokeColor=#9673a6;" value="B 渲染层&#xa;Debug / Mermaid / Source Evidence&#xa;不拥有 AgentCore 状态" vertex="1">
+          <mxGeometry height="120" width="230" x="330" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f5f5f5;strokeColor=#666666;" value="硬边界：A 不写 Artifact/SSE/EventStore/Trace；C 不读 DOM；B 不直接生成 summary/answer/Mermaid；D 是唯一映射出口。" vertex="1">
+          <mxGeometry height="80" width="1180" x="160" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="web" style="endArrow=block;html=1;rounded=0;" target="side">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="side" style="endArrow=block;html=1;rounded=0;" target="runtime">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="runtime" style="endArrow=block;html=1;rounded=0;" target="a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="a" style="endArrow=block;html=1;rounded=0;" target="d">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="d" style="endArrow=block;html=1;rounded=0;" target="c">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="c" style="endArrow=block;html=1;rounded=0;" target="b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="b" style="endArrow=block;html=1;rounded=0;" target="side">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-ac-quality-gap" name="02 当前差异">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title2" value="当前架构与目标架构差异" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cur" value="当前事实&#xa;1. Native UX 5 页已通过&#xa;2. A 有 high-signal 与 low-signal degraded 基线&#xa;3. C 已有 deterministic Mindmap&#xa;4. Debug 可展示基础状态和 JSON&#xa;5. 仍需更强真实网页矩阵和 digest-first 防线" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="90" y="150" width="560" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="target" value="本阶段目标&#xa;1. 至少 12 个真实网页或 snapshot&#xa;2. 至少 5 个原生 Side Panel 页面验收&#xa;3. A quality 可解释，low-signal 不 pass&#xa;4. C readiness pass 时必须 digest-first&#xa;5. Mindmap 节点有 sourceRef 或 fallbackReason&#xa;6. HTML 报告和 false-green audit 可追溯" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="860" y="150" width="560" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="gap1" value="Gap A：A 输出质量需要扩展到更多真实网页类别" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="240" y="540" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gap2" value="Gap C：需要防止 heading-only fallback 被误声明为 digest-first" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="620" y="540" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="gap3" value="Gap Debug：需要人类可读质量解释，不只是原始 JSON" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="540" width="360" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="edgegap" edge="1" parent="1" source="cur" target="target" style="endArrow=block;html=1;rounded=0;strokeWidth=3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-ac-quality-plan" name="03 开发与验收计划">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title3" value="V1.2-AC-Quality 开发与验收计划" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="p0" value="0 合同冻结&#xa;样本矩阵、No-Go、证据路径冻结" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="80" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" value="1 样本扩展&#xa;12 页 / 6 类 / URL 或 snapshotPath" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="300" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" value="2 A 强化&#xa;digest 密度、SourceRef、QualityReport" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="520" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" value="3 C 强化&#xa;digest-first mindmap 与 fallback reason" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="740" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" value="4 Debug 强化&#xa;quality、digest、source、nodeSourceMap" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="960" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p5" value="5 E2E 报告&#xa;5 个原生 Side Panel 页面 + HTML" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1180" y="170" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p6" value="6 出门&#xa;PRD 复检 + false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="640" y="380" width="260" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e31" edge="1" parent="1" source="p0" target="p1" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e32" edge="1" parent="1" source="p1" target="p2" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e33" edge="1" parent="1" source="p2" target="p3" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e34" edge="1" parent="1" source="p3" target="p4" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e35" edge="1" parent="1" source="p4" target="p5" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e36" edge="1" parent="1" source="p5" target="p6" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-ac-quality-user-path" name="04 用户验收路径">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title4" value="用户验收路径：真实网页中验证 A/C 质量" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="u1" value="打开真实网页&#xa;中文复杂 / 图文混排 / 低信号" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="u2" value="打开 Navia 原生 Side Panel&#xa;Runtime online 可见" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="360" y="180" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="u3" value="读取当前页面&#xa;提交 PageContext" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="660" y="180" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="u4" value="Debug 检查 A&#xa;quality / digest / sourceRef" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="940" y="180" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="u5" value="生成 Mindmap&#xa;检查 Mermaid 与 nodeSourceMap" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="180" width="240" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="u6" value="验收输出&#xa;截图 + metadata + HTML 报告 + false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="420" width="500" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ue1" edge="1" parent="1" source="u1" target="u2" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue2" edge="1" parent="1" source="u2" target="u3" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue3" edge="1" parent="1" source="u3" target="u4" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue4" edge="1" parent="1" source="u4" target="u5" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue5" edge="1" parent="1" source="u5" target="u6" style="endArrow=block;html=1;rounded=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-ac-quality-exit" name="05 出门门槛">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title5" value="V1.2-AC-Quality 出门条件与 No-Go" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="go" value="必须通过&#xa;1. 12 个网页 / 6 类样本&#xa;2. 5 个原生 Side Panel 页面 E2E&#xa;3. 中文复杂页 + low-signal degraded&#xa;4. A quality 可解释&#xa;5. C digest-first 可证明&#xa;6. HTML 报告 + false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="150" y="160" width="520" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="nogo" value="No-Go&#xa;1. 只跑离线 corpus&#xa;2. heading-only 冒充 digest-first&#xa;3. 节点无 sourceRef/fallbackText&#xa;4. Debug 不可读&#xa;5. low-signal pass&#xa;6. A/C/B 绕过 D&#xa;7. 引入 RAG/记忆/多 Agent/浏览器自动化/OCR/VLM/ASR" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="850" y="160" width="560" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="claim" value="完成后只能声明：V1.2-AC-Quality 阶段 A/C 质量深化通过。不得声明完整 V1.2 complete 或 A 100-page production gate complete。" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="250" y="620" width="1100" height="90" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v12-ac-quality-milestones" name="06 项目里程碑">
+    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title6" value="V1.2-AC-Quality 项目里程碑与声明边界" style="rounded=0;whiteSpace=wrap;html=1;fontSize=24;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="1480" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="已完成&#xa;V1.2-AC-Native&#xa;原生 Side Panel 体验稳定化&#xa;5 页 native UX 证据" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="180" width="250" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="当前阶段&#xa;V1.2-AC-Quality&#xa;A/C 质量深化&#xa;12 样本矩阵 + 5 页 native E2E" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="410" y="180" width="270" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="后续收口&#xa;V1.2-E Integration&#xa;A/B/C/D 全链路 E2E&#xa;Trace / Artifact / PRD Review" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="760" y="180" width="270" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="完整声明入口&#xa;完整 V1 / V1.2 complete&#xa;只能由最终 Integration + PRD 全量复检声明&#xa;AC-Quality 不能单独声明" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="180" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="me1" edge="1" parent="1" source="m1" target="m2" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me2" edge="1" parent="1" source="m2" target="m3" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="me3" edge="1" parent="1" source="m3" target="m4" style="endArrow=block;html=1;rounded=0;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="audit" value="AC-Quality-0 先审计&#xa;外部审计无 fatal / major 才能进入实质开发。样本矩阵、验收口径、No-Go、证据路径必须冻结。" style="rounded=1;whiteSpace=wrap;html=1;fontSize=17;fillColor=#F8FAFC;strokeColor=#64748B;" vertex="1" parent="1">
+          <mxGeometry x="120" y="440" width="610" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="claim6" value="本阶段完成后只能声明&#xa;V1.2-AC-Quality A/C 质量深化与真实网页扩展通过。&#xa;不得声明完整 V1.2 complete、完整 V1 complete、A-V1.2 100-page production gate complete。" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;fontStyle=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="790" y="430" width="650" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="evidence6" value="出门证据&#xa;matrix.json&#xa;report.json&#xa;acceptance-report.html&#xa;false-green-audit.md&#xa;prd-review.md&#xa;页面级 screenshots + metadata" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="180" y="660" width="480" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="nogo6" value="阶段 No-Go&#xa;只跑离线 corpus&#xa;heading-only 冒充 digest-first&#xa;low-signal pass&#xa;Debug 不可读&#xa;A/C/B 绕过 D&#xa;引入 RAG/记忆/多 Agent/浏览器自动化/OCR/VLM/ASR" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="850" y="650" width="500" height="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

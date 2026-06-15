@@ -16,17 +16,18 @@ docs/history/
 
 ## 当前阶段
 
-当前项目焦点是 `A-V1.2 Production Page Perception`：
+当前项目焦点是 `V1.2-AC-Quality A/C 质量深化与真实网页扩展`，并保留 `A-V1.2 Production Page Perception` 作为 A 模块长期质量门槛：
 
 ```text
-高质量网页感知
-+ 结构化页面摘要
-+ 可反跳证据
-+ Debug 可验证 JSON
-+ 100-page corpus gate
+真实网页
++ Chrome 原生右侧 Side Panel
++ A 高质量网页感知 / QualityReport / SourceRef
++ C digest-first Mindmap / nodeSourceMap / source fallback
++ Debug 可读质量解释
++ HTML 验收报告和 false-green audit
 ```
 
-`A-V1.2-1+` 实质实现前，必须先完成 `A-V1.2-0` 外部合同冻结审计，且确认无 fatal / major 规格偏差。
+`V1.2-AC-Native` 已形成真实 Chrome 原生 Side Panel 自动化验收证据；当前后续阶段是 `V1.2-AC-Quality`。本阶段仍不得声明完整 V1 / V1.2 complete。`A-V1.2-1+` 若继续推进，仍必须遵守 `A-V1.2-0` 合同冻结门槛。
 
 ## 激活文档
 
@@ -74,6 +75,11 @@ docs/history/
 | `design/v1.2-ai-reading-automation-gap.drawio` | V1.2 自动化开发 gap 图谱 |
 | `design/v1.2-a-page-perception-gap.md` | A-V1.2 Draw.io companion |
 | `design/v1.2-a-page-perception-gap.drawio` | A-V1.2 专属 gap 图谱 |
+| `design/v1.2-ac-native-sidepanel-gap.md` | V1.2-AC-Native 原生 Side Panel gap 图谱说明 |
+| `design/v1.2-ac-native-sidepanel-gap.drawio` | V1.2-AC-Native 目标架构、差异、计划和验收图谱 |
+| `design/v1.2-ac-native-sidepanel-readiness-audit.md` | V1.2-AC-Native 开发前 readiness 审计 |
+| `design/v1.2-ac-quality-hardening-gap.md` | V1.2-AC-Quality A/C 质量深化 drawio 说明 |
+| `design/v1.2-ac-quality-hardening-gap.drawio` | V1.2-AC-Quality 目标架构、差异、计划和出门门槛图谱 |
 | `design/a-v1.2-contract-freeze-readiness-audit.md` | A-V1.2-0 合同冻结 readiness 审计 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2 readiness 收口审计 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | D 模块 CoreProvider / piAgent ADR |
@@ -85,6 +91,9 @@ docs/history/
 | `stage-gates/v1.2-0-ai-reading-contract-and-workspace-freeze.md` | V1.2-0 合同与工作区冻结 |
 | `stage-gates/v1.2-a-page-reading.md` | A 模块工作区门禁 |
 | `stage-gates/v1.2-a-v1.2-production-page-perception.md` | A-V1.2 高质量网页感知层门禁 |
+| `stage-gates/v1.2-ac-page-perception-mindmap-bridge.md` | V1.2-AC A 高信号主链路与 C Mindmap 联动门禁 |
+| `stage-gates/v1.2-ac-native-sidepanel.md` | V1.2-AC-Native 原生 Side Panel 体验稳定化门禁 |
+| `stage-gates/v1.2-ac-quality-hardening.md` | V1.2-AC-Quality A/C 质量深化与真实网页扩展门禁 |
 | `stage-gates/v1.2-b-chat-renderer.md` | B Renderer 门禁 |
 | `stage-gates/v1.2-c-mindmap.md` | C Mindmap 门禁 |
 | `stage-gates/v1.2-d-agentic-loop.md` | D CoreProvider / Adapter 门禁 |
@@ -96,6 +105,10 @@ docs/history/
 |---|---|
 | `fixtures/real_pages/` | V1 / A 模块真实页面 fixture |
 | `evidence/v1.2-e-chrome-inpage-e2e.json` | V1.2 Integration 历史 E2E evidence，当前仅作参考 |
+| `evidence/v1_2_ac/native-sidepanel-ux/report.json` | V1.2-AC-Native 原生 Side Panel 自动化验收 JSON |
+| `evidence/v1_2_ac/native-sidepanel-ux/acceptance-report.html` | V1.2-AC-Native 人类可读验收报告 |
+| `evidence/v1_2_ac/native-sidepanel-ux/false-green-audit.md` | V1.2-AC-Native false-green 审计 |
+| `evidence/v1_2_ac/native-sidepanel-ux/chatgpt-audit-closure.md` | V1.2-AC-Native ChatGPT 审计意见闭环与阶段声明边界 |
 
 ## A 模块当前必读
 

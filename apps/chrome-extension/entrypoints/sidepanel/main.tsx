@@ -33,6 +33,8 @@ import {
   type RuntimeStatus
 } from "../../src/runtimeClient";
 
+declare const __NAVIA_E2E_BRIDGE__: boolean;
+
 type SideView = "chat" | "agent" | "debug" | "settings";
 type ModeState = "chat" | "agent_checking" | "agent_ready" | "agent_unavailable";
 type PageContextState = "unknown" | "capture_ready" | "capturing" | "captured" | "stale" | "unsupported" | "failed";
@@ -86,6 +88,8 @@ function App() {
   const [isSubmittingChat, setIsSubmittingChat] = useState(false);
   const isSubmittingChatRef = useRef(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const e2eStateRef = useRef<Record<string, unknown>>({});
+  const e2eHandlersRef = useRef<E2EHandlers>({});
   const canChat = runtimeStatus === "online" && streamStatus !== "streaming";
   const isStreamingOrExecuting = streamStatus === "streaming" || chatTurnState === "executing_chat" || chatTurnState === "streaming_response";
   const canStartChatAction = canChat && !isSubmittingChat && !isStreamingOrExecuting;
@@ -492,6 +496,97 @@ function App() {
     }
   }
 
+  e2eStateRef.current = {
+    runtimeStatus,
+    sessionId,
+    pageContextState,
+    chatTurnState,
+    streamStatus,
+    activeView,
+    pageSubmitted,
+    submitStatus,
+    pageTitle: pageContext?.title ?? null,
+    messageCount: chatView.messages.length,
+    debugEventCount: chatView.debugEvents.length,
+    deferredNotice: Boolean(chatView.deferredNotice),
+    activeStatus: chatView.activeStatus?.text ?? null
+  };
+
+  e2eHandlersRef.current = {
+    checkRuntime,
+    captureCurrentPage,
+    submitPageContext,
+    sendChat,
+    syncView
+  };
+
+  useEffect(() => {
+    if (!__NAVIA_E2E_BRIDGE__) return;
+    const port = chrome.runtime.connect({ name: "navia.e2e.sidepanel" });
+    const onMessage = (message: unknown) => {
+      if (!isE2ECommandMessage(message)) return;
+      void executeE2ECommand(message.command)
+        .then((result) => {
+          port.postMessage({
+            type: "navia.e2e.response",
+            commandId: message.commandId,
+            ok: true,
+            result,
+            snapshot: e2eStateRef.current
+          });
+        })
+        .catch((error) => {
+          port.postMessage({
+            type: "navia.e2e.response",
+            commandId: message.commandId,
+            ok: false,
+            error: error instanceof Error ? error.message : "E2E command failed",
+            snapshot: e2eStateRef.current
+          });
+        });
+    };
+    port.onMessage.addListener(onMessage);
+    return () => {
+      port.onMessage.removeListener(onMessage);
+      port.disconnect();
+    };
+  }, []);
+
+  async function executeE2ECommand(command: unknown): Promise<Record<string, unknown>> {
+    if (!isE2ECommand(command)) throw new Error("Invalid E2E command.");
+    const handlers = e2eHandlersRef.current;
+    if (command.action === "snapshot") return { snapshot: e2eStateRef.current };
+    if (command.action === "check_runtime") {
+      await handlers.checkRuntime?.();
+      return { action: command.action };
+    }
+    if (command.action === "view") {
+      handlers.syncView?.(command.view);
+      return { action: command.action, view: command.view };
+    }
+    if (command.action === "capture") {
+      await handlers.captureCurrentPage?.();
+      return { action: command.action };
+    }
+    if (command.action === "submit") {
+      await handlers.submitPageContext?.();
+      return { action: command.action };
+    }
+    if (command.action === "summarize") {
+      await handlers.sendChat?.("总结当前页面", "summarize_page");
+      return { action: command.action };
+    }
+    if (command.action === "question") {
+      await handlers.sendChat?.(command.message ?? "这个页面的核心目标是什么？", "page_qa");
+      return { action: command.action };
+    }
+    if (command.action === "mindmap") {
+      await handlers.sendChat?.("生成当前页面的思维导图", "mindmap_page");
+      return { action: command.action };
+    }
+    throw new Error(`Unsupported E2E command: ${command.action}`);
+  }
+
   useEffect(() => {
     checkRuntime();
     void loadSettings();
@@ -509,12 +604,15 @@ function App() {
   }, [runtimeStatus]);
 
   return (
-    <main className="shell shell-layout">
+    <main className="shell shell-layout" data-testid="navia-sidepanel-root">
       <section className="main-pane">
         <header className="topbar">
           <div className="topbar-copy">
             <div>
               <h1>{activeView === "chat" ? "聊天" : activeView === "agent" ? "Agent" : activeView === "debug" ? "Debug" : "设置"}</h1>
+              <p className="topbar-status" data-testid="runtime-status">
+                Runtime {runtimeStatus} · Page {pageContextState} · {chatTurnState}
+              </p>
             </div>
           </div>
         </header>
@@ -536,13 +634,13 @@ function App() {
             </div>
 
             <div className="composer-stack">
-              <div className="toolbar panel-strip pill-strip">
-                <button disabled={runtimeStatus !== "online"} onClick={captureCurrentPage} type="button">读取当前页面</button>
-                <button disabled={runtimeStatus !== "online"} onClick={submitPageContext} type="button">提交上下文</button>
-                <button disabled={!canStartChatAction} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
-                <button disabled={!canStartChatAction} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
-                <button disabled={!canStartChatAction} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
-                <button disabled={!canStartChatAction} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
+              <div className="toolbar panel-strip pill-strip" data-testid="native-action-strip" aria-label="Navia quick actions">
+                <button data-testid="read-current-page" disabled={runtimeStatus !== "online"} onClick={captureCurrentPage} type="button">读取当前页面</button>
+                <button data-testid="submit-page-context" disabled={runtimeStatus !== "online"} onClick={submitPageContext} type="button">提交上下文</button>
+                <button data-testid="summarize-page" disabled={!canStartChatAction} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
+                <button data-testid="mindmap-page" disabled={!canStartChatAction} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
+                <button data-testid="explain-selection" disabled={!canStartChatAction} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
+                <button data-testid="new-chat" disabled={!canStartChatAction} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
               </div>
 
               <form
@@ -553,6 +651,7 @@ function App() {
                 }}
               >
                 <textarea
+                  data-testid="chat-input"
                   ref={textareaRef}
                   value={input}
                   onChange={(event) => {
@@ -566,7 +665,7 @@ function App() {
                   placeholder={runtimeStatus === "online" ? "你可以直接提问。Enter 发送，Shift+Enter 换行。需要页面内容时，我会自动读取当前页面。" : "请先连接 Runtime。"}
                   rows={2}
                 />
-                <button disabled={!canSubmitCurrentInput} title="Enter 发送，Shift+Enter 换行" type="submit">发送</button>
+                <button data-testid="send-message" disabled={!canSubmitCurrentInput} title="Enter 发送，Shift+Enter 换行" type="submit">发送</button>
               </form>
             </div>
           </section>
@@ -619,7 +718,7 @@ function App() {
               <button className="ghost-button" onClick={checkRuntime} type="button">重连</button>
             </div>
             <div className="debug-grid">
-              <div className="debug-card">
+              <div className="debug-card" data-testid="debug-runtime">
                 <dt>Runtime</dt>
                 <dd>{runtimeStatus}</dd>
               </div>
@@ -627,7 +726,7 @@ function App() {
                 <dt>Session</dt>
                 <dd>{sessionId ?? "未创建"}</dd>
               </div>
-              <div className="debug-card">
+              <div className="debug-card" data-testid="debug-page-state">
                 <dt>Page</dt>
                 <dd>{pageContextState} · {pageContext?.title ?? "尚未读取"}</dd>
               </div>
@@ -640,7 +739,7 @@ function App() {
                 <dd>{streamStatus} · {chatTurnState}</dd>
               </div>
             </div>
-            <div className="debug-log">
+            <div className="debug-log" data-testid="debug-log">
               <p className="muted">Runtime: {runtimeStatus}</p>
               <p className="muted">Stream: {streamStatus}</p>
               <p className="muted">Settings: {settingsStatus}</p>
@@ -839,6 +938,7 @@ function App() {
       <aside className="tool-rail" aria-label="Side tools">
         <button
           className={`tool-button ${activeView === "chat" ? "active" : ""}`}
+          data-testid="nav-chat-tab"
           type="button"
           aria-current={activeView === "chat" ? "true" : undefined}
           onClick={() => syncView("chat")}
@@ -847,6 +947,7 @@ function App() {
         </button>
         <button
           className={`tool-button ${activeView === "agent" ? "active" : ""}`}
+          data-testid="nav-agent-tab"
           type="button"
           aria-current={activeView === "agent" ? "true" : undefined}
           onClick={() => syncView("agent")}
@@ -855,6 +956,7 @@ function App() {
         </button>
         <button
           className={`tool-button ${activeView === "debug" ? "active" : ""}`}
+          data-testid="nav-debug-tab"
           type="button"
           aria-current={activeView === "debug" ? "true" : undefined}
           onClick={() => syncView("debug")}
@@ -863,6 +965,7 @@ function App() {
         </button>
         <button
           className={`tool-button ${activeView === "settings" ? "active" : ""}`}
+          data-testid="nav-settings-tab"
           type="button"
           aria-current={activeView === "settings" ? "true" : undefined}
           onClick={() => syncView("settings")}
@@ -871,6 +974,48 @@ function App() {
         </button>
       </aside>
     </main>
+  );
+}
+
+type E2ECommand =
+  | { action: "snapshot" }
+  | { action: "check_runtime" }
+  | { action: "view"; view: SideView }
+  | { action: "capture" }
+  | { action: "submit" }
+  | { action: "summarize" }
+  | { action: "question"; message?: string }
+  | { action: "mindmap" };
+
+type E2EHandlers = {
+  checkRuntime?: () => Promise<boolean>;
+  captureCurrentPage?: () => Promise<void>;
+  submitPageContext?: () => Promise<void>;
+  sendChat?: (message: string, intentHint?: ChatIntent, retriedAfterCapture?: boolean) => Promise<void>;
+  syncView?: (nextView: SideView) => void;
+};
+
+function isE2ECommandMessage(value: unknown): value is { type: string; commandId: string; command: unknown } {
+  if (!value || typeof value !== "object") return false;
+  const record = value as Record<string, unknown>;
+  return record.type === "navia.e2e.command" && typeof record.commandId === "string";
+}
+
+function isE2ECommand(value: unknown): value is E2ECommand {
+  if (!value || typeof value !== "object") return false;
+  const record = value as Record<string, unknown>;
+  const action = record.action;
+  if (action === "view") {
+    return record.view === "chat" || record.view === "agent" || record.view === "debug" || record.view === "settings";
+  }
+  return (
+    action === "snapshot" ||
+    action === "check_runtime" ||
+    action === "capture" ||
+    action === "submit" ||
+    action === "summarize" ||
+    action === "question" ||
+    action === "mindmap"
   );
 }
 
@@ -919,7 +1064,7 @@ async function readCurrentPageContext(): Promise<ExtractedPageContext> {
 }
 
 async function resolveReadableTab(): Promise<chrome.tabs.Tab> {
-  const e2eTabId = new URLSearchParams(window.location.search).get("naviaE2ETabId");
+  const e2eTabId = getE2ETabId();
   if (e2eTabId && /^\d+$/.test(e2eTabId)) {
     const tab = await chrome.tabs.get(Number(e2eTabId));
     if (tab?.id) return tab;
@@ -1038,7 +1183,7 @@ function resolveChatProviderDraft(settings: MercurySettings): ChatProviderConfig
 
 async function getActiveTabUrl(): Promise<string | null> {
   try {
-    const e2eTabId = new URLSearchParams(window.location.search).get("naviaE2ETabId");
+    const e2eTabId = getE2ETabId();
     if (e2eTabId && /^\d+$/.test(e2eTabId)) {
       const tab = await chrome.tabs.get(Number(e2eTabId));
       return typeof tab?.url === "string" ? tab.url : null;
@@ -1048,6 +1193,11 @@ async function getActiveTabUrl(): Promise<string | null> {
   } catch {
     return null;
   }
+}
+
+function getE2ETabId(): string | null {
+  if (!__NAVIA_E2E_BRIDGE__) return null;
+  return new URLSearchParams(window.location.search).get("naviaE2ETabId");
 }
 
 class ChatProviderTestTerminalError extends Error {}

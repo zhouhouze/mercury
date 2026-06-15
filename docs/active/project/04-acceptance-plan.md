@@ -240,6 +240,82 @@ AC 联动 No-Go：
 - [ ] 任一工具绕过 D Adapter Layer。
 - [ ] 端到端验收只使用 mock 页面或不可复现数据。
 
+### 2.8 V1.2-AC-Native 原生 Side Panel Gate
+
+V1.2-AC-Native 的验收目标是证明用户能在真实网页右侧的 Chrome 原生 Side Panel 中完成 AC 功能链路。direct extension page 只能作为功能 smoke，不能作为本阶段通过依据。
+
+必须通过：
+
+- [ ] Chrome / Chromium 安装 unpacked extension 后，用户可通过扩展 action 或快捷键在普通网页中打开 Navia 原生 Side Panel。
+- [ ] 通过截图必须同时包含真实网页主体内容和右侧 Navia Side Panel；只有全屏 `chrome-extension://.../sidepanel.html` 的截图不得计入通过证据。
+- [ ] 原生 Side Panel 顶部能显示 Runtime online / offline 状态；Runtime offline 时必须有明确提示。
+- [ ] 原生 Side Panel 中 `读取当前页面`、`提交上下文`、`总结`、`Mindmap`、Debug 入口必须可见或可通过稳定滚动 / tab / menu 到达。
+- [ ] 点击读取当前页面后，Side Panel Debug 能展示 activePage、A perception readiness、digest/source/quality 概览或明确失败原因。
+- [ ] 在同一个原生 Side Panel 中完成至少一次页面总结和一次基于页面内容的问答。
+- [ ] 在同一个原生 Side Panel 中触发 Mindmap；成功时渲染 Mermaid，失败时展示 Mermaid source fallback 和错误。
+- [ ] 刷新网页或重开 Side Panel 后，session / activePage 必须恢复，或以可见错误说明恢复失败原因。
+- [ ] 自动化验收必须区分 `native-probe` 和 `native-ux`：probe 只能证明打开状态，UX 才能证明完整路径。
+- [ ] 自动化脚本不得只依赖易碎屏幕坐标；如 Chrome 限制导致无法稳定定位 Side Panel，必须输出结构化 blocker，不得 pass。
+- [ ] `native-sidepanel-probe/report.json` 和 `native-sidepanel-ux/report.json` 必须分层输出；probe 通过不得单独触发本阶段通过。
+- [ ] 每张计入通过证据的截图必须有同名 `*.metadata.json`，记录 pageUrl、tabTitle、extensionId、isNativeSidePanel、containsWebPageBody、containsNaviaPanel、viewport、panelApproxWidth、runtimeStatus、stage 和 conclusion。
+- [ ] 任何 structured blocker 必须包含 blockerId、stage、pageUrl、browser、reason、evidencePaths、attemptedActions、nextAction、blocksCompletion，且 `blocksCompletion=true` 时不得声明阶段完成。
+- [ ] `Runtime offline`、`PageContext missing`、tool failure、Mermaid render failure 四类失败在原生 Side Panel 中可见。
+
+真实数据验收：
+
+- [ ] 至少 3 个真实 Chrome 页面完成原生 Side Panel 验收，必须包含 1 个中文复杂网页。
+- [ ] 至少 1 个 low-signal / 空内容页面必须 degraded 或 fail，并在 Side Panel 中可见。
+- [ ] 每个通过页保留 URL、截图、截图 metadata、Runtime API 证据、用户操作路径和结论。
+- [ ] direct extension page 报告可作为辅助 smoke，但不得替代任一 native 页面证据。
+
+V1.2-AC-Native No-Go：
+
+- [ ] 截图中没有右侧 Chrome 原生 Side Panel，却声明用户体验通过。
+- [ ] 只打开 `chrome-extension://.../sidepanel.html` 或全屏调试页，却声明 native Side Panel 通过。
+- [ ] 原生 Side Panel 无法稳定打开，且没有结构化 blocker 和回退计划。
+- [ ] 窄宽度下关键按钮不可达，或需要用户猜测隐藏入口。
+- [ ] Debug 页只显示不可读大 JSON，无法解释 activePage / A quality / C source map 状态。
+- [ ] Mindmap 使用假数据或 heading-only fallback，却声明 digest-first native 验收通过。
+- [ ] `native-probe` 通过但 `native-ux` 未通过，仍声明本阶段体验通过。
+- [ ] 缺少截图 metadata 或 blocker schema 不完整，却声明自动化证据可审计。
+- [ ] 任何功能绕过 Runtime / D Adapter，由 B 前端直接生成总结、回答或 Mindmap。
+
+### 2.9 V1.2-AC-Quality A/C 质量深化 Gate
+
+V1.2-AC-Quality 的验收目标是证明 A 高质量网页感知和 C digest-first Mindmap 在更多真实网页中稳定、可解释、可反跳。它不替代完整 V1.2 出门验收，也不等同于 A-V1.2 100-page production gate。
+
+必须通过：
+
+- [ ] 本阶段有独立 stage gate、开发计划、验收计划、预审计和 PRD 复检。
+- [ ] 至少 12 个真实网页或可复现 snapshot 进入本阶段矩阵，覆盖不少于 6 类页面。
+- [ ] 样本矩阵必须包含 pageId、url、snapshotPath、category、complexityTags、expectedRisk、expectedReadiness、goldStatus、runtimeEvidencePath、nativeScreenshotPaths、qualityReportPath、mindmapEvidencePath 和 conclusion。
+- [ ] 至少 5 个真实 Chrome 原生 Side Panel 页面完成读取 -> Debug -> Mindmap -> source fallback 验收。
+- [ ] 验收页面必须包含 1 个中文复杂网页和 1 个 low-signal degraded/fail 页面。
+- [ ] A Runtime 主链路返回 / 持久化 `structuredPage`、`highSignalPage`、`perceptionDigest`、`sourceMap`、`qualityReport`。
+- [ ] A quality report 能解释 pass / degraded / fail，且指标包含 numerator / denominator / method / threshold / passed。
+- [ ] low-signal / 空内容页不得 `downstreamReadiness=pass`。
+- [ ] `sourceCoverage`、`groundingCompleteness`、`jumpbackCoverage`、`lowSignalCorrectness`、`digestFirstUsage` 必须在 `report.json` 中有页面级和聚合级结论。
+- [ ] C 在 `downstreamReadiness=pass` 时优先消费 `PerceptionDigest.items + SourceRef`。
+- [ ] C fallback 到 heading / paragraph 时，必须在 metadata 或 Debug 中写明 fallback reason。
+- [ ] Mindmap 主要节点必须具备 `sourceRefIds` 或可展示的 `fallbackText`。
+- [ ] Debug 必须展示 A quality、digest item、sourceRef、C nodeSourceMap 和失败 / 降级原因。
+- [ ] HTML 验收报告必须列出页面、截图、URL、quality、mindmap、source 证据、结论。
+- [ ] false-green audit 必须检查 digest-first、sourceRef、low-signal、Runtime 主链路、D adapter 边界。
+- [ ] `acceptance-report.html` 必须让人类在不打开 JSON 的情况下判断每个样本通过、降级或失败的原因。
+
+V1.2-AC-Quality No-Go：
+
+- [ ] 只复用 A 离线 corpus，不跑 Runtime / Side Panel 主链路，却声明阶段完成。
+- [ ] 只提供 URL 列表，没有 snapshot、截图、runtime evidence 或质量报告。
+- [ ] C 仍只基于 headingTree / paragraph fallback，却声明 digest-first。
+- [ ] Mindmap 主要节点没有 sourceRef、fallbackText 或 fallbackReason。
+- [ ] Debug 页无法让人类快速判断 A/C 质量。
+- [ ] low-signal 页面被标记为 pass。
+- [ ] A 或 C 直接创建 Artifact、SSE、EventStore、Trace，绕过 D Adapter。
+- [ ] B 前端直接生成 summary、answer 或 Mermaid。
+- [ ] 借本阶段引入 RAG、长期记忆、多 Agent、浏览器自动操作、OCR/VLM/ASR/video/live engine。
+- [ ] 本阶段完成声明被写成完整 V1.2 complete、完整 V1 complete 或 A-V1.2 100-page production gate complete。
+
 ---
 
 ## 3. 模块验收

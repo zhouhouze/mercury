@@ -68,6 +68,7 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
     paragraphs = page.get("paragraphs") if isinstance(page.get("paragraphs"), list) else []
     chunks = page.get("chunks") if isinstance(page.get("chunks"), list) else []
     source_refs = index_source_refs(source_map)
+    source_ref_list = list(source_refs.values())
 
     if readiness == "pass" and isinstance(digest, dict):
         for item in digest.get("items", [])[:MAX_NODES - 1]:
@@ -109,16 +110,24 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
         paragraph_ids = [str(item) for item in heading.get("paragraphIds", []) if str(item).strip()]
         related_paragraphs = [p for p in paragraphs if isinstance(p, dict) and p.get("paragraphId") in paragraph_ids]
         chunk_ids = sorted({str(p.get("chunkId")) for p in related_paragraphs if p.get("chunkId")})
+        related_refs = source_refs_for(paragraph_ids=paragraph_ids, chunk_ids=chunk_ids, source_refs=source_ref_list)
+        first_ref = related_refs[0] if related_refs else {}
+        fallback_text = first_non_empty(
+            str(first_ref.get("fallbackText") or first_ref.get("textQuote") or ""),
+            first_excerpt(related_paragraphs),
+        )
         nodes.append(
             {
                 "nodeId": f"node_heading_{len(nodes) + 1}",
                 "label": str(heading["text"]),
                 "level": max(1, min(int(heading.get("level") or 2), 6)),
+                "sourceRefIds": [str(ref.get("sourceRefId")) for ref in related_refs if ref.get("sourceRefId")],
                 "paragraphIds": paragraph_ids,
                 "chunkIds": chunk_ids,
-                "excerpt": first_excerpt(related_paragraphs),
-                "fallbackText": first_excerpt(related_paragraphs),
-                "jumpback": {"mode": "fallback", "reason": "source_ref_missing"},
+                "excerpt": fallback_text[:180],
+                "textQuote": str(first_ref.get("textQuote") or "")[:180],
+                "fallbackText": fallback_text[:240],
+                "jumpback": jumpback_from_ref(first_ref, fallback_reason="selector_missing" if first_ref else "source_ref_missing"),
             }
         )
 
@@ -126,16 +135,26 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
         for paragraph in paragraphs[:MAX_NODES]:
             if not isinstance(paragraph, dict):
                 continue
+            paragraph_ids = [str(paragraph["paragraphId"])] if paragraph.get("paragraphId") else []
+            chunk_ids = [str(paragraph["chunkId"])] if paragraph.get("chunkId") else []
+            related_refs = source_refs_for(paragraph_ids=paragraph_ids, chunk_ids=chunk_ids, source_refs=source_ref_list)
+            first_ref = related_refs[0] if related_refs else {}
+            fallback_text = first_non_empty(
+                str(first_ref.get("fallbackText") or first_ref.get("textQuote") or ""),
+                str(paragraph.get("text") or ""),
+            )
             nodes.append(
                 {
                     "nodeId": f"node_paragraph_{len(nodes) + 1}",
                     "label": str(paragraph.get("text") or "")[:MAX_LABEL_CHARS],
                     "level": 2,
-                    "paragraphIds": [str(paragraph["paragraphId"])] if paragraph.get("paragraphId") else [],
-                    "chunkIds": [str(paragraph["chunkId"])] if paragraph.get("chunkId") else [],
-                    "excerpt": str(paragraph.get("text") or "")[:180],
-                    "fallbackText": str(paragraph.get("text") or "")[:240],
-                    "jumpback": {"mode": "fallback", "reason": "source_ref_missing"},
+                    "sourceRefIds": [str(ref.get("sourceRefId")) for ref in related_refs if ref.get("sourceRefId")],
+                    "paragraphIds": paragraph_ids,
+                    "chunkIds": chunk_ids,
+                    "excerpt": fallback_text[:180],
+                    "textQuote": str(first_ref.get("textQuote") or "")[:180],
+                    "fallbackText": fallback_text[:240],
+                    "jumpback": jumpback_from_ref(first_ref, fallback_reason="selector_missing" if first_ref else "source_ref_missing"),
                 }
             )
 
@@ -199,12 +218,22 @@ def build_source_map(page: dict[str, Any], nodes: list[dict[str, Any]], source_m
     }
     for index, node in enumerate(nodes[: MAX_NODES - 1], start=1):
         fallback_text = str(node.get("fallbackText") or node.get("excerpt") or source_map["root"]["fallbackText"])[:240]
+        paragraph_ids = node.get("paragraphIds") or root_paragraph_ids[:1]
+        chunk_ids = node.get("chunkIds") or root_chunk_ids[:1]
+        node_source_ref_ids = node.get("sourceRefIds") or []
+        if not node_source_ref_ids:
+            matched_refs = source_refs_for(
+                paragraph_ids=[str(value) for value in paragraph_ids],
+                chunk_ids=[str(value) for value in chunk_ids],
+                source_refs=source_refs,
+            )
+            node_source_ref_ids = [str(ref.get("sourceRefId")) for ref in matched_refs if ref.get("sourceRefId")]
         source_map[f"node_{index}"] = {
             "nodeLabel": sanitize_label(str(node.get("label") or "")),
             "digestItemIds": node.get("digestItemIds") or [],
-            "sourceRefIds": node.get("sourceRefIds") or [],
-            "paragraphIds": node.get("paragraphIds") or root_paragraph_ids[:1],
-            "chunkIds": node.get("chunkIds") or root_chunk_ids[:1],
+            "sourceRefIds": node_source_ref_ids,
+            "paragraphIds": paragraph_ids,
+            "chunkIds": chunk_ids,
             "excerpt": str(node.get("excerpt") or source_map["root"]["excerpt"])[:180],
             "textQuote": str(node.get("textQuote") or "")[:180],
             "fallbackText": fallback_text,
@@ -251,6 +280,18 @@ def index_source_refs(source_map: dict[str, Any] | None) -> dict[str, dict[str, 
     if not isinstance(refs, list):
         return {}
     return {str(ref.get("sourceRefId")): ref for ref in refs if isinstance(ref, dict) and ref.get("sourceRefId")}
+
+
+def source_refs_for(*, paragraph_ids: list[str], chunk_ids: list[str], source_refs: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    paragraph_set = {value for value in paragraph_ids if value}
+    chunk_set = {value for value in chunk_ids if value}
+    matched: list[dict[str, Any]] = []
+    for ref in source_refs:
+        paragraph_id = str(ref.get("paragraphId") or "")
+        chunk_id = str(ref.get("chunkId") or "")
+        if (paragraph_id and paragraph_id in paragraph_set) or (chunk_id and chunk_id in chunk_set):
+            matched.append(ref)
+    return matched
 
 
 def jumpback_from_ref(ref: dict[str, Any], *, fallback_reason: str) -> dict[str, Any]:

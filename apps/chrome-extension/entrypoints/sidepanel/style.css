@@ -145,6 +145,15 @@ h2 {
   display: none;
 }
 
+.topbar .topbar-status {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
 .debug-log .muted {
   display: block;
 }
@@ -460,11 +469,16 @@ button {
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 2px;
-  scrollbar-width: none;
+  scrollbar-width: thin;
 }
 
 .panel-strip::-webkit-scrollbar {
-  display: none;
+  height: 6px;
+}
+
+.panel-strip::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #d4d8e4;
 }
 
 .panel-strip button,

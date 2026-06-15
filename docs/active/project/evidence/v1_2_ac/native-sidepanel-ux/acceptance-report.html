@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Navia V1.2-AC-Native 验收报告</title>
+    <style>
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f6f7fb; }
+      header { padding: 32px 40px; background: #16213e; color: white; }
+      main { padding: 28px 40px 56px; }
+      h1, h2, h3 { margin: 0 0 12px; }
+      section { margin: 0 0 24px; }
+      .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+      .metric, .page-card, .panel { background: white; border: 1px solid #dce1ee; border-radius: 8px; padding: 16px; box-shadow: 0 8px 24px rgba(26, 35, 62, 0.06); }
+      .metric strong { display: block; font-size: 24px; margin-top: 6px; }
+      .pass { color: #087443; font-weight: 700; }
+      .fail { color: #b42318; font-weight: 700; }
+      table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #dce1ee; }
+      th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e6e9f2; vertical-align: top; }
+      .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+      figure { margin: 0; background: #f9fafc; border: 1px solid #e1e5ef; border-radius: 8px; overflow: hidden; }
+      img { display: block; width: 100%; height: 180px; object-fit: cover; object-position: top left; }
+      figcaption { padding: 8px 10px; color: #4c5874; font-size: 12px; }
+      code { background: #eef1f8; padding: 2px 5px; border-radius: 4px; }
+      ul { margin-top: 8px; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Navia V1.2-AC-Native 验收报告</h1>
+      <p>真实 Chrome 原生 Side Panel 验收；本报告由 <code>report.json</code> 自动生成。</p>
+    </header>
+    <main>
+      <section class="summary">
+        <div class="metric">阶段结论<strong class="pass">PASS</strong></div>
+        <div class="metric">页面覆盖<strong>5 / 5</strong></div>
+        <div class="metric">中文复杂页<strong class="pass">已覆盖</strong></div>
+        <div class="metric">低信号页<strong class="pass">已降级</strong></div>
+      </section>
+
+      <section class="panel">
+        <h2>目标架构与当前实现</h2>
+        <p>目标链路：真实网页 -> Chrome 原生 Side Panel -> B SidePanel Shell -> Background runtime proxy -> Runtime API -> D Adapter -> A Page Perception / C Mindmap -> B Debug / Chat / Mermaid / Source Fallback。</p>
+        <p>当前实现：验收脚本在真实浏览器中打开原生右侧 Side Panel，复用 Runtime 主链路完成读取、提交、摘要、问答、Mindmap，并对低信号页展示 degraded 结果。</p>
+      </section>
+
+      <section>
+        <h2>False-Green Audit</h2>
+        <table>
+          <thead><tr><th>检查项</th><th>结果</th><th>证据</th></tr></thead>
+          <tbody><tr><td>native_ux_report_passed</td><td class="pass">PASS</td><td>native-sidepanel-ux/report.json</td></tr><tr><td>no_structured_blockers</td><td class="pass">PASS</td><td>report.blockers</td></tr><tr><td>required_page_count</td><td class="pass">PASS</td><td>pagesPassed=5, pagesRequired=5</td></tr><tr><td>chinese_complex_coverage</td><td class="pass">PASS</td><td>includesChineseComplexPage=true</td></tr><tr><td>low_signal_degraded_or_failed</td><td class="pass">PASS</td><td>lowSignalOutcome!=pass</td></tr><tr><td>screenshot_metadata_complete</td><td class="pass">PASS</td><td>27 screenshots, missing=0, invalid=0</td></tr><tr><td>production_build_no_e2e_bridge</td><td class="pass">PASS</td><td>84 production files checked</td></tr></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>阶段边界</h2>
+        <ul>
+          <li>可以声明：原生 Chrome Side Panel 体验稳定化通过自动化验收。</li>
+          <li>不得声明：完整 V1 complete、完整 V1.2 complete、A-V1.2 100-page production gate complete。</li>
+          <li>未引入：RAG、长期记忆、多 Agent、浏览器自动操作、语音、桌宠、PPT、深度研究。</li>
+        </ul>
+      </section>
+
+
+        <section class="page-card">
+          <h3>1. article </h3>
+          <p><strong>URL:</strong> http://127.0.0.1:52584/article.html</p>
+          <p><strong>结果:</strong> 通过</p>
+          <p><strong>自动化模式:</strong> bridge_native_sidepanel</p>
+          <div class="shots">
+            <figure>
+              <img src="screenshots/article-01-after-open.png" alt="article-01-after-open" />
+              <figcaption>article-01-after-open</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/article-02-debug-after-read.png" alt="article-02-debug-after-read" />
+              <figcaption>article-02-debug-after-read</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/article-03-after-submit.png" alt="article-03-after-submit" />
+              <figcaption>article-03-after-submit</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/article-04-summary.png" alt="article-04-summary" />
+              <figcaption>article-04-summary</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/article-05-question.png" alt="article-05-question" />
+              <figcaption>article-05-question</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/article-06-mindmap.png" alt="article-06-mindmap" />
+              <figcaption>article-06-mindmap</figcaption>
+            </figure></div>
+        </section>
+        <section class="page-card">
+          <h3>2. technical_doc </h3>
+          <p><strong>URL:</strong> http://127.0.0.1:52584/docs.html</p>
+          <p><strong>结果:</strong> 通过</p>
+          <p><strong>自动化模式:</strong> bridge_native_sidepanel</p>
+          <div class="shots">
+            <figure>
+              <img src="screenshots/docs-01-after-open.png" alt="docs-01-after-open" />
+              <figcaption>docs-01-after-open</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/docs-02-debug-after-read.png" alt="docs-02-debug-after-read" />
+              <figcaption>docs-02-debug-after-read</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/docs-03-after-submit.png" alt="docs-03-after-submit" />
+              <figcaption>docs-03-after-submit</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/docs-04-summary.png" alt="docs-04-summary" />
+              <figcaption>docs-04-summary</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/docs-05-question.png" alt="docs-05-question" />
+              <figcaption>docs-05-question</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/docs-06-mindmap.png" alt="docs-06-mindmap" />
+              <figcaption>docs-06-mindmap</figcaption>
+            </figure></div>
+        </section>
+        <section class="page-card">
+          <h3>3. readme </h3>
+          <p><strong>URL:</strong> http://127.0.0.1:52584/github_readme.html</p>
+          <p><strong>结果:</strong> 通过</p>
+          <p><strong>自动化模式:</strong> bridge_native_sidepanel</p>
+          <div class="shots">
+            <figure>
+              <img src="screenshots/github-readme-01-after-open.png" alt="github-readme-01-after-open" />
+              <figcaption>github-readme-01-after-open</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/github-readme-02-debug-after-read.png" alt="github-readme-02-debug-after-read" />
+              <figcaption>github-readme-02-debug-after-read</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/github-readme-03-after-submit.png" alt="github-readme-03-after-submit" />
+              <figcaption>github-readme-03-after-submit</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/github-readme-04-summary.png" alt="github-readme-04-summary" />
+              <figcaption>github-readme-04-summary</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/github-readme-05-question.png" alt="github-readme-05-question" />
+              <figcaption>github-readme-05-question</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/github-readme-06-mindmap.png" alt="github-readme-06-mindmap" />
+              <figcaption>github-readme-06-mindmap</figcaption>
+            </figure></div>
+        </section>
+        <section class="page-card">
+          <h3>4. chinese_complex · 中文复杂页</h3>
+          <p><strong>URL:</strong> http://127.0.0.1:52584/zh_python_modules.html</p>
+          <p><strong>结果:</strong> 通过</p>
+          <p><strong>自动化模式:</strong> bridge_native_sidepanel</p>
+          <div class="shots">
+            <figure>
+              <img src="screenshots/zh-python-modules-01-after-open.png" alt="zh-python-modules-01-after-open" />
+              <figcaption>zh-python-modules-01-after-open</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/zh-python-modules-02-debug-after-read.png" alt="zh-python-modules-02-debug-after-read" />
+              <figcaption>zh-python-modules-02-debug-after-read</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/zh-python-modules-03-after-submit.png" alt="zh-python-modules-03-after-submit" />
+              <figcaption>zh-python-modules-03-after-submit</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/zh-python-modules-04-summary.png" alt="zh-python-modules-04-summary" />
+              <figcaption>zh-python-modules-04-summary</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/zh-python-modules-05-question.png" alt="zh-python-modules-05-question" />
+              <figcaption>zh-python-modules-05-question</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/zh-python-modules-06-mindmap.png" alt="zh-python-modules-06-mindmap" />
+              <figcaption>zh-python-modules-06-mindmap</figcaption>
+            </figure></div>
+        </section>
+        <section class="page-card">
+          <h3>5. low_signal_or_paywall_like · 低信号页</h3>
+          <p><strong>URL:</strong> http://127.0.0.1:52584/low_example_domain.html</p>
+          <p><strong>结果:</strong> 通过 · lowSignalOutcome=degraded</p>
+          <p><strong>自动化模式:</strong> bridge_native_sidepanel</p>
+          <div class="shots">
+            <figure>
+              <img src="screenshots/low-example-domain-01-after-open.png" alt="low-example-domain-01-after-open" />
+              <figcaption>low-example-domain-01-after-open</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/low-example-domain-02-debug-after-read.png" alt="low-example-domain-02-debug-after-read" />
+              <figcaption>low-example-domain-02-debug-after-read</figcaption>
+            </figure>
+            <figure>
+              <img src="screenshots/low-example-domain-03-after-submit.png" alt="low-example-domain-03-after-submit" />
+              <figcaption>low-example-domain-03-after-submit</figcaption>
+            </figure></div>
+        </section>
+    </main>
+  </body>
+</html>

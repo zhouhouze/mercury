@@ -1,0 +1,611 @@
+{
+  "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+  "digestId": "digest_image_001_go_image_draw",
+  "items": [
+    {
+      "confidence": 0.844,
+      "importance": 0.883,
+      "itemId": "item_block_pg_image_001_go_image_draw_0059",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0059"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0059",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Next article: Learn Go from your browser Previous article: The Go image package Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue Tracker Release Notes Brand Guidelines Code of Conduct Connect Bluesky Mastodon Twitter GitHub Slack r/golang Meetup Gola",
+          "headingPath": [
+            "The Go image/draw package",
+            "Performance"
+          ],
+          "order": 58,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0059",
+          "sourceRefId": "src_image_001_go_image_draw_0059",
+          "textHash": "sha256_964fafef2e9839048352f836e23c88a9",
+          "textQuote": "Next article: Learn Go from your browser Previous article: The Go image package Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About D"
+        }
+      ],
+      "text": "Next article : Learn Go from your browser Previous article : The Go image package Blog",
+      "warnings": []
+    },
+    {
+      "confidence": 0.831,
+      "importance": 0.85,
+      "itemId": "item_block_pg_image_001_go_image_draw_0057",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0057"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0057",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "The image/draw package implementation demonstrates how to provide an image manipulation function that is both general purpose, yet efficient for common cases. The DrawMask function takes arguments of interface types, but immediately makes type assertions that its arguments are of specific struct types, corresponding to common operations like drawing one imag",
+          "headingPath": [
+            "The Go image/draw package",
+            "Performance"
+          ],
+          "order": 56,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0057",
+          "sourceRefId": "src_image_001_go_image_draw_0057",
+          "textHash": "sha256_7436df480f03fd327a345eaa29bf0e07",
+          "textQuote": "The image/draw package implementation demonstrates how to provide an image manipulation function that is both general purpose, yet efficient for common cases. The DrawMask function takes arguments of interface types, but"
+        }
+      ],
+      "text": "The image / draw package implementation demonstrates how to provide an image manipulation function that is",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.823,
+      "itemId": "item_block_pg_image_001_go_image_draw_0033",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "The Porter-Duff paper presented 12 different composition operators , but with an explicit mask, only 2 of these are needed in practice: source-over-destination and source. In Go, these operators are represented by the Over and Src constants. The Over operator performs the natural layering of a source image over a destination image: the change to the destinat",
+          "headingPath": [
+            "The Go image/draw package",
+            "Introduction"
+          ],
+          "order": 32,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0033",
+          "sourceRefId": "src_image_001_go_image_draw_0033",
+          "textHash": "sha256_8cf3c2cd8eb7c05220b32760ec505474",
+          "textQuote": "The Porter-Duff paper presented 12 different composition operators , but with an explicit mask, only 2 of these are needed in practice: source-over-destination and source. In Go, these operators are represented by the Ov"
+        }
+      ],
+      "text": "The Porter - Duff paper presented 12 different composition operators , but with an explicit mask",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_image_001_go_image_draw_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Composition is performed pixel by pixel in the style of the Plan 9 graphics library and the X Render extension. The model is based on the classic “Compositing Digital Images” paper by Porter and Duff, with an additional mask parameter: dst = (src IN mask) OP dst . For a fully opaque mask, this reduces to the original Porter-Duff formula: dst = src OP dst . I",
+          "headingPath": [
+            "The Go image/draw package",
+            "Introduction"
+          ],
+          "order": 31,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0032",
+          "sourceRefId": "src_image_001_go_image_draw_0032",
+          "textHash": "sha256_d95984c285440ec90ff01f198cff6520",
+          "textQuote": "Composition is performed pixel by pixel in the style of the Plan 9 graphics library and the X Render extension. The model is based on the classic “Compositing Digital Images” paper by Porter and Duff, with an additional "
+        }
+      ],
+      "text": "Composition is performed pixel by pixel in the style of the Plan 9 graphics library and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_image_001_go_image_draw_0039",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0039"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0039",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "To fill a rectangle with a solid color, use an image.Uniform source. The ColorImage type re-interprets a Color as a practically infinite-sized Image of that color. For those familiar with the design of Plan 9’s draw library, there is no need for an explicit “repeat bit” in Go’s slice-based image types; the concept is subsumed by Uniform .",
+          "headingPath": [
+            "The Go image/draw package",
+            "Filling a Rectangle"
+          ],
+          "order": 38,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0039",
+          "sourceRefId": "src_image_001_go_image_draw_0039",
+          "textHash": "sha256_e42cd7e832d7c353b12a7c21d68ff1aa",
+          "textQuote": "To fill a rectangle with a solid color, use an image.Uniform source. The ColorImage type re-interprets a Color as a practically infinite-sized Image of that color. For those familiar with the design of Plan 9’s draw libr"
+        }
+      ],
+      "text": "To fill a rectangle with a solid color , use an image . Uniform source .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.814,
+      "importance": 0.806,
+      "itemId": "item_block_pg_image_001_go_image_draw_0053",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0053"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0053",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "To draw an image through a circular mask with center p and radius r :",
+          "headingPath": [
+            "The Go image/draw package",
+            "Drawing Through a Mask"
+          ],
+          "order": 52,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0053",
+          "sourceRefId": "src_image_001_go_image_draw_0053",
+          "textHash": "sha256_10695cae7683d751fad9d4e7bf7da197",
+          "textQuote": "To draw an image through a circular mask with center p and radius r :"
+        }
+      ],
+      "text": "To draw an image through a circular mask with center p and radius r :",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.803,
+      "itemId": "item_block_pg_image_001_go_image_draw_0055",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0055"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0055",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "To draw a font glyph in blue starting from a point p , draw with an image.ColorImage source and an image.Alpha mask . For simplicity, we aren’t performing any sub-pixel positioning or rendering, or correcting for a font’s height above a baseline.",
+          "headingPath": [
+            "The Go image/draw package",
+            "Drawing Font Glyphs"
+          ],
+          "order": 54,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0055",
+          "sourceRefId": "src_image_001_go_image_draw_0055",
+          "textHash": "sha256_90f8b53ce500e8d40f4a141742ff898d",
+          "textQuote": "To draw a font glyph in blue starting from a point p , draw with an image.ColorImage source and an image.Alpha mask . For simplicity, we aren’t performing any sub-pixel positioning or rendering, or correcting for a font’"
+        }
+      ],
+      "text": "To draw a font glyph in blue starting from a point p , draw with an",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.802,
+      "itemId": "item_block_pg_image_001_go_image_draw_0020",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0020"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Learn and network with Go developers from around the world",
+          "headingPath": [],
+          "order": 19,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0020",
+          "sourceRefId": "src_image_001_go_image_draw_0020",
+          "textHash": "sha256_b93bc340bb40210cde17c54f6450276d",
+          "textQuote": "Learn and network with Go developers from around the world"
+        }
+      ],
+      "text": "Learn and network with Go developers from around the world",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_image_001_go_image_draw_0013",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0013"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+          "headingPath": [],
+          "order": 12,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0013",
+          "sourceRefId": "src_image_001_go_image_draw_0013",
+          "textHash": "sha256_32dbb30e2b5e484bcf2040d71f827e8f",
+          "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+        }
+      ],
+      "text": "Tips for writing clear , performant , and idiomatic Go code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.812,
+      "importance": 0.801,
+      "itemId": "item_block_pg_image_001_go_image_draw_0048",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0048"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0048",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "To copy the entire source image, use sr = src.Bounds() .",
+          "headingPath": [
+            "The Go image/draw package",
+            "Copying an Image"
+          ],
+          "order": 47,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0048",
+          "sourceRefId": "src_image_001_go_image_draw_0048",
+          "textHash": "sha256_3abbcfd50d1fc72a2be507a5e760fb74",
+          "textQuote": "To copy the entire source image, use sr = src.Bounds() ."
+        }
+      ],
+      "text": "To copy the entire source image , use sr = src . Bounds ( ) .",
+      "warnings": []
+    },
+    {
+      "confidence": 0.811,
+      "importance": 0.799,
+      "itemId": "item_block_pg_image_001_go_image_draw_0009",
+      "kind": "key_fact",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0009"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0009",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "A complete introduction to building software with Go",
+          "headingPath": [],
+          "order": 8,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0009",
+          "sourceRefId": "src_image_001_go_image_draw_0009",
+          "textHash": "sha256_8a22f0cf1c576f1e94d7bb94bf6394b0",
+          "textQuote": "A complete introduction to building software with Go"
+        }
+      ],
+      "text": "A complete introduction to building software with Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.798,
+      "itemId": "item_block_pg_image_001_go_image_draw_0011",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0011"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0011",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Reference documentation for Go's standard library",
+          "headingPath": [],
+          "order": 10,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0011",
+          "sourceRefId": "src_image_001_go_image_draw_0011",
+          "textHash": "sha256_13d2cfa6bfaf22a19405519c68bcf02a",
+          "textQuote": "Reference documentation for Go's standard library"
+        }
+      ],
+      "text": "Reference documentation for Go ' s standard library",
+      "warnings": []
+    },
+    {
+      "confidence": 0.81,
+      "importance": 0.797,
+      "itemId": "item_block_pg_image_001_go_image_draw_0031",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Package image/draw defines only one operation: drawing a source image onto a destination image, through an optional mask image. This one operation is surprisingly versatile and can perform a number of common image manipulation tasks elegantly and efficiently.",
+          "headingPath": [
+            "The Go image/draw package",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0031",
+          "sourceRefId": "src_image_001_go_image_draw_0031",
+          "textHash": "sha256_7b522d81eed35fc4b6637ba7f218acc5",
+          "textQuote": "Package image/draw defines only one operation: drawing a source image onto a destination image, through an optional mask image. This one operation is surprisingly versatile and can perform a number of common image manipu"
+        }
+      ],
+      "text": "Package image / draw defines only one operation : drawing a source image onto a destination",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.795,
+      "itemId": "item_block_pg_image_001_go_image_draw_0004",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0004"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0004",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Stories about how and why companies use Go",
+          "headingPath": [],
+          "order": 3,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0004",
+          "sourceRefId": "src_image_001_go_image_draw_0004",
+          "textHash": "sha256_ef57e730e467089436137e8322bb821b",
+          "textQuote": "Stories about how and why companies use Go"
+        }
+      ],
+      "text": "Stories about how and why companies use Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.795,
+      "itemId": "item_block_pg_image_001_go_image_draw_0005",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0005"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0005",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "How Go can help keep you secure by default",
+          "headingPath": [],
+          "order": 4,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0005",
+          "sourceRefId": "src_image_001_go_image_draw_0005",
+          "textHash": "sha256_149ef556d2f39d225d11267fa7b23c16",
+          "textQuote": "How Go can help keep you secure by default"
+        }
+      ],
+      "text": "How Go can help keep you secure by default",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_image_001_go_image_draw_0003",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0003"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0003",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "Common problems companies solve with Go",
+          "headingPath": [],
+          "order": 2,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0003",
+          "sourceRefId": "src_image_001_go_image_draw_0003",
+          "textHash": "sha256_0a6f33d8dfbdfd2ea461982564e2ff22",
+          "textQuote": "Common problems companies solve with Go"
+        }
+      ],
+      "text": "Common problems companies solve with Go",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_image_001_go_image_draw_0008",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0001"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0008"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0008",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "The official Go language specification",
+          "headingPath": [],
+          "order": 7,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0008",
+          "sourceRefId": "src_image_001_go_image_draw_0008",
+          "textHash": "sha256_4ee35382b26d1495bc31ec9863083272",
+          "textQuote": "The official Go language specification"
+        }
+      ],
+      "text": "The official Go language specification",
+      "warnings": []
+    },
+    {
+      "confidence": 0.809,
+      "importance": 0.794,
+      "itemId": "item_block_pg_image_001_go_image_draw_0065",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_image_001_go_image_draw_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_image_001_go_image_draw_0065"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_image_001_go_image_draw_0065",
+          "blockType": "paragraph",
+          "chunkId": "ck_image_001_go_image_draw_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_125dde730088c2ad7d6c6f3596752b8a4e7d26961e77ad88ce858dd95bd859f1",
+          "fallbackText": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay",
+          "headingPath": [
+            "The Go image/draw package",
+            "Performance"
+          ],
+          "order": 64,
+          "pageId": "image_001_go_image_draw",
+          "paragraphId": "pg_image_001_go_image_draw_0065",
+          "sourceRefId": "src_image_001_go_image_draw_0065",
+          "textHash": "sha256_0f44fe7b67298b1a9c27323cddee03f6",
+          "textQuote": "go.dev uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more. Okay"
+        }
+      ],
+      "text": "go . dev uses cookies from Google to deliver and enhance the quality of its services",
+      "warnings": []
+    }
+  ],
+  "pageId": "image_001_go_image_draw",
+  "rejectedItems": [],
+  "stats": {
+    "compressionRatio": 0.131,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "summary": {
+    "keyTakeaways": [
+      "Next article : Learn Go from your browser Previous article : The Go image package Blog",
+      "The image / draw package implementation demonstrates how to provide an image manipulation function that is",
+      "The Porter - Duff paper presented 12 different composition operators , but with an explicit mask",
+      "Composition is performed pixel by pixel in the style of the Plan 9 graphics library and",
+      "To fill a rectangle with a solid color , use an image . Uniform source ."
+    ],
+    "tldr": "Next article : Learn Go from your browser Previous article : The Go image package Blog"
+  }
+}

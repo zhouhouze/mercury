@@ -300,6 +300,94 @@ A-V1.2 用户验收场景：
 - 不让 C 自行抽取网页正文；C 只能消费 A/Runtime 提供的结构化页面事实。
 - 不把 piAgent 真实接入质量作为本阶段完成条件；D 只负责保持 CoreProvider / Adapter Layer 边界不被 A/C 绕过。
 
+### 5.6 V1.2-AC-Native 原生侧边栏体验稳定化目标
+
+V1.2-AC-Native 是当前 AC 联动之后的体验验收补强阶段。它不重开 A/C/D 功能范围，目标是把已经在 direct extension page 中跑通的 A/C/D/B 功能链路，稳定落到真实 Chrome 原生 Side Panel 用户体验中。
+
+本阶段的产品目标：
+
+```text
+真实网页标签页
+  + Chrome 原生右侧 Side Panel
+  + Navia 聊天 / Debug / Mindmap
+  + 读取当前页面、提交上下文、总结、问答、Mindmap、刷新恢复
+```
+
+V1.2-AC-Native 必须解决：
+
+- 用户通过 Chrome 扩展 action 或快捷键稳定打开 Navia 原生 Side Panel。
+- 截图证据必须同时显示真实网页与右侧 Navia Side Panel。
+- Side Panel 窄宽度下，`读取当前页面`、`提交上下文`、`总结`、`Mindmap` 等入口必须可见、可滚动、可操作。
+- Debug 页必须能在原生 Side Panel 中展示页面读取状态、A perception 状态和必要的 source / quality 信息。
+- 摘要、页面问答、Mindmap 必须在原生 Side Panel 容器内完成，而不是在全屏 `chrome-extension://.../sidepanel.html` 页面中完成。
+- 刷新或重开 Side Panel 后，Runtime session / activePage 状态必须可恢复或给出明确失败提示。
+
+本阶段明确不声明：
+
+- 不声明完整 V1.2 complete。
+- 不声明完整 V1 complete。
+- 不声明 A-V1.2 100-page production gate 已完成。
+- 不以 direct extension page 代替原生 Side Panel 用户体验验收。
+- 不引入 RAG、长期记忆、多 Agent、浏览器自动操作、语音、桌宠、PPT 或深度研究。
+
+V1.2-AC-Native 的成功定义：
+
+```text
+用户能在真实网页右侧打开 Navia 原生 Side Panel，
+并在同一个 Side Panel 中完成读取、Debug、总结、问答、Mindmap 与恢复的核心路径；
+所有通过声明都有截图、截图 metadata、Runtime API、native-ux 测试或结构化 blocker 支撑。
+```
+
+### 5.7 V1.2-AC-Quality A/C 质量深化目标
+
+V1.2-AC-Quality 是 V1.2-AC-Native 之后的 A/C 质量深化阶段。它不重做原生 Side Panel 容器，不扩大 D/B 职责，目标是把当前已能在原生 Side Panel 中跑通的 A/C 功能链路，提升为更稳定、可解释、可反跳、可扩展验收的真实网页伴读能力。
+
+本阶段目标：
+
+- A 模块继续作为 AgentCore 的“眼睛”，聚焦高质量网页感知、结构化页面摘取、可反跳证据和 Debug 可验证 JSON。
+- C 模块继续作为思维导图生成服务，优先消费 A 的 `PerceptionDigest`、`SourceRef` 和 `QualityReport`，生成 digest-first Mermaid mindmap。
+- AC 联动必须在 Runtime 主链路中可见，不得只停留在离线 evidence。
+- Debug 必须让开发者和验收者快速判断 A 是否提取出高质量内容、C 是否真正使用 A 的 digest/source，而不是 heading-only fallback。
+- 真实网页验收样本必须继续扩展，覆盖中文复杂页、图文混排页、技术文档、README、低信号页和长内容页。
+
+本阶段用户可见体验目标：
+
+- 用户在真实网页右侧打开 Navia 原生 Side Panel 后，可以读取当前页面。
+- Debug 能用摘要卡片说明 A 的页面质量状态、digest 质量、sourceRef 覆盖和低信号降级原因。
+- 用户触发 Mindmap 后，C 输出的 Mermaid 能在 Side Panel 中展示；如果降级，则能看到 fallback 原因和可读 source fallback。
+- 验收者能通过 HTML 报告快速看到每个网页的截图、URL、A quality、C nodeSourceMap、source fallback 和最终结论。
+
+本阶段样本要求：
+
+- 至少 `12` 个真实网页或可复现 snapshot 进入样本矩阵。
+- 至少覆盖 `6` 类页面：中文复杂页、图文混排页、技术文档、GitHub README、低信号页、长内容页。
+- 至少 `5` 个页面必须在真实 Chrome 原生 Side Panel 中完成读取 -> Debug -> Mindmap -> source fallback 验收。
+- 每个计入通过的页面必须有 URL 或 `snapshotPath`、category、expectedRisk、runtime evidence、截图、metadata 和结论。
+
+本阶段成功定义：
+
+```text
+真实网页 / snapshot
+-> A StructuredPage + HighSignal + PerceptionDigest + SourceMap + QualityReport
+-> D ToolResult / Artifact / Event / Trace 映射
+-> C digest-first Mermaid + nodeSourceMap
+-> B Debug / Mindmap / Source fallback 可复核
+-> HTML 验收报告和 false-green audit 可追溯
+```
+
+本阶段不得声明：
+
+- 完整 V1.2 complete。
+- A-V1.2 100-page production gate complete，除非单独跑完 A-V1.2 100-page gate。
+- 最终网页内悬浮球 / 双轨面板体验 complete。
+- RAG、长期记忆、多 Agent、浏览器自动操作、OCR/VLM/ASR/video/live engine ready。
+
+本阶段完成后只能声明：
+
+```text
+V1.2-AC-Quality 阶段 A/C 质量深化与真实网页扩展通过。
+```
+
 ---
 
 ## 6. V1 非目标

@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 9.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.5
+    },
+    "contentCoverage": {
+      "denominator": 2670.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 2274.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 0.852
+    },
+    "digestCompressionRatio": {
+      "denominator": 393.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 158.0,
+      "passed": false,
+      "threshold": 0.35,
+      "value": 0.402
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 50.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 50.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 50.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.04
+    },
+    "sourceCoverage": {
+      "denominator": 48.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 48.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.898,
+  "pageId": "code_001_py_asyncio",
+  "reportId": "q_code_001_py_asyncio",
+  "warnings": []
+}

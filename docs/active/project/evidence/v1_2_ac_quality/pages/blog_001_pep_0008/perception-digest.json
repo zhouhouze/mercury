@@ -1,0 +1,651 @@
+{
+  "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+  "digestId": "digest_blog_001_pep_0008",
+  "items": [
+    {
+      "confidence": 0.834,
+      "importance": 0.869,
+      "itemId": "item_block_pg_blog_001_pep_0008_0105",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0105",
+          "blockType": "list_item",
+          "chunkId": "ck_blog_001_pep_0008_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which is to republish an internal interface as part of a public API (for example, overwriting a pure Python implementation of ",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Imports"
+          ],
+          "order": 104,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0105",
+          "sourceRefId": "src_blog_001_pep_0008_0105",
+          "textHash": "sha256_4e6a1c2869e16005b78e23844b6c903e",
+          "textQuote": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wil"
+        }
+      ],
+      "text": "Wildcard imports ( from < module > import * ) should be avoided , as they",
+      "warnings": []
+    },
+    {
+      "confidence": 0.834,
+      "importance": 0.858,
+      "itemId": "item_block_pg_blog_001_pep_0008_0047",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0047"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0047",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis creates a natural 4-space indent for the subsequent lines of the multiline conditional. This can produce a visual confl",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Indentation"
+          ],
+          "order": 46,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0047",
+          "sourceRefId": "src_blog_001_pep_0008_0047",
+          "textHash": "sha256_ec8a1d90a399cf5d7224516c4ea9c69f",
+          "textQuote": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an"
+        }
+      ],
+      "text": "When the conditional part of an if - statement is long enough to require that it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.855,
+      "itemId": "item_block_pg_blog_001_pep_0008_0107",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0107"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0107",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from __future__ imports. Python mandates that future-imports must appear in the module before any other code except docstrings:",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Module Level Dunder Names"
+          ],
+          "order": 106,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0107",
+          "sourceRefId": "src_blog_001_pep_0008_0107",
+          "textHash": "sha256_6cf473ee304287ebd980400120487a33",
+          "textQuote": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from"
+        }
+      ],
+      "text": "Module level “ dunders ” ( i . e . names with two leading and two",
+      "warnings": []
+    },
+    {
+      "confidence": 0.83,
+      "importance": 0.847,
+      "itemId": "item_block_pg_blog_001_pep_0008_0071",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0071"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0071",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break after binary operations and relations, displayed formulas always break before binary operations” [3] .",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Should a Line Break Before or After a Binary Operator?"
+          ],
+          "order": 70,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0071",
+          "sourceRefId": "src_blog_001_pep_0008_0071",
+          "textHash": "sha256_1ea97b93ed49648262650eeeeab6e00b",
+          "textQuote": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a parag"
+        }
+      ],
+      "text": "To solve this readability problem , mathematicians and their publishers follow the opposite convention . Donald",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.838,
+      "itemId": "item_block_pg_blog_001_pep_0008_0081",
+      "kind": "evidence",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0081"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0081",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "In the standard library, non-UTF-8 encodings should be used only for test purposes. Use non-ASCII characters sparingly, preferably only to denote places and human names. If using non-ASCII characters as data, avoid noisy Unicode characters like z̯̯͡a̧͎̺l̡͓̫g̹̲o̡̼̘ and byte order marks.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Source File Encoding"
+          ],
+          "order": 80,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0081",
+          "sourceRefId": "src_blog_001_pep_0008_0081",
+          "textHash": "sha256_b218535025350bfd13957782ec930bb0",
+          "textQuote": "In the standard library, non-UTF-8 encodings should be used only for test purposes. Use non-ASCII characters sparingly, preferably only to denote places and human names. If using non-ASCII characters as data, avoid noisy"
+        }
+      ],
+      "text": "In the standard library , non - UTF - 8 encodings should be used only for",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.833,
+      "itemId": "item_block_pg_blog_001_pep_0008_0059",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0059"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0059",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Limiting the required editor window width makes it possible to have several files open side by side, and works well when using code review tools that present the two versions in adjacent columns.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Maximum Line Length"
+          ],
+          "order": 58,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0059",
+          "sourceRefId": "src_blog_001_pep_0008_0059",
+          "textHash": "sha256_500cf04045f7ebbf5bba68707c420598",
+          "textQuote": "Limiting the required editor window width makes it possible to have several files open side by side, and works well when using code review tools that present the two versions in adjacent columns."
+        }
+      ],
+      "text": "Limiting the required editor window width makes it possible to have several files open side by",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.833,
+      "itemId": "item_block_pg_blog_001_pep_0008_0070",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0070"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0070",
+          "blockType": "code",
+          "chunkId": "ck_blog_001_pep_0008_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "# Wrong: # operators sit far away from their operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Should a Line Break Before or After a Binary Operator?"
+          ],
+          "order": 69,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0070",
+          "sourceRefId": "src_blog_001_pep_0008_0070",
+          "textHash": "sha256_f6efaa83f1e75e3610db3c4d593799ab",
+          "textQuote": "# Wrong: # operators sit far away from their operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )"
+        }
+      ],
+      "text": "# Wrong : # operators sit far away from their operands income = ( gross_wages +",
+      "warnings": []
+    },
+    {
+      "confidence": 0.824,
+      "importance": 0.832,
+      "itemId": "item_block_pg_blog_001_pep_0008_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the window width set to 80, even if the tool places a marker glyph in the final column when wrapping lines. Some web based tools may not offer dynamic line wrapping at all.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Maximum Line Length"
+          ],
+          "order": 59,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0060",
+          "sourceRefId": "src_blog_001_pep_0008_0060",
+          "textHash": "sha256_046b83fc9b2538aa41adc08c76ad9053",
+          "textQuote": "The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the window width set to 80, even if the tool p"
+        }
+      ],
+      "text": "The default wrapping in most tools disrupts the visual structure of the code , making it",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.832,
+      "itemId": "item_block_pg_blog_001_pep_0008_0073",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0073"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0073",
+          "blockType": "code",
+          "chunkId": "ck_blog_001_pep_0008_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "# Correct: # easy to match operators with operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Should a Line Break Before or After a Binary Operator?"
+          ],
+          "order": 72,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0073",
+          "sourceRefId": "src_blog_001_pep_0008_0073",
+          "textHash": "sha256_482e777040a83a289aed386c5df98ede",
+          "textQuote": "# Correct: # easy to match operators with operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )"
+        }
+      ],
+      "text": "# Correct : # easy to match operators with operands income = ( gross_wages + taxable_interest",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.83,
+      "itemId": "item_block_pg_blog_001_pep_0008_0133",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0133"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0133",
+          "blockType": "list_item",
+          "chunkId": "ck_blog_001_pep_0008_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like CPython itself) have pre-commit hooks that reject it.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Whitespace in Expressions and Statements",
+            "Other Recommendations"
+          ],
+          "order": 132,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0133",
+          "sourceRefId": "src_blog_001_pep_0008_0133",
+          "textHash": "sha256_31ba9a8ba55428b3ab8921fac8dcae49",
+          "textQuote": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and"
+        }
+      ],
+      "text": "Avoid trailing whitespace anywhere . Because it ’ s usually invisible , it can be confusing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.829,
+      "itemId": "item_block_pg_blog_001_pep_0008_0064",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0006"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0064"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0064",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0006",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable for that case:",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Maximum Line Length"
+          ],
+          "order": 63,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0064",
+          "sourceRefId": "src_blog_001_pep_0008_0064",
+          "textHash": "sha256_9c3f3123c676e58e33c651bef0256b2b",
+          "textQuote": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable for that case:"
+        }
+      ],
+      "text": "Backslashes may still be appropriate at times . For example , long , multiple with -",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.827,
+      "itemId": "item_block_pg_blog_001_pep_0008_0042",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0042"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . When using a hanging indent the following should be considered; there should be no arguments on the first line and further indentation should be used to clearly distinguish itself as ",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Indentation"
+          ],
+          "order": 41,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0042",
+          "sourceRefId": "src_blog_001_pep_0008_0042",
+          "textHash": "sha256_3a0dff456285be1caf5f24ac76e0bdfc",
+          "textQuote": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . When using a hanging indent the following s"
+        }
+      ],
+      "text": "Continuation lines should align wrapped elements either vertically using Python ’ s implicit line joining inside",
+      "warnings": []
+    },
+    {
+      "confidence": 0.822,
+      "importance": 0.826,
+      "itemId": "item_block_pg_blog_001_pep_0008_0110",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0011"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0110"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0110",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0011",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 .",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "String Quotes"
+          ],
+          "order": 109,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0110",
+          "sourceRefId": "src_blog_001_pep_0008_0110",
+          "textHash": "sha256_3b2dd9174a17e03dd35e2bd63031dad1",
+          "textQuote": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 ."
+        }
+      ],
+      "text": "For triple - quoted strings , always use double quote characters to be consistent with the",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_blog_001_pep_0008_0031",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0031"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Introduction"
+          ],
+          "order": 30,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0031",
+          "sourceRefId": "src_blog_001_pep_0008_0031",
+          "textHash": "sha256_ab4f3364aab71f3b11b30a2bebd4d6f0",
+          "textQuote": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project."
+        }
+      ],
+      "text": "Many projects have their own coding style guidelines . In the event of any conflicts ,",
+      "warnings": []
+    },
+    {
+      "confidence": 0.82,
+      "importance": 0.821,
+      "itemId": "item_block_pg_blog_001_pep_0008_0106",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0106"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0106",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Imports"
+          ],
+          "order": 105,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0106",
+          "sourceRefId": "src_blog_001_pep_0008_0106",
+          "textHash": "sha256_c234b7648a8d8cd9243cd614771b5c75",
+          "textQuote": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply."
+        }
+      ],
+      "text": "When republishing names this way , the guidelines below regarding public and internal interfaces still apply",
+      "warnings": []
+    },
+    {
+      "confidence": 0.813,
+      "importance": 0.815,
+      "itemId": "item_block_pg_blog_001_pep_0008_0046",
+      "kind": "code_fact",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0046"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0046",
+          "blockType": "code",
+          "chunkId": "ck_blog_001_pep_0008_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Indentation"
+          ],
+          "order": 45,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0046",
+          "sourceRefId": "src_blog_001_pep_0008_0046",
+          "textHash": "sha256_5fdbb230e403dd9b670899fabcda0ff6",
+          "textQuote": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )"
+        }
+      ],
+      "text": "# Hanging indents * may * be indented to other than 4 spaces . foo =",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_blog_001_pep_0008_0097",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0097"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0097",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Imports"
+          ],
+          "order": 96,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0097",
+          "sourceRefId": "src_blog_001_pep_0008_0097",
+          "textHash": "sha256_adb7b1545cad666bfe5b7fcf17c59b26",
+          "textQuote": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:"
+        }
+      ],
+      "text": "However , explicit relative imports are an acceptable alternative to absolute imports , especially when dealing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.817,
+      "importance": 0.815,
+      "itemId": "item_block_pg_blog_001_pep_0008_0099",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_blog_001_pep_0008_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_blog_001_pep_0008_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_blog_001_pep_0008_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_blog_001_pep_0008_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_ae001f4846db61035e66685f8ea96f2c0c783a2b7b35677658d807fd64e3ede1",
+          "fallbackText": "Standard library code should avoid complex package layouts and always use absolute imports.",
+          "headingPath": [
+            "PEP 8 – Style Guide for Python Code",
+            "Code Lay-out",
+            "Imports"
+          ],
+          "order": 98,
+          "pageId": "blog_001_pep_0008",
+          "paragraphId": "pg_blog_001_pep_0008_0099",
+          "sourceRefId": "src_blog_001_pep_0008_0099",
+          "textHash": "sha256_f52fed58a984c77ca24a32d17a1623ca",
+          "textQuote": "Standard library code should avoid complex package layouts and always use absolute imports."
+        }
+      ],
+      "text": "Standard library code should avoid complex package layouts and always use absolute imports .",
+      "warnings": []
+    }
+  ],
+  "pageId": "blog_001_pep_0008",
+  "rejectedItems": [],
+  "stats": {
+    "compressionRatio": 0.091,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "summary": {
+    "keyTakeaways": [
+      "Wildcard imports ( from < module > import * ) should be avoided , as they",
+      "When the conditional part of an if - statement is long enough to require that it",
+      "Module level “ dunders ” ( i . e . names with two leading and two",
+      "To solve this readability problem , mathematicians and their publishers follow the opposite convention . Donald",
+      "In the standard library , non - UTF - 8 encodings should be used only for"
+    ],
+    "tldr": "Wildcard imports ( from < module > import * ) should be avoided , as they"
+  }
+}

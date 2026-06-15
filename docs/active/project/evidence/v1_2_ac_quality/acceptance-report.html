@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>Navia V1.2-AC-Quality 验收报告</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 32px; color: #111827; background: #f8fafc; }
+    h1, h2 { margin: 0 0 12px; }
+    .summary, .card { background: #fff; border: 1px solid #d1d5db; border-radius: 8px; padding: 18px; margin: 16px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+    .metric { display: inline-block; margin: 4px 8px 4px 0; padding: 4px 8px; background: #eef2ff; border-radius: 6px; }
+    .pass { color: #047857; font-weight: 700; }
+    .degraded { color: #b45309; font-weight: 700; }
+    .fail { color: #b91c1c; font-weight: 700; }
+    img { max-width: 100%; border: 1px solid #e5e7eb; border-radius: 6px; margin-top: 8px; }
+    code { background: #f3f4f6; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Navia V1.2-AC-Quality 验收报告</h1>
+  <section class="summary">
+    <p>阶段结论：<span class="passed">passed</span></p>
+    <p>声明边界：只支撑 V1.2-AC-Quality，不支撑完整 V1/V1.2 complete。</p>
+    <ul><li><strong>sample_count</strong>: PASS</li>
+<li><strong>category_count</strong>: PASS</li>
+<li><strong>native_sidepanel_pages</strong>: PASS</li>
+<li><strong>page_conclusions</strong>: PASS</li>
+<li><strong>quality_metrics</strong>: PASS</li>
+<li><strong>low_signal</strong>: PASS</li>
+<li><strong>digest_first</strong>: PASS</li>
+<li><strong>html_report</strong>: PASS</li></ul>
+  </section>
+  <section class="grid"><article class="card">
+  <h2>zh_001_python_tutorial_index</h2>
+  <p><a href="https://docs.python.org/zh-cn/3/tutorial/index.html">https://docs.python.org/zh-cn/3/tutorial/index.html</a></p>
+  <p>类别：<code>localized_chinese_page</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.914</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/zh_001_python_tutorial_index/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/zh_001_python_tutorial_index/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/zh-python-modules-01-after-open.png" alt="zh_001_python_tutorial_index screenshot">
+</article>
+<article class="card">
+  <h2>image_001_go_image_draw</h2>
+  <p><a href="https://go.dev/blog/image-draw">https://go.dev/blog/image-draw</a></p>
+  <p>类别：<code>image_rich_article</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.951</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/image_001_go_image_draw/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/image_001_go_image_draw/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="image_001_go_image_draw screenshot">
+</article>
+<article class="card">
+  <h2>image_002_go_gopher</h2>
+  <p><a href="https://go.dev/blog/gopher">https://go.dev/blog/gopher</a></p>
+  <p>类别：<code>image_rich_article</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.939</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/image_002_go_gopher/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/image_002_go_gopher/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="image_002_go_gopher screenshot">
+</article>
+<article class="card">
+  <h2>tech_001_go_effective</h2>
+  <p><a href="https://go.dev/doc/effective_go">https://go.dev/doc/effective_go</a></p>
+  <p>类别：<code>technical_docs</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.977</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/tech_001_go_effective/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/tech_001_go_effective/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/docs-01-after-open.png" alt="tech_001_go_effective screenshot">
+</article>
+<article class="card">
+  <h2>tech_002_python_tutorial_intro</h2>
+  <p><a href="https://docs.python.org/3/tutorial/introduction.html">https://docs.python.org/3/tutorial/introduction.html</a></p>
+  <p>类别：<code>technical_docs</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.972</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/tech_002_python_tutorial_intro/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/tech_002_python_tutorial_intro/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/docs-01-after-open.png" alt="tech_002_python_tutorial_intro screenshot">
+</article>
+<article class="card">
+  <h2>github_001_python_cpython</h2>
+  <p><a href="https://raw.githubusercontent.com/python/cpython/main/README.rst">https://raw.githubusercontent.com/python/cpython/main/README.rst</a></p>
+  <p>类别：<code>github_readme</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.873</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：14</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/github_001_python_cpython/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/github_001_python_cpython/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/github-readme-01-after-open.png" alt="github_001_python_cpython screenshot">
+</article>
+<article class="card">
+  <h2>low_001_example_com</h2>
+  <p><a href="https://example.com">https://example.com</a></p>
+  <p>类别：<code>low_signal_or_paywall_like</code> 结论：<span class="degraded">degraded</span></p>
+  <p>
+    <span class="metric">score 0.9</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：3</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：LOW_SIGNAL_PAGE_DEGRADED</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/low_001_example_com/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/low_001_example_com/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/low-example-domain-01-after-open.png" alt="low_001_example_com screenshot">
+</article>
+<article class="card">
+  <h2>blog_001_pep_0008</h2>
+  <p><a href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a></p>
+  <p>类别：<code>longform_blog</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.941</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/blog_001_pep_0008/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/blog_001_pep_0008/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="blog_001_pep_0008 screenshot">
+</article>
+<article class="card">
+  <h2>blog_002_pep_0020</h2>
+  <p><a href="https://peps.python.org/pep-0020/">https://peps.python.org/pep-0020/</a></p>
+  <p>类别：<code>longform_blog</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.911</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：10</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/blog_002_pep_0020/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/blog_002_pep_0020/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="blog_002_pep_0020 screenshot">
+</article>
+<article class="card">
+  <h2>table_001_python_modindex</h2>
+  <p><a href="https://docs.python.org/3/py-modindex.html">https://docs.python.org/3/py-modindex.html</a></p>
+  <p>类别：<code>table_heavy_page</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.965</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/table_001_python_modindex/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/table_001_python_modindex/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="table_001_python_modindex screenshot">
+</article>
+<article class="card">
+  <h2>product_docs_001_django_tutorial01</h2>
+  <p><a href="https://docs.djangoproject.com/en/stable/intro/tutorial01/">https://docs.djangoproject.com/en/stable/intro/tutorial01/</a></p>
+  <p>类别：<code>product_docs</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.96</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/product_docs_001_django_tutorial01/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/product_docs_001_django_tutorial01/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="product_docs_001_django_tutorial01 screenshot">
+</article>
+<article class="card">
+  <h2>code_001_py_asyncio</h2>
+  <p><a href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a></p>
+  <p>类别：<code>code_heavy_page</code> 结论：<span class="pass">pass</span></p>
+  <p>
+    <span class="metric">score 0.898</span>
+    <span class="metric">source 1.0</span>
+    <span class="metric">grounding 1.0</span>
+    <span class="metric">jumpback 1.0</span>
+    <span class="metric">digest-first True</span>
+    <span class="metric">low-signal True</span>
+  </p>
+  <p>Mindmap：OK，节点数：19</p>
+  <p>反跳/降级原因：selector_missing</p>
+  <p>Quality warnings：无</p>
+  <p>Fatal issues：无</p>
+  <p>证据文件：<code>docs/active/project/evidence/v1_2_ac_quality/pages/code_001_py_asyncio/quality-report.json</code> · <code>docs/active/project/evidence/v1_2_ac_quality/pages/code_001_py_asyncio/mindmap.json</code></p>
+  <p>Native 证据：inherited_ac_native</p>
+  <img src="../v1_2_ac/native-sidepanel-ux/screenshots/article-01-after-open.png" alt="code_001_py_asyncio screenshot">
+</article></section>
+</body>
+</html>

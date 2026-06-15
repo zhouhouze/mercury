@@ -1,0 +1,647 @@
+{
+  "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+  "digestId": "digest_tech_001_go_effective",
+  "items": [
+    {
+      "confidence": 0.842,
+      "importance": 0.878,
+      "itemId": "item_block_pg_tech_001_go_effective_0032",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0032"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "The Go package sources are intended to serve not only as the core library but also as examples of how to use the language. Moreover, many of the packages contain working, self-contained executable examples you can run directly from the go.dev web site, such as this one (if necessary, click on the word \"Example\" to open it up). If you have a question about ho",
+          "headingPath": [
+            "Effective Go",
+            "Introduction",
+            "Examples"
+          ],
+          "order": 31,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0032",
+          "sourceRefId": "src_tech_001_go_effective_0032",
+          "textHash": "sha256_48d9d4720e8c8ba9313da659ce9210d8",
+          "textQuote": "The Go package sources are intended to serve not only as the core library but also as examples of how to use the language. Moreover, many of the packages contain working, self-contained executable examples you can run di"
+        }
+      ],
+      "text": "The Go package sources are intended to serve not only as the core library but also",
+      "warnings": []
+    },
+    {
+      "confidence": 0.838,
+      "importance": 0.868,
+      "itemId": "item_block_pg_tech_001_go_effective_0049",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0049"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0049",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Go doesn't provide automatic support for getters and setters. There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's neither idiomatic nor necessary to put Get into the getter's name. If you have a field called owner (lower case, unexported), the getter method should be called Owner (upper case, expor",
+          "headingPath": [
+            "Effective Go",
+            "Names",
+            "Getters"
+          ],
+          "order": 48,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0049",
+          "sourceRefId": "src_tech_001_go_effective_0049",
+          "textHash": "sha256_0d412048ad5c1bc4887c48217afdc2d2",
+          "textQuote": "Go doesn't provide automatic support for getters and setters. There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's neither idiomatic nor necessary to put Get in"
+        }
+      ],
+      "text": "Go doesn ' t provide automatic support for getters and setters . There ' s nothing",
+      "warnings": []
+    },
+    {
+      "confidence": 0.833,
+      "importance": 0.855,
+      "itemId": "item_block_pg_tech_001_go_effective_0060",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0060"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0060",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "needs no semicolons. Idiomatic Go programs have semicolons only in places such as for loop clauses, to separate the initializer, condition, and continuation elements. They are also necessary to separate multiple statements on a line, should you write code that way.",
+          "headingPath": [
+            "Effective Go",
+            "Semicolons"
+          ],
+          "order": 59,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0060",
+          "sourceRefId": "src_tech_001_go_effective_0060",
+          "textHash": "sha256_43e744e758a7dfc116b9abc9b21ddc2a",
+          "textQuote": "needs no semicolons. Idiomatic Go programs have semicolons only in places such as for loop clauses, to separate the initializer, condition, and continuation elements. They are also necessary to separate multiple statemen"
+        }
+      ],
+      "text": "needs no semicolons . Idiomatic Go programs have semicolons only in places such as for loop",
+      "warnings": []
+    },
+    {
+      "confidence": 0.829,
+      "importance": 0.845,
+      "itemId": "item_block_pg_tech_001_go_effective_0112",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0015"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0112"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0112",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0015",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "One of Go's unusual features is that functions and methods can return multiple values. This form can be used to improve on a couple of clumsy idioms in C programs: in-band error returns such as -1 for EOF and modifying an argument passed by address.",
+          "headingPath": [
+            "Effective Go",
+            "Functions",
+            "Multiple return values"
+          ],
+          "order": 111,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0112",
+          "sourceRefId": "src_tech_001_go_effective_0112",
+          "textHash": "sha256_59981a80728436224293c507423d12d0",
+          "textQuote": "One of Go's unusual features is that functions and methods can return multiple values. This form can be used to improve on a couple of clumsy idioms in C programs: in-band error returns such as -1 for EOF and modifying a"
+        }
+      ],
+      "text": "One of Go ' s unusual features is that functions and methods can return multiple values",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.842,
+      "itemId": "item_block_pg_tech_001_go_effective_0052",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0007"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0052"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0052",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0007",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "There are a number of such names and it's productive to honor them and the function names they capture. Read , Write , Close , Flush , String and so on have canonical signatures and meanings. To avoid confusion, don't give your method one of those names unless it has the same signature and meaning. Conversely, if your type implements a method with the same m",
+          "headingPath": [
+            "Effective Go",
+            "Names",
+            "Interface names"
+          ],
+          "order": 51,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0052",
+          "sourceRefId": "src_tech_001_go_effective_0052",
+          "textHash": "sha256_e235041bc6a5bfd239b3b7f949bfcc12",
+          "textQuote": "There are a number of such names and it's productive to honor them and the function names they capture. Read , Write , Close , Flush , String and so on have canonical signatures and meanings. To avoid confusion, don't gi"
+        }
+      ],
+      "text": "There are a number of such names and it ' s productive to honor them and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_tech_001_go_effective_0045",
+      "kind": "claim",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0005"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0045"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0045",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0005",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "the importing package can talk about bytes.Buffer . It's helpful if everyone using the package can use the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, packages are given lower case, single-word names; there should be no need for underscores or mixedCaps. Err on the side of ",
+          "headingPath": [
+            "Effective Go",
+            "Names",
+            "Package names"
+          ],
+          "order": 44,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0045",
+          "sourceRefId": "src_tech_001_go_effective_0045",
+          "textHash": "sha256_4e33c3215d93c01e5c05efe59ac4670b",
+          "textQuote": "the importing package can talk about bytes.Buffer . It's helpful if everyone using the package can use the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative"
+        }
+      ],
+      "text": "the importing package can talk about bytes . Buffer . It ' s helpful if everyone",
+      "warnings": []
+    },
+    {
+      "confidence": 0.828,
+      "importance": 0.841,
+      "itemId": "item_block_pg_tech_001_go_effective_0067",
+      "kind": "entity",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0067"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0067",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Mandatory braces encourage writing simple if statements on multiple lines. It's good style to do so anyway, especially when the body contains a control statement such as a return or break .",
+          "headingPath": [
+            "Effective Go",
+            "Control structures",
+            "If"
+          ],
+          "order": 66,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0067",
+          "sourceRefId": "src_tech_001_go_effective_0067",
+          "textHash": "sha256_b78ce21a2dbea5fe45869ec79fa6fadc",
+          "textQuote": "Mandatory braces encourage writing simple if statements on multiple lines. It's good style to do so anyway, especially when the body contains a control statement such as a return or break ."
+        }
+      ],
+      "text": "Mandatory braces encourage writing simple if statements on multiple lines . It ' s good style",
+      "warnings": []
+    },
+    {
+      "confidence": 0.827,
+      "importance": 0.841,
+      "itemId": "item_block_pg_tech_001_go_effective_0096",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0096"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0096",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "For strings, the range does more work for you, breaking out individual Unicode code points by parsing the UTF-8. Erroneous encodings consume one byte and produce the replacement rune U+FFFD. (The name (with associated builtin type) rune is Go terminology for a single Unicode code point. See the language specification for details.) The loop",
+          "headingPath": [
+            "Effective Go",
+            "Control structures",
+            "For"
+          ],
+          "order": 95,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0096",
+          "sourceRefId": "src_tech_001_go_effective_0096",
+          "textHash": "sha256_343e9d064e040a8abc16da98bd281b0b",
+          "textQuote": "For strings, the range does more work for you, breaking out individual Unicode code points by parsing the UTF-8. Erroneous encodings consume one byte and produce the replacement rune U+FFFD. (The name (with associated bu"
+        }
+      ],
+      "text": "For strings , the range does more work for you , breaking out individual Unicode code",
+      "warnings": []
+    },
+    {
+      "confidence": 0.826,
+      "importance": 0.837,
+      "itemId": "item_block_pg_tech_001_go_effective_0043",
+      "kind": "procedure",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0004"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0043"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0004",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Names are as important in Go as in any other language. They even have semantic effect: the visibility of a name outside a package is determined by whether its first character is upper case. It's therefore worth spending a little time talking about naming conventions in Go programs.",
+          "headingPath": [
+            "Effective Go",
+            "Names"
+          ],
+          "order": 42,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0043",
+          "sourceRefId": "src_tech_001_go_effective_0043",
+          "textHash": "sha256_09427ab3ba7ff0e08a3b6d2ef32f7ad0",
+          "textQuote": "Names are as important in Go as in any other language. They even have semantic effect: the visibility of a name outside a package is determined by whether its first character is upper case. It's therefore worth spending "
+        }
+      ],
+      "text": "Names are as important in Go as in any other language . They even have semantic",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.835,
+      "itemId": "item_block_pg_tech_001_go_effective_0130",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0018"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0130"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0130",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0018",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Deferred functions are executed in LIFO order, so this code will cause 4 3 2 1 0 to be printed when the function returns. A more plausible example is a simple way to trace function execution through the program. We could write a couple of simple tracing routines like this:",
+          "headingPath": [
+            "Effective Go",
+            "Functions",
+            "Defer"
+          ],
+          "order": 129,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0130",
+          "sourceRefId": "src_tech_001_go_effective_0130",
+          "textHash": "sha256_dff2f1ee2eb4375ca07563cc2a5ee07e",
+          "textQuote": "Deferred functions are executed in LIFO order, so this code will cause 4 3 2 1 0 to be printed when the function returns. A more plausible example is a simple way to trace function execution through the program. We could"
+        }
+      ],
+      "text": "Deferred functions are executed in LIFO order , so this code will cause 4 3 2",
+      "warnings": []
+    },
+    {
+      "confidence": 0.825,
+      "importance": 0.833,
+      "itemId": "item_block_pg_tech_001_go_effective_0125",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0017"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0125"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0125",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0017",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Go's defer statement schedules a function call (the deferred function) to be run immediately before the function executing the defer returns. It's an unusual but effective way to deal with situations such as resources that must be released regardless of which path a function takes to return. The canonical examples are unlocking a mutex or closing a file.",
+          "headingPath": [
+            "Effective Go",
+            "Functions",
+            "Defer"
+          ],
+          "order": 124,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0125",
+          "sourceRefId": "src_tech_001_go_effective_0125",
+          "textHash": "sha256_af466fe6d29c713508acf47247ce7841",
+          "textQuote": "Go's defer statement schedules a function call (the deferred function) to be run immediately before the function executing the defer returns. It's an unusual but effective way to deal with situations such as resources th"
+        }
+      ],
+      "text": "Go ' s defer statement schedules a function call ( the deferred function ) to be",
+      "warnings": []
+    },
+    {
+      "confidence": 0.823,
+      "importance": 0.83,
+      "itemId": "item_block_pg_tech_001_go_effective_0030",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0002"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0030"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0030",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Go is an open-source programming language that focuses on simplicity, reliability, and efficiency, specifically designed to make it easy to build software at scale. Although it borrows ideas from existing languages, it has unusual properties that make effective Go programs different in character from programs written in its relatives. A straightforward trans",
+          "headingPath": [
+            "Effective Go",
+            "Introduction"
+          ],
+          "order": 29,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0030",
+          "sourceRefId": "src_tech_001_go_effective_0030",
+          "textHash": "sha256_e69a5ac0453423aadc4b5410dbd2c764",
+          "textQuote": "Go is an open-source programming language that focuses on simplicity, reliability, and efficiency, specifically designed to make it easy to build software at scale. Although it borrows ideas from existing languages, it h"
+        }
+      ],
+      "text": "Go is an open - source programming language that focuses on simplicity , reliability , and",
+      "warnings": []
+    },
+    {
+      "confidence": 0.821,
+      "importance": 0.825,
+      "itemId": "item_block_pg_tech_001_go_effective_0099",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0012"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0099"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0099",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0012",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Finally, Go has no comma operator and ++ and -- are statements not expressions. Thus if you want to run multiple variables in a for you should use parallel assignment (although that precludes ++ and -- ).",
+          "headingPath": [
+            "Effective Go",
+            "Control structures",
+            "For"
+          ],
+          "order": 98,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0099",
+          "sourceRefId": "src_tech_001_go_effective_0099",
+          "textHash": "sha256_193e47bc6512bbd7b82908d8538ea7ec",
+          "textQuote": "Finally, Go has no comma operator and ++ and -- are statements not expressions. Thus if you want to run multiple variables in a for you should use parallel assignment (although that precludes ++ and -- )."
+        }
+      ],
+      "text": "Finally , Go has no comma operator and + + and - - are statements not",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_tech_001_go_effective_0061",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0009"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0061"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0061",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0009",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure ( if , for , switch , or select ) on the next line. If you do, a semicolon will be inserted before the brace, which could cause unwanted effects. Write them like this",
+          "headingPath": [
+            "Effective Go",
+            "Semicolons"
+          ],
+          "order": 60,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0061",
+          "sourceRefId": "src_tech_001_go_effective_0061",
+          "textHash": "sha256_ae5b56cf0b88efe78ad653f2dd4386a2",
+          "textQuote": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure ( if , for , switch , or select ) on the next line. If you do, a semicolon will be inserted before the brac"
+        }
+      ],
+      "text": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.82,
+      "itemId": "item_block_pg_tech_001_go_effective_0072",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0010"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0072"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0072",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0010",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "This is an example of a common situation where code must guard against a sequence of error conditions. The code reads well if the successful flow of control runs down the page, eliminating error cases as they arise. Since error cases tend to end in return statements, the resulting code needs no else statements.",
+          "headingPath": [
+            "Effective Go",
+            "Control structures",
+            "If"
+          ],
+          "order": 71,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0072",
+          "sourceRefId": "src_tech_001_go_effective_0072",
+          "textHash": "sha256_814c258c47fa05f9e7aa89fc016b6044",
+          "textQuote": "This is an example of a common situation where code must guard against a sequence of error conditions. The code reads well if the successful flow of control runs down the page, eliminating error cases as they arise. Sinc"
+        }
+      ],
+      "text": "This is an example of a common situation where code must guard against a sequence of",
+      "warnings": []
+    },
+    {
+      "confidence": 0.819,
+      "importance": 0.819,
+      "itemId": "item_block_pg_tech_001_go_effective_0033",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0003"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0033"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0033",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0003",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Formatting issues are the most contentious but the least consequential. People can adapt to different formatting styles but it's better if they don't have to, and less time is devoted to the topic if everyone adheres to the same style. The problem is how to approach this Utopia without a long prescriptive style guide.",
+          "headingPath": [
+            "Effective Go",
+            "Formatting"
+          ],
+          "order": 32,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0033",
+          "sourceRefId": "src_tech_001_go_effective_0033",
+          "textHash": "sha256_d3cb73cbe25ee03a200cc72c17e4a3a3",
+          "textQuote": "Formatting issues are the most contentious but the least consequential. People can adapt to different formatting styles but it's better if they don't have to, and less time is devoted to the topic if everyone adheres to "
+        }
+      ],
+      "text": "Formatting issues are the most contentious but the least consequential . People can adapt to different",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.818,
+      "itemId": "item_block_pg_tech_001_go_effective_0105",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0013"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0105"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0105",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0013",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Although they are not nearly as common in Go as some other C-like languages, break statements can be used to terminate a switch early. Sometimes, though, it's necessary to break out of a surrounding loop, not the switch, and in Go that can be accomplished by putting a label on the loop and \"breaking\" to that label. This example shows both uses.",
+          "headingPath": [
+            "Effective Go",
+            "Control structures",
+            "Switch"
+          ],
+          "order": 104,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0105",
+          "sourceRefId": "src_tech_001_go_effective_0105",
+          "textHash": "sha256_758bf86d75a734bb3b3e661148071ef5",
+          "textQuote": "Although they are not nearly as common in Go as some other C-like languages, break statements can be used to terminate a switch early. Sometimes, though, it's necessary to break out of a surrounding loop, not the switch,"
+        }
+      ],
+      "text": "Although they are not nearly as common in Go as some other C - like languages",
+      "warnings": []
+    },
+    {
+      "confidence": 0.818,
+      "importance": 0.817,
+      "itemId": "item_block_pg_tech_001_go_effective_0054",
+      "kind": "definition",
+      "relatedChunkIds": [
+        "ck_tech_001_go_effective_0008"
+      ],
+      "relatedParagraphIds": [
+        "pg_tech_001_go_effective_0054"
+      ],
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_tech_001_go_effective_0054",
+          "blockType": "paragraph",
+          "chunkId": "ck_tech_001_go_effective_0008",
+          "confidence": 0.92,
+          "contentHash": "sha256_8738e1951dd1969cf00dc5e91570fb86ceeb83bb81b5a53a08a18f1eb8e519ac",
+          "fallbackText": "Like C, Go's formal grammar uses semicolons to terminate statements, but unlike in C, those semicolons do not appear in the source. Instead the lexer uses a simple rule to insert semicolons automatically as it scans, so the input text is mostly free of them.",
+          "headingPath": [
+            "Effective Go",
+            "Semicolons"
+          ],
+          "order": 53,
+          "pageId": "tech_001_go_effective",
+          "paragraphId": "pg_tech_001_go_effective_0054",
+          "sourceRefId": "src_tech_001_go_effective_0054",
+          "textHash": "sha256_000fc20cf2a7ab36a2e95e7a4533c974",
+          "textQuote": "Like C, Go's formal grammar uses semicolons to terminate statements, but unlike in C, those semicolons do not appear in the source. Instead the lexer uses a simple rule to insert semicolons automatically as it scans, so "
+        }
+      ],
+      "text": "Like C , Go ' s formal grammar uses semicolons to terminate statements , but unlike",
+      "warnings": []
+    }
+  ],
+  "pageId": "tech_001_go_effective",
+  "rejectedItems": [],
+  "stats": {
+    "compressionRatio": 0.068,
+    "itemCount": 18,
+    "sourceRefCount": 18
+  },
+  "summary": {
+    "keyTakeaways": [
+      "The Go package sources are intended to serve not only as the core library but also",
+      "Go doesn ' t provide automatic support for getters and setters . There ' s nothing",
+      "needs no semicolons . Idiomatic Go programs have semicolons only in places such as for loop",
+      "One of Go ' s unusual features is that functions and methods can return multiple values",
+      "There are a number of such names and it ' s productive to honor them and"
+    ],
+    "tldr": "The Go package sources are intended to serve not only as the core library but also"
+  }
+}

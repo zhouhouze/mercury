@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "v1.2-ac-native-ux.1",
+  "stage": "native-ux",
+  "passed": true,
+  "status": "passed",
+  "browserMode": "chromium",
+  "runtimeUrl": "http://127.0.0.1:17861",
+  "extensionId": "nnnoagjogjdnodhkdhinndompnjjnkkg",
+  "pagesRequired": 5,
+  "pagesPassed": 5,
+  "includesChineseComplexPage": true,
+  "includesLowSignalPage": true,
+  "captures": [
+    "screenshots/article-00-before-open.png",
+    "screenshots/article-01-after-open.png",
+    "screenshots/article-02-debug-after-read.png",
+    "screenshots/article-03-after-submit.png",
+    "screenshots/article-04-summary.png",
+    "screenshots/article-05-question.png",
+    "screenshots/article-06-mindmap.png",
+    "screenshots/docs-00-before-open.png",
+    "screenshots/docs-01-after-open.png",
+    "screenshots/docs-02-debug-after-read.png",
+    "screenshots/docs-03-after-submit.png",
+    "screenshots/docs-04-summary.png",
+    "screenshots/docs-05-question.png",
+    "screenshots/docs-06-mindmap.png",
+    "screenshots/github-readme-00-before-open.png",
+    "screenshots/github-readme-01-after-open.png",
+    "screenshots/github-readme-02-debug-after-read.png",
+    "screenshots/github-readme-03-after-submit.png",
+    "screenshots/github-readme-04-summary.png",
+    "screenshots/github-readme-05-question.png",
+    "screenshots/github-readme-06-mindmap.png",
+    "screenshots/zh-python-modules-00-before-open.png",
+    "screenshots/zh-python-modules-01-after-open.png",
+    "screenshots/zh-python-modules-02-debug-after-read.png",
+    "screenshots/zh-python-modules-03-after-submit.png",
+    "screenshots/zh-python-modules-04-summary.png",
+    "screenshots/zh-python-modules-05-question.png",
+    "screenshots/zh-python-modules-06-mindmap.png",
+    "screenshots/low-example-domain-00-before-open.png",
+    "screenshots/low-example-domain-01-after-open.png",
+    "screenshots/low-example-domain-02-debug-after-read.png",
+    "screenshots/low-example-domain-03-after-submit.png"
+  ],
+  "pageResults": [
+    {
+      "ok": true,
+      "pageUrl": "http://127.0.0.1:52584/article.html",
+      "category": "article",
+      "isLowSignal": false,
+      "isChineseComplex": false,
+      "automationMode": "bridge_native_sidepanel",
+      "screenshots": [
+        "screenshots/article-01-after-open.png",
+        "screenshots/article-02-debug-after-read.png",
+        "screenshots/article-03-after-submit.png",
+        "screenshots/article-04-summary.png",
+        "screenshots/article-05-question.png",
+        "screenshots/article-06-mindmap.png"
+      ],
+      "attempts": [
+        {
+          "ok": false,
+          "method": "chrome.sidePanel.open",
+          "message": "`sidePanel.open()` may only be called in response to a user gesture."
+        },
+        {
+          "ok": true,
+          "method": "Playwright Alt+Shift+N sent"
+        },
+        {
+          "ok": true,
+          "method": "System Events Option+Shift+N sent"
+        }
+      ]
+    },
+    {
+      "ok": true,
+      "pageUrl": "http://127.0.0.1:52584/docs.html",
+      "category": "technical_doc",
+      "isLowSignal": false,
+      "isChineseComplex": false,
+      "automationMode": "bridge_native_sidepanel",
+      "screenshots": [
+        "screenshots/docs-01-after-open.png",
+        "screenshots/docs-02-debug-after-read.png",
+        "screenshots/docs-03-after-submit.png",
+        "screenshots/docs-04-summary.png",
+        "screenshots/docs-05-question.png",
+        "screenshots/docs-06-mindmap.png"
+      ],
+      "attempts": [
+        {
+          "ok": true,
+          "method": "reuse_existing_native_sidepanel_bridge"
+        }
+      ]
+    },
+    {
+      "ok": true,
+      "pageUrl": "http://127.0.0.1:52584/github_readme.html",
+      "category": "readme",
+      "isLowSignal": false,
+      "isChineseComplex": false,
+      "automationMode": "bridge_native_sidepanel",
+      "screenshots": [
+        "screenshots/github-readme-01-after-open.png",
+        "screenshots/github-readme-02-debug-after-read.png",
+        "screenshots/github-readme-03-after-submit.png",
+        "screenshots/github-readme-04-summary.png",
+        "screenshots/github-readme-05-question.png",
+        "screenshots/github-readme-06-mindmap.png"
+      ],
+      "attempts": [
+        {
+          "ok": true,
+          "method": "reuse_existing_native_sidepanel_bridge"
+        }
+      ]
+    },
+    {
+      "ok": true,
+      "pageUrl": "http://127.0.0.1:52584/zh_python_modules.html",
+      "category": "chinese_complex",
+      "isLowSignal": false,
+      "isChineseComplex": true,
+      "automationMode": "bridge_native_sidepanel",
+      "screenshots": [
+        "screenshots/zh-python-modules-01-after-open.png",
+        "screenshots/zh-python-modules-02-debug-after-read.png",
+        "screenshots/zh-python-modules-03-after-submit.png",
+        "screenshots/zh-python-modules-04-summary.png",
+        "screenshots/zh-python-modules-05-question.png",
+        "screenshots/zh-python-modules-06-mindmap.png"
+      ],
+      "attempts": [
+        {
+          "ok": true,
+          "method": "reuse_existing_native_sidepanel_bridge"
+        }
+      ]
+    },
+    {
+      "ok": true,
+      "pageUrl": "http://127.0.0.1:52584/low_example_domain.html",
+      "category": "low_signal_or_paywall_like",
+      "isLowSignal": true,
+      "isChineseComplex": false,
+      "lowSignalOutcome": "degraded",
+      "automationMode": "bridge_native_sidepanel",
+      "screenshots": [
+        "screenshots/low-example-domain-01-after-open.png",
+        "screenshots/low-example-domain-02-debug-after-read.png",
+        "screenshots/low-example-domain-03-after-submit.png"
+      ],
+      "attempts": [
+        {
+          "ok": true,
+          "method": "reuse_existing_native_sidepanel_bridge"
+        }
+      ]
+    }
+  ],
+  "blockers": [],
+  "conclusion": "Native Side Panel UX flow passed with real webpage body, right-side Navia native Side Panel, Chinese complex page coverage, and visible low-signal degraded/fail evidence."
+}

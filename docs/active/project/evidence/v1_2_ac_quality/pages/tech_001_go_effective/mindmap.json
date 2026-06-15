@@ -1,0 +1,483 @@
+{
+  "error": null,
+  "mermaidSource": "mindmap\n  root((Effective Go - The Go Programming Language))\n    The Go package sources are intended to serve not only as the cor\n    Go doesn  t provide automatic support for getters and setters .\n    needs no semicolons . Idiomatic Go programs have semicolons only\n    One of Go  s unusual features is that functions and methods can\n    There are a number of such names and it  s productive to honor\n    the importing package can talk about bytes . Buffer . It  s hel\n    Mandatory braces encourage writing simple if statements on multi\n    For strings , the range does more work for you , breaking out in\n    Names are as important in Go as in any other language . They eve\n    Deferred functions are executed in LIFO order , so this code wil\n    Go  s defer statement schedules a function call  the deferred\n    Go is an open - source programming language that focuses on simp\n    Finally , Go has no comma operator and + + and - - are statement\n    One consequence of the semicolon insertion rules is that you can\n    This is an example of a common situation where code must guard a\n    Formatting issues are the most contentious but the least consequ\n    Although they are not nearly as common in Go as some other C - l\n    Like C , Go  s formal grammar uses semicolons to terminate stat",
+  "metadata": {
+    "format": "mermaid",
+    "nodeSourceMap": {
+      "node_1": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0032"
+        ],
+        "excerpt": "The Go package sources are intended to serve not only as the core library but also",
+        "fallbackText": "The Go package sources are intended to serve not only as the core library but also as examples of how to use the language. Moreover, many of the packages contain working, self-contained executable examples you can run directly from the go.d",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "The Go package sources are intended to serve not only as the cor",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0032"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0032"
+        ],
+        "textQuote": "The Go package sources are intended to serve not only as the core library but also as examples of how to use the language. Moreover, many of the packages contain working, self-cont"
+      },
+      "node_10": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0018"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0130"
+        ],
+        "excerpt": "Deferred functions are executed in LIFO order , so this code will cause 4 3 2",
+        "fallbackText": "Deferred functions are executed in LIFO order, so this code will cause 4 3 2 1 0 to be printed when the function returns. A more plausible example is a simple way to trace function execution through the program. We could write a couple of s",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Deferred functions are executed in LIFO order , so this code wil",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0130"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0130"
+        ],
+        "textQuote": "Deferred functions are executed in LIFO order, so this code will cause 4 3 2 1 0 to be printed when the function returns. A more plausible example is a simple way to trace function"
+      },
+      "node_11": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0017"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0125"
+        ],
+        "excerpt": "Go ' s defer statement schedules a function call ( the deferred function ) to be",
+        "fallbackText": "Go's defer statement schedules a function call (the deferred function) to be run immediately before the function executing the defer returns. It's an unusual but effective way to deal with situations such as resources that must be released ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go  s defer statement schedules a function call  the deferred",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0125"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0125"
+        ],
+        "textQuote": "Go's defer statement schedules a function call (the deferred function) to be run immediately before the function executing the defer returns. It's an unusual but effective way to d"
+      },
+      "node_12": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0030"
+        ],
+        "excerpt": "Go is an open - source programming language that focuses on simplicity , reliability , and",
+        "fallbackText": "Go is an open-source programming language that focuses on simplicity, reliability, and efficiency, specifically designed to make it easy to build software at scale. Although it borrows ideas from existing languages, it has unusual propertie",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go is an open - source programming language that focuses on simp",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0030"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0030"
+        ],
+        "textQuote": "Go is an open-source programming language that focuses on simplicity, reliability, and efficiency, specifically designed to make it easy to build software at scale. Although it bor"
+      },
+      "node_13": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0012"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0099"
+        ],
+        "excerpt": "Finally , Go has no comma operator and + + and - - are statements not",
+        "fallbackText": "Finally, Go has no comma operator and ++ and -- are statements not expressions. Thus if you want to run multiple variables in a for you should use parallel assignment (although that precludes ++ and -- ).",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Finally , Go has no comma operator and + + and - - are statement",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0099"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0099"
+        ],
+        "textQuote": "Finally, Go has no comma operator and ++ and -- are statements not expressions. Thus if you want to run multiple variables in a for you should use parallel assignment (although tha"
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0009"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0061"
+        ],
+        "excerpt": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of",
+        "fallbackText": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure ( if , for , switch , or select ) on the next line. If you do, a semicolon will be inserted before the brace, which could cause",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "One consequence of the semicolon insertion rules is that you can",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0061"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0061"
+        ],
+        "textQuote": "One consequence of the semicolon insertion rules is that you cannot put the opening brace of a control structure ( if , for , switch , or select ) on the next line. If you do, a se"
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0072"
+        ],
+        "excerpt": "This is an example of a common situation where code must guard against a sequence of",
+        "fallbackText": "This is an example of a common situation where code must guard against a sequence of error conditions. The code reads well if the successful flow of control runs down the page, eliminating error cases as they arise. Since error cases tend t",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This is an example of a common situation where code must guard a",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0072"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0072"
+        ],
+        "textQuote": "This is an example of a common situation where code must guard against a sequence of error conditions. The code reads well if the successful flow of control runs down the page, eli"
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0033"
+        ],
+        "excerpt": "Formatting issues are the most contentious but the least consequential . People can adapt to different",
+        "fallbackText": "Formatting issues are the most contentious but the least consequential. People can adapt to different formatting styles but it's better if they don't have to, and less time is devoted to the topic if everyone adheres to the same style. The ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Formatting issues are the most contentious but the least consequ",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0033"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0033"
+        ],
+        "textQuote": "Formatting issues are the most contentious but the least consequential. People can adapt to different formatting styles but it's better if they don't have to, and less time is devo"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0013"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0105"
+        ],
+        "excerpt": "Although they are not nearly as common in Go as some other C - like languages",
+        "fallbackText": "Although they are not nearly as common in Go as some other C-like languages, break statements can be used to terminate a switch early. Sometimes, though, it's necessary to break out of a surrounding loop, not the switch, and in Go that can ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Although they are not nearly as common in Go as some other C - l",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0105"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0105"
+        ],
+        "textQuote": "Although they are not nearly as common in Go as some other C-like languages, break statements can be used to terminate a switch early. Sometimes, though, it's necessary to break ou"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0054"
+        ],
+        "excerpt": "Like C , Go ' s formal grammar uses semicolons to terminate statements , but unlike",
+        "fallbackText": "Like C, Go's formal grammar uses semicolons to terminate statements, but unlike in C, those semicolons do not appear in the source. Instead the lexer uses a simple rule to insert semicolons automatically as it scans, so the input text is mo",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Like C , Go  s formal grammar uses semicolons to terminate stat",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0054"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0054"
+        ],
+        "textQuote": "Like C, Go's formal grammar uses semicolons to terminate statements, but unlike in C, those semicolons do not appear in the source. Instead the lexer uses a simple rule to insert s"
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0049"
+        ],
+        "excerpt": "Go doesn ' t provide automatic support for getters and setters . There ' s nothing",
+        "fallbackText": "Go doesn't provide automatic support for getters and setters. There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's neither idiomatic nor necessary to put Get into the getter's name",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go doesn  t provide automatic support for getters and setters .",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0049"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0049"
+        ],
+        "textQuote": "Go doesn't provide automatic support for getters and setters. There's nothing wrong with providing getters and setters yourself, and it's often appropriate to do so, but it's neith"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0060"
+        ],
+        "excerpt": "needs no semicolons . Idiomatic Go programs have semicolons only in places such as for loop",
+        "fallbackText": "needs no semicolons. Idiomatic Go programs have semicolons only in places such as for loop clauses, to separate the initializer, condition, and continuation elements. They are also necessary to separate multiple statements on a line, should",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "needs no semicolons . Idiomatic Go programs have semicolons only",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0060"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0060"
+        ],
+        "textQuote": "needs no semicolons. Idiomatic Go programs have semicolons only in places such as for loop clauses, to separate the initializer, condition, and continuation elements. They are also"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0015"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0112"
+        ],
+        "excerpt": "One of Go ' s unusual features is that functions and methods can return multiple values",
+        "fallbackText": "One of Go's unusual features is that functions and methods can return multiple values. This form can be used to improve on a couple of clumsy idioms in C programs: in-band error returns such as -1 for EOF and modifying an argument passed by",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "One of Go  s unusual features is that functions and methods can",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0112"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0112"
+        ],
+        "textQuote": "One of Go's unusual features is that functions and methods can return multiple values. This form can be used to improve on a couple of clumsy idioms in C programs: in-band error re"
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0052"
+        ],
+        "excerpt": "There are a number of such names and it ' s productive to honor them and",
+        "fallbackText": "There are a number of such names and it's productive to honor them and the function names they capture. Read , Write , Close , Flush , String and so on have canonical signatures and meanings. To avoid confusion, don't give your method one o",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "There are a number of such names and it  s productive to honor",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0052"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0052"
+        ],
+        "textQuote": "There are a number of such names and it's productive to honor them and the function names they capture. Read , Write , Close , Flush , String and so on have canonical signatures an"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0045"
+        ],
+        "excerpt": "the importing package can talk about bytes . Buffer . It ' s helpful if everyone",
+        "fallbackText": "the importing package can talk about bytes.Buffer . It's helpful if everyone using the package can use the same name to refer to its contents, which implies that the package name should be good: short, concise, evocative. By convention, pac",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "the importing package can talk about bytes . Buffer . It  s hel",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0045"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0045"
+        ],
+        "textQuote": "the importing package can talk about bytes.Buffer . It's helpful if everyone using the package can use the same name to refer to its contents, which implies that the package name s"
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0009"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0067"
+        ],
+        "excerpt": "Mandatory braces encourage writing simple if statements on multiple lines . It ' s good style",
+        "fallbackText": "Mandatory braces encourage writing simple if statements on multiple lines. It's good style to do so anyway, especially when the body contains a control statement such as a return or break .",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Mandatory braces encourage writing simple if statements on multi",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0067"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0067"
+        ],
+        "textQuote": "Mandatory braces encourage writing simple if statements on multiple lines. It's good style to do so anyway, especially when the body contains a control statement such as a return o"
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0012"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0096"
+        ],
+        "excerpt": "For strings , the range does more work for you , breaking out individual Unicode code",
+        "fallbackText": "For strings, the range does more work for you, breaking out individual Unicode code points by parsing the UTF-8. Erroneous encodings consume one byte and produce the replacement rune U+FFFD. (The name (with associated builtin type) rune is ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "For strings , the range does more work for you , breaking out in",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0096"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0096"
+        ],
+        "textQuote": "For strings, the range does more work for you, breaking out individual Unicode code points by parsing the UTF-8. Erroneous encodings consume one byte and produce the replacement ru"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_tech_001_go_effective_0043"
+        ],
+        "excerpt": "Names are as important in Go as in any other language . They even have semantic",
+        "fallbackText": "Names are as important in Go as in any other language. They even have semantic effect: the visibility of a name outside a package is determined by whether its first character is upper case. It's therefore worth spending a little time talkin",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Names are as important in Go as in any other language . They eve",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0043"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0043"
+        ],
+        "textQuote": "Names are as important in Go as in any other language. They even have semantic effect: the visibility of a name outside a package is determined by whether its first character is up"
+      },
+      "root": {
+        "chunkIds": [
+          "ck_tech_001_go_effective_0001",
+          "ck_tech_001_go_effective_0002"
+        ],
+        "digestItemIds": [],
+        "excerpt": "Image metadata: Go",
+        "fallbackText": "Image metadata: Go",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Effective Go - The Go Programming Language",
+        "paragraphIds": [
+          "pg_tech_001_go_effective_0001",
+          "pg_tech_001_go_effective_0002",
+          "pg_tech_001_go_effective_0003",
+          "pg_tech_001_go_effective_0004"
+        ],
+        "sourceRefIds": [
+          "src_tech_001_go_effective_0001",
+          "src_tech_001_go_effective_0002",
+          "src_tech_001_go_effective_0003",
+          "src_tech_001_go_effective_0004"
+        ],
+        "textQuote": "Image metadata: Go"
+      }
+    },
+    "nodesCount": 19,
+    "repairCount": 0,
+    "sourcePageId": "tech_001_go_effective",
+    "validation": {
+      "error": null,
+      "status": "passed",
+      "valid": true
+    }
+  },
+  "ok": true,
+  "paragraphIds": [
+    "pg_tech_001_go_effective_0001",
+    "pg_tech_001_go_effective_0002",
+    "pg_tech_001_go_effective_0003",
+    "pg_tech_001_go_effective_0004",
+    "pg_tech_001_go_effective_0030",
+    "pg_tech_001_go_effective_0032",
+    "pg_tech_001_go_effective_0033",
+    "pg_tech_001_go_effective_0043",
+    "pg_tech_001_go_effective_0045",
+    "pg_tech_001_go_effective_0049",
+    "pg_tech_001_go_effective_0052",
+    "pg_tech_001_go_effective_0054",
+    "pg_tech_001_go_effective_0060",
+    "pg_tech_001_go_effective_0061",
+    "pg_tech_001_go_effective_0067",
+    "pg_tech_001_go_effective_0072",
+    "pg_tech_001_go_effective_0096",
+    "pg_tech_001_go_effective_0099",
+    "pg_tech_001_go_effective_0105",
+    "pg_tech_001_go_effective_0112",
+    "pg_tech_001_go_effective_0125",
+    "pg_tech_001_go_effective_0130"
+  ],
+  "sourceChunkIds": [
+    "ck_tech_001_go_effective_0001",
+    "ck_tech_001_go_effective_0002",
+    "ck_tech_001_go_effective_0003",
+    "ck_tech_001_go_effective_0004",
+    "ck_tech_001_go_effective_0005",
+    "ck_tech_001_go_effective_0007",
+    "ck_tech_001_go_effective_0008",
+    "ck_tech_001_go_effective_0009",
+    "ck_tech_001_go_effective_0010",
+    "ck_tech_001_go_effective_0012",
+    "ck_tech_001_go_effective_0013",
+    "ck_tech_001_go_effective_0015",
+    "ck_tech_001_go_effective_0017",
+    "ck_tech_001_go_effective_0018"
+  ],
+  "sourcePageId": "tech_001_go_effective",
+  "warnings": []
+}

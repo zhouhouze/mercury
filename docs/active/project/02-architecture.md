@@ -856,7 +856,162 @@ localhost Runtime 仍然是攻击面，V1 必须具备最小安全边界：
 
 ---
 
-## 12. V1 架构结论
+## 12. V1.2-AC-Native 目标架构
+
+V1.2-AC 已证明 A/C/D/B 功能链路可以在 direct extension page 中跑通，但这不能替代 Chrome 原生 Side Panel 用户体验。V1.2-AC-Native 的目标架构是在不改变 Runtime / A / C / D 公共合同的前提下，把 B 的展示壳稳定运行在 Chrome 原生 Side Panel 容器内。
+
+目标调用路径：
+
+```text
+Chrome tab 当前网页
+  -> Chrome action / keyboard command
+  -> Chrome native Side Panel container
+  -> B SidePanel Shell
+  -> background runtime proxy
+  -> Runtime API Gateway
+  -> D Adapter Layer
+  -> A Page Perception / C Mindmap
+  -> ToolResult / Artifact / Event / Trace
+  -> B Chat / Debug / Mermaid / Source Fallback
+```
+
+当前实现差异：
+
+| 维度 | 当前状态 | V1.2-AC-Native 目标 |
+|---|---|---|
+| 入口形态 | direct extension page 功能冒烟已通过；原生 Side Panel 打开不稳定 | action / keyboard command 必须稳定打开右侧 Side Panel |
+| 截图证据 | 曾有全屏扩展页截图；最新原生 probe 未稳定出现 Navia 侧栏 | 每张体验截图必须同时包含真实网页和右侧 Navia Side Panel |
+| 侧栏宽度 | 快捷按钮在窄宽度下可达性不足，Mindmap 容易不可见 | 主要动作可见、可滚动、可操作，文字不溢出 |
+| 自动化方式 | 坐标点击不可靠，可能误截无关窗口 | 使用可定位 test id、可访问 page target 或明确 structured blocker |
+| 验收声明 | direct page 只能算 smoke test | 原生 Side Panel 内完整流程通过后才可声明 UX 通过 |
+
+职责边界保持不变：
+
+- B 只负责 Side Panel shell、聊天渲染、Debug、Artifact、Mermaid 和 source fallback 展示。
+- B 不直接调用 A/C/D 服务，不拥有 AgentCore 状态。
+- A 不创建 Artifact、不发 SSE、不写 EventStore。
+- C 不读取 DOM。
+- D 仍是 ToolResult / Artifact / Event / Trace 唯一映射出口。
+- 原生 Side Panel 体验修复不得引入 RAG、长期记忆、多 Agent、浏览器自动操作或外部搜索。
+
+自动化架构要求：
+
+- `e2e:chrome:native-probe` 只用于判断原生侧栏是否可被打开，不得声明完整流程通过。
+- 完整 UX E2E 必须能稳定定位 Side Panel 内按钮、输入框、Debug 状态和 artifact。
+- 每张计入体验通过的截图必须有同名 metadata JSON，记录页面、扩展、native panel 判定、viewport、panel 宽度、Runtime 状态和结论。
+- 如果 Chrome 原生 Side Panel DOM target 不可被自动化访问，必须生成 structured blocker，并由人工体验验收补位。
+- structured blocker 必须包含 blockerId、stage、pageUrl、browser、reason、evidencePaths、attemptedActions、nextAction、blocksCompletion；`blocksCompletion=true` 时不得声明阶段完成。
+- direct extension page E2E 可继续作为功能回归 smoke test，但不能作为用户体验验收的替代品。
+
+---
+
+## 13. V1.2-AC-Quality 目标架构
+
+V1.2-AC-Quality 承接 V1.2-AC-Native 的原生 Side Panel 稳定化成果，进一步强化 A/C 主链路质量。目标不是新增产品形态，而是让 A 高质量网页感知和 C digest-first Mindmap 在更多真实网页上稳定、可解释、可反跳。
+
+目标调用路径：
+
+```text
+Chrome 原生 Side Panel
+  -> B 触发读取 / Debug / Mindmap
+  -> Runtime /v1/page/context
+  -> A Page Reading Pipeline
+      -> StructuredPage
+      -> HighSignalPage
+      -> PerceptionDigest
+      -> SourceMap / SourceRef
+      -> PagePerceptionQualityReport
+  -> D Adapter Layer
+      -> ToolResult envelope
+      -> ArtifactRecord / AgentEvent / Trace mapping
+  -> C Mindmap Generator
+      -> digest-first Mermaid
+      -> MindmapNodeSourceMap
+      -> source fallback
+  -> B Debug / Mermaid / Source Evidence
+```
+
+本阶段目标数据包：
+
+```text
+ACQualityEvidenceBundle
+  pageEvidence[]
+    pageUrl | snapshotPath
+    category
+    expectedRisk
+    structuredPage
+    highSignalPage
+    perceptionDigest
+    sourceMap
+    qualityReport
+    mindmapArtifact
+    nodeSourceMap
+    screenshots[]
+    screenshotMetadata[]
+    runtimeTraceRef
+    conclusion
+  aggregateReport
+  falseGreenAudit
+  prdReview
+```
+
+质量指标必须至少覆盖：
+
+- `sourceCoverage`：A 高信号块或 digest item 中具备 sourceRef 的比例。
+- `groundingCompleteness`：进入 C 主要节点的 digest item 是否可追溯到 sourceRef 或 fallbackText。
+- `jumpbackCoverage`：Mindmap 主要节点中具备 sourceRefId、textQuote 或 fallbackText 的比例。
+- `lowSignalCorrectness`：低信号 / 空内容页必须 degraded 或 fail，不得 pass。
+- `digestFirstUsage`：`downstreamReadiness=pass` 时 C 的主要节点必须优先来自 `PerceptionDigest.items + SourceRef`。
+
+当前架构差异：
+
+| 维度 | 当前状态 | V1.2-AC-Quality 目标 |
+|---|---|---|
+| A 输出质量 | 已有 high-signal perception 与 low-signal degraded 基线 | 扩展真实网页覆盖，提升噪声过滤、digest 密度和 quality 可解释性 |
+| C 输入策略 | 已支持 digest-first，但仍需防止 heading-only 误声明 | readiness pass 时必须优先消费 digest/sourceRef；fallback 必须显式标注原因 |
+| SourceMap | 已有 SourceRef 与 nodeSourceMap | 主要 mindmap 节点必须关联 sourceRefId 或明确 fallbackText |
+| Debug | 可展示基础状态和 JSON | 必须展示 quality state、digest item、sourceRef、mindmap source map 和失败原因 |
+| 验收 | Native UX 5 页通过 | 扩展到更强真实网页矩阵，并产出 HTML 报告 / false-green audit |
+
+模块边界：
+
+- A 只负责网页感知、结构化事实、digest、source map 和 quality report。
+- A 不生成最终回答、不生成 Mindmap、不创建 Artifact、不发 SSE、不写 EventStore / Trace。
+- C 只负责从 A/Runtime 提供的结构化输入生成 Mermaid 与 nodeSourceMap。
+- C 不读取 DOM、不调用 Chrome、不绕过 D 写 Artifact / Event。
+- D 是 ToolResult / Artifact / Event / Trace 唯一映射出口。
+- B 只渲染 Chat、Debug、Mindmap、source fallback 和验收可见状态。
+
+信息流验收路径：
+
+```text
+真实网页
+-> 读取当前页面
+-> Debug 显示 A quality / digest / sourceRefs
+-> 生成 Mindmap
+-> C 输出 Mermaid + nodeSourceMap
+-> B 展示 Mermaid 或 fallback
+-> HTML 报告记录截图、URL、quality、source coverage、结论
+```
+
+降级路径：
+
+```text
+qualityReport.downstreamReadiness = pass
+  -> C 必须 digest-first
+
+qualityReport.downstreamReadiness = degraded
+  -> C 可以 fallback 到 heading / paragraph，但必须写入 fallbackReason
+
+qualityReport.downstreamReadiness = fail
+  -> 不得生成假 high-signal mindmap；B 必须展示失败原因和 source fallback
+```
+
+本阶段不得改变公共 API 或数据合同；如需要新增字段、事件类型或 artifact 类型，必须回到 V1.2-0 合同冻结。
+
+---
+
+## 14. V1 架构结论
 
 Navia V1 的架构不是“插件 + 模型调用”，而是：
 

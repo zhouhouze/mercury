@@ -1,0 +1,32 @@
+{
+  "conclusion": "pass",
+  "digestFirstUsage": true,
+  "downstreamReadiness": "pass",
+  "groundingCompleteness": 1.0,
+  "jumpbackCoverage": 1.0,
+  "lowSignalCorrectness": true,
+  "mindmapFallbackReasons": [
+    "selector_missing"
+  ],
+  "mindmapNodeCount": 19,
+  "mindmapOk": true,
+  "nativeEvidence": {
+    "nativeCategory": "technical_doc",
+    "note": "Existing AC-Native screenshots are reused as real Chrome Side Panel UX evidence; AC-Quality recomputes A/C quality evidence separately.",
+    "pageKey": "tech_002_python_tutorial_intro",
+    "screenshots": [
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-01-after-open.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-02-debug-after-read.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-03-after-submit.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-04-summary.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-05-question.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/docs-06-mindmap.png"
+    ],
+    "source": "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/report.json",
+    "status": "inherited_ac_native"
+  },
+  "overallScore": 0.972,
+  "qualityFatalIssues": [],
+  "qualityWarnings": [],
+  "sourceCoverage": 1.0
+}

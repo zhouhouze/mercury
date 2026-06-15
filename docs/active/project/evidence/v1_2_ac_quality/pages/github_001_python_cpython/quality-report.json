@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_fd194bdcfc5b43c06faf0aba78f12c0bd158191ec61ec6d2fee96d1219d2c87b",
+  "downstreamReadiness": "degraded",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 8.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 7.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.875
+    },
+    "contentCoverage": {
+      "denominator": 8028.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 4878.0,
+      "passed": false,
+      "threshold": 0.75,
+      "value": 0.608
+    },
+    "digestCompressionRatio": {
+      "denominator": 1207.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 72.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.06
+    },
+    "groundingCompleteness": {
+      "denominator": 8.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 8.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 13.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 13.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 13.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 5.0,
+      "passed": false,
+      "threshold": 0.25,
+      "value": 0.385
+    },
+    "sourceCoverage": {
+      "denominator": 8.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 8.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.873,
+  "pageId": "github_001_python_cpython",
+  "reportId": "q_github_001_python_cpython",
+  "warnings": []
+}

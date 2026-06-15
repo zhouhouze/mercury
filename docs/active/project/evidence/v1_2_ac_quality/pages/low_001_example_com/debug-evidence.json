@@ -1,0 +1,20 @@
+{
+  "digestItemCount": 1,
+  "fatalIssues": [],
+  "highSignalBlockCount": 1,
+  "overallScore": 0.9,
+  "pageKey": "low_001_example_com",
+  "readiness": "degraded",
+  "schemaVersion": "v1.2-ac-quality-debug.1",
+  "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/low_001_example_com.html",
+  "source": "recomputed_from_snapshot",
+  "sourceRefCount": 1,
+  "warnings": [
+    {
+      "code": "LOW_SIGNAL_PAGE_DEGRADED",
+      "message": "Page has too little grounded readable content to be marked pass.",
+      "relatedIds": [],
+      "severity": "major"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_4a2a4c98512be92aa16b08eb2ac0ca38975a144a8e8dd718babc8fce588f713d",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 1.0
+    },
+    "contentCoverage": {
+      "denominator": 3265.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 3265.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 469.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 166.0,
+      "passed": false,
+      "threshold": 0.35,
+      "value": 0.354
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 82.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 82.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 82.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 82.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 82.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.965,
+  "pageId": "table_001_python_modindex",
+  "reportId": "q_table_001_python_modindex",
+  "warnings": []
+}

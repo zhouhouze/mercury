@@ -1,0 +1,1969 @@
+{
+  "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+  "digestRef": "digest_code_001_py_asyncio",
+  "filteredBlocks": [
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0028",
+      "blockType": "code",
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "noiseScore": 0.9,
+      "order": 27,
+      "pageId": "code_001_py_asyncio",
+      "reason": "footer",
+      "regionType": "footer",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0028",
+          "blockType": "code",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "$ python -m asyncio asyncio REPL ... Use \"await\" directly instead of \"asyncio.run()\". Type \"help\", \"copyright\", \"credits\" or \"license\" for more information. >>> import asyncio >>> await asyncio . sleep ( 10 , result = 'hello' ) 'hello'",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 27,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0028",
+          "sourceRefId": "src_code_001_py_asyncio_0028",
+          "textHash": "sha256_b5f689e48ce1d03e36120557501b7d1f",
+          "textQuote": "$ python -m asyncio asyncio REPL ... Use \"await\" directly instead of \"asyncio.run()\". Type \"help\", \"copyright\", \"credits\" or \"license\" for more information. >>> import asyncio >>> await asyncio . sleep ( 10 , result = 'h"
+        }
+      ],
+      "textHash": "sha256_b5f689e48ce1d03e36120557501b7d1f",
+      "textQuote": "$ python -m asyncio asyncio REPL ... Use \"await\" directly instead of \"asyncio.run()\". Type \"help\", \"copyright\", \"credits\" or \"license\" for more information. >>> import asyncio >>> await asyncio . sleep ( 10 , result = 'h"
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0029",
+      "blockType": "paragraph",
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "noiseScore": 0.9,
+      "order": 28,
+      "pageId": "code_001_py_asyncio",
+      "reason": "recommendation",
+      "regionType": "recommendation",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0029",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "This REPL provides limited compatibility with PYTHON_BASIC_REPL . It is recommended that the default REPL is used for full functionality and the latest features.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 28,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0029",
+          "sourceRefId": "src_code_001_py_asyncio_0029",
+          "textHash": "sha256_45452bf431c7e680b488e9174955bc7f",
+          "textQuote": "This REPL provides limited compatibility with PYTHON_BASIC_REPL . It is recommended that the default REPL is used for full functionality and the latest features."
+        }
+      ],
+      "textHash": "sha256_45452bf431c7e680b488e9174955bc7f",
+      "textQuote": "This REPL provides limited compatibility with PYTHON_BASIC_REPL . It is recommended that the default REPL is used for full functionality and the latest features."
+    }
+  ],
+  "highSignalBlocks": [
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0001",
+      "blockType": "image",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.782,
+      "contentDensityScore": 0.669,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.755,
+      "noiseScore": 0.18,
+      "order": 0,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0001"
+      ],
+      "regionType": "metadata",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0001",
+          "blockType": "image",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Image metadata: Python logo",
+          "headingPath": [],
+          "order": 0,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0001",
+          "sourceRefId": "src_code_001_py_asyncio_0001",
+          "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+          "textQuote": "Image metadata: Python logo"
+        }
+      ],
+      "text": "Image metadata: Python logo",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0002",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.809,
+      "contentDensityScore": 0.679,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.795,
+      "noiseScore": 0.08,
+      "order": 1,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0002"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0002",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Networking and Interprocess Communication",
+          "headingPath": [
+            "Previous topic"
+          ],
+          "order": 1,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0002",
+          "sourceRefId": "src_code_001_py_asyncio_0002",
+          "textHash": "sha256_67901cca221f176edec7d37d31d99108",
+          "textQuote": "Networking and Interprocess Communication"
+        }
+      ],
+      "text": "Networking and Interprocess Communication",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0003",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.662,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.772,
+      "noiseScore": 0.12,
+      "order": 2,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0003"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0003",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Improve this page",
+          "headingPath": [
+            "This page"
+          ],
+          "order": 2,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0003",
+          "sourceRefId": "src_code_001_py_asyncio_0003",
+          "textHash": "sha256_96dbb5e0c45eca7d10798908e4a8e095",
+          "textQuote": "Improve this page"
+        }
+      ],
+      "text": "Improve this page",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0004",
+      "blockType": "image",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.782,
+      "contentDensityScore": 0.669,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.755,
+      "noiseScore": 0.18,
+      "order": 3,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0004"
+      ],
+      "regionType": "metadata",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0004",
+          "blockType": "image",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Image metadata: Python logo",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 3,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0004",
+          "sourceRefId": "src_code_001_py_asyncio_0004",
+          "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+          "textQuote": "Image metadata: Python logo"
+        }
+      ],
+      "text": "Image metadata: Python logo",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0005",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.665,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 4,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0005"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0005",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "3.14.5 Documentation »",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 4,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0005",
+          "sourceRefId": "src_code_001_py_asyncio_0005",
+          "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+          "textQuote": "3.14.5 Documentation »"
+        }
+      ],
+      "text": "3.14.5 Documentation »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0006",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.67,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.777,
+      "noiseScore": 0.12,
+      "order": 5,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0006"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0006",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "The Python Standard Library »",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 5,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0006",
+          "sourceRefId": "src_code_001_py_asyncio_0006",
+          "textHash": "sha256_76fd79de1b25f0c169b453077886b752",
+          "textQuote": "The Python Standard Library »"
+        }
+      ],
+      "text": "The Python Standard Library »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0007",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.8,
+      "contentDensityScore": 0.68,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.782,
+      "noiseScore": 0.12,
+      "order": 6,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0007"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0007",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Networking and Interprocess Communication »",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 6,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0007",
+          "sourceRefId": "src_code_001_py_asyncio_0007",
+          "textHash": "sha256_d6b794920f4f5254a2b94746da6e9a3b",
+          "textQuote": "Networking and Interprocess Communication »"
+        }
+      ],
+      "text": "Networking and Interprocess Communication »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0008",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.668,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.775,
+      "noiseScore": 0.12,
+      "order": 7,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0008"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0008",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio — Asynchronous I/O",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 7,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0008",
+          "sourceRefId": "src_code_001_py_asyncio_0008",
+          "textHash": "sha256_aaaf479b17e6218a141d2a9eba6af5a4",
+          "textQuote": "asyncio — Asynchronous I/O"
+        }
+      ],
+      "text": "asyncio — Asynchronous I/O",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0009",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.666,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 8,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0009"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0009",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Theme Auto Light Dark |",
+          "headingPath": [
+            "Navigation"
+          ],
+          "order": 8,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0009",
+          "sourceRefId": "src_code_001_py_asyncio_0009",
+          "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+          "textQuote": "Theme Auto Light Dark |"
+        }
+      ],
+      "text": "Theme Auto Light Dark |",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0010",
+      "blockType": "code",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.777,
+      "contentDensityScore": 0.579,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.726,
+      "noiseScore": 0.12,
+      "order": 9,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0010"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0010",
+          "blockType": "code",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "import asyncio async def main (): print ( 'Hello ...' ) await asyncio . sleep ( 1 ) print ( '... World!' ) asyncio . run ( main ())",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 9,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0010",
+          "sourceRefId": "src_code_001_py_asyncio_0010",
+          "textHash": "sha256_4169a3388815cbd83a32e95dbfc020a5",
+          "textQuote": "import asyncio async def main (): print ( 'Hello ...' ) await asyncio . sleep ( 1 ) print ( '... World!' ) asyncio . run ( main ())"
+        }
+      ],
+      "text": "import asyncio async def main (): print ( 'Hello ...' ) await asyncio . sleep ( 1 ) print ( '... World!' ) asyncio . run ( main ())",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0011",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.815,
+      "contentDensityScore": 0.703,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.809,
+      "noiseScore": 0.08,
+      "order": 10,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0011"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0011",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio is a library to write concurrent code using the async/await syntax.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 10,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0011",
+          "sourceRefId": "src_code_001_py_asyncio_0011",
+          "textHash": "sha256_c2606b148fbae3660f0fe336c204be9a",
+          "textQuote": "asyncio is a library to write concurrent code using the async/await syntax."
+        }
+      ],
+      "text": "asyncio is a library to write concurrent code using the async/await syntax.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0012",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.832,
+      "contentDensityScore": 0.784,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.853,
+      "noiseScore": 0.08,
+      "order": 11,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0012"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0012",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 11,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0012",
+          "sourceRefId": "src_code_001_py_asyncio_0012",
+          "textHash": "sha256_c5b57e508e7bb5eb896cbe7cb9f13f38",
+          "textQuote": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc."
+        }
+      ],
+      "text": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0013",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.816,
+      "contentDensityScore": 0.708,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.811,
+      "noiseScore": 0.08,
+      "order": 12,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0013"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0013",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio is often a perfect fit for IO-bound and high-level structured network code.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 12,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0013",
+          "sourceRefId": "src_code_001_py_asyncio_0013",
+          "textHash": "sha256_b07777560fbcb11b4a8fbe3f06bfde88",
+          "textQuote": "asyncio is often a perfect fit for IO-bound and high-level structured network code."
+        }
+      ],
+      "text": "asyncio is often a perfect fit for IO-bound and high-level structured network code.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0014",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.786,
+      "contentDensityScore": 0.572,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.737,
+      "noiseScore": 0.08,
+      "order": 13,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0014"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0014",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Explanation of the fundamentals of asyncio.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 13,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0014",
+          "sourceRefId": "src_code_001_py_asyncio_0014",
+          "textHash": "sha256_c952bd757593ecc5e8d3736133546628",
+          "textQuote": "Explanation of the fundamentals of asyncio."
+        }
+      ],
+      "text": "Explanation of the fundamentals of asyncio.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0015",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.81,
+      "contentDensityScore": 0.681,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.797,
+      "noiseScore": 0.08,
+      "order": 14,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0015"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0015",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio provides a set of high-level APIs to:",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 14,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0015",
+          "sourceRefId": "src_code_001_py_asyncio_0015",
+          "textHash": "sha256_d403ba0132698849eceb91b90192af79",
+          "textQuote": "asyncio provides a set of high-level APIs to:"
+        }
+      ],
+      "text": "asyncio provides a set of high-level APIs to:",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0016",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.815,
+      "contentDensityScore": 0.705,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.81,
+      "noiseScore": 0.08,
+      "order": 15,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0016"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0016",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "run Python coroutines concurrently and have full control over their execution;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 15,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0016",
+          "sourceRefId": "src_code_001_py_asyncio_0016",
+          "textHash": "sha256_3efcf7ca91b3d49c3840c8aaa0f2f640",
+          "textQuote": "run Python coroutines concurrently and have full control over their execution;"
+        }
+      ],
+      "text": "run Python coroutines concurrently and have full control over their execution;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0017",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.807,
+      "contentDensityScore": 0.67,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.791,
+      "noiseScore": 0.08,
+      "order": 16,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0017"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0017",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "perform network IO and IPC ;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 16,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0017",
+          "sourceRefId": "src_code_001_py_asyncio_0017",
+          "textHash": "sha256_5eff22f1479871d54d722e5fb1acbd93",
+          "textQuote": "perform network IO and IPC ;"
+        }
+      ],
+      "text": "perform network IO and IPC ;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0018",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.806,
+      "contentDensityScore": 0.665,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.788,
+      "noiseScore": 0.08,
+      "order": 17,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0018"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0018",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "control subprocesses ;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 17,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0018",
+          "sourceRefId": "src_code_001_py_asyncio_0018",
+          "textHash": "sha256_55bd889bd9044ee1fca231c62b21e344",
+          "textQuote": "control subprocesses ;"
+        }
+      ],
+      "text": "control subprocesses ;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0019",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.807,
+      "contentDensityScore": 0.67,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.791,
+      "noiseScore": 0.08,
+      "order": 18,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0019"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0019",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "distribute tasks via queues ;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 18,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0019",
+          "sourceRefId": "src_code_001_py_asyncio_0019",
+          "textHash": "sha256_6646eb95bd7fda4616defe8348e2fc3c",
+          "textQuote": "distribute tasks via queues ;"
+        }
+      ],
+      "text": "distribute tasks via queues ;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0020",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.807,
+      "contentDensityScore": 0.67,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.791,
+      "noiseScore": 0.08,
+      "order": 19,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0020"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0020",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "synchronize concurrent code;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 19,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0020",
+          "sourceRefId": "src_code_001_py_asyncio_0020",
+          "textHash": "sha256_7e56387f60d4856a7eca85c5919252f6",
+          "textQuote": "synchronize concurrent code;"
+        }
+      ],
+      "text": "synchronize concurrent code;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0021",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.815,
+      "contentDensityScore": 0.705,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.81,
+      "noiseScore": 0.08,
+      "order": 20,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0021"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0021",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Additionally, there are low-level APIs for library and framework developers to:",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 20,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0021",
+          "sourceRefId": "src_code_001_py_asyncio_0021",
+          "textHash": "sha256_2fca504ffe31e696616d471836e29fe0",
+          "textQuote": "Additionally, there are low-level APIs for library and framework developers to:"
+        }
+      ],
+      "text": "Additionally, there are low-level APIs for library and framework developers to:",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0022",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.823,
+      "contentDensityScore": 0.741,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.83,
+      "noiseScore": 0.08,
+      "order": 21,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0022"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0022",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , handling OS signals , etc;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 21,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0022",
+          "sourceRefId": "src_code_001_py_asyncio_0022",
+          "textHash": "sha256_b67bec4bb91b6542dc5d70f95c739a4b",
+          "textQuote": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , handling OS signals , etc;"
+        }
+      ],
+      "text": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , handling OS signals , etc;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0023",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.81,
+      "contentDensityScore": 0.684,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.798,
+      "noiseScore": 0.08,
+      "order": 22,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0023"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0023",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "implement efficient protocols using transports ;",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 22,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0023",
+          "sourceRefId": "src_code_001_py_asyncio_0023",
+          "textHash": "sha256_ee0dcfd7029474116097ed1bae23ff7d",
+          "textQuote": "implement efficient protocols using transports ;"
+        }
+      ],
+      "text": "implement efficient protocols using transports ;",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0024",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.813,
+      "contentDensityScore": 0.696,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.805,
+      "noiseScore": 0.08,
+      "order": 23,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0024"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0024",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "bridge callback-based libraries and code with async/await syntax.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 23,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0024",
+          "sourceRefId": "src_code_001_py_asyncio_0024",
+          "textHash": "sha256_69184918a9a7f90a8cdd668cdb973b67",
+          "textQuote": "bridge callback-based libraries and code with async/await syntax."
+        }
+      ],
+      "text": "bridge callback-based libraries and code with async/await syntax.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0025",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0001"
+      ],
+      "confidence": 0.807,
+      "contentDensityScore": 0.667,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.789,
+      "noiseScore": 0.08,
+      "order": 24,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0025"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0025",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0001",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Availability : not WASI.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 24,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0025",
+          "sourceRefId": "src_code_001_py_asyncio_0025",
+          "textHash": "sha256_59caef324ee3abd14c5cd6b7918c35f8",
+          "textQuote": "Availability : not WASI."
+        }
+      ],
+      "text": "Availability : not WASI.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0026",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.803,
+      "contentDensityScore": 0.65,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.779,
+      "noiseScore": 0.08,
+      "order": 25,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0026"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0026",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "This module does not work or is not available on WebAssembly. See WebAssembly platforms for more information.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 25,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0026",
+          "sourceRefId": "src_code_001_py_asyncio_0026",
+          "textHash": "sha256_c566042e6e167efd440c1ce6cd9cfa2b",
+          "textQuote": "This module does not work or is not available on WebAssembly. See WebAssembly platforms for more information."
+        }
+      ],
+      "text": "This module does not work or is not available on WebAssembly. See WebAssembly platforms for more information.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0027",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.813,
+      "contentDensityScore": 0.697,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.805,
+      "noiseScore": 0.08,
+      "order": 26,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0027"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0027",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "You can experiment with an asyncio concurrent context in the REPL :",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 26,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0027",
+          "sourceRefId": "src_code_001_py_asyncio_0027",
+          "textHash": "sha256_6ea199eddfc6eb13f16963f233436f74",
+          "textQuote": "You can experiment with an asyncio concurrent context in the REPL :"
+        }
+      ],
+      "text": "You can experiment with an asyncio concurrent context in the REPL :",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0030",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.812,
+      "contentDensityScore": 0.693,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.803,
+      "noiseScore": 0.08,
+      "order": 29,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0030"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0030",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Raises an auditing event cpython.run_stdin with no arguments.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 29,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0030",
+          "sourceRefId": "src_code_001_py_asyncio_0030",
+          "textHash": "sha256_3beebc0dac70c2a130314b2886e8e219",
+          "textQuote": "Raises an auditing event cpython.run_stdin with no arguments."
+        }
+      ],
+      "text": "Raises an auditing event cpython.run_stdin with no arguments.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0031",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.779,
+      "contentDensityScore": 0.543,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.721,
+      "noiseScore": 0.08,
+      "order": 30,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0031"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0031",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Changed in version 3.12.5: (also 3.11.10, 3.10.15, 3.9.20, and 3.8.20) Emits audit events.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 30,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0031",
+          "sourceRefId": "src_code_001_py_asyncio_0031",
+          "textHash": "sha256_a1c267df1ee6208593cd5a9c1fe031d4",
+          "textQuote": "Changed in version 3.12.5: (also 3.11.10, 3.10.15, 3.9.20, and 3.8.20) Emits audit events."
+        }
+      ],
+      "text": "Changed in version 3.12.5: (also 3.11.10, 3.10.15, 3.9.20, and 3.8.20) Emits audit events.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0032",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.813,
+      "contentDensityScore": 0.696,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.805,
+      "noiseScore": 0.08,
+      "order": 31,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0032"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0032",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Changed in version 3.13: Uses PyREPL if possible, in which case PYTHONSTARTUP is also executed. Emits audit events.",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 31,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0032",
+          "sourceRefId": "src_code_001_py_asyncio_0032",
+          "textHash": "sha256_347d1b2f1b064cb373a0d97550ed4814",
+          "textQuote": "Changed in version 3.13: Uses PyREPL if possible, in which case PYTHONSTARTUP is also executed. Emits audit events."
+        }
+      ],
+      "text": "Changed in version 3.13: Uses PyREPL if possible, in which case PYTHONSTARTUP is also executed. Emits audit events.",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0033",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.664,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.773,
+      "noiseScore": 0.12,
+      "order": 32,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0033"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0033",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Coroutines and tasks",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 32,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0033",
+          "sourceRefId": "src_code_001_py_asyncio_0033",
+          "textHash": "sha256_b740a551e4e2df6dde857e2a3d1ab7fa",
+          "textQuote": "Coroutines and tasks"
+        }
+      ],
+      "text": "Coroutines and tasks",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0034",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.668,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.775,
+      "noiseScore": 0.12,
+      "order": 33,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0034"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0034",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Synchronization Primitives",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 33,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0034",
+          "sourceRefId": "src_code_001_py_asyncio_0034",
+          "textHash": "sha256_0991b569063fb25d21fe3f62a84dfb45",
+          "textQuote": "Synchronization Primitives"
+        }
+      ],
+      "text": "Synchronization Primitives",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0035",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.667,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.775,
+      "noiseScore": 0.12,
+      "order": 34,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0035"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0035",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Call Graph Introspection",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 34,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0035",
+          "sourceRefId": "src_code_001_py_asyncio_0035",
+          "textHash": "sha256_0b374fa745bba015c5c1a27eaf347543",
+          "textQuote": "Call Graph Introspection"
+        }
+      ],
+      "text": "Call Graph Introspection",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0036",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.667,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.775,
+      "noiseScore": 0.12,
+      "order": 35,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0036"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0036",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Transports and Protocols",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 35,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0036",
+          "sourceRefId": "src_code_001_py_asyncio_0036",
+          "textHash": "sha256_2a2d05a6172487352f729629bc77c85b",
+          "textQuote": "Transports and Protocols"
+        }
+      ],
+      "text": "Transports and Protocols",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0037",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.795,
+      "contentDensityScore": 0.661,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.772,
+      "noiseScore": 0.12,
+      "order": 36,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0037"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0037",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Platform Support",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 36,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0037",
+          "sourceRefId": "src_code_001_py_asyncio_0037",
+          "textHash": "sha256_d58b0175a08c3cd2d67dccbf00617af6",
+          "textQuote": "Platform Support"
+        }
+      ],
+      "text": "Platform Support",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0038",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.806,
+      "contentDensityScore": 0.664,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.787,
+      "noiseScore": 0.08,
+      "order": 37,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0038"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0038",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Guides and Tutorials",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 37,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0038",
+          "sourceRefId": "src_code_001_py_asyncio_0038",
+          "textHash": "sha256_dcd95330d58d75dce949ae66366c9233",
+          "textQuote": "Guides and Tutorials"
+        }
+      ],
+      "text": "Guides and Tutorials",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0039",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.664,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.773,
+      "noiseScore": 0.12,
+      "order": 38,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0039"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0039",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "High-level API Index",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 38,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0039",
+          "sourceRefId": "src_code_001_py_asyncio_0039",
+          "textHash": "sha256_a433d8054aab0a9659ef0fe3baf53ade",
+          "textQuote": "High-level API Index"
+        }
+      ],
+      "text": "High-level API Index",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0040",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.663,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.773,
+      "noiseScore": 0.12,
+      "order": 39,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0040"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0040",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Low-level API Index",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 39,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0040",
+          "sourceRefId": "src_code_001_py_asyncio_0040",
+          "textHash": "sha256_6d2209ae0645931896f3f6b561d2cae2",
+          "textQuote": "Low-level API Index"
+        }
+      ],
+      "text": "Low-level API Index",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0041",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.666,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 40,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0041"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0041",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Developing with asyncio",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 40,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0041",
+          "sourceRefId": "src_code_001_py_asyncio_0041",
+          "textHash": "sha256_dd7a221cfdfd1c2db93d91cc7178e29c",
+          "textQuote": "Developing with asyncio"
+        }
+      ],
+      "text": "Developing with asyncio",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0042",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.799,
+      "contentDensityScore": 0.632,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.77,
+      "noiseScore": 0.08,
+      "order": 41,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0042"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0042",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "The source code for asyncio can be found in Lib/asyncio/ .",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶"
+          ],
+          "order": 41,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0042",
+          "sourceRefId": "src_code_001_py_asyncio_0042",
+          "textHash": "sha256_78c5be8018d24e237fe454680fdecbfd",
+          "textQuote": "The source code for asyncio can be found in Lib/asyncio/ ."
+        }
+      ],
+      "text": "The source code for asyncio can be found in Lib/asyncio/ .",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0043",
+      "blockType": "paragraph",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.809,
+      "contentDensityScore": 0.679,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.795,
+      "noiseScore": 0.08,
+      "order": 42,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0043"
+      ],
+      "regionType": "main",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0043",
+          "blockType": "paragraph",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Networking and Interprocess Communication",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Previous topic"
+          ],
+          "order": 42,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0043",
+          "sourceRefId": "src_code_001_py_asyncio_0043",
+          "textHash": "sha256_67901cca221f176edec7d37d31d99108",
+          "textQuote": "Networking and Interprocess Communication"
+        }
+      ],
+      "text": "Networking and Interprocess Communication",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0044",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.662,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.772,
+      "noiseScore": 0.12,
+      "order": 43,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0044"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0044",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Improve this page",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "This page"
+          ],
+          "order": 43,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0044",
+          "sourceRefId": "src_code_001_py_asyncio_0044",
+          "textHash": "sha256_96dbb5e0c45eca7d10798908e4a8e095",
+          "textQuote": "Improve this page"
+        }
+      ],
+      "text": "Improve this page",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0045",
+      "blockType": "image",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.782,
+      "contentDensityScore": 0.669,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.755,
+      "noiseScore": 0.18,
+      "order": 44,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0045"
+      ],
+      "regionType": "metadata",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0045",
+          "blockType": "image",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Image metadata: Python logo",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 44,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0045",
+          "sourceRefId": "src_code_001_py_asyncio_0045",
+          "textHash": "sha256_51afd3acf2a8442c133bb1be793045e6",
+          "textQuote": "Image metadata: Python logo"
+        }
+      ],
+      "text": "Image metadata: Python logo",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0046",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.796,
+      "contentDensityScore": 0.665,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 45,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0046"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0046",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "3.14.5 Documentation »",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 45,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0046",
+          "sourceRefId": "src_code_001_py_asyncio_0046",
+          "textHash": "sha256_31e3f0f0c6dee0624f942e3f95356559",
+          "textQuote": "3.14.5 Documentation »"
+        }
+      ],
+      "text": "3.14.5 Documentation »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0047",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.67,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.777,
+      "noiseScore": 0.12,
+      "order": 46,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0047"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0047",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "The Python Standard Library »",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 46,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0047",
+          "sourceRefId": "src_code_001_py_asyncio_0047",
+          "textHash": "sha256_76fd79de1b25f0c169b453077886b752",
+          "textQuote": "The Python Standard Library »"
+        }
+      ],
+      "text": "The Python Standard Library »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0048",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.8,
+      "contentDensityScore": 0.68,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.782,
+      "noiseScore": 0.12,
+      "order": 47,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0048"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0048",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Networking and Interprocess Communication »",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 47,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0048",
+          "sourceRefId": "src_code_001_py_asyncio_0048",
+          "textHash": "sha256_d6b794920f4f5254a2b94746da6e9a3b",
+          "textQuote": "Networking and Interprocess Communication »"
+        }
+      ],
+      "text": "Networking and Interprocess Communication »",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0049",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.668,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.775,
+      "noiseScore": 0.12,
+      "order": 48,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0049"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0049",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "asyncio — Asynchronous I/O",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 48,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0049",
+          "sourceRefId": "src_code_001_py_asyncio_0049",
+          "textHash": "sha256_aaaf479b17e6218a141d2a9eba6af5a4",
+          "textQuote": "asyncio — Asynchronous I/O"
+        }
+      ],
+      "text": "asyncio — Asynchronous I/O",
+      "warnings": []
+    },
+    {
+      "blockId": "block_pg_code_001_py_asyncio_0050",
+      "blockType": "list_item",
+      "chunkIds": [
+        "ck_code_001_py_asyncio_0002"
+      ],
+      "confidence": 0.797,
+      "contentDensityScore": 0.666,
+      "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+      "importance": 0.774,
+      "noiseScore": 0.12,
+      "order": 49,
+      "pageId": "code_001_py_asyncio",
+      "paragraphIds": [
+        "pg_code_001_py_asyncio_0050"
+      ],
+      "regionType": "section",
+      "sourceRefs": [
+        {
+          "blockId": "block_pg_code_001_py_asyncio_0050",
+          "blockType": "list_item",
+          "chunkId": "ck_code_001_py_asyncio_0002",
+          "confidence": 0.92,
+          "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+          "fallbackText": "Theme Auto Light Dark |",
+          "headingPath": [
+            "asyncio — Asynchronous I/O ¶",
+            "Navigation"
+          ],
+          "order": 49,
+          "pageId": "code_001_py_asyncio",
+          "paragraphId": "pg_code_001_py_asyncio_0050",
+          "sourceRefId": "src_code_001_py_asyncio_0050",
+          "textHash": "sha256_1cd8371b484db2c359f10a043ea3f0ca",
+          "textQuote": "Theme Auto Light Dark |"
+        }
+      ],
+      "text": "Theme Auto Light Dark |",
+      "warnings": []
+    }
+  ],
+  "metadata": {
+    "category": "code_heavy_page",
+    "contentType": "documentation",
+    "goldStatus": "semi_auto_accepted",
+    "headingCount": 9,
+    "language": "en",
+    "paragraphCount": 50,
+    "sourceSnapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/code_001_py_asyncio.html",
+    "wordCount": 545
+  },
+  "pageId": "code_001_py_asyncio",
+  "qualityReportRef": "q_code_001_py_asyncio",
+  "schemaVersion": "a-v1.1-high-signal-2026-06-05",
+  "sessionId": "sess_ac_quality",
+  "sourceMapRef": "smap_code_001_py_asyncio",
+  "sourceStructuredPageRef": {
+    "contentHash": "sha256_b2bfc3e4a8a0381dd109fd4fb7d7b94380d683a81efcb8ca83b165e200809092",
+    "pageId": "code_001_py_asyncio"
+  },
+  "status": "ready",
+  "warnings": []
+}

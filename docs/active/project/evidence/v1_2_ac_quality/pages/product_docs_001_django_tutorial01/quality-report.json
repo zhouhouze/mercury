@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_bd21ebfc0778ac053cc8f5df6de907091f7cfdbaf22ac0c1576d0e6eaf48f32f",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 9.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.5
+    },
+    "contentCoverage": {
+      "denominator": 10933.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 10933.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 1851.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 230.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.124
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 102.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 102.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 102.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 102.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 102.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.96,
+  "pageId": "product_docs_001_django_tutorial01",
+  "reportId": "q_product_docs_001_django_tutorial01",
+  "warnings": []
+}

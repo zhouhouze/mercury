@@ -98,6 +98,24 @@ def test_empty_or_low_signal_fixture_does_not_pass() -> None:
     assert result["qualityReport"] is None
 
 
+def test_small_readable_page_is_degraded_without_fixture_override() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_small_readable",
+            "url": "https://example.com",
+            "title": "Example Domain",
+            "domain": "example.com",
+            "capturedAt": "2026-06-14T00:00:00Z",
+            "cleaned_text": "Example Domain. This domain is for use in documentation examples without needing permission.",
+            "visible_text": "Example Domain. This domain is for use in documentation examples without needing permission.",
+        }
+    )
+
+    assert result["ok"] is True
+    assert result["qualityReport"]["downstreamReadiness"] == "degraded"
+    assert any(issue["code"] == "LOW_SIGNAL_PAGE_DEGRADED" for issue in result["qualityReport"]["warnings"])
+
+
 def test_video_stub_is_planning_only_not_real_perception_ready() -> None:
     result = run_fixture("video_page_stub.html", fixture_class="planning_only")
 

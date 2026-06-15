@@ -1,0 +1,36 @@
+{
+  "conclusion": "degraded",
+  "digestFirstUsage": true,
+  "downstreamReadiness": "degraded",
+  "groundingCompleteness": 1.0,
+  "jumpbackCoverage": 1.0,
+  "lowSignalCorrectness": true,
+  "mindmapFallbackReasons": [
+    "selector_missing"
+  ],
+  "mindmapNodeCount": 3,
+  "mindmapOk": true,
+  "nativeEvidence": {
+    "nativeCategory": "low_signal_or_paywall_like",
+    "note": "Existing AC-Native screenshots are reused as real Chrome Side Panel UX evidence; AC-Quality recomputes A/C quality evidence separately.",
+    "pageKey": "low_001_example_com",
+    "screenshots": [
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/low-example-domain-01-after-open.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/low-example-domain-02-debug-after-read.png",
+      "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/screenshots/low-example-domain-03-after-submit.png"
+    ],
+    "source": "docs/active/project/evidence/v1_2_ac/native-sidepanel-ux/report.json",
+    "status": "inherited_ac_native"
+  },
+  "overallScore": 0.9,
+  "qualityFatalIssues": [],
+  "qualityWarnings": [
+    {
+      "code": "LOW_SIGNAL_PAGE_DEGRADED",
+      "message": "Page has too little grounded readable content to be marked pass.",
+      "relatedIds": [],
+      "severity": "major"
+    }
+  ],
+  "sourceCoverage": 1.0
+}
