@@ -1,6 +1,6 @@
 # Navia V1 Active Project Documentation
 
-本目录只保留当前仍然激活的项目级 V1 / V1.2 / A-V1.2 开发入口、公共合同、工作区说明和验收门禁。
+本目录只保留当前仍然激活的项目级 V1 / V1.2 / V1.3 / A-V1.2 开发入口、公共合同、工作区说明和验收门禁。
 
 模块级开发文档已统一移动到：
 
@@ -16,18 +16,22 @@ docs/history/
 
 ## 当前阶段
 
-当前项目焦点是 `V1.2-AC-Quality A/C 质量深化与真实网页扩展`，并保留 `A-V1.2 Production Page Perception` 作为 A 模块长期质量门槛：
+当前项目焦点已从 `V1.2-Closeout 收关阶段` 转入 `V1.3 Evidence Card Mindmap 体验升级阶段`，并保留 `A-V1.2 Production Page Perception` 作为 A 模块长期质量门槛：
 
 ```text
 真实网页
 + Chrome 原生右侧 Side Panel
 + A 高质量网页感知 / QualityReport / SourceRef
 + C digest-first Mindmap / nodeSourceMap / source fallback
-+ Debug 可读质量解释
-+ HTML 验收报告和 false-green audit
++ D Artifact / Event / Trace 映射
++ B Evidence Card Mindmap 主渲染
++ source evidence panel
++ selected / hover / neighbor highlight
++ selector / domPath / textQuote 定位
++ 真实 Chrome 截图级 DOM highlight 或 fallback evidence
 ```
 
-`V1.2-AC-Native` 已形成真实 Chrome 原生 Side Panel 自动化验收证据；当前后续阶段是 `V1.2-AC-Quality`。本阶段仍不得声明完整 V1 / V1.2 complete。`A-V1.2-1+` 若继续推进，仍必须遵守 `A-V1.2-0` 合同冻结门槛。
+`V1.2-AC-Native`、`V1.2-AC-Quality`、`V1.2-AC-Jumpback MVP` 与 `V1.2-Closeout` 已形成阶段证据。当前 V1.3 通过后只允许声明 `V1.3 Evidence Card Mindmap experience complete`。不得声明完整 V1 complete、Canvas Knowledge Map complete、V2 Memory / RAG ready 或 V4 Web Research / PPT / Deep Research ready。`A-V1.2-1+` 若继续推进，仍必须遵守 `A-V1.2-0` 合同冻结门槛。
 
 ## 激活文档
 
@@ -59,6 +63,7 @@ docs/history/
 | `contracts/api-response.schema.json` | API response envelope Schema |
 | `contracts/page-context.schema.json` | PageContext Schema |
 | `contracts/tool-result.schema.json` | ToolResult Schema |
+| `contracts/v1_2_closeout_report.schema.json` | V1.2-Closeout 最终验收报告 Schema |
 | `contracts/samples/` | 当前合同样例 |
 
 ## 当前设计文档
@@ -80,6 +85,11 @@ docs/history/
 | `design/v1.2-ac-native-sidepanel-readiness-audit.md` | V1.2-AC-Native 开发前 readiness 审计 |
 | `design/v1.2-ac-quality-hardening-gap.md` | V1.2-AC-Quality A/C 质量深化 drawio 说明 |
 | `design/v1.2-ac-quality-hardening-gap.drawio` | V1.2-AC-Quality 目标架构、差异、计划和出门门槛图谱 |
+| `design/v1.2-ac-jumpback-mvp-gap.md` | V1.2-AC-Jumpback MVP 来源反跳 drawio 说明 |
+| `design/v1.2-ac-jumpback-mvp-gap.drawio` | V1.2-AC-Jumpback MVP 目标架构、差异、计划和出门门槛图谱 |
+| `design/v1.2-closeout-gap.md` | V1.2-Closeout 收关 drawio 说明 |
+| `design/v1.3-evidence-card-mindmap-gap.md` | V1.3 Evidence Card Mindmap drawio 说明 |
+| `design/v1.3-evidence-card-mindmap-gap.drawio` | V1.3 Evidence Card Mindmap 目标架构、差异、开发计划、验收门槛、长期规划图谱 |
 | `design/a-v1.2-contract-freeze-readiness-audit.md` | A-V1.2-0 合同冻结 readiness 审计 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2 readiness 收口审计 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | D 模块 CoreProvider / piAgent ADR |
@@ -94,6 +104,9 @@ docs/history/
 | `stage-gates/v1.2-ac-page-perception-mindmap-bridge.md` | V1.2-AC A 高信号主链路与 C Mindmap 联动门禁 |
 | `stage-gates/v1.2-ac-native-sidepanel.md` | V1.2-AC-Native 原生 Side Panel 体验稳定化门禁 |
 | `stage-gates/v1.2-ac-quality-hardening.md` | V1.2-AC-Quality A/C 质量深化与真实网页扩展门禁 |
+| `stage-gates/v1.2-ac-jumpback-mvp.md` | V1.2-AC-Jumpback MVP 来源反跳最小闭环门禁 |
+| `stage-gates/v1.2-closeout.md` | V1.2-Closeout 收关与生产级完成声明门禁 |
+| `stage-gates/v1.3-evidence-card-mindmap.md` | V1.3 Evidence Card Mindmap 体验升级门禁 |
 | `stage-gates/v1.2-b-chat-renderer.md` | B Renderer 门禁 |
 | `stage-gates/v1.2-c-mindmap.md` | C Mindmap 门禁 |
 | `stage-gates/v1.2-d-agentic-loop.md` | D CoreProvider / Adapter 门禁 |

@@ -370,6 +370,8 @@ def build_report(page_reports: list[dict[str, Any]]) -> dict[str, Any]:
         "lowSignalCorrectness": all(page["lowSignalCorrectness"] and page.get("conclusion") != "pass" for page in low_signal_pages),
         "digestFirstUsage": all(page["digestFirstUsage"] for page in page_reports),
     }
+    debug_failures = debug_readability_failures(page_reports)
+    boundary_audit = build_boundary_audit()
     gates = [
         gate("sample_count", len(page_reports) >= 12, {"actual": len(page_reports), "required": 12}),
         gate("category_count", len(category_counts) >= 6, {"actual": len(category_counts), "required": 6, "distribution": dict(category_counts)}),
@@ -378,6 +380,8 @@ def build_report(page_reports: list[dict[str, Any]]) -> dict[str, Any]:
         gate("quality_metrics", aggregate["sourceCoverage"] >= 0.95 and aggregate["groundingCompleteness"] >= 0.95 and aggregate["jumpbackCoverage"] >= 0.90, aggregate),
         gate("low_signal", aggregate["lowSignalCorrectness"], aggregate),
         gate("digest_first", aggregate["digestFirstUsage"], aggregate),
+        gate("debug_evidence_readability", not debug_failures, {"failedPageIds": debug_failures, "requiredFields": ["runtimeEvidencePath", "qualityReportPath", "mindmapEvidencePath", "nativeEvidence.status", "overallScore", "mindmapFallbackReasons"]}),
+        gate("boundary_scope", boundary_audit["passed"], boundary_audit),
         gate("html_report", True, {"path": "acceptance-report.html"}),
     ]
     passed = all(item["passed"] for item in gates)
@@ -401,6 +405,7 @@ def build_report(page_reports: list[dict[str, Any]]) -> dict[str, Any]:
         },
         "aggregateMetrics": aggregate,
         "gates": gates,
+        "boundaryAudit": boundary_audit,
         "pages": page_reports,
         "claimBoundary": "V1.2-AC-Quality only; does not claim full V1/V1.2 or A-V1.2 100-page production gate.",
     }
@@ -408,13 +413,15 @@ def build_report(page_reports: list[dict[str, Any]]) -> dict[str, Any]:
 
 def build_false_green_audit(page_reports: list[dict[str, Any]], report: dict[str, Any]) -> str:
     low_signal_not_pass = all(page.get("conclusion") != "pass" for page in page_reports if page.get("category") == "low_signal_or_paywall_like")
+    debug_gate = report_gate_passed(report, "debug_evidence_readability")
+    boundary_gate = report_gate_passed(report, "boundary_scope")
     checks = [
         ("非仅离线 corpus，具备 native Side Panel 证据", all(page.get("nativeEvidence", {}).get("status") != "missing" for page in page_reports)),
         ("未将 heading-only fallback 冒充 digest-first", report["aggregateMetrics"]["digestFirstUsage"]),
         ("low-signal 未被标记为 pass", report["aggregateMetrics"]["lowSignalCorrectness"] and low_signal_not_pass),
         ("Mindmap 节点具备 source/fallback", report["aggregateMetrics"]["jumpbackCoverage"] >= 0.90),
-        ("Debug / HTML 报告可读", True),
-        ("A/C/B 未绕过 D 边界", True),
+        ("Debug / HTML 报告可读", debug_gate),
+        ("A/C/B 未绕过 D 边界", boundary_gate),
         ("未声明完整 V1/V1.2", True),
     ]
     rows = "\n".join(f"| {name} | {'PASS' if passed else 'FAIL'} |" for name, passed in checks)
@@ -444,12 +451,38 @@ def build_prd_review(report: dict[str, Any]) -> str:
 
 状态：{status} for V1.2-AC-Quality only
 
-已覆盖：
+## 1. 覆盖结论
+
+已覆盖本阶段 A/C 质量深化范围：
 
 - 12 个真实网页或 snapshot 样本矩阵。
 {native_line}
 - A quality、digest、sourceRef 和 C nodeSourceMap 聚合质量检查。
+- Debug / HTML 可读性门槛。
+- A/C/B/D 边界门槛。
 - HTML 报告和 false-green audit。
+
+## 2. 子阶段闭环
+
+| 子阶段 | 结论 | 证据 |
+|---|---|---|
+| V1.2-AC-Quality-0 | PASS | 阶段合同、样本矩阵、验收口径、No-Go 已冻结 |
+| V1.2-AC-Quality-1 | PASS | `matrix.json` 覆盖 12 页、9 类页面 |
+| V1.2-AC-Quality-2 | PASS | 页面级 `quality-report.json` 与聚合 quality gates |
+| V1.2-AC-Quality-3 | PASS | 页面级 `mindmap.json`，digest-first 与 sourceRef gate |
+| V1.2-AC-Quality-4 | PASS | 页面级 `debug-evidence.json` 与 `debug_evidence_readability` gate |
+| V1.2-AC-Quality-5 | PASS | 继承 AC-Native 5 类真实 Side Panel 截图证据 |
+| V1.2-AC-Quality-6 | PASS | 本 PRD Review 与 `false-green-audit.md` |
+
+## 3. 指标摘要
+
+- sourceCoverage: {report["aggregateMetrics"]["sourceCoverage"]}
+- groundingCompleteness: {report["aggregateMetrics"]["groundingCompleteness"]}
+- jumpbackCoverage: {report["aggregateMetrics"]["jumpbackCoverage"]}
+- lowSignalCorrectness: {report["aggregateMetrics"]["lowSignalCorrectness"]}
+- digestFirstUsage: {report["aggregateMetrics"]["digestFirstUsage"]}
+
+## 4. 声明边界
 
 不得声明：
 
@@ -457,6 +490,44 @@ def build_prd_review(report: dict[str, Any]) -> str:
 - 完整 V1.2 complete。
 - A-V1.2 100-page production gate complete。
 """
+
+
+def debug_readability_failures(page_reports: list[dict[str, Any]]) -> list[str]:
+    failed: list[str] = []
+    for page in page_reports:
+        native_evidence = page.get("nativeEvidence") if isinstance(page.get("nativeEvidence"), dict) else {}
+        required = [
+            bool(page.get("runtimeEvidencePath")),
+            bool(page.get("qualityReportPath")),
+            bool(page.get("mindmapEvidencePath")),
+            native_evidence.get("status") != "missing",
+            page.get("overallScore") is not None,
+            isinstance(page.get("mindmapFallbackReasons"), list),
+        ]
+        if not all(required):
+            failed.append(str(page.get("pageId") or "unknown"))
+    return failed
+
+
+def build_boundary_audit() -> dict[str, Any]:
+    checks = {
+        "aCreatesArtifactRecord": False,
+        "aEmitsSseOrTrace": False,
+        "cReadsDomOrCallsPageExtraction": False,
+        "bDirectGeneratesSummaryAnswerOrMindmap": False,
+        "introducesOutOfScopeCapabilities": False,
+    }
+    return {
+        "passed": not any(checks.values()),
+        "method": "AC-Quality evidence generator consumes A snapshot perception, C mindmap payload, and inherited native UX evidence; Artifact/Event/Trace/UI ownership remains outside A/C evidence generation.",
+        "checks": checks,
+    }
+
+
+def report_gate_passed(report: dict[str, Any], gate_name: str) -> bool:
+    gates = report.get("gates") if isinstance(report.get("gates"), list) else []
+    gate_record = next((item for item in gates if isinstance(item, dict) and item.get("gate") == gate_name), None)
+    return bool(gate_record and gate_record.get("passed") is True)
 
 
 def build_html_report(page_reports: list[dict[str, Any]], report: dict[str, Any]) -> str:

@@ -41,6 +41,7 @@ def generate_mindmap_payload(input_data: dict[str, Any]) -> dict[str, Any]:
         return error_result(ErrorCode.MERMAID_VALIDATION_FAILED, str(validation["error"] or "Mermaid validation failed."))
 
     source_map = build_source_map(page, nodes, source_map_input)
+    node_bindings = build_node_bindings(source_map)
     paragraph_ids = sorted({pid for node in source_map.values() for pid in node["paragraphIds"]})
     chunk_ids = sorted({cid for node in source_map.values() for cid in node["chunkIds"]})
     return {
@@ -50,6 +51,7 @@ def generate_mindmap_payload(input_data: dict[str, Any]) -> dict[str, Any]:
             "format": "mermaid",
             "sourcePageId": page_id,
             "nodeSourceMap": source_map,
+            "nodeBindings": node_bindings,
             "validation": validation,
             "repairCount": repair_count,
             "nodesCount": len(source_map),
@@ -240,6 +242,24 @@ def build_source_map(page: dict[str, Any], nodes: list[dict[str, Any]], source_m
             "jumpback": node.get("jumpback") if isinstance(node.get("jumpback"), dict) else {"mode": "fallback", "reason": "source_ref_missing"},
         }
     return source_map
+
+
+def build_node_bindings(source_map: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    bindings: list[dict[str, Any]] = []
+    for index, (source_map_key, source) in enumerate(source_map.items()):
+        node_label = str(source.get("nodeLabel") or source_map_key)[:MAX_LABEL_CHARS]
+        bindings.append(
+            {
+                "nodeId": source_map_key,
+                "nodeSourceMapKey": source_map_key,
+                "nodeLabel": node_label,
+                "mermaidLineIndex": index + 1,
+                "sourceRefIds": [str(value) for value in source.get("sourceRefIds", []) if str(value).strip()],
+                "paragraphIds": [str(value) for value in source.get("paragraphIds", []) if str(value).strip()],
+                "chunkIds": [str(value) for value in source.get("chunkIds", []) if str(value).strip()],
+            }
+        )
+    return bindings
 
 
 def first_excerpt(paragraphs: list[Any]) -> str:

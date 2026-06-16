@@ -1,0 +1,764 @@
+{
+  "error": null,
+  "mermaidSource": "mindmap\n  root((asyncio — Asynchronous I/O — Python 3.14.5 documentation))\n    asyncio is used as a foundation for multiple Python asynchronous\n    create and manage event loops , which provide asynchronous APIs\n    asyncio is often a perfect fit for IO - bound and high - level s\n    run Python coroutines concurrently and have full control over th\n    Additionally , there are low - level APIs for library and framew\n    asyncio is a library to write concurrent code using the async /\n    bridge callback - based libraries and code with async / await sy\n    You can experiment with an asyncio concurrent context in the REP\n    Changed in version 3 . 13  Uses PyREPL if possible , in which c\n    Raises an auditing event cpython . run_stdin with no arguments .\n    implement efficient protocols using transports ;\n    asyncio provides a set of high - level APIs to \n    Networking and Interprocess Communication\n    Networking and Interprocess Communication\n    perform network IO and IPC ;\n    distribute tasks via queues ;\n    synchronize concurrent code ;\n    Availability  not WASI .",
+  "metadata": {
+    "format": "mermaid",
+    "nodeBindings": [
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001",
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "mermaidLineIndex": 1,
+        "nodeId": "root",
+        "nodeLabel": "asyncio — Asynchronous I/O — Python 3.14.5 documentation",
+        "nodeSourceMapKey": "root",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0001",
+          "pg_code_001_py_asyncio_0002",
+          "pg_code_001_py_asyncio_0003",
+          "pg_code_001_py_asyncio_0004"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0001",
+          "src_code_001_py_asyncio_0002",
+          "src_code_001_py_asyncio_0003",
+          "src_code_001_py_asyncio_0004"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 2,
+        "nodeId": "node_1",
+        "nodeLabel": "asyncio is used as a foundation for multiple Python asynchronous",
+        "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0012"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0012"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "create and manage event loops , which provide asynchronous APIs",
+        "nodeSourceMapKey": "node_2",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0022"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0022"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "asyncio is often a perfect fit for IO - bound and high - level s",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0013"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0013"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "run Python coroutines concurrently and have full control over th",
+        "nodeSourceMapKey": "node_4",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0016"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0016"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "Additionally , there are low - level APIs for library and framew",
+        "nodeSourceMapKey": "node_5",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0021"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0021"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "asyncio is a library to write concurrent code using the async /",
+        "nodeSourceMapKey": "node_6",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0011"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0011"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "bridge callback - based libraries and code with async / await sy",
+        "nodeSourceMapKey": "node_7",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0024"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0024"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "You can experiment with an asyncio concurrent context in the REP",
+        "nodeSourceMapKey": "node_8",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0027"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0027"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "Changed in version 3 . 13  Uses PyREPL if possible , in which c",
+        "nodeSourceMapKey": "node_9",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0032"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0032"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "Raises an auditing event cpython . run_stdin with no arguments .",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0030"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0030"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "implement efficient protocols using transports ;",
+        "nodeSourceMapKey": "node_11",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0023"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0023"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "asyncio provides a set of high - level APIs to ",
+        "nodeSourceMapKey": "node_12",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0015"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0015"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "Networking and Interprocess Communication",
+        "nodeSourceMapKey": "node_13",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0002"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0002"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "Networking and Interprocess Communication",
+        "nodeSourceMapKey": "node_14",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0043"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0043"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "perform network IO and IPC ;",
+        "nodeSourceMapKey": "node_15",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0017"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0017"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "distribute tasks via queues ;",
+        "nodeSourceMapKey": "node_16",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0019"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0019"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "synchronize concurrent code ;",
+        "nodeSourceMapKey": "node_17",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0020"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0020"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "Availability  not WASI .",
+        "nodeSourceMapKey": "node_18",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0025"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0025"
+        ]
+      }
+    ],
+    "nodeSourceMap": {
+      "node_1": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0012"
+        ],
+        "excerpt": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high - performance",
+        "fallbackText": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "asyncio is used as a foundation for multiple Python asynchronous",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0012"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0012"
+        ],
+        "textQuote": "asyncio is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task q"
+      },
+      "node_10": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0030"
+        ],
+        "excerpt": "Raises an auditing event cpython . run_stdin with no arguments .",
+        "fallbackText": "Raises an auditing event cpython.run_stdin with no arguments.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Raises an auditing event cpython . run_stdin with no arguments .",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0030"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0030"
+        ],
+        "textQuote": "Raises an auditing event cpython.run_stdin with no arguments."
+      },
+      "node_11": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0023"
+        ],
+        "excerpt": "implement efficient protocols using transports ;",
+        "fallbackText": "implement efficient protocols using transports ;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "implement efficient protocols using transports ;",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0023"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0023"
+        ],
+        "textQuote": "implement efficient protocols using transports ;"
+      },
+      "node_12": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0015"
+        ],
+        "excerpt": "asyncio provides a set of high - level APIs to :",
+        "fallbackText": "asyncio provides a set of high-level APIs to:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "asyncio provides a set of high - level APIs to ",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0015"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0015"
+        ],
+        "textQuote": "asyncio provides a set of high-level APIs to:"
+      },
+      "node_13": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0002"
+        ],
+        "excerpt": "Networking and Interprocess Communication",
+        "fallbackText": "Networking and Interprocess Communication",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Networking and Interprocess Communication",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0002"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0002"
+        ],
+        "textQuote": "Networking and Interprocess Communication"
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0043"
+        ],
+        "excerpt": "Networking and Interprocess Communication",
+        "fallbackText": "Networking and Interprocess Communication",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Networking and Interprocess Communication",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0043"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0043"
+        ],
+        "textQuote": "Networking and Interprocess Communication"
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0017"
+        ],
+        "excerpt": "perform network IO and IPC ;",
+        "fallbackText": "perform network IO and IPC ;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "perform network IO and IPC ;",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0017"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0017"
+        ],
+        "textQuote": "perform network IO and IPC ;"
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0019"
+        ],
+        "excerpt": "distribute tasks via queues ;",
+        "fallbackText": "distribute tasks via queues ;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "distribute tasks via queues ;",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0019"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0019"
+        ],
+        "textQuote": "distribute tasks via queues ;"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0020"
+        ],
+        "excerpt": "synchronize concurrent code ;",
+        "fallbackText": "synchronize concurrent code;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "synchronize concurrent code ;",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0020"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0020"
+        ],
+        "textQuote": "synchronize concurrent code;"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0025"
+        ],
+        "excerpt": "Availability : not WASI .",
+        "fallbackText": "Availability : not WASI.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Availability  not WASI .",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0025"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0025"
+        ],
+        "textQuote": "Availability : not WASI."
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0022"
+        ],
+        "excerpt": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses ,",
+        "fallbackText": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , handling OS signals , etc;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "create and manage event loops , which provide asynchronous APIs",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0022"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0022"
+        ],
+        "textQuote": "create and manage event loops , which provide asynchronous APIs for networking , running subprocesses , handling OS signals , etc;"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0013"
+        ],
+        "excerpt": "asyncio is often a perfect fit for IO - bound and high - level structured network",
+        "fallbackText": "asyncio is often a perfect fit for IO-bound and high-level structured network code.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "asyncio is often a perfect fit for IO - bound and high - level s",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0013"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0013"
+        ],
+        "textQuote": "asyncio is often a perfect fit for IO-bound and high-level structured network code."
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0016"
+        ],
+        "excerpt": "run Python coroutines concurrently and have full control over their execution ;",
+        "fallbackText": "run Python coroutines concurrently and have full control over their execution;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "run Python coroutines concurrently and have full control over th",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0016"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0016"
+        ],
+        "textQuote": "run Python coroutines concurrently and have full control over their execution;"
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0021"
+        ],
+        "excerpt": "Additionally , there are low - level APIs for library and framework developers to :",
+        "fallbackText": "Additionally, there are low-level APIs for library and framework developers to:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Additionally , there are low - level APIs for library and framew",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0021"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0021"
+        ],
+        "textQuote": "Additionally, there are low-level APIs for library and framework developers to:"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0011"
+        ],
+        "excerpt": "asyncio is a library to write concurrent code using the async / await syntax .",
+        "fallbackText": "asyncio is a library to write concurrent code using the async/await syntax.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "asyncio is a library to write concurrent code using the async /",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0011"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0011"
+        ],
+        "textQuote": "asyncio is a library to write concurrent code using the async/await syntax."
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0024"
+        ],
+        "excerpt": "bridge callback - based libraries and code with async / await syntax .",
+        "fallbackText": "bridge callback-based libraries and code with async/await syntax.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "bridge callback - based libraries and code with async / await sy",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0024"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0024"
+        ],
+        "textQuote": "bridge callback-based libraries and code with async/await syntax."
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0027"
+        ],
+        "excerpt": "You can experiment with an asyncio concurrent context in the REPL :",
+        "fallbackText": "You can experiment with an asyncio concurrent context in the REPL :",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "You can experiment with an asyncio concurrent context in the REP",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0027"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0027"
+        ],
+        "textQuote": "You can experiment with an asyncio concurrent context in the REPL :"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_code_001_py_asyncio_0032"
+        ],
+        "excerpt": "Changed in version 3 . 13 : Uses PyREPL if possible , in which case PYTHONSTARTUP",
+        "fallbackText": "Changed in version 3.13: Uses PyREPL if possible, in which case PYTHONSTARTUP is also executed. Emits audit events.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Changed in version 3 . 13  Uses PyREPL if possible , in which c",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0032"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0032"
+        ],
+        "textQuote": "Changed in version 3.13: Uses PyREPL if possible, in which case PYTHONSTARTUP is also executed. Emits audit events."
+      },
+      "root": {
+        "chunkIds": [
+          "ck_code_001_py_asyncio_0001",
+          "ck_code_001_py_asyncio_0002"
+        ],
+        "digestItemIds": [],
+        "excerpt": "Image metadata: Python logo",
+        "fallbackText": "Image metadata: Python logo",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "asyncio — Asynchronous I/O — Python 3.14.5 documentation",
+        "paragraphIds": [
+          "pg_code_001_py_asyncio_0001",
+          "pg_code_001_py_asyncio_0002",
+          "pg_code_001_py_asyncio_0003",
+          "pg_code_001_py_asyncio_0004"
+        ],
+        "sourceRefIds": [
+          "src_code_001_py_asyncio_0001",
+          "src_code_001_py_asyncio_0002",
+          "src_code_001_py_asyncio_0003",
+          "src_code_001_py_asyncio_0004"
+        ],
+        "textQuote": "Image metadata: Python logo"
+      }
+    },
+    "nodesCount": 19,
+    "repairCount": 0,
+    "sourcePageId": "code_001_py_asyncio",
+    "validation": {
+      "error": null,
+      "status": "passed",
+      "valid": true
+    }
+  },
+  "ok": true,
+  "paragraphIds": [
+    "pg_code_001_py_asyncio_0001",
+    "pg_code_001_py_asyncio_0002",
+    "pg_code_001_py_asyncio_0003",
+    "pg_code_001_py_asyncio_0004",
+    "pg_code_001_py_asyncio_0011",
+    "pg_code_001_py_asyncio_0012",
+    "pg_code_001_py_asyncio_0013",
+    "pg_code_001_py_asyncio_0015",
+    "pg_code_001_py_asyncio_0016",
+    "pg_code_001_py_asyncio_0017",
+    "pg_code_001_py_asyncio_0019",
+    "pg_code_001_py_asyncio_0020",
+    "pg_code_001_py_asyncio_0021",
+    "pg_code_001_py_asyncio_0022",
+    "pg_code_001_py_asyncio_0023",
+    "pg_code_001_py_asyncio_0024",
+    "pg_code_001_py_asyncio_0025",
+    "pg_code_001_py_asyncio_0027",
+    "pg_code_001_py_asyncio_0030",
+    "pg_code_001_py_asyncio_0032",
+    "pg_code_001_py_asyncio_0043"
+  ],
+  "sourceChunkIds": [
+    "ck_code_001_py_asyncio_0001",
+    "ck_code_001_py_asyncio_0002"
+  ],
+  "sourcePageId": "code_001_py_asyncio",
+  "warnings": []
+}

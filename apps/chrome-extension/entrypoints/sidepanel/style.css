@@ -450,11 +450,84 @@ button {
   height: auto;
 }
 
+.mermaid-render text,
+.mermaid-render tspan {
+  cursor: pointer;
+}
+
 .mermaid-fallback {
   border: 1px solid #fecaca;
   border-radius: 10px;
   background: #fff7f7;
   padding: 8px;
+}
+
+.mindmap-source-panel {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.mindmap-source-title {
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mindmap-source-list {
+  display: grid;
+  gap: 6px;
+}
+
+.mindmap-source-card {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  color: #172033;
+  padding: 8px;
+  text-align: left;
+}
+
+.mindmap-source-card:hover {
+  border-color: #635bff;
+}
+
+.mindmap-source-card span {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mindmap-source-card small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.mindmap-source-evidence {
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  background: #f8fbff;
+  padding: 8px;
+}
+
+.mindmap-source-evidence strong,
+.mindmap-source-evidence p {
+  overflow-wrap: anywhere;
+}
+
+.mindmap-source-evidence p {
+  margin: 6px 0 0;
+  color: #334155;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .composer-stack {

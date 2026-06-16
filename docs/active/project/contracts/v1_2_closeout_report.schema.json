@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/schemas/v1_2_closeout_report.schema.json",
+  "title": "Navia V1.2 Closeout Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "stage", "passed", "generatedAt", "summary", "quality", "pages", "jumpbackSamples", "testCommands", "claim"],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1.2-closeout.1"
+    },
+    "stage": {
+      "const": "v1.2-closeout"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pagesTotal", "pagesPassed", "chromeJumpbackSamples", "domHighlightedCount", "fallbackShownCount", "fatalIssues", "majorIssues"],
+      "properties": {
+        "pagesTotal": {"type": "integer", "minimum": 20},
+        "pagesPassed": {"type": "integer", "minimum": 20},
+        "chromeJumpbackSamples": {"type": "integer", "minimum": 5},
+        "domHighlightedCount": {"type": "integer", "minimum": 3},
+        "fallbackShownCount": {"type": "integer", "minimum": 2},
+        "fatalIssues": {"type": "integer", "const": 0},
+        "majorIssues": {"type": "integer", "const": 0}
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selectorAvailability", "textQuoteAvailability", "fallbackAvailability", "jumpbackCoverage"],
+      "properties": {
+        "selectorAvailability": {"$ref": "#/$defs/metric"},
+        "textQuoteAvailability": {"$ref": "#/$defs/metric"},
+        "fallbackAvailability": {"$ref": "#/$defs/metric"},
+        "jumpbackCoverage": {"$ref": "#/$defs/metric"}
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 20,
+      "items": {"$ref": "#/$defs/page"}
+    },
+    "jumpbackSamples": {
+      "type": "array",
+      "minItems": 5,
+      "items": {"$ref": "#/$defs/jumpbackSample"}
+    },
+    "testCommands": {
+      "type": "array",
+      "minItems": 7,
+      "items": {"$ref": "#/$defs/testCommand"}
+    },
+    "claim": {
+      "const": "V1.2 AI Reading mock-first product path complete"
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "numerator", "denominator", "passed"],
+      "properties": {
+        "value": {"type": "number", "minimum": 0, "maximum": 1},
+        "numerator": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 0},
+        "passed": {"type": "boolean"},
+        "method": {"type": "string"},
+        "threshold": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pageId", "url", "title", "category", "evidenceMode", "sourceRefQualityPath", "mindmapEvidencePath", "readiness", "conclusion"],
+      "properties": {
+        "pageId": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "category": {
+          "enum": ["chinese_complex", "technical_doc", "github_readme", "long_article", "low_signal", "other"]
+        },
+        "evidenceMode": {
+          "enum": ["snapshot", "live_chrome"]
+        },
+        "snapshotPath": {
+          "type": ["string", "null"]
+        },
+        "sourceRefQualityPath": {"type": "string", "minLength": 1},
+        "mindmapEvidencePath": {"type": "string", "minLength": 1},
+        "readiness": {
+          "enum": ["pass", "degraded", "fail"]
+        },
+        "conclusion": {
+          "enum": ["pass", "degraded", "fail"]
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"evidenceMode": {"const": "snapshot"}}},
+          "then": {"required": ["snapshotPath"], "properties": {"snapshotPath": {"type": "string", "minLength": 1}}}
+        }
+      ]
+    },
+    "jumpbackSample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sampleId", "pageId", "url", "nodeId", "nodeLabel", "sourceRefIds", "attemptedStrategies", "result", "matchedStrategy", "beforeScreenshotPath", "afterScreenshotPath", "metadataPath"],
+      "properties": {
+        "sampleId": {"type": "string", "minLength": 1},
+        "pageId": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "minLength": 1},
+        "nodeId": {"type": "string", "minLength": 1},
+        "nodeLabel": {"type": "string", "minLength": 1},
+        "sourceRefIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "attemptedStrategies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"enum": ["selector", "domPath", "textQuote"]}
+        },
+        "result": {
+          "enum": ["highlighted", "fallback_shown", "blocked"]
+        },
+        "matchedStrategy": {
+          "type": ["string", "null"],
+          "enum": ["selector", "domPath", "textQuote", null]
+        },
+        "failureReason": {"type": "string"},
+        "beforeScreenshotPath": {"type": "string", "minLength": 1},
+        "afterScreenshotPath": {"type": "string", "minLength": 1},
+        "metadataPath": {"type": "string", "minLength": 1}
+      }
+    },
+    "testCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "status", "evidencePath"],
+      "properties": {
+        "command": {"type": "string", "minLength": 1},
+        "status": {"enum": ["passed", "failed", "blocked"]},
+        "evidencePath": {"type": "string", "minLength": 1},
+        "durationMs": {"type": "integer", "minimum": 0}
+      }
+    }
+  }
+}

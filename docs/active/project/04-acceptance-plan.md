@@ -316,6 +316,40 @@ V1.2-AC-Quality No-Go：
 - [ ] 借本阶段引入 RAG、长期记忆、多 Agent、浏览器自动操作、OCR/VLM/ASR/video/live engine。
 - [ ] 本阶段完成声明被写成完整 V1.2 complete、完整 V1 complete 或 A-V1.2 100-page production gate complete。
 
+### 2.10 V1.2-AC-Jumpback MVP 来源反跳 Gate
+
+V1.2-AC-Jumpback MVP 的验收目标是证明用户能从 Mindmap 节点进入来源证据，并在可行时完成基础网页滚动 / 高亮。它不替代 Monica 级复杂精准反跳，也不等同于完整 V1.2 出门验收。
+
+必须通过：
+
+- [ ] 本阶段有独立 stage gate、开发计划、验收计划、预审计和 PRD 复检。
+- [ ] `MindmapNodeBinding`、`SourceEvidenceCard`、`JumpbackRequest`、`JumpbackResult` 符合 `contracts/v1_2_adapter_contracts.md` 13.1。
+- [ ] Mermaid 节点点击能稳定映射到 `metadata.nodeSourceMap[nodeId]`。
+- [ ] 每个可点击主要节点具备 `sourceRefIds` 或 `fallbackText`。
+- [ ] 点击节点后，Side Panel 展示来源证据卡片。
+- [ ] 证据卡片包含 node label、sourceRefIds、`textQuote` 或 `fallbackText`、fallback reason。
+- [ ] content script 只在用户触发后执行定位。
+- [ ] `JumpbackRequest` 必须记录 requestId、nodeId、sourceRefIds、fallbackText 和 strategies。
+- [ ] DOM 定位优先级必须为 selector -> domPath -> textQuote；失败时返回 structured failure reason。
+- [ ] `JumpbackResult` 必须返回 highlighted、fallback_shown 或 blocked，并记录 attemptedStrategies。
+- [ ] DOM 定位成功时网页滚动并临时高亮来源区域。
+- [ ] DOM 定位失败时 Side Panel 展示 fallback evidence，不得静默失败。
+- [ ] 至少 3 个真实 Chrome 页面完成点击反跳验收，包含 1 个中文复杂页和 1 个技术文档 / README / 长文页。
+- [ ] 至少 1 个 low-signal / degraded 页面展示 fallback 或 unavailable 状态，不得伪 pass。
+- [ ] HTML 验收报告必须列出截图、URL、点击节点、定位方式、成功 / 失败原因和最终结论。
+
+V1.2-AC-Jumpback No-Go：
+
+- [ ] 只展示 Mermaid，不支持节点点击证据卡片。
+- [ ] `nodeSourceMap` 与实际点击节点无法稳定对应。
+- [ ] DOM 定位失败时没有 fallback evidence。
+- [ ] 使用坐标硬点或不可复现脚本冒充反跳成功。
+- [ ] B 直接生成 Mindmap 或绕过 Runtime / D。
+- [ ] C 直接读取 DOM 或调用 content script。
+- [ ] Content script 执行非用户触发的浏览器自动操作。
+- [ ] 借本阶段引入 RAG、Memory、Web Research、OCR/VLM、视频 / 直播理解、PPT 或深度研究。
+- [ ] 本阶段完成声明被写成 Monica 级反跳、完整 V1.2 complete 或完整 V1 complete。
+
 ---
 
 ## 3. 模块验收
@@ -978,3 +1012,96 @@ V1.2-E 必须补齐：
 - [ ] source fallback evidence。
 - [ ] trace export evidence。
 - [ ] PRD A-F regression evidence。
+
+### 8.8 V1.2-Closeout 收关验收
+
+V1.2-Closeout 是 V1.2 完成声明前的最终验收门槛。它建立在 V1.2-AC、AC-Native、AC-Quality、AC-Jumpback MVP 均已通过的基础上。
+
+必须通过：
+
+- [ ] 至少 20 个真实网页或可复现 snapshot 完成收关矩阵。
+- [ ] 计入最终 `pagesTotal` 的页面必须有 `snapshotPath`，或 `evidenceMode="live_chrome"` 且包含完整 before/after 截图和 metadata；URL-only planned 页面不得计入。
+- [ ] 至少 5 类页面：中文复杂页、技术文档页、GitHub / README 页、长文页、low-signal / degraded 页。
+- [ ] 至少 5 个真实 Chrome 原生 Side Panel 截图级 Jumpback 样本。
+- [ ] 每个 Jumpback 样本必须记录 before / after 截图、URL、tab title、nodeId、nodeLabel、sourceRefIds、attemptedStrategies、result、failureReason optional。
+- [ ] 至少 3 个样本证明 DOM scroll/highlight 成功。
+- [ ] 至少 2 个样本证明 fallback evidence 可读且未伪装为 DOM success。
+- [ ] A SourceRef 质量报告必须统计 selector availability、textQuote availability、fallback availability、jumpbackCoverage。
+- [ ] C `nodeBindings` 与 `nodeSourceMap` 必须一一对应；同名节点必须可 disambiguate。
+- [ ] B Mindmap 交互必须包含可见选中态、来源证据面板、定位中状态、成功状态和失败状态。
+- [ ] Runtime trace 仍可还原 read -> mindmap artifact -> UI evidence path；B/content script 的用户触发定位不得伪造 Artifact/Event。
+- [ ] HTML 验收报告必须让人类快速看到目标架构、当前实现、真实截图、每页结果和 No-Go 结论。
+- [ ] `report.json` 必须通过 `contracts/v1_2_closeout_report.schema.json` 校验。
+- [ ] 必须执行并记录 `npm run e2e:chrome:jumpback-closeout` 与 `npm run e2e:chrome:jumpback-closeout:report`；若使用替代命令，必须先在 `V1.2-Closeout-0` 审计中冻结替代口径。
+- [ ] PRD 复检必须明确本阶段只能声明 V1.2 mock-first product path complete，不能声明完整 V1 complete。
+
+No-Go：
+
+- [ ] 没有真实 Chrome 截图级证据，只用 jsdom / 组件测试声明 Jumpback 通过。
+- [ ] source fallback 被当作 DOM 高亮成功。
+- [ ] 通过坐标硬点或不可复现点击声明节点反跳成功。
+- [ ] 低信号页面被标记为普通 pass。
+- [ ] 同名节点映射到错误来源仍通过。
+- [ ] B 直接生成摘要、回答、Mindmap 或 Artifact。
+- [ ] A/C 直接调用 content script、CoreProvider、MCP、Skill 或外部 API。
+- [ ] 借 V1.2-Closeout 引入 RAG、长期记忆、Web Research、浏览器自动操作、OCR/VLM/ASR、视频 / 直播理解、PPT 或深度研究。
+
+允许声明：
+
+```text
+V1.2 AI Reading mock-first product path complete.
+```
+
+不得声明：
+
+```text
+完整 V1 complete。
+Monica 级全网页精确反跳 complete。
+V2 Memory / RAG ready。
+V4 Web Research / PPT / deep research ready。
+```
+
+### 8.9 V1.3 Evidence Card Mindmap 验收
+
+V1.3 的验收目标是证明 Mindmap 主体验已从 Mermaid 默认图升级为 Evidence Card Mindmap，并且没有破坏 V1.2 已完成的 A/C/D/B 事实链路和 source jumpback 能力。
+
+必须通过：
+
+- [ ] Evidence Card Mindmap 是主视图，Mermaid visual/source 是 fallback 或 debug，不得只改 Mermaid CSS 声明完成。
+- [ ] B 从 `ArtifactRecord(type="mindmap")` 和 `metadata.nodeSourceMap` 派生 `EvidenceCardViewModel`，不得要求 C 直接输出 React / SVG 组件结构。
+- [ ] 每个主要节点展示标题、摘要或 note、source count、quality / confidence 提示、标签或节点类型。
+- [ ] 每个主要节点必须能关联 `sourceRefIds`、`textQuote` 或 `fallbackText`；缺失时必须显示 degraded reason。
+- [ ] 节点 hover、focus、selected、neighbor highlight 状态可见。
+- [ ] 点击节点后 source evidence panel 可读，且在 Chrome Side Panel 窄宽度下不遮挡关键操作。
+- [ ] DOM jumpback success、fallback shown、blocked 三类状态在 UI、report.json 和截图 metadata 中严格区分。
+- [ ] Mermaid 渲染失败时仍可查看 Mermaid source 和 source fallback。
+- [ ] 长标题、重复标题、缺 sourceRef、low-signal / degraded 页面都有 fixture 或真实样本覆盖。
+- [ ] 至少 8 个真实网页或可复现 snapshot 进入 V1.3 验收矩阵。
+- [ ] 至少 3 个真实 Chrome 原生 Side Panel 截图级样本证明 Evidence Card Mindmap 用户路径。
+- [ ] HTML 验收报告展示目标架构、当前实现、交互截图、每页结果、false-green audit 和允许声明边界。
+
+No-Go：
+
+- [ ] 只调整 Mermaid 主题或 CSS，未实现 Evidence Card 节点。
+- [ ] 只用全屏 extension page 截图冒充原生 Side Panel 体验。
+- [ ] source fallback 被标记为 DOM highlight success。
+- [ ] 节点缺少来源仍显示为正常成功状态。
+- [ ] B 直接生成摘要、回答、Mindmap 或 Artifact。
+- [ ] C 输出前端组件结构，或读取 DOM / content script。
+- [ ] A/C/B 绕过 D 写 Artifact、Event、Trace。
+- [ ] 借 V1.3 引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、浏览器自动操作、OCR/VLM/ASR 或默认本地文件访问。
+
+允许声明：
+
+```text
+V1.3 Evidence Card Mindmap experience complete.
+```
+
+不得声明：
+
+```text
+完整 V1 complete。
+Canvas Knowledge Map complete。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```

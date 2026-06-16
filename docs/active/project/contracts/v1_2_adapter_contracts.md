@@ -706,6 +706,85 @@ type MindmapNodeSourceMap = Record<
 - `fallbackText` 必填，DOM selector / domPath 不得作为唯一反跳机制。
 - source map 写入 `ArtifactRecord.metadata.nodeSourceMap`。
 
+### 13.1 V1.2-AC-Jumpback MVP 点击绑定合同
+
+V1.2-AC-Jumpback MVP 复用 `ArtifactRecord.metadata.nodeSourceMap`，但需要额外冻结前端点击绑定和 content script 定位结果。除非回到 V1.2-0，不新增 top-level `ArtifactRecord` 字段。
+
+```ts
+type MindmapNodeBinding = {
+  nodeId: string
+  nodeSourceMapKey: string
+  nodeLabel: string
+  mermaidLineIndex: number
+  sourceRefIds: string[]
+  paragraphIds: string[]
+  chunkIds: string[]
+}
+
+type MindmapJumpbackMetadata = {
+  nodeSourceMap: MindmapNodeSourceMap
+  nodeBindings: MindmapNodeBinding[]
+}
+```
+
+约束：
+
+- `nodeBindings[].nodeSourceMapKey` 必须存在于 `nodeSourceMap`。
+- `nodeId` 必须稳定，建议使用 `root`、`node_1`、`node_2` 这类 deterministic id。
+- `mermaidLineIndex` 从 `mermaidSource` 的非空行计算，`root` 为 `1`，第一个主节点为 `2`。
+- B 的点击事件不得只靠节点文本匹配；必须优先使用 `nodeId` 或 `nodeSourceMapKey`。
+- 如果 Mermaid renderer 无法暴露原生 node id，B 可以用 `nodeBindings` 的顺序与渲染节点顺序做受控 fallback，但验收报告必须记录该策略。
+
+```ts
+type SourceEvidenceCard = {
+  nodeId: string
+  nodeLabel: string
+  sourceRefIds: string[]
+  textQuote?: string
+  fallbackText: string
+  fallbackReason?: string
+  jumpbackMode: "dom" | "fallback"
+}
+
+type JumpbackRequest = {
+  requestId: string
+  pageId: string
+  contentHash?: string
+  nodeId: string
+  sourceRefIds: string[]
+  selector?: string
+  domPath?: string
+  textQuote?: string
+  fallbackText: string
+  strategies: Array<"selector" | "domPath" | "textQuote">
+}
+
+type JumpbackResult = {
+  requestId: string
+  nodeId: string
+  status: "highlighted" | "fallback_shown" | "blocked"
+  attemptedStrategies: Array<"selector" | "domPath" | "textQuote">
+  matchedStrategy?: "selector" | "domPath" | "textQuote"
+  failureReason?:
+    | "selector_not_found"
+    | "dom_path_not_found"
+    | "text_quote_not_found"
+    | "page_changed"
+    | "missing_permission"
+    | "unsupported_page"
+    | "runtime_error"
+  highlightedText?: string
+}
+```
+
+约束：
+
+- `JumpbackRequest` 只能由用户点击 Mindmap 节点触发。
+- content script 策略顺序必须是 `selector -> domPath -> textQuote`。
+- DOM 定位失败不得静默失败；必须返回 `JumpbackResult.status = "fallback_shown"` 或 `"blocked"` 并带 `failureReason`。
+- B 必须在 `highlighted`、`fallback_shown`、`blocked` 三种结果下都展示 `SourceEvidenceCard`。
+- source fallback 文本展示不得被标记为 DOM 反跳成功。
+
 ---
 
 ## 14. 合同版本

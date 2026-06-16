@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_c21a587ebdf0de3d8faf89214db99858348e1f8bab18b4a3710da9f6e43e66ea",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 9.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.5
+    },
+    "contentCoverage": {
+      "denominator": 1191.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 1191.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 193.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 88.0,
+      "passed": false,
+      "threshold": 0.35,
+      "value": 0.456
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 31.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 31.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 31.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 31.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 31.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.914,
+  "pageId": "zh_001_python_tutorial_index",
+  "reportId": "q_zh_001_python_tutorial_index",
+  "warnings": []
+}

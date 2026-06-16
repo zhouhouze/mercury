@@ -1,0 +1,770 @@
+{
+  "error": null,
+  "mermaidSource": "mindmap\n  root((PEP 257 – Docstring Conventions  peps.python.org))\n    The docstring of a script  a stand - alone program  should be\n    String literals occurring elsewhere in Python code may also act\n    The docstring for a function or method should summarize its beha\n    Please see PEP 258 , “ Docutils Design Specification ” , for a d\n    Do not use the Emacs convention of mentioning the arguments of f\n    “ A universal convention supplies all of maintainability , clari\n    This type of docstring is only appropriate for C functions  suc\n    This PEP documents the semantics and conventions associated with\n    The “ Specification ” text comes mostly verbatim from PEP 8 by G\n    String literals occurring immediately after a simple assignment\n    The aim of this PEP is to standardize the high - level structure\n    String literals occurring immediately after another docstring ar\n     Of course “ Do X ” should be replaced by a useful description\n    This document borrows ideas from the archives of the Python Doc\n    This document has been placed in the public domain .\n    Multi - line docstrings consist of a summary line just like a on\n    Once trimmed , these docstrings are equivalent \n    — Tim Peters on comp . lang . python , 2001 - 06 - 16",
+  "metadata": {
+    "format": "mermaid",
+    "nodeBindings": [
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001",
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "mermaidLineIndex": 1,
+        "nodeId": "root",
+        "nodeLabel": "PEP 257 – Docstring Conventions | peps.python.org",
+        "nodeSourceMapKey": "root",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0001",
+          "pg_blog_003_pep_0257_0002",
+          "pg_blog_003_pep_0257_0003",
+          "pg_blog_003_pep_0257_0004"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0001",
+          "src_blog_003_pep_0257_0002",
+          "src_blog_003_pep_0257_0003",
+          "src_blog_003_pep_0257_0004"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0004"
+        ],
+        "mermaidLineIndex": 2,
+        "nodeId": "node_1",
+        "nodeLabel": "The docstring of a script  a stand - alone program  should be",
+        "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0034"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0034"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "String literals occurring elsewhere in Python code may also act",
+        "nodeSourceMapKey": "node_2",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0015"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0015"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0005"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "The docstring for a function or method should summarize its beha",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0036"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0036"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "Please see PEP 258 , “ Docutils Design Specification ” , for a d",
+        "nodeSourceMapKey": "node_4",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0018"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0018"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0006"
+        ],
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "Do not use the Emacs convention of mentioning the arguments of f",
+        "nodeSourceMapKey": "node_5",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0039"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0039"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "“ A universal convention supplies all of maintainability , clari",
+        "nodeSourceMapKey": "node_6",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0010"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0010"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0003"
+        ],
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "This type of docstring is only appropriate for C functions  suc",
+        "nodeSourceMapKey": "node_7",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0029"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0029"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "This PEP documents the semantics and conventions associated with",
+        "nodeSourceMapKey": "node_8",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0008"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0008"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "The “ Specification ” text comes mostly verbatim from PEP 8 by G",
+        "nodeSourceMapKey": "node_9",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0051"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0051"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "String literals occurring immediately after a simple assignment",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0016"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0016"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "The aim of this PEP is to standardize the high - level structure",
+        "nodeSourceMapKey": "node_11",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0009"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0009"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "String literals occurring immediately after another docstring ar",
+        "nodeSourceMapKey": "node_12",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0017"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0017"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0003"
+        ],
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": " Of course “ Do X ” should be replaced by a useful description",
+        "nodeSourceMapKey": "node_13",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0031"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0031"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "This document borrows ideas from the archives of the Python Doc",
+        "nodeSourceMapKey": "node_14",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0052"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0052"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "This document has been placed in the public domain .",
+        "nodeSourceMapKey": "node_15",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0050"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0050"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0004"
+        ],
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "Multi - line docstrings consist of a summary line just like a on",
+        "nodeSourceMapKey": "node_16",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0032"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0032"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "Once trimmed , these docstrings are equivalent ",
+        "nodeSourceMapKey": "node_17",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0048"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0048"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "— Tim Peters on comp . lang . python , 2001 - 06 - 16",
+        "nodeSourceMapKey": "node_18",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0011"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0011"
+        ]
+      }
+    ],
+    "nodeSourceMap": {
+      "node_1": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0034"
+        ],
+        "excerpt": "The docstring of a script ( a stand - alone program ) should be usable as",
+        "fallbackText": "The docstring of a script (a stand-alone program) should be usable as its “usage” message, printed when the script is invoked with incorrect or missing arguments (or perhaps with a “-h” option, for “help”). Such a docstring should document ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "The docstring of a script  a stand - alone program  should be",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0034"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0034"
+        ],
+        "textQuote": "The docstring of a script (a stand-alone program) should be usable as its “usage” message, printed when the script is invoked with incorrect or missing arguments (or perhaps with a"
+      },
+      "node_10": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0016"
+        ],
+        "excerpt": "String literals occurring immediately after a simple assignment at the top level of a module ,",
+        "fallbackText": "String literals occurring immediately after a simple assignment at the top level of a module, class, or __init__ method are called “attribute docstrings”.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "String literals occurring immediately after a simple assignment",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0016"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0016"
+        ],
+        "textQuote": "String literals occurring immediately after a simple assignment at the top level of a module, class, or __init__ method are called “attribute docstrings”."
+      },
+      "node_11": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0009"
+        ],
+        "excerpt": "The aim of this PEP is to standardize the high - level structure of docstrings :",
+        "fallbackText": "The aim of this PEP is to standardize the high-level structure of docstrings: what they should contain, and how to say it (without touching on any markup syntax within docstrings). The PEP contains conventions, not laws or syntax.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "The aim of this PEP is to standardize the high - level structure",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0009"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0009"
+        ],
+        "textQuote": "The aim of this PEP is to standardize the high-level structure of docstrings: what they should contain, and how to say it (without touching on any markup syntax within docstrings)."
+      },
+      "node_12": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0017"
+        ],
+        "excerpt": "String literals occurring immediately after another docstring are called “ additional docstrings ” .",
+        "fallbackText": "String literals occurring immediately after another docstring are called “additional docstrings”.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "String literals occurring immediately after another docstring ar",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0017"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0017"
+        ],
+        "textQuote": "String literals occurring immediately after another docstring are called “additional docstrings”."
+      },
+      "node_13": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0031"
+        ],
+        "excerpt": "( Of course “ Do X ” should be replaced by a useful description ! )",
+        "fallbackText": "(Of course “Do X” should be replaced by a useful description!)",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": " Of course “ Do X ” should be replaced by a useful description",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0031"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0031"
+        ],
+        "textQuote": "(Of course “Do X” should be replaced by a useful description!)"
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0052"
+        ],
+        "excerpt": "This document borrows ideas from the archives of the Python Doc - SIG . Thanks to",
+        "fallbackText": "This document borrows ideas from the archives of the Python Doc-SIG . Thanks to all members past and present.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This document borrows ideas from the archives of the Python Doc",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0052"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0052"
+        ],
+        "textQuote": "This document borrows ideas from the archives of the Python Doc-SIG . Thanks to all members past and present."
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0050"
+        ],
+        "excerpt": "This document has been placed in the public domain .",
+        "fallbackText": "This document has been placed in the public domain.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This document has been placed in the public domain .",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0050"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0050"
+        ],
+        "textQuote": "This document has been placed in the public domain."
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0032"
+        ],
+        "excerpt": "Multi - line docstrings consist of a summary line just like a one - line docstring",
+        "fallbackText": "Multi-line docstrings consist of a summary line just like a one-line docstring, followed by a blank line, followed by a more elaborate description. The summary line may be used by automatic indexing tools; it is important that it fits on on",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Multi - line docstrings consist of a summary line just like a on",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0032"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0032"
+        ],
+        "textQuote": "Multi-line docstrings consist of a summary line just like a one-line docstring, followed by a blank line, followed by a more elaborate description. The summary line may be used by "
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0048"
+        ],
+        "excerpt": "Once trimmed , these docstrings are equivalent :",
+        "fallbackText": "Once trimmed, these docstrings are equivalent:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Once trimmed , these docstrings are equivalent ",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0048"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0048"
+        ],
+        "textQuote": "Once trimmed, these docstrings are equivalent:"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0011"
+        ],
+        "excerpt": "— Tim Peters on comp . lang . python , 2001 - 06 - 16",
+        "fallbackText": "—Tim Peters on comp.lang.python, 2001-06-16",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "— Tim Peters on comp . lang . python , 2001 - 06 - 16",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0011"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0011"
+        ],
+        "textQuote": "—Tim Peters on comp.lang.python, 2001-06-16"
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0015"
+        ],
+        "excerpt": "String literals occurring elsewhere in Python code may also act as documentation . They are not",
+        "fallbackText": "String literals occurring elsewhere in Python code may also act as documentation. They are not recognized by the Python bytecode compiler and are not accessible as runtime object attributes (i.e. not assigned to __doc__ ), but two types of ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "String literals occurring elsewhere in Python code may also act",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0015"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0015"
+        ],
+        "textQuote": "String literals occurring elsewhere in Python code may also act as documentation. They are not recognized by the Python bytecode compiler and are not accessible as runtime object a"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0036"
+        ],
+        "excerpt": "The docstring for a function or method should summarize its behavior and document its arguments ,",
+        "fallbackText": "The docstring for a function or method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can be called (all if applicable). Optional arguments should be i",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "The docstring for a function or method should summarize its beha",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0036"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0036"
+        ],
+        "textQuote": "The docstring for a function or method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can b"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0018"
+        ],
+        "excerpt": "Please see PEP 258 , “ Docutils Design Specification ” , for a detailed description of",
+        "fallbackText": "Please see PEP 258 , “Docutils Design Specification”, for a detailed description of attribute and additional docstrings.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Please see PEP 258 , “ Docutils Design Specification ” , for a d",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0018"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0018"
+        ],
+        "textQuote": "Please see PEP 258 , “Docutils Design Specification”, for a detailed description of attribute and additional docstrings."
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0039"
+        ],
+        "excerpt": "Do not use the Emacs convention of mentioning the arguments of functions or methods in upper",
+        "fallbackText": "Do not use the Emacs convention of mentioning the arguments of functions or methods in upper case in running text. Python is case sensitive and the argument names can be used for keyword arguments, so the docstring should document the corre",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Do not use the Emacs convention of mentioning the arguments of f",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0039"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0039"
+        ],
+        "textQuote": "Do not use the Emacs convention of mentioning the arguments of functions or methods in upper case in running text. Python is case sensitive and the argument names can be used for k"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0010"
+        ],
+        "excerpt": "“ A universal convention supplies all of maintainability , clarity , consistency , and a foundation",
+        "fallbackText": "“A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too. What it doesn’t do is insist that you follow it against your will. That’s Python!”",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "“ A universal convention supplies all of maintainability , clari",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0010"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0010"
+        ],
+        "textQuote": "“A universal convention supplies all of maintainability, clarity, consistency, and a foundation for good programming habits too. What it doesn’t do is insist that you follow it aga"
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0029"
+        ],
+        "excerpt": "This type of docstring is only appropriate for C functions ( such as built - ins",
+        "fallbackText": "This type of docstring is only appropriate for C functions (such as built-ins), where introspection is not possible. However, the nature of the return value cannot be determined by introspection, so it should be mentioned. The preferred for",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This type of docstring is only appropriate for C functions  suc",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0029"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0029"
+        ],
+        "textQuote": "This type of docstring is only appropriate for C functions (such as built-ins), where introspection is not possible. However, the nature of the return value cannot be determined by"
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0008"
+        ],
+        "excerpt": "This PEP documents the semantics and conventions associated with Python docstrings .",
+        "fallbackText": "This PEP documents the semantics and conventions associated with Python docstrings.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This PEP documents the semantics and conventions associated with",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0008"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0008"
+        ],
+        "textQuote": "This PEP documents the semantics and conventions associated with Python docstrings."
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_003_pep_0257_0051"
+        ],
+        "excerpt": "The “ Specification ” text comes mostly verbatim from PEP 8 by Guido van Rossum .",
+        "fallbackText": "The “Specification” text comes mostly verbatim from PEP 8 by Guido van Rossum.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "The “ Specification ” text comes mostly verbatim from PEP 8 by G",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0051"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0051"
+        ],
+        "textQuote": "The “Specification” text comes mostly verbatim from PEP 8 by Guido van Rossum."
+      },
+      "root": {
+        "chunkIds": [
+          "ck_blog_003_pep_0257_0001",
+          "ck_blog_003_pep_0257_0002"
+        ],
+        "digestItemIds": [],
+        "excerpt": "PEP 257 – Docstring Conventions",
+        "fallbackText": "PEP 257 – Docstring Conventions",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "PEP 257 – Docstring Conventions | peps.python.org",
+        "paragraphIds": [
+          "pg_blog_003_pep_0257_0001",
+          "pg_blog_003_pep_0257_0002",
+          "pg_blog_003_pep_0257_0003",
+          "pg_blog_003_pep_0257_0004"
+        ],
+        "sourceRefIds": [
+          "src_blog_003_pep_0257_0001",
+          "src_blog_003_pep_0257_0002",
+          "src_blog_003_pep_0257_0003",
+          "src_blog_003_pep_0257_0004"
+        ],
+        "textQuote": "PEP 257 – Docstring Conventions"
+      }
+    },
+    "nodesCount": 19,
+    "repairCount": 0,
+    "sourcePageId": "blog_003_pep_0257",
+    "validation": {
+      "error": null,
+      "status": "passed",
+      "valid": true
+    }
+  },
+  "ok": true,
+  "paragraphIds": [
+    "pg_blog_003_pep_0257_0001",
+    "pg_blog_003_pep_0257_0002",
+    "pg_blog_003_pep_0257_0003",
+    "pg_blog_003_pep_0257_0004",
+    "pg_blog_003_pep_0257_0008",
+    "pg_blog_003_pep_0257_0009",
+    "pg_blog_003_pep_0257_0010",
+    "pg_blog_003_pep_0257_0011",
+    "pg_blog_003_pep_0257_0015",
+    "pg_blog_003_pep_0257_0016",
+    "pg_blog_003_pep_0257_0017",
+    "pg_blog_003_pep_0257_0018",
+    "pg_blog_003_pep_0257_0029",
+    "pg_blog_003_pep_0257_0031",
+    "pg_blog_003_pep_0257_0032",
+    "pg_blog_003_pep_0257_0034",
+    "pg_blog_003_pep_0257_0036",
+    "pg_blog_003_pep_0257_0039",
+    "pg_blog_003_pep_0257_0048",
+    "pg_blog_003_pep_0257_0050",
+    "pg_blog_003_pep_0257_0051",
+    "pg_blog_003_pep_0257_0052"
+  ],
+  "sourceChunkIds": [
+    "ck_blog_003_pep_0257_0001",
+    "ck_blog_003_pep_0257_0002",
+    "ck_blog_003_pep_0257_0003",
+    "ck_blog_003_pep_0257_0004",
+    "ck_blog_003_pep_0257_0005",
+    "ck_blog_003_pep_0257_0006",
+    "ck_blog_003_pep_0257_0008"
+  ],
+  "sourcePageId": "blog_003_pep_0257",
+  "warnings": []
+}

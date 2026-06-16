@@ -40,7 +40,10 @@ def test_article_docs_and_readme_generate_valid_traceable_mindmaps() -> None:
         assert result["paragraphIds"], name
         assert result["sourceChunkIds"], name
         source_map = result["metadata"]["nodeSourceMap"]
+        node_bindings = result["metadata"]["nodeBindings"]
         assert "root" in source_map
+        assert node_bindings[0]["nodeSourceMapKey"] == "root"
+        assert {binding["nodeSourceMapKey"] for binding in node_bindings} == set(source_map.keys())
         assert all(node["paragraphIds"] or node["chunkIds"] for node in source_map.values())
 
 
@@ -113,6 +116,11 @@ def test_pass_quality_uses_digest_items_and_source_refs_first() -> None:
     assert any(node["digestItemIds"] for node in primary_nodes)
     assert any(node["sourceRefIds"] for node in primary_nodes)
     assert all(node["fallbackText"] for node in primary_nodes)
+    node_bindings = result["metadata"]["nodeBindings"]
+    primary_bindings = [binding for binding in node_bindings if binding["nodeSourceMapKey"] != "root"]
+    assert primary_bindings
+    assert any(binding["sourceRefIds"] for binding in primary_bindings)
+    assert all(isinstance(binding["mermaidLineIndex"], int) and binding["mermaidLineIndex"] >= 2 for binding in primary_bindings)
 
 
 def test_fail_quality_does_not_create_fake_high_signal_mindmap() -> None:

@@ -16,6 +16,8 @@ def test_ac_quality_evidence_bundle_has_required_gates(tmp_path) -> None:
     assert report["aggregateMetrics"]["jumpbackCoverage"] >= 0.90
     assert report["aggregateMetrics"]["lowSignalCorrectness"] is True
     assert report["aggregateMetrics"]["digestFirstUsage"] is True
+    assert next(gate for gate in report["gates"] if gate["gate"] == "debug_evidence_readability")["passed"] is True
+    assert next(gate for gate in report["gates"] if gate["gate"] == "boundary_scope")["passed"] is True
     if report["summary"]["nativeSidePanelEvidencePages"] >= 5:
         assert report["passed"] is True
         assert all(gate["passed"] for gate in report["gates"])
@@ -36,6 +38,7 @@ def test_ac_quality_evidence_bundle_has_required_gates(tmp_path) -> None:
     assert (tmp_path / "false-green-audit.md").is_file()
     assert (tmp_path / "prd-review.md").is_file()
     assert "完整 V1.2 complete" in (tmp_path / "prd-review.md").read_text(encoding="utf-8")
+    assert "debug_evidence_readability" in json.dumps(report, ensure_ascii=False)
 
 
 def test_ac_quality_page_evidence_contains_mindmap_and_quality(tmp_path) -> None:
@@ -103,6 +106,11 @@ def test_degraded_expected_pass_page_blocks_ac_quality_report() -> None:
                 "jumpbackCoverage": 1.0,
                 "lowSignalCorrectness": True,
                 "digestFirstUsage": True,
+                "runtimeEvidencePath": f"pages/page_{index}/structured-page.json",
+                "qualityReportPath": f"pages/page_{index}/quality-report.json",
+                "mindmapEvidencePath": f"pages/page_{index}/mindmap.json",
+                "overallScore": 0.9,
+                "mindmapFallbackReasons": [],
                 "nativeEvidence": {
                     "status": "inherited_ac_native",
                     "nativeCategory": native_categories[index % len(native_categories)],
@@ -116,3 +124,52 @@ def test_degraded_expected_pass_page_blocks_ac_quality_report() -> None:
     assert report["passed"] is False
     assert page_conclusion_gate["passed"] is False
     assert "page_0" in page_conclusion_gate["details"]["failedPageIds"]
+
+
+def test_missing_debug_evidence_fields_block_ac_quality_report() -> None:
+    page_reports = []
+    categories = [
+        "article",
+        "technical_docs",
+        "github_readme",
+        "localized_chinese_page",
+        "image_rich_article",
+        "product_docs",
+        "table_heavy_page",
+        "longform_blog",
+        "code_heavy_page",
+        "low_signal_or_paywall_like",
+        "article",
+        "technical_docs",
+    ]
+    native_categories = ["article", "technical_doc", "readme", "chinese_complex", "low_signal_or_paywall_like"]
+    for index, category in enumerate(categories):
+        page_reports.append(
+            {
+                "pageId": f"page_{index}",
+                "category": category,
+                "expectedReadiness": "pass",
+                "conclusion": "degraded" if category == "low_signal_or_paywall_like" else "pass",
+                "sourceCoverage": 1.0,
+                "groundingCompleteness": 1.0,
+                "jumpbackCoverage": 1.0,
+                "lowSignalCorrectness": True,
+                "digestFirstUsage": True,
+                "runtimeEvidencePath": f"pages/page_{index}/structured-page.json",
+                "qualityReportPath": "" if index == 0 else f"pages/page_{index}/quality-report.json",
+                "mindmapEvidencePath": f"pages/page_{index}/mindmap.json",
+                "overallScore": 0.9,
+                "mindmapFallbackReasons": [],
+                "nativeEvidence": {
+                    "status": "inherited_ac_native",
+                    "nativeCategory": native_categories[index % len(native_categories)],
+                },
+            }
+        )
+
+    report = build_report(page_reports)
+    debug_gate = next(gate for gate in report["gates"] if gate["gate"] == "debug_evidence_readability")
+
+    assert report["passed"] is False
+    assert debug_gate["passed"] is False
+    assert "page_0" in debug_gate["details"]["failedPageIds"]

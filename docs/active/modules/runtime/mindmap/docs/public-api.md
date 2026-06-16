@@ -38,6 +38,7 @@ Integration Codex wraps this as a D internal adapter. C itself does not expose e
 - `nodeSourceMap`
 - `validation`
 - `repairCount`
+- stable node ids suitable for frontend Evidence Card binding when available
 
 ## Integration Rules
 
@@ -45,4 +46,4 @@ Integration Codex wraps this as a D internal adapter. C itself does not expose e
 - C does not emit SSE.
 - C does not render Mermaid.
 - C does not read Chrome DOM.
-
+- C does not return frontend component structures. V1.3 Evidence Card rendering is B-local and derived from artifact metadata.

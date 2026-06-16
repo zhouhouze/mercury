@@ -1087,6 +1087,160 @@ docs/active/project/evidence/v1_2_ac_quality/prd-review.md
 - A 或 C 绕过 D 写 Artifact、SSE、EventStore 或 Trace。
 - 借本阶段引入 RAG、长期记忆、多 Agent、浏览器自动操作、OCR/VLM/ASR/video/live engine。
 
+### 13.8 下一阶段：V1.2-AC-Jumpback MVP 来源反跳最小闭环
+
+本阶段承接 V1.2-AC-Quality，不重做 A/C/D/B 主体能力。目标是把 C 已输出的 `nodeSourceMap` 和 A 的 SourceRef 证据变成用户可点击的最小反跳体验：节点点击后展示来源证据卡片，并在可行时让网页滚动 / 高亮到来源位置。
+
+阶段拆分：
+
+```text
+V1.2-AC-Jumpback-0：节点 ID、jumpback payload、证据卡片和 No-Go 冻结
+V1.2-AC-Jumpback-1：C 稳定 Mermaid node id 与 nodeSourceMap key
+V1.2-AC-Jumpback-2：B 来源证据卡片与 fallback 展示
+V1.2-AC-Jumpback-3：Content Script selector / domPath / textQuote 定位
+V1.2-AC-Jumpback-4：Integration wiring 与 D 边界复检
+V1.2-AC-Jumpback-5：真实 Chrome 验收、PRD 复检、false-green audit
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.2-AC-Jumpback-0` | 冻结 `MindmapNodeBinding`、`SourceEvidenceCard`、`JumpbackRequest`、`JumpbackResult`、DOM 定位优先级 | 外部审计无 fatal / major；`v1_2_adapter_contracts.md` 13.1 无新增 P0 gap |
+| `V1.2-AC-Jumpback-1` | C Mermaid source 生成稳定 node id，主要节点带 sourceRef 或 fallback | 点击事件可稳定定位 `nodeSourceMap[nodeId]` |
+| `V1.2-AC-Jumpback-2` | B 点击节点后展示 source evidence card | 卡片展示 node label、sourceRefIds、textQuote/fallbackText、fallback reason |
+| `V1.2-AC-Jumpback-3` | content script 按 selector -> domPath -> textQuote 尝试定位和高亮 | 成功时滚动高亮；失败时返回 structured failure reason |
+| `V1.2-AC-Jumpback-4` | B -> content script wiring，D 仍是 Artifact/Event/Trace 出口 | A/C/B/D 边界不被打破，未知失败不伪 pass |
+| `V1.2-AC-Jumpback-5` | 真实网页矩阵、截图报告、PRD 复检和 false-green audit | 至少 3 个真实网页，含中文复杂页、技术文档页、GitHub/长文页，low-signal 正确降级 |
+
+本阶段验收数据：
+
+- 至少 3 个真实 Chrome 页面完成 Mindmap 节点点击 -> 证据卡片 -> DOM 定位或 fallback。
+- 至少 1 个中文复杂页。
+- 至少 1 个技术文档或代码 / README 页。
+- 至少 1 个 low-signal / degraded 页面，不得伪 pass。
+- 每个页面必须记录 URL、截图、nodeId、sourceRefIds、attemptedStrategies、result、failureReason optional。
+- 点击绑定和 content script 请求 / 响应必须符合 `contracts/v1_2_adapter_contracts.md` 的 `13.1 V1.2-AC-Jumpback MVP 点击绑定合同`。
+
+阶段证据包必须产出：
+
+```text
+docs/active/project/evidence/v1_2_ac_jumpback/report.json
+docs/active/project/evidence/v1_2_ac_jumpback/acceptance-report.html
+docs/active/project/evidence/v1_2_ac_jumpback/false-green-audit.md
+docs/active/project/evidence/v1_2_ac_jumpback/prd-review.md
+```
+
+子阶段打回规则：
+
+- `V1.2-AC-Jumpback-1` Mermaid 节点点击无法映射到 `nodeSourceMap` 时，打回 C。
+- `V1.2-AC-Jumpback-2` 点击后没有证据卡片，或卡片缺 `textQuote/fallbackText` 时，打回 B。
+- `V1.2-AC-Jumpback-3` DOM 定位失败但没有 structured failure reason 时，打回 content script。
+- `V1.2-AC-Jumpback-4` B 绕过 Runtime/D 或 C 读取 DOM 时，打回 Integration。
+- `V1.2-AC-Jumpback-5` 截图、metadata、report 结论不一致时，打回验收阶段。
+
+本阶段 No-Go：
+
+- 只展示 Mermaid，不支持节点点击来源证据。
+- 将 source fallback 文本展示冒充 DOM 反跳成功。
+- 使用不可复现坐标点击冒充反跳。
+- C 调用 DOM / content script。
+- Content script 执行非用户触发的浏览器自动操作。
+- 借本阶段引入 RAG、Memory、Web Research、OCR/VLM、视频 / 直播理解、PPT 或深度研究。
+
+### 13.9 V1.2-Closeout 收关阶段
+
+V1.2-Closeout 是 V1.2 生产级完成声明前的最后阶段。它把 AC-Jumpback MVP 的 P1 补强项转为正式目标，重点是用真实 Chrome 证据证明用户体验路径，而不是新增大能力。
+
+阶段拆分：
+
+```text
+V1.2-Closeout-0：收关合同、证据标准、No-Go 和外部审计闭环
+V1.2-Closeout-1：真实 Chrome Jumpback 截图级验收脚本
+V1.2-Closeout-2：A SourceRef / selector / textQuote / fallbackText 质量补强
+V1.2-Closeout-3：C Mindmap 节点去重、稳定绑定和同名节点 disambiguation
+V1.2-Closeout-4：B Mindmap 交互细化，含 hover / selected / evidence panel / failure message
+V1.2-Closeout-5：20 页真实网页 / snapshot 收关矩阵
+V1.2-Closeout-6：最终 PRD 复检、false-green audit、HTML 验收报告和完成声明
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.2-Closeout-0` | 冻结收关声明、截图级 Jumpback 标准、证据字段、打回规则 | 外部审计无 fatal / major；不得把 closeout 扩大到 V2/V3/V4/V5 |
+| `V1.2-Closeout-1` | 自动化点击来源卡片或 Mindmap 节点，并截图证明网页正文高亮或 fallback | 每个样本记录 before / after 截图、nodeId、strategy、result |
+| `V1.2-Closeout-2` | A 输出更稳定的 SourceRef 证据，改进 selector/textQuote/fallback 可用性 | jumpbackCoverage、sourceCoverage、fallback readability 可统计 |
+| `V1.2-Closeout-3` | C 对同名节点、重复 digest item 和 fallback 节点做稳定绑定 | nodeBindings 与 nodeSourceMap 一一对应，重复标签不误跳 |
+| `V1.2-Closeout-4` | B 优化来源证据面板、节点选中态、失败提示和窄侧栏可达性 | 人类能从截图快速判断点击、证据、定位结果 |
+| `V1.2-Closeout-5` | 扩展真实网页矩阵 | 至少 20 页，含中文复杂、技术文档、GitHub/README、长文、低信号 |
+| `V1.2-Closeout-6` | 生成最终 HTML 报告、PRD coverage、false-green audit | 允许声明 V1.2 mock-first product path complete；仍不得声明完整 V1 complete |
+
+证据包路径：
+
+```text
+docs/active/project/evidence/v1_2_closeout/report.json
+docs/active/project/evidence/v1_2_closeout/acceptance-report.html
+docs/active/project/evidence/v1_2_closeout/prd-review.md
+docs/active/project/evidence/v1_2_closeout/false-green-audit.md
+docs/active/project/evidence/v1_2_closeout/screenshots/
+```
+
+本阶段打回规则：
+
+- 截图不能同时证明真实网页主体、右侧 Navia Side Panel、点击后结果时，打回 `V1.2-Closeout-1`。
+- SourceRef 只有 fallback、没有可解释 textQuote/selector 质量指标时，打回 `V1.2-Closeout-2`。
+- 同名 Mindmap 节点点击后映射错误或无法解释时，打回 `V1.2-Closeout-3`。
+- 证据面板在窄侧栏不可读或失败状态不可见时，打回 `V1.2-Closeout-4`。
+- 真实网页少于 20 页或缺少中文复杂 / 技术文档 / GitHub / 长文 / low-signal 类别时，打回 `V1.2-Closeout-5`。
+- HTML 报告、JSON 结论、截图元数据不一致时，打回 `V1.2-Closeout-6`。
+
+---
+
+### 13.10 V1.3 Evidence Card Mindmap 阶段
+
+V1.3 承接 V1.2-Closeout，目标是把 Mindmap 的主体验从 Mermaid 默认图升级为 Evidence Card Mindmap。它不新增 A/C/D 能力边界，不做 Canvas Knowledge Map，不引入 RAG / Memory / Web Research / PPT。
+
+阶段拆分：
+
+```text
+V1.3-0：Evidence Card view model、验收口径、No-Go 和截图标准冻结
+V1.3-1：B Mindmap Renderer 从 Artifact + nodeSourceMap 派生 EvidenceCardViewModel
+V1.3-2：卡片树布局、视觉 token、边线层级、窄 Side Panel 适配
+V1.3-3：hover / selected / neighbor highlight / source evidence panel
+V1.3-4：复用 V1.2 Jumpback / fallback 状态，完成 source interaction
+V1.3-5：真实网页 E2E、PRD 复检、false-green audit、HTML 报告
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.3-0` | 冻结 Evidence Card 节点字段、状态、降级口径和截图证据 | 外部审计无 fatal / major |
+| `V1.3-1` | 实现 `EvidenceCardViewModel` 派生，不改变 Artifact 合同 | normal / missing source / duplicate label / long text fixture 全覆盖 |
+| `V1.3-2` | 实现 Evidence Card 布局和视觉系统 | Side Panel 窄宽度截图无文本溢出、节点重叠或不可读 |
+| `V1.3-3` | 实现选中、hover、邻接高亮和 source panel | 点击节点后可稳定展示来源证据 |
+| `V1.3-4` | 整合 DOM jumpback success、fallback shown、blocked 状态 | UI 与报告严格区分成功和 fallback |
+| `V1.3-5` | 真实 Chrome / snapshot 验收与报告 | 至少 8 页矩阵，3 个原生 Side Panel 截图级样本 |
+
+打回规则：
+
+- `V1.3-1` 无法从现有 Artifact 派生 view model，或要求 C 输出前端组件结构时，打回合同阶段。
+- `V1.3-2` 卡片文本溢出、节点重叠、窄 Side Panel 不可读时，打回布局阶段。
+- `V1.3-3` 点击节点无法稳定打开 evidence panel，或 selected 状态不明显时，打回交互阶段。
+- `V1.3-4` fallback 被标记为 DOM success，或失败原因不可见时，打回 source interaction 阶段。
+- `V1.3-5` HTML 报告、截图、JSON 结论不一致时，打回验收阶段。
+
+证据包路径：
+
+```text
+docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json
+docs/active/project/evidence/v1_3_evidence_card_mindmap/acceptance-report.html
+docs/active/project/evidence/v1_3_evidence_card_mindmap/prd-review.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/false-green-audit.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/screenshots/
+```
+
 ---
 
 ## 14. 推荐开发顺序

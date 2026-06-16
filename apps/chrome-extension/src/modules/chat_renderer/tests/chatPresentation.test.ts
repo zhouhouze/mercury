@@ -6,7 +6,7 @@ import {
   selectChatViewModel,
   type AgentEvent
 } from "../chatPresentation";
-import { presentMindmapArtifact } from "../../mindmap_renderer/mindmapPresentation";
+import { buildJumpbackRequest, presentMindmapArtifact } from "../../mindmap_renderer/mindmapPresentation";
 
 function replay(events: AgentEvent[]) {
   return events.reduce((state, event) => applyChatEvent(state, event), createChatPresentationState());
@@ -31,8 +31,20 @@ const mindmapArtifact = {
   content: "mindmap\n  root((Companion Reading Architecture))\n    Structured Page Facts",
   metadata: {
     format: "mermaid",
+    nodeBindings: [
+      {
+        nodeId: "root",
+        nodeSourceMapKey: "root",
+        nodeLabel: "Companion Reading Architecture",
+        mermaidLineIndex: 1,
+        sourceRefIds: ["src_0001"],
+        paragraphIds: ["pg_0001"],
+        chunkIds: ["ck_0001"]
+      }
+    ],
     nodeSourceMap: {
       root: {
+        nodeLabel: "Companion Reading Architecture",
         sourceRefIds: ["src_0001"],
         paragraphIds: ["pg_0001"],
         chunkIds: ["ck_0001"],
@@ -79,6 +91,16 @@ describe("chat renderer presentation reducer", () => {
     expect(fallback.sourceFallback).toContain("mindmap");
     expect(fallback.sourceFallback).toContain("Navia extracts page context.");
     expect(fallback.nodeSourceMap.root).toBeTruthy();
+    expect(fallback.nodeBindings[0]).toMatchObject({ nodeSourceMapKey: "root", sourceRefIds: ["src_0001"] });
+    expect(fallback.sourceCards[0]).toMatchObject({
+      nodeSourceMapKey: "root",
+      fallbackText: "Navia extracts page context."
+    });
+    expect(buildJumpbackRequest(fallback.sourceCards[0])).toMatchObject({
+      nodeId: "root",
+      sourceRefIds: ["src_0001"],
+      fallbackText: "Navia extracts page context."
+    });
   });
 
   it("shows runtime offline, missing page context, tool failure, and unknown events without crashing", () => {

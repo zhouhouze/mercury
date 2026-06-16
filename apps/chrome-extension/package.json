@@ -14,6 +14,8 @@
     "e2e:chrome:native-probe": "node e2e/chrome-native-sidepanel-probe.mjs",
     "e2e:chrome:native-ux": "node e2e/chrome-native-sidepanel-ux.mjs",
     "e2e:chrome:native-ux:report": "node e2e/generate-native-sidepanel-report.mjs",
+    "e2e:chrome:jumpback-closeout": "node e2e/chrome-jumpback-closeout.mjs",
+    "e2e:chrome:jumpback-closeout:report": "node e2e/generate-jumpback-closeout-report.mjs",
     "e2e:chrome:visual": "node e2e/chrome-sidepanel-visual-e2e.mjs"
   },
   "dependencies": {

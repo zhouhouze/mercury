@@ -584,6 +584,15 @@ function App() {
       await handlers.sendChat?.("生成当前页面的思维导图", "mindmap_page");
       return { action: command.action };
     }
+    if (command.action === "source_cards_snapshot") {
+      return {
+        action: command.action,
+        sourceCards: sourceCardsSnapshot()
+      };
+    }
+    if (command.action === "jumpback_source_card") {
+      return await jumpbackSourceCard(command.index ?? 0);
+    }
     throw new Error(`Unsupported E2E command: ${command.action}`);
   }
 
@@ -985,7 +994,9 @@ type E2ECommand =
   | { action: "submit" }
   | { action: "summarize" }
   | { action: "question"; message?: string }
-  | { action: "mindmap" };
+  | { action: "mindmap" }
+  | { action: "source_cards_snapshot" }
+  | { action: "jumpback_source_card"; index?: number };
 
 type E2EHandlers = {
   checkRuntime?: () => Promise<boolean>;
@@ -1015,8 +1026,54 @@ function isE2ECommand(value: unknown): value is E2ECommand {
     action === "submit" ||
     action === "summarize" ||
     action === "question" ||
-    action === "mindmap"
+    action === "mindmap" ||
+    action === "source_cards_snapshot" ||
+    (action === "jumpback_source_card" && (record.index === undefined || typeof record.index === "number"))
   );
+}
+
+function sourceCardsSnapshot(): Array<{ index: number; testId: string | null; nodeId: string; sourceRefIds: string[]; label: string; excerpt: string }> {
+  const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-panel']"));
+  const scope = panels.at(-1) ?? document;
+  return Array.from(scope.querySelectorAll<HTMLButtonElement>("[data-testid^='mindmap-source-card-']")).map((button, index) => {
+    const label = button.querySelector("span")?.textContent?.trim() ?? button.textContent?.trim() ?? "";
+    const excerpt = button.querySelector("small")?.textContent?.trim() ?? "";
+    return {
+      index,
+      testId: button.getAttribute("data-testid"),
+      nodeId: button.dataset.nodeId ?? "",
+      sourceRefIds: (button.dataset.sourceRefIds ?? "").split(",").map((item) => item.trim()).filter(Boolean),
+      label,
+      excerpt
+    };
+  });
+}
+
+async function jumpbackSourceCard(index: number): Promise<Record<string, unknown>> {
+  const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-panel']"));
+  const scope = panels.at(-1) ?? document;
+  const cards = Array.from(scope.querySelectorAll<HTMLButtonElement>("[data-testid^='mindmap-source-card-']"));
+  const card = cards[index];
+  if (!card) {
+    throw new Error(`Mindmap source card not found at index ${index}.`);
+  }
+  card.click();
+  const startedAt = Date.now();
+  let evidenceText = "";
+  while (Date.now() - startedAt < 10_000) {
+    evidenceText = document.querySelector("[data-testid='mindmap-source-evidence']")?.textContent?.trim() ?? "";
+    if (evidenceText.includes("已定位并高亮来源") || evidenceText.includes("未能定位到原文位置")) {
+      break;
+    }
+    await new Promise((resolve) => window.setTimeout(resolve, 150));
+  }
+  return {
+    action: "jumpback_source_card",
+    index,
+    sourceCards: sourceCardsSnapshot(),
+    evidenceText,
+    status: evidenceText.includes("已定位并高亮来源") ? "highlighted" : evidenceText.includes("未能定位到原文位置") ? "fallback_shown" : "blocked"
+  };
 }
 
 function isTerminalChatProviderTestStatus(status: ChatProviderTestStatus): boolean {

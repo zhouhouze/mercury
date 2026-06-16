@@ -1,6 +1,6 @@
 # Navia Active Stage Gates
 
-本目录只保留当前仍然激活的 V1.2 / A-V1.2 stage gate。
+本目录只保留当前仍然激活的 V1.2 / V1.3 / A-V1.2 stage gate。
 
 已完成或不再激活的 V1.0、V1.1、A-V1.1 stage gate 已移动到：
 
@@ -18,6 +18,9 @@ docs/history/
 | `v1.2-ac-page-perception-mindmap-bridge.md` | 当前 AC 联动门禁 | A high-signal 主链路、C digest-first Mindmap、SourceRef 反跳和 Debug 验收 |
 | `v1.2-ac-native-sidepanel.md` | Closeout evidence passed for AC-Native only | 真实 Chrome 原生 Side Panel 打开、截图证据、读取、Debug、总结、问答、Mindmap 和恢复验收；不得声明完整 V1 / V1.2 complete |
 | `v1.2-ac-quality-hardening.md` | 当前 AC-Quality 门禁 | A/C 质量深化、真实网页扩展、digest-first Mindmap、Debug 可读性和 false-green audit |
+| `v1.2-ac-jumpback-mvp.md` | 当前 AC-Jumpback MVP 门禁 | Mindmap 节点点击、来源证据卡片、基础 DOM 定位、失败 fallback 和反跳 false-green audit |
+| `v1.2-closeout.md` | 当前 V1.2 收关门禁 | 将 Jumpback P1 补强项固化为 V1.2 完成声明前的截图级验收、20 页矩阵、PRD 复检和出门条件 |
+| `v1.3-evidence-card-mindmap.md` | 当前 V1.3 规划门禁 | Evidence Card Mindmap 主渲染、source evidence panel、交互反馈、真实 Side Panel 截图级验收 |
 | `v1.2-b-chat-renderer.md` | V1.2 B 模块门禁 | 前端结构化渲染、流式输出、Debug 和 Mindmap 展示 |
 | `v1.2-c-mindmap.md` | V1.2 C 模块门禁 | Mermaid / Mindmap 生成、source map 和反跳来源 |
 | `v1.2-d-agentic-loop.md` | V1.2 D 模块门禁 | CoreProvider / Adapter Layer、治理桥和 ToolResult / Artifact / Event / Trace 映射 |

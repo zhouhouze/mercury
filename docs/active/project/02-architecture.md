@@ -1011,7 +1011,204 @@ qualityReport.downstreamReadiness = fail
 
 ---
 
-## 14. V1 架构结论
+## 14. V1.2-AC-Jumpback MVP 目标架构
+
+V1.2-AC-Jumpback MVP 承接 V1.2-AC-Quality 的 source-grounded mindmap 输出，目标是把“可反跳证据”推进到“用户可点击、可查看证据、可尝试定位”的最小产品闭环。它不改变 A/C/D/B 的核心职责，只在既有 `nodeSourceMap` 和 `jumpback` payload 之上补齐交互 wiring。
+
+目标调用路径：
+
+```text
+真实网页
+  -> A SourceMap / SourceRef
+  -> C Mindmap Generator
+      -> stable Mermaid node ids
+      -> MindmapNodeSourceMap
+      -> jumpback payload
+  -> D Adapter Layer
+      -> ArtifactRecord.metadata.nodeSourceMap
+      -> Event / Trace ownership
+  -> B Mindmap Renderer
+      -> node click
+      -> source evidence card
+      -> content-script jumpback request
+  -> Content Script
+      -> selector / domPath / textQuote 定位
+      -> scroll + highlight
+      -> structured failure reason
+```
+
+目标数据包：
+
+```text
+JumpbackEvidenceBundle
+  pageUrl
+  artifactId
+  nodeId
+  nodeLabel
+  sourceRefIds[]
+  textQuote optional
+  fallbackText
+  jumpback.mode = dom | fallback
+  attemptedStrategies[]
+  result = highlighted | fallback_shown | blocked
+  failureReason optional
+  screenshots[]
+  screenshotMetadata[]
+```
+
+当前架构差异：
+
+| 维度 | 当前状态 | V1.2-AC-Jumpback MVP 目标 |
+|---|---|---|
+| C 输出 | 已有 `nodeSourceMap` 和 source fallback | Mermaid node id 与 `nodeSourceMap` key 稳定映射 |
+| B 渲染 | 可展示 Mindmap / source fallback | 点击节点后展示来源证据卡片 |
+| 反跳执行 | 缺少产品级 click -> scroll/highlight | content script 尝试 selector / domPath / textQuote 定位 |
+| 降级 | 有 fallback 文本 | DOM 失败时返回 structured reason 并展示 fallback evidence |
+| 验收 | AC-Quality 验证 source coverage | 新增点击路径、截图、定位结果和 false-green audit |
+
+边界：
+
+- C 不读取 DOM，不调用 content script，不创建 Artifact / Event / Trace。
+- B 不直接调用 A/C/D 服务，只消费 Artifact metadata 和前端 state。
+- Content script 不做非用户触发的浏览器自动操作。
+- D 仍是 ToolResult / Artifact / Event / Trace 唯一映射出口。
+- 如需新增公共字段或事件，必须回到 V1.2-0。
+
+---
+
+## 15. V1.2-Closeout 收关目标架构
+
+V1.2-Closeout 承接 V1.2-AC-Jumpback MVP。目标不是新增模块，而是把 A/C/D/B 的既有链路补齐到可声明 V1.2 完成的证据强度：真实 Chrome 截图级 Jumpback、SourceRef 质量、更多真实网页覆盖、Mindmap 交互细化和最终出门审计。
+
+目标架构仍保持四层分工：
+
+```text
+A Page Perception
+  -> 输出更稳定 SourceRef
+  -> selector / domPath optional
+  -> textQuote / fallbackText required
+  -> qualityReport.jumpbackCoverage 可解释
+
+C Mindmap
+  -> digest-first nodes
+  -> stable nodeBindings
+  -> SourceRef-backed nodeSourceMap
+  -> duplicate label disambiguation
+
+D Adapter Layer
+  -> ToolResult / Artifact / Event / Trace 唯一出口
+  -> 不被 A/C/B 绕过
+  -> trace 可还原 read -> mindmap -> jumpback-ready artifact
+
+B Side Panel Renderer + Content Script
+  -> Mermaid / source card / selected state
+  -> 用户触发 jumpback
+  -> content script scroll/highlight
+  -> failure fallback evidence
+```
+
+目标调用路径：
+
+```text
+真实网页
+-> content script extract PageContext
+-> Runtime session.activePage
+-> A high-signal bundle + SourceMap
+-> C Mindmap artifact metadata
+-> D Artifact / Event / Trace mapping
+-> B render Mermaid + source cards
+-> 用户点击节点 / source card
+-> content script selector/domPath/textQuote 定位
+-> screenshot evidence + metadata + report
+```
+
+当前架构差异：
+
+| 维度 | 当前 V1.2-AC-Jumpback MVP | V1.2-Closeout 目标 |
+|---|---|---|
+| Jumpback 证据 | 组件测试 + content script DOM 测试 + native UX 主路径 | 真实 Chrome 截图级证明点击后正文高亮或 fallback |
+| SourceRef 质量 | 有 textQuote / fallbackText，selector 质量依赖 A | 至少 20 页样本中 selector/textQuote/fallback 可解释并可统计 |
+| Mindmap 交互 | SVG 文本点击 + 来源证据卡片 | 节点选中态、hover/selected 反馈、证据面板折叠和失败提示 |
+| 页面覆盖 | AC native 5 页，Jumpback MVP 最小链路 | 至少 20 个真实网页 / snapshot，含复杂中文、技术文档、GitHub、长文、低信号 |
+| 完成声明 | 可声明 AC-Jumpback MVP | 可声明 V1.2 mock-first product path complete |
+
+边界：
+
+- 不新增公共 API、Artifact type 或 AgentEvent type；如必须新增，回到 V1.2-0。
+- A/C 不调用 Chrome、content script、CoreProvider、MCP 或 Skill。
+- B 不生成摘要、回答、Mindmap 或 Artifact。
+- Content script 只执行用户触发的当前页定位，不做浏览器自动操作任务。
+- D 仍是 ToolResult / Artifact / Event / Trace 唯一映射出口。
+
+---
+
+## 16. V1.3 Evidence Card Mindmap 目标架构
+
+V1.3 在 V1.2-Closeout 已打通的 A/C/D/B 主链路上，增强 B Mindmap Renderer 的主体验。目标不是更换 C 的生成逻辑，也不是新增 Canvas 或知识库，而是把 `ArtifactRecord(type="mindmap")` 渲染为可读、可验证、可交互的 Evidence Card Mindmap。
+
+目标架构：
+
+```text
+A Page Reading
+  -> HighSignalPageContext / PerceptionDigest / SourceMap / QualityReport
+        |
+        v
+C Mindmap
+  -> digest-first mindmap tree
+  -> Mermaid source
+  -> nodeSourceMap / nodeBindings
+        |
+        v
+D Adapter Layer
+  -> ToolResult
+  -> ArtifactRecord(type="mindmap")
+  -> Event / Trace
+        |
+        v
+B Mindmap Renderer
+  -> EvidenceCardViewModel
+  -> Evidence Card Mindmap
+  -> source evidence panel
+  -> selected / hover / neighbor highlight
+        |
+        v
+Content Script
+  -> user-triggered selector / domPath / textQuote jumpback
+```
+
+当前架构差异：
+
+| 维度 | V1.2-Closeout 当前状态 | V1.3 目标 |
+|---|---|---|
+| 主渲染 | Mermaid visual / source fallback | Evidence Card Mindmap 主视图，Mermaid 降级 |
+| 节点模型 | Mermaid 节点 + nodeSourceMap | EvidenceCardViewModel 派生自 Artifact + nodeSourceMap |
+| 节点形态 | 普通图节点 | 标题、摘要、source count、confidence、tag、缺失原因 |
+| 交互状态 | source card / jumpback 可用 | hover、selected、neighbor highlight、source panel、locating / success / failure |
+| 体验证据 | Jumpback 截图级报告 | 视觉截图基线 + 真实 Chrome Side Panel 用户路径报告 |
+| 长期路线 | 单页 artifact | 可演进到双栏阅读地图和 Canvas Knowledge Map |
+
+V1.3 模块边界：
+
+- B 只能从 Artifact 和 metadata 派生前端 view model，不拥有事实源。
+- C 不输出 React / SVG / CSS 专用组件结构。
+- A/C/B 不写 Artifact、Event、Trace。
+- Content script 只处理用户触发的定位和高亮。
+- 如需新增公共 Artifact metadata 字段，必须回到合同审计；优先复用已有 `metadata.nodeSourceMap`、`sourceRefIds`、`textQuote`、`fallbackText`。
+
+V1.3 长期预留：
+
+```text
+Evidence Card Mindmap
+  -> 双栏阅读地图
+  -> Canvas Knowledge Map
+  -> 多网页 Source Graph / Memory Plane
+```
+
+长期 Canvas Knowledge Map 需要 Memory Plane、持久化知识对象、跨网页 source graph、权限治理和独立 PRD，不属于 V1.3 实现范围。
+
+---
+
+## 17. V1 架构结论
 
 Navia V1 的架构不是“插件 + 模型调用”，而是：
 

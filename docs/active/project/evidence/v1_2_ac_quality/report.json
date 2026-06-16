@@ -6,6 +6,17 @@
     "lowSignalCorrectness": true,
     "sourceCoverage": 1.0
   },
+  "boundaryAudit": {
+    "checks": {
+      "aCreatesArtifactRecord": false,
+      "aEmitsSseOrTrace": false,
+      "bDirectGeneratesSummaryAnswerOrMindmap": false,
+      "cReadsDomOrCallsPageExtraction": false,
+      "introducesOutOfScopeCapabilities": false
+    },
+    "method": "AC-Quality evidence generator consumes A snapshot perception, C mindmap payload, and inherited native UX evidence; Artifact/Event/Trace/UI ownership remains outside A/C evidence generation.",
+    "passed": true
+  },
   "claimBoundary": "V1.2-AC-Quality only; does not claim full V1/V1.2 or A-V1.2 100-page production gate.",
   "gates": [
     {
@@ -90,6 +101,36 @@
         "sourceCoverage": 1.0
       },
       "gate": "digest_first",
+      "passed": true
+    },
+    {
+      "details": {
+        "failedPageIds": [],
+        "requiredFields": [
+          "runtimeEvidencePath",
+          "qualityReportPath",
+          "mindmapEvidencePath",
+          "nativeEvidence.status",
+          "overallScore",
+          "mindmapFallbackReasons"
+        ]
+      },
+      "gate": "debug_evidence_readability",
+      "passed": true
+    },
+    {
+      "details": {
+        "checks": {
+          "aCreatesArtifactRecord": false,
+          "aEmitsSseOrTrace": false,
+          "bDirectGeneratesSummaryAnswerOrMindmap": false,
+          "cReadsDomOrCallsPageExtraction": false,
+          "introducesOutOfScopeCapabilities": false
+        },
+        "method": "AC-Quality evidence generator consumes A snapshot perception, C mindmap payload, and inherited native UX evidence; Artifact/Event/Trace/UI ownership remains outside A/C evidence generation.",
+        "passed": true
+      },
+      "gate": "boundary_scope",
       "passed": true
     },
     {

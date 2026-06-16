@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_87a318a1814c5b99a148d1417dd3a4f6a803d3e51be2e60ae252bc777994b1af",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 3.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.667
+    },
+    "contentCoverage": {
+      "denominator": 1916.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 1916.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 293.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 24.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.082
+    },
+    "groundingCompleteness": {
+      "denominator": 3.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 3.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 3.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 3.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.973,
+  "pageId": "github_003_django_django",
+  "reportId": "q_github_003_django_django",
+  "warnings": []
+}

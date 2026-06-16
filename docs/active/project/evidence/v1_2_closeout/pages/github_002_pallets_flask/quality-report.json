@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_9c097b6c1c270ebf93f60afd9c0c5e45f4a986b85b0592f0730df223f65acde9",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 3.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 1.0,
+      "passed": false,
+      "threshold": 0.5,
+      "value": 0.333
+    },
+    "contentCoverage": {
+      "denominator": 1463.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 1463.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 1.0
+    },
+    "digestCompressionRatio": {
+      "denominator": 218.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 25.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.115
+    },
+    "groundingCompleteness": {
+      "denominator": 3.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 3.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 3.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 0.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.0
+    },
+    "sourceCoverage": {
+      "denominator": 3.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 3.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.947,
+  "pageId": "github_002_pallets_flask",
+  "reportId": "q_github_002_pallets_flask",
+  "warnings": []
+}
