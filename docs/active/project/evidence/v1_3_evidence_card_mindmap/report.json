@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "v1.3-evidence-card-mindmap-report",
+  "stage": "V1.3",
+  "generatedAt": "2026-06-17T04:06:41.122Z",
+  "passed": true,
+  "summary": {
+    "pagesTotal": 8,
+    "pagesPassed": 8,
+    "nativeSidePanelSamples": 5,
+    "evidenceCardSamples": 5,
+    "fallbackSamples": 2
+  },
+  "pages": [
+    {
+      "pageId": "zh_001_python_tutorial_index",
+      "url": "https://docs.python.org/zh-cn/3/tutorial/index.html",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/zh_001_python_tutorial_index.html",
+      "category": "chinese_complex",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "zh_002_python_tutorial_intro",
+      "url": "https://docs.python.org/zh-cn/3/tutorial/introduction.html",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/zh_002_python_tutorial_intro.html",
+      "category": "chinese_complex",
+      "expectedRisk": "long_text",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "zh_003_python_tutorial_controlflow",
+      "url": "https://docs.python.org/zh-cn/3/tutorial/controlflow.html",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/zh_003_python_tutorial_controlflow.html",
+      "category": "chinese_complex",
+      "expectedRisk": "duplicate_labels",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "tech_001_go_effective",
+      "url": "https://go.dev/doc/effective_go",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_001_go_effective.html",
+      "category": "technical_doc",
+      "expectedRisk": "missing_source",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "tech_002_python_tutorial_intro",
+      "url": "https://docs.python.org/3/tutorial/introduction.html",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_002_python_tutorial_intro.html",
+      "category": "technical_doc",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "tech_003_python_tutorial_controlflow",
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_003_python_tutorial_controlflow.html",
+      "category": "technical_doc",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "github_002_pallets_flask",
+      "url": "https://raw.githubusercontent.com/pallets/flask/main/README.md",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/github_002_pallets_flask.html",
+      "category": "github_readme",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    },
+    {
+      "pageId": "github_003_django_django",
+      "url": "https://raw.githubusercontent.com/django/django/main/README.rst",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/github_003_django_django.html",
+      "category": "github_readme",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
+    }
+  ],
+  "screenshots": [
+    {
+      "screenshotPath": "screenshots/article-jumpback-after.png",
+      "metadataPath": "screenshots/article-jumpback-after.png.metadata.json",
+      "pageUrl": "http://127.0.0.1:61462/article.html",
+      "isNativeSidePanel": true,
+      "containsWebPageBody": true,
+      "containsNaviaPanel": true,
+      "containsEvidenceCardMindmap": true,
+      "containsSourcePanel": true,
+      "result": "pass"
+    },
+    {
+      "screenshotPath": "screenshots/docs-jumpback-after.png",
+      "metadataPath": "screenshots/docs-jumpback-after.png.metadata.json",
+      "pageUrl": "http://127.0.0.1:61462/docs.html",
+      "isNativeSidePanel": true,
+      "containsWebPageBody": true,
+      "containsNaviaPanel": true,
+      "containsEvidenceCardMindmap": true,
+      "containsSourcePanel": true,
+      "result": "pass"
+    },
+    {
+      "screenshotPath": "screenshots/zh-python-modules-jumpback-after.png",
+      "metadataPath": "screenshots/zh-python-modules-jumpback-after.png.metadata.json",
+      "pageUrl": "http://127.0.0.1:61462/zh_python_modules.html",
+      "isNativeSidePanel": true,
+      "containsWebPageBody": true,
+      "containsNaviaPanel": true,
+      "containsEvidenceCardMindmap": true,
+      "containsSourcePanel": true,
+      "result": "pass"
+    },
+    {
+      "screenshotPath": "screenshots/github-readme-drift-jumpback-after.png",
+      "metadataPath": "screenshots/github-readme-drift-jumpback-after.png.metadata.json",
+      "pageUrl": "http://127.0.0.1:61462/github_readme.html",
+      "isNativeSidePanel": true,
+      "containsWebPageBody": true,
+      "containsNaviaPanel": true,
+      "containsEvidenceCardMindmap": true,
+      "containsSourcePanel": true,
+      "result": "pass"
+    },
+    {
+      "screenshotPath": "screenshots/flask-quickstart-drift-jumpback-after.png",
+      "metadataPath": "screenshots/flask-quickstart-drift-jumpback-after.png.metadata.json",
+      "pageUrl": "http://127.0.0.1:61462/product_doc.html",
+      "isNativeSidePanel": true,
+      "containsWebPageBody": true,
+      "containsNaviaPanel": true,
+      "containsEvidenceCardMindmap": true,
+      "containsSourcePanel": true,
+      "result": "pass"
+    }
+  ],
+  "testCommands": [
+    {
+      "command": "npm run e2e:chrome:jumpback-closeout",
+      "status": "pass",
+      "evidencePath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/report.json"
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension test -- mindmap_renderer chat_renderer/tests/ArtifactInlineCard.test.tsx chat_renderer/tests/chatPresentation.test.ts",
+      "status": "pass",
+      "evidencePath": null
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run typecheck",
+      "status": "pass",
+      "evidencePath": null
+    }
+  ],
+  "fatalIssues": [],
+  "majorIssues": [],
+  "claim": "V1.3 Evidence Card Mindmap experience complete"
+}

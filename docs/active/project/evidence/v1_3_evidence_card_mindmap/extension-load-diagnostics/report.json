@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "v1.3-extension-load-diagnostic.1",
+  "generatedAt": "2026-06-17T03:20:27.572Z",
+  "browserMode": "chromium",
+  "extensionRoot": "/Users/Zhuanz/Desktop/workspace/navia/apps/chrome-extension/chrome-mv3-unpacked",
+  "manifestExists": true,
+  "backgroundExists": true,
+  "serviceWorkers": [
+    "chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js"
+  ],
+  "targets": [
+    {
+      "type": "service_worker",
+      "title": "Service Worker chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js",
+      "url": "chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js",
+      "attached": true
+    },
+    {
+      "type": "page",
+      "title": "about:blank",
+      "url": "about:blank",
+      "attached": true
+    },
+    {
+      "type": "page",
+      "title": "about:blank",
+      "url": "about:blank",
+      "attached": true
+    }
+  ],
+  "extensionTargets": [
+    {
+      "type": "service_worker",
+      "title": "Service Worker chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js",
+      "url": "chrome-extension://nnnoagjogjdnodhkdhinndompnjjnkkg/background.js",
+      "attached": true
+    }
+  ],
+  "passed": true,
+  "fatalIssues": []
+}

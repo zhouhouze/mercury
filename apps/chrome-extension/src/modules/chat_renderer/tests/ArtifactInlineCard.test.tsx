@@ -45,6 +45,73 @@ const artifact = {
   }
 };
 
+const nestedArtifact = {
+  ...artifact,
+  artifactId: "art_nested",
+  content: "mindmap\n  root((Root))\n    theme((Dense Theme))\n      leaf((Second Level Fact))",
+  metadata: {
+    ...artifact.metadata,
+    nodeBindings: [
+      {
+        nodeId: "root",
+        nodeSourceMapKey: "root",
+        nodeLabel: "Root",
+        mermaidLineIndex: 1,
+        sourceRefIds: ["src_root"],
+        paragraphIds: ["pg_root"],
+        chunkIds: ["ck_root"]
+      },
+      {
+        nodeId: "theme",
+        nodeSourceMapKey: "theme",
+        nodeLabel: "Dense Theme",
+        mermaidLineIndex: 2,
+        sourceRefIds: ["src_theme"],
+        paragraphIds: ["pg_theme"],
+        chunkIds: ["ck_theme"]
+      },
+      {
+        nodeId: "leaf",
+        nodeSourceMapKey: "leaf",
+        nodeLabel: "Second Level Fact",
+        mermaidLineIndex: 3,
+        sourceRefIds: ["src_leaf"],
+        paragraphIds: ["pg_leaf"],
+        chunkIds: ["ck_leaf"]
+      }
+    ],
+    nodeSourceMap: {
+      root: {
+        nodeLabel: "Root",
+        sourceRefIds: ["src_root"],
+        paragraphIds: ["pg_root"],
+        chunkIds: ["ck_root"],
+        textQuote: "Root quote.",
+        fallbackText: "Root quote.",
+        jumpback: { mode: "fallback", reason: "selector_missing" }
+      },
+      theme: {
+        nodeLabel: "Dense Theme",
+        sourceRefIds: ["src_theme"],
+        paragraphIds: ["pg_theme"],
+        chunkIds: ["ck_theme"],
+        textQuote: "Theme quote.",
+        fallbackText: "Theme quote.",
+        jumpback: { mode: "fallback", reason: "selector_missing" }
+      },
+      leaf: {
+        nodeLabel: "Second Level Fact",
+        sourceRefIds: ["src_leaf"],
+        paragraphIds: ["pg_leaf"],
+        chunkIds: ["ck_leaf"],
+        textQuote: "Leaf quote.",
+        fallbackText: "Leaf quote.",
+        jumpback: { mode: "fallback", reason: "selector_missing" }
+      }
+    }
+  }
+};
+
 describe("ArtifactInlineCard jumpback", () => {
   afterEach(() => {
     vi.restoreAllMocks();
@@ -90,6 +157,84 @@ describe("ArtifactInlineCard jumpback", () => {
           })
         })
       );
+    } finally {
+      root.unmount();
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("renders Evidence Card Mindmap as the primary mindmap view", async () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      tabs: {
+        query: vi.fn(async () => [{ id: 7 }]),
+        sendMessage: vi.fn(async () => ({ ok: true, result: { status: "highlighted" } }))
+      }
+    } as unknown as typeof chrome;
+
+    const container = document.createElement("div");
+    document.body.append(container);
+    const root = createRoot(container);
+
+    try {
+      await act(async () => {
+        root.render(<ArtifactInlineCard artifact={artifact} />);
+      });
+      await act(async () => {
+        await Promise.resolve();
+      });
+
+      expect(container.querySelector("[data-testid='evidence-card-mindmap']")).toBeTruthy();
+      expect(container.querySelector("[data-testid='evidence-card-node-root']")?.textContent).toContain("Source node");
+      expect(container.querySelector("[data-testid='mindmap-source-panel']")).toBeTruthy();
+
+      await act(async () => {
+        container.querySelector("[data-testid='evidence-card-node-root']")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+
+      expect(container.querySelector("[data-testid='mindmap-source-evidence']")?.textContent).toContain("Traceable source quote.");
+    } finally {
+      root.unmount();
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("collapses and expands second-level labels under a theme", async () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      tabs: {
+        query: vi.fn(async () => [{ id: 7 }]),
+        sendMessage: vi.fn(async () => ({ ok: true, result: { status: "highlighted" } }))
+      }
+    } as unknown as typeof chrome;
+
+    const container = document.createElement("div");
+    document.body.append(container);
+    const root = createRoot(container);
+
+    try {
+      await act(async () => {
+        root.render(<ArtifactInlineCard artifact={nestedArtifact} />);
+      });
+      await act(async () => {
+        await Promise.resolve();
+      });
+
+      expect(container.querySelector("[data-testid='evidence-card-node-theme']")?.textContent).toContain("Dense Theme");
+      expect(container.querySelector("[data-testid='evidence-card-node-leaf']")?.textContent).toContain("Second Level Fact");
+
+      await act(async () => {
+        container.querySelector("[data-testid='evidence-theme-toggle-theme']")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+
+      expect(container.querySelector("[data-testid='evidence-card-node-theme']")?.textContent).toContain("Dense Theme");
+      expect(container.querySelector("[data-testid='evidence-card-node-leaf']")).toBeFalsy();
+
+      await act(async () => {
+        container.querySelector("[data-testid='evidence-theme-toggle-theme']")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+
+      expect(container.querySelector("[data-testid='evidence-card-node-leaf']")?.textContent).toContain("Second Level Fact");
     } finally {
       root.unmount();
       globalThis.chrome = originalChrome;

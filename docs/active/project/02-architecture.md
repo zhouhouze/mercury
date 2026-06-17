@@ -1176,6 +1176,14 @@ Content Script
   -> user-triggered selector / domPath / textQuote jumpback
 ```
 
+V1.3 可执行合同：
+
+```text
+docs/active/project/contracts/v1_3_evidence_card_mindmap.schema.json
+```
+
+该合同只冻结 B-local `EvidenceCardViewModel`、V1.3 验收 `report.json`、截图证据 metadata 的机器可校验结构。它不是新的 Runtime public contract，A/C/D 不得依赖 `EvidenceCardViewModel` 的 exact shape。
+
 当前架构差异：
 
 | 维度 | V1.2-Closeout 当前状态 | V1.3 目标 |
@@ -1194,6 +1202,18 @@ V1.3 模块边界：
 - A/C/B 不写 Artifact、Event、Trace。
 - Content script 只处理用户触发的定位和高亮。
 - 如需新增公共 Artifact metadata 字段，必须回到合同审计；优先复用已有 `metadata.nodeSourceMap`、`sourceRefIds`、`textQuote`、`fallbackText`。
+
+V1.3 证据包固定为：
+
+```text
+docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json
+docs/active/project/evidence/v1_3_evidence_card_mindmap/acceptance-report.html
+docs/active/project/evidence/v1_3_evidence_card_mindmap/prd-review.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/false-green-audit.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/screenshots/
+```
+
+V1.3-1+ 只能在 V1.3-0 外部审计无 fatal / major 后启动。
 
 V1.3 长期预留：
 

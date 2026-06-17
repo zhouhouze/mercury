@@ -86,7 +86,7 @@ describe("chat renderer presentation reducer", () => {
     const viewModel = selectChatViewModel(state);
     const fallback = presentMindmapArtifact(mindmapArtifact, "Mermaid render failed");
 
-    expect(viewModel.mindmaps[0].renderMode).toBe("mermaid");
+    expect(viewModel.mindmaps[0].renderMode).toBe("evidence_card");
     expect(fallback.renderMode).toBe("source_fallback");
     expect(fallback.sourceFallback).toContain("mindmap");
     expect(fallback.sourceFallback).toContain("Navia extracts page context.");

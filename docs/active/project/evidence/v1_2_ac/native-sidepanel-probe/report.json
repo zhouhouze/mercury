@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "v1.2-ac-native-probe.1",
+  "passed": false,
+  "status": "structured_blocker_required",
+  "stage": "native-probe",
+  "browserMode": "chrome",
+  "runtimeUrl": "http://127.0.0.1:17861",
+  "fixtureUrl": "http://127.0.0.1:59113/article.html",
+  "extensionId": null,
+  "openAttempts": [
+    {
+      "ok": false,
+      "method": "service_worker",
+      "message": "Extension service worker was not exposed."
+    },
+    {
+      "ok": true,
+      "method": "Playwright Alt+Shift+N sent"
+    },
+    {
+      "ok": true,
+      "method": "System Events Option+Shift+N sent"
+    }
+  ],
+  "pages": [
+    "about:blank",
+    "http://127.0.0.1:59113/article.html"
+  ],
+  "workers": [],
+  "screenshots": [
+    "screenshots/01-browser-before-action.png",
+    "screenshots/02-browser-after-action.png"
+  ],
+  "blockers": [
+    "blockers/native_blocker_1781666330166.json"
+  ],
+  "acceptance": {
+    "nativeSidePanelUxAccepted": false,
+    "reason": "native-probe only checks whether the native side panel can be opened or exposed. native-ux or human-confirmed equivalent screenshot evidence is required for UX acceptance."
+  }
+}

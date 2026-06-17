@@ -13,7 +13,8 @@ ArtifactRecord(type="mindmap")
 -> read content as Mermaid source
 -> read metadata.nodeSourceMap / nodeBindings
 -> derive EvidenceCardViewModel
--> render Evidence Card Mindmap
+-> derive two-level density display plan
+-> render collapsible Evidence Card Mindmap
 -> support selected / hover / neighbor highlight
 -> open source evidence panel
 -> support source highlight or excerpt fallback
@@ -69,9 +70,47 @@ EvidenceCardNode {
   textQuote?
   fallbackText?
 }
+
+EvidenceCardDisplayPolicy {
+  maxDepth = 2
+  density = low | medium | high
+  maxVisibleThemes
+  maxVisibleChildrenPerTheme
+  hiddenNodeCount
+}
+
+EvidenceCardTheme {
+  themeId
+  nodeId
+  label
+  visibleChildNodeIds[]
+  hiddenChildCount
+  score
+}
 ```
 
 This is a B-local rendering model. It is not a new public Runtime contract unless promoted through V1.3-0 audit.
+
+V1.3 Scheme A rendering rule:
+
+- The visible mindmap surface shows only two label levels: theme nodes and direct child labels.
+- Theme groups must be collapsible in the Side Panel.
+- Dense pages must reduce visible theme/child count by `EvidenceCardDisplayPolicy` and expose the hidden count instead of flooding the panel.
+- The original Mermaid source and source evidence remain available through fallback/debug and source panel paths.
+- Theme selection is a frontend presentation concern; it must not rewrite C output or artifact truth.
+
+Executable schema:
+
+```text
+docs/active/project/contracts/v1_3_evidence_card_mindmap.schema.json
+```
+
+Schema ownership:
+
+- B owns `EvidenceCardViewModel` derivation and rendering.
+- A/C/D must not depend on the exact `EvidenceCardViewModel` shape.
+- C must continue to output mindmap tree / Mermaid / node source metadata, not React, SVG, or Evidence Card component structures.
+- D remains the Artifact / Event / Trace owner.
 
 ## Interaction States
 
@@ -87,3 +126,12 @@ Required visible states:
 - located
 - fallback-shown
 - blocked
+
+State semantics:
+
+- `ready`: node has source evidence and can show a source panel.
+- `degraded`: node can render but has partial source evidence or fallback-only evidence.
+- `missing_source`: node may render but must visibly explain why source evidence is unavailable.
+- `located`: DOM highlight succeeded.
+- `fallback-shown`: DOM highlight failed or was unavailable and excerpt fallback is shown.
+- `blocked`: user action could not be completed; the UI must show a reason.

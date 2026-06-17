@@ -1074,6 +1074,7 @@ V1.3 的验收目标是证明 Mindmap 主体验已从 Mermaid 默认图升级为
 - [ ] 节点 hover、focus、selected、neighbor highlight 状态可见。
 - [ ] 点击节点后 source evidence panel 可读，且在 Chrome Side Panel 窄宽度下不遮挡关键操作。
 - [ ] DOM jumpback success、fallback shown、blocked 三类状态在 UI、report.json 和截图 metadata 中严格区分。
+- [ ] `report.json` 必须符合 `docs/active/project/contracts/v1_3_evidence_card_mindmap.schema.json`。
 - [ ] Mermaid 渲染失败时仍可查看 Mermaid source 和 source fallback。
 - [ ] 长标题、重复标题、缺 sourceRef、low-signal / degraded 页面都有 fixture 或真实样本覆盖。
 - [ ] 至少 8 个真实网页或可复现 snapshot 进入 V1.3 验收矩阵。

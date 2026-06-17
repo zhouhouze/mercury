@@ -1,0 +1,19 @@
+{
+  "blockerId": "native_blocker_1781666330166",
+  "stage": "native-probe",
+  "pageUrl": "http://127.0.0.1:59113/article.html",
+  "browser": "chrome",
+  "extensionId": null,
+  "reason": "cannot_distinguish_native_panel",
+  "evidencePaths": [
+    "screenshots/01-browser-before-action.png",
+    "screenshots/02-browser-after-action.png"
+  ],
+  "attemptedActions": [
+    "service_worker:failed",
+    "Playwright Alt+Shift+N sent:ok",
+    "System Events Option+Shift+N sent:ok"
+  ],
+  "nextAction": "Use native-ux automation if the side panel page is exposed; otherwise perform human screenshot review before claiming UX pass.",
+  "blocksCompletion": true
+}

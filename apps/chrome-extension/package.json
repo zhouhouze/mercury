@@ -12,10 +12,13 @@
     "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "e2e:chrome": "node e2e/chrome-sidepanel-e2e.mjs",
     "e2e:chrome:native-probe": "node e2e/chrome-native-sidepanel-probe.mjs",
+    "e2e:chrome:extension-diagnostics": "node e2e/diagnose-extension-load.mjs",
     "e2e:chrome:native-ux": "node e2e/chrome-native-sidepanel-ux.mjs",
     "e2e:chrome:native-ux:report": "node e2e/generate-native-sidepanel-report.mjs",
     "e2e:chrome:jumpback-closeout": "node e2e/chrome-jumpback-closeout.mjs",
     "e2e:chrome:jumpback-closeout:report": "node e2e/generate-jumpback-closeout-report.mjs",
+    "e2e:chrome:v1.3-evidence-card": "NAVIA_CLOSEOUT_EVIDENCE_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run npm run e2e:chrome:jumpback-closeout; NAVIA_V1_3_CLOSEOUT_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run node e2e/generate-v1.3-evidence-card-report.mjs",
+    "e2e:chrome:v1.3-evidence-card:report": "NAVIA_V1_3_CLOSEOUT_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run node e2e/generate-v1.3-evidence-card-report.mjs",
     "e2e:chrome:visual": "node e2e/chrome-sidepanel-visual-e2e.mjs"
   },
   "dependencies": {

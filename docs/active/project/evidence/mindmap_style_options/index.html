@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia 思维导图样式方案备选</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #627086;
+      --line: #d8e1ee;
+      --primary: #4f46e5;
+      --primary-soft: #eef2ff;
+      --cyan: #0891b2;
+      --green: #16a34a;
+      --amber: #d97706;
+      --red: #dc2626;
+      --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: radial-gradient(circle at 18% 0%, #e7edff 0, transparent 30%), var(--bg);
+      line-height: 1.55;
+    }
+    header {
+      padding: 36px clamp(20px, 5vw, 64px) 24px;
+      background: #111827;
+      color: #fff;
+    }
+    header h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0;
+    }
+    header p {
+      max-width: 960px;
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+    main {
+      padding: 28px clamp(20px, 5vw, 64px) 64px;
+    }
+    section {
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    h2 { margin: 0 0 14px; font-size: 22px; }
+    h3 { margin: 0 0 10px; font-size: 17px; }
+    p { margin: 0 0 12px; }
+    .muted { color: var(--muted); }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+    .badge.ok { background: #dcfce7; color: #166534; }
+    .badge.warn { background: #fef3c7; color: #92400e; }
+    .badge.no { background: #fee2e2; color: #991b1b; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 16px;
+    }
+    .card strong { display: block; margin-bottom: 4px; }
+    .evidence img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .caption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .arch {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+    .arch-node {
+      position: relative;
+      min-height: 92px;
+      border: 1px solid #cfd8ea;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #fff, #f8fbff);
+      padding: 12px;
+    }
+    .arch-node:not(:last-child)::after {
+      position: absolute;
+      top: 44px;
+      right: -12px;
+      width: 14px;
+      height: 2px;
+      background: #94a3b8;
+      content: "";
+    }
+    .arch-node span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .option {
+      display: grid;
+      grid-template-columns: 360px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .mock {
+      min-height: 320px;
+      border: 1px solid #d7e0ef;
+      border-radius: 12px;
+      background: #fbfdff;
+      padding: 14px;
+      overflow: hidden;
+    }
+    .mock-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .node {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      border: 1px solid #bfccff;
+      border-radius: 8px;
+      background: #fff;
+      color: #1f2937;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.08);
+      white-space: nowrap;
+    }
+    .node.root { border-color: #635bff; background: #eef2ff; color: #312e81; }
+    .node.good { border-color: #86efac; background: #f0fdf4; color: #166534; }
+    .node.warn { border-color: #fde68a; background: #fffbeb; color: #92400e; }
+    .node.muted { border-color: #e2e8f0; background: #f8fafc; color: #64748b; }
+    .tree-lines {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      padding-left: 16px;
+    }
+    .tree-lines::before {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 20px;
+      width: 2px;
+      background: linear-gradient(#6366f1, #cbd5e1);
+      content: "";
+    }
+    .tree-row {
+      position: relative;
+      display: flex;
+      gap: 8px;
+      margin-left: var(--indent, 0);
+    }
+    .tree-row::before {
+      width: 20px;
+      height: 2px;
+      margin-top: 15px;
+      background: #aab8d0;
+      content: "";
+    }
+    .radial {
+      position: relative;
+      height: 290px;
+    }
+    .radial .node { position: absolute; }
+    .radial svg, .network svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .network {
+      position: relative;
+      height: 290px;
+    }
+    .network .node { position: absolute; }
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 18px;
+      width: 3px;
+      border-radius: 999px;
+      background: #4f46e5;
+      content: "";
+    }
+    .time-row {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      align-items: center;
+      gap: 8px;
+    }
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .table th, .table td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .table th { color: #334155; background: #f8fafc; }
+    code {
+      border-radius: 5px;
+      background: #eef2ff;
+      padding: 2px 5px;
+      color: #3730a3;
+      font-size: 12px;
+    }
+    @media (max-width: 980px) {
+      .grid, .grid-3, .option, .arch { grid-template-columns: 1fr; }
+      .arch-node:not(:last-child)::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia 思维导图样式方案备选</h1>
+    <p>本页用于评审 V1.3 之后的 Mindmap 体验方向。所有“当前截图”来自已有自动化验收证据；所有“候选样式图”均为概念图，不代表已实现功能。</p>
+    <div class="badge-row">
+      <span class="badge ok">真实证据：V1.3 Chromium Side Panel 验收通过</span>
+      <span class="badge warn">当前问题：节点语义压缩不足</span>
+      <span class="badge no">不声明：完整 V1、RAG、Memory、Web Research ready</span>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. 当前结论</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>当前实现已经具备什么</h3>
+          <p>Navia 可以在 Chrome 原生 Side Panel 中生成 Evidence Card Mindmap，并通过来源卡片进行反跳或 fallback evidence 展示。</p>
+          <div class="badge-row">
+            <span class="badge ok">Side Panel</span>
+            <span class="badge ok">Evidence Card</span>
+            <span class="badge ok">SourceRef</span>
+            <span class="badge ok">Jumpback</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>当前体验为什么仍不理想</h3>
+          <p>当前 UI 已从大文本卡片收敛为紧凑树形，但 C 模块仍把段落句子或重复主题作为节点标题。用户需要看很多相似节点，无法快速形成页面结构认知。</p>
+          <div class="badge-row">
+            <span class="badge warn">节点文字偏长</span>
+            <span class="badge warn">主题分组不足</span>
+            <span class="badge warn">缺少关系边</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. 目标架构与当前架构</h2>
+      <h3>目标架构轮廓</h3>
+      <div class="arch">
+        <div class="arch-node"><strong>A 页面感知</strong><span>HighSignalPageContext / Digest / SourceRef</span></div>
+        <div class="arch-node"><strong>C 语义导图</strong><span>主题聚类、短标签、树/网布局、节点绑定</span></div>
+        <div class="arch-node"><strong>D 适配边界</strong><span>ToolResult / Artifact / Event / Trace</span></div>
+        <div class="arch-node"><strong>B 渲染器</strong><span>Mindmap surface / source panel / state</span></div>
+        <div class="arch-node"><strong>网页反跳</strong><span>Content script scroll / highlight / fallback</span></div>
+      </div>
+      <p class="muted">当前实现：A/C/D/B 已接通，B 负责 Evidence Card 渲染；但 C 还没有完成“语义短标签 + 主题分组 + 关系边”能力。因此样式方案不能只靠 CSS，需要 C/B 联合升级。</p>
+    </section>
+
+    <section class="evidence">
+      <h2>3. 当前真实体验截图证据</h2>
+      <div class="grid">
+        <div>
+          <img src="../v1_3_evidence_card_mindmap/native-run/screenshots/article-jumpback-after.png" alt="当前 V1.3 Evidence Card Mindmap 高亮样本截图" />
+          <div class="caption">真实证据：V1.3 自动化验收截图。右侧为 Chrome 原生 Side Panel，左侧网页正文可见高亮来源。</div>
+        </div>
+        <div>
+          <img src="../v1_3_evidence_card_mindmap/native-run/screenshots/zh-python-modules-jumpback-after.png" alt="中文复杂页面 Evidence Card Mindmap 截图" />
+          <div class="caption">真实证据：中文页面样本。可证明链路可用，但也暴露了节点标题质量依赖 C 模块语义生成。</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. 样式方案备选</h2>
+      <p class="muted">以下概念图仅表达布局与交互方向，不代表当前已经实现。实际落地需要按 V1.3/V1.4 阶段门禁推进。</p>
+    </section>
+
+    <section class="option">
+      <div class="mock">
+        <div class="mock-title"><span>方案 A：紧凑证据树</span><span>推荐短期</span></div>
+        <div class="tree-lines">
+          <div class="tree-row"><span class="node root">页面主题</span></div>
+          <div class="tree-row" style="--indent: 16px"><span class="node good">核心观点</span><span class="node">背景</span></div>
+          <div class="tree-row" style="--indent: 32px"><span class="node">步骤</span><span class="node warn">风险</span></div>
+          <div class="tree-row" style="--indent: 48px"><span class="node muted">引用</span><span class="node">例子</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>方案 A：紧凑证据树</h3>
+        <p>将当前 Evidence Card 改造成更明确的树状结构：根节点代表页面主题，一级节点代表页面的 4-6 个关键分区，叶子节点代表事实或论点。</p>
+        <table class="table">
+          <tr><th>优点</th><td>最符合当前 Side Panel 尺寸；实现成本最低；能保留 SourceRef 和反跳。</td></tr>
+          <tr><th>缺点</th><td>关系表达有限，复杂网页可能仍需要折叠/展开。</td></tr>
+          <tr><th>需要改造</th><td>C 生成短标签与层级分组；B 做折叠、选中态、来源面板。</td></tr>
+          <tr><th>适合场景</th><td>文章、文档、教程、产品说明页。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="option">
+      <div class="mock">
+        <div class="mock-title"><span>方案 B：径向主题图</span><span>概览优先</span></div>
+        <div class="radial">
+          <svg viewBox="0 0 360 290" aria-hidden="true">
+            <line x1="180" y1="145" x2="180" y2="44" stroke="#94a3b8" stroke-width="2" />
+            <line x1="180" y1="145" x2="70" y2="95" stroke="#94a3b8" stroke-width="2" />
+            <line x1="180" y1="145" x2="290" y2="95" stroke="#94a3b8" stroke-width="2" />
+            <line x1="180" y1="145" x2="85" y2="215" stroke="#94a3b8" stroke-width="2" />
+            <line x1="180" y1="145" x2="280" y2="218" stroke="#94a3b8" stroke-width="2" />
+          </svg>
+          <span class="node root" style="left:128px;top:128px;">页面主题</span>
+          <span class="node" style="left:136px;top:24px;">定义</span>
+          <span class="node good" style="left:24px;top:78px;">要点</span>
+          <span class="node" style="right:24px;top:78px;">证据</span>
+          <span class="node warn" style="left:42px;bottom:34px;">风险</span>
+          <span class="node" style="right:42px;bottom:30px;">行动</span>
+        </div>
+      </div>
+      <div>
+        <h3>方案 B：径向主题图</h3>
+        <p>以页面主题为中心，外围显示 5-7 个主题簇。用户第一眼看到“这页讲什么”和“有哪些方向”。点击主题后，右侧或下方展开来源证据。</p>
+        <table class="table">
+          <tr><th>优点</th><td>概览感强，视觉上更像传统思维导图；适合快速理解页面。</td></tr>
+          <tr><th>缺点</th><td>Side Panel 宽度较窄，复杂节点容易挤压；更适合全屏或弹出大图模式。</td></tr>
+          <tr><th>需要改造</th><td>C 输出 topic clusters；B 增加径向布局和缩放/拖拽。</td></tr>
+          <tr><th>适合场景</th><td>概念型文章、综述、博客、产品战略页。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="option">
+      <div class="mock">
+        <div class="mock-title"><span>方案 C：关系网络图</span><span>长期增强</span></div>
+        <div class="network">
+          <svg viewBox="0 0 360 290" aria-hidden="true">
+            <line x1="70" y1="60" x2="185" y2="82" stroke="#94a3b8" stroke-width="2" />
+            <line x1="185" y1="82" x2="292" y2="60" stroke="#94a3b8" stroke-width="2" />
+            <line x1="185" y1="82" x2="180" y2="155" stroke="#4f46e5" stroke-width="3" />
+            <line x1="180" y1="155" x2="80" y2="225" stroke="#94a3b8" stroke-width="2" />
+            <line x1="180" y1="155" x2="282" y2="220" stroke="#94a3b8" stroke-width="2" />
+            <line x1="80" y1="225" x2="282" y2="220" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="5 5" />
+          </svg>
+          <span class="node" style="left:24px;top:42px;">实体 A</span>
+          <span class="node root" style="left:128px;top:64px;">核心概念</span>
+          <span class="node" style="right:22px;top:42px;">实体 B</span>
+          <span class="node good" style="left:124px;top:138px;">论点</span>
+          <span class="node warn" style="left:32px;bottom:34px;">冲突</span>
+          <span class="node" style="right:30px;bottom:34px;">证据</span>
+        </div>
+      </div>
+      <div>
+        <h3>方案 C：关系网络图</h3>
+        <p>把页面抽象成实体、观点、证据、风险之间的关系网络。树只表示层级，网络图可以表示“支持、反对、引用、因果、并列”等关系。</p>
+        <table class="table">
+          <tr><th>优点</th><td>信息密度最高，适合复杂内容和后续知识库沉淀。</td></tr>
+          <tr><th>缺点</th><td>需要更强的 A/C 语义抽取；Side Panel 小屏操作复杂。</td></tr>
+          <tr><th>需要改造</th><td>C 输出 typed edges；B 引入图布局引擎或自研轻量布局。</td></tr>
+          <tr><th>适合场景</th><td>研究报告、竞品分析、论文、争议型文章。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="option">
+      <div class="mock">
+        <div class="mock-title"><span>方案 D：流程/时间线导图</span><span>场景化</span></div>
+        <div class="timeline">
+          <div class="time-row"><strong>01</strong><span class="node root">目标</span></div>
+          <div class="time-row"><strong>02</strong><span class="node">步骤</span></div>
+          <div class="time-row"><strong>03</strong><span class="node good">结果</span></div>
+          <div class="time-row"><strong>04</strong><span class="node warn">注意事项</span></div>
+          <div class="time-row"><strong>05</strong><span class="node muted">参考</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>方案 D：流程/时间线导图</h3>
+        <p>当页面是教程、步骤说明、发布日志或方法论时，普通树图不如流程图好理解。该方案将内容组织为时间线或步骤线。</p>
+        <table class="table">
+          <tr><th>优点</th><td>对教程和操作文档非常清晰，能快速找下一步。</td></tr>
+          <tr><th>缺点</th><td>不适合非流程型文章；需要 A/C 判断页面类型。</td></tr>
+          <tr><th>需要改造</th><td>A 标注 procedure/step；C 按页面类型选择 layout preset。</td></tr>
+          <tr><th>适合场景</th><td>教程、API Quickstart、安装文档、发布说明。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="option">
+      <div class="mock">
+        <div class="mock-title"><span>方案 E：双层概览 + 证据抽屉</span><span>推荐中期</span></div>
+        <div class="tree-lines">
+          <div class="tree-row"><span class="node root">页面总览</span></div>
+          <div class="tree-row" style="--indent: 14px"><span class="node">主题 1</span><span class="node">主题 2</span></div>
+          <div class="tree-row" style="--indent: 14px"><span class="node">主题 3</span><span class="node warn">争议</span></div>
+        </div>
+        <div class="card" style="margin-top:14px;background:#f8fbff;">
+          <strong>证据抽屉</strong>
+          <p class="muted">点击节点后，只在这里展示长文本、来源、反跳状态。</p>
+        </div>
+      </div>
+      <div>
+        <h3>方案 E：双层概览 + 证据抽屉</h3>
+        <p>导图区域只负责结构理解；证据抽屉负责长文本、引用和反跳。它能解决“节点里文字太多”与“来源又必须可验证”的矛盾。</p>
+        <table class="table">
+          <tr><th>优点</th><td>最适合 Navia 的伴读场景；结构和证据职责清晰。</td></tr>
+          <tr><th>缺点</th><td>需要更完整的选中态、抽屉状态和键盘导航。</td></tr>
+          <tr><th>需要改造</th><td>B 重构 MindmapSurface + EvidenceDrawer；C 输出 displayLabel 和 detailText。</td></tr>
+          <tr><th>适合场景</th><td>Side Panel 主体验、Debug 可验证 JSON、反跳证据展示。</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. 推荐路径</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>短期：方案 A</h3>
+          <p>继续收敛当前 Evidence Card Tree，让它稳定、紧凑、可读，作为 V1.3/V1.4 的默认形态。</p>
+        </div>
+        <div class="card">
+          <h3>中期：方案 E</h3>
+          <p>形成“结构导图 + 证据抽屉”的正式产品范式，保证结构扫读和来源可信同时成立。</p>
+        </div>
+        <div class="card">
+          <h3>长期：方案 C</h3>
+          <p>在 A/C 语义抽取成熟后，引入关系网络图，为 V2 知识库和长期记忆提供更强表达。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. 下一步开发门槛</h2>
+      <table class="table">
+        <tr><th>模块</th><th>需要补强</th><th>验收方式</th></tr>
+        <tr><td>A 页面感知</td><td>输出更高质量 digest kind、importance、headingPath、sourceRefs。</td><td>真实网页样本中，核心主题覆盖率和噪声率可量化。</td></tr>
+        <tr><td>C Mindmap</td><td>生成 displayLabel、主题分组、重复节点合并、typed edges。</td><td>同一页面节点数控制在 6-12 个主节点，重复标签率低于阈值。</td></tr>
+        <tr><td>B 渲染器</td><td>结构图和证据抽屉拆分，支持 hover、selected、located、fallback 状态。</td><td>原生 Side Panel 截图必须可读，不能出现竖排、重叠、长文本淹没结构。</td></tr>
+        <tr><td>D 适配层</td><td>继续保持唯一 Artifact/Event/Trace 边界，不让 B/C 直接写 Trace。</td><td>Trace 中 mindmap artifact 与 sourceRef 关联完整。</td></tr>
+      </table>
+      <p class="muted">本页不引入 RAG、Memory、Web Research、PPT、Deep Research 或多 Agent 能力；只讨论 V1.x AI 伴读中的 Mindmap 表达层和 C/B 协作升级。</p>
+    </section>
+  </main>
+</body>
+</html>

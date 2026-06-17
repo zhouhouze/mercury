@@ -90,6 +90,7 @@ docs/history/
 | `design/v1.2-closeout-gap.md` | V1.2-Closeout 收关 drawio 说明 |
 | `design/v1.3-evidence-card-mindmap-gap.md` | V1.3 Evidence Card Mindmap drawio 说明 |
 | `design/v1.3-evidence-card-mindmap-gap.drawio` | V1.3 Evidence Card Mindmap 目标架构、差异、开发计划、验收门槛、长期规划图谱 |
+| `design/v1.3-evidence-card-mindmap-readiness-audit.md` | V1.3 Evidence Card Mindmap 开发前 readiness 审计 |
 | `design/a-v1.2-contract-freeze-readiness-audit.md` | A-V1.2-0 合同冻结 readiness 审计 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2 readiness 收口审计 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | D 模块 CoreProvider / piAgent ADR |
@@ -122,6 +123,16 @@ docs/history/
 | `evidence/v1_2_ac/native-sidepanel-ux/acceptance-report.html` | V1.2-AC-Native 人类可读验收报告 |
 | `evidence/v1_2_ac/native-sidepanel-ux/false-green-audit.md` | V1.2-AC-Native false-green 审计 |
 | `evidence/v1_2_ac/native-sidepanel-ux/chatgpt-audit-closure.md` | V1.2-AC-Native ChatGPT 审计意见闭环与阶段声明边界 |
+
+V1.3 验收证据目标路径：
+
+```text
+docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json
+docs/active/project/evidence/v1_3_evidence_card_mindmap/acceptance-report.html
+docs/active/project/evidence/v1_3_evidence_card_mindmap/prd-review.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/false-green-audit.md
+docs/active/project/evidence/v1_3_evidence_card_mindmap/screenshots/
+```
 
 ## A 模块当前必读
 

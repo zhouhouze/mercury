@@ -585,9 +585,13 @@ function App() {
       return { action: command.action };
     }
     if (command.action === "source_cards_snapshot") {
+      const evidenceCardCount = document.querySelectorAll("[data-testid^='evidence-card-node-']").length;
       return {
         action: command.action,
-        sourceCards: sourceCardsSnapshot()
+        sourceCards: sourceCardsSnapshot(),
+        evidenceCardCount,
+        containsEvidenceCardMindmap: evidenceCardCount > 0,
+        containsSourcePanel: Boolean(document.querySelector("[data-testid='mindmap-source-panel']"))
       };
     }
     if (command.action === "jumpback_source_card") {

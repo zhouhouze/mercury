@@ -1,7 +1,15 @@
 import React, { useEffect, useMemo, useState } from "react";
 import mermaid from "mermaid";
 import type { ArtifactPreview } from "./chatViewTypes";
-import { buildJumpbackRequest, presentMindmapArtifact, type SourceEvidenceCard } from "../mindmap_renderer/mindmapPresentation";
+import {
+  buildJumpbackRequest,
+  presentMindmapArtifact,
+  selectEvidenceCardNode,
+  type EvidenceCardNode,
+  type EvidenceCardTheme,
+  type EvidenceCardSourcePanelStatus,
+  type SourceEvidenceCard
+} from "../mindmap_renderer/mindmapPresentation";
 
 export function ArtifactInlineCard({ artifact }: { artifact: ArtifactPreview }) {
   const isMermaid = artifact.metadata?.format === "mermaid" || artifact.type === "mindmap";
@@ -16,10 +24,22 @@ export function ArtifactInlineCard({ artifact }: { artifact: ArtifactPreview }) 
 function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
   const [svg, setSvg] = useState("");
   const [error, setError] = useState("");
-  const [selectedCard, setSelectedCard] = useState<SourceEvidenceCard | null>(null);
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  const [selectedStatus, setSelectedStatus] = useState<EvidenceCardSourcePanelStatus>("empty");
+  const [selectedFailureReason, setSelectedFailureReason] = useState<string | null>(null);
   const [jumpbackStatus, setJumpbackStatus] = useState("");
+  const [collapsedThemeIds, setCollapsedThemeIds] = useState<Set<string>>(() => new Set());
   const renderId = useMemo(() => `navia_mermaid_${artifact.artifactId.replace(/\W/g, "_")}`, [artifact.artifactId]);
   const presentation = useMemo(() => presentMindmapArtifact(artifact, error || undefined), [artifact, error]);
+  const evidenceView = useMemo(
+    () => (selectedNodeId ? selectEvidenceCardNode(presentation.evidenceCardViewModel, selectedNodeId, selectedStatus, selectedFailureReason) : presentation.evidenceCardViewModel),
+    [presentation.evidenceCardViewModel, selectedFailureReason, selectedNodeId, selectedStatus]
+  );
+  const nodeById = useMemo(() => new Map(evidenceView.nodes.map((node) => [node.nodeId, node])), [evidenceView.nodes]);
+
+  useEffect(() => {
+    setCollapsedThemeIds(new Set());
+  }, [artifact.artifactId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -42,8 +62,10 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
     };
   }, [artifact.content, renderId]);
 
-  async function requestJumpback(card: SourceEvidenceCard) {
-    setSelectedCard(card);
+  async function requestJumpback(card: SourceEvidenceCard, nodeId = card.nodeId) {
+    setSelectedNodeId(nodeId);
+    setSelectedStatus("locating");
+    setSelectedFailureReason(null);
     setJumpbackStatus("正在定位来源……");
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -54,15 +76,34 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
       });
       if (response && typeof response === "object" && (response as { ok?: unknown }).ok === true) {
         const result = (response as { result?: { status?: string; failureReason?: string } }).result;
-        setJumpbackStatus(result?.status === "highlighted" ? "已定位并高亮来源。" : `未能定位到原文位置，已显示来源证据。${result?.failureReason ? `原因：${result.failureReason}` : ""}`);
+        if (result?.status === "highlighted") {
+          setSelectedStatus("located");
+          setJumpbackStatus("已定位并高亮来源。");
+        } else {
+          setSelectedStatus("fallback_shown");
+          setSelectedFailureReason(result?.failureReason ?? "dom_jumpback_unavailable");
+          setJumpbackStatus(`未能定位到原文位置，已显示来源证据。${result?.failureReason ? `原因：${result.failureReason}` : ""}`);
+        }
       } else {
         const errorMessage = response && typeof response === "object" && typeof (response as { error?: unknown }).error === "string" ? (response as { error: string }).error : "当前页面未返回定位结果。";
+        setSelectedStatus("fallback_shown");
+        setSelectedFailureReason(errorMessage);
         setJumpbackStatus(`未能定位到原文位置，已显示来源证据。原因：${errorMessage}`);
       }
     } catch (jumpbackError) {
       const message = jumpbackError instanceof Error ? jumpbackError.message : "当前页面暂不支持定位。";
+      setSelectedStatus("fallback_shown");
+      setSelectedFailureReason(message);
       setJumpbackStatus(`未能定位到原文位置，已显示来源证据。原因：${message}`);
     }
+  }
+
+  function selectNode(node: EvidenceCardNode) {
+    const card = presentation.sourceCards.find((item) => item.nodeId === node.nodeId);
+    setSelectedNodeId(node.nodeId);
+    setSelectedStatus(card ? "ready" : "fallback_shown");
+    setSelectedFailureReason(card ? null : node.degradedReason ?? "source_ref_missing");
+    setJumpbackStatus(card ? "" : "未能定位到原文位置，已显示来源证据。原因：source_ref_missing");
   }
 
   function handleMermaidClick(event: React.MouseEvent<HTMLDivElement>) {
@@ -72,27 +113,119 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
     if (matched) void requestJumpback(matched);
   }
 
+  function toggleTheme(theme: EvidenceCardTheme, event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation();
+    setCollapsedThemeIds((current) => {
+      const next = new Set(current);
+      if (next.has(theme.themeId)) next.delete(theme.themeId);
+      else next.add(theme.themeId);
+      return next;
+    });
+  }
+
+  function renderEvidenceNode(node: EvidenceCardNode, role: "theme" | "child") {
+    const card = presentation.sourceCards.find((item) => item.nodeId === node.nodeId);
+    const nodeLevel = role === "theme" ? 1 : 2;
+    const nodeRole = role === "theme" ? "branch" : "leaf";
+    return (
+      <button
+        className={`evidence-card-node evidence-card-node-${role} evidence-card-node-${nodeRole} evidence-card-node-depth-${nodeLevel} evidence-card-node-${node.qualityState} evidence-card-node-${node.uiState}`}
+        data-node-id={node.nodeId}
+        data-source-ref-ids={node.sourceRefIds.join(",")}
+        data-testid={`evidence-card-node-${node.nodeId}`}
+        key={node.nodeId}
+        onClick={() => selectNode(node)}
+        type="button"
+      >
+        <span className="evidence-card-node-pin" aria-hidden="true" />
+        <strong title={node.label}>{compactMindmapLabel(node.label, nodeLevel, evidenceView.displayPolicy.density)}</strong>
+        <span className="evidence-card-node-meta">
+          <span>{node.sourceCount}源</span>
+          <span>{node.confidence === null ? qualityLabel(node.qualityState) : `${Math.round(node.confidence * 100)}%`}</span>
+        </span>
+        {card ? <span className="evidence-card-node-action">来源</span> : <span className="evidence-card-node-action evidence-card-node-action-muted">降级</span>}
+      </button>
+    );
+  }
+
   return (
     <>
-      {error ? (
+      {evidenceView.renderMode === "evidence_card" ? (
+        <section className="evidence-mindmap" data-testid="evidence-card-mindmap" aria-label="Evidence Card Mindmap">
+          <div className="evidence-mindmap-toolbar">
+            <span title={evidenceView.displayPolicy.rootLabel ?? undefined}>结构导图</span>
+            <small>
+              2级 · {densityLabel(evidenceView.displayPolicy.density)}
+              {evidenceView.displayPolicy.hiddenNodeCount > 0 ? ` · 收纳${evidenceView.displayPolicy.hiddenNodeCount}` : ""} · {presentation.sourceCards.length} 来源
+            </small>
+          </div>
+          <div className="evidence-mindmap-canvas" data-node-count={evidenceView.themes.length}>
+            {evidenceView.themes.map((theme) => {
+              const themeNode = nodeById.get(theme.nodeId);
+              if (!themeNode) return null;
+              const collapsed = collapsedThemeIds.has(theme.themeId);
+              return (
+                <div className={`evidence-theme-group${collapsed ? " evidence-theme-group-collapsed" : ""}`} data-theme-id={theme.themeId} key={theme.themeId}>
+                  <div className="evidence-theme-header">
+                    <button
+                      aria-expanded={!collapsed}
+                      aria-label={`${collapsed ? "展开" : "收起"} ${theme.label}`}
+                      className="evidence-theme-toggle"
+                      data-testid={`evidence-theme-toggle-${theme.nodeId}`}
+                      onClick={(event) => toggleTheme(theme, event)}
+                      type="button"
+                    >
+                      {collapsed ? "+" : "-"}
+                    </button>
+                    {renderEvidenceNode(themeNode, "theme")}
+                    <span className="evidence-theme-count">
+                      {theme.totalNodeCount}项{theme.hiddenChildCount > 0 ? ` · +${theme.hiddenChildCount}` : ""}
+                    </span>
+                  </div>
+                  {!collapsed && theme.visibleChildNodeIds.length > 0 ? (
+                    <div className="evidence-theme-children" data-testid={`evidence-theme-children-${theme.nodeId}`}>
+                      {theme.visibleChildNodeIds.map((nodeId) => {
+                        const childNode = nodeById.get(nodeId);
+                        return childNode ? renderEvidenceNode(childNode, "child") : null;
+                      })}
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+          {evidenceView.edges.length > 0 ? (
+            <div className="evidence-mindmap-edge-summary" aria-label="Mindmap edge summary">
+              {evidenceView.edges.slice(0, 10).map((edge) => (
+                <span className={`evidence-mindmap-edge evidence-mindmap-edge-${edge.uiState}`} key={edge.edgeId} />
+              ))}
+            </div>
+          ) : null}
+        </section>
+      ) : error ? (
         <p className="mermaid-fallback">{error}</p>
       ) : svg ? (
         <div className="mermaid-render" data-testid="mindmap-svg-surface" onClick={handleMermaidClick} dangerouslySetInnerHTML={{ __html: svg }} />
       ) : (
         <p className="muted">正在生成结果……</p>
       )}
+      <details className="mindmap-debug-fallback">
+        <summary>Mermaid fallback / source</summary>
+        {svg && !error ? <div className="mermaid-render mermaid-render-debug" data-testid="mindmap-svg-surface" onClick={handleMermaidClick} dangerouslySetInnerHTML={{ __html: svg }} /> : null}
+        <pre>{presentation.sourceFallback}</pre>
+      </details>
       {presentation.sourceCards.length > 0 ? (
         <div className="mindmap-source-panel" data-testid="mindmap-source-panel">
           <div className="mindmap-source-title">来源证据</div>
           <div className="mindmap-source-list">
             {presentation.sourceCards.slice(0, 8).map((card) => (
               <button
-                className="mindmap-source-card"
+                className={`mindmap-source-card${selectedNodeId === card.nodeId ? " mindmap-source-card-selected" : ""}`}
                 data-node-id={card.nodeId}
                 data-source-ref-ids={card.sourceRefIds.join(",")}
                 data-testid={`mindmap-source-card-${card.nodeId}`}
                 key={card.nodeId}
-                onClick={() => void requestJumpback(card)}
+                onClick={() => void requestJumpback(card, card.nodeId)}
                 type="button"
               >
                 <span>{card.nodeLabel}</span>
@@ -100,13 +233,25 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
               </button>
             ))}
           </div>
-          {selectedCard ? (
+          {evidenceView.sourcePanel.selectedNodeId ? (
             <div className="mindmap-source-evidence" data-testid="mindmap-source-evidence">
-              <strong>{selectedCard.nodeLabel}</strong>
-              <p>{selectedCard.fallbackText || selectedCard.textQuote}</p>
+              <strong>{evidenceView.nodes.find((node) => node.nodeId === evidenceView.sourcePanel.selectedNodeId)?.label ?? "来源证据"}</strong>
+              {evidenceView.sourcePanel.items.map((item) => (
+                <p data-jumpback-status={item.jumpbackStatus} key={item.sourceRefId}>
+                  {item.displayText}
+                </p>
+              ))}
               {jumpbackStatus ? <p className="muted">{jumpbackStatus}</p> : null}
             </div>
           ) : null}
+        </div>
+      ) : evidenceView.fallbacks.length > 0 ? (
+        <div className="mindmap-source-panel" data-testid="mindmap-source-panel">
+          <div className="mindmap-source-title">来源证据</div>
+          <div className="mindmap-source-evidence" data-testid="mindmap-source-evidence">
+            <strong>来源不可用</strong>
+            <p>{evidenceView.fallbacks.map((fallback) => fallback.detail ?? fallback.reason).join("；")}</p>
+          </div>
         </div>
       ) : null}
     </>
@@ -119,4 +264,24 @@ function artifactTitle(artifact: ArtifactPreview): string {
   if (artifact.type === "mindmap") return "Mindmap";
   if (artifact.type === "summary") return "Summary";
   return "Artifact";
+}
+
+function compactMindmapLabel(label: string, depth: number, density: "low" | "medium" | "high"): string {
+  const normalized = label.replace(/\s+/g, " ").trim();
+  const densityBudget = density === "high" ? -4 : density === "medium" ? -2 : 0;
+  const maxLength = Math.max(14, (depth === 1 ? 28 : 22) + densityBudget);
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}…`;
+}
+
+function densityLabel(density: "low" | "medium" | "high"): string {
+  if (density === "high") return "高密度";
+  if (density === "medium") return "中密度";
+  return "低密度";
+}
+
+function qualityLabel(qualityState: EvidenceCardNode["qualityState"]): string {
+  if (qualityState === "ready") return "ready";
+  if (qualityState === "degraded") return "弱";
+  return "缺源";
 }

@@ -1,0 +1,67 @@
+{
+  "contentHash": "sha256_491e0a764fd369dc825d675ec7decd6b403046a2d51b24f6e93861a3229bfc27",
+  "downstreamReadiness": "pass",
+  "fatalIssues": [],
+  "metrics": {
+    "candidateFactDensity": {
+      "denominator": 18.0,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "numerator": 10.0,
+      "passed": true,
+      "threshold": 0.5,
+      "value": 0.556
+    },
+    "contentCoverage": {
+      "denominator": 8666.0,
+      "method": "highSignalContentChars / readableContentChars",
+      "numerator": 8417.0,
+      "passed": true,
+      "threshold": 0.75,
+      "value": 0.971
+    },
+    "digestCompressionRatio": {
+      "denominator": 1470.0,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "numerator": 235.0,
+      "passed": true,
+      "threshold": 0.35,
+      "value": 0.16
+    },
+    "groundingCompleteness": {
+      "denominator": 18.0,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "numerator": 18.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "jumpbackCoverage": {
+      "denominator": 68.0,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "numerator": 68.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "noiseRatio": {
+      "denominator": 68.0,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "numerator": 2.0,
+      "passed": true,
+      "threshold": 0.25,
+      "value": 0.029
+    },
+    "sourceCoverage": {
+      "denominator": 66.0,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "numerator": 66.0,
+      "passed": true,
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "overallScore": 0.96,
+  "pageId": "news_001_go_loopvar_preview",
+  "reportId": "q_news_001_go_loopvar_preview",
+  "warnings": []
+}

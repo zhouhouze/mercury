@@ -1,0 +1,20 @@
+{
+  "screenshotPath": "screenshots/github-readme-drift-jumpback-after.png",
+  "pageUrl": "http://127.0.0.1:61462/github_readme.html",
+  "tabTitle": "WXT README - derived GitHub README fixture",
+  "isNativeSidePanel": true,
+  "containsWebPageBody": true,
+  "containsNaviaPanel": true,
+  "containsEvidenceCardMindmap": true,
+  "containsSourcePanel": true,
+  "evidenceCardCount": 16,
+  "nodeId": "node_1",
+  "result": "fallback_shown",
+  "humanReviewHint": "右侧 Navia Side Panel 显示 fallback evidence；本样本用于验证 DOM 漂移或无法定位时不冒充高亮成功。",
+  "extensionId": "nnnoagjogjdnodhkdhinndompnjjnkkg",
+  "drift": {
+    "changed": true,
+    "mode": "replace_body_after_extraction"
+  },
+  "evidenceText": "Browser extensionBrowser extension A browser extension is a small software module that changes or extends a web browser. It can add interface controls, modify page behavior, or connect the browserBrowser extension A browser extension is a small software module that changes or extends a web browser. It can add interface controls, modify page behavior, or connect the browser已定位并高亮来源。"
+}

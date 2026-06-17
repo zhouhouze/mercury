@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>Navia V1.3 Evidence Card Mindmap 验收报告</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #172033; background: #f7f8fb; }
+    header { padding: 30px 36px; background: #111827; color: white; }
+    main { padding: 28px 36px 60px; }
+    section { background: white; border: 1px solid #d9dfeb; border-radius: 8px; padding: 20px; margin-bottom: 18px; }
+    h1, h2, h3 { margin-top: 0; }
+    .status { display: inline-block; border-radius: 999px; padding: 6px 10px; background: #dcfce7; color: #166534; font-weight: 800; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .metric { border: 1px solid #e1e6ef; border-radius: 8px; padding: 12px; background: #fbfcff; }
+    .metric strong { display: block; font-size: 24px; }
+    .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    img { max-width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; background: white; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid #e5e7eb; padding: 8px; text-align: left; vertical-align: top; }
+    code { background: #eef2ff; border-radius: 4px; padding: 2px 5px; }
+    .warn { color: #b45309; }
+    .pass { color: #166534; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia V1.3 Evidence Card Mindmap 验收报告</h1>
+    <p><span class="status">通过</span> V1.3 Evidence Card Mindmap experience complete</p>
+    <p>生成时间：2026-06-17T04:06:41.122Z</p>
+  </header>
+  <main>
+    <section>
+      <h2>目标架构与当前实现</h2>
+      <p>目标链路：A 页面感知 -> C digest-first Mindmap -> D Artifact/Event/Trace -> B Evidence Card Mindmap -> 用户触发 source panel / jumpback / fallback。</p>
+      <p>本报告只证明 V1.3 Mindmap 体验升级，不声明完整 V1、Canvas Knowledge Map、RAG、Memory、Web Research、PPT 或 Deep Research ready。</p>
+    </section>
+    <section>
+      <h2>验收摘要</h2>
+      <div class="grid">
+        <div class="metric"><span>页面矩阵</span><strong>8/8</strong></div>
+        <div class="metric"><span>原生 Side Panel 截图</span><strong>5</strong></div>
+        <div class="metric"><span>Evidence Card 样本</span><strong>5</strong></div>
+        <div class="metric"><span>Fallback 样本</span><strong>2</strong></div>
+      </div>
+      <p class="pass">V1.3 报告结构、页面矩阵和截图样本满足当前门槛。</p>
+    </section>
+    <section>
+      <h2>用户体验截图证据</h2>
+      <div class="shots">
+        <figure>
+          <img src="screenshots/article-jumpback-after.png" alt="V1.3 Evidence Card screenshot" />
+          <figcaption>http://127.0.0.1:61462/article.html · pass</figcaption>
+        </figure><figure>
+          <img src="screenshots/docs-jumpback-after.png" alt="V1.3 Evidence Card screenshot" />
+          <figcaption>http://127.0.0.1:61462/docs.html · pass</figcaption>
+        </figure><figure>
+          <img src="screenshots/zh-python-modules-jumpback-after.png" alt="V1.3 Evidence Card screenshot" />
+          <figcaption>http://127.0.0.1:61462/zh_python_modules.html · pass</figcaption>
+        </figure><figure>
+          <img src="screenshots/github-readme-drift-jumpback-after.png" alt="V1.3 Evidence Card screenshot" />
+          <figcaption>http://127.0.0.1:61462/github_readme.html · pass</figcaption>
+        </figure><figure>
+          <img src="screenshots/flask-quickstart-drift-jumpback-after.png" alt="V1.3 Evidence Card screenshot" />
+          <figcaption>http://127.0.0.1:61462/product_doc.html · pass</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h2>8 页验收矩阵</h2>
+      <table>
+        <thead><tr><th>页面</th><th>类别</th><th>风险</th><th>Evidence Card</th><th>Source Panel</th><th>结论</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>zh_001_python_tutorial_index<br/><code>https://docs.python.org/zh-cn/3/tutorial/index.html</code></td>
+            <td>chinese_complex</td>
+            <td>normal</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>zh_002_python_tutorial_intro<br/><code>https://docs.python.org/zh-cn/3/tutorial/introduction.html</code></td>
+            <td>chinese_complex</td>
+            <td>long_text</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>zh_003_python_tutorial_controlflow<br/><code>https://docs.python.org/zh-cn/3/tutorial/controlflow.html</code></td>
+            <td>chinese_complex</td>
+            <td>duplicate_labels</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>tech_001_go_effective<br/><code>https://go.dev/doc/effective_go</code></td>
+            <td>technical_doc</td>
+            <td>missing_source</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>tech_002_python_tutorial_intro<br/><code>https://docs.python.org/3/tutorial/introduction.html</code></td>
+            <td>technical_doc</td>
+            <td>normal</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>tech_003_python_tutorial_controlflow<br/><code>https://docs.python.org/3/tutorial/controlflow.html</code></td>
+            <td>technical_doc</td>
+            <td>normal</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>github_002_pallets_flask<br/><code>https://raw.githubusercontent.com/pallets/flask/main/README.md</code></td>
+            <td>github_readme</td>
+            <td>normal</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr><tr>
+            <td>github_003_django_django<br/><code>https://raw.githubusercontent.com/django/django/main/README.rst</code></td>
+            <td>github_readme</td>
+            <td>normal</td>
+            <td>fail</td>
+            <td>fail</td>
+            <td>pass</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>测试命令</h2>
+      <table>
+        <thead><tr><th>命令</th><th>状态</th><th>证据</th></tr></thead>
+        <tbody>
+          <tr><td><code>npm run e2e:chrome:jumpback-closeout</code></td><td>pass</td><td>docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/report.json</td></tr><tr><td><code>npm --prefix apps/chrome-extension test -- mindmap_renderer chat_renderer/tests/ArtifactInlineCard.test.tsx chat_renderer/tests/chatPresentation.test.ts</code></td><td>pass</td><td></td></tr><tr><td><code>npm --prefix apps/chrome-extension run typecheck</code></td><td>pass</td><td></td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

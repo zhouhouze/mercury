@@ -10,10 +10,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
 const extensionRoot = path.resolve(__dirname, "../chrome-mv3-unpacked");
 const runtimeUrl = "http://127.0.0.1:17861";
-const evidenceRoot = path.join(repoRoot, "docs/active/project/evidence/v1_2_closeout");
+const evidenceRoot = path.join(
+  repoRoot,
+  process.env.NAVIA_CLOSEOUT_EVIDENCE_ROOT || "docs/active/project/evidence/v1_2_closeout"
+);
 const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const blockerRoot = path.join(evidenceRoot, "blockers");
 const browserMode = process.env.NAVIA_NATIVE_BROWSER || "chromium";
+const reportPathFromRepoRoot = path.relative(repoRoot, path.join(evidenceRoot, "report.json"));
 
 const fixturePages = [
   { route: "/article.html", file: "docs/active/project/fixtures/real_pages/article.html", label: "article", category: "long_article", forceFallback: false },
@@ -313,6 +317,9 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
 
   const cardsResult = await runBridgeCommand(serviceWorker, { action: "source_cards_snapshot" });
   const sourceCards = cardsResult.result?.sourceCards ?? cardsResult.sourceCards ?? [];
+  const containsEvidenceCardMindmap = Boolean(cardsResult.result?.containsEvidenceCardMindmap ?? cardsResult.containsEvidenceCardMindmap);
+  const containsSourcePanel = Boolean(cardsResult.result?.containsSourcePanel ?? cardsResult.containsSourcePanel);
+  const evidenceCardCount = Number(cardsResult.result?.evidenceCardCount ?? cardsResult.evidenceCardCount ?? 0);
   if (!Array.isArray(sourceCards) || sourceCards.length === 0) throw new Error(`No source cards for ${pageSpec.label}.`);
   const cardIndex = sourceCards.length > 1 ? 1 : 0;
   const selectedCard = sourceCards[cardIndex] ?? sourceCards[0];
@@ -336,6 +343,9 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
     isNativeSidePanel: true,
     containsWebPageBody: true,
     containsNaviaPanel: true,
+    containsEvidenceCardMindmap,
+    containsSourcePanel,
+    evidenceCardCount,
     nodeId: String(selectedCard.nodeId || selectedCard.testId || selectedCard.label || pageSpec.label).replace(/^mindmap-source-card-/, ""),
     result,
     humanReviewHint:
@@ -361,6 +371,9 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
     beforeScreenshotPath,
     afterScreenshotPath,
     metadataPath,
+    containsEvidenceCardMindmap,
+    containsSourcePanel,
+    evidenceCardCount,
     attempts
   };
 }
@@ -412,7 +425,7 @@ function buildReport({ matrix, samples, blockers }) {
       {
         command: "npm run e2e:chrome:jumpback-closeout",
         status: passed ? "passed" : "failed",
-        evidencePath: "docs/active/project/evidence/v1_2_closeout/report.json"
+        evidencePath: reportPathFromRepoRoot
       }
     ],
     claim: "V1.2 AI Reading mock-first product path complete"
@@ -517,7 +530,13 @@ main().catch((error) => {
     },
     pages: [],
     jumpbackSamples: [],
-    testCommands: [{ command: "npm run e2e:chrome:jumpback-closeout", status: "failed", evidencePath: `docs/active/project/evidence/v1_2_closeout/blockers/${blocker.blockerId}.json` }],
+    testCommands: [
+      {
+        command: "npm run e2e:chrome:jumpback-closeout",
+        status: "failed",
+        evidencePath: path.relative(repoRoot, path.join(blockerRoot, `${blocker.blockerId}.json`))
+      }
+    ],
     claim: "V1.2 AI Reading mock-first product path complete"
   });
   console.error(error instanceof Error ? error.stack || error.message : String(error));
