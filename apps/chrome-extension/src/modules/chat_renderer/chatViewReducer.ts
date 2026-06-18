@@ -12,7 +12,6 @@ import {
   type InlineStatus
 } from "./chatViewTypes";
 
-const INITIAL_MESSAGE = "你可以直接提问。需要页面内容时，我会自动读取当前页面。";
 const TECHNICAL_TERMS = [
   "PiAgentCoreProvider",
   "CoreEvent",
@@ -30,18 +29,10 @@ const TECHNICAL_TERMS = [
   "当前正在 pi-agent-bridge 模块中工作"
 ];
 
-export function createChatViewState(profile: ChatProfile = "chat", initialMessage = INITIAL_MESSAGE): ChatViewState {
+export function createChatViewState(profile: ChatProfile = "chat"): ChatViewState {
   return {
     profile,
-    messages: [
-      {
-        id: createId("sys"),
-        role: "system",
-        kind: "status",
-        text: initialMessage,
-        createdAt: now()
-      }
-    ],
+    messages: [],
     artifacts: [],
     debugEvents: [],
     debugWarnings: []
@@ -53,7 +44,7 @@ export function chatViewReducer(state: ChatViewState, action: ChatViewAction): C
     case "set_profile":
       return { ...state, profile: action.profile };
     case "reset":
-      return createChatViewState(state.profile, action.initialMessage);
+      return createChatViewState(state.profile);
     case "restore_messages":
       return restoreMessages(state, action.messages);
     case "system_message":
@@ -82,9 +73,10 @@ export function chatViewReducer(state: ChatViewState, action: ChatViewAction): C
 
 function restoreMessages(
   state: ChatViewState,
-  messages: Array<{ id: string; role: string; text: string; turnId?: string; artifact?: ArtifactRecord }>
+  messages: Array<{ id: string; role: string; text: string; turnId?: string; artifact?: ArtifactRecord; artifacts?: ArtifactRecord[] }>
 ): ChatViewState {
   const restored = messages.map((message): ChatMessageView => {
+    const artifacts = message.artifacts ?? (message.artifact ? [message.artifact] : []);
     if (message.role === "assistant") {
       return {
         id: message.id,
@@ -93,7 +85,7 @@ function restoreMessages(
         text: sanitizeUserText(message.text),
         status: "done",
         createdAt: now(),
-        artifacts: message.artifact ? [message.artifact] : []
+        artifacts
       };
     }
     if (message.role === "user") {

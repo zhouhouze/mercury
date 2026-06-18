@@ -103,6 +103,7 @@ export type ChatMessage = {
   text: string;
   turnId?: string;
   artifact?: ArtifactRecord;
+  artifacts?: ArtifactRecord[];
 };
 
 export type RestoredMessage = {
@@ -122,6 +123,47 @@ export type RestoredSession = {
   } | null;
   messages?: RestoredMessage[];
   artifacts?: ArtifactRecord[];
+};
+
+export type PageRef = {
+  id: string;
+  url: string;
+  title: string;
+  domain: string;
+  capturedAt: string;
+  contentHash?: string;
+};
+
+export type ChatSession = {
+  id: string;
+  title: string;
+  profile: RuntimeProfile;
+  createdAt: string;
+  updatedAt: string;
+  lastMessageAt?: string;
+  pageRef?: PageRef | null;
+  messageCount: number;
+  archived?: boolean;
+  lastMessageExcerpt?: string;
+  hasArtifacts?: boolean;
+};
+
+export type ChatMessageRecord = {
+  id: string;
+  sessionId: string;
+  turnId?: string;
+  role: ChatRole;
+  kind?: "normal" | "status" | "deferred" | "error";
+  content: string;
+  createdAt: string;
+  artifactIds?: string[];
+  pageContextId?: string;
+};
+
+export type ChatSessionMessagesResponse = {
+  session: ChatSession;
+  messages: ChatMessageRecord[];
+  artifacts: ArtifactRecord[];
 };
 
 export type StructuredPageDebug = Record<string, unknown>;
@@ -147,6 +189,55 @@ export async function createRuntimeSession(source: string): Promise<string> {
   const id = body.session_id;
   await chrome.storage.local.set({ [LAST_SESSION_STORAGE_KEY]: id });
   return id;
+}
+
+export async function listChatSessions(): Promise<ChatSession[]> {
+  const body = await runtimeJson<{ sessions: ChatSession[] }>({ path: "/v1/chat/sessions" });
+  return unwrapApiResponse(body).sessions;
+}
+
+export async function createChatSession(input: { title?: string; profile?: RuntimeProfile; pageRef?: PageRef; source?: string } = {}): Promise<ChatSession> {
+  const body = await runtimeJson<{ session: ChatSession }>({
+    path: "/v1/chat/sessions",
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: input
+  });
+  const session = unwrapApiResponse(body).session;
+  await chrome.storage.local.set({ [LAST_SESSION_STORAGE_KEY]: session.id });
+  return session;
+}
+
+export async function getChatSession(sessionId: string): Promise<ChatSession | null> {
+  const body = await runtimeJson<{ session: ChatSession }>({ path: `/v1/chat/sessions/${sessionId}` });
+  if (!body.ok) return null;
+  return unwrapApiResponse(body).session;
+}
+
+export async function patchChatSession(
+  sessionId: string,
+  input: Partial<Pick<ChatSession, "title" | "profile" | "archived" | "pageRef">>
+): Promise<ChatSession> {
+  const body = await runtimeJson<{ session: ChatSession }>({
+    path: `/v1/chat/sessions/${sessionId}`,
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: input
+  });
+  return unwrapApiResponse(body).session;
+}
+
+export async function archiveChatSession(sessionId: string): Promise<ChatSession> {
+  const body = await runtimeJson<{ session: ChatSession }>({
+    path: `/v1/chat/sessions/${sessionId}`,
+    method: "DELETE"
+  });
+  return unwrapApiResponse(body).session;
+}
+
+export async function getChatSessionMessages(sessionId: string): Promise<ChatSessionMessagesResponse> {
+  const body = await runtimeJson<ChatSessionMessagesResponse>({ path: `/v1/chat/sessions/${sessionId}/messages` });
+  return unwrapApiResponse(body);
 }
 
 export async function getLastSessionId(): Promise<string | null> {
@@ -246,7 +337,7 @@ export async function submitRuntimePageContext(
 }
 
 export async function streamRuntimeChat(
-  sessionId: string,
+  sessionId: string | null,
   message: string,
   onEvent: (event: AgentEvent) => void | Promise<void>,
   overrides?: {
@@ -265,7 +356,7 @@ export async function streamRuntimeChat(
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: {
-      session_id: sessionId,
+      ...(sessionId ? { session_id: sessionId } : {}),
       message,
       source: "typed",
       request_id: `req_${crypto.randomUUID().replace(/-/g, "")}`,
@@ -293,6 +384,28 @@ export function restoreMessages(restored: RestoredSession): ChatMessage[] {
       turnId: message.turn_id,
       artifact: message.turn_id ? artifactsByTurn.get(message.turn_id) : undefined
     }));
+}
+
+export function restoreChatSessionMessages(restored: ChatSessionMessagesResponse): ChatMessage[] {
+  const artifactsByTurn = new Map<string, ArtifactRecord[]>();
+  for (const artifact of restored.artifacts ?? []) {
+    const existing = artifactsByTurn.get(artifact.turnId) ?? [];
+    existing.push(artifact);
+    artifactsByTurn.set(artifact.turnId, existing);
+  }
+  return (restored.messages ?? [])
+    .filter((message) => message.role === "user" || message.role === "assistant" || message.role === "system")
+    .map((message) => {
+      const artifacts = message.turnId ? artifactsByTurn.get(message.turnId) ?? [] : [];
+      return {
+        id: message.id,
+        role: message.role,
+        text: message.content,
+        turnId: message.turnId,
+        artifact: artifacts[0],
+        artifacts
+      };
+    });
 }
 
 async function readSse(stream: ReadableStream<Uint8Array>, onEvent: (event: AgentEvent) => void | Promise<void>) {
