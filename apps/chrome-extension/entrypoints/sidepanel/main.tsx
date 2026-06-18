@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useReducer, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
 import type { ExtractedPageContext } from "../../src/pageContext";
@@ -8,22 +8,32 @@ import { DeferredCapabilityNotice } from "../../src/modules/chat_renderer/Deferr
 import { InlineStatusRow } from "../../src/modules/chat_renderer/InlineStatusRow";
 import { UserMessage } from "../../src/modules/chat_renderer/UserMessage";
 import { chatViewReducer, createChatViewState } from "../../src/modules/chat_renderer/chatViewReducer";
+import type { ChatMessageView } from "../../src/modules/chat_renderer/chatViewTypes";
 import { canSubmitChatInput, shouldSubmitOnKeyDown } from "../../src/chatInputShortcuts";
 import { createChatProviderTestCollector, type ChatProviderTestStatus } from "../../src/settingsDiagnostics";
+import { TurnNavigatorView } from "../../src/TurnNavigatorView";
+import {
+  getHistorySessions,
+  getSessionDisplayTitle,
+  shouldReuseActiveSessionForNewChat
+} from "../../src/sessionHistory";
+import { SessionHistoryOverlay } from "../../src/sessionHistoryOverlay";
+import { deriveConversationTurns, groupMessagesByTurn, shouldShowTurnNavigator } from "../../src/turnNavigator";
 import {
   checkRuntimeHealth,
-  clearLastSessionId,
-  createRuntimeSession,
+  createChatSession,
   deleteProvider,
+  getChatSessionMessages,
   getLastSessionId,
   getSettings,
   importProvider,
+  listChatSessions,
   patchSettings,
-  restoreMessages,
-  restoreRuntimeSession,
+  restoreChatSessionMessages,
   streamRuntimeChat,
   submitRuntimePageContext,
   testProvider,
+  type ChatSession,
   type ChatIntent,
   type ChatProviderConfig,
   type CoreProviderId,
@@ -50,6 +60,13 @@ type ChatTurnState =
   | "artifact_rendering"
   | "done"
   | "error";
+type SessionState = {
+  currentSessionId?: string;
+  sessions: ChatSession[];
+  loadingSessions: boolean;
+  creatingSession: boolean;
+  switchingSession: boolean;
+};
 const DEFAULT_DEEPSEEK_MODELS = ["deepseek-v4-flash", "deepseek-v4-pro", "deepseek-chat", "deepseek-reasoner"];
 const CORE_PROVIDERS: CoreProviderId[] = ["llm_direct", "piagent", "mock"];
 const CHAT_PROVIDER_TEST_PROMPT = "请只用普通文本回复 pong，不调用任何工具。";
@@ -57,7 +74,14 @@ const CHAT_PROVIDER_TEST_TIMEOUT_MS = 20_000;
 
 function App() {
   const [runtimeStatus, setRuntimeStatus] = useState<RuntimeStatus>("checking");
-  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessionState, setSessionState] = useState<SessionState>({
+    sessions: [],
+    loadingSessions: false,
+    creatingSession: false,
+    switchingSession: false
+  });
+  const [sessionMenuOpen, setSessionMenuOpen] = useState(false);
+  const [sessionSwitchError, setSessionSwitchError] = useState<string | null>(null);
   const [pageContext, setPageContext] = useState<ExtractedPageContext | null>(null);
   const [pageContextState, setPageContextState] = useState<PageContextState>("unknown");
   const [chatTurnState, setChatTurnState] = useState<ChatTurnState>("idle");
@@ -84,16 +108,29 @@ function App() {
   const [chatView, dispatchChatView] = useReducer(chatViewReducer, undefined, () => createChatViewState("chat"));
   const [streamStatus, setStreamStatus] = useState("idle");
   const [activeView, setActiveView] = useState<SideView>("chat");
+  const [turnNavigatorOpen, setTurnNavigatorOpen] = useState(false);
+  const [turnNavigatorVisible, setTurnNavigatorVisible] = useState(false);
+  const [activeHighlightedTurnId, setActiveHighlightedTurnId] = useState<string | null>(null);
   const [isComposing, setIsComposing] = useState(false);
   const [isSubmittingChat, setIsSubmittingChat] = useState(false);
   const isSubmittingChatRef = useRef(false);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const messagesRef = useRef<HTMLDivElement | null>(null);
+  const sessionPickerRef = useRef<HTMLButtonElement | null>(null);
+  const overflowRafRef = useRef<number | null>(null);
+  const overflowDebounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const highlightTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const e2eStateRef = useRef<Record<string, unknown>>({});
   const e2eHandlersRef = useRef<E2EHandlers>({});
   const canChat = runtimeStatus === "online" && streamStatus !== "streaming";
   const isStreamingOrExecuting = streamStatus === "streaming" || chatTurnState === "executing_chat" || chatTurnState === "streaming_response";
   const canStartChatAction = canChat && !isSubmittingChat && !isStreamingOrExecuting;
   const canSubmitCurrentInput = canSubmitChatInput({ value: input, canChat, isSubmitting: isSubmittingChat, isStreamingOrExecuting });
+  const sessionId = sessionState.currentSessionId ?? null;
+  const currentSession = sessionState.sessions.find((session) => session.id === sessionState.currentSessionId) ?? null;
+  const visibleSessionMenuSessions = getHistorySessions(sessionState.sessions);
+  const turnAnchors = useMemo(() => deriveConversationTurns(chatView.messages), [chatView.messages]);
+  const messageGroups = useMemo(() => groupMessagesByTurn(chatView.messages), [chatView.messages]);
 
   function normalizeView(value: string | null | undefined): SideView {
     if (value === "agent" || value === "debug" || value === "settings" || value === "chat") return value;
@@ -123,10 +160,9 @@ function App() {
   }
 
   async function ensureSession() {
-    if (sessionId) return sessionId;
-    const id = await createRuntimeSession("sidepanel");
-    setSessionId(id);
-    return id;
+    if (sessionState.currentSessionId) return sessionState.currentSessionId;
+    const session = await createNewSession({ resetView: false });
+    return session.id;
   }
 
   async function loadSettings() {
@@ -153,40 +189,151 @@ function App() {
   }
 
   async function restoreLastSession() {
-    const lastSessionId = await getLastSessionId();
-    if (!lastSessionId) return;
+    setSessionState((current) => ({ ...current, loadingSessions: true }));
     try {
-      const restored = await restoreRuntimeSession(lastSessionId);
-      if (!restored) return;
-      const currentUrl = await getActiveTabUrl();
-      if (restored.activePage && currentUrl && !isSamePageUrl(restored.activePage.url, currentUrl)) {
-        await clearLastSessionId();
-        setSessionId(null);
-        setPageContext(null);
-        setPageSubmitted(false);
-        setPageContextState("stale");
-        setSubmitStatus("最近 session 与当前页面不匹配，请重新读取页面。");
+      const sessions = await listChatSessions();
+      const lastSessionId = await getLastSessionId();
+      const selected = sessions.find((session) => session.id === lastSessionId) ?? sessions[0] ?? null;
+      if (!selected) {
+        await createNewSession({ resetView: true, sessions });
         return;
       }
-      setSessionId(restored.session_id);
-      if (restored.activePage) {
-        setPageContext({
-          url: restored.activePage.url,
-          title: restored.activePage.title,
-          domain: restored.activePage.domain,
-          captured_at: restored.activePage.captured_at ?? new Date().toISOString(),
-          headings: [],
-          visible_text: "",
-          cleaned_text: ""
-        });
-        setPageSubmitted(true);
-        setPageContextState("captured");
-        setSubmitStatus(`已恢复：${restored.activePage.title}`);
-      }
-      const restoredMessages = restoreMessages(restored);
-      if (restoredMessages.length > 0) dispatchChatView({ type: "restore_messages", messages: restoredMessages });
+      setSessionState((current) => ({ ...current, sessions, currentSessionId: selected.id, loadingSessions: false }));
+      await hydrateSession(selected.id);
+    } catch (error) {
+      setSessionState((current) => ({ ...current, loadingSessions: false }));
+      dispatchChatView({
+        type: "system_message",
+        kind: "error",
+        text: error instanceof Error ? `会话加载失败：${error.message}` : "会话加载失败。"
+      });
+    }
+  }
+
+  async function createNewSession(options: { resetView: boolean; sessions?: ChatSession[] } = { resetView: true }): Promise<ChatSession> {
+    setSessionState((current) => ({ ...current, creatingSession: true }));
+    setSessionMenuOpen(false);
+    setSessionSwitchError(null);
+    try {
+      const session = await createChatSession({ profile: "chat", source: "sidepanel" });
+      setSessionState((current) => ({
+        ...current,
+        currentSessionId: session.id,
+        sessions: [session, ...(options.sessions ?? current.sessions).filter((item) => item.id !== session.id)],
+        loadingSessions: false,
+        creatingSession: false
+      }));
+      setInput("");
+      setPageSubmitted(false);
+      setSubmitStatus(pageContext ? "新会话尚未提交页面上下文" : "未提交页面上下文");
+      setPageContextState(pageContext ? "capture_ready" : "unknown");
+      if (options.resetView) dispatchChatView({ type: "reset" });
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
+      return session;
+    } catch (error) {
+      setSessionState((current) => ({ ...current, loadingSessions: false, creatingSession: false }));
+      throw error;
+    }
+  }
+
+  async function startNewSession(): Promise<ChatSession | null> {
+    if (shouldReuseActiveSessionForNewChat(currentSession)) {
+      setSessionMenuOpen(false);
+      setSessionSwitchError(null);
+      setInput("");
+      setPageSubmitted(false);
+      setSubmitStatus(pageContext ? "新会话尚未提交页面上下文" : "未提交页面上下文");
+      setPageContextState(pageContext ? "capture_ready" : "unknown");
+      dispatchChatView({ type: "reset" });
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
+      return currentSession;
+    }
+    return createNewSession({ resetView: true });
+  }
+
+  async function switchSession(nextSessionId: string) {
+    if (nextSessionId === sessionState.currentSessionId || sessionState.switchingSession) return;
+    setSessionSwitchError(null);
+    setSessionState((current) => ({ ...current, switchingSession: true }));
+    setInput("");
+    try {
+      await hydrateSession(nextSessionId);
+      setSessionMenuOpen(false);
+      window.setTimeout(() => textareaRef.current?.focus(), 0);
     } catch {
-      await clearLastSessionId();
+      setSessionSwitchError("会话加载失败，请重试。");
+    } finally {
+      setSessionState((current) => ({ ...current, switchingSession: false }));
+    }
+  }
+
+  function closeSessionMenu(options: { restoreFocus?: boolean } = { restoreFocus: true }) {
+    setSessionMenuOpen(false);
+    setSessionSwitchError(null);
+    if (options.restoreFocus) {
+      window.setTimeout(() => sessionPickerRef.current?.focus(), 0);
+    }
+  }
+
+  const clearHighlightTimer = useCallback(() => {
+    if (highlightTimerRef.current) {
+      clearTimeout(highlightTimerRef.current);
+      highlightTimerRef.current = null;
+    }
+  }, []);
+
+  function selectTurnFromNavigator(turnId: string) {
+    setTurnNavigatorOpen(false);
+    const target = document.getElementById(turnDomId(turnId));
+    if (!target) return;
+    target.scrollIntoView({ block: "start", behavior: "smooth" });
+    clearHighlightTimer();
+    setActiveHighlightedTurnId(turnId);
+    highlightTimerRef.current = setTimeout(() => {
+      setActiveHighlightedTurnId(null);
+      highlightTimerRef.current = null;
+    }, 1500);
+    window.setTimeout(() => textareaRef.current?.focus(), 0);
+  }
+
+  async function hydrateSession(nextSessionId: string) {
+    const restored = await getChatSessionMessages(nextSessionId);
+    const messages = restoreChatSessionMessages(restored);
+    dispatchChatView(messages.length > 0 ? { type: "restore_messages", messages } : { type: "reset" });
+    setSessionState((current) => ({
+      ...current,
+      currentSessionId: restored.session.id,
+      sessions: [restored.session, ...current.sessions.filter((session) => session.id !== restored.session.id)]
+    }));
+    applySessionPageRef(restored.session);
+  }
+
+  function applySessionPageRef(session: ChatSession) {
+    if (!session.pageRef) {
+      setPageSubmitted(false);
+      setSubmitStatus("此会话暂无页面上下文");
+      return;
+    }
+    setPageContext({
+      url: session.pageRef.url,
+      title: session.pageRef.title,
+      domain: session.pageRef.domain,
+      captured_at: session.pageRef.capturedAt,
+      headings: [],
+      visible_text: "",
+      cleaned_text: ""
+    });
+    setPageSubmitted(true);
+    setPageContextState("captured");
+    setSubmitStatus(`已恢复：${session.pageRef.title}`);
+  }
+
+  async function refreshChatSessions() {
+    try {
+      const sessions = await listChatSessions();
+      setSessionState((current) => ({ ...current, sessions }));
+    } catch {
+      // Session refresh is non-critical after a completed stream.
     }
   }
 
@@ -216,6 +363,7 @@ function App() {
       setPageSubmitted(result.ok);
       setPageContextState(result.ok ? "captured" : "failed");
       setSubmitStatus(result.ok ? `已提交：${result.pageId}` : result.message ?? "提交失败");
+      if (result.ok) await refreshChatSessions();
     } catch {
       setPageSubmitted(false);
       setPageContextState("failed");
@@ -456,6 +604,7 @@ function App() {
         },
         chatStreamOptions(intent, intentRequiresPageContext(intent, trimmed), chatProviderDraft)
       );
+      await refreshChatSessions();
       setStreamStatus("done");
       setChatTurnState("done");
     } catch (error) {
@@ -484,6 +633,7 @@ function App() {
       setPageSubmitted(result.ok);
       setPageContextState(result.ok ? "captured" : "failed");
       setSubmitStatus(result.ok ? `已提交：${result.pageId}` : result.message ?? "提交失败");
+      if (result.ok) await refreshChatSessions();
       return result.ok ? { ok: true } : { ok: false, message: result.message ?? "页面读取失败，可重试或继续普通聊天。" };
     } catch (error) {
       const unsupported = error instanceof PageUnsupportedError;
@@ -605,6 +755,61 @@ function App() {
     void loadSettings();
   }, []);
 
+  const measureTurnNavigator = useCallback(() => {
+    const container = messagesRef.current;
+    const nextVisible = container
+      ? shouldShowTurnNavigator({
+          turnCount: turnAnchors.length,
+          clientHeight: container.clientHeight,
+          scrollHeight: container.scrollHeight
+        })
+      : false;
+    setTurnNavigatorVisible((current) => (current === nextVisible ? current : nextVisible));
+    if (!nextVisible) setTurnNavigatorOpen(false);
+  }, [turnAnchors.length]);
+
+  const scheduleTurnNavigatorMeasure = useCallback(() => {
+    if (overflowDebounceRef.current) clearTimeout(overflowDebounceRef.current);
+    overflowDebounceRef.current = setTimeout(() => {
+      if (overflowRafRef.current !== null) cancelAnimationFrame(overflowRafRef.current);
+      overflowRafRef.current = requestAnimationFrame(() => {
+        overflowRafRef.current = null;
+        measureTurnNavigator();
+      });
+    }, 80);
+  }, [measureTurnNavigator]);
+
+  useEffect(() => {
+    scheduleTurnNavigatorMeasure();
+  }, [chatView.messages, chatView.activeStatus, scheduleTurnNavigatorMeasure]);
+
+  useEffect(() => {
+    const container = messagesRef.current;
+    if (!container) return;
+    const resizeObserver = typeof ResizeObserver !== "undefined" ? new ResizeObserver(() => scheduleTurnNavigatorMeasure()) : null;
+    resizeObserver?.observe(container);
+    window.addEventListener("resize", scheduleTurnNavigatorMeasure);
+    scheduleTurnNavigatorMeasure();
+    return () => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", scheduleTurnNavigatorMeasure);
+    };
+  }, [scheduleTurnNavigatorMeasure]);
+
+  useEffect(() => {
+    setTurnNavigatorOpen(false);
+    setActiveHighlightedTurnId(null);
+    clearHighlightTimer();
+  }, [clearHighlightTimer, sessionId]);
+
+  useEffect(() => {
+    return () => {
+      clearHighlightTimer();
+      if (overflowDebounceRef.current) clearTimeout(overflowDebounceRef.current);
+      if (overflowRafRef.current !== null) cancelAnimationFrame(overflowRafRef.current);
+    };
+  }, [clearHighlightTimer]);
+
   useEffect(() => {
     const applyHash = () => {
       const nextView = normalizeView(window.location.hash.replace(/^#/, ""));
@@ -619,31 +824,96 @@ function App() {
   return (
     <main className="shell shell-layout" data-testid="navia-sidepanel-root">
       <section className="main-pane">
-        <header className="topbar">
-          <div className="topbar-copy">
-            <div>
-              <h1>{activeView === "chat" ? "聊天" : activeView === "agent" ? "Agent" : activeView === "debug" ? "Debug" : "设置"}</h1>
+        <header className={`topbar unified-topbar ${activeView === "chat" ? "chat-topbar" : "view-topbar"}`}>
+          {activeView === "chat" ? (
+            <>
+              <p className="topbar-status topbar-status-sr" data-testid="runtime-status">
+                Runtime {runtimeStatus} · Page {pageContextState} · {chatTurnState}
+              </p>
+              <div className="topbar-edge" aria-hidden="true" />
+              <div className="session-picker-wrap topbar-session-picker">
+                <button
+                  ref={sessionPickerRef}
+                  className="session-picker-trigger"
+                  type="button"
+                  data-testid="session-picker"
+                  disabled={runtimeStatus !== "online" || sessionState.loadingSessions}
+                  aria-expanded={sessionMenuOpen}
+                  aria-label="切换会话"
+                  title="切换会话"
+                  onClick={() => {
+                    setSessionSwitchError(null);
+                    setSessionMenuOpen(!sessionMenuOpen);
+                  }}
+                >
+                  <span className="session-title-text">{getSessionDisplayTitle(currentSession)}</span>
+                  <span className="session-caret">⌄</span>
+                </button>
+              </div>
+              <button
+                className="new-session-button topbar-new-session"
+                type="button"
+                data-testid="new-session"
+                aria-label="新建会话"
+                title="新建会话"
+                disabled={runtimeStatus !== "online" || sessionState.creatingSession || isStreamingOrExecuting}
+                onClick={() => void startNewSession()}
+              >
+                +
+              </button>
+            </>
+          ) : (
+            <div className="topbar-view-copy">
+              <span className="topbar-view-title">{activeView === "agent" ? "Agent" : activeView === "debug" ? "Debug" : "设置"}</span>
               <p className="topbar-status" data-testid="runtime-status">
                 Runtime {runtimeStatus} · Page {pageContextState} · {chatTurnState}
               </p>
             </div>
-          </div>
+          )}
         </header>
+
+        {activeView === "chat" && sessionMenuOpen ? (
+          <SessionHistoryOverlay
+            sessions={visibleSessionMenuSessions}
+            currentSessionId={sessionState.currentSessionId}
+            switchingSession={sessionState.switchingSession}
+            creatingSession={sessionState.creatingSession}
+            canCreateSession={runtimeStatus === "online" && !isStreamingOrExecuting}
+            error={sessionSwitchError}
+            onClose={() => closeSessionMenu()}
+            onSelect={switchSession}
+            onCreate={() => void startNewSession()}
+          />
+        ) : null}
 
         {activeView === "chat" ? (
           <section className="chat-stage">
-            <div className="messages" aria-live="polite">
-              {chatView.messages.map((message) => {
-                if (message.role === "user") return <UserMessage message={message} key={message.id} />;
-                if (message.role === "assistant") return <AssistantMessage message={message} key={message.id} />;
-                return (
-                  <article className={`message system ${message.kind}`} key={message.id}>
-                    <pre>{message.text}</pre>
-                  </article>
-                );
-              })}
-              {chatView.activeStatus ? <InlineStatusRow status={chatView.activeStatus} /> : null}
-              {chatView.deferredNotice ? <DeferredCapabilityNotice notice={chatView.deferredNotice} /> : null}
+            <div className="messages-frame">
+              <div className="messages" aria-live="polite" ref={messagesRef}>
+                {messageGroups.map((group) => {
+                  if (group.kind === "single") return renderChatMessage(group.message);
+                  return (
+                    <div
+                      className={`conversation-turn ${activeHighlightedTurnId === group.turnId ? "highlight" : ""}`}
+                      data-turn-id={group.turnId}
+                      id={turnDomId(group.turnId)}
+                      key={group.turnId}
+                    >
+                      {group.messages.map((message) => renderChatMessage(message))}
+                    </div>
+                  );
+                })}
+                {chatView.activeStatus ? <InlineStatusRow status={chatView.activeStatus} /> : null}
+                {chatView.deferredNotice ? <DeferredCapabilityNotice notice={chatView.deferredNotice} /> : null}
+              </div>
+              <TurnNavigatorView
+                turns={turnAnchors}
+                visible={turnNavigatorVisible}
+                open={turnNavigatorOpen}
+                onToggle={() => setTurnNavigatorOpen((current) => !current)}
+                onClose={() => setTurnNavigatorOpen(false)}
+                onSelect={selectTurnFromNavigator}
+              />
             </div>
 
             <div className="composer-stack">
@@ -653,7 +923,6 @@ function App() {
                 <button data-testid="summarize-page" disabled={!canStartChatAction} onClick={() => sendChat("总结当前页面", "summarize_page")} type="button">总结</button>
                 <button data-testid="mindmap-page" disabled={!canStartChatAction} onClick={() => sendChat("生成当前页面的思维导图", "mindmap_page")} type="button">Mindmap</button>
                 <button data-testid="explain-selection" disabled={!canStartChatAction} onClick={() => sendChat("解释选中内容", "explain_selection")} type="button">解释选区</button>
-                <button data-testid="new-chat" disabled={!canStartChatAction} onClick={() => sendChat("新对话", "general_chat")} type="button">新对话</button>
               </div>
 
               <form
@@ -675,7 +944,7 @@ function App() {
                   onCompositionStart={() => setIsComposing(true)}
                   onCompositionEnd={() => setIsComposing(false)}
                   onKeyDown={handleInputKeyDown}
-                  placeholder={runtimeStatus === "online" ? "你可以直接提问。Enter 发送，Shift+Enter 换行。需要页面内容时，我会自动读取当前页面。" : "请先连接 Runtime。"}
+                  placeholder={runtimeStatus === "online" ? "问点什么…" : "请先连接 Runtime。"}
                   rows={2}
                 />
                 <button data-testid="send-message" disabled={!canSubmitCurrentInput} title="Enter 发送，Shift+Enter 换行" type="submit">发送</button>
@@ -988,6 +1257,20 @@ function App() {
       </aside>
     </main>
   );
+}
+
+function renderChatMessage(message: ChatMessageView): React.ReactNode {
+  if (message.role === "user") return <UserMessage message={message} key={message.id} />;
+  if (message.role === "assistant") return <AssistantMessage message={message} key={message.id} />;
+  return (
+    <article className={`message system ${message.kind}`} key={message.id}>
+      <pre>{message.text}</pre>
+    </article>
+  );
+}
+
+function turnDomId(turnId: string): string {
+  return `conversation-turn-${turnId.replace(/[^a-zA-Z0-9_-]/g, "_")}`;
 }
 
 type E2ECommand =
