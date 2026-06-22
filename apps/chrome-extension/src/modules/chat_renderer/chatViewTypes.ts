@@ -93,11 +93,10 @@ export type ChatViewAction =
     }
   | {
       type: "restore_messages";
-      messages: Array<{ id: string; role: MessageRole; text: string; turnId?: string; artifact?: ArtifactRecord }>;
+      messages: Array<{ id: string; role: MessageRole; text: string; turnId?: string; artifact?: ArtifactRecord; artifacts?: ArtifactRecord[] }>;
     }
   | {
       type: "reset";
-      initialMessage?: string;
     };
 
 export const DEFAULT_DEFERRED_MESSAGE = "这个能力会在后续版本开放。当前我可以先帮你做页面总结、问答或 Mindmap。";

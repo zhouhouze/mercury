@@ -8,6 +8,7 @@ export type BridgeEvent =
       rawSummary?: string;
       rawEventType?: string;
       rawEventKeys?: string[];
+      rawEventRole?: string;
       messageId?: string;
       assistantMessageId?: string;
       assistantMessageIndex?: number;
@@ -32,6 +33,8 @@ export type BridgeEvent =
       providerModel?: string;
       providerHasApiKeyRef?: boolean;
       providerHasApiKey?: boolean;
+      piEventCategory?: "hidden_thinking" | "toolcall";
+      toolName?: string;
       requestId?: string;
       turnId?: string;
       traceId?: string;

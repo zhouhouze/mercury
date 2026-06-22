@@ -63,6 +63,94 @@ def test_settings_can_save_chat_provider_selection() -> None:
     data = response.json()["data"]
     assert data["coreProvider"] == "piagent"
     assert data["chatProvider"]["llmProviderId"] == provider["id"]
+    assert data["profiles"]["chat"]["coreProvider"] == "piagent"
+    assert data["profiles"]["chat"]["llmProviderId"] == provider["id"]
+
+
+def test_profiles_chat_is_authoritative_and_chat_provider_is_compat_synced() -> None:
+    provider = import_provider()
+
+    response = client.patch(
+        "/v1/settings",
+        json={
+            "profiles": {
+                "chat": {
+                    "profile": "chat",
+                    "coreProvider": "llm_direct",
+                    "llmProviderId": provider["id"],
+                    "model": "deepseek-v4-flash",
+                    "toolPolicy": {"mode": "disabled", "allowedTools": []},
+                    "enabled": True,
+                }
+            },
+            "chatProvider": {"coreProvider": "piagent", "llmProviderId": provider["id"], "model": "deepseek-v4-flash"},
+        },
+    )
+
+    assert response.status_code == 200
+    data = response.json()["data"]
+    assert data["profiles"]["chat"]["coreProvider"] == "llm_direct"
+    assert data["chatProvider"]["coreProvider"] == "llm_direct"
+    assert data["coreProvider"] == "llm_direct"
+
+
+def test_legacy_llm_direct_settings_migrate_to_piagent_once() -> None:
+    provider = import_provider()
+    now = "2026-06-22T00:00:00Z"
+    legacy_profiles = {
+        "chat": {
+            "profile": "chat",
+            "coreProvider": "llm_direct",
+            "llmProviderId": provider["id"],
+            "model": "deepseek-v4-flash",
+            "toolPolicy": {"mode": "disabled", "allowedTools": []},
+            "enabled": True,
+        },
+        "agent": {
+            "profile": "agent",
+            "coreProvider": "piagent",
+            "llmProviderId": provider["id"],
+            "model": "deepseek-v4-flash",
+            "toolPolicy": {"mode": "disabled", "allowedTools": []},
+            "enabled": False,
+        },
+    }
+    with settings_store._lock, settings_store._conn:
+        settings_store._conn.execute(
+            """
+            INSERT OR REPLACE INTO llm_settings(
+                id, default_provider_id, default_model, core_provider, chat_provider_json,
+                default_profile, profiles_json, settings_migration_json, updated_at
+            )
+            VALUES ('default', ?, ?, 'llm_direct', ?, 'chat', ?, NULL, ?)
+            """,
+            (
+                provider["id"],
+                "deepseek-v4-flash",
+                json.dumps({"coreProvider": "llm_direct", "llmProviderId": provider["id"], "model": "deepseek-v4-flash"}),
+                json.dumps(legacy_profiles),
+                now,
+            ),
+        )
+
+    response = client.get("/v1/settings")
+    data = response.json()["data"]
+
+    assert response.status_code == 200
+    assert data["profiles"]["chat"]["coreProvider"] == "piagent"
+    assert data["chatProvider"]["coreProvider"] == "piagent"
+    assert data["settingsMigration"]["v1_10_piagent_default_applied"] is True
+
+    manual = client.patch(
+        "/v1/settings",
+        json={"chatProvider": {"coreProvider": "llm_direct", "llmProviderId": provider["id"], "model": "deepseek-v4-flash"}},
+    ).json()["data"]
+    assert manual["chatProvider"]["coreProvider"] == "llm_direct"
+
+    after = client.get("/v1/settings").json()["data"]
+    assert after["profiles"]["chat"]["coreProvider"] == "llm_direct"
+    assert after["chatProvider"]["coreProvider"] == "llm_direct"
+    assert after["settingsMigration"]["v1_10_piagent_default_applied"] is True
 
 
 def test_settings_rejects_chat_provider_model_outside_provider_models() -> None:
@@ -84,7 +172,8 @@ def test_delete_provider_clears_chat_provider_reference() -> None:
     response = client.delete(f"/v1/llm/providers/{provider['id']}")
 
     assert response.status_code == 200
-    assert response.json()["data"]["chatProvider"] is None
+    assert response.json()["data"]["chatProvider"]["coreProvider"] == "piagent"
+    assert "llmProviderId" not in response.json()["data"]["chatProvider"]
 
 
 def test_chat_stream_piagent_missing_llm_provider_returns_recoverable_error() -> None:

@@ -37,6 +37,15 @@ def test_pi_raw_summary_is_kept_on_state_event() -> None:
     assert events[0].data["raw_summary"] == "{\"type\":\"message\"}"
 
 
+def test_pi_event_category_is_kept_on_state_event() -> None:
+    events = normalize_pi_event({"type": "state", "state": "pi.hidden_thinking", "piEventCategory": "hidden_thinking", "toolName": "read"}, core_input())
+
+    assert events[0].type == CoreEventType.STATE
+    assert events[0].data["to"] == "pi.hidden_thinking"
+    assert events[0].data["piEventCategory"] == "hidden_thinking"
+    assert events[0].data["toolName"] == "read"
+
+
 def test_pi_stdio_and_provider_diagnostics_are_kept_on_state_event() -> None:
     events = normalize_pi_event(
         {
@@ -64,10 +73,10 @@ def test_pi_stdio_and_provider_diagnostics_are_kept_on_state_event() -> None:
 
 
 def test_pi_error_is_sanitized() -> None:
-    events = normalize_pi_event({"type": "error", "message": "boom\nstack trace"}, core_input())
+    events = normalize_pi_event({"type": "error", "message": "boom /Users/hr/secret sk-1234567890abcdef\nstack trace"}, core_input())
 
     assert events[0].type == CoreEventType.ERROR
-    assert events[0].data["message"] == "boom"
+    assert events[0].data["message"] == "boom [redacted-path] sk-****"
     assert events[0].data["recoverable"] is True
 
 

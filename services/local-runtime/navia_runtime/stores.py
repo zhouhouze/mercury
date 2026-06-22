@@ -141,17 +141,61 @@ class SessionStore:
     pages: dict[str, dict[str, Any]] = field(default_factory=dict)
 
     def create(self, session_id: str, created_at: str, metadata: dict[str, Any] | None = None) -> dict[str, Any]:
+        metadata = {"title": "新会话", "profile": "chat", "archived": False, **(metadata or {})}
         session = {
             "session_id": session_id,
             "created_at": created_at,
             "updated_at": created_at,
-            "metadata": metadata or {},
+            "metadata": metadata,
         }
         self.sessions[session_id] = session
         return session
 
     def exists(self, session_id: str) -> bool:
         return session_id in self.sessions
+
+    def list_sessions(self, *, include_archived: bool = False) -> list[dict[str, Any]]:
+        sessions = list(self.sessions.values())
+        if not include_archived:
+            sessions = [session for session in sessions if not session.get("metadata", {}).get("archived")]
+        return sorted(
+            sessions,
+            key=lambda session: (
+                session.get("metadata", {}).get("lastMessageAt") or session.get("updated_at") or "",
+                session.get("updated_at") or "",
+            ),
+            reverse=True,
+        )
+
+    def get_recent_session(self) -> dict[str, Any] | None:
+        sessions = self.list_sessions(include_archived=False)
+        return sessions[0] if sessions else None
+
+    def update_session(
+        self,
+        session_id: str,
+        *,
+        title: str | None = None,
+        profile: str | None = None,
+        archived: bool | None = None,
+        updated_at: str | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any] | None:
+        session = self.sessions.get(session_id)
+        if not session:
+            return None
+        next_metadata = dict(session.get("metadata") or {})
+        if metadata:
+            next_metadata.update(metadata)
+        if title is not None:
+            next_metadata["title"] = title
+        if profile is not None:
+            next_metadata["profile"] = profile
+        if archived is not None:
+            next_metadata["archived"] = archived
+        session["metadata"] = next_metadata
+        session["updated_at"] = updated_at or utc_now_fallback()
+        return session
 
     def set_active_page(self, session_id: str, page: dict[str, Any]) -> None:
         self.pages[page["page_id"]] = page
@@ -164,6 +208,20 @@ class SessionStore:
                 "content_hash": page["content_hash"],
                 "captured_at": page["captured_at"],
             }
+            self.update_session(
+                session_id,
+                updated_at=page["captured_at"],
+                metadata={
+                    "pageRef": {
+                        "id": page["page_id"],
+                        "url": page["url"],
+                        "title": page["title"],
+                        "domain": page["domain"],
+                        "capturedAt": page["captured_at"],
+                        "contentHash": page["content_hash"],
+                    }
+                },
+            )
 
     def get_active_page(self, session_id: str) -> dict[str, Any] | None:
         session = self.sessions.get(session_id)
@@ -181,11 +239,21 @@ class SessionStore:
         if session_id not in self.sessions:
             return
         self.sessions[session_id].setdefault("artifacts", []).append(artifact)
+        metadata = dict(self.sessions[session_id].get("metadata") or {})
+        metadata["hasArtifacts"] = True
+        self.sessions[session_id]["metadata"] = metadata
 
     def add_message(self, session_id: str, message: dict[str, Any]) -> None:
         if session_id not in self.sessions:
             return
         self.sessions[session_id].setdefault("messages", []).append(message)
+        metadata = dict(self.sessions[session_id].get("metadata") or {})
+        metadata["lastMessageAt"] = message["created_at"]
+        metadata["messageCount"] = int(metadata.get("messageCount") or 0) + 1
+        if message.get("content"):
+            metadata["lastMessageExcerpt"] = str(message["content"])[:120]
+        self.sessions[session_id]["metadata"] = metadata
+        self.sessions[session_id]["updated_at"] = message["created_at"]
 
     def add_tool_call(self, session_id: str, record: dict[str, Any]) -> None:
         if session_id not in self.sessions:
@@ -204,6 +272,12 @@ class SessionStore:
 
     def get_session_record(self, session_id: str) -> dict[str, Any] | None:
         return self.sessions.get(session_id)
+
+
+def utc_now_fallback() -> str:
+    from datetime import UTC, datetime
+
+    return datetime.now(UTC).isoformat().replace("+00:00", "Z")
 
 
 class SQLiteSessionStore(SessionStore):
@@ -325,7 +399,7 @@ class SQLiteSessionStore(SessionStore):
                 "session_id": row["session_id"],
                 "created_at": row["created_at"],
                 "updated_at": row["updated_at"],
-                "metadata": _from_json(row["metadata_json"], {}),
+                "metadata": {"title": "新会话", "profile": "chat", "archived": False, **_from_json(row["metadata_json"], {})},
             }
             if row["active_page_id"]:
                 self.sessions[row["session_id"]]["active_page"] = {"page_id": row["active_page_id"]}
@@ -353,6 +427,41 @@ class SQLiteSessionStore(SessionStore):
                 VALUES (?, ?, ?, ?, ?)
                 """,
                 (session_id, created_at, created_at, _to_json(metadata or {}), None),
+            )
+        return session
+
+    def list_sessions(self, *, include_archived: bool = False) -> list[dict[str, Any]]:
+        self._load_cache()
+        return super().list_sessions(include_archived=include_archived)
+
+    def get_recent_session(self) -> dict[str, Any] | None:
+        self._load_cache()
+        return super().get_recent_session()
+
+    def update_session(
+        self,
+        session_id: str,
+        *,
+        title: str | None = None,
+        profile: str | None = None,
+        archived: bool | None = None,
+        updated_at: str | None = None,
+        metadata: dict[str, Any] | None = None,
+    ) -> dict[str, Any] | None:
+        session = super().update_session(
+            session_id,
+            title=title,
+            profile=profile,
+            archived=archived,
+            updated_at=updated_at,
+            metadata=metadata,
+        )
+        if not session:
+            return None
+        with self._lock, self._conn:
+            self._conn.execute(
+                "UPDATE sessions SET updated_at = ?, metadata_json = ? WHERE session_id = ?",
+                (session["updated_at"], _to_json(session.get("metadata", {})), session_id),
             )
         return session
 
@@ -385,9 +494,10 @@ class SQLiteSessionStore(SessionStore):
                     _to_json(page),
                 ),
             )
+            metadata = self.sessions.get(session_id, {}).get("metadata", {})
             self._conn.execute(
-                "UPDATE sessions SET active_page_id = ?, updated_at = ? WHERE session_id = ?",
-                (page["page_id"], page["captured_at"], session_id),
+                "UPDATE sessions SET active_page_id = ?, updated_at = ?, metadata_json = ? WHERE session_id = ?",
+                (page["page_id"], page["captured_at"], _to_json(metadata), session_id),
             )
 
     def get_active_page(self, session_id: str) -> dict[str, Any] | None:
@@ -431,6 +541,11 @@ class SQLiteSessionStore(SessionStore):
                     _to_json(artifact),
                 ),
             )
+            metadata = self.sessions.get(session_id, {}).get("metadata", {})
+            self._conn.execute(
+                "UPDATE sessions SET metadata_json = ? WHERE session_id = ?",
+                (_to_json(metadata), session_id),
+            )
 
     def add_message(self, session_id: str, message: dict[str, Any]) -> None:
         super().add_message(session_id, message)
@@ -449,6 +564,11 @@ class SQLiteSessionStore(SessionStore):
                     message["created_at"],
                     _to_json(message.get("metadata", {})),
                 ),
+            )
+            metadata = self.sessions.get(session_id, {}).get("metadata", {})
+            self._conn.execute(
+                "UPDATE sessions SET updated_at = ?, metadata_json = ? WHERE session_id = ?",
+                (message["created_at"], _to_json(metadata), session_id),
             )
 
     def add_tool_call(self, session_id: str, record: dict[str, Any]) -> None:

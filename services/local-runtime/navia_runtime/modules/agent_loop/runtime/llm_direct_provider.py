@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-import json
 from collections.abc import AsyncIterator, Callable
 
 import httpx
 
 from navia_runtime.contracts import ErrorCode, new_id
-from navia_runtime.modules.agent_loop.runtime.chat_profile_prompt import CHAT_PROFILE_SYSTEM_PROMPT
+from navia_runtime.modules.agent_loop.runtime.chat_profile_prompt import CHAT_PROFILE_SYSTEM_PROMPT, build_page_context_prompt
 from navia_runtime.modules.agent_loop.runtime.core_types import CoreEvent, CoreEventType, CoreTurnInput
 
 
@@ -52,7 +51,7 @@ class LLMDirectProvider:
     def _messages(self, input: CoreTurnInput) -> list[dict[str, str]]:
         messages = [{"role": "system", "content": CHAT_PROFILE_SYSTEM_PROMPT}]
         if input.active_page:
-            messages.append({"role": "system", "content": f"Page context:\n{json.dumps(input.active_page, ensure_ascii=False)[:12000]}"})
+            messages.append({"role": "system", "content": f"PAGE_CONTEXT:\n{build_page_context_prompt(input.active_page)}"})
         messages.append({"role": "user", "content": input.user_message})
         return messages
 

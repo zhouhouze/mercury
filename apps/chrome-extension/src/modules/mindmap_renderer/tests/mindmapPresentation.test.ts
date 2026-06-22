@@ -122,6 +122,39 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
     expect(viewModel.edges.length).toBeGreaterThanOrEqual(1);
   });
 
+  it("renders PiAgent generated minimal metadata as Evidence Card Mindmap", () => {
+    const piArtifact = {
+      artifactId: "art_piagent",
+      type: "mindmap",
+      sourcePageId: "page_piagent",
+      source: "page",
+      content: "mindmap\n  root((斯塔默辞职 2026.06.22))\n    辞职经过\n      宣布辞去首相职务\n    辞职原因\n      工党地方选举惨败",
+      metadata: {
+        format: "mermaid",
+        generatedBy: "piagent",
+        layout: "pyramid",
+        maxDepth: 3,
+        nodeBindings: [
+          { nodeId: "root", nodeSourceMapKey: "root", nodeLabel: "斯塔默辞职 2026.06.22", mermaidLineIndex: 1, sourceRefIds: ["piagent_root"], paragraphIds: [], chunkIds: ["chunk_1"] },
+          { nodeId: "node_1", nodeSourceMapKey: "node_1", nodeLabel: "辞职经过", mermaidLineIndex: 2, sourceRefIds: ["piagent_node_1"], paragraphIds: [], chunkIds: ["chunk_1"] },
+          { nodeId: "node_2", nodeSourceMapKey: "node_2", nodeLabel: "宣布辞去首相职务", mermaidLineIndex: 3, sourceRefIds: ["piagent_node_2"], paragraphIds: [], chunkIds: ["chunk_1"] }
+        ],
+        nodeSourceMap: {
+          root: { nodeLabel: "斯塔默辞职 2026.06.22", sourceRefIds: ["piagent_root"], paragraphIds: [], chunkIds: ["chunk_1"], fallbackText: "页面上下文摘要", jumpback: { mode: "fallback" } },
+          node_1: { nodeLabel: "辞职经过", sourceRefIds: ["piagent_node_1"], paragraphIds: [], chunkIds: ["chunk_1"], fallbackText: "页面上下文摘要", jumpback: { mode: "fallback" } },
+          node_2: { nodeLabel: "宣布辞去首相职务", sourceRefIds: ["piagent_node_2"], paragraphIds: [], chunkIds: ["chunk_1"], fallbackText: "页面上下文摘要", jumpback: { mode: "fallback" } }
+        }
+      }
+    };
+
+    const presentation = presentMindmapArtifact(piArtifact);
+
+    expect(presentation.renderMode).toBe("evidence_card");
+    expect(presentation.evidenceCardViewModel.displayPolicy.maxDepth).toBe(2);
+    expect(presentation.evidenceCardViewModel.themes.length).toBeGreaterThan(0);
+    expect(presentation.sourceCards.length).toBeGreaterThan(0);
+  });
+
   it("creates a density-aware two-level theme plan for large flat mindmaps", () => {
     const denseArtifact = buildDenseArtifact(24);
     const viewModel = toEvidenceCardViewModel(denseArtifact);

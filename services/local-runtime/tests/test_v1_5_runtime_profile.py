@@ -6,6 +6,7 @@ from pathlib import Path
 from fastapi.testclient import TestClient
 
 import navia_runtime.app as app_module
+from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarError
 
 
 client = TestClient(app_module.app)
@@ -43,6 +44,9 @@ def test_settings_generates_default_runtime_profiles_for_legacy_state() -> None:
     assert response.status_code == 200
     assert data["defaultProfile"] == "chat"
     assert data["profiles"]["chat"]["profile"] == "chat"
+    assert data["coreProvider"] == "piagent"
+    assert data["chatProvider"]["coreProvider"] == "piagent"
+    assert data["profiles"]["chat"]["coreProvider"] == "piagent"
     assert data["profiles"]["chat"]["enabled"] is True
     assert data["profiles"]["chat"]["toolPolicy"]["mode"] == "disabled"
     assert data["profiles"]["chat"]["toolPolicy"]["allowedTools"] == []
@@ -126,6 +130,21 @@ def test_page_intent_still_uses_auto_context_strategy() -> None:
     assert events[0]["type"] == "error"
     assert events[0]["data"]["code"] == "page_context_auto_capture_required"
     assert events[0]["data"]["action"] == "capture_page_and_retry"
+
+
+def test_page_context_submission_does_not_depend_on_pi_sidecar(monkeypatch) -> None:
+    def unavailable():
+        raise PiSidecarError("sidecar down")
+
+    monkeypatch.setattr(app_module.pi_sidecar_client, "health", unavailable)
+    session_id = create_session()
+    sample = json.loads((ROOT / "docs/active/project/contracts/samples/page-context-article.json").read_text())
+    sample["session_id"] = session_id
+
+    response = client.post("/v1/page/context", json=sample)
+
+    assert response.status_code == 200
+    assert response.json()["data"]["status"] == "accepted"
 
 
 def test_user_visible_code_paths_do_not_contain_legacy_v1_2_tool_disabled_copy() -> None:

@@ -20,6 +20,8 @@ DEFAULT_DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEFAULT_DEEPSEEK_MODEL = "deepseek-v4-flash"
 DEFAULT_DEEPSEEK_MODELS = ("deepseek-v4-flash", "deepseek-v4-pro", "deepseek-chat", "deepseek-reasoner")
 ALLOWED_CORE_PROVIDERS = {"mock", "llm_direct", "piagent", "custom"}
+V1_10_PIAGENT_DEFAULT_MARKER = "v1_10_piagent_default_applied"
+V1_10_MANUAL_CORE_PROVIDER_MARKER = "v1_10_manual_core_provider_saved"
 
 
 class ProviderSettingsError(RuntimeError):
@@ -177,6 +179,7 @@ class SettingsStore:
                     chat_provider_json TEXT,
                     default_profile TEXT,
                     profiles_json TEXT,
+                    settings_migration_json TEXT,
                     updated_at TEXT NOT NULL
                 )
                 """
@@ -190,6 +193,8 @@ class SettingsStore:
                 self._conn.execute("ALTER TABLE llm_settings ADD COLUMN default_profile TEXT")
             if "profiles_json" not in settings_columns:
                 self._conn.execute("ALTER TABLE llm_settings ADD COLUMN profiles_json TEXT")
+            if "settings_migration_json" not in settings_columns:
+                self._conn.execute("ALTER TABLE llm_settings ADD COLUMN settings_migration_json TEXT")
             self._create_provider_table()
             columns = {row["name"] for row in self._conn.execute("PRAGMA table_info(llm_providers)").fetchall()}
             if columns and "id" not in columns:
@@ -228,6 +233,7 @@ class SettingsStore:
             "chatProvider": settings.get("chatProvider"),
             "defaultProfile": settings.get("defaultProfile"),
             "profiles": settings.get("profiles"),
+            "settingsMigration": settings.get("settingsMigration"),
             "updatedAt": settings["updatedAt"],
             "providers": providers,
         }
@@ -236,18 +242,21 @@ class SettingsStore:
         current = self._settings_row()
         default_provider_id = body.get("defaultProviderId", current.get("defaultProviderId"))
         default_model = body.get("defaultModel", current.get("defaultModel"))
-        core_provider = body.get("coreProvider", current.get("coreProvider"))
-        chat_provider = body.get("chatProvider", current.get("chatProvider"))
-        default_profile = normalize_profile(body.get("defaultProfile", current.get("defaultProfile")))
-        profiles = body.get("profiles", current.get("profiles"))
-        core_provider = self._validate_core_provider(core_provider)
-        chat_provider = self._validate_chat_provider(chat_provider)
-        profiles = self._validate_profiles(profiles, default_provider_id, default_model, core_provider)
         if default_provider_id is None:
             default_model = None
-        elif not isinstance(default_provider_id, str):
+        default_profile = normalize_profile(body.get("defaultProfile", current.get("defaultProfile")))
+        root_core_provider = self._validate_core_provider(body.get("coreProvider", current.get("coreProvider")))
+        chat_provider = self._validate_chat_provider(body.get("chatProvider", current.get("chatProvider")))
+        profiles = self._validate_profiles(body.get("profiles", current.get("profiles")), default_provider_id, default_model, root_core_provider)
+        if "chatProvider" in body and "profiles" not in body:
+            profiles = self._profiles_with_chat_provider(profiles, chat_provider, clear_model=body.get("chatProvider") is None)
+        profiles = self._fill_profile_provider_defaults(profiles, default_provider_id, default_model)
+        chat_provider = self._chat_provider_from_profiles(profiles)
+        core_provider = chat_provider["coreProvider"]
+        settings_migration = self._settings_migration_for_save(current, body)
+        if default_provider_id is not None and not isinstance(default_provider_id, str):
             raise ProviderSettingsError("defaultProviderId must be a string or null.", code="settings_invalid")
-        else:
+        elif isinstance(default_provider_id, str):
             provider = self.get_provider(default_provider_id, include_secret=False)
             if provider is None:
                 raise ProviderSettingsError("Default provider not found.", code="provider_missing")
@@ -268,9 +277,9 @@ class SettingsStore:
                 """
                 INSERT OR REPLACE INTO llm_settings(
                     id, default_provider_id, default_model, core_provider, chat_provider_json,
-                    default_profile, profiles_json, updated_at
+                    default_profile, profiles_json, settings_migration_json, updated_at
                 )
-                VALUES ('default', ?, ?, ?, ?, ?, ?, ?)
+                VALUES ('default', ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     default_provider_id,
@@ -279,6 +288,7 @@ class SettingsStore:
                     _to_json(chat_provider) if chat_provider is not None else None,
                     default_profile,
                     _to_json(profiles),
+                    _to_json(settings_migration),
                     updated_at,
                 ),
             )
@@ -450,25 +460,45 @@ class SettingsStore:
         if row:
             profiles = _from_json(row["profiles_json"], None)
             default_profile = normalize_profile(row["default_profile"])
+            settings_migration = self._normalize_settings_migration(_from_json(row["settings_migration_json"], {}))
             if not isinstance(profiles, dict):
                 profiles = default_profiles(row["core_provider"], row["default_provider_id"], row["default_model"])
-            return {
+            chat_provider = _from_json(row["chat_provider_json"], None)
+            settings = {
                 "defaultProviderId": row["default_provider_id"],
                 "defaultModel": row["default_model"],
                 "coreProvider": row["core_provider"],
-                "chatProvider": _from_json(row["chat_provider_json"], None),
+                "chatProvider": chat_provider,
                 "defaultProfile": default_profile,
                 "profiles": profiles,
+                "settingsMigration": settings_migration,
+                "updatedAt": row["updated_at"],
+            }
+            if self._needs_v1_10_piagent_migration(settings):
+                return self._apply_v1_10_piagent_migration(settings)
+            normalized_profiles = self._validate_profiles(profiles, row["default_provider_id"], row["default_model"], row["core_provider"])
+            normalized_profiles = self._fill_profile_provider_defaults(normalized_profiles, row["default_provider_id"], row["default_model"])
+            canonical_chat_provider = self._chat_provider_from_profiles(normalized_profiles)
+            return {
+                "defaultProviderId": row["default_provider_id"],
+                "defaultModel": row["default_model"],
+                "coreProvider": canonical_chat_provider["coreProvider"],
+                "chatProvider": canonical_chat_provider,
+                "defaultProfile": default_profile,
+                "profiles": normalized_profiles,
+                "settingsMigration": settings_migration,
                 "updatedAt": row["updated_at"],
             }
         profiles = default_profiles()
+        chat_provider = self._chat_provider_from_profiles(profiles)
         return {
             "defaultProviderId": None,
             "defaultModel": None,
-            "coreProvider": None,
-            "chatProvider": None,
+            "coreProvider": chat_provider["coreProvider"],
+            "chatProvider": chat_provider,
             "defaultProfile": "chat",
             "profiles": profiles,
+            "settingsMigration": {},
             "updatedAt": utc_now(),
         }
 
@@ -541,3 +571,115 @@ class SettingsStore:
                 "enabled": bool(raw.get("enabled", defaults[profile_name]["enabled"])),
             }
         return result
+
+    def _profiles_with_chat_provider(self, profiles: dict[str, Any], chat_provider: dict[str, Any] | None, *, clear_model: bool = False) -> dict[str, Any]:
+        result = dict(profiles)
+        chat_profile = dict(result.get("chat") if isinstance(result.get("chat"), dict) else default_profiles()["chat"])
+        if chat_provider is None:
+            if clear_model:
+                chat_profile.pop("llmProviderId", None)
+                chat_profile.pop("model", None)
+            result["chat"] = chat_profile
+            return result
+        chat_profile["coreProvider"] = chat_provider["coreProvider"]
+        if "llmProviderId" in chat_provider:
+            chat_profile["llmProviderId"] = chat_provider["llmProviderId"]
+        if "model" in chat_provider:
+            chat_profile["model"] = chat_provider["model"]
+        result["chat"] = chat_profile
+        return result
+
+    def _fill_profile_provider_defaults(self, profiles: dict[str, Any], default_provider_id: str | None, default_model: str | None) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+        for profile_name, raw in profiles.items():
+            profile = dict(raw) if isinstance(raw, dict) else {}
+            if not isinstance(profile.get("llmProviderId"), str) and isinstance(default_provider_id, str):
+                profile["llmProviderId"] = default_provider_id
+            if not isinstance(profile.get("model"), str) and isinstance(default_model, str):
+                profile["model"] = default_model
+            result[profile_name] = profile
+        return result
+
+    def _chat_provider_from_profiles(self, profiles: dict[str, Any]) -> dict[str, Any]:
+        chat_profile = profiles.get("chat") if isinstance(profiles.get("chat"), dict) else default_profiles()["chat"]
+        provider = {
+            "coreProvider": self._validate_core_provider(chat_profile.get("coreProvider")) or "piagent",
+        }
+        if isinstance(chat_profile.get("llmProviderId"), str):
+            provider["llmProviderId"] = chat_profile["llmProviderId"]
+        if isinstance(chat_profile.get("model"), str):
+            provider["model"] = chat_profile["model"]
+        return provider
+
+    def _normalize_settings_migration(self, value: Any) -> dict[str, Any]:
+        if not isinstance(value, dict):
+            return {}
+        result: dict[str, Any] = {}
+        if value.get(V1_10_PIAGENT_DEFAULT_MARKER) is True:
+            result[V1_10_PIAGENT_DEFAULT_MARKER] = True
+        if value.get(V1_10_MANUAL_CORE_PROVIDER_MARKER) is True:
+            result[V1_10_MANUAL_CORE_PROVIDER_MARKER] = True
+        return result
+
+    def _settings_migration_for_save(self, current: dict[str, Any], body: dict[str, Any]) -> dict[str, Any]:
+        existing = self._normalize_settings_migration(current.get("settingsMigration"))
+        if V1_10_PIAGENT_DEFAULT_MARKER in existing:
+            return existing
+        # A user-initiated settings write from a V1.10 runtime is migration-aware,
+        # but it is not the legacy auto-migration success marker.
+        return {V1_10_MANUAL_CORE_PROVIDER_MARKER: True}
+
+    def _needs_v1_10_piagent_migration(self, settings: dict[str, Any]) -> bool:
+        migration = self._normalize_settings_migration(settings.get("settingsMigration"))
+        if migration.get(V1_10_PIAGENT_DEFAULT_MARKER) is True:
+            return False
+        if migration.get(V1_10_MANUAL_CORE_PROVIDER_MARKER) is True:
+            return False
+        profiles = settings.get("profiles") if isinstance(settings.get("profiles"), dict) else {}
+        chat_profile = profiles.get("chat") if isinstance(profiles.get("chat"), dict) else {}
+        chat_provider = settings.get("chatProvider") if isinstance(settings.get("chatProvider"), dict) else {}
+        return (
+            settings.get("coreProvider") == "llm_direct"
+            or chat_profile.get("coreProvider") == "llm_direct"
+            or chat_provider.get("coreProvider") == "llm_direct"
+        )
+
+    def _apply_v1_10_piagent_migration(self, settings: dict[str, Any]) -> dict[str, Any]:
+        profiles = self._validate_profiles(settings.get("profiles"), settings.get("defaultProviderId"), settings.get("defaultModel"), "piagent")
+        chat_profile = dict(profiles.get("chat") if isinstance(profiles.get("chat"), dict) else default_profiles()["chat"])
+        chat_profile["coreProvider"] = "piagent"
+        profiles["chat"] = chat_profile
+        profiles = self._fill_profile_provider_defaults(profiles, settings.get("defaultProviderId"), settings.get("defaultModel"))
+        chat_provider = self._chat_provider_from_profiles(profiles)
+        settings_migration = {V1_10_PIAGENT_DEFAULT_MARKER: True}
+        updated_at = utc_now()
+        with self._lock, self._conn:
+            self._conn.execute(
+                """
+                INSERT OR REPLACE INTO llm_settings(
+                    id, default_provider_id, default_model, core_provider, chat_provider_json,
+                    default_profile, profiles_json, settings_migration_json, updated_at
+                )
+                VALUES ('default', ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    settings.get("defaultProviderId"),
+                    settings.get("defaultModel"),
+                    chat_provider["coreProvider"],
+                    _to_json(chat_provider),
+                    settings.get("defaultProfile") or "chat",
+                    _to_json(profiles),
+                    _to_json(settings_migration),
+                    updated_at,
+                ),
+            )
+        return {
+            "defaultProviderId": settings.get("defaultProviderId"),
+            "defaultModel": settings.get("defaultModel"),
+            "coreProvider": chat_provider["coreProvider"],
+            "chatProvider": chat_provider,
+            "defaultProfile": settings.get("defaultProfile") or "chat",
+            "profiles": profiles,
+            "settingsMigration": settings_migration,
+            "updatedAt": updated_at,
+        }

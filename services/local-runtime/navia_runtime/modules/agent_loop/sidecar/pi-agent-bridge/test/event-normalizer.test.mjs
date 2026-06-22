@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 import { createPiEventNormalizer, normalizeRawEvent } from "../dist/event-normalizer.js";
 import { sanitizeToolNames } from "../dist/tool-policy.js";
@@ -94,12 +95,70 @@ test("message end never appends full text and keeps late duplicate from re-emitt
   assert.equal(normalizer.normalize({ type: "message_update", messageId: "msg_done", content: { text: "ABC" } }).length, 1);
 });
 
+test("nested assistant text_end does not append final full text snapshot", () => {
+  const normalizer = createPiEventNormalizer({ completedTtlMs: 60_000 });
+  assert.equal(normalizer.normalize({ type: "message_update", messageId: "msg_nested_done", assistantMessageEvent: { type: "text_delta", delta: "ABC" } })[1].text, "ABC");
+  const events = normalizer.normalize({
+    type: "message_update",
+    messageId: "msg_nested_done",
+    assistantMessageEvent: { type: "text_end", content: "ABC" },
+    content: { text: "ABC" }
+  });
+
+  assert.deepEqual(events.map((event) => event.type), ["state", "state"]);
+  assert.equal(events.some((event) => event.type === "response.delta" || event.type === "response.done"), false);
+  assert.equal(events[1].state, "message.text.ended");
+});
+
+test("nested assistant text stream diffs partial snapshots instead of duplicated raw deltas", () => {
+  const normalizer = createPiEventNormalizer();
+  const context = { sessionId: "sess", turnId: "turn_mermaid" };
+  const frames = [
+    { type: "text_start", partialText: "```m" },
+    { type: "text_delta", delta: "```", partialText: "```mermaid" },
+    { type: "text_delta", delta: "m", partialText: "```mermaid" },
+    { type: "text_delta", delta: "ermaid", partialText: "```mermaid" },
+    { type: "text_delta", delta: "\n", partialText: "```mermaid\nmind" },
+    { type: "text_delta", delta: "mind", partialText: "```mermaid\nmindmap\n" }
+  ];
+
+  const deltas = frames.map((frame) => {
+    const events = normalizer.normalize(
+      {
+        type: "message_update",
+        messageId: "msg_mermaid",
+        assistantMessageEvent: {
+          type: frame.type,
+          contentIndex: 1,
+          delta: frame.delta,
+          partial: { role: "assistant", content: [{ type: "thinking", thinking: "[redacted]" }, { type: "text", text: frame.partialText }] }
+        }
+      },
+      context
+    );
+    return events.find((event) => event.type === "response.delta")?.text ?? "";
+  });
+
+  assert.equal(deltas.join(""), "```mermaid\nmindmap\n");
+});
+
 test("keeps multiple assistant message snapshots separate and clears on session destroy", () => {
   const normalizer = createPiEventNormalizer();
   assert.equal(normalizer.normalize({ type: "message", messageId: "msg_a", message: { content: "Hello" } })[1].text, "Hello");
   assert.equal(normalizer.normalize({ type: "message", messageId: "msg_b", message: { content: "Hello" } })[1].text, "Hello");
   normalizer.destroy();
   assert.equal(normalizer.normalize({ type: "message", messageId: "msg_a", message: { content: "Hello" } })[1].text, "Hello");
+});
+
+test("does not turn user message lifecycle events into assistant deltas or done", () => {
+  const normalizer = createPiEventNormalizer();
+  const userStart = normalizer.normalize({ type: "message_start", message: { role: "user", content: [{ type: "text", text: "hello" }] } });
+  const userEnd = normalizer.normalize({ type: "message_end", message: { role: "user", content: [{ type: "text", text: "hello" }] } });
+  const userMessage = normalizer.normalize({ type: "message", message: { role: "user", content: "hello" } });
+
+  assert.equal(userStart.some((event) => event.type === "response.delta" || event.type === "response.done"), false);
+  assert.equal(userEnd.some((event) => event.type === "response.delta" || event.type === "response.done"), false);
+  assert.equal(userMessage.some((event) => event.type === "response.delta" || event.type === "response.done"), false);
 });
 
 test("normalizes nested pi fallback text fields into response delta", () => {
@@ -127,12 +186,53 @@ test("redacts secrets in raw diagnostic summaries", () => {
 
 test("normalizes tool requests into requested and denied without started", () => {
   const events = normalizeRawEvent({ type: "tool_request", toolName: "bash", toolCallId: "tc_1" });
-  assert.deepEqual(events.map((event) => event.type), ["state", "tool.requested", "tool.denied", "response.delta", "response.done"]);
+  assert.deepEqual(events.map((event) => event.type), ["state", "tool.requested", "tool.denied", "response.done"]);
   assert.equal(events.some((event) => event.type === "tool.started"), false);
+  assert.equal(events.some((event) => event.type === "tool.done"), false);
   assert.equal(events.some((event) => String(event.message ?? event.text ?? "").includes("V1.2")), false);
   assert.equal(String(events[2].message).includes("后续版本开放"), true);
 });
 
 test("tool policy always clears requested tool names", () => {
   assert.deepEqual(sanitizeToolNames(["read", "bash", "custom"]), []);
+});
+
+test("thinking deltas are diagnostics only and never become display text", () => {
+  const fixture = JSON.parse(readFileSync(new URL("./fixtures/summary_thinking_only.redacted.json", import.meta.url), "utf8"));
+  const events = normalizeRawEvent(fixture);
+
+  assert.deepEqual(events.map((event) => event.type), ["state", "state"]);
+  assert.equal(events.some((event) => event.type === "response.delta"), false);
+  assert.equal(events[1].state, "pi.hidden_thinking");
+  assert.equal(String(events[0].rawSummary).includes("[redacted thinking sample]"), false);
+});
+
+test("nested toolcall deltas are denied without leaking args or starting tools", () => {
+  const fixture = JSON.parse(readFileSync(new URL("./fixtures/mindmap_nested_toolcall.redacted.json", import.meta.url), "utf8"));
+  const events = normalizeRawEvent(fixture);
+
+  assert.deepEqual(events.map((event) => event.type), ["state", "tool.requested", "tool.denied", "response.done"]);
+  assert.equal(events[1].toolName, "read");
+  assert.equal(events.some((event) => event.type === "response.delta"), false);
+  assert.equal(events.some((event) => event.type === "tool.started" || event.type === "tool.done"), false);
+  assert.equal(String(events[0].rawSummary).includes("redacted tool args"), false);
+});
+
+test("raw diagnostic redacts secrets, local paths, thinking text, and tool args", () => {
+  const thinking = normalizeRawEvent({
+    type: "message_update",
+    assistantMessageEvent: { type: "thinking_delta", delta: "让我看看目录 /Users/hr/Documents/Project/mercury-main sk-1234567890abcdef" }
+  });
+  const toolcall = normalizeRawEvent({
+    type: "message_update",
+    assistantMessageEvent: { type: "toolcall_delta", toolName: "bash", arguments: "cat /Users/hr/.secret" }
+  });
+
+  for (const events of [thinking, toolcall]) {
+    const summary = String(events[0].rawSummary);
+    assert.equal(summary.includes("sk-1234567890abcdef"), false);
+    assert.equal(summary.includes("/Users/hr"), false);
+    assert.equal(summary.includes("让我看看目录"), false);
+    assert.equal(summary.includes("cat /Users/hr/.secret"), false);
+  }
 });

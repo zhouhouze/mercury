@@ -31,7 +31,7 @@ class ProfileResolution:
 
 
 def default_profiles(core_provider: str | None = None, llm_provider_id: str | None = None, model: str | None = None) -> dict[str, dict[str, Any]]:
-    chat_core = core_provider or "llm_direct"
+    chat_core = core_provider or "piagent"
     base_policy = {"mode": "disabled", "allowedTools": []}
     return {
         "chat": {

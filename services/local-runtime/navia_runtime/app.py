@@ -13,6 +13,7 @@ from navia_runtime import __version__
 from navia_runtime.contracts import AgentEventType, ErrorCode, agent_event, failure, new_id, success, utc_now
 from navia_runtime.modules.adapters.runtime import AdapterRegistry, default_adapter_registry
 from navia_runtime.modules.agent_loop.runtime import run_agentic_turn, run_core_provider_turn_async
+from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarClient, PiSidecarError
 from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
 from navia_runtime.modules.page_reading.runtime import build_high_signal_page_perception
 from navia_runtime.provider_settings import (
@@ -57,6 +58,7 @@ event_stream = InMemoryEventStream()
 session_store = SQLiteSessionStore(default_db_path())
 settings_store = SettingsStore(default_db_path())
 provider_registry = ProviderRegistry(settings_store)
+pi_sidecar_client = PiSidecarClient()
 v2_artifact_store = V2ArtifactStore(default_db_path())
 runtime_projection = {"state": "waiting_user"}
 
@@ -134,6 +136,37 @@ def models_status(request: Request):
         },
         request_id=request.headers.get("x-request-id"),
     )
+
+
+@app.get("/v1/pi/sidecar/health")
+def pi_sidecar_health(request: Request):
+    request_id = request.headers.get("x-request-id")
+    try:
+        health_payload = pi_sidecar_client.health()
+        return success(
+            {
+                "status": "ok",
+                "provider": "piagent",
+                "sidecar": "reachable",
+                "health": health_payload if isinstance(health_payload, dict) else {},
+                "checkedAt": utc_now(),
+            },
+            request_id=request_id,
+        )
+    except PiSidecarError:
+        return success(
+            {
+                "status": "unavailable",
+                "provider": "piagent",
+                "sidecar": "unreachable",
+                "recoverable": True,
+                "code": "piagent_sidecar_unavailable",
+                "message": "Pi Sidecar 未启动或暂不可用。",
+                "nextSteps": ["启动 Pi Sidecar", "检查 DeepSeek Provider / model", "或在 Settings 中手动切换到 LLM Direct"],
+                "checkedAt": utc_now(),
+            },
+            request_id=request_id,
+        )
 
 
 @app.get("/v1/settings")
@@ -241,6 +274,91 @@ async def create_session(request: Request):
         {
             "session_id": session["session_id"],
             "created_at": session["created_at"],
+        },
+        request_id=request.headers.get("x-request-id"),
+    )
+
+
+@app.get("/v1/chat/sessions")
+def list_chat_sessions(request: Request):
+    sessions = [chat_session_summary(session) for session in session_store.list_sessions(include_archived=False)]
+    return success({"sessions": sessions}, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v1/chat/sessions")
+async def create_chat_session(request: Request):
+    body = await request_json_or_empty(request)
+    metadata = {
+        "title": normalize_session_title(body.get("title")) or "新会话",
+        "profile": normalize_session_profile(body.get("profile")),
+        "archived": False,
+        "source": body.get("source") or "sidepanel",
+        "messageCount": 0,
+    }
+    page_ref = normalize_page_ref(body.get("pageRef"))
+    if page_ref:
+        metadata["pageRef"] = page_ref
+    session = session_store.create(new_id("sess_"), utc_now(), metadata=metadata)
+    return success({"session": chat_session_summary(session)}, request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/chat/sessions/{session_id}")
+def get_chat_session(session_id: str, request: Request):
+    record = session_store.get_session_record(session_id)
+    if not record:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.SESSION_NOT_FOUND, "Session not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success({"session": chat_session_summary(record)}, request_id=request.headers.get("x-request-id"))
+
+
+@app.patch("/v1/chat/sessions/{session_id}")
+async def patch_chat_session(session_id: str, request: Request):
+    body = await request_json_or_empty(request)
+    if not session_store.exists(session_id):
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.SESSION_NOT_FOUND, "Session not found.", request_id=request.headers.get("x-request-id")),
+        )
+    metadata: dict[str, Any] = {}
+    page_ref = normalize_page_ref(body.get("pageRef"))
+    if page_ref:
+        metadata["pageRef"] = page_ref
+    session = session_store.update_session(
+        session_id,
+        title=normalize_session_title(body.get("title")) if "title" in body else None,
+        profile=normalize_session_profile(body.get("profile")) if "profile" in body else None,
+        archived=bool(body.get("archived")) if "archived" in body else None,
+        metadata=metadata or None,
+    )
+    return success({"session": chat_session_summary(session or {})}, request_id=request.headers.get("x-request-id"))
+
+
+@app.delete("/v1/chat/sessions/{session_id}")
+def delete_chat_session(session_id: str, request: Request):
+    if not session_store.exists(session_id):
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.SESSION_NOT_FOUND, "Session not found.", request_id=request.headers.get("x-request-id")),
+        )
+    session = session_store.update_session(session_id, archived=True)
+    return success({"session": chat_session_summary(session or {})}, request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/chat/sessions/{session_id}/messages")
+def get_chat_session_messages(session_id: str, request: Request):
+    record = session_store.get_session_record(session_id)
+    if not record:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.SESSION_NOT_FOUND, "Session not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success(
+        {
+            "session": chat_session_summary(record),
+            "messages": chat_message_records(record),
+            "artifacts": record.get("artifacts", []),
         },
         request_id=request.headers.get("x-request-id"),
     )
@@ -367,13 +485,13 @@ async def page_context(request: Request):
 async def chat_stream(request: Request):
     body = await request.json()
     request_id = body.get("request_id") or request.headers.get("x-request-id") or new_id("req_")
-    session_id = body.get("session_id")
+    session_id = resolve_chat_stream_session_id(body)
     if not isinstance(session_id, str) or not session_id.startswith("sess_"):
         err = agent_event(
             AgentEventType.ERROR,
             session_id=session_id or "sess_invalid",
             request_id=request_id,
-            data={"code": ErrorCode.SESSION_NOT_FOUND.value, "message": "session_id is required"},
+            data={"code": ErrorCode.SESSION_NOT_FOUND.value, "message": "session_id is invalid"},
         )
         persist_and_publish(err)
         return StreamingResponse(sse([err]), media_type="text/event-stream")
@@ -391,6 +509,7 @@ async def chat_stream(request: Request):
     message = str(body.get("message") or "")
     active_page = session_store.get_active_page(session_id)
     intent = detect_chat_intent(message, body)
+    maybe_update_session_title(session_id, message, intent, active_page)
     settings_snapshot = settings_store.get_settings()
     profile_resolution = resolve_profile(settings_snapshot, body)
     deferred_intent = detect_deferred_intent(message, body.get("intentHint") if isinstance(body.get("intentHint"), str) else None)
@@ -578,6 +697,140 @@ def provider_failure_response(exc: ProviderSettingsError, request: Request) -> J
             details={"code": exc.code},
         ),
     )
+
+
+async def request_json_or_empty(request: Request) -> dict[str, Any]:
+    try:
+        body = await request.json()
+    except Exception:
+        return {}
+    return body if isinstance(body, dict) else {}
+
+
+def resolve_chat_stream_session_id(body: dict[str, Any]) -> str | None:
+    session_id = body.get("session_id")
+    if isinstance(session_id, str) and session_id:
+        return session_id
+    recent = session_store.get_recent_session()
+    if recent:
+        return str(recent["session_id"])
+    session = session_store.create(new_id("sess_"), utc_now(), metadata={"source": "chat_stream", "profile": "chat"})
+    return str(session["session_id"])
+
+
+def normalize_session_title(value: Any) -> str | None:
+    if not isinstance(value, str):
+        return None
+    title = value.strip()
+    return title[:80] if title else None
+
+
+def normalize_session_profile(value: Any) -> str:
+    return value if value in {"chat", "agent"} else "chat"
+
+
+def normalize_page_ref(value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict):
+        return None
+    url = value.get("url")
+    title = value.get("title")
+    domain = value.get("domain")
+    if not isinstance(url, str) or not isinstance(title, str) or not isinstance(domain, str):
+        return None
+    return {
+        "id": str(value.get("id") or value.get("page_id") or value.get("pageId") or new_id("page_ref_")),
+        "url": url,
+        "title": title,
+        "domain": domain,
+        "capturedAt": str(value.get("capturedAt") or value.get("captured_at") or utc_now()),
+        **({"contentHash": value["contentHash"]} if isinstance(value.get("contentHash"), str) else {}),
+        **({"contentHash": value["content_hash"]} if isinstance(value.get("content_hash"), str) else {}),
+    }
+
+
+def chat_session_summary(record: dict[str, Any]) -> dict[str, Any]:
+    metadata = record.get("metadata") if isinstance(record.get("metadata"), dict) else {}
+    page_ref = metadata.get("pageRef") if isinstance(metadata.get("pageRef"), dict) else None
+    active_page = record.get("active_page") if isinstance(record.get("active_page"), dict) else None
+    if not page_ref and active_page:
+        page_ref = {
+            "id": active_page.get("page_id"),
+            "url": active_page.get("url"),
+            "title": active_page.get("title"),
+            "domain": active_page.get("domain"),
+            "capturedAt": active_page.get("captured_at"),
+            "contentHash": active_page.get("content_hash"),
+        }
+    message_count = metadata.get("messageCount")
+    if not isinstance(message_count, int):
+        messages = record.get("messages")
+        message_count = len(messages) if isinstance(messages, list) else 0
+    return {
+        "id": record.get("session_id"),
+        "title": metadata.get("title") or "新会话",
+        "profile": metadata.get("profile") if metadata.get("profile") in {"chat", "agent"} else "chat",
+        "createdAt": record.get("created_at"),
+        "updatedAt": record.get("updated_at"),
+        "lastMessageAt": metadata.get("lastMessageAt"),
+        "pageRef": page_ref,
+        "messageCount": message_count,
+        "archived": bool(metadata.get("archived")),
+        "lastMessageExcerpt": metadata.get("lastMessageExcerpt"),
+        "hasArtifacts": bool(metadata.get("hasArtifacts")),
+    }
+
+
+def chat_message_records(record: dict[str, Any]) -> list[dict[str, Any]]:
+    artifacts_by_turn: dict[str, list[str]] = {}
+    for artifact in record.get("artifacts", []):
+        if not isinstance(artifact, dict):
+            continue
+        turn_id = artifact.get("turnId")
+        artifact_id = artifact.get("artifactId")
+        if isinstance(turn_id, str) and isinstance(artifact_id, str):
+            artifacts_by_turn.setdefault(turn_id, []).append(artifact_id)
+    messages = record.get("messages") if isinstance(record.get("messages"), list) else []
+    normalized: list[dict[str, Any]] = []
+    for message in messages:
+        if not isinstance(message, dict):
+            continue
+        metadata = message.get("metadata") if isinstance(message.get("metadata"), dict) else {}
+        turn_id = message.get("turn_id")
+        normalized.append(
+            {
+                "id": message.get("message_id"),
+                "sessionId": message.get("session_id") or record.get("session_id"),
+                "turnId": turn_id,
+                "role": message.get("role"),
+                "kind": metadata.get("kind") or "normal",
+                "content": message.get("content") or "",
+                "createdAt": message.get("created_at"),
+                "artifactIds": artifacts_by_turn.get(turn_id, []),
+                "pageContextId": metadata.get("pageContextId"),
+            }
+        )
+    return normalized
+
+
+def maybe_update_session_title(session_id: str, user_message: str, intent: str, active_page: dict[str, Any] | None) -> None:
+    record = session_store.get_session_record(session_id)
+    if not record:
+        return
+    metadata = record.get("metadata") if isinstance(record.get("metadata"), dict) else {}
+    if metadata.get("title") not in {None, "", "新会话"}:
+        return
+    title = title_for_first_message(user_message, intent, active_page)
+    session_store.update_session(session_id, title=title)
+
+
+def title_for_first_message(user_message: str, intent: str, active_page: dict[str, Any] | None) -> str:
+    page_title = active_page.get("title") if isinstance(active_page, dict) else None
+    if intent == "summarize_page" and isinstance(page_title, str) and page_title:
+        return f"总结：{page_title}"[:80]
+    if intent == "mindmap_page" and isinstance(page_title, str) and page_title:
+        return f"Mindmap：{page_title}"[:80]
+    trimmed = user_message.strip()
+    return trimmed[:20] if trimmed else "新会话"
 
 
 def stream_llm_turn(session_id: str, request_id: str, user_message: str, active_page: dict[str, Any] | None) -> Iterable[dict[str, Any]]:

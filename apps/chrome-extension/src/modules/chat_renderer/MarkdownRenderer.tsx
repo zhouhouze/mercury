@@ -2,6 +2,7 @@ import React from "react";
 
 type Block =
   | { type: "paragraph"; text: string }
+  | { type: "heading"; level: 1 | 2 | 3 | 4; text: string }
   | { type: "blockquote"; text: string }
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
@@ -24,6 +25,12 @@ export function MarkdownRenderer({ content, isStreaming = false }: { content: st
 }
 
 function MarkdownBlock({ block }: { block: Block }) {
+  if (block.type === "heading") {
+    if (block.level === 1) return <h1>{renderInline(block.text)}</h1>;
+    if (block.level === 2) return <h2>{renderInline(block.text)}</h2>;
+    if (block.level === 3) return <h3>{renderInline(block.text)}</h3>;
+    return <h4>{renderInline(block.text)}</h4>;
+  }
   if (block.type === "paragraph") return <p>{renderInline(block.text)}</p>;
   if (block.type === "blockquote") return <blockquote>{renderInline(block.text)}</blockquote>;
   if (block.type === "ul") return <ul>{block.items.map((item, index) => <li key={index}>{renderInline(item)}</li>)}</ul>;
@@ -85,6 +92,14 @@ function parseBlocks(content: string): Block[] {
       }
       if (index < lines.length) index += 1;
       blocks.push({ type: "code", language, code: code.join("\n") });
+      continue;
+    }
+    const heading = /^(#{1,4})\s+(.+)$/.exec(trimmed);
+    if (heading) {
+      flushParagraph();
+      const level = heading[1].length as 1 | 2 | 3 | 4;
+      blocks.push({ type: "heading", level, text: heading[2].replace(/\s+#+$/, "").trim() });
+      index += 1;
       continue;
     }
     if (/^---+$/.test(trimmed)) {

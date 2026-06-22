@@ -9,7 +9,10 @@ export type ChatProviderTestStatus =
   | "pi_rpc_no_text"
   | "pi_normalizer_no_delta"
   | "provider_auth_failed"
-  | "piagent_provider_config_missing";
+  | "piagent_provider_config_missing"
+  | "piagent_sidecar_unavailable"
+  | "llm_provider_missing"
+  | "llm_model_invalid";
 
 export type ChatProviderTestResult = {
   status: Exclude<ChatProviderTestStatus, "pending">;
@@ -139,6 +142,9 @@ function classifyRuntimeErrorStatus(event: AgentEvent): Exclude<ChatProviderTest
   if (code === "pi_normalizer_no_delta") return "pi_normalizer_no_delta";
   if (code === "provider_auth_failed") return "provider_auth_failed";
   if (code === "piagent_provider_config_missing") return "piagent_provider_config_missing";
+  if (code === "piagent_sidecar_unavailable" || code === "piagent_unavailable") return "piagent_sidecar_unavailable";
+  if (code === "llm_provider_missing" || code === "provider_missing") return "llm_provider_missing";
+  if (code === "llm_model_invalid" || code === "model_invalid") return "llm_model_invalid";
   return "provider_error";
 }
 
@@ -147,6 +153,9 @@ function runtimeErrorMessage(status: ChatProviderTestStatus, event: AgentEvent):
   if (status === "pi_normalizer_no_delta") return "Chat Provider 测试未通过：PiAgent raw event 疑似包含文本，但 normalizer 没有转换出普通文本 delta。";
   if (status === "provider_auth_failed") return "Chat Provider 测试未通过：DeepSeek Provider 鉴权失败，请检查 API Key。";
   if (status === "piagent_provider_config_missing") return "Chat Provider 测试未通过：PiAgent 没有收到完整的 DeepSeek Provider 配置。";
+  if (status === "piagent_sidecar_unavailable") return "Chat Provider 测试未通过：Pi Sidecar 未启动或暂不可用。请启动 Pi Sidecar，或在 Settings 中手动切换到 LLM Direct。";
+  if (status === "llm_provider_missing") return "Chat Provider 测试未通过：DeepSeek Provider 未配置。请保存 Provider / model，或手动切换到 LLM Direct。";
+  if (status === "llm_model_invalid") return "Chat Provider 测试未通过：当前模型不存在或不属于所选 Provider，请检查 model。";
   return String(event.data.message ?? "Chat Provider 测试失败。");
 }
 

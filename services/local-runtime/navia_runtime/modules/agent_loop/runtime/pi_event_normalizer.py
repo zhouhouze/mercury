@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from navia_runtime.contracts import ErrorCode, new_id
@@ -29,6 +30,7 @@ def normalize_pi_event(raw: dict[str, Any], input: CoreTurnInput) -> list[CoreEv
         for key in (
             "rawEventType",
             "rawEventKeys",
+            "rawEventRole",
             "messageId",
             "assistantMessageId",
             "assistantMessageIndex",
@@ -49,6 +51,8 @@ def normalize_pi_event(raw: dict[str, Any], input: CoreTurnInput) -> list[CoreEv
             "providerModel",
             "providerHasApiKeyRef",
             "providerHasApiKey",
+            "piEventCategory",
+            "toolName",
         ):
             if key in raw:
                 data[key] = raw[key]
@@ -90,7 +94,11 @@ def normalize_pi_event(raw: dict[str, Any], input: CoreTurnInput) -> list[CoreEv
 
 def safe_error_message(value: object) -> str:
     message = str(value or "Pi agent provider failed.")
-    return message.splitlines()[0][:240]
+    sanitized = message.splitlines()[0]
+    sanitized = re.sub(r"sk-[A-Za-z0-9_-]{8,}", "sk-****", sanitized)
+    sanitized = re.sub(r"Bearer\s+[A-Za-z0-9._-]+", "Bearer [redacted]", sanitized, flags=re.IGNORECASE)
+    sanitized = re.sub(r"/(?:Users|private|var|tmp|opt|home)/[^\s\"',}]*", "[redacted-path]", sanitized)
+    return sanitized[:240]
 
 
 def _event(input: CoreTurnInput, event_type: CoreEventType, data: dict[str, Any], request_id: str, turn_id: str, trace_id: str) -> CoreEvent:

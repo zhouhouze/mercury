@@ -43,7 +43,8 @@ export class SessionManager {
     const modelProvider = sanitizeModelProvider(request.modelProvider);
     const systemPrompt = sanitizeSystemPrompt(request.systemPrompt);
     const streamDebug = process.env.NAVIA_PI_STREAM_DEBUG === "true";
-    const child = this.processFactory(this.command, ["--mode", "rpc", "--no-session"], { cwd: cwd ?? this.safeCwd });
+    const processCwd = cwd ?? this.safeCwd;
+    const child = this.processFactory(this.command, ["--mode", "rpc", "--no-session"], { cwd: processCwd });
     const record: SessionRecord = {
       sessionId,
       naviaSessionId,
@@ -68,7 +69,7 @@ export class SessionManager {
     };
     this.sessions.set(sessionId, record);
     this.attachChild(record);
-    this.writeLine(record, { type: "session.init", naviaSessionId, cwd, toolNames, tools: [], messages: [], profile, toolPolicy, modelProvider, systemPrompt });
+    this.writeLine(record, sessionInitPayload(record));
     if (systemPrompt) {
       record.queue.push({ type: "state", state: "system_prompt.injected", systemPromptInjectionMode: "prompt_envelope", systemPromptPreview: preview(systemPrompt) });
     }
@@ -205,7 +206,30 @@ function publicModelProvider(value: ModelProviderConfig | undefined): { type?: s
 }
 
 function redactSecrets(value: string): string {
-  return value.replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****").replace(/Bearer\s+[A-Za-z0-9._-]+/gi, "Bearer [redacted]");
+  return value
+    .replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****")
+    .replace(/Bearer\s+[A-Za-z0-9._-]+/gi, "Bearer [redacted]")
+    .replace(/\/(?:Users|private|var|tmp|opt|home)\/[^\s"',}]*/g, "[redacted-path]");
+}
+
+function sessionInitPayload(record: SessionRecord): Record<string, unknown> {
+  const base: Record<string, unknown> = {
+    type: "session.init",
+    naviaSessionId: record.naviaSessionId,
+    toolNames: [],
+    tools: [],
+    messages: [],
+    profile: record.profile,
+    toolPolicy: record.toolPolicy,
+    modelProvider: record.modelProvider,
+    systemPrompt: record.systemPrompt,
+    disableTools: true
+  };
+  if (record.profile !== "chat") {
+    base.cwd = record.cwd;
+    base.toolNames = record.toolNames;
+  }
+  return base;
 }
 
 function providerDiagnostic(value: ModelProviderConfig | undefined): Partial<Extract<BridgeEvent, { type: "state" }>> {

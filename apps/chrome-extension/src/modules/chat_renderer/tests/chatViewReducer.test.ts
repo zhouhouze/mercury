@@ -57,6 +57,30 @@ const mindmapArtifact = {
 };
 
 describe("ChatViewReducer turn lifecycle", () => {
+  it("starts with an empty message list without onboarding copy", () => {
+    const state = createChatViewState("chat");
+
+    expect(state.messages).toEqual([]);
+    expect(JSON.stringify(state)).not.toContain("你可以直接提问");
+    expect(JSON.stringify(state)).not.toContain("我会自动读取当前页面");
+  });
+
+  it("resets to an empty message list", () => {
+    const state = reduce([
+      { type: "start_turn", turnId: "turn_reset", text: "hello" },
+      { type: "reset" }
+    ]);
+
+    expect(state.messages).toEqual([]);
+  });
+
+  it("still renders explicit system messages", () => {
+    const state = reduce([{ type: "system_message", kind: "status", text: "正在读取当前页面", createdAt: "2026-06-16T10:00:00.000Z" }]);
+
+    expect(state.messages).toHaveLength(1);
+    expect(state.messages[0]).toMatchObject({ role: "system", kind: "status", text: "正在读取当前页面" });
+  });
+
   it("keeps independent turns from appending deltas to the previous assistant message", () => {
     const state = reduce([
       { type: "start_turn", turnId: "turn_1", text: "hello" },
@@ -110,6 +134,33 @@ describe("ChatViewReducer turn lifecycle", () => {
     if (assistant?.role !== "assistant") throw new Error("Expected assistant message.");
     expect(assistant?.artifacts).toHaveLength(1);
     expect(assistant?.artifacts[0].type).toBe("mindmap");
+  });
+
+  it("hydrates persisted assistant messages with multiple artifacts without Runtime calls", () => {
+    const state = reduce([
+      {
+        type: "restore_messages",
+        messages: [
+          { id: "msg_user", role: "user", text: "生成图", turnId: "turn_restore" },
+          {
+            id: "msg_assistant",
+            role: "assistant",
+            text: "已生成",
+            turnId: "turn_restore",
+            artifacts: [
+              mindmapArtifact,
+              { ...mindmapArtifact, artifactId: "art_summary", type: "summary" }
+            ]
+          }
+        ]
+      }
+    ]);
+    const assistant = state.messages.find((message) => message.role === "assistant");
+
+    expect(assistant?.role).toBe("assistant");
+    if (assistant?.role !== "assistant") throw new Error("Expected assistant message.");
+    expect(assistant.artifacts.map((artifact) => artifact.artifactId)).toEqual(["art_mindmap", "art_summary"]);
+    expect(state.artifacts).toHaveLength(2);
   });
 
   it("keeps state.transition as a transient per-turn status", () => {

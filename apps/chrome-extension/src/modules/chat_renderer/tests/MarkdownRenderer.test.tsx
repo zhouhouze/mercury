@@ -8,6 +8,13 @@ function html(content: string, isStreaming = false): string {
 }
 
 describe("MarkdownRenderer", () => {
+  it("renders markdown headings for completed assistant messages", () => {
+    const output = html("## 页面总结：Building a GPT\n\n正文");
+
+    expect(output).toContain("<h2>页面总结：Building a GPT</h2>");
+    expect(output).not.toContain("## 页面总结");
+  });
+
   it("renders bold, italic, lists, inline code and blockquotes", () => {
     const output = html(["**强势** 和 *风险*", "- 年轻核心", "- 防守", "`cap space`", "> 无实时搜索"].join("\n"));
 

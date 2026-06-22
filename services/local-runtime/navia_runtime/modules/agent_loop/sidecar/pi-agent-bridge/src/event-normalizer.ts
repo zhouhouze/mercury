@@ -13,11 +13,14 @@ type NormalizerOptions = {
 };
 type SnapshotKeyInfo = { key: string; fallback: boolean; source: string };
 
-const DONE_TYPES = new Set(["response.done", "agent_end", "turn_end", "message_end", "assistant_message_end", "done", "final"]);
+const DONE_TYPES = new Set(["response.done", "agent_end", "turn_end", "message_end", "assistant_message_end", "done", "final", "text_end"]);
 const STATE_TYPES = new Set(["state", "state.update", "status", "message_start", "assistant_message_start"]);
-const TOOL_TYPES = new Set(["tool.requested", "tool_call", "tool_request", "tool_use"]);
+const TOOL_TYPES = new Set(["tool.requested", "tool_call", "tool_request", "tool_use", "toolcall_start", "toolcall_delta", "toolcall_end"]);
+const TOOL_ASSISTANT_EVENT_TYPES = new Set(["toolcall_start", "toolcall_delta", "toolcall_end", "tool_use", "tool_call"]);
+const THINKING_TYPES = new Set(["thinking_start", "thinking_delta", "thinking_end"]);
+const THINKING_ASSISTANT_EVENT_TYPES = new Set(["thinking_start", "thinking_delta", "thinking_end"]);
 const ERROR_TYPES = new Set(["error", "agent_error"]);
-const DELTA_TYPES = new Set(["response.delta", "text_delta", "delta"]);
+const DELTA_TYPES = new Set(["response.delta", "text_delta", "delta", "text_start"]);
 const SNAPSHOT_TYPES = new Set(["message_update", "assistant_message", "message", "message_snapshot", "snapshot", "response.snapshot"]);
 
 export function createPiEventNormalizer(options: NormalizerOptions = {}) {
@@ -55,6 +58,7 @@ export class PiEventNormalizer {
     const turnId = stringValue(event.turnId) ?? stringValue(event.turn_id) ?? context.turnId;
     const traceId = stringValue(event.traceId) ?? stringValue(event.trace_id) ?? context.traceId;
     const sessionId = stringValue(event.sessionId) ?? stringValue(event.session_id) ?? context.sessionId;
+    const role = eventRole(event);
     const diagnostic: Extract<BridgeEvent, { type: "state" }> = {
       type: "state",
       state: "pi.raw",
@@ -68,6 +72,7 @@ export class PiEventNormalizer {
     let debugDetails: Partial<Extract<BridgeEvent, { type: "state" }>> = {
       rawEventType: type || "unknown",
       rawEventKeys: Object.keys(event).slice(0, 32),
+      rawEventRole: role,
       messageId: stringValue(event.messageId) ?? stringValue(event.message_id) ?? stringValue(pathValue(event, ["message", "id"])),
       assistantMessageId:
         stringValue(event.assistantMessageId) ??
@@ -80,6 +85,9 @@ export class PiEventNormalizer {
     };
 
     if (isMessageStart(type)) {
+      if (role === "user") {
+        return this.withDebug([diagnostic, { type: "state", state: "message.user.started", requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
+      }
       const keyInfo = this.snapshotKey(event, { requestId, turnId, traceId, sessionId }, { start: true });
       this.snapshots.set(keyInfo.key, { text: "", completed: false, lastSeen: Date.now() });
       if (keyInfo.fallback) diagnostic.snapshotKeyFallback = true;
@@ -87,9 +95,34 @@ export class PiEventNormalizer {
       return this.withDebug([diagnostic, { type: "state", state: "message.started", snapshotKeyFallback: keyInfo.fallback, requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
     }
 
+    if (isThinkingEvent(type, event)) {
+      debugDetails = { ...debugDetails, piEventCategory: "hidden_thinking" };
+      return this.withDebug([diagnostic, { type: "state", state: "pi.hidden_thinking", requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
+    }
+
+    if (isToolRequest(type, event)) {
+      const toolName = toolNameFromEvent(event) ?? "pi.tool";
+      const toolCallId = toolCallIdFromEvent(event) ?? `pitc_${randomUUID().replaceAll("-", "")}`;
+      const message = deniedToolMessage();
+      return this.withDebug([
+        diagnostic,
+        { type: "tool.requested", toolName, toolCallId, requestId, turnId, traceId },
+        { type: "tool.denied", toolName, toolCallId, message, requestId, turnId, traceId },
+        { type: "response.done", requestId, turnId, traceId }
+      ], { ...debugDetails, piEventCategory: "toolcall", toolName }, { requestId, turnId, traceId });
+    }
+
+    if (isNestedAssistantTextEnd(type, event)) {
+      debugDetails = { ...debugDetails, isSnapshot: true, fullTextLength: explicitSnapshotText(type, event)?.length };
+      return this.withDebug([diagnostic, { type: "state", state: "message.text.ended", requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
+    }
+
     if (isDone(type)) {
       let keyInfo: SnapshotKeyInfo | undefined;
       if (isMessageEnd(type)) {
+        if (role === "user") {
+          return this.withDebug([diagnostic, { type: "state", state: "message.user.ended", requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
+        }
         keyInfo = this.snapshotKey(event, { requestId, turnId, traceId, sessionId });
         this.markSnapshotCompleted(keyInfo.key);
         if (keyInfo.fallback) diagnostic.snapshotKeyFallback = true;
@@ -108,21 +141,29 @@ export class PiEventNormalizer {
       return this.withDebug([diagnostic, { type: "response.done", requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
     }
 
-    if (isToolRequest(type, event)) {
-      const toolName = stringValue(event.toolName) ?? stringValue(event.tool_name) ?? stringValue(event.name) ?? "pi.tool";
-      const toolCallId = stringValue(event.toolCallId) ?? stringValue(event.tool_call_id) ?? `pitc_${randomUUID().replaceAll("-", "")}`;
-      const message = deniedToolMessage();
-      return this.withDebug([
-        diagnostic,
-        { type: "tool.requested", toolName, toolCallId, requestId, turnId, traceId },
-        { type: "tool.denied", toolName, toolCallId, message, requestId, turnId, traceId },
-        { type: "response.delta", text: message, requestId, turnId, traceId },
-        { type: "response.done", requestId, turnId, traceId }
-      ], { ...debugDetails, emittedDeltaLength: message.length, emittedDeltaPreview: preview(message) }, { requestId, turnId, traceId });
-    }
-
     if (isError(type)) {
       return this.withDebug([diagnostic, { type: "error", code: stringValue(event.code) ?? "piagent_error", message: stringValue(event.message) ?? "Pi agent bridge error.", recoverable: true, requestId, turnId, traceId }], debugDetails, { requestId, turnId, traceId });
+    }
+
+    const assistantTextSnapshot = explicitAssistantTextSnapshot(event);
+    if (assistantTextSnapshot !== undefined) {
+      const keyInfo = this.snapshotKey(event, { requestId, turnId, traceId, sessionId });
+      const contentKey = assistantContentSnapshotKey(keyInfo.key, event);
+      const previousSnapshotLength = this.snapshots.get(contentKey)?.text.length ?? 0;
+      const delta = this.guardDelta({ requestId, turnId, traceId, sessionId }, this.diffSnapshot(contentKey, assistantTextSnapshot), contentKey);
+      if (keyInfo.fallback) diagnostic.snapshotKeyFallback = true;
+      debugDetails = {
+        ...debugDetails,
+        snapshotKey: contentKey,
+        snapshotKeySource: keyInfo.source,
+        snapshotKeyFallback: keyInfo.fallback,
+        isSnapshot: true,
+        fullTextLength: assistantTextSnapshot.length,
+        previousSnapshotLength,
+        emittedDeltaLength: delta.length,
+        emittedDeltaPreview: preview(delta)
+      };
+      return this.withDebug(delta ? [diagnostic, { type: "response.delta", text: delta, requestId, turnId, traceId }] : [diagnostic], debugDetails, { requestId, turnId, traceId });
     }
 
     const semanticDelta = explicitDeltaText(type, event);
@@ -307,7 +348,17 @@ function isState(type: string): boolean {
 }
 
 function isToolRequest(type: string, event: Record<string, unknown>): boolean {
-  return TOOL_TYPES.has(type) || typeof event.toolName === "string" || typeof event.tool_name === "string";
+  const assistantType = assistantEventType(event);
+  return TOOL_TYPES.has(type) || (assistantType !== undefined && TOOL_ASSISTANT_EVENT_TYPES.has(assistantType)) || typeof event.toolName === "string" || typeof event.tool_name === "string";
+}
+
+function isThinkingEvent(type: string, event: Record<string, unknown>): boolean {
+  const assistantType = assistantEventType(event);
+  return THINKING_TYPES.has(type) || (assistantType !== undefined && THINKING_ASSISTANT_EVENT_TYPES.has(assistantType));
+}
+
+function isNestedAssistantTextEnd(type: string, event: Record<string, unknown>): boolean {
+  return type !== "text_end" && assistantEventType(event) === "text_end";
 }
 
 function isError(type: string): boolean {
@@ -319,14 +370,38 @@ function explicitDeltaText(type: string, event: Record<string, unknown>): string
   if (assistantEvent && stringValue(assistantEvent.type) === "text_delta") {
     return textValue(assistantEvent.delta);
   }
+  if (assistantEvent && stringValue(assistantEvent.type) === "text_start") {
+    return textValue(assistantEvent.delta) ?? textValue(assistantEvent.text) ?? textValue(assistantEvent.content);
+  }
+  if (type === "text_start") {
+    return textValue(event.delta) ?? textValue(event.text) ?? textValue(pathValue(event, ["data", "delta"]));
+  }
   if (DELTA_TYPES.has(type)) {
     return textValue(event.text) ?? textValue(event.delta) ?? textValue(pathValue(event, ["data", "delta"]));
   }
   return undefined;
 }
 
+function explicitAssistantTextSnapshot(event: Record<string, unknown>): string | undefined {
+  const assistantEvent = objectValue(event.assistantMessageEvent);
+  if (!assistantEvent) return undefined;
+  const assistantType = stringValue(assistantEvent.type);
+  if (assistantType !== "text_start" && assistantType !== "text_delta") return undefined;
+  return (
+    textFromContentList(pathValue(assistantEvent, ["partial", "content"]), assistantEvent.contentIndex) ??
+    textFromContentList(pathValue(event, ["message", "content"]), assistantEvent.contentIndex)
+  );
+}
+
+function assistantContentSnapshotKey(baseKey: string, event: Record<string, unknown>): string {
+  const assistantEvent = objectValue(event.assistantMessageEvent);
+  const contentIndex = assistantEvent ? stringValue(assistantEvent.contentIndex) ?? numericValue(assistantEvent.contentIndex)?.toString() : undefined;
+  return `${baseKey}:content:${contentIndex ?? "text"}`;
+}
+
 function explicitSnapshotText(type: string, event: Record<string, unknown>): string | undefined {
   if (!SNAPSHOT_TYPES.has(type)) return undefined;
+  if (eventRole(event) === "user") return undefined;
   const assistantEvent = objectValue(event.assistantMessageEvent);
   if (assistantEvent && stringValue(assistantEvent.type) === "text_delta") return undefined;
   return (
@@ -344,6 +419,8 @@ function explicitSnapshotText(type: string, event: Record<string, unknown>): str
 }
 
 function fallbackTextValue(event: Record<string, unknown>): string | undefined {
+  if (eventRole(event) === "user") return undefined;
+  if (isThinkingEvent(eventType(event), event) || isToolRequest(eventType(event), event)) return undefined;
   return (
     textValue(event.text) ??
     textValue(event.delta) ??
@@ -357,6 +434,41 @@ function fallbackTextValue(event: Record<string, unknown>): string | undefined {
     textValue(pathValue(event, ["data", "delta"])) ??
     textValue(pathValue(event, ["data", "text"])) ??
     textValue(pathValue(event, ["data", "content"]))
+  );
+}
+
+function eventRole(event: Record<string, unknown>): string | undefined {
+  const role =
+    stringValue(event.role) ??
+    stringValue(pathValue(event, ["message", "role"])) ??
+    stringValue(pathValue(event, ["data", "role"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "role"]));
+  return role?.toLowerCase();
+}
+
+function assistantEventType(event: Record<string, unknown>): string | undefined {
+  return stringValue(pathValue(event, ["assistantMessageEvent", "type"]))?.toLowerCase();
+}
+
+function toolNameFromEvent(event: Record<string, unknown>): string | undefined {
+  return (
+    stringValue(event.toolName) ??
+    stringValue(event.tool_name) ??
+    stringValue(event.name) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "toolName"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "tool_name"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "name"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "tool", "name"]))
+  );
+}
+
+function toolCallIdFromEvent(event: Record<string, unknown>): string | undefined {
+  return (
+    stringValue(event.toolCallId) ??
+    stringValue(event.tool_call_id) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "toolCallId"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "tool_call_id"])) ??
+    stringValue(pathValue(event, ["assistantMessageEvent", "id"]))
   );
 }
 
@@ -383,6 +495,23 @@ function textValue(value: unknown): string | undefined {
   return undefined;
 }
 
+function textFromContentList(value: unknown, indexValue: unknown): string | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const numericIndex = numericValue(indexValue);
+  if (numericIndex !== undefined && numericIndex >= 0 && numericIndex < value.length) {
+    const indexed = value[numericIndex];
+    if (isTextContent(indexed)) return textValue((indexed as Record<string, unknown>).text) ?? textValue((indexed as Record<string, unknown>).content);
+  }
+  for (const item of value) {
+    if (isTextContent(item)) return textValue((item as Record<string, unknown>).text) ?? textValue((item as Record<string, unknown>).content);
+  }
+  return undefined;
+}
+
+function isTextContent(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && (value as Record<string, unknown>).type === "text";
+}
+
 function objectValue(value: unknown): Record<string, unknown> | undefined {
   return typeof value === "object" && value !== null ? (value as Record<string, unknown>) : undefined;
 }
@@ -406,15 +535,31 @@ function summarizeRawEvent(raw: unknown): string {
 }
 
 function redactSecrets(value: unknown): unknown {
-  if (typeof value === "string") return value.replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****");
+  if (typeof value === "string") return redactString(value);
   if (Array.isArray(value)) return value.map(redactSecrets);
   if (typeof value === "object" && value !== null) {
+    const record = value as Record<string, unknown>;
+    const eventKind = stringValue(record.type)?.toLowerCase();
+    const assistantKind = stringValue(pathValue(record, ["assistantMessageEvent", "type"]))?.toLowerCase();
+    const sensitiveEvent = Boolean(
+      (eventKind && (THINKING_TYPES.has(eventKind) || TOOL_TYPES.has(eventKind))) ||
+        (assistantKind && (THINKING_ASSISTANT_EVENT_TYPES.has(assistantKind) || TOOL_ASSISTANT_EVENT_TYPES.has(assistantKind)))
+    );
     return Object.fromEntries(
-      Object.entries(value as Record<string, unknown>).map(([key, child]) => {
+      Object.entries(record).map(([key, child]) => {
         if (/api[_-]?key|authorization|token|secret/i.test(key)) return [key, "[redacted]"];
+        if (sensitiveEvent && /text|content|delta|thinking|reasoning|tool.?call|arguments|args|cwd|path|workspace|project.?root/i.test(key)) return [key, "[redacted]"];
+        if (/thinking|reasoning|tool.?call|arguments|args|cwd|path|workspace|project.?root/i.test(key)) return [key, "[redacted]"];
         return [key, redactSecrets(child)];
       })
     );
   }
   return value;
+}
+
+function redactString(value: string): string {
+  return value
+    .replace(/sk-[A-Za-z0-9_-]{8,}/g, "sk-****")
+    .replace(/Bearer\s+[A-Za-z0-9._-]+/gi, "Bearer [redacted]")
+    .replace(/\/(?:Users|private|var|tmp|opt|home)\/[^\s"',}]*/g, "[redacted-path]");
 }
