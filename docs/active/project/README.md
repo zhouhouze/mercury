@@ -51,6 +51,7 @@ docs/history/
 | `V1_2_AGENT_WORKPACKS.md` | V1.2 A/B/C/D/Integration 工作包 |
 | `MODULE_VERSIONING.md` | 模块内部编号规则，当前 A 模块阶段为 `A-V1.2` |
 | `MODULE_HANDOFF_TEMPLATE.md` | 模块交接模板 |
+| `HANDOFF_2026-06-22_CROSS_MACHINE_RECOVERY.md` | 跨机器恢复手册：远端仓、最小恢复步骤、当前阶段上下文和新 Codex 接手提示词 |
 
 ## 当前合同
 
