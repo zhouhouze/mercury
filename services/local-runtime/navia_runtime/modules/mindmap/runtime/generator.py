@@ -8,6 +8,7 @@ from navia_runtime.contracts import ErrorCode
 
 MAX_NODES = 32
 MAX_LABEL_CHARS = 64
+MAX_THEME_CHILDREN = 5
 
 
 def generate_mindmap_payload(input_data: dict[str, Any]) -> dict[str, Any]:
@@ -73,9 +74,13 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
     source_ref_list = list(source_refs.values())
 
     if readiness == "pass" and isinstance(digest, dict):
+        theme_nodes: dict[str, dict[str, Any]] = {}
+        theme_child_counts: dict[str, int] = {}
         for item in digest.get("items", [])[:MAX_NODES - 1]:
             if not isinstance(item, dict) or not item.get("text"):
                 continue
+            if len(nodes) >= MAX_NODES - 1:
+                break
             item_source_refs = [ref for ref in item.get("sourceRefs", []) if isinstance(ref, dict)]
             source_ref_ids = [str(ref.get("sourceRefId")) for ref in item_source_refs if ref.get("sourceRefId")]
             refs_by_id = [source_refs[source_ref_id] for source_ref_id in source_ref_ids if source_ref_id in source_refs]
@@ -88,11 +93,47 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
                 if ref.get("chunkId"):
                     chunk_ids.append(str(ref["chunkId"]))
             first_ref = effective_refs[0] if effective_refs else {}
+            theme_label = digest_theme_label(item, first_ref)
+            if theme_label not in theme_nodes and len(nodes) < MAX_NODES - 1:
+                theme_node = {
+                    "nodeId": f"node_theme_{len(theme_nodes) + 1}",
+                    "label": theme_label,
+                    "level": 2,
+                    "digestItemIds": [],
+                    "sourceRefIds": [],
+                    "paragraphIds": [],
+                    "chunkIds": [],
+                    "excerpt": "",
+                    "textQuote": "",
+                    "fallbackText": "",
+                    "jumpback": {"mode": "fallback", "reason": "theme_summary"},
+                }
+                theme_nodes[theme_label] = theme_node
+                theme_child_counts[theme_label] = 0
+                nodes.append(theme_node)
+
+            theme_node = theme_nodes.get(theme_label)
+            if theme_node is not None:
+                theme_node["digestItemIds"] = unique_values([*theme_node.get("digestItemIds", []), str(item.get("itemId") or "")])
+                theme_node["sourceRefIds"] = unique_values([*theme_node.get("sourceRefIds", []), *source_ref_ids])
+                theme_node["paragraphIds"] = unique_values([*theme_node.get("paragraphIds", []), *paragraph_ids])
+                theme_node["chunkIds"] = unique_values([*theme_node.get("chunkIds", []), *chunk_ids])
+                theme_node["excerpt"] = first_non_empty(str(theme_node.get("excerpt") or ""), str(item.get("text") or "")[:180])
+                theme_node["textQuote"] = first_non_empty(str(theme_node.get("textQuote") or ""), str(first_ref.get("textQuote") or "")[:180])
+                theme_node["fallbackText"] = first_non_empty(str(theme_node.get("fallbackText") or ""), str(first_ref.get("fallbackText") or item.get("text") or "")[:240])
+                if theme_node.get("jumpback", {}).get("reason") == "theme_summary":
+                    theme_node["jumpback"] = jumpback_from_ref(first_ref, fallback_reason="selector_missing" if first_ref else "source_ref_missing")
+
+            if theme_child_counts.get(theme_label, 0) >= MAX_THEME_CHILDREN:
+                continue
+            theme_child_counts[theme_label] = theme_child_counts.get(theme_label, 0) + 1
+            if len(nodes) >= MAX_NODES - 1:
+                break
             nodes.append(
                 {
                     "nodeId": f"node_digest_{len(nodes) + 1}",
-                    "label": str(item.get("text") or "")[:MAX_LABEL_CHARS],
-                    "level": 2,
+                    "label": compact_digest_label(str(item.get("text") or ""), first_ref),
+                    "level": 3,
                     "digestItemIds": [str(item.get("itemId"))] if item.get("itemId") else [],
                     "sourceRefIds": source_ref_ids,
                     "paragraphIds": unique_values(paragraph_ids),
@@ -276,6 +317,45 @@ def first_non_empty(*values: str) -> str:
     return ""
 
 
+def digest_theme_label(item: dict[str, Any], first_ref: dict[str, Any]) -> str:
+    heading_path = first_ref.get("headingPath")
+    if isinstance(heading_path, list):
+        for value in reversed(heading_path):
+            label = compact_node_label(str(value or ""))
+            if label and label != "未命名节点":
+                return label
+    text = str(item.get("text") or first_ref.get("fallbackText") or first_ref.get("textQuote") or "")
+    lowered = text.lower()
+    if any(token in lowered for token in ["source", "sourceref", "jumpback", "fallback", "evidence", "trace"]):
+        return "来源与追踪"
+    if any(token in lowered for token in ["api", "endpoint", "runtime", "session", "stream", "contract", "adapter"]):
+        return "架构与接口"
+    if any(token in lowered for token in ["install", "run", "test", "procedure", "validate", "create"]):
+        return "流程与操作"
+    if any(token in lowered for token in ["fail", "risk", "degraded", "missing", "cannot", "must not", "forbidden"]):
+        return "限制与风险"
+    return "核心要点"
+
+
+def compact_digest_label(text: str, first_ref: dict[str, Any]) -> str:
+    candidate = first_non_empty(str(first_ref.get("fallbackText") or ""), str(first_ref.get("textQuote") or ""), text)
+    return compact_node_label(candidate)
+
+
+def compact_node_label(value: str) -> str:
+    normalized = re.sub(r"\s+", " ", value).strip()
+    normalized = re.sub(r"\s+([,.;:!?，。；：！？])", r"\1", normalized)
+    normalized = re.sub(r"^(because|therefore|however|for example|for instance)\s+", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^(procedure|step)\s*[:：]\s*", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\b(is|are|was|were)\s+defined\s+as\b", "定义为", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\b(the|a|an)\s+", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
+    if len(normalized) <= MAX_LABEL_CHARS:
+        return normalized or "未命名节点"
+    truncated = normalized[: MAX_LABEL_CHARS - 1].rsplit(" ", 1)[0].strip()
+    return f"{truncated or normalized[: MAX_LABEL_CHARS - 1]}…"
+
+
 def unique_values(values: list[str]) -> list[str]:
     seen: set[str] = set()
     result: list[str] = []
@@ -332,9 +412,7 @@ def jumpback_from_ref(ref: dict[str, Any], *, fallback_reason: str) -> dict[str,
 
 
 def sanitize_label(value: str) -> str:
-    normalized = re.sub(r"\s+", " ", value).strip()
-    normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
-    return normalized[:MAX_LABEL_CHARS] or "未命名节点"
+    return compact_node_label(value)
 
 
 def error_result(code: ErrorCode, message: str) -> dict[str, Any]:

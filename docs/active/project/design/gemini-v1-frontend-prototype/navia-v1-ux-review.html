@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Navia V1 UX Review</title>
+    <style>
+      :root {
+        --bg: #e7ebe7;
+        --panel: rgba(255, 255, 255, 0.82);
+        --ink: #101816;
+        --muted: #586662;
+        --line: rgba(5, 84, 75, 0.16);
+        --brand: #05544b;
+        --brand-soft: rgba(5, 84, 75, 0.08);
+        --shadow: 0 20px 54px rgba(4, 24, 21, 0.12);
+        font-family: "Aptos", "Segoe UI", "Noto Sans SC", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background:
+          radial-gradient(circle at 12% 10%, rgba(5, 84, 75, 0.1), transparent 32%),
+          var(--bg);
+        color: var(--ink);
+      }
+
+      a {
+        color: var(--brand);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .page {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 34px 24px 48px;
+      }
+
+      header {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        color: var(--brand);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+        text-wrap: pretty;
+      }
+
+      h1 {
+        max-width: 760px;
+        font-size: clamp(32px, 5vw, 58px);
+        line-height: 1;
+      }
+
+      .lede {
+        max-width: 860px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        padding: 16px;
+        backdrop-filter: blur(18px);
+      }
+
+      .card h2 {
+        margin-bottom: 8px;
+        color: var(--brand);
+        font-size: 17px;
+      }
+
+      .card p,
+      li {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .links {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .links a {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.72);
+        padding: 10px 12px;
+      }
+
+      .links span {
+        color: var(--muted);
+        font-weight: 650;
+      }
+
+      .wide {
+        grid-column: 1 / -1;
+      }
+
+      .prototype-frame {
+        width: 100%;
+        height: min(900px, 82vh);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: var(--shadow);
+      }
+
+      .screenshot {
+        width: 100%;
+        max-height: 520px;
+        object-fit: contain;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .decision {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .pill {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--brand-soft);
+        color: var(--brand);
+        padding: 6px 10px;
+        font-size: 12px;
+        font-weight: 850;
+      }
+
+      @media (max-width: 860px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="eyebrow">Navia V1 UX Review</div>
+        <h1>当前实现范围内的 Gemini 样式与按钮设计审查页</h1>
+        <p class="lede">
+          本页用于审查 V1 前端视觉优化方向：保留现有 Chat / Agent / Debug / Settings、
+          Evidence Card Mindmap、Reading Map 和 Source Evidence 体验，只迁移 Gemini 原型中的样式、按钮和状态反馈。
+        </p>
+        <div class="decision">
+          <span class="pill">不新增真实产品页面</span>
+          <span class="pill">不实现 launcher / 折叠 / resize</span>
+          <span class="pill">不改变 Runtime 合同</span>
+          <span class="pill">fallback 不伪装为 DOM highlight</span>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>已认可概念图与阶段材料</h2>
+          <p>这些 active 文档定义当前 V1.3/V1.4 与 V1 baseline，不引用 history。</p>
+          <div class="links">
+            <a href="../v1.3-evidence-card-mindmap-gap.drawio">V1.3 Evidence Card Mindmap Gap <span>drawio</span></a>
+            <a href="../v1.3-evidence-card-mindmap-development-acceptance-plan.md">V1.3 开发及验收计划 <span>md</span></a>
+            <a href="../v1.4-reading-map-development-acceptance-plan.md">V1.4 Reading Map 计划 <span>md</span></a>
+            <a href="../v1-current-component-baseline.md">V1 当前组件基线 <span>md</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>当前实现截图</h2>
+          <p>当前产品仍是右侧页面内 sidebar，下面截图用于对照本轮样式优化是否保持既有体验。</p>
+          <div class="links">
+            <a href="../../evidence/v1_closeout/screenshots/v1-inpage-sidebar.png">V1 in-page sidebar <span>png</span></a>
+            <a href="../../evidence/v1_4_reading_map/acceptance-report.md">V1.4 Reading Map 验收 <span>md</span></a>
+            <a href="../../evidence/v1_3_evidence_card_mindmap/acceptance-report.html">V1.3 Evidence Card 验收 <span>html</span></a>
+          </div>
+        </article>
+
+        <article class="card wide">
+          <h2>当前实现截图预览</h2>
+          <img class="screenshot" src="../../evidence/v1_closeout/screenshots/v1-inpage-sidebar.png" alt="Navia V1 current in-page sidebar screenshot" />
+        </article>
+
+        <article class="card wide">
+          <h2>Gemini 当前原型</h2>
+          <p>下方 iframe 加载已替换后的 Gemini 单文件原型。沙箱顶部 viewport 控件、launcher、折叠手柄仅作为设计审查材料，不自动进入当前产品实现范围。</p>
+          <iframe class="prototype-frame" src="./navia-v1-component-complete-prototype.html" title="Gemini Navia V1 component prototype"></iframe>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+

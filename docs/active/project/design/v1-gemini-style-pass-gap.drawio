@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" modified="2026-06-24T00:00:00.000Z" agent="Codex" version="24.7.17" type="device">
+  <diagram id="v1-gsp-01" name="1 目标体验">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title1" value="V1 Gemini Style Pass：目标体验" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="u1" value="用户打开当前右侧 Navia 侧边栏" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=18;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="90" y="160" width="270" height="80" as="geometry"/></mxCell>
+        <mxCell id="u2" value="看到品牌、Runtime 状态、历史会话、当前网页上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=18;" vertex="1" parent="1"><mxGeometry x="430" y="160" width="340" height="80" as="geometry"/></mxCell>
+        <mxCell id="u3" value="使用已有按钮：读取网页 / 提交上下文 / 总结 / Mindmap / 解释选区" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=18;" vertex="1" parent="1"><mxGeometry x="840" y="160" width="400" height="80" as="geometry"/></mxCell>
+        <mxCell id="u4" value="在 Chat artifact 中查看 Evidence Card Mindmap、Reading Map、Source Evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=18;" vertex="1" parent="1"><mxGeometry x="250" y="330" width="440" height="90" as="geometry"/></mxCell>
+        <mxCell id="u5" value="清楚区分来源证据状态：located / fallback shown / blocked" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=18;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="780" y="330" width="430" height="90" as="geometry"/></mxCell>
+        <mxCell id="u6" value="Debug / Settings 保持可用，但视觉上次级，不抢占阅读主流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=18;" vertex="1" parent="1"><mxGeometry x="430" y="520" width="540" height="90" as="geometry"/></mxCell>
+        <mxCell id="arrow12" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="u1" target="u2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="arrow23" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="u2" target="u3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="arrow34" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="u3" target="u4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="arrow45" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="u4" target="u5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="arrow56" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="u5" target="u6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="note1" value="阶段目标：体验更专业、更清晰；能力范围、页面结构、Runtime 合同不扩大。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE9E7;strokeColor=#932C25;fontSize=18;" vertex="1" parent="1"><mxGeometry x="170" y="740" width="960" height="80" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-gsp-02" name="2 当前与目标架构差异">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title2" value="当前架构与目标架构的关联关系" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="cur" value="当前架构&#xa;Content Script&#xa;→ 右侧 iframe sidebar&#xa;→ sidepanel React&#xa;→ Chat / Agent / Debug / Settings&#xa;→ Chat artifact 内 Mindmap / Reading Map / Source Evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=17;align=left;spacingLeft=18;" vertex="1" parent="1"><mxGeometry x="90" y="150" width="520" height="310" as="geometry"/></mxCell>
+        <mxCell id="target" value="目标架构&#xa;保持当前架构不变&#xa;+ Gemini 视觉 token&#xa;+ 精致右侧工具栏按钮&#xa;+ 当前网页上下文卡&#xa;+ Runtime 状态徽标&#xa;+ Source Evidence 状态色&#xa;+ Debug / Settings 降噪" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=17;align=left;spacingLeft=18;" vertex="1" parent="1"><mxGeometry x="880" y="150" width="520" height="310" as="geometry"/></mxCell>
+        <mxCell id="bridge" value="只改 B frontend / sidepanel 视觉表达&#xa;不改 Runtime API&#xa;不改 Artifact / ViewModel 合同&#xa;不改 A/C/D 边界&#xa;不改 content script 产品行为" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=18;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="590" y="560" width="360" height="170" as="geometry"/></mxCell>
+        <mxCell id="a1" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=3;" edge="1" parent="1" source="cur" target="target"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a2" style="endArrow=block;html=1;strokeColor=#8C570F;strokeWidth=2;" edge="1" parent="1" source="bridge" target="cur"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="a3" style="endArrow=block;html=1;strokeColor=#8C570F;strokeWidth=2;" edge="1" parent="1" source="bridge" target="target"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-gsp-03" name="3 开发及验收计划">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title3" value="开发及验收计划" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="p0" value="V1-GSP-0&#xa;文档门禁冻结&#xa;PRD / 架构 / 验收 / drawio 一致" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=16;" vertex="1" parent="1"><mxGeometry x="80" y="160" width="210" height="120" as="geometry"/></mxCell>
+        <mxCell id="p1" value="V1-GSP-1&#xa;Gemini 资产落盘&#xa;审查 HTML 可打开" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="330" y="160" width="210" height="120" as="geometry"/></mxCell>
+        <mxCell id="p2" value="V1-GSP-2&#xa;样式与按钮系统&#xa;品牌色 / 玻璃面板 / 右 rail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="580" y="160" width="210" height="120" as="geometry"/></mxCell>
+        <mxCell id="p3" value="V1-GSP-3&#xa;上下文与证据状态&#xa;当前网页卡 / Runtime / Source state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="830" y="160" width="230" height="120" as="geometry"/></mxCell>
+        <mxCell id="p4" value="V1-GSP-4&#xa;自动验证&#xa;typecheck / focused tests / build" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=16;" vertex="1" parent="1"><mxGeometry x="1100" y="160" width="230" height="120" as="geometry"/></mxCell>
+        <mxCell id="p5" value="V1-GSP-5&#xa;真实 Chrome 验收&#xa;截图 / PRD review / false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=16;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="560" y="430" width="300" height="130" as="geometry"/></mxCell>
+        <mxCell id="pa01" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="p0" target="p1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="pa12" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="p1" target="p2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="pa23" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="p2" target="p3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="pa34" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="p3" target="p4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="pa45" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="p4" target="p5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="effect" value="完成后呈现效果：当前右侧 sidepanel 更专业、更清晰；所有既有流程仍在原位置可用；来源证据状态更可信。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=18;" vertex="1" parent="1"><mxGeometry x="290" y="720" width="820" height="80" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-gsp-04" name="4 项目里程碑">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title4" value="项目里程碑与阶段边界" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="m1" value="V1.2&#xa;AI Reading mock-first path&#xa;读取网页 / 总结 / 问答 / Debug / Mindmap 基线" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="100" y="180" width="260" height="130" as="geometry"/></mxCell>
+        <mxCell id="m2" value="V1.3&#xa;Evidence Card Mindmap&#xa;证据卡片导图 / Source Evidence / jumpback fallback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="420" y="180" width="260" height="130" as="geometry"/></mxCell>
+        <mxCell id="m3" value="V1.4&#xa;Reading Map&#xa;Side Panel 内双栏阅读地图导航" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=16;" vertex="1" parent="1"><mxGeometry x="740" y="180" width="260" height="130" as="geometry"/></mxCell>
+        <mxCell id="m4" value="当前阶段&#xa;V1 Gemini Style Pass&#xa;当前 sidebar 样式 / 按钮 / 状态反馈优化" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=16;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="1060" y="180" width="280" height="130" as="geometry"/></mxCell>
+        <mxCell id="m5" value="后续候选 V1.x&#xa;需另起门禁&#xa;floating ball / collapse / resize / overlay / 最终 Monica-like 体验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=16;" vertex="1" parent="1"><mxGeometry x="520" y="500" width="420" height="140" as="geometry"/></mxCell>
+        <mxCell id="ma12" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="m1" target="m2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ma23" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="m2" target="m3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ma34" style="endArrow=block;html=1;strokeColor=#05544B;strokeWidth=2;" edge="1" parent="1" source="m3" target="m4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ma45" style="endArrow=block;html=1;dashed=1;strokeColor=#8C570F;strokeWidth=2;" edge="1" parent="1" source="m4" target="m5"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-gsp-05" name="5 验收门槛">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title5" value="验收门槛：用户能体验到什么" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="ac1" value="Chat 主流程&#xa;历史会话 / 新会话 / 当前网页卡 / 读取网页 / 提交上下文 / 总结 / Mindmap / 解释选区 / composer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=16;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="90" y="150" width="420" height="170" as="geometry"/></mxCell>
+        <mxCell id="ac2" value="Artifact 体验&#xa;Evidence Card Mindmap / Reading Map / Mermaid fallback / Source Evidence 均仍在 Chat 内可见" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#A9C9C3;fontSize=16;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="570" y="150" width="420" height="170" as="geometry"/></mxCell>
+        <mxCell id="ac3" value="来源可信度&#xa;located / fallback_shown / blocked 视觉区分清楚；fallback 不能伪装成 DOM highlight 成功" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=16;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="1050" y="150" width="420" height="170" as="geometry"/></mxCell>
+        <mxCell id="ac4" value="辅助视图&#xa;Agent 边界、Debug 诊断、Settings Provider 配置仍可发现、可使用、不抢占主流程" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAF8;strokeColor=#A9C9C3;fontSize=16;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="250" y="440" width="450" height="160" as="geometry"/></mxCell>
+        <mxCell id="ac5" value="工程验收&#xa;typecheck / focused tests / build 通过；真实 Chrome 截图覆盖 Chat、Mindmap、Debug、Settings、Source Evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=16;fontStyle=1;align=left;spacingLeft=14;" vertex="1" parent="1"><mxGeometry x="820" y="440" width="470" height="160" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="v1-gsp-06" name="6 出门条件与No-Go">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title6" value="出门条件与 No-Go" style="text;html=1;fontSize=28;fontStyle=1;strokeColor=none;fillColor=none;align=left;" vertex="1" parent="1"><mxGeometry x="60" y="40" width="900" height="50" as="geometry"/></mxCell>
+        <mxCell id="go" value="允许出门&#xa;✓ 文档门禁完成&#xa;✓ 真实 sidepanel 样式已落地&#xa;✓ 既有体验未丢失&#xa;✓ Source Evidence 状态可信&#xa;✓ 验证命令通过&#xa;✓ 真实 Chrome 截图与 PRD review / false-green audit 落盘" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E6F4F1;strokeColor=#05544B;fontSize=17;align=left;spacingLeft=18;" vertex="1" parent="1"><mxGeometry x="120" y="160" width="560" height="330" as="geometry"/></mxCell>
+        <mxCell id="nogo" value="禁止通过&#xa;✕ 只更新 sandbox，真实 UI 未变&#xa;✕ 删除历史会话、按钮、Debug、Settings 或 artifact 体验&#xa;✕ 新增真实 Map/Sources 顶层页&#xa;✕ 引入 launcher / 折叠 / resize&#xa;✕ fallback 被当成 DOM success&#xa;✕ 声明完整 V1 或最终 Monica-like UX complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDE9E7;strokeColor=#932C25;fontSize=17;align=left;spacingLeft=18;" vertex="1" parent="1"><mxGeometry x="820" y="160" width="560" height="330" as="geometry"/></mxCell>
+        <mxCell id="claim" value="阶段完成声明：V1 Gemini style pass for current sidebar baseline complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4D8;strokeColor=#8C570F;fontSize=20;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="320" y="670" width="860" height="90" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -40,18 +40,6 @@
       "category": "technical_doc",
       "conclusion": "pass",
       "evidenceMode": "snapshot",
-      "mindmapEvidencePath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/tech_001_go_effective/mindmap.json",
-      "pageId": "tech_001_go_effective",
-      "readiness": "pass",
-      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_001_go_effective.html",
-      "sourceRefQualityPath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/tech_001_go_effective/source-ref-quality.json",
-      "title": "Effective Go - The Go Programming Language",
-      "url": "https://go.dev/doc/effective_go"
-    },
-    {
-      "category": "technical_doc",
-      "conclusion": "pass",
-      "evidenceMode": "snapshot",
       "mindmapEvidencePath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/tech_002_python_tutorial_intro/mindmap.json",
       "pageId": "tech_002_python_tutorial_intro",
       "readiness": "pass",
@@ -239,33 +227,45 @@
       "sourceRefQualityPath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/news_003_go_120_release/source-ref-quality.json",
       "title": "Go 1.20 is released! - The Go Programming Language",
       "url": "https://go.dev/blog/go1.20"
+    },
+    {
+      "category": "long_article",
+      "conclusion": "pass",
+      "evidenceMode": "snapshot",
+      "mindmapEvidencePath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/news_004_go_119_release/mindmap.json",
+      "pageId": "news_004_go_119_release",
+      "readiness": "pass",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/news_004_go_119_release.html",
+      "sourceRefQualityPath": "docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run/pages/news_004_go_119_release/source-ref-quality.json",
+      "title": "Go 1.19 is released! - The Go Programming Language",
+      "url": "https://go.dev/blog/go1.19"
     }
   ],
   "quality": {
     "fallbackAvailability": {
-      "denominator": 1311,
-      "numerator": 1311,
+      "denominator": 1228,
+      "numerator": 1228,
       "passed": true,
       "threshold": 0.95,
       "value": 1.0
     },
     "jumpbackCoverage": {
-      "denominator": 1311,
-      "numerator": 1311,
+      "denominator": 1228,
+      "numerator": 1228,
       "passed": true,
       "threshold": 0.95,
       "value": 1.0
     },
     "selectorAvailability": {
-      "denominator": 1311,
+      "denominator": 1228,
       "numerator": 0,
       "passed": true,
       "threshold": 0.0,
       "value": 0.0
     },
     "textQuoteAvailability": {
-      "denominator": 1311,
-      "numerator": 1311,
+      "denominator": 1228,
+      "numerator": 1228,
       "passed": true,
       "threshold": 0.95,
       "value": 1.0

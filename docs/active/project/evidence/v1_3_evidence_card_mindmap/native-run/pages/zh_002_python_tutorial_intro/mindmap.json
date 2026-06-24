@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((3. Python 速览 — Python 3.14.5 文档))\n    除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为  字符串  ） 。 这包括字符 \n    while 循环只要条件  这里是 a  10  为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真\n    循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符\n    下面的例子以是否显示提示符     与 . . .  区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的\n    print   函数输出给定参数的值 。 除了可以以单一的表达式作为参数 （ 比如 ， 前面的计算器的例子 ） ， 它还能处\n    字符串字面值可以跨越多行 。 一种做法是使用三重引号     . . .    或  \n    与其他语言不同 ， 特殊字符如 \\ n 在单引号   . . .   和双引号  \n    解释器被作为一台简单的计算器 ： 你可以键入一个表达式让它给出结果值 。 表达式语法很直观 ： 运算符 + , - , * 和\n    Python 中的简单赋值绝不会复制数据 。 当你将一个列表赋值给一个变量时 ， 该变量将引用 现有的列表 。 你通过一个变量对\n    在 Python shell 中 ， 字符串定义和输出字符串看起来可能不同 。 print   函数会略去标示用的引号 ，\n    本手册中的许多例子 ， 甚至交互式命令都包含注释 。 Python 注释以 # 开头 ， 直到该物理行结束 。 注释可以在行开头\n    除法运算  /  总是返回浮点数 。 如果要做 floor division 得到一个整数结果你可以使用 / / 运算符 ；\n    你可以使用  Copy  按钮 （ 它会在悬停或点击代码示例时显示于右上角 ） ， 它会去除提示符并省略输出 ， 以将输入行\n       word  42  # word 只有 6 个字符 Traceback  most recent\n    原始字符串还有一个微妙的限制 ： 一个原始字符串不能以奇数个 \\ 字符结束 ； 请参阅 此 FAQ 条目 了解更多信息及绕过的办\n    当然 ， 我们还能用 Python 完成比二加二更复杂的任务 。 例如 ， 我们可以像下面这样写出 斐波那契数列 初始部分的子序\n    交互模式下 ， 上次输出的表达式会赋给变量 _ 。 把 Python 当作计算器时 ， 用该变量实现下一步计算更简单 ， 例如\n    最好把该变量当作只读类型 。 不要为它显式赋值 ， 否则会创建一个同名独立局部变量 ， 该变量会用它的魔法行为屏蔽内置变量 。",
+  "mermaidSource": "mindmap\n  root((3. Python 速览 — Python 3.14.5 文档))\n    3.1.2. 文本 ¶\n      除了数字 Python 还可以操作文本（由 str 类型表示，称为字符串）。这包括字符!, 单词 rabbit,…\n    3.2. 走向编程的第一步 ¶\n      while 循环只要条件 这里是 10 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。…\n      循环体 是 缩进的：缩进是 Python…\n    3. Python 速览 ¶\n      下面的例子以是否显示提示符 与...…\n      print 函数输出给定参数的值。…\n      字符串字面值可以跨越多行。 一种做法是使用三重引号... 或...。 行结束符会自动包括在字符串中，但可以通过在行尾添加…\n      与其他语言不同，特殊字符如 \\n 在单引号... 和双引号... 里的意义一样。…\n    3.1.1. 数字 ¶\n      解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 +, -, * 和 /…\n    3.1.3. 列表 ¶\n      Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用…\n      在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print…\n      本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 #…\n      除法运算 / 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 //…\n      你可以使用 Copy 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。\n      word 42 # word 只有 6 个字符 Traceback most recent call last…\n      原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。\n      当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列\n      交互模式下，上次输出的表达式会赋给变量 _。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如：\n      最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -28,12 +28,37 @@
       },
       {
         "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0002"
+          "ck_zh_002_python_tutorial_intro_0002",
+          "ck_zh_002_python_tutorial_intro_0003",
+          "ck_zh_002_python_tutorial_intro_0004"
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为  字符串  ） 。 这包括字符 ",
+        "nodeLabel": "3.1.2. 文本 ¶",
         "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0028",
+          "pg_zh_002_python_tutorial_intro_0037",
+          "pg_zh_002_python_tutorial_intro_0032",
+          "pg_zh_002_python_tutorial_intro_0064",
+          "pg_zh_002_python_tutorial_intro_0036"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0028",
+          "src_zh_002_python_tutorial_intro_0037",
+          "src_zh_002_python_tutorial_intro_0032",
+          "src_zh_002_python_tutorial_intro_0064",
+          "src_zh_002_python_tutorial_intro_0036"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "除了数字 Python 还可以操作文本（由 str 类型表示，称为字符串）。这包括字符!, 单词 rabbit,…",
+        "nodeSourceMapKey": "node_2",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0028"
         ],
@@ -43,12 +68,36 @@
       },
       {
         "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006",
+          "ck_zh_002_python_tutorial_intro_0007"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "3.2. 走向编程的第一步 ¶",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0097",
+          "pg_zh_002_python_tutorial_intro_0098",
+          "pg_zh_002_python_tutorial_intro_0099",
+          "pg_zh_002_python_tutorial_intro_0104",
+          "pg_zh_002_python_tutorial_intro_0094"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0097",
+          "src_zh_002_python_tutorial_intro_0098",
+          "src_zh_002_python_tutorial_intro_0099",
+          "src_zh_002_python_tutorial_intro_0104",
+          "src_zh_002_python_tutorial_intro_0094"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0006"
         ],
-        "mermaidLineIndex": 3,
-        "nodeId": "node_2",
-        "nodeLabel": "while 循环只要条件  这里是 a  10  为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真",
-        "nodeSourceMapKey": "node_2",
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "while 循环只要条件 这里是 10 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0097"
         ],
@@ -60,10 +109,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0006"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": "循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "循环体 是 缩进的：缩进是 Python…",
+        "nodeSourceMapKey": "node_5",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0098"
         ],
@@ -75,10 +124,29 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
-        "mermaidLineIndex": 5,
-        "nodeId": "node_4",
-        "nodeLabel": "下面的例子以是否显示提示符     与 . . .  区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的",
-        "nodeSourceMapKey": "node_4",
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "3. Python 速览 ¶",
+        "nodeSourceMapKey": "node_6",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0006",
+          "pg_zh_002_python_tutorial_intro_0008",
+          "pg_zh_002_python_tutorial_intro_0007"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0006",
+          "src_zh_002_python_tutorial_intro_0008",
+          "src_zh_002_python_tutorial_intro_0007"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "下面的例子以是否显示提示符 与...…",
+        "nodeSourceMapKey": "node_7",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0006"
         ],
@@ -90,10 +158,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0006"
         ],
-        "mermaidLineIndex": 6,
-        "nodeId": "node_5",
-        "nodeLabel": "print   函数输出给定参数的值 。 除了可以以单一的表达式作为参数 （ 比如 ， 前面的计算器的例子 ） ， 它还能处",
-        "nodeSourceMapKey": "node_5",
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "print 函数输出给定参数的值。…",
+        "nodeSourceMapKey": "node_8",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0099"
         ],
@@ -105,10 +173,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0003"
         ],
-        "mermaidLineIndex": 7,
-        "nodeId": "node_6",
-        "nodeLabel": "字符串字面值可以跨越多行 。 一种做法是使用三重引号     . . .    或  ",
-        "nodeSourceMapKey": "node_6",
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "字符串字面值可以跨越多行。 一种做法是使用三重引号... 或...。 行结束符会自动包括在字符串中，但可以通过在行尾添加…",
+        "nodeSourceMapKey": "node_9",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0037"
         ],
@@ -120,10 +188,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0007"
         ],
-        "mermaidLineIndex": 8,
-        "nodeId": "node_7",
-        "nodeLabel": "与其他语言不同 ， 特殊字符如 \\ n 在单引号   . . .   和双引号  ",
-        "nodeSourceMapKey": "node_7",
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "与其他语言不同，特殊字符如 \\n 在单引号... 和双引号... 里的意义一样。…",
+        "nodeSourceMapKey": "node_10",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0104"
         ],
@@ -133,12 +201,34 @@
       },
       {
         "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001",
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "3.1.1. 数字 ¶",
+        "nodeSourceMapKey": "node_11",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0011",
+          "pg_zh_002_python_tutorial_intro_0014",
+          "pg_zh_002_python_tutorial_intro_0024",
+          "pg_zh_002_python_tutorial_intro_0026"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0011",
+          "src_zh_002_python_tutorial_intro_0014",
+          "src_zh_002_python_tutorial_intro_0024",
+          "src_zh_002_python_tutorial_intro_0026"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
-        "mermaidLineIndex": 9,
-        "nodeId": "node_8",
-        "nodeLabel": "解释器被作为一台简单的计算器 ： 你可以键入一个表达式让它给出结果值 。 表达式语法很直观 ： 运算符 + , - , * 和",
-        "nodeSourceMapKey": "node_8",
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 +, -, * 和 /…",
+        "nodeSourceMapKey": "node_12",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0011"
         ],
@@ -150,10 +240,25 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0005"
         ],
-        "mermaidLineIndex": 10,
-        "nodeId": "node_9",
-        "nodeLabel": "Python 中的简单赋值绝不会复制数据 。 当你将一个列表赋值给一个变量时 ， 该变量将引用 现有的列表 。 你通过一个变量对",
-        "nodeSourceMapKey": "node_9",
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "3.1.3. 列表 ¶",
+        "nodeSourceMapKey": "node_13",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0084"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0084"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0005"
+        ],
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用…",
+        "nodeSourceMapKey": "node_14",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0084"
         ],
@@ -165,10 +270,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0002"
         ],
-        "mermaidLineIndex": 11,
-        "nodeId": "node_10",
-        "nodeLabel": "在 Python shell 中 ， 字符串定义和输出字符串看起来可能不同 。 print   函数会略去标示用的引号 ，",
-        "nodeSourceMapKey": "node_10",
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print…",
+        "nodeSourceMapKey": "node_15",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0032"
         ],
@@ -180,10 +285,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
-        "mermaidLineIndex": 12,
-        "nodeId": "node_11",
-        "nodeLabel": "本手册中的许多例子 ， 甚至交互式命令都包含注释 。 Python 注释以 # 开头 ， 直到该物理行结束 。 注释可以在行开头",
-        "nodeSourceMapKey": "node_11",
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 #…",
+        "nodeSourceMapKey": "node_16",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0008"
         ],
@@ -195,10 +300,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
-        "mermaidLineIndex": 13,
-        "nodeId": "node_12",
-        "nodeLabel": "除法运算  /  总是返回浮点数 。 如果要做 floor division 得到一个整数结果你可以使用 / / 运算符 ；",
-        "nodeSourceMapKey": "node_12",
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "除法运算 / 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 //…",
+        "nodeSourceMapKey": "node_17",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0014"
         ],
@@ -210,10 +315,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
-        "mermaidLineIndex": 14,
-        "nodeId": "node_13",
-        "nodeLabel": "你可以使用  Copy  按钮 （ 它会在悬停或点击代码示例时显示于右上角 ） ， 它会去除提示符并省略输出 ， 以将输入行",
-        "nodeSourceMapKey": "node_13",
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "你可以使用 Copy 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。",
+        "nodeSourceMapKey": "node_18",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0007"
         ],
@@ -225,10 +330,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0004"
         ],
-        "mermaidLineIndex": 15,
-        "nodeId": "node_14",
-        "nodeLabel": "   word  42  # word 只有 6 个字符 Traceback  most recent",
-        "nodeSourceMapKey": "node_14",
+        "mermaidLineIndex": 20,
+        "nodeId": "node_19",
+        "nodeLabel": "word 42 # word 只有 6 个字符 Traceback most recent call last…",
+        "nodeSourceMapKey": "node_19",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0064"
         ],
@@ -240,10 +345,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0003"
         ],
-        "mermaidLineIndex": 16,
-        "nodeId": "node_15",
-        "nodeLabel": "原始字符串还有一个微妙的限制 ： 一个原始字符串不能以奇数个 \\ 字符结束 ； 请参阅 此 FAQ 条目 了解更多信息及绕过的办",
-        "nodeSourceMapKey": "node_15",
+        "mermaidLineIndex": 21,
+        "nodeId": "node_20",
+        "nodeLabel": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。",
+        "nodeSourceMapKey": "node_20",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0036"
         ],
@@ -255,10 +360,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0006"
         ],
-        "mermaidLineIndex": 17,
-        "nodeId": "node_16",
-        "nodeLabel": "当然 ， 我们还能用 Python 完成比二加二更复杂的任务 。 例如 ， 我们可以像下面这样写出 斐波那契数列 初始部分的子序",
-        "nodeSourceMapKey": "node_16",
+        "mermaidLineIndex": 22,
+        "nodeId": "node_21",
+        "nodeLabel": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列",
+        "nodeSourceMapKey": "node_21",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0094"
         ],
@@ -270,10 +375,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0002"
         ],
-        "mermaidLineIndex": 18,
-        "nodeId": "node_17",
-        "nodeLabel": "交互模式下 ， 上次输出的表达式会赋给变量 _ 。 把 Python 当作计算器时 ， 用该变量实现下一步计算更简单 ， 例如",
-        "nodeSourceMapKey": "node_17",
+        "mermaidLineIndex": 23,
+        "nodeId": "node_22",
+        "nodeLabel": "交互模式下，上次输出的表达式会赋给变量 _。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如：",
+        "nodeSourceMapKey": "node_22",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0024"
         ],
@@ -285,10 +390,10 @@
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0002"
         ],
-        "mermaidLineIndex": 19,
-        "nodeId": "node_18",
-        "nodeLabel": "最好把该变量当作只读类型 。 不要为它显式赋值 ， 否则会创建一个同名独立局部变量 ， 该变量会用它的魔法行为屏蔽内置变量 。",
-        "nodeSourceMapKey": "node_18",
+        "mermaidLineIndex": 24,
+        "nodeId": "node_23",
+        "nodeLabel": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。",
+        "nodeSourceMapKey": "node_23",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0026"
         ],
@@ -300,10 +405,16 @@
     "nodeSourceMap": {
       "node_1": {
         "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0002"
+          "ck_zh_002_python_tutorial_intro_0002",
+          "ck_zh_002_python_tutorial_intro_0003",
+          "ck_zh_002_python_tutorial_intro_0004"
         ],
         "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0028"
+          "item_block_pg_zh_002_python_tutorial_intro_0028",
+          "item_block_pg_zh_002_python_tutorial_intro_0037",
+          "item_block_pg_zh_002_python_tutorial_intro_0032",
+          "item_block_pg_zh_002_python_tutorial_intro_0064",
+          "item_block_pg_zh_002_python_tutorial_intro_0036"
         ],
         "excerpt": "除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为 \" 字符串 \" ） 。 这包括字符 \"",
         "fallbackText": "除了数字 Python 还可以操作文本（由 str 类型表示，称为\"字符串\"）。这包括字符 \" ! \", 单词 \" rabbit \", 名称 \" Paris \", 句子 \" Got your back. \" 等等 \" Yay! :) \"。 它们可以用成对的单引号 ( '...' ) 或双引号 ( \"...\" ) 来标示，结果完全相同 [ 2 ] 。",
@@ -311,324 +422,24 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为  字符串  ） 。 这包括字符 ",
+        "nodeLabel": "3.1.2. 文本 ¶",
         "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0028"
+          "pg_zh_002_python_tutorial_intro_0028",
+          "pg_zh_002_python_tutorial_intro_0037",
+          "pg_zh_002_python_tutorial_intro_0032",
+          "pg_zh_002_python_tutorial_intro_0064",
+          "pg_zh_002_python_tutorial_intro_0036"
         ],
         "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0028"
+          "src_zh_002_python_tutorial_intro_0028",
+          "src_zh_002_python_tutorial_intro_0037",
+          "src_zh_002_python_tutorial_intro_0032",
+          "src_zh_002_python_tutorial_intro_0064",
+          "src_zh_002_python_tutorial_intro_0036"
         ],
         "textQuote": "除了数字 Python 还可以操作文本（由 str 类型表示，称为\"字符串\"）。这包括字符 \" ! \", 单词 \" rabbit \", 名称 \" Paris \", 句子 \" Got your back. \" 等等 \" Yay! :) \"。 它们可以用成对的单引号 ( '...' ) 或双引号 ( \"...\" ) 来标示，结果完全相同 [ 2 ] 。"
       },
       "node_10": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0032"
-        ],
-        "excerpt": "在 Python shell 中 ， 字符串定义和输出字符串看起来可能不同 。 print ( ) 函数会略去标示用的引号 ， 并打印经过转义的特殊字符 ， 产生更为易读的输出 :",
-        "fallbackText": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print() 函数会略去标示用的引号，并打印经过转义的特殊字符，产生更为易读的输出:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "在 Python shell 中 ， 字符串定义和输出字符串看起来可能不同 。 print   函数会略去标示用的引号 ，",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0032"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0032"
-        ],
-        "textQuote": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print() 函数会略去标示用的引号，并打印经过转义的特殊字符，产生更为易读的输出:"
-      },
-      "node_11": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0008"
-        ],
-        "excerpt": "本手册中的许多例子 ， 甚至交互式命令都包含注释 。 Python 注释以 # 开头 ， 直到该物理行结束 。 注释可以在行开头 ， 或空白符与代码之后 ， 但不能在字符串里面",
-        "fallbackText": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 # 开头，直到该物理行结束。注释可以在行开头，或空白符与代码之后，但不能在字符串里面。字符串中的 # 号就是 # 号。注释用于阐明代码，Python 不解释注释，键入例子时，可以不输入注释。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "本手册中的许多例子 ， 甚至交互式命令都包含注释 。 Python 注释以 # 开头 ， 直到该物理行结束 。 注释可以在行开头",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0008"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0008"
-        ],
-        "textQuote": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 # 开头，直到该物理行结束。注释可以在行开头，或空白符与代码之后，但不能在字符串里面。字符串中的 # 号就是 # 号。注释用于阐明代码，Python 不解释注释，键入例子时，可以不输入注释。"
-      },
-      "node_12": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0014"
-        ],
-        "excerpt": "除法运算 ( / ) 总是返回浮点数 。 如果要做 floor division 得到一个整数结果你可以使用 / / 运算符 ； 要计算余数你可以使用 %",
-        "fallbackText": "除法运算 ( / ) 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 // 运算符；要计算余数你可以使用 % :",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "除法运算  /  总是返回浮点数 。 如果要做 floor division 得到一个整数结果你可以使用 / / 运算符 ；",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0014"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0014"
-        ],
-        "textQuote": "除法运算 ( / ) 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 // 运算符；要计算余数你可以使用 % :"
-      },
-      "node_13": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0007"
-        ],
-        "excerpt": "你可以使用 \" Copy \" 按钮 （ 它会在悬停或点击代码示例时显示于右上角 ） ， 它会去除提示符并省略输出 ， 以将输入行复制粘贴到你的解释器 。",
-        "fallbackText": "你可以使用 \"Copy\" 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "你可以使用  Copy  按钮 （ 它会在悬停或点击代码示例时显示于右上角 ） ， 它会去除提示符并省略输出 ， 以将输入行",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0007"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0007"
-        ],
-        "textQuote": "你可以使用 \"Copy\" 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。"
-      },
-      "node_14": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0064"
-        ],
-        "excerpt": "> > > word [ 42 ] # word 只有 6 个字符 Traceback ( most recent",
-        "fallbackText": ">>> word [ 42 ] # word 只有 6 个字符 Traceback (most recent call last): File \"<stdin>\" , line 1 , in <module> IndexError : string index out of range",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "   word  42  # word 只有 6 个字符 Traceback  most recent",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0064"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0064"
-        ],
-        "textQuote": ">>> word [ 42 ] # word 只有 6 个字符 Traceback (most recent call last): File \"<stdin>\" , line 1 , in <module> IndexError : string index out of range"
-      },
-      "node_15": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0003"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0036"
-        ],
-        "excerpt": "原始字符串还有一个微妙的限制 ： 一个原始字符串不能以奇数个 \\ 字符结束 ； 请参阅 此 FAQ 条目 了解更多信息及绕过的办法 。",
-        "fallbackText": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "原始字符串还有一个微妙的限制 ： 一个原始字符串不能以奇数个 \\ 字符结束 ； 请参阅 此 FAQ 条目 了解更多信息及绕过的办",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0036"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0036"
-        ],
-        "textQuote": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。"
-      },
-      "node_16": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0094"
-        ],
-        "excerpt": "当然 ， 我们还能用 Python 完成比二加二更复杂的任务 。 例如 ， 我们可以像下面这样写出 斐波那契数列 初始部分的子序列 :",
-        "fallbackText": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "当然 ， 我们还能用 Python 完成比二加二更复杂的任务 。 例如 ， 我们可以像下面这样写出 斐波那契数列 初始部分的子序",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0094"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0094"
-        ],
-        "textQuote": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列:"
-      },
-      "node_17": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0024"
-        ],
-        "excerpt": "交互模式下 ， 上次输出的表达式会赋给变量 _ 。 把 Python 当作计算器时 ， 用该变量实现下一步计算更简单 ， 例如 ：",
-        "fallbackText": "交互模式下，上次输出的表达式会赋给变量 _ 。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如：",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "交互模式下 ， 上次输出的表达式会赋给变量 _ 。 把 Python 当作计算器时 ， 用该变量实现下一步计算更简单 ， 例如",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0024"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0024"
-        ],
-        "textQuote": "交互模式下，上次输出的表达式会赋给变量 _ 。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如："
-      },
-      "node_18": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0026"
-        ],
-        "excerpt": "最好把该变量当作只读类型 。 不要为它显式赋值 ， 否则会创建一个同名独立局部变量 ， 该变量会用它的魔法行为屏蔽内置变量 。",
-        "fallbackText": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "最好把该变量当作只读类型 。 不要为它显式赋值 ， 否则会创建一个同名独立局部变量 ， 该变量会用它的魔法行为屏蔽内置变量 。",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0026"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0026"
-        ],
-        "textQuote": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。"
-      },
-      "node_2": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0097"
-        ],
-        "excerpt": "while 循环只要条件 ( 这里是 a < 10 ) 为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真",
-        "fallbackText": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)、 >= (大于等于) 及 != (不等于)。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "while 循环只要条件  这里是 a  10  为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0097"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0097"
-        ],
-        "textQuote": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)"
-      },
-      "node_3": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0098"
-        ],
-        "excerpt": "循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符 ） 。 使用文本编辑器可以实现更复杂的输入方式",
-        "fallbackText": "循环体 是 缩进的 ：缩进是 Python 组织语句的方式。在交互式命令行里，得为每个缩进的行输入空格（或制表符）。使用文本编辑器可以实现更复杂的输入方式；所有像样的文本编辑器都支持自动缩进。交互式输入复合语句时，要在最后输入空白行表示完成（因为解析器不知道哪一行代码是代码块的最后一行）。注意，同一块语句的每一行的缩进相同。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0098"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0098"
-        ],
-        "textQuote": "循环体 是 缩进的 ：缩进是 Python 组织语句的方式。在交互式命令行里，得为每个缩进的行输入空格（或制表符）。使用文本编辑器可以实现更复杂的输入方式；所有像样的文本编辑器都支持自动缩进。交互式输入复合语句时，要在最后输入空白行表示完成（因为解析器不知道哪一行代码是代码块的最后一行）。注意，同一块语句的每一行的缩进相同。"
-      },
-      "node_4": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0006"
-        ],
-        "excerpt": "下面的例子以是否显示提示符 ( > > > 与 . . . ) 区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的行中提示符后的所有内容 ；",
-        "fallbackText": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "下面的例子以是否显示提示符     与 . . .  区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0006"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0006"
-        ],
-        "textQuote": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。"
-      },
-      "node_5": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0099"
-        ],
-        "excerpt": "print ( ) 函数输出给定参数的值 。 除了可以以单一的表达式作为参数 （ 比如 ， 前面的计算器的例子 ） ， 它还能处理多个参数 ， 包括浮点数与字符串 。",
-        "fallbackText": "print() 函数输出给定参数的值。 除了可以以单一的表达式作为参数（比如，前面的计算器的例子），它还能处理多个参数，包括浮点数与字符串。 它输出的字符串不带引号，且各参数项之间会插入一个空格，这样可以实现更好的格式化操作，就像这样:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "print   函数输出给定参数的值 。 除了可以以单一的表达式作为参数 （ 比如 ， 前面的计算器的例子 ） ， 它还能处",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0099"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0099"
-        ],
-        "textQuote": "print() 函数输出给定参数的值。 除了可以以单一的表达式作为参数（比如，前面的计算器的例子），它还能处理多个参数，包括浮点数与字符串。 它输出的字符串不带引号，且各参数项之间会插入一个空格，这样可以实现更好的格式化操作，就像这样:"
-      },
-      "node_6": {
-        "chunkIds": [
-          "ck_zh_002_python_tutorial_intro_0003"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_002_python_tutorial_intro_0037"
-        ],
-        "excerpt": "字符串字面值可以跨越多行 。 一种做法是使用三重引号 : \" \" \" . . . \" \" \" 或 ' '",
-        "fallbackText": "字符串字面值可以跨越多行。 一种做法是使用三重引号: \"\"\"...\"\"\" 或 '''...''' 。 行结束符会自动包括在字符串中，但可以通过在行尾添加 \\ 来避免此行为。在下面的例子中，开头的换行符将不会被包括:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "字符串字面值可以跨越多行 。 一种做法是使用三重引号     . . .    或  ",
-        "paragraphIds": [
-          "pg_zh_002_python_tutorial_intro_0037"
-        ],
-        "sourceRefIds": [
-          "src_zh_002_python_tutorial_intro_0037"
-        ],
-        "textQuote": "字符串字面值可以跨越多行。 一种做法是使用三重引号: \"\"\"...\"\"\" 或 '''...''' 。 行结束符会自动包括在字符串中，但可以通过在行尾添加 \\ 来避免此行为。在下面的例子中，开头的换行符将不会被包括:"
-      },
-      "node_7": {
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0007"
         ],
@@ -641,7 +452,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "与其他语言不同 ， 特殊字符如 \\ n 在单引号   . . .   和双引号  ",
+        "nodeLabel": "与其他语言不同，特殊字符如 \\n 在单引号... 和双引号... 里的意义一样。…",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0104"
         ],
@@ -650,7 +461,39 @@
         ],
         "textQuote": "与其他语言不同，特殊字符如 \\n 在单引号 ( '...' ) 和双引号 ( \"...\" ) 里的意义一样。 这两种引号唯一的区别是，不需要在单引号里转义双引号 \" (但此时必须把单引号转义成 \\' )，反之亦然。"
       },
-      "node_8": {
+      "node_11": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001",
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0011",
+          "item_block_pg_zh_002_python_tutorial_intro_0014",
+          "item_block_pg_zh_002_python_tutorial_intro_0024",
+          "item_block_pg_zh_002_python_tutorial_intro_0026"
+        ],
+        "excerpt": "解释器被作为一台简单的计算器 ： 你可以键入一个表达式让它给出结果值 。 表达式语法很直观 ： 运算符 + , - , * 和 / 可被用来执行算术运算 ；",
+        "fallbackText": "解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 + , - , * 和 / 可被用来执行算术运算；圆括号 ( () ) 可被用来进行分组。例如:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "3.1.1. 数字 ¶",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0011",
+          "pg_zh_002_python_tutorial_intro_0014",
+          "pg_zh_002_python_tutorial_intro_0024",
+          "pg_zh_002_python_tutorial_intro_0026"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0011",
+          "src_zh_002_python_tutorial_intro_0014",
+          "src_zh_002_python_tutorial_intro_0024",
+          "src_zh_002_python_tutorial_intro_0026"
+        ],
+        "textQuote": "解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 + , - , * 和 / 可被用来执行算术运算；圆括号 ( () ) 可被用来进行分组。例如:"
+      },
+      "node_12": {
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0001"
         ],
@@ -663,7 +506,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "解释器被作为一台简单的计算器 ： 你可以键入一个表达式让它给出结果值 。 表达式语法很直观 ： 运算符 + , - , * 和",
+        "nodeLabel": "解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 +, -, * 和 /…",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0011"
         ],
@@ -672,7 +515,7 @@
         ],
         "textQuote": "解释器被作为一台简单的计算器：你可以键入一个表达式让它给出结果值。表达式语法很直观：运算符 + , - , * 和 / 可被用来执行算术运算；圆括号 ( () ) 可被用来进行分组。例如:"
       },
-      "node_9": {
+      "node_13": {
         "chunkIds": [
           "ck_zh_002_python_tutorial_intro_0005"
         ],
@@ -685,7 +528,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Python 中的简单赋值绝不会复制数据 。 当你将一个列表赋值给一个变量时 ， 该变量将引用 现有的列表 。 你通过一个变量对",
+        "nodeLabel": "3.1.3. 列表 ¶",
         "paragraphIds": [
           "pg_zh_002_python_tutorial_intro_0084"
         ],
@@ -693,6 +536,421 @@
           "src_zh_002_python_tutorial_intro_0084"
         ],
         "textQuote": "Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用 现有的列表 。你通过一个变量对列表所做的任何更改都会被引用它的所有其他变量看到。:"
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0084"
+        ],
+        "excerpt": "Python 中的简单赋值绝不会复制数据 。 当你将一个列表赋值给一个变量时 ， 该变量将引用 现有的列表 。 你通过一个变量对列表所做的任何更改都会被引用它的所有其他变量看到 。 :",
+        "fallbackText": "Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用 现有的列表 。你通过一个变量对列表所做的任何更改都会被引用它的所有其他变量看到。:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0084"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0084"
+        ],
+        "textQuote": "Python 中的简单赋值绝不会复制数据。 当你将一个列表赋值给一个变量时，该变量将引用 现有的列表 。你通过一个变量对列表所做的任何更改都会被引用它的所有其他变量看到。:"
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0032"
+        ],
+        "excerpt": "在 Python shell 中 ， 字符串定义和输出字符串看起来可能不同 。 print ( ) 函数会略去标示用的引号 ， 并打印经过转义的特殊字符 ， 产生更为易读的输出 :",
+        "fallbackText": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print() 函数会略去标示用的引号，并打印经过转义的特殊字符，产生更为易读的输出:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0032"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0032"
+        ],
+        "textQuote": "在 Python shell 中，字符串定义和输出字符串看起来可能不同。 print() 函数会略去标示用的引号，并打印经过转义的特殊字符，产生更为易读的输出:"
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0008"
+        ],
+        "excerpt": "本手册中的许多例子 ， 甚至交互式命令都包含注释 。 Python 注释以 # 开头 ， 直到该物理行结束 。 注释可以在行开头 ， 或空白符与代码之后 ， 但不能在字符串里面",
+        "fallbackText": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 # 开头，直到该物理行结束。注释可以在行开头，或空白符与代码之后，但不能在字符串里面。字符串中的 # 号就是 # 号。注释用于阐明代码，Python 不解释注释，键入例子时，可以不输入注释。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 #…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0008"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0008"
+        ],
+        "textQuote": "本手册中的许多例子，甚至交互式命令都包含注释。Python 注释以 # 开头，直到该物理行结束。注释可以在行开头，或空白符与代码之后，但不能在字符串里面。字符串中的 # 号就是 # 号。注释用于阐明代码，Python 不解释注释，键入例子时，可以不输入注释。"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0014"
+        ],
+        "excerpt": "除法运算 ( / ) 总是返回浮点数 。 如果要做 floor division 得到一个整数结果你可以使用 / / 运算符 ； 要计算余数你可以使用 %",
+        "fallbackText": "除法运算 ( / ) 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 // 运算符；要计算余数你可以使用 % :",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "除法运算 / 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 //…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0014"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0014"
+        ],
+        "textQuote": "除法运算 ( / ) 总是返回浮点数。如果要做 floor division 得到一个整数结果你可以使用 // 运算符；要计算余数你可以使用 % :"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0007"
+        ],
+        "excerpt": "你可以使用 \" Copy \" 按钮 （ 它会在悬停或点击代码示例时显示于右上角 ） ， 它会去除提示符并省略输出 ， 以将输入行复制粘贴到你的解释器 。",
+        "fallbackText": "你可以使用 \"Copy\" 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "你可以使用 Copy 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0007"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0007"
+        ],
+        "textQuote": "你可以使用 \"Copy\" 按钮（它会在悬停或点击代码示例时显示于右上角），它会去除提示符并省略输出，以将输入行复制粘贴到你的解释器。"
+      },
+      "node_19": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0064"
+        ],
+        "excerpt": "> > > word [ 42 ] # word 只有 6 个字符 Traceback ( most recent",
+        "fallbackText": ">>> word [ 42 ] # word 只有 6 个字符 Traceback (most recent call last): File \"<stdin>\" , line 1 , in <module> IndexError : string index out of range",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "word 42 # word 只有 6 个字符 Traceback most recent call last…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0064"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0064"
+        ],
+        "textQuote": ">>> word [ 42 ] # word 只有 6 个字符 Traceback (most recent call last): File \"<stdin>\" , line 1 , in <module> IndexError : string index out of range"
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0028"
+        ],
+        "excerpt": "除了数字 Python 还可以操作文本 （ 由 str 类型表示 ， 称为 \" 字符串 \" ） 。 这包括字符 \"",
+        "fallbackText": "除了数字 Python 还可以操作文本（由 str 类型表示，称为\"字符串\"）。这包括字符 \" ! \", 单词 \" rabbit \", 名称 \" Paris \", 句子 \" Got your back. \" 等等 \" Yay! :) \"。 它们可以用成对的单引号 ( '...' ) 或双引号 ( \"...\" ) 来标示，结果完全相同 [ 2 ] 。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "除了数字 Python 还可以操作文本（由 str 类型表示，称为字符串）。这包括字符!, 单词 rabbit,…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0028"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0028"
+        ],
+        "textQuote": "除了数字 Python 还可以操作文本（由 str 类型表示，称为\"字符串\"）。这包括字符 \" ! \", 单词 \" rabbit \", 名称 \" Paris \", 句子 \" Got your back. \" 等等 \" Yay! :) \"。 它们可以用成对的单引号 ( '...' ) 或双引号 ( \"...\" ) 来标示，结果完全相同 [ 2 ] 。"
+      },
+      "node_20": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0036"
+        ],
+        "excerpt": "原始字符串还有一个微妙的限制 ： 一个原始字符串不能以奇数个 \\ 字符结束 ； 请参阅 此 FAQ 条目 了解更多信息及绕过的办法 。",
+        "fallbackText": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0036"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0036"
+        ],
+        "textQuote": "原始字符串还有一个微妙的限制：一个原始字符串不能以奇数个 \\ 字符结束；请参阅 此 FAQ 条目 了解更多信息及绕过的办法。"
+      },
+      "node_21": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0094"
+        ],
+        "excerpt": "当然 ， 我们还能用 Python 完成比二加二更复杂的任务 。 例如 ， 我们可以像下面这样写出 斐波那契数列 初始部分的子序列 :",
+        "fallbackText": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0094"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0094"
+        ],
+        "textQuote": "当然，我们还能用 Python 完成比二加二更复杂的任务。 例如，我们可以像下面这样写出 斐波那契数列 初始部分的子序列:"
+      },
+      "node_22": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0024"
+        ],
+        "excerpt": "交互模式下 ， 上次输出的表达式会赋给变量 _ 。 把 Python 当作计算器时 ， 用该变量实现下一步计算更简单 ， 例如 ：",
+        "fallbackText": "交互模式下，上次输出的表达式会赋给变量 _ 。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如：",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "交互模式下，上次输出的表达式会赋给变量 _。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如：",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0024"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0024"
+        ],
+        "textQuote": "交互模式下，上次输出的表达式会赋给变量 _ 。把 Python 当作计算器时，用该变量实现下一步计算更简单，例如："
+      },
+      "node_23": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0026"
+        ],
+        "excerpt": "最好把该变量当作只读类型 。 不要为它显式赋值 ， 否则会创建一个同名独立局部变量 ， 该变量会用它的魔法行为屏蔽内置变量 。",
+        "fallbackText": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0026"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0026"
+        ],
+        "textQuote": "最好把该变量当作只读类型。不要为它显式赋值，否则会创建一个同名独立局部变量，该变量会用它的魔法行为屏蔽内置变量。"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006",
+          "ck_zh_002_python_tutorial_intro_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0097",
+          "item_block_pg_zh_002_python_tutorial_intro_0098",
+          "item_block_pg_zh_002_python_tutorial_intro_0099",
+          "item_block_pg_zh_002_python_tutorial_intro_0104",
+          "item_block_pg_zh_002_python_tutorial_intro_0094"
+        ],
+        "excerpt": "while 循环只要条件 ( 这里是 a < 10 ) 为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真",
+        "fallbackText": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)、 >= (大于等于) 及 != (不等于)。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "3.2. 走向编程的第一步 ¶",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0097",
+          "pg_zh_002_python_tutorial_intro_0098",
+          "pg_zh_002_python_tutorial_intro_0099",
+          "pg_zh_002_python_tutorial_intro_0104",
+          "pg_zh_002_python_tutorial_intro_0094"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0097",
+          "src_zh_002_python_tutorial_intro_0098",
+          "src_zh_002_python_tutorial_intro_0099",
+          "src_zh_002_python_tutorial_intro_0104",
+          "src_zh_002_python_tutorial_intro_0094"
+        ],
+        "textQuote": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0097"
+        ],
+        "excerpt": "while 循环只要条件 ( 这里是 a < 10 ) 为真就会一直执行 。 Python 和 C 一样 ， 任何非零整数都为真",
+        "fallbackText": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)、 >= (大于等于) 及 != (不等于)。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "while 循环只要条件 这里是 10 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0097"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0097"
+        ],
+        "textQuote": "while 循环只要条件 (这里是 a < 10 ) 为真就会一直执行。 Python 和 C 一样，任何非零整数都为真，零为假。 这个条件也可以是字符串或列表类型的值，事实上，任何序列都可以：长度非零就为真，空序列则为假。 示例中的判断只是最简单的比较。比较运算符的写法和 C 语言一样: < (小于)、 > (大于)、 == (等于)、 <= (小于等于)"
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0098"
+        ],
+        "excerpt": "循环体 是 缩进的 ： 缩进是 Python 组织语句的方式 。 在交互式命令行里 ， 得为每个缩进的行输入空格 （ 或制表符 ） 。 使用文本编辑器可以实现更复杂的输入方式",
+        "fallbackText": "循环体 是 缩进的 ：缩进是 Python 组织语句的方式。在交互式命令行里，得为每个缩进的行输入空格（或制表符）。使用文本编辑器可以实现更复杂的输入方式；所有像样的文本编辑器都支持自动缩进。交互式输入复合语句时，要在最后输入空白行表示完成（因为解析器不知道哪一行代码是代码块的最后一行）。注意，同一块语句的每一行的缩进相同。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "循环体 是 缩进的：缩进是 Python…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0098"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0098"
+        ],
+        "textQuote": "循环体 是 缩进的 ：缩进是 Python 组织语句的方式。在交互式命令行里，得为每个缩进的行输入空格（或制表符）。使用文本编辑器可以实现更复杂的输入方式；所有像样的文本编辑器都支持自动缩进。交互式输入复合语句时，要在最后输入空白行表示完成（因为解析器不知道哪一行代码是代码块的最后一行）。注意，同一块语句的每一行的缩进相同。"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0006",
+          "item_block_pg_zh_002_python_tutorial_intro_0008",
+          "item_block_pg_zh_002_python_tutorial_intro_0007"
+        ],
+        "excerpt": "下面的例子以是否显示提示符 ( > > > 与 . . . ) 区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的行中提示符后的所有内容 ；",
+        "fallbackText": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "3. Python 速览 ¶",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0006",
+          "pg_zh_002_python_tutorial_intro_0008",
+          "pg_zh_002_python_tutorial_intro_0007"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0006",
+          "src_zh_002_python_tutorial_intro_0008",
+          "src_zh_002_python_tutorial_intro_0007"
+        ],
+        "textQuote": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。"
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0006"
+        ],
+        "excerpt": "下面的例子以是否显示提示符 ( > > > 与 . . . ) 区分输入与输出 ： 输入例子中的代码时 ， 要键入以提示符开头的行中提示符后的所有内容 ；",
+        "fallbackText": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "下面的例子以是否显示提示符 与...…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0006"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0006"
+        ],
+        "textQuote": "下面的例子以是否显示提示符 ( >>> 与 ... ) 区分输入与输出：输入例子中的代码时，要键入以提示符开头的行中提示符后的所有内容；未以提示符开头的行是解释器的输出。 注意，例子中的某行出现的第二个提示符是用来结束多行命令的，此时，要键入一个空白行。"
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0099"
+        ],
+        "excerpt": "print ( ) 函数输出给定参数的值 。 除了可以以单一的表达式作为参数 （ 比如 ， 前面的计算器的例子 ） ， 它还能处理多个参数 ， 包括浮点数与字符串 。",
+        "fallbackText": "print() 函数输出给定参数的值。 除了可以以单一的表达式作为参数（比如，前面的计算器的例子），它还能处理多个参数，包括浮点数与字符串。 它输出的字符串不带引号，且各参数项之间会插入一个空格，这样可以实现更好的格式化操作，就像这样:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "print 函数输出给定参数的值。…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0099"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0099"
+        ],
+        "textQuote": "print() 函数输出给定参数的值。 除了可以以单一的表达式作为参数（比如，前面的计算器的例子），它还能处理多个参数，包括浮点数与字符串。 它输出的字符串不带引号，且各参数项之间会插入一个空格，这样可以实现更好的格式化操作，就像这样:"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_zh_002_python_tutorial_intro_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_002_python_tutorial_intro_0037"
+        ],
+        "excerpt": "字符串字面值可以跨越多行 。 一种做法是使用三重引号 : \" \" \" . . . \" \" \" 或 ' '",
+        "fallbackText": "字符串字面值可以跨越多行。 一种做法是使用三重引号: \"\"\"...\"\"\" 或 '''...''' 。 行结束符会自动包括在字符串中，但可以通过在行尾添加 \\ 来避免此行为。在下面的例子中，开头的换行符将不会被包括:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "字符串字面值可以跨越多行。 一种做法是使用三重引号... 或...。 行结束符会自动包括在字符串中，但可以通过在行尾添加…",
+        "paragraphIds": [
+          "pg_zh_002_python_tutorial_intro_0037"
+        ],
+        "sourceRefIds": [
+          "src_zh_002_python_tutorial_intro_0037"
+        ],
+        "textQuote": "字符串字面值可以跨越多行。 一种做法是使用三重引号: \"\"\"...\"\"\" 或 '''...''' 。 行结束符会自动包括在字符串中，但可以通过在行尾添加 \\ 来避免此行为。在下面的例子中，开头的换行符将不会被包括:"
       },
       "root": {
         "chunkIds": [
@@ -722,7 +980,7 @@
         "textQuote": "Image metadata: Python logo"
       }
     },
-    "nodesCount": 19,
+    "nodesCount": 24,
     "repairCount": 0,
     "sourcePageId": "zh_002_python_tutorial_intro",
     "validation": {

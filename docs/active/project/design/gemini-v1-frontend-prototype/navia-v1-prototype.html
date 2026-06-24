@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Navia V1 Frontend Prototype</title>
+    <link rel="stylesheet" href="./prototype.css" />
+  </head>
+  <body>
+    <div class="prototype-shell">
+      <main class="host-page" aria-label="Sample webpage">
+        <header class="article-header">
+          <p class="eyebrow">Sample technical article</p>
+          <h1>Designing reliable browser-side AI reading assistants</h1>
+          <p class="lede">
+            A companion reader needs to preserve the original page, keep evidence visible,
+            and avoid turning focused reading into a noisy dashboard.
+          </p>
+          <div class="article-meta">
+            <span>12 min read</span>
+            <span>Current page context available</span>
+            <span>Source refs: 18</span>
+          </div>
+        </header>
+
+        <section class="article-card">
+          <h2>Reading context</h2>
+          <p>
+            The assistant should make the page state obvious. Users need to know whether the
+            current page has been read, whether a summary is grounded in page text, and whether
+            a source can be located in the DOM or only shown as fallback evidence.
+          </p>
+          <p>
+            A side panel works best when the user can scan status, ask a question, inspect a
+            structured artifact, and return to the article without losing orientation.
+          </p>
+        </section>
+
+        <section class="article-card muted">
+          <h2>Implementation boundary</h2>
+          <p>
+            The frontend renderer should display artifacts returned by the local Runtime. It
+            should not generate facts on its own or bypass Runtime contracts.
+          </p>
+          <pre><code>A Page Reading -> C Mindmap -> D Artifact -> B Renderer -> Content Script jumpback</code></pre>
+        </section>
+
+        <section class="article-card">
+          <h2>Evidence behavior</h2>
+          <p>
+            Source evidence has three user-visible outcomes: located highlight, fallback text,
+            and blocked state. The interface must not label fallback as a successful DOM
+            highlight.
+          </p>
+        </section>
+      </main>
+
+      <aside class="navia-sidebar" aria-label="Navia sidebar prototype">
+        <header class="navia-topbar">
+          <div>
+            <div class="brand">Navia</div>
+            <div class="subtle">Current page reader</div>
+          </div>
+          <div class="runtime-pill" data-state="online">Runtime online</div>
+        </header>
+
+        <div class="sidebar-body">
+          <nav class="rail" aria-label="Workspace tabs">
+            <button class="rail-button active" data-view="chat" title="Chat">C</button>
+            <button class="rail-button" data-view="mindmap" title="Mindmap">M</button>
+            <button class="rail-button" data-view="debug" title="Debug">D</button>
+            <button class="rail-button" data-view="settings" title="Settings">S</button>
+          </nav>
+
+          <section class="workspace">
+            <section class="view active" id="view-chat">
+              <div class="page-context-card">
+                <div>
+                  <p class="section-kicker">Current page</p>
+                  <h2>Reliable browser-side AI reading assistants</h2>
+                </div>
+                <div class="signal-grid">
+                  <span>Read</span>
+                  <strong>Ready</strong>
+                  <span>Sources</span>
+                  <strong>18</strong>
+                </div>
+              </div>
+
+              <div class="action-strip" aria-label="Page actions">
+                <button>Read page</button>
+                <button>Summarize</button>
+                <button>Ask page</button>
+                <button>Mindmap</button>
+              </div>
+
+              <div class="message-list">
+                <article class="message user">
+                  <p>Summarize the main product constraints and show evidence.</p>
+                </article>
+                <article class="message assistant">
+                  <p>
+                    Navia should keep the original webpage readable while presenting page-grounded
+                    answers, structured maps, and source evidence in a right-side companion panel.
+                  </p>
+                  <div class="artifact-card">
+                    <div class="artifact-header">
+                      <span>Evidence summary</span>
+                      <span class="quality ok">grounded</span>
+                    </div>
+                    <ul>
+                      <li>Current page is the source of truth.</li>
+                      <li>Mindmap nodes must expose source evidence.</li>
+                      <li>Debug JSON stays secondary to user workflows.</li>
+                    </ul>
+                  </div>
+                </article>
+              </div>
+
+              <footer class="composer">
+                <textarea aria-label="Ask Navia" placeholder="Ask about this page..."></textarea>
+                <div class="composer-row">
+                  <label><input type="checkbox" checked /> Use page context</label>
+                  <button class="primary">Send</button>
+                </div>
+              </footer>
+            </section>
+
+            <section class="view" id="view-mindmap">
+              <div class="split-heading">
+                <div>
+                  <p class="section-kicker">Evidence Card Mindmap</p>
+                  <h2>Reading structure</h2>
+                </div>
+                <span class="quality ok">3 sources selected</span>
+              </div>
+
+              <div class="mindmap-layout">
+                <div class="mindmap-canvas">
+                  <button class="node root selected" data-source="located">Reading assistant</button>
+                  <button class="node n1" data-source="located">Page context</button>
+                  <button class="node n2" data-source="fallback">Evidence fallback</button>
+                  <button class="node n3 degraded" data-source="blocked">Debug boundary</button>
+                  <div class="edge e1"></div>
+                  <div class="edge e2"></div>
+                  <div class="edge e3"></div>
+                </div>
+
+                <aside class="source-panel">
+                  <p class="section-kicker">Source evidence</p>
+                  <h3 id="source-title">Reading assistant</h3>
+                  <p id="source-copy">
+                    Located in DOM. The selected node maps to a visible passage on the current page.
+                  </p>
+                  <div class="source-status located" id="source-status">located</div>
+                  <button class="secondary">Highlight source</button>
+                </aside>
+              </div>
+
+              <div class="reading-map">
+                <div>
+                  <p class="section-kicker">Reading Map</p>
+                  <h3>Sections</h3>
+                  <button class="map-row active">1. Reading context</button>
+                  <button class="map-row">2. Implementation boundary</button>
+                  <button class="map-row">3. Evidence behavior</button>
+                </div>
+                <div class="map-detail">
+                  <h3>Reading context</h3>
+                  <p>Shows why the assistant must surface page state, source status, and grounded answers.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="view" id="view-debug">
+              <p class="section-kicker">Debug JSON</p>
+              <h2>Runtime and artifact diagnostics</h2>
+              <pre class="debug-json"><code>{
+  "runtime": "online",
+  "pageRead": true,
+  "artifactTypes": ["summary", "mindmap", "reading_map"],
+  "sourceEvidence": {
+    "located": 2,
+    "fallback": 1,
+    "blocked": 1
+  }
+}</code></pre>
+            </section>
+
+            <section class="view" id="view-settings">
+              <p class="section-kicker">Settings</p>
+              <h2>Local runtime configuration</h2>
+              <div class="settings-list">
+                <label>Runtime endpoint <input value="http://127.0.0.1:17861" /></label>
+                <label>Provider mode <select><option>Mock provider</option><option>Local provider</option></select></label>
+                <label><input type="checkbox" checked /> Show source fallback warnings</label>
+              </div>
+            </section>
+          </section>
+        </div>
+      </aside>
+    </div>
+
+    <script src="./prototype.js"></script>
+  </body>
+</html>
+

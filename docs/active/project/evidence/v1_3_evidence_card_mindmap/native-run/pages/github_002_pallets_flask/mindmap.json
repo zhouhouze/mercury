@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((github_002_pallets_flask))\n    # Flask Flask is a lightweight  WSGI  web application framewor\n     WSGI   https  / / wsgi . readthedocs . io /  Werkzeug\n     please donate today   https  / / palletsprojects . com / do",
+  "mermaidSource": "mindmap\n  root((github_002_pallets_flask))\n    核心要点\n      # Flask Flask is lightweight WSGI web application framework.…\n      WSGI https//wsgi.readthedocs.io/ Werkzeug…\n      please donate today https//palletsprojects.com/donate ##…",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -26,12 +26,32 @@
       },
       {
         "chunkIds": [
-          "ck_github_002_pallets_flask_0001"
+          "ck_github_002_pallets_flask_0001",
+          "ck_github_002_pallets_flask_0002"
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "# Flask Flask is a lightweight  WSGI  web application framewor",
+        "nodeLabel": "核心要点",
         "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_github_002_pallets_flask_0001",
+          "pg_github_002_pallets_flask_0002",
+          "pg_github_002_pallets_flask_0003"
+        ],
+        "sourceRefIds": [
+          "src_github_002_pallets_flask_0001",
+          "src_github_002_pallets_flask_0002",
+          "src_github_002_pallets_flask_0003"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_github_002_pallets_flask_0001"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "# Flask Flask is lightweight WSGI web application framework.…",
+        "nodeSourceMapKey": "node_2",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0001"
         ],
@@ -43,10 +63,10 @@
         "chunkIds": [
           "ck_github_002_pallets_flask_0001"
         ],
-        "mermaidLineIndex": 3,
-        "nodeId": "node_2",
-        "nodeLabel": " WSGI   https  / / wsgi . readthedocs . io /  Werkzeug",
-        "nodeSourceMapKey": "node_2",
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "WSGI https//wsgi.readthedocs.io/ Werkzeug…",
+        "nodeSourceMapKey": "node_3",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0002"
         ],
@@ -58,10 +78,10 @@
         "chunkIds": [
           "ck_github_002_pallets_flask_0002"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": " please donate today   https  / / palletsprojects . com / do",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "please donate today https//palletsprojects.com/donate ##…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0003"
         ],
@@ -72,6 +92,35 @@
     ],
     "nodeSourceMap": {
       "node_1": {
+        "chunkIds": [
+          "ck_github_002_pallets_flask_0001",
+          "ck_github_002_pallets_flask_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_github_002_pallets_flask_0001",
+          "item_block_pg_github_002_pallets_flask_0002",
+          "item_block_pg_github_002_pallets_flask_0003"
+        ],
+        "excerpt": "# Flask Flask is a lightweight [ WSGI ] web application framework . It is designed",
+        "fallbackText": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around [Werkzeug] and [Jinja], and ha",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "核心要点",
+        "paragraphIds": [
+          "pg_github_002_pallets_flask_0001",
+          "pg_github_002_pallets_flask_0002",
+          "pg_github_002_pallets_flask_0003"
+        ],
+        "sourceRefIds": [
+          "src_github_002_pallets_flask_0001",
+          "src_github_002_pallets_flask_0002",
+          "src_github_002_pallets_flask_0003"
+        ],
+        "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It beg"
+      },
+      "node_2": {
         "chunkIds": [
           "ck_github_002_pallets_flask_0001"
         ],
@@ -84,7 +133,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "# Flask Flask is a lightweight  WSGI  web application framewor",
+        "nodeLabel": "# Flask Flask is lightweight WSGI web application framework.…",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0001"
         ],
@@ -93,7 +142,7 @@
         ],
         "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It beg"
       },
-      "node_2": {
+      "node_3": {
         "chunkIds": [
           "ck_github_002_pallets_flask_0001"
         ],
@@ -106,7 +155,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": " WSGI   https  / / wsgi . readthedocs . io /  Werkzeug",
+        "nodeLabel": "WSGI https//wsgi.readthedocs.io/ Werkzeug…",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0002"
         ],
@@ -115,7 +164,7 @@
         ],
         "textQuote": "[WSGI]: https://wsgi.readthedocs.io/ [Werkzeug]: https://werkzeug.palletsprojects.com/ [Jinja]: https://jinja.palletsprojects.com/ ## A Simple Example ```python # save this as app."
       },
-      "node_3": {
+      "node_4": {
         "chunkIds": [
           "ck_github_002_pallets_flask_0002"
         ],
@@ -128,7 +177,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": " please donate today   https  / / palletsprojects . com / do",
+        "nodeLabel": "please donate today https//palletsprojects.com/donate ##…",
         "paragraphIds": [
           "pg_github_002_pallets_flask_0003"
         ],
@@ -163,7 +212,7 @@
         "textQuote": "# Flask Flask is a lightweight [WSGI] web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It beg"
       }
     },
-    "nodesCount": 4,
+    "nodesCount": 5,
     "repairCount": 0,
     "sourcePageId": "github_002_pallets_flask",
     "validation": {

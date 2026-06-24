@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((PEP 8 – Style Guide for Python Code  peps.python.org))\n    Wildcard imports  from  module  import *  should be avoided\n    When the conditional part of an if - statement is long enough to\n    Module level “ dunders ”  i . e . names with two leading and tw\n    To solve this readability problem , mathematicians and their pub\n    In the standard library , non - UTF - 8 encodings should be used\n    Limiting the required editor window width makes it possible to h\n    # Wrong  # operators sit far away from their operands income =\n    The default wrapping in most tools disrupts the visual structure\n    # Correct  # easy to match operators with operands income =  g\n    Avoid trailing whitespace anywhere . Because it ’ s usually invi\n    Backslashes may still be appropriate at times . For example , lo\n    Continuation lines should align wrapped elements either vertical\n    For triple - quoted strings , always use double quote characters\n    Many projects have their own coding style guidelines . In the ev\n    When republishing names this way , the guidelines below regardin\n    # Hanging indents * may * be indented to other than 4 spaces . f\n    However , explicit relative imports are an acceptable alternativ\n    Standard library code should avoid complex package layouts and a",
+  "mermaidSource": "mindmap\n  root((PEP 8 – Style Guide for Python Code  peps.python.org))\n    Imports\n      Wildcard imports from module import * should be avoided, as…\n    Indentation\n      When conditional part of if -statement is long enough to…\n    Module Level Dunder Names\n      Module level “dunders” i.e. names with two leading and two…\n    Should Line Break Before or After Binary Operator?\n      To solve this readability problem, mathematicians and their…\n    Source File Encoding\n      In standard library, non-UTF-8 encodings should be used only…\n    Maximum Line Length\n      Limiting required editor window width makes it possible to…\n      # Wrong # operators sit far away from their operands income =…\n      default wrapping in most tools disrupts visual structure of…\n      # Correct # easy to match operators with operands income =…\n    Other Recommendations\n      Avoid trailing whitespace anywhere. Because it’s usually…\n      Backslashes may still be appropriate at times. For example,…\n      Continuation lines should align wrapped elements either…\n    String Quotes\n      For triple-quoted strings, always use double quote characters…\n    Introduction\n      Many projects have their own coding style guidelines. In event…\n      When republishing names this way, guidelines below regarding…\n      # Hanging indents *may* be indented to other than 4 spaces.…\n      However, explicit relative imports are acceptable alternative…\n      Standard library code should avoid complex package layouts and…",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -28,12 +28,34 @@
       },
       {
         "chunkIds": [
-          "ck_blog_001_pep_0008_0010"
+          "ck_blog_001_pep_0008_0010",
+          "ck_blog_001_pep_0008_0009"
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "Wildcard imports  from  module  import *  should be avoided",
+        "nodeLabel": "Imports",
         "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0105",
+          "pg_blog_001_pep_0008_0106",
+          "pg_blog_001_pep_0008_0097",
+          "pg_blog_001_pep_0008_0099"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0105",
+          "src_blog_001_pep_0008_0106",
+          "src_blog_001_pep_0008_0097",
+          "src_blog_001_pep_0008_0099"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "Wildcard imports from module import * should be avoided, as…",
+        "nodeSourceMapKey": "node_2",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0105"
         ],
@@ -43,12 +65,32 @@
       },
       {
         "chunkIds": [
+          "ck_blog_001_pep_0008_0004",
+          "ck_blog_001_pep_0008_0003"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "Indentation",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0047",
+          "pg_blog_001_pep_0008_0042",
+          "pg_blog_001_pep_0008_0046"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0047",
+          "src_blog_001_pep_0008_0042",
+          "src_blog_001_pep_0008_0046"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_blog_001_pep_0008_0004"
         ],
-        "mermaidLineIndex": 3,
-        "nodeId": "node_2",
-        "nodeLabel": "When the conditional part of an if - statement is long enough to",
-        "nodeSourceMapKey": "node_2",
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "When conditional part of if -statement is long enough to…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0047"
         ],
@@ -60,10 +102,25 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0010"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": "Module level “ dunders ”  i . e . names with two leading and tw",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "Module Level Dunder Names",
+        "nodeSourceMapKey": "node_5",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0107"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0107"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "Module level “dunders” i.e. names with two leading and two…",
+        "nodeSourceMapKey": "node_6",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0107"
         ],
@@ -75,10 +132,29 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0007"
         ],
-        "mermaidLineIndex": 5,
-        "nodeId": "node_4",
-        "nodeLabel": "To solve this readability problem , mathematicians and their pub",
-        "nodeSourceMapKey": "node_4",
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "Should Line Break Before or After Binary Operator?",
+        "nodeSourceMapKey": "node_7",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0071",
+          "pg_blog_001_pep_0008_0070",
+          "pg_blog_001_pep_0008_0073"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0071",
+          "src_blog_001_pep_0008_0070",
+          "src_blog_001_pep_0008_0073"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0007"
+        ],
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "To solve this readability problem, mathematicians and their…",
+        "nodeSourceMapKey": "node_8",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0071"
         ],
@@ -90,10 +166,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0008"
         ],
-        "mermaidLineIndex": 6,
-        "nodeId": "node_5",
-        "nodeLabel": "In the standard library , non - UTF - 8 encodings should be used",
-        "nodeSourceMapKey": "node_5",
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "Source File Encoding",
+        "nodeSourceMapKey": "node_9",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0081"
         ],
@@ -103,12 +179,47 @@
       },
       {
         "chunkIds": [
+          "ck_blog_001_pep_0008_0008"
+        ],
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "In standard library, non-UTF-8 encodings should be used only…",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0081"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0081"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0005",
+          "ck_blog_001_pep_0008_0006"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "Maximum Line Length",
+        "nodeSourceMapKey": "node_11",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0059",
+          "pg_blog_001_pep_0008_0060",
+          "pg_blog_001_pep_0008_0064"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0059",
+          "src_blog_001_pep_0008_0060",
+          "src_blog_001_pep_0008_0064"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_blog_001_pep_0008_0005"
         ],
-        "mermaidLineIndex": 7,
-        "nodeId": "node_6",
-        "nodeLabel": "Limiting the required editor window width makes it possible to h",
-        "nodeSourceMapKey": "node_6",
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "Limiting required editor window width makes it possible to…",
+        "nodeSourceMapKey": "node_12",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0059"
         ],
@@ -120,10 +231,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0007"
         ],
-        "mermaidLineIndex": 8,
-        "nodeId": "node_7",
-        "nodeLabel": "# Wrong  # operators sit far away from their operands income =",
-        "nodeSourceMapKey": "node_7",
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "# Wrong # operators sit far away from their operands income =…",
+        "nodeSourceMapKey": "node_13",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0070"
         ],
@@ -135,10 +246,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0006"
         ],
-        "mermaidLineIndex": 9,
-        "nodeId": "node_8",
-        "nodeLabel": "The default wrapping in most tools disrupts the visual structure",
-        "nodeSourceMapKey": "node_8",
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "default wrapping in most tools disrupts visual structure of…",
+        "nodeSourceMapKey": "node_14",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0060"
         ],
@@ -150,10 +261,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0007"
         ],
-        "mermaidLineIndex": 10,
-        "nodeId": "node_9",
-        "nodeLabel": "# Correct  # easy to match operators with operands income =  g",
-        "nodeSourceMapKey": "node_9",
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "# Correct # easy to match operators with operands income =…",
+        "nodeSourceMapKey": "node_15",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0073"
         ],
@@ -165,10 +276,25 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0012"
         ],
-        "mermaidLineIndex": 11,
-        "nodeId": "node_10",
-        "nodeLabel": "Avoid trailing whitespace anywhere . Because it ’ s usually invi",
-        "nodeSourceMapKey": "node_10",
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "Other Recommendations",
+        "nodeSourceMapKey": "node_16",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0133"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0133"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0012"
+        ],
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "Avoid trailing whitespace anywhere. Because it’s usually…",
+        "nodeSourceMapKey": "node_17",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0133"
         ],
@@ -180,10 +306,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0006"
         ],
-        "mermaidLineIndex": 12,
-        "nodeId": "node_11",
-        "nodeLabel": "Backslashes may still be appropriate at times . For example , lo",
-        "nodeSourceMapKey": "node_11",
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "Backslashes may still be appropriate at times. For example,…",
+        "nodeSourceMapKey": "node_18",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0064"
         ],
@@ -195,10 +321,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0003"
         ],
-        "mermaidLineIndex": 13,
-        "nodeId": "node_12",
-        "nodeLabel": "Continuation lines should align wrapped elements either vertical",
-        "nodeSourceMapKey": "node_12",
+        "mermaidLineIndex": 20,
+        "nodeId": "node_19",
+        "nodeLabel": "Continuation lines should align wrapped elements either…",
+        "nodeSourceMapKey": "node_19",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0042"
         ],
@@ -210,10 +336,25 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0011"
         ],
-        "mermaidLineIndex": 14,
-        "nodeId": "node_13",
-        "nodeLabel": "For triple - quoted strings , always use double quote characters",
-        "nodeSourceMapKey": "node_13",
+        "mermaidLineIndex": 21,
+        "nodeId": "node_20",
+        "nodeLabel": "String Quotes",
+        "nodeSourceMapKey": "node_20",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0110"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0110"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0011"
+        ],
+        "mermaidLineIndex": 22,
+        "nodeId": "node_21",
+        "nodeLabel": "For triple-quoted strings, always use double quote characters…",
+        "nodeSourceMapKey": "node_21",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0110"
         ],
@@ -225,10 +366,25 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0002"
         ],
-        "mermaidLineIndex": 15,
-        "nodeId": "node_14",
-        "nodeLabel": "Many projects have their own coding style guidelines . In the ev",
-        "nodeSourceMapKey": "node_14",
+        "mermaidLineIndex": 23,
+        "nodeId": "node_22",
+        "nodeLabel": "Introduction",
+        "nodeSourceMapKey": "node_22",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0031"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0031"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0002"
+        ],
+        "mermaidLineIndex": 24,
+        "nodeId": "node_23",
+        "nodeLabel": "Many projects have their own coding style guidelines. In event…",
+        "nodeSourceMapKey": "node_23",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0031"
         ],
@@ -240,10 +396,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0010"
         ],
-        "mermaidLineIndex": 16,
-        "nodeId": "node_15",
-        "nodeLabel": "When republishing names this way , the guidelines below regardin",
-        "nodeSourceMapKey": "node_15",
+        "mermaidLineIndex": 25,
+        "nodeId": "node_24",
+        "nodeLabel": "When republishing names this way, guidelines below regarding…",
+        "nodeSourceMapKey": "node_24",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0106"
         ],
@@ -255,10 +411,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0004"
         ],
-        "mermaidLineIndex": 17,
-        "nodeId": "node_16",
-        "nodeLabel": "# Hanging indents * may * be indented to other than 4 spaces . f",
-        "nodeSourceMapKey": "node_16",
+        "mermaidLineIndex": 26,
+        "nodeId": "node_25",
+        "nodeLabel": "# Hanging indents *may* be indented to other than 4 spaces.…",
+        "nodeSourceMapKey": "node_25",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0046"
         ],
@@ -270,10 +426,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0009"
         ],
-        "mermaidLineIndex": 18,
-        "nodeId": "node_17",
-        "nodeLabel": "However , explicit relative imports are an acceptable alternativ",
-        "nodeSourceMapKey": "node_17",
+        "mermaidLineIndex": 27,
+        "nodeId": "node_26",
+        "nodeLabel": "However, explicit relative imports are acceptable alternative…",
+        "nodeSourceMapKey": "node_26",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0097"
         ],
@@ -285,10 +441,10 @@
         "chunkIds": [
           "ck_blog_001_pep_0008_0010"
         ],
-        "mermaidLineIndex": 19,
-        "nodeId": "node_18",
-        "nodeLabel": "Standard library code should avoid complex package layouts and a",
-        "nodeSourceMapKey": "node_18",
+        "mermaidLineIndex": 28,
+        "nodeId": "node_27",
+        "nodeLabel": "Standard library code should avoid complex package layouts and…",
+        "nodeSourceMapKey": "node_27",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0099"
         ],
@@ -300,291 +456,37 @@
     "nodeSourceMap": {
       "node_1": {
         "chunkIds": [
-          "ck_blog_001_pep_0008_0010"
+          "ck_blog_001_pep_0008_0010",
+          "ck_blog_001_pep_0008_0009"
         ],
         "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0105"
+          "item_block_pg_blog_001_pep_0008_0105",
+          "item_block_pg_blog_001_pep_0008_0106",
+          "item_block_pg_blog_001_pep_0008_0097",
+          "item_block_pg_blog_001_pep_0008_0099"
         ],
         "excerpt": "Wildcard imports ( from < module > import * ) should be avoided , as they",
-        "fallbackText": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which ",
+        "fallbackText": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which",
         "jumpback": {
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Wildcard imports  from  module  import *  should be avoided",
+        "nodeLabel": "Imports",
         "paragraphIds": [
-          "pg_blog_001_pep_0008_0105"
+          "pg_blog_001_pep_0008_0105",
+          "pg_blog_001_pep_0008_0106",
+          "pg_blog_001_pep_0008_0097",
+          "pg_blog_001_pep_0008_0099"
         ],
         "sourceRefIds": [
-          "src_blog_001_pep_0008_0105"
+          "src_blog_001_pep_0008_0105",
+          "src_blog_001_pep_0008_0106",
+          "src_blog_001_pep_0008_0097",
+          "src_blog_001_pep_0008_0099"
         ],
         "textQuote": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. Th"
       },
       "node_10": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0012"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0133"
-        ],
-        "excerpt": "Avoid trailing whitespace anywhere . Because it ’ s usually invisible , it can be confusing",
-        "fallbackText": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Avoid trailing whitespace anywhere . Because it ’ s usually invi",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0133"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0133"
-        ],
-        "textQuote": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation ma"
-      },
-      "node_11": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0064"
-        ],
-        "excerpt": "Backslashes may still be appropriate at times . For example , long , multiple with -",
-        "fallbackText": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable for that case:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Backslashes may still be appropriate at times . For example , lo",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0064"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0064"
-        ],
-        "textQuote": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable f"
-      },
-      "node_12": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0003"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0042"
-        ],
-        "excerpt": "Continuation lines should align wrapped elements either vertically using Python ’ s implicit line joining inside",
-        "fallbackText": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . When using a hanging indent the following should be considered;",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Continuation lines should align wrapped elements either vertical",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0042"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0042"
-        ],
-        "textQuote": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . Whe"
-      },
-      "node_13": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0011"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0110"
-        ],
-        "excerpt": "For triple - quoted strings , always use double quote characters to be consistent with the",
-        "fallbackText": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 .",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "For triple - quoted strings , always use double quote characters",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0110"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0110"
-        ],
-        "textQuote": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 ."
-      },
-      "node_14": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0031"
-        ],
-        "excerpt": "Many projects have their own coding style guidelines . In the event of any conflicts ,",
-        "fallbackText": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Many projects have their own coding style guidelines . In the ev",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0031"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0031"
-        ],
-        "textQuote": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project."
-      },
-      "node_15": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0010"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0106"
-        ],
-        "excerpt": "When republishing names this way , the guidelines below regarding public and internal interfaces still apply",
-        "fallbackText": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "When republishing names this way , the guidelines below regardin",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0106"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0106"
-        ],
-        "textQuote": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply."
-      },
-      "node_16": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0046"
-        ],
-        "excerpt": "# Hanging indents * may * be indented to other than 4 spaces . foo =",
-        "fallbackText": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "# Hanging indents * may * be indented to other than 4 spaces . f",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0046"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0046"
-        ],
-        "textQuote": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )"
-      },
-      "node_17": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0009"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0097"
-        ],
-        "excerpt": "However , explicit relative imports are an acceptable alternative to absolute imports , especially when dealing",
-        "fallbackText": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "However , explicit relative imports are an acceptable alternativ",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0097"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0097"
-        ],
-        "textQuote": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unn"
-      },
-      "node_18": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0010"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0099"
-        ],
-        "excerpt": "Standard library code should avoid complex package layouts and always use absolute imports .",
-        "fallbackText": "Standard library code should avoid complex package layouts and always use absolute imports.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Standard library code should avoid complex package layouts and a",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0099"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0099"
-        ],
-        "textQuote": "Standard library code should avoid complex package layouts and always use absolute imports."
-      },
-      "node_2": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0047"
-        ],
-        "excerpt": "When the conditional part of an if - statement is long enough to require that it",
-        "fallbackText": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "When the conditional part of an if - statement is long enough to",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0047"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0047"
-        ],
-        "textQuote": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword "
-      },
-      "node_3": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0010"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0107"
-        ],
-        "excerpt": "Module level “ dunders ” ( i . e . names with two leading and two",
-        "fallbackText": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from __future__ imports.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Module level “ dunders ”  i . e . names with two leading and tw",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0107"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0107"
-        ],
-        "textQuote": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but "
-      },
-      "node_4": {
-        "chunkIds": [
-          "ck_blog_001_pep_0008_0007"
-        ],
-        "digestItemIds": [
-          "item_block_pg_blog_001_pep_0008_0071"
-        ],
-        "excerpt": "To solve this readability problem , mathematicians and their publishers follow the opposite convention . Donald",
-        "fallbackText": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break af",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "To solve this readability problem , mathematicians and their pub",
-        "paragraphIds": [
-          "pg_blog_001_pep_0008_0071"
-        ],
-        "sourceRefIds": [
-          "src_blog_001_pep_0008_0071"
-        ],
-        "textQuote": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting s"
-      },
-      "node_5": {
         "chunkIds": [
           "ck_blog_001_pep_0008_0008"
         ],
@@ -597,7 +499,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "In the standard library , non - UTF - 8 encodings should be used",
+        "nodeLabel": "In standard library, non-UTF-8 encodings should be used only…",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0081"
         ],
@@ -606,7 +508,36 @@
         ],
         "textQuote": "In the standard library, non-UTF-8 encodings should be used only for test purposes. Use non-ASCII characters sparingly, preferably only to denote places and human names. If using n"
       },
-      "node_6": {
+      "node_11": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0005",
+          "ck_blog_001_pep_0008_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0059",
+          "item_block_pg_blog_001_pep_0008_0060",
+          "item_block_pg_blog_001_pep_0008_0064"
+        ],
+        "excerpt": "Limiting the required editor window width makes it possible to have several files open side by",
+        "fallbackText": "Limiting the required editor window width makes it possible to have several files open side by side, and works well when using code review tools that present the two versions in adjacent columns.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Maximum Line Length",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0059",
+          "pg_blog_001_pep_0008_0060",
+          "pg_blog_001_pep_0008_0064"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0059",
+          "src_blog_001_pep_0008_0060",
+          "src_blog_001_pep_0008_0064"
+        ],
+        "textQuote": "Limiting the required editor window width makes it possible to have several files open side by side, and works well when using code review tools that present the two versions in ad"
+      },
+      "node_12": {
         "chunkIds": [
           "ck_blog_001_pep_0008_0005"
         ],
@@ -619,7 +550,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Limiting the required editor window width makes it possible to h",
+        "nodeLabel": "Limiting required editor window width makes it possible to…",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0059"
         ],
@@ -628,7 +559,7 @@
         ],
         "textQuote": "Limiting the required editor window width makes it possible to have several files open side by side, and works well when using code review tools that present the two versions in ad"
       },
-      "node_7": {
+      "node_13": {
         "chunkIds": [
           "ck_blog_001_pep_0008_0007"
         ],
@@ -641,7 +572,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "# Wrong  # operators sit far away from their operands income =",
+        "nodeLabel": "# Wrong # operators sit far away from their operands income =…",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0070"
         ],
@@ -650,7 +581,7 @@
         ],
         "textQuote": "# Wrong: # operators sit far away from their operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )"
       },
-      "node_8": {
+      "node_14": {
         "chunkIds": [
           "ck_blog_001_pep_0008_0006"
         ],
@@ -663,7 +594,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "The default wrapping in most tools disrupts the visual structure",
+        "nodeLabel": "default wrapping in most tools disrupts visual structure of…",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0060"
         ],
@@ -672,7 +603,7 @@
         ],
         "textQuote": "The default wrapping in most tools disrupts the visual structure of the code, making it more difficult to understand. The limits are chosen to avoid wrapping in editors with the wi"
       },
-      "node_9": {
+      "node_15": {
         "chunkIds": [
           "ck_blog_001_pep_0008_0007"
         ],
@@ -685,7 +616,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "# Correct  # easy to match operators with operands income =  g",
+        "nodeLabel": "# Correct # easy to match operators with operands income =…",
         "paragraphIds": [
           "pg_blog_001_pep_0008_0073"
         ],
@@ -693,6 +624,459 @@
           "src_blog_001_pep_0008_0073"
         ],
         "textQuote": "# Correct: # easy to match operators with operands income = ( gross_wages + taxable_interest + ( dividends - qualified_dividends ) - ira_deduction - student_loan_interest )"
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0012"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0133"
+        ],
+        "excerpt": "Avoid trailing whitespace anywhere . Because it ’ s usually invisible , it can be confusing",
+        "fallbackText": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Other Recommendations",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0133"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0133"
+        ],
+        "textQuote": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation ma"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0012"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0133"
+        ],
+        "excerpt": "Avoid trailing whitespace anywhere . Because it ’ s usually invisible , it can be confusing",
+        "fallbackText": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation marker. Some editors don’t preserve it and many projects (like",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Avoid trailing whitespace anywhere. Because it’s usually…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0133"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0133"
+        ],
+        "textQuote": "Avoid trailing whitespace anywhere. Because it’s usually invisible, it can be confusing: e.g. a backslash followed by a space and a newline does not count as a line continuation ma"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0064"
+        ],
+        "excerpt": "Backslashes may still be appropriate at times . For example , long , multiple with -",
+        "fallbackText": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable for that case:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Backslashes may still be appropriate at times. For example,…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0064"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0064"
+        ],
+        "textQuote": "Backslashes may still be appropriate at times. For example, long, multiple with -statements could not use implicit continuation before Python 3.10, so backslashes were acceptable f"
+      },
+      "node_19": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0042"
+        ],
+        "excerpt": "Continuation lines should align wrapped elements either vertically using Python ’ s implicit line joining inside",
+        "fallbackText": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . When using a hanging indent the following should be considered;",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Continuation lines should align wrapped elements either…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0042"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0042"
+        ],
+        "textQuote": "Continuation lines should align wrapped elements either vertically using Python’s implicit line joining inside parentheses, brackets and braces, or using a hanging indent [1] . Whe"
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0105"
+        ],
+        "excerpt": "Wildcard imports ( from < module > import * ) should be avoided , as they",
+        "fallbackText": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. There is one defensible use case for a wildcard import, which ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Wildcard imports from module import * should be avoided, as…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0105"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0105"
+        ],
+        "textQuote": "Wildcard imports ( from <module> import * ) should be avoided, as they make it unclear which names are present in the namespace, confusing both readers and many automated tools. Th"
+      },
+      "node_20": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0011"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0110"
+        ],
+        "excerpt": "For triple - quoted strings , always use double quote characters to be consistent with the",
+        "fallbackText": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 .",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "String Quotes",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0110"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0110"
+        ],
+        "textQuote": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 ."
+      },
+      "node_21": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0011"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0110"
+        ],
+        "excerpt": "For triple - quoted strings , always use double quote characters to be consistent with the",
+        "fallbackText": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 .",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "For triple-quoted strings, always use double quote characters…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0110"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0110"
+        ],
+        "textQuote": "For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in PEP 257 ."
+      },
+      "node_22": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0031"
+        ],
+        "excerpt": "Many projects have their own coding style guidelines . In the event of any conflicts ,",
+        "fallbackText": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Introduction",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0031"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0031"
+        ],
+        "textQuote": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project."
+      },
+      "node_23": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0031"
+        ],
+        "excerpt": "Many projects have their own coding style guidelines . In the event of any conflicts ,",
+        "fallbackText": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Many projects have their own coding style guidelines. In event…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0031"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0031"
+        ],
+        "textQuote": "Many projects have their own coding style guidelines. In the event of any conflicts, such project-specific guides take precedence for that project."
+      },
+      "node_24": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0106"
+        ],
+        "excerpt": "When republishing names this way , the guidelines below regarding public and internal interfaces still apply",
+        "fallbackText": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "When republishing names this way, guidelines below regarding…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0106"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0106"
+        ],
+        "textQuote": "When republishing names this way, the guidelines below regarding public and internal interfaces still apply."
+      },
+      "node_25": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0046"
+        ],
+        "excerpt": "# Hanging indents * may * be indented to other than 4 spaces . foo =",
+        "fallbackText": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "# Hanging indents *may* be indented to other than 4 spaces.…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0046"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0046"
+        ],
+        "textQuote": "# Hanging indents *may* be indented to other than 4 spaces. foo = long_function_name ( var_one , var_two , var_three , var_four )"
+      },
+      "node_26": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0009"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0097"
+        ],
+        "excerpt": "However , explicit relative imports are an acceptable alternative to absolute imports , especially when dealing",
+        "fallbackText": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unnecessarily verbose:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "However, explicit relative imports are acceptable alternative…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0097"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0097"
+        ],
+        "textQuote": "However, explicit relative imports are an acceptable alternative to absolute imports, especially when dealing with complex package layouts where using absolute imports would be unn"
+      },
+      "node_27": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0099"
+        ],
+        "excerpt": "Standard library code should avoid complex package layouts and always use absolute imports .",
+        "fallbackText": "Standard library code should avoid complex package layouts and always use absolute imports.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Standard library code should avoid complex package layouts and…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0099"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0099"
+        ],
+        "textQuote": "Standard library code should avoid complex package layouts and always use absolute imports."
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0004",
+          "ck_blog_001_pep_0008_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0047",
+          "item_block_pg_blog_001_pep_0008_0042",
+          "item_block_pg_blog_001_pep_0008_0046"
+        ],
+        "excerpt": "When the conditional part of an if - statement is long enough to require that it",
+        "fallbackText": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Indentation",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0047",
+          "pg_blog_001_pep_0008_0042",
+          "pg_blog_001_pep_0008_0046"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0047",
+          "src_blog_001_pep_0008_0042",
+          "src_blog_001_pep_0008_0046"
+        ],
+        "textQuote": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0047"
+        ],
+        "excerpt": "When the conditional part of an if - statement is long enough to require that it",
+        "fallbackText": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword (i.e. if ), plus a single space, plus an opening parenthesis",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "When conditional part of if -statement is long enough to…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0047"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0047"
+        ],
+        "textQuote": "When the conditional part of an if -statement is long enough to require that it be written across multiple lines, it’s worth noting that the combination of a two character keyword "
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0107"
+        ],
+        "excerpt": "Module level “ dunders ” ( i . e . names with two leading and two",
+        "fallbackText": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from __future__ imports.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Module Level Dunder Names",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0107"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0107"
+        ],
+        "textQuote": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0010"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0107"
+        ],
+        "excerpt": "Module level “ dunders ” ( i . e . names with two leading and two",
+        "fallbackText": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but before any import statements except from __future__ imports.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Module level “dunders” i.e. names with two leading and two…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0107"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0107"
+        ],
+        "textQuote": "Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__ , __author__ , __version__ , etc. should be placed after the module docstring but "
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0071",
+          "item_block_pg_blog_001_pep_0008_0070",
+          "item_block_pg_blog_001_pep_0008_0073"
+        ],
+        "excerpt": "To solve this readability problem , mathematicians and their publishers follow the opposite convention . Donald",
+        "fallbackText": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break af",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Should Line Break Before or After Binary Operator?",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0071",
+          "pg_blog_001_pep_0008_0070",
+          "pg_blog_001_pep_0008_0073"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0071",
+          "src_blog_001_pep_0008_0070",
+          "src_blog_001_pep_0008_0073"
+        ],
+        "textQuote": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting s"
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0071"
+        ],
+        "excerpt": "To solve this readability problem , mathematicians and their publishers follow the opposite convention . Donald",
+        "fallbackText": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting series: “Although formulas within a paragraph always break af",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "To solve this readability problem, mathematicians and their…",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0071"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0071"
+        ],
+        "textQuote": "To solve this readability problem, mathematicians and their publishers follow the opposite convention. Donald Knuth explains the traditional rule in his Computers and Typesetting s"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_blog_001_pep_0008_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_blog_001_pep_0008_0081"
+        ],
+        "excerpt": "In the standard library , non - UTF - 8 encodings should be used only for",
+        "fallbackText": "In the standard library, non-UTF-8 encodings should be used only for test purposes. Use non-ASCII characters sparingly, preferably only to denote places and human names. If using non-ASCII characters as data, avoid noisy Unicode characters",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Source File Encoding",
+        "paragraphIds": [
+          "pg_blog_001_pep_0008_0081"
+        ],
+        "sourceRefIds": [
+          "src_blog_001_pep_0008_0081"
+        ],
+        "textQuote": "In the standard library, non-UTF-8 encodings should be used only for test purposes. Use non-ASCII characters sparingly, preferably only to denote places and human names. If using n"
       },
       "root": {
         "chunkIds": [
@@ -722,7 +1106,7 @@
         "textQuote": "PEP 8 – Style Guide for Python Code"
       }
     },
-    "nodesCount": 19,
+    "nodesCount": 28,
     "repairCount": 0,
     "sourcePageId": "blog_001_pep_0008",
     "validation": {

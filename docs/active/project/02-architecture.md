@@ -1146,6 +1146,23 @@ B Side Panel Renderer + Content Script
 
 V1.3 在 V1.2-Closeout 已打通的 A/C/D/B 主链路上，增强 B Mindmap Renderer 的主体验。目标不是更换 C 的生成逻辑，也不是新增 Canvas 或知识库，而是把 `ArtifactRecord(type="mindmap")` 渲染为可读、可验证、可交互的 Evidence Card Mindmap。
 
+当前架构基线：
+
+```text
+Chrome native Side Panel
+  -> B renderer renders Chat / Debug / Mindmap
+  -> Mindmap artifact carries Mermaid source and source metadata
+  -> Source evidence and jumpback fallback are available
+  -> Runtime remains the only producer of ToolResult / Artifact / Event / Trace
+```
+
+当前主要差异不在事实链路，而在体验表达和验收闭环：
+
+- Mermaid / source fallback 已能作为技术证明，但还不能代表高质量 Mindmap 主体验。
+- Evidence Card 基线已存在，但需要用统一 view model、可读布局、交互状态和真实 Side Panel 截图完成出门验收。
+- C 输出的 digest / node label 需要更强语义压缩和主题归并，避免长句平铺。
+- 真实 Chrome 原生 Side Panel 自动化和截图证据仍是 V1.3 出门硬门槛。
+
 目标架构：
 
 ```text
@@ -1195,6 +1212,39 @@ docs/active/project/contracts/v1_3_evidence_card_mindmap.schema.json
 | 体验证据 | Jumpback 截图级报告 | 视觉截图基线 + 真实 Chrome Side Panel 用户路径报告 |
 | 长期路线 | 单页 artifact | 可演进到双栏阅读地图和 Canvas Knowledge Map |
 
+### 16.1 V1.3 目标组件关系
+
+```text
+Mindmap Artifact
+  content.mermaid
+  content.tree
+  metadata.nodeSourceMap
+  metadata.nodeBindings
+        |
+        v
+B-local EvidenceCardViewModel
+  root / themes / child nodes
+  source count / confidence / degraded reason
+  selected / hover / neighbor state
+  jumpback status
+        |
+        v
+Evidence Card Mindmap UI
+  card tree
+  edge / adjacency layer
+  source evidence panel
+  Mermaid fallback / debug source
+        |
+        v
+User-triggered Content Script Jumpback
+  selector / domPath / textQuote
+  highlighted | fallback_shown | blocked
+```
+
+`EvidenceCardViewModel` 是 B-local 渲染模型。它可以被 schema 和 fixture 验证，但不得升级为 A/C/D 的公共输出要求。
+
+V1.3-1 的 fixture 验证必须直接使用 `contracts/v1_3_evidence_card_mindmap.schema.json#/$defs/EvidenceCardViewModel`。最终 `V13EvidenceCardAcceptanceReport` schema validation 不能替代 ViewModel 派生验证。
+
 V1.3 模块边界：
 
 - B 只能从 Artifact 和 metadata 派生前端 view model，不拥有事实源。
@@ -1202,6 +1252,26 @@ V1.3 模块边界：
 - A/C/B 不写 Artifact、Event、Trace。
 - Content script 只处理用户触发的定位和高亮。
 - 如需新增公共 Artifact metadata 字段，必须回到合同审计；优先复用已有 `metadata.nodeSourceMap`、`sourceRefIds`、`textQuote`、`fallbackText`。
+
+### 16.2 V1.3 开发里程碑和架构验收
+
+| 子阶段 | 架构关注点 | 验收证据 |
+|---|---|---|
+| `V1.3-0` | PRD、目标架构、schema、gap 图、验收口径冻结 | stage gate、gap companion、schema、文档一致性审计结论 |
+| `V1.3-1` | Artifact -> EvidenceCardViewModel 派生路径 | fixture、schema validation、B 不调用 A/C/D 服务的边界检查 |
+| `V1.3-2` | Card tree layout、visual token、responsive constraints | Side Panel 宽度截图、文本溢出检查、视觉回归证据 |
+| `V1.3-3` | UI state graph：hover / focus / selected / neighbor | component tests、截图、source panel interaction 证据 |
+| `V1.3-4` | Jumpback state bridge：success / fallback / blocked | UI 状态、content script result、report.json 一致性 |
+| `V1.3-5` | 真实网页矩阵和出门报告 | 8 页矩阵、3 个 native Side Panel 截图样本、HTML 报告、false-green audit |
+
+架构出门条件：
+
+- Runtime public contract 不因 V1.3 变更。
+- A/C/D 边界不被 B 的 Evidence Card 实现反向污染。
+- C 可以改善节点标签和主题结构，但不能输出 React / SVG / CSS 组件结构。
+- B 可以派生 view model 和交互状态，但不能生成事实内容、Mindmap 或 Artifact。
+- DOM jumpback 只由用户动作触发，且结果必须保留 `highlighted`、`fallback_shown` 或 `blocked` 语义。
+- V1.3 report 必须同时通过 JSON Schema 和 semantic validation；native visual sample 不得由 `visualEvidenceStatus="not_sampled"` 的页面计入。
 
 V1.3 证据包固定为：
 
@@ -1213,7 +1283,7 @@ docs/active/project/evidence/v1_3_evidence_card_mindmap/false-green-audit.md
 docs/active/project/evidence/v1_3_evidence_card_mindmap/screenshots/
 ```
 
-V1.3-1+ 只能在 V1.3-0 外部审计无 fatal / major 后启动。
+V1.3-1+ 只能在 V1.3-0 文档一致性审计无 fatal / major 后启动。
 
 V1.3 长期预留：
 
@@ -1225,6 +1295,88 @@ Evidence Card Mindmap
 ```
 
 长期 Canvas Knowledge Map 需要 Memory Plane、持久化知识对象、跨网页 source graph、权限治理和独立 PRD，不属于 V1.3 实现范围。
+
+### 16.3 V1 Gemini Style Pass 目标架构
+
+V1 Gemini Style Pass 不改变 Runtime、Artifact、A/C/D、content script 合同。它只在当前 B frontend renderer / sidepanel shell 内做视觉系统和现有交互状态表达升级。
+
+目标架构：
+
+```text
+Chrome content script
+  -> current right-side iframe sidebar
+        |
+        v
+sidepanel.html React app
+  -> existing Chat / Agent / Debug / Settings views
+  -> Gemini visual tokens and button system
+  -> current page context card
+  -> runtime status badge
+  -> polished right rail states
+        |
+        v
+Chat artifacts
+  -> Evidence Card Mindmap
+  -> Reading Map
+  -> Source Evidence located / fallback_shown / blocked visual states
+```
+
+当前架构与目标架构差异：
+
+| 维度 | 当前架构 | V1 Gemini Style Pass 目标 |
+|---|---|---|
+| Product surface | 右侧 iframe sidepanel | 保持不变 |
+| Top-level views | Chat / Agent / Debug / Settings | 保持不变 |
+| Header | 会话选择和新会话为主 | 增加品牌、Runtime 状态、当前网页上下文清晰度 |
+| Button system | 功能可用但视觉层级较弱 | 主按钮、次级按钮、禁用、hover、focus、active 状态统一 |
+| Visual language | 默认浅色工具 UI | Gemini 方向的深绿品牌、玻璃面板、柔和边框、低噪声阴影 |
+| Mindmap | Evidence Card / Reading Map 已在 artifact 中 | 保持位置，统一视觉语言 |
+| Source state | 语义存在 | located / fallback_shown / blocked 更清晰可见 |
+| Content script | 注入右侧 iframe，页面 margin compensation | 保持不变 |
+| Contracts | Runtime / Artifact / ViewModel 合同 | 保持不变 |
+
+架构边界：
+
+- B frontend 可以渲染更好的视觉状态，但不能生成事实内容。
+- B frontend 不直接调用 A/C/D 服务。
+- A/C/D 不为本阶段新增公共合同字段。
+- Gemini sandbox 中的 launcher、折叠、resize、viewport control 只作为审查材料，不进入当前真实产品架构。
+
+出门架构条件：
+
+- `SideView` 未扩大为新的产品页面集合。
+- `data-testid` 和 E2E 可观测字段不被破坏。
+- Source Evidence fallback 不被误标为 DOM highlight success。
+- Typecheck、focused frontend tests、build 全部通过。
+
+### 16.4 V1 Launcher / Collapse / Resize 交互架构
+
+本阶段新增的状态机位于 Chrome content script，不改变 sidepanel React app、Runtime、Artifact 或 A/C/D 合同。
+
+```text
+Content Script
+  SidebarInteractionState
+    mode: expanded | collapsed
+    layoutMode: push | overlay
+    width
+    launcherTopRatio
+    launcherSide: left | right
+        |
+        v
+  Floating Launcher + Resize Handle
+        |
+        v
+  iframe sidepanel.html
+    existing Chat / Agent / Debug / Settings
+```
+
+状态规则：
+
+- `expanded + push`：右侧 sidebar 展开，页面 body margin 预留 sidebar 宽度。
+- `expanded + overlay`：sidebar 展开但覆盖页面，不继续挤压正文。
+- `collapsed`：sidebar 收起，body margin 恢复，floating launcher 保留。
+- `resize`：拖拽左边界更新宽度，并重新计算 push / overlay。
+- `launcher drag`：更新 launcher 垂直位置和左右贴边。
 
 ---
 

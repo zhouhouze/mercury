@@ -1,8 +1,11 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   cleanupLegacyInjectedPanel,
   createPageContextMessageHandler,
+  ensureInPageSidebar,
   initializeContentBridge,
+  IN_PAGE_LAUNCHER_ID,
+  IN_PAGE_SIDEBAR_HOST_ID,
   JUMPBACK_MESSAGE_TYPE,
   LEGACY_INJECTED_HOST_ID,
   PAGE_CONTEXT_MESSAGE_TYPE,
@@ -10,6 +13,14 @@ import {
 } from "./contentBridge";
 
 describe("content page context bridge", () => {
+  beforeEach(() => {
+    document.body.innerHTML = "";
+    document.documentElement.removeAttribute("style");
+    document.body.removeAttribute("style");
+    document.body.removeAttribute("data-navia-original-margin-right");
+    window.localStorage.removeItem("navia.inpageSidebarState");
+  });
+
   it("removes a legacy injected panel host during initialization", () => {
     const legacyHost = document.createElement("div");
     legacyHost.id = LEGACY_INJECTED_HOST_ID;
@@ -19,6 +30,9 @@ describe("content page context bridge", () => {
     const originalChrome = globalThis.chrome;
     globalThis.chrome = {
       runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        },
         onMessage: {
           addListener(listener: Parameters<typeof chrome.runtime.onMessage.addListener>[0]) {
             listeners.push(listener);
@@ -34,7 +48,107 @@ describe("content page context bridge", () => {
     }
 
     expect(document.getElementById(LEGACY_INJECTED_HOST_ID)).toBeNull();
+    expect(document.getElementById(IN_PAGE_SIDEBAR_HOST_ID)).not.toBeNull();
     expect(listeners).toHaveLength(1);
+  });
+
+  it("injects the current V1 in-page right sidebar iframe", () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      const host = ensureInPageSidebar(document);
+      expect(host?.id).toBe(IN_PAGE_SIDEBAR_HOST_ID);
+      expect(host?.querySelector("iframe")?.getAttribute("src")).toBe("chrome-extension://navia/sidepanel.html?naviaInPage=1");
+      expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
+      expect(document.getElementById(IN_PAGE_LAUNCHER_ID)).not.toBeNull();
+      expect(document.querySelector("[data-testid='navia-inpage-sidebar-edge-toggle']")).toBeNull();
+      expect(ensureInPageSidebar(document)).toBe(host);
+    } finally {
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("collapses and expands the in-page sidebar through the launcher", () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      const host = ensureInPageSidebar(document);
+      const launcher = document.getElementById(IN_PAGE_LAUNCHER_ID);
+      expect(host?.dataset.naviaMode).toBe("expanded");
+      expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
+
+      launcher?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      expect(host?.dataset.naviaMode).toBe("collapsed");
+      expect(document.body.style.marginRight).toBe("");
+
+      launcher?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      expect(host?.dataset.naviaMode).toBe("expanded");
+      expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
+    } finally {
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("switches to overlay layout for wide resized sidebars without pushing the page", () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      window.localStorage.setItem(
+        "navia.inpageSidebarState",
+        JSON.stringify({ mode: "expanded", width: 760, launcherTopRatio: 0.5, launcherSide: "right" })
+      );
+      const host = ensureInPageSidebar(document);
+      expect(host?.dataset.naviaLayout).toBe("overlay");
+      expect(document.body.style.marginRight).toBe("");
+    } finally {
+      window.localStorage.removeItem("navia.inpageSidebarState");
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("keeps the launcher visible when page storage is denied", () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        }
+      }
+    } as typeof chrome;
+    const storageSpy = vi.spyOn(window, "localStorage", "get").mockImplementation(() => {
+      throw new DOMException("Access is denied for this document.", "SecurityError");
+    });
+
+    try {
+      const host = ensureInPageSidebar(document);
+      expect(host).not.toBeNull();
+      expect(document.getElementById(IN_PAGE_LAUNCHER_ID)).not.toBeNull();
+      expect(host?.dataset.naviaMode).toBe("expanded");
+    } finally {
+      storageSpy.mockRestore();
+      globalThis.chrome = originalChrome;
+    }
   });
 
   it("cleans up a legacy injected panel host directly", () => {

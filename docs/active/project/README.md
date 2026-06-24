@@ -16,7 +16,7 @@ docs/history/
 
 ## 当前阶段
 
-当前项目焦点已从 `V1.2-Closeout 收关阶段` 转入 `V1.3 Evidence Card Mindmap 体验升级阶段`，并保留 `A-V1.2 Production Page Perception` 作为 A 模块长期质量门槛：
+当前项目焦点已完成 `V1.3 Evidence Card Mindmap`、`V1.4 Reading Map`、`V1 current interaction baseline` 与 `V1 Gemini Style Pass` 的自动化验证。当前阶段为 `V1 Launcher / Collapse / Resize Interaction`：在不改变 Runtime 合同、不新增 AI 能力的前提下，把 Gemini 原型中的 floating launcher、折叠、resize、拖拽和 push / overlay 状态机落到真实 content script 外层交互。`A-V1.2 Production Page Perception` 仍作为 A 模块长期质量门槛：
 
 ```text
 真实网页
@@ -31,7 +31,7 @@ docs/history/
 + 真实 Chrome 截图级 DOM highlight 或 fallback evidence
 ```
 
-`V1.2-AC-Native`、`V1.2-AC-Quality`、`V1.2-AC-Jumpback MVP` 与 `V1.2-Closeout` 已形成阶段证据。当前 V1.3 通过后只允许声明 `V1.3 Evidence Card Mindmap experience complete`。不得声明完整 V1 complete、Canvas Knowledge Map complete、V2 Memory / RAG ready 或 V4 Web Research / PPT / Deep Research ready。`A-V1.2-1+` 若继续推进，仍必须遵守 `A-V1.2-0` 合同冻结门槛。
+`V1.2-AC-Native`、`V1.2-AC-Quality`、`V1.2-AC-Jumpback MVP`、`V1.2-Closeout`、`V1.3`、`V1.4`、`V1 current interaction baseline` 与 `V1 Gemini Style Pass` 已形成阶段证据。当前阶段通过后只允许声明 `V1 launcher / collapse / resize interaction baseline complete`，不得声明完整 V1 complete、Canvas Knowledge Map complete、V2 Memory / RAG ready 或 V4 Web Research / PPT / Deep Research ready。`A-V1.2-1+` 若继续推进，仍必须遵守 `A-V1.2-0` 合同冻结门槛。
 
 ## 激活文档
 
@@ -91,7 +91,13 @@ docs/history/
 | `design/v1.2-closeout-gap.md` | V1.2-Closeout 收关 drawio 说明 |
 | `design/v1.3-evidence-card-mindmap-gap.md` | V1.3 Evidence Card Mindmap drawio 说明 |
 | `design/v1.3-evidence-card-mindmap-gap.drawio` | V1.3 Evidence Card Mindmap 目标架构、差异、开发计划、验收门槛、长期规划图谱 |
+| `design/v1.3-evidence-card-mindmap-development-acceptance-plan.md` | V1.3 Evidence Card Mindmap 详细开发与验收执行计划 |
 | `design/v1.3-evidence-card-mindmap-readiness-audit.md` | V1.3 Evidence Card Mindmap 开发前 readiness 审计 |
+| `design/v1-current-component-baseline.md` | V1 当前组件开发前基线：组件清单、实现状态、Gemini UX 回流边界 |
+| `design/v1-gemini-style-pass-gap.md` | V1 Gemini Style Pass gap companion：当前/目标架构、开发计划、验收门槛和出门条件 |
+| `design/v1-launcher-resize-interaction-gap.md` | V1 launcher / collapse / resize 交互架构 gap companion |
+| `design/v1-gemini-style-pass-gap.drawio` | V1 Gemini Style Pass 中文 drawio：目标体验、架构差异、计划、里程碑、验收门槛、No-Go |
+| `design/gemini-v1-frontend-prototype/` | Gemini V1 前端原型审查包与 UX review HTML |
 | `design/a-v1.2-contract-freeze-readiness-audit.md` | A-V1.2-0 合同冻结 readiness 审计 |
 | `design/v1.2-readiness-closure-audit.md` | V1.2 readiness 收口审计 |
 | `design/adr-v1.2-agent-core-provider-piagent.md` | D 模块 CoreProvider / piAgent ADR |
@@ -109,6 +115,11 @@ docs/history/
 | `stage-gates/v1.2-ac-jumpback-mvp.md` | V1.2-AC-Jumpback MVP 来源反跳最小闭环门禁 |
 | `stage-gates/v1.2-closeout.md` | V1.2-Closeout 收关与生产级完成声明门禁 |
 | `stage-gates/v1.3-evidence-card-mindmap.md` | V1.3 Evidence Card Mindmap 体验升级门禁 |
+| `stage-gates/v1.4-reading-map.md` | V1.4 Reading Map 体验升级门禁 |
+| `stage-gates/v1-current-baseline-closeout.md` | V1 当前交互基线收口门禁 |
+| `stage-gates/v1-component-baseline.md` | V1 组件开发前基线门禁 |
+| `stage-gates/v1-gemini-style-pass.md` | V1 Gemini Style Pass 样式、按钮、状态反馈落地门禁 |
+| `stage-gates/v1-launcher-resize-interaction.md` | V1 launcher / collapse / resize 真实 content script 交互门禁 |
 | `stage-gates/v1.2-b-chat-renderer.md` | B Renderer 门禁 |
 | `stage-gates/v1.2-c-mindmap.md` | C Mindmap 门禁 |
 | `stage-gates/v1.2-d-agentic-loop.md` | D CoreProvider / Adapter 门禁 |

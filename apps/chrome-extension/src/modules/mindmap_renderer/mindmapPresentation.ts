@@ -148,6 +148,45 @@ export type EvidenceCardViewModel = {
   warnings: string[];
 };
 
+export type ReadingMapNavItem = {
+  nodeId: string;
+  label: string;
+  depth: number;
+  sourceCount: number;
+  qualityState: EvidenceCardNodeQualityState;
+  uiState: EvidenceCardNodeUiState;
+  childNodeIds: string[];
+  hiddenChildCount: number;
+};
+
+export type ReadingMapDetail = {
+  nodeId: string;
+  label: string;
+  note: string | null;
+  sourceCount: number;
+  qualityState: EvidenceCardNodeQualityState;
+  confidence: number | null;
+  tags: string[];
+  textQuote: string | null;
+  fallbackText: string | null;
+  degradedReason: string | null;
+  sourceItems: EvidenceCardSourcePanelItem[];
+};
+
+export type ReadingMapViewModel = {
+  viewModelId: string;
+  artifactId: string;
+  sourcePageId: string;
+  selectedNodeId: string | null;
+  rootLabel: string | null;
+  density: EvidenceCardDensity;
+  navItems: ReadingMapNavItem[];
+  detail: ReadingMapDetail | null;
+  sourcePanel: EvidenceCardSourcePanel;
+  warnings: string[];
+  fallbacks: EvidenceCardFallback[];
+};
+
 export function presentMindmapArtifact(artifact: ArtifactRecord, renderError?: string): MindmapPresentation {
   const presented: ArtifactPresentation = presentArtifact(artifact);
   const metadata = isRecord(artifact.metadata) ? artifact.metadata : {};
@@ -237,6 +276,29 @@ export function toEvidenceCardViewModel(artifact: ArtifactRecord, options: { ren
   };
 }
 
+export function toReadingMapViewModel(viewModel: EvidenceCardViewModel, selectedNodeId?: string | null): ReadingMapViewModel {
+  const selected =
+    (selectedNodeId ? viewModel.nodes.find((node) => node.nodeId === selectedNodeId) : null) ??
+    viewModel.nodes.find((node) => node.nodeId === viewModel.displayPolicy.rootNodeId) ??
+    viewModel.nodes[0] ??
+    null;
+  const selectedView = selected ? selectEvidenceCardNode(viewModel, selected.nodeId, viewModel.sourcePanel.status === "empty" ? "ready" : viewModel.sourcePanel.status, viewModel.sourcePanel.failureReason) : viewModel;
+  const navItems = buildReadingMapNavItems(selectedView);
+  return {
+    viewModelId: `reading_map_${viewModel.viewModelId}`,
+    artifactId: viewModel.artifactId,
+    sourcePageId: viewModel.sourcePageId,
+    selectedNodeId: selected?.nodeId ?? null,
+    rootLabel: viewModel.displayPolicy.rootLabel,
+    density: viewModel.displayPolicy.density,
+    navItems,
+    detail: selected ? toReadingMapDetail(selectedView.nodes.find((node) => node.nodeId === selected.nodeId) ?? selected, selectedView.sourcePanel) : null,
+    sourcePanel: selectedView.sourcePanel,
+    warnings: selectedView.warnings,
+    fallbacks: selectedView.fallbacks
+  };
+}
+
 export function selectEvidenceCardNode(viewModel: EvidenceCardViewModel, nodeId: string, status: EvidenceCardSourcePanelStatus = "ready", failureReason: string | null = null): EvidenceCardViewModel {
   const selected = viewModel.nodes.find((node) => node.nodeId === nodeId) ?? null;
   if (!selected) return viewModel;
@@ -278,6 +340,77 @@ export function selectEvidenceCardNode(viewModel: EvidenceCardViewModel, nodeId:
       dimmedNodeIds
     }
   };
+}
+
+function buildReadingMapNavItems(viewModel: EvidenceCardViewModel): ReadingMapNavItem[] {
+  const root = viewModel.nodes.find((node) => node.nodeId === viewModel.displayPolicy.rootNodeId) ?? viewModel.nodes[0] ?? null;
+  const rootItem = root
+    ? [{
+        nodeId: root.nodeId,
+        label: root.label,
+        depth: 0,
+        sourceCount: root.sourceCount,
+        qualityState: root.qualityState,
+        uiState: root.uiState,
+        childNodeIds: root.childNodeIds,
+        hiddenChildCount: 0
+      }]
+    : [];
+  const themeItems = viewModel.themes.flatMap((theme) => {
+    const themeNode = viewModel.nodes.find((node) => node.nodeId === theme.nodeId);
+    const children = theme.visibleChildNodeIds
+      .map((nodeId) => viewModel.nodes.find((node) => node.nodeId === nodeId))
+      .filter((node): node is EvidenceCardNode => Boolean(node))
+      .map((node) => ({
+        nodeId: node.nodeId,
+        label: node.label,
+        depth: 2,
+        sourceCount: node.sourceCount,
+        qualityState: node.qualityState,
+        uiState: node.uiState,
+        childNodeIds: node.childNodeIds,
+        hiddenChildCount: 0
+      }));
+    return [
+      {
+        nodeId: theme.nodeId,
+        label: theme.label,
+        depth: 1,
+        sourceCount: theme.sourceCount,
+        qualityState: theme.qualityState,
+        uiState: theme.uiState,
+        childNodeIds: theme.childNodeIds,
+        hiddenChildCount: theme.hiddenChildCount
+      },
+      ...children
+    ].filter((item) => item.nodeId !== root?.nodeId || !themeNode);
+  });
+  return dedupeReadingMapItems([...rootItem, ...themeItems]);
+}
+
+function toReadingMapDetail(node: EvidenceCardNode, sourcePanel: EvidenceCardSourcePanel): ReadingMapDetail {
+  return {
+    nodeId: node.nodeId,
+    label: node.label,
+    note: node.note ?? null,
+    sourceCount: node.sourceCount,
+    qualityState: node.qualityState,
+    confidence: node.confidence,
+    tags: node.tags,
+    textQuote: node.textQuote,
+    fallbackText: node.fallbackText,
+    degradedReason: node.degradedReason,
+    sourceItems: sourcePanel.selectedNodeId === node.nodeId ? sourcePanel.items : sourcePanelItemsForNode(node, "ready", null)
+  };
+}
+
+function dedupeReadingMapItems(items: ReadingMapNavItem[]): ReadingMapNavItem[] {
+  const seen = new Set<string>();
+  return items.filter((item) => {
+    if (seen.has(item.nodeId)) return false;
+    seen.add(item.nodeId);
+    return true;
+  });
 }
 
 export function buildJumpbackRequest(card: SourceEvidenceCard): JumpbackRequest {

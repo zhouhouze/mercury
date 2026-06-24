@@ -24,6 +24,13 @@ export default defineConfig({
           mac: "Alt+Shift+N"
         },
         description: "Open Navia"
+      },
+      "open-navia-sidepanel": {
+        suggested_key: {
+          default: "Ctrl+Shift+Y",
+          mac: "Ctrl+Shift+Y"
+        },
+        description: "Open Navia Side Panel"
       }
     },
     side_panel: {
@@ -31,7 +38,7 @@ export default defineConfig({
     },
     web_accessible_resources: [
       {
-        resources: ["mermaid-renderer.html", "assets/*", "chunks/*"],
+        resources: ["sidepanel.html", "mermaid-renderer.html", "assets/*", "chunks/*"],
         matches: ["<all_urls>"]
       }
     ]

@@ -1065,10 +1065,22 @@ V4 Web Research / PPT / deep research ready。
 
 V1.3 的验收目标是证明 Mindmap 主体验已从 Mermaid 默认图升级为 Evidence Card Mindmap，并且没有破坏 V1.2 已完成的 A/C/D/B 事实链路和 source jumpback 能力。
 
+本阶段验收按 `V1.3-0` 到 `V1.3-5` 分层执行。任一层出现 blocker 或证据不一致，不得声明 V1.3 complete。
+
+| 子阶段 | 验收内容 | 必须产出 |
+|---|---|---|
+| `V1.3-0` | PRD、目标架构、开发计划、验收计划、gap drawio、schema 和 No-Go 口径一致 | 文档 diff、stage gate 审计结论、无 fatal / major |
+| `V1.3-1` | Artifact + metadata 派生 EvidenceCardViewModel | fixture validation、`$defs.EvidenceCardViewModel` schema validation、B 边界检查 |
+| `V1.3-2` | Evidence Card 卡片树视觉和窄 Side Panel 可读性 | 截图、文本溢出检查、布局回归证据 |
+| `V1.3-3` | hover、focus、selected、neighbor highlight、source evidence panel | 组件测试、交互截图、source panel 可读性证据 |
+| `V1.3-4` | DOM jumpback success、fallback shown、blocked 状态一致 | content script result、UI 状态、report.json、截图 metadata 一致 |
+| `V1.3-5` | 真实网页 / snapshot 出门矩阵 | 8 页矩阵、3 个 native Side Panel 截图级样本、HTML 报告、PRD review、false-green audit |
+
 必须通过：
 
 - [ ] Evidence Card Mindmap 是主视图，Mermaid visual/source 是 fallback 或 debug，不得只改 Mermaid CSS 声明完成。
 - [ ] B 从 `ArtifactRecord(type="mindmap")` 和 `metadata.nodeSourceMap` 派生 `EvidenceCardViewModel`，不得要求 C 直接输出 React / SVG 组件结构。
+- [ ] V1.3-1 fixture 必须单独使用 `contracts/v1_3_evidence_card_mindmap.schema.json#/$defs/EvidenceCardViewModel` 验证；只验证最终 `report.json` 不足以通过 ViewModel 阶段。
 - [ ] 每个主要节点展示标题、摘要或 note、source count、quality / confidence 提示、标签或节点类型。
 - [ ] 每个主要节点必须能关联 `sourceRefIds`、`textQuote` 或 `fallbackText`；缺失时必须显示 degraded reason。
 - [ ] 节点 hover、focus、selected、neighbor highlight 状态可见。
@@ -1080,6 +1092,43 @@ V1.3 的验收目标是证明 Mindmap 主体验已从 Mermaid 默认图升级为
 - [ ] 至少 8 个真实网页或可复现 snapshot 进入 V1.3 验收矩阵。
 - [ ] 至少 3 个真实 Chrome 原生 Side Panel 截图级样本证明 Evidence Card Mindmap 用户路径。
 - [ ] HTML 验收报告展示目标架构、当前实现、交互截图、每页结果、false-green audit 和允许声明边界。
+- [ ] V1.3 report semantic validation 通过，不能只依赖 JSON Schema 字段校验。
+
+样本矩阵最低覆盖：
+
+- [ ] 中文复杂页至少 1 个。
+- [ ] 技术文档页至少 1 个。
+- [ ] GitHub / README 页至少 1 个。
+- [ ] 长文或深层 heading 页至少 1 个。
+- [ ] low-signal / degraded 页至少 1 个。
+- [ ] 至少 1 个样本证明 DOM highlight success。
+- [ ] 至少 1 个样本证明 fallback evidence 可读且未伪装为 DOM success。
+- [ ] 至少 1 个样本覆盖长标题或重复标题 disambiguation。
+
+`report.json` 与截图 metadata 必须至少能回答：
+
+- 当前页面 URL、title、category、evidenceMode。
+- Mindmap artifact id、node id、node label、node type。
+- sourceRefIds、textQuote 或 fallbackText 是否存在。
+- 用户点击后的 UI 状态：selected / neighbor / dimmed。
+- jumpback 结果：highlighted、fallback_shown 或 blocked。
+- 失败原因、attemptedStrategies 和 nextAction。
+- 该样本是否计入 V1.3 出门矩阵。
+
+Semantic validation 规则：
+
+- [ ] `passed=true` 时 `fatalIssues` 必须为空。
+- [ ] `passed=true` 时 `majorIssues` 必须为空。
+- [ ] `pagesPassed` 必须满足出门门槛，且不得大于 `pagesTotal`。
+- [ ] `nativeSidePanelSamples` 必须能对应到 `screenshots[]` 中 `isNativeSidePanel=true`、`containsWebPageBody=true`、`containsNaviaPanel=true`、`containsEvidenceCardMindmap=true` 的截图。
+- [ ] `visualEvidenceStatus="not_sampled"` 的页面不得计入 native Side Panel visual sample。
+- [ ] fallback 样本必须在 UI、metadata、report 中标记为 fallback / fallback_shown，不得计入 DOM highlight success。
+
+固定验证命令：
+
+```bash
+python3 scripts/validate_v1_3_evidence_card_mindmap.py
+```
 
 No-Go：
 
@@ -1105,4 +1154,116 @@ V1.3 Evidence Card Mindmap experience complete.
 Canvas Knowledge Map complete。
 V2 Memory / RAG ready。
 Web Research / PPT / Deep Research ready。
+```
+
+### 8.10 V1.4 Reading Map Side Panel Navigation Gate
+
+V1.4 的验收目标是证明用户可以在 Side Panel 中把 Mindmap 当作阅读地图使用，而不是只看到一张静态导图。
+
+必须通过：
+
+- [ ] `docs/active/project/stage-gates/v1.4-reading-map.md` 和设计验收计划已完成 V1.4-0 审计，无 fatal / major。
+- [ ] Reading Map 从 V1.3 `EvidenceCardViewModel` 派生，不改变 Runtime public contract。
+- [ ] B 不直接调用 A/C/D 服务，不生成事实内容。
+- [ ] Side Panel 中可见左侧主题 / 节点导航和右侧节点详情 / 来源证据。
+- [ ] 选择节点后，selected、neighbor、dimmed 或等价状态可见。
+- [ ] 右侧详情展示标题、摘要或 quote、source count、quality state、textQuote 或 fallbackText。
+- [ ] missing source / degraded 节点显示明确原因，不得显示为正常成功。
+- [ ] source jumpback 的 located、fallback shown、blocked 状态在 UI 和报告中严格区分。
+- [ ] Mermaid 只作为 debug / fallback，不作为 V1.4 主导航体验。
+- [ ] 单元 / 组件测试覆盖 normal、missing source、duplicate label、long text、dense theme。
+- [ ] 验收证据产出 report、acceptance report、PRD review 和 false-green audit。
+
+No-Go：
+
+- [ ] 只改 Mermaid 样式或卡片 CSS 却声明 Reading Map 完成。
+- [ ] 要求 C 输出 React / SVG / CSS 前端组件结构。
+- [ ] fallback evidence 被标记为 DOM highlight success。
+- [ ] 使用非 Side Panel 全屏页面截图冒充原生 Side Panel 体验。
+- [ ] 借 V1.4 引入 Canvas、RAG、Memory、Web Research、PPT、Deep Research、多 Agent、浏览器自动操作、语音、桌宠或默认本地文件读取。
+
+### 8.11 V1 Gemini Style Pass 验收
+
+本阶段验收目标是证明 Gemini 视觉和按钮设计已落到当前真实 sidepanel，同时没有扩大产品范围或丢失既有体验。
+
+必须通过：
+
+- [ ] `docs/active/project/stage-gates/v1-gemini-style-pass.md` 已完成文档门禁。
+- [ ] Gemini sandbox 和 UX review HTML 已落盘到 active docs。
+- [ ] 真实 sidepanel 仍只有 `Chat / Agent / Debug / Settings` 顶层视图。
+- [ ] 没有新增真实 Map / Sources 顶层页面。
+- [ ] 没有实现真实 floating ball、hover strip、collapse handle、drag resize、overlay breakpoint。
+- [ ] Chat 中历史会话入口、新会话、消息流、composer、读取当前页面、提交上下文、总结、Mindmap、解释选区仍可用。
+- [ ] Agent 仍为当前能力边界视图，不误导为多 Agent 完成。
+- [ ] Debug 仍展示 Runtime、Page、Stream、Provider 相关诊断。
+- [ ] Settings 仍展示 Provider 保存、测试、删除、Chat Provider 配置。
+- [ ] Evidence Card Mindmap、Reading Map、Mermaid fallback/source、Source Evidence 仍在 Chat artifact 内可见。
+- [ ] Source Evidence 的 `located`、`fallback_shown`、`blocked` 状态视觉可区分。
+- [ ] Runtime public API、Artifact 合同、EvidenceCardViewModel、ReadingMapViewModel 不变。
+- [ ] `data-testid` 和现有自动化观测字段不被破坏。
+- [ ] 真实 Chrome 截图覆盖 Chat、Mindmap artifact、Debug、Settings、Source Evidence。
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
+```
+
+出门证据：
+
+```text
+docs/active/project/evidence/v1_gemini_style_pass/acceptance-report.md
+docs/active/project/evidence/v1_gemini_style_pass/prd-review.md
+docs/active/project/evidence/v1_gemini_style_pass/false-green-audit.md
+docs/active/project/evidence/v1_gemini_style_pass/screenshots/
+```
+
+No-Go：
+
+- [ ] 只更新 Gemini sandbox 或文档，真实 sidepanel 没有变化。
+- [ ] 样式升级删除或遮挡已实现功能。
+- [ ] 新增真实 launcher、折叠、resize 或新顶层页面。
+- [ ] fallback evidence 被标记成 DOM highlight success。
+- [ ] Debug / Settings 被隐藏到不可发现状态。
+- [ ] 借本阶段声明完整 V1 complete 或最终 Monica-like UX complete。
+
+允许声明：
+
+```text
+V1 Gemini style pass for current sidebar baseline complete.
+```
+
+不得声明：
+
+```text
+完整 V1 complete。
+最终 floating ball / collapse / resize complete。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+### 8.12 V1 Launcher / Collapse / Resize 验收
+
+必须通过：
+
+- [ ] 默认打开普通网页时 Navia 仍显示右侧 sidebar。
+- [ ] Floating launcher 可见，视觉符合 Navia 品牌。
+- [ ] 点击 launcher 可折叠 / 展开 sidebar。
+- [ ] sidebar 外侧不得出现与 floating launcher 重复的 bar / edge toggle 控件。
+- [ ] 折叠后页面 margin 恢复。
+- [ ] 展开 push 状态下页面内容为 sidebar 预留宽度。
+- [ ] 宽工作区或窄视口进入 overlay，不继续挤压正文。
+- [ ] resize handle 可改变 sidebar 宽度且不低于最小宽度。
+- [ ] launcher 可拖拽调整垂直位置和贴边方向。
+- [ ] Chat / Agent / Debug / Settings、Mindmap、Reading Map、Source Evidence 不回归。
+- [ ] page context extraction 和 source jumpback 仍通过。
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
 ```

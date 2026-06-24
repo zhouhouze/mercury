@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((Go 1.20 is released! - The Go Programming Language))\n    Next article  Profile - guided optimization preview Previous ar\n    We ’ re particularly excited to launch a preview of profile - gu\n    When building a Go release from source , Go 1 . 20 requires a Go\n    Thanks to everyone who contributed to this release by writing co\n    Go 1 . 20 benefited from an extended development phase , made po\n    The go command now disables cgo by default on systems without a\n    The new crypto / ecdh package provides explicit support for Elli\n    Go 1 . 20 also includes a handful of language changes , many imp\n    For a complete and more detailed list of all changes see the ful\n    The language specification now defines the exact order in which\n    The predeclared comparable constraint is now also satisfied by o\n    Learn and network with Go developers from around the world\n    Robert Griesemer , on behalf of the Go team 1 February 2023\n    Tips for writing clear , performant , and idiomatic Go code\n    A complete introduction to building software with Go\n    Reference documentation for Go  s standard library\n    Stories about how and why companies use Go\n    How Go can help keep you secure by default",
+  "mermaidSource": "mindmap\n  root((Go 1.20 is released! - Go Programming Language))\n    Improved performance\n      Next article Profile-guided optimization preview Previous…\n    Go 1.20 is released!\n      We’re particularly excited to launch preview of profile-guided…\n      When building Go release from source, Go 1.20 requires Go…\n      Thanks to everyone who contributed to this release by writing…\n      Go 1.20 benefited from extended development phase, made…\n    Tool improvements\n      go command now disables cgo by default on systems without C…\n    Standard library additions\n      new crypto/ecdh package provides explicit support for Elliptic…\n      Go 1.20 also includes handful of language changes, many…\n      For complete and more detailed list of all changes see full…\n    Language changes\n      language specification now defines exact order in which array…\n      predeclared comparable constraint is now also satisfied by…\n    核心要点\n      Learn and network with Go developers from around world\n      Robert Griesemer, on behalf of Go team 1 February 2023\n      Tips for writing clear, performant, and idiomatic Go code\n      complete introduction to building software with Go\n      Reference documentation for Gos standard library\n      Stories about how and why companies use Go",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -32,8 +32,29 @@
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "Next article  Profile - guided optimization preview Previous ar",
+        "nodeLabel": "Improved performance",
         "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0057",
+          "pg_news_003_go_120_release_0053",
+          "pg_news_003_go_120_release_0055",
+          "pg_news_003_go_120_release_0054"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0057",
+          "src_news_003_go_120_release_0053",
+          "src_news_003_go_120_release_0055",
+          "src_news_003_go_120_release_0054"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0005"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "Next article Profile-guided optimization preview Previous…",
+        "nodeSourceMapKey": "node_2",
         "paragraphIds": [
           "pg_news_003_go_120_release_0057"
         ],
@@ -43,12 +64,34 @@
       },
       {
         "chunkIds": [
+          "ck_news_003_go_120_release_0002",
+          "ck_news_003_go_120_release_0001"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "Go 1.20 is released!",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0033",
+          "pg_news_003_go_120_release_0032",
+          "pg_news_003_go_120_release_0034",
+          "pg_news_003_go_120_release_0030"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0033",
+          "src_news_003_go_120_release_0032",
+          "src_news_003_go_120_release_0034",
+          "src_news_003_go_120_release_0030"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
-        "mermaidLineIndex": 3,
-        "nodeId": "node_2",
-        "nodeLabel": "We ’ re particularly excited to launch a preview of profile - gu",
-        "nodeSourceMapKey": "node_2",
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "We’re particularly excited to launch preview of profile-guided…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_news_003_go_120_release_0033"
         ],
@@ -60,10 +103,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0005"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": "When building a Go release from source , Go 1 . 20 requires a Go",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "When building Go release from source, Go 1.20 requires Go…",
+        "nodeSourceMapKey": "node_5",
         "paragraphIds": [
           "pg_news_003_go_120_release_0053"
         ],
@@ -75,10 +118,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0005"
         ],
-        "mermaidLineIndex": 5,
-        "nodeId": "node_4",
-        "nodeLabel": "Thanks to everyone who contributed to this release by writing co",
-        "nodeSourceMapKey": "node_4",
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "Thanks to everyone who contributed to this release by writing…",
+        "nodeSourceMapKey": "node_6",
         "paragraphIds": [
           "pg_news_003_go_120_release_0055"
         ],
@@ -90,10 +133,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
-        "mermaidLineIndex": 6,
-        "nodeId": "node_5",
-        "nodeLabel": "Go 1 . 20 benefited from an extended development phase , made po",
-        "nodeSourceMapKey": "node_5",
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "Go 1.20 benefited from extended development phase, made…",
+        "nodeSourceMapKey": "node_7",
         "paragraphIds": [
           "pg_news_003_go_120_release_0032"
         ],
@@ -105,10 +148,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0003"
         ],
-        "mermaidLineIndex": 7,
-        "nodeId": "node_6",
-        "nodeLabel": "The go command now disables cgo by default on systems without a",
-        "nodeSourceMapKey": "node_6",
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "Tool improvements",
+        "nodeSourceMapKey": "node_8",
         "paragraphIds": [
           "pg_news_003_go_120_release_0043"
         ],
@@ -120,10 +163,40 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0003"
         ],
-        "mermaidLineIndex": 8,
-        "nodeId": "node_7",
-        "nodeLabel": "The new crypto / ecdh package provides explicit support for Elli",
-        "nodeSourceMapKey": "node_7",
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "go command now disables cgo by default on systems without C…",
+        "nodeSourceMapKey": "node_9",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0043"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0043"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0003"
+        ],
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "Standard library additions",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0045"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0045"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0003"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "new crypto/ecdh package provides explicit support for Elliptic…",
+        "nodeSourceMapKey": "node_11",
         "paragraphIds": [
           "pg_news_003_go_120_release_0045"
         ],
@@ -135,10 +208,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
-        "mermaidLineIndex": 9,
-        "nodeId": "node_8",
-        "nodeLabel": "Go 1 . 20 also includes a handful of language changes , many imp",
-        "nodeSourceMapKey": "node_8",
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "Go 1.20 also includes handful of language changes, many…",
+        "nodeSourceMapKey": "node_12",
         "paragraphIds": [
           "pg_news_003_go_120_release_0034"
         ],
@@ -150,10 +223,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0005"
         ],
-        "mermaidLineIndex": 10,
-        "nodeId": "node_9",
-        "nodeLabel": "For a complete and more detailed list of all changes see the ful",
-        "nodeSourceMapKey": "node_9",
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "For complete and more detailed list of all changes see full…",
+        "nodeSourceMapKey": "node_13",
         "paragraphIds": [
           "pg_news_003_go_120_release_0054"
         ],
@@ -165,10 +238,27 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
-        "mermaidLineIndex": 11,
-        "nodeId": "node_10",
-        "nodeLabel": "The language specification now defines the exact order in which",
-        "nodeSourceMapKey": "node_10",
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "Language changes",
+        "nodeSourceMapKey": "node_14",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0038",
+          "pg_news_003_go_120_release_0035"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0038",
+          "src_news_003_go_120_release_0035"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0002"
+        ],
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "language specification now defines exact order in which array…",
+        "nodeSourceMapKey": "node_15",
         "paragraphIds": [
           "pg_news_003_go_120_release_0038"
         ],
@@ -180,10 +270,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
-        "mermaidLineIndex": 12,
-        "nodeId": "node_11",
-        "nodeLabel": "The predeclared comparable constraint is now also satisfied by o",
-        "nodeSourceMapKey": "node_11",
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "predeclared comparable constraint is now also satisfied by…",
+        "nodeSourceMapKey": "node_16",
         "paragraphIds": [
           "pg_news_003_go_120_release_0035"
         ],
@@ -195,10 +285,35 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 13,
-        "nodeId": "node_12",
-        "nodeLabel": "Learn and network with Go developers from around the world",
-        "nodeSourceMapKey": "node_12",
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "核心要点",
+        "nodeSourceMapKey": "node_17",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0020",
+          "pg_news_003_go_120_release_0013",
+          "pg_news_003_go_120_release_0009",
+          "pg_news_003_go_120_release_0011",
+          "pg_news_003_go_120_release_0004",
+          "pg_news_003_go_120_release_0005"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0020",
+          "src_news_003_go_120_release_0013",
+          "src_news_003_go_120_release_0009",
+          "src_news_003_go_120_release_0011",
+          "src_news_003_go_120_release_0004",
+          "src_news_003_go_120_release_0005"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0001"
+        ],
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "Learn and network with Go developers from around world",
+        "nodeSourceMapKey": "node_18",
         "paragraphIds": [
           "pg_news_003_go_120_release_0020"
         ],
@@ -210,10 +325,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 14,
-        "nodeId": "node_13",
-        "nodeLabel": "Robert Griesemer , on behalf of the Go team 1 February 2023",
-        "nodeSourceMapKey": "node_13",
+        "mermaidLineIndex": 20,
+        "nodeId": "node_19",
+        "nodeLabel": "Robert Griesemer, on behalf of Go team 1 February 2023",
+        "nodeSourceMapKey": "node_19",
         "paragraphIds": [
           "pg_news_003_go_120_release_0030"
         ],
@@ -225,10 +340,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 15,
-        "nodeId": "node_14",
-        "nodeLabel": "Tips for writing clear , performant , and idiomatic Go code",
-        "nodeSourceMapKey": "node_14",
+        "mermaidLineIndex": 21,
+        "nodeId": "node_20",
+        "nodeLabel": "Tips for writing clear, performant, and idiomatic Go code",
+        "nodeSourceMapKey": "node_20",
         "paragraphIds": [
           "pg_news_003_go_120_release_0013"
         ],
@@ -240,10 +355,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 16,
-        "nodeId": "node_15",
-        "nodeLabel": "A complete introduction to building software with Go",
-        "nodeSourceMapKey": "node_15",
+        "mermaidLineIndex": 22,
+        "nodeId": "node_21",
+        "nodeLabel": "complete introduction to building software with Go",
+        "nodeSourceMapKey": "node_21",
         "paragraphIds": [
           "pg_news_003_go_120_release_0009"
         ],
@@ -255,10 +370,10 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 17,
-        "nodeId": "node_16",
-        "nodeLabel": "Reference documentation for Go  s standard library",
-        "nodeSourceMapKey": "node_16",
+        "mermaidLineIndex": 23,
+        "nodeId": "node_22",
+        "nodeLabel": "Reference documentation for Gos standard library",
+        "nodeSourceMapKey": "node_22",
         "paragraphIds": [
           "pg_news_003_go_120_release_0011"
         ],
@@ -270,30 +385,15 @@
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
-        "mermaidLineIndex": 18,
-        "nodeId": "node_17",
+        "mermaidLineIndex": 24,
+        "nodeId": "node_23",
         "nodeLabel": "Stories about how and why companies use Go",
-        "nodeSourceMapKey": "node_17",
+        "nodeSourceMapKey": "node_23",
         "paragraphIds": [
           "pg_news_003_go_120_release_0004"
         ],
         "sourceRefIds": [
           "src_news_003_go_120_release_0004"
-        ]
-      },
-      {
-        "chunkIds": [
-          "ck_news_003_go_120_release_0001"
-        ],
-        "mermaidLineIndex": 19,
-        "nodeId": "node_18",
-        "nodeLabel": "How Go can help keep you secure by default",
-        "nodeSourceMapKey": "node_18",
-        "paragraphIds": [
-          "pg_news_003_go_120_release_0005"
-        ],
-        "sourceRefIds": [
-          "src_news_003_go_120_release_0005"
         ]
       }
     ],
@@ -303,7 +403,10 @@
           "ck_news_003_go_120_release_0005"
         ],
         "digestItemIds": [
-          "item_block_pg_news_003_go_120_release_0057"
+          "item_block_pg_news_003_go_120_release_0057",
+          "item_block_pg_news_003_go_120_release_0053",
+          "item_block_pg_news_003_go_120_release_0055",
+          "item_block_pg_news_003_go_120_release_0054"
         ],
         "excerpt": "Next article : Profile - guided optimization preview Previous article : Share your feedback about developing",
         "fallbackText": "Next article: Profile-guided optimization preview Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Pac",
@@ -311,16 +414,135 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Next article  Profile - guided optimization preview Previous ar",
+        "nodeLabel": "Improved performance",
         "paragraphIds": [
-          "pg_news_003_go_120_release_0057"
+          "pg_news_003_go_120_release_0057",
+          "pg_news_003_go_120_release_0053",
+          "pg_news_003_go_120_release_0055",
+          "pg_news_003_go_120_release_0054"
         ],
         "sourceRefIds": [
-          "src_news_003_go_120_release_0057"
+          "src_news_003_go_120_release_0057",
+          "src_news_003_go_120_release_0053",
+          "src_news_003_go_120_release_0055",
+          "src_news_003_go_120_release_0054"
         ],
         "textQuote": "Next article: Profile-guided optimization preview Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tou"
       },
       "node_10": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0045"
+        ],
+        "excerpt": "The new crypto / ecdh package provides explicit support for Elliptic Curve Diffie - Hellman key",
+        "fallbackText": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Standard library additions",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0045"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0045"
+        ],
+        "textQuote": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519."
+      },
+      "node_11": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0045"
+        ],
+        "excerpt": "The new crypto / ecdh package provides explicit support for Elliptic Curve Diffie - Hellman key",
+        "fallbackText": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "new crypto/ecdh package provides explicit support for Elliptic…",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0045"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0045"
+        ],
+        "textQuote": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519."
+      },
+      "node_12": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0034"
+        ],
+        "excerpt": "Go 1 . 20 also includes a handful of language changes , many improvements to tooling",
+        "fallbackText": "Go 1.20 also includes a handful of language changes, many improvements to tooling and the library, and better overall performance.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go 1.20 also includes handful of language changes, many…",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0034"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0034"
+        ],
+        "textQuote": "Go 1.20 also includes a handful of language changes, many improvements to tooling and the library, and better overall performance."
+      },
+      "node_13": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0054"
+        ],
+        "excerpt": "For a complete and more detailed list of all changes see the full release notes .",
+        "fallbackText": "For a complete and more detailed list of all changes see the full release notes .",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "For complete and more detailed list of all changes see full…",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0054"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0054"
+        ],
+        "textQuote": "For a complete and more detailed list of all changes see the full release notes ."
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0038",
+          "item_block_pg_news_003_go_120_release_0035"
+        ],
+        "excerpt": "The language specification now defines the exact order in which array elements and struct fields are",
+        "fallbackText": "The language specification now defines the exact order in which array elements and struct fields are compared . This clarifies what happens in case of panics during comparisons.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Language changes",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0038",
+          "pg_news_003_go_120_release_0035"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0038",
+          "src_news_003_go_120_release_0035"
+        ],
+        "textQuote": "The language specification now defines the exact order in which array elements and struct fields are compared . This clarifies what happens in case of panics during comparisons."
+      },
+      "node_15": {
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
@@ -333,7 +555,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "The language specification now defines the exact order in which",
+        "nodeLabel": "language specification now defines exact order in which array…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0038"
         ],
@@ -342,7 +564,7 @@
         ],
         "textQuote": "The language specification now defines the exact order in which array elements and struct fields are compared . This clarifies what happens in case of panics during comparisons."
       },
-      "node_11": {
+      "node_16": {
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
@@ -355,7 +577,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "The predeclared comparable constraint is now also satisfied by o",
+        "nodeLabel": "predeclared comparable constraint is now also satisfied by…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0035"
         ],
@@ -364,7 +586,44 @@
         ],
         "textQuote": "The predeclared comparable constraint is now also satisfied by ordinary comparable types , such as interfaces, which will simplify generic code."
       },
-      "node_12": {
+      "node_17": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0020",
+          "item_block_pg_news_003_go_120_release_0013",
+          "item_block_pg_news_003_go_120_release_0009",
+          "item_block_pg_news_003_go_120_release_0011",
+          "item_block_pg_news_003_go_120_release_0004",
+          "item_block_pg_news_003_go_120_release_0005"
+        ],
+        "excerpt": "Learn and network with Go developers from around the world",
+        "fallbackText": "Learn and network with Go developers from around the world",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "核心要点",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0020",
+          "pg_news_003_go_120_release_0013",
+          "pg_news_003_go_120_release_0009",
+          "pg_news_003_go_120_release_0011",
+          "pg_news_003_go_120_release_0004",
+          "pg_news_003_go_120_release_0005"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0020",
+          "src_news_003_go_120_release_0013",
+          "src_news_003_go_120_release_0009",
+          "src_news_003_go_120_release_0011",
+          "src_news_003_go_120_release_0004",
+          "src_news_003_go_120_release_0005"
+        ],
+        "textQuote": "Learn and network with Go developers from around the world"
+      },
+      "node_18": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -377,7 +636,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Learn and network with Go developers from around the world",
+        "nodeLabel": "Learn and network with Go developers from around world",
         "paragraphIds": [
           "pg_news_003_go_120_release_0020"
         ],
@@ -386,7 +645,7 @@
         ],
         "textQuote": "Learn and network with Go developers from around the world"
       },
-      "node_13": {
+      "node_19": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -399,7 +658,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Robert Griesemer , on behalf of the Go team 1 February 2023",
+        "nodeLabel": "Robert Griesemer, on behalf of Go team 1 February 2023",
         "paragraphIds": [
           "pg_news_003_go_120_release_0030"
         ],
@@ -408,7 +667,29 @@
         ],
         "textQuote": "Robert Griesemer, on behalf of the Go team 1 February 2023"
       },
-      "node_14": {
+      "node_2": {
+        "chunkIds": [
+          "ck_news_003_go_120_release_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_003_go_120_release_0057"
+        ],
+        "excerpt": "Next article : Profile - guided optimization preview Previous article : Share your feedback about developing",
+        "fallbackText": "Next article: Profile-guided optimization preview Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Pac",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Next article Profile-guided optimization preview Previous…",
+        "paragraphIds": [
+          "pg_news_003_go_120_release_0057"
+        ],
+        "sourceRefIds": [
+          "src_news_003_go_120_release_0057"
+        ],
+        "textQuote": "Next article: Profile-guided optimization preview Previous article: Share your feedback about developing with Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tou"
+      },
+      "node_20": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -421,7 +702,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Tips for writing clear , performant , and idiomatic Go code",
+        "nodeLabel": "Tips for writing clear, performant, and idiomatic Go code",
         "paragraphIds": [
           "pg_news_003_go_120_release_0013"
         ],
@@ -430,7 +711,7 @@
         ],
         "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
       },
-      "node_15": {
+      "node_21": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -443,7 +724,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "A complete introduction to building software with Go",
+        "nodeLabel": "complete introduction to building software with Go",
         "paragraphIds": [
           "pg_news_003_go_120_release_0009"
         ],
@@ -452,7 +733,7 @@
         ],
         "textQuote": "A complete introduction to building software with Go"
       },
-      "node_16": {
+      "node_22": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -465,7 +746,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Reference documentation for Go  s standard library",
+        "nodeLabel": "Reference documentation for Gos standard library",
         "paragraphIds": [
           "pg_news_003_go_120_release_0011"
         ],
@@ -474,7 +755,7 @@
         ],
         "textQuote": "Reference documentation for Go's standard library"
       },
-      "node_17": {
+      "node_23": {
         "chunkIds": [
           "ck_news_003_go_120_release_0001"
         ],
@@ -496,29 +777,39 @@
         ],
         "textQuote": "Stories about how and why companies use Go"
       },
-      "node_18": {
+      "node_3": {
         "chunkIds": [
+          "ck_news_003_go_120_release_0002",
           "ck_news_003_go_120_release_0001"
         ],
         "digestItemIds": [
-          "item_block_pg_news_003_go_120_release_0005"
+          "item_block_pg_news_003_go_120_release_0033",
+          "item_block_pg_news_003_go_120_release_0032",
+          "item_block_pg_news_003_go_120_release_0034",
+          "item_block_pg_news_003_go_120_release_0030"
         ],
-        "excerpt": "How Go can help keep you secure by default",
-        "fallbackText": "How Go can help keep you secure by default",
+        "excerpt": "We ’ re particularly excited to launch a preview of profile - guided optimization ( PGO",
+        "fallbackText": "We’re particularly excited to launch a preview of profile-guided optimization (PGO), which enables the compiler to perform application- and workload-specific optimizations based on run-time profile information. Providing a profile to go bui",
         "jumpback": {
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "How Go can help keep you secure by default",
+        "nodeLabel": "Go 1.20 is released!",
         "paragraphIds": [
-          "pg_news_003_go_120_release_0005"
+          "pg_news_003_go_120_release_0033",
+          "pg_news_003_go_120_release_0032",
+          "pg_news_003_go_120_release_0034",
+          "pg_news_003_go_120_release_0030"
         ],
         "sourceRefIds": [
-          "src_news_003_go_120_release_0005"
+          "src_news_003_go_120_release_0033",
+          "src_news_003_go_120_release_0032",
+          "src_news_003_go_120_release_0034",
+          "src_news_003_go_120_release_0030"
         ],
-        "textQuote": "How Go can help keep you secure by default"
+        "textQuote": "We’re particularly excited to launch a preview of profile-guided optimization (PGO), which enables the compiler to perform application- and workload-specific optimizations based on"
       },
-      "node_2": {
+      "node_4": {
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
@@ -531,7 +822,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "We ’ re particularly excited to launch a preview of profile - gu",
+        "nodeLabel": "We’re particularly excited to launch preview of profile-guided…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0033"
         ],
@@ -540,7 +831,7 @@
         ],
         "textQuote": "We’re particularly excited to launch a preview of profile-guided optimization (PGO), which enables the compiler to perform application- and workload-specific optimizations based on"
       },
-      "node_3": {
+      "node_5": {
         "chunkIds": [
           "ck_news_003_go_120_release_0005"
         ],
@@ -553,7 +844,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "When building a Go release from source , Go 1 . 20 requires a Go",
+        "nodeLabel": "When building Go release from source, Go 1.20 requires Go…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0053"
         ],
@@ -562,7 +853,7 @@
         ],
         "textQuote": "When building a Go release from source , Go 1.20 requires a Go 1.17.13 or newer release. In the future, we plan to move the bootstrap toolchain forward approximately once a year. A"
       },
-      "node_4": {
+      "node_6": {
         "chunkIds": [
           "ck_news_003_go_120_release_0005"
         ],
@@ -575,7 +866,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Thanks to everyone who contributed to this release by writing co",
+        "nodeLabel": "Thanks to everyone who contributed to this release by writing…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0055"
         ],
@@ -584,7 +875,7 @@
         ],
         "textQuote": "Thanks to everyone who contributed to this release by writing code, filing bugs, sharing feedback, and testing the release candidates. Your efforts helped to ensure that Go 1.20 is"
       },
-      "node_5": {
+      "node_7": {
         "chunkIds": [
           "ck_news_003_go_120_release_0002"
         ],
@@ -597,7 +888,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Go 1 . 20 benefited from an extended development phase , made po",
+        "nodeLabel": "Go 1.20 benefited from extended development phase, made…",
         "paragraphIds": [
           "pg_news_003_go_120_release_0032"
         ],
@@ -606,7 +897,7 @@
         ],
         "textQuote": "Go 1.20 benefited from an extended development phase, made possible by earlier broad testing and improved overall stability of the code base."
       },
-      "node_6": {
+      "node_8": {
         "chunkIds": [
           "ck_news_003_go_120_release_0003"
         ],
@@ -619,7 +910,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "The go command now disables cgo by default on systems without a",
+        "nodeLabel": "Tool improvements",
         "paragraphIds": [
           "pg_news_003_go_120_release_0043"
         ],
@@ -628,71 +919,27 @@
         ],
         "textQuote": "The go command now disables cgo by default on systems without a C toolchain. Consequently, when Go is installed on a system without a C compiler, it will now use pure Go builds for"
       },
-      "node_7": {
+      "node_9": {
         "chunkIds": [
           "ck_news_003_go_120_release_0003"
         ],
         "digestItemIds": [
-          "item_block_pg_news_003_go_120_release_0045"
+          "item_block_pg_news_003_go_120_release_0043"
         ],
-        "excerpt": "The new crypto / ecdh package provides explicit support for Elliptic Curve Diffie - Hellman key",
-        "fallbackText": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519.",
+        "excerpt": "The go command now disables cgo by default on systems without a C toolchain . Consequently",
+        "fallbackText": "The go command now disables cgo by default on systems without a C toolchain. Consequently, when Go is installed on a system without a C compiler, it will now use pure Go builds for packages in the standard library that optionally use cgo, i",
         "jumpback": {
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "The new crypto / ecdh package provides explicit support for Elli",
+        "nodeLabel": "go command now disables cgo by default on systems without C…",
         "paragraphIds": [
-          "pg_news_003_go_120_release_0045"
+          "pg_news_003_go_120_release_0043"
         ],
         "sourceRefIds": [
-          "src_news_003_go_120_release_0045"
+          "src_news_003_go_120_release_0043"
         ],
-        "textQuote": "The new crypto/ecdh package provides explicit support for Elliptic Curve Diffie-Hellman key exchanges over NIST curves and Curve25519."
-      },
-      "node_8": {
-        "chunkIds": [
-          "ck_news_003_go_120_release_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_003_go_120_release_0034"
-        ],
-        "excerpt": "Go 1 . 20 also includes a handful of language changes , many improvements to tooling",
-        "fallbackText": "Go 1.20 also includes a handful of language changes, many improvements to tooling and the library, and better overall performance.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Go 1 . 20 also includes a handful of language changes , many imp",
-        "paragraphIds": [
-          "pg_news_003_go_120_release_0034"
-        ],
-        "sourceRefIds": [
-          "src_news_003_go_120_release_0034"
-        ],
-        "textQuote": "Go 1.20 also includes a handful of language changes, many improvements to tooling and the library, and better overall performance."
-      },
-      "node_9": {
-        "chunkIds": [
-          "ck_news_003_go_120_release_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_003_go_120_release_0054"
-        ],
-        "excerpt": "For a complete and more detailed list of all changes see the full release notes .",
-        "fallbackText": "For a complete and more detailed list of all changes see the full release notes .",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "For a complete and more detailed list of all changes see the ful",
-        "paragraphIds": [
-          "pg_news_003_go_120_release_0054"
-        ],
-        "sourceRefIds": [
-          "src_news_003_go_120_release_0054"
-        ],
-        "textQuote": "For a complete and more detailed list of all changes see the full release notes ."
+        "textQuote": "The go command now disables cgo by default on systems without a C toolchain. Consequently, when Go is installed on a system without a C compiler, it will now use pure Go builds for"
       },
       "root": {
         "chunkIds": [
@@ -722,7 +969,7 @@
         "textQuote": "Image metadata: Go"
       }
     },
-    "nodesCount": 19,
+    "nodesCount": 24,
     "repairCount": 0,
     "sourcePageId": "news_003_go_120_release",
     "validation": {

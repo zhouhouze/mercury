@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="12">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" pages="12">
   <diagram id="navia-v12-01" name="01 当前实现状态总览">
     <mxGraphModel dx="1755" dy="958" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
@@ -413,7 +413,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="navia-v12-09" name="09 V2-V5 长期演进轮廓">
-    <mxGraphModel dx="1652" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1638" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -421,22 +421,31 @@
           <mxGeometry height="50" width="740" x="330" y="30" as="geometry" />
         </mxCell>
         <mxCell id="stable" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;fontSize=15;align=left;spacing=14" value="V1 必须稳定的边界&#xa;A 感知事实源&#xa;D 编排和映射中枢&#xa;C 结构化产物生成&#xa;B 纯渲染&#xa;Runtime API / Event / Trace 可审计" vertex="1">
-          <mxGeometry height="180" width="330" x="80" y="187.5" as="geometry" />
+          <mxGeometry height="133" width="330" x="1470" y="390" as="geometry" />
         </mxCell>
-        <mxCell id="v2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V2 本地知识库&#xa;MemoryCandidate / KnowledgeItem&#xa;标签化总结 / 类 RAG 蒸馏&#xa;需要新增 Memory Plane" vertex="1">
-          <mxGeometry height="135" width="240" x="470" y="130" as="geometry" />
+        <mxCell id="v2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V2&amp;nbsp;&lt;div&gt;MemoryCandidate / KnowledgeItem&lt;br&gt;标签化总结 / 类 RAG 蒸馏&lt;br&gt;需要新增 Memory Plane&lt;/div&gt;" vertex="1">
+          <mxGeometry height="135" width="420" x="920" y="360" as="geometry" />
         </mxCell>
-        <mxCell id="v3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V3 观赛/观影/直播&#xa;OCR / VLM / ASR / video live input&#xa;A 扩展为多模态感知&#xa;当前只规划，不实现" vertex="1">
-          <mxGeometry height="135" width="240" x="470" y="310" as="geometry" />
+        <mxCell id="v3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V3 观赛/观影/直播 -- 吉轩&lt;div&gt;音视频识别、生成，人声/伴奏/视频流提取或下载，高质量文生图/视频/音乐工作流 -- 鑫宝&lt;br&gt;OCR / VLM / ASR / video live input - &lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;厚泽、吉轩&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;A 扩展为多模态感知&lt;br&gt;当前只规划，不实现&lt;/div&gt;" vertex="1">
+          <mxGeometry height="135" width="420" x="920" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="v4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V4 个人秘书 / 深度研究 / PPT&#xa;Tool Plane / Skill Plane / MCP&#xa;D 负责审批、治理、编排&#xa;当前 V1.2 禁止引入" vertex="1">
-          <mxGeometry height="135" width="260" x="740" y="210" as="geometry" />
+        <mxCell id="v4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V4 个人秘书 / 深度研究 / PPT -- 吉轩&amp;nbsp;&lt;br&gt;Tool Plane / Skill Plane / MCP&lt;br&gt;D 负责审批、治理、编排&lt;br&gt;当前 V1.2 禁止引入" vertex="1">
+          <mxGeometry height="135" width="420" x="920" y="520" as="geometry" />
         </mxCell>
-        <mxCell id="v5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V5 移动端 / 云化 / 产品化&#xa;Web / App / Cloud Runtime&#xa;桌面宠物和情绪价值&#xa;需保留 Headless Runtime 合同" vertex="1">
-          <mxGeometry height="145" width="270" x="1080" y="205" as="geometry" />
+        <mxCell id="v5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="V5 移动端 / 云化 / 产品化&lt;br&gt;Web / App / Cloud Runtime&lt;br&gt;桌面宠物和情绪价值&lt;br&gt;需保留 Headless Runtime 合同&lt;div&gt;&lt;br&gt;&lt;div&gt;数字人 - &lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;厚泽、鑫宝、吉轩&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="145" width="270" x="1450" y="245" as="geometry" />
         </mxCell>
         <mxCell id="risk" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#64748B;fontSize=15;align=center" value="演进风险控制&#xa;未来可以新增 Memory / Tool / Cloud / Multimodal 平面，但不能破坏：A 不生成最终回答，B 不拥有 Agent 状态，C 不读 DOM，CoreProvider 不直接写 UI / Artifact / Trace。" vertex="1">
-          <mxGeometry height="100" width="1020" x="190" y="630" as="geometry" />
+          <mxGeometry height="100" width="1020" x="210" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="u6D16GYzB5dAi30uk_3X-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="AI-教案 -- 吉轩&lt;div&gt;整体看护--&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;文聪、&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;吉轩&lt;/span&gt;&lt;/div&gt;&lt;div&gt;VLM -&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;厚泽、吉轩&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;内容交互--文聪&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="135" width="660" x="210" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="u6D16GYzB5dAi30uk_3X-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="Fams --&amp;nbsp;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;厚泽、吉轩&lt;/span&gt;&lt;div&gt;整体看护--&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;吉轩&lt;/span&gt;&lt;/div&gt;&lt;div&gt;虚拟仓-- &lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;厚泽&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="135" width="660" x="210" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="u6D16GYzB5dAi30uk_3X-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;fontSize=14;align=left;spacing=12" value="Navia -- 厚泽&lt;div&gt;观赛/观影/直播 -- 吉轩&lt;div&gt;音视频识别、生成，人声/伴奏/视频流提取或下载，高质量文生图/视频/音乐工作流 -- 鑫宝&lt;br&gt;OCR / VLM / ASR / video live input - &lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;厚泽、吉轩&lt;/span&gt;&lt;/div&gt;&lt;div&gt;本地知识库 - 基于Data_service 基线继续二次开发&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;-- 厚泽&lt;/span&gt;&lt;/div&gt;&lt;div&gt;个人秘书 / 深度研究 / PPT -- 吉轩&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="135" width="660" x="210" y="220" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

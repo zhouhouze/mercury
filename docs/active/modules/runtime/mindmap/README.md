@@ -10,6 +10,8 @@ Generate traceable Mermaid mindmaps from A module structured page facts:
 - consume `PerceptionDigest`, `SourceMap / SourceRef`, and `PagePerceptionQualityReport` when the AC stage Runtime main path provides them.
 - choose bounded headings/chunks/paragraphs.
 - prefer digest items and source refs when `downstreamReadiness = "pass"`.
+- group pass-quality digest items under readable source-grounded themes.
+- compress long digest sentences into card-friendly labels while preserving source evidence in `fallbackText`.
 - generate Mermaid source.
 - validate Mermaid.
 - repair at most once.
@@ -65,6 +67,7 @@ docs/test-and-evidence-plan.md
 - validation result recorded in evidence.
 - repair count is `0` or `1`.
 - when quality readiness is `pass`, primary nodes are selected from `PerceptionDigest.items` before heading fallback.
+- pass-quality digest mindmaps use readable theme grouping instead of a flat list of long digest sentences.
 - primary nodes trace to A `SourceRef` IDs or explicit paragraph/chunk fallback.
 - every jumpable node has `textQuote` or `fallbackText`.
 - source fallback is possible even when DOM jump-back fails.

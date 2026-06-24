@@ -70,15 +70,22 @@ function buildReport(closeoutReport) {
     const metadataPath = copyEvidenceFile(sample.metadataPath);
     const containsEvidenceCardMindmap = Boolean(sample.containsEvidenceCardMindmap ?? sourceMetadata?.containsEvidenceCardMindmap);
     const containsSourcePanel = Boolean(sample.containsSourcePanel ?? sourceMetadata?.containsSourcePanel);
+    const sourceEvidenceVisible = Boolean(sample.sourceEvidenceVisible ?? sourceMetadata?.sourceEvidenceVisible);
+    const sourceEvidenceText = String(sample.sourceEvidenceText ?? sourceMetadata?.sourceEvidenceText ?? sourceMetadata?.evidenceText ?? "").replace(/\s+/g, " ").trim();
+    const isNativeSidePanel = Boolean(sourceMetadata?.isNativeSidePanel);
+    const containsWebPageBody = Boolean(sourceMetadata?.containsWebPageBody);
+    const containsNaviaPanel = Boolean(sourceMetadata?.containsNaviaPanel);
     return {
       screenshotPath: afterPath ?? sample.afterScreenshotPath ?? "",
       metadataPath,
       pageUrl: String(sample.url ?? ""),
-      isNativeSidePanel: true,
-      containsWebPageBody: true,
-      containsNaviaPanel: true,
+      isNativeSidePanel,
+      containsWebPageBody,
+      containsNaviaPanel,
       containsEvidenceCardMindmap,
       containsSourcePanel,
+      sourceEvidenceVisible,
+      sourceEvidenceText,
       result: sample.result === "highlighted" || sample.result === "fallback_shown" ? "pass" : "degraded"
     };
   });
@@ -86,7 +93,7 @@ function buildReport(closeoutReport) {
     const url = String(page.url ?? page.snapshotPath ?? page.pageId ?? "");
     const matchingScreenshot = screenshots.find((item) => item.pageUrl === url);
     const evidenceCardRendered = Boolean(matchingScreenshot?.containsEvidenceCardMindmap);
-    const sourcePanelVisible = Boolean(matchingScreenshot?.containsSourcePanel);
+    const sourcePanelVisible = Boolean(matchingScreenshot?.containsSourcePanel && matchingScreenshot?.sourceEvidenceVisible && matchingScreenshot?.sourceEvidenceText);
     const sourceConclusion =
       page.conclusion === "pass" || page.conclusion === "passed"
         ? "pass"
@@ -102,7 +109,7 @@ function buildReport(closeoutReport) {
       evidenceCardRendered,
       sourcePanelVisible,
       fallbackVisibleWhenNeeded: Boolean(matchingScreenshot) || page.readiness === "fail",
-      visualEvidenceStatus: matchingScreenshot ? "sampled" : "not_sampled",
+      visualEvidenceStatus: matchingScreenshot ? (sourcePanelVisible && evidenceCardRendered ? "sampled_pass" : "sampled_fail") : "not_sampled",
       conclusion: sourceConclusion
     };
   });
@@ -127,9 +134,24 @@ function buildReport(closeoutReport) {
   ].filter((item) => item.command);
   const fatalIssues = [];
   const majorIssues = [];
+  const nativeEvidenceScreenshots = screenshots.filter(
+    (item) =>
+      item.isNativeSidePanel &&
+      item.containsWebPageBody &&
+      item.containsNaviaPanel &&
+      item.containsEvidenceCardMindmap &&
+      item.containsSourcePanel &&
+      item.sourceEvidenceVisible &&
+      item.sourceEvidenceText
+  );
   if (pages.length < 8) fatalIssues.push(`V1.3 pages < 8 (${pages.length})`);
-  if (screenshots.length < 3) fatalIssues.push(`V1.3 native Side Panel screenshots < 3 (${screenshots.length})`);
-  if (!screenshots.every((item) => item.containsEvidenceCardMindmap && item.containsSourcePanel)) majorIssues.push("Some screenshot metadata does not claim Evidence Card + source panel visibility.");
+  if (nativeEvidenceScreenshots.length < 3) fatalIssues.push(`V1.3 native Side Panel screenshots < 3 (${nativeEvidenceScreenshots.length})`);
+  if (sourceSamples.some((sample) => sample.result === "fallback_shown" && String(sample.sourceEvidenceText ?? "").includes("已定位并高亮来源"))) {
+    majorIssues.push("Fallback sample contains stale DOM highlight success evidence text.");
+  }
+  if (!screenshots.every((item) => item.containsEvidenceCardMindmap && item.containsSourcePanel && item.sourceEvidenceVisible && item.sourceEvidenceText)) {
+    majorIssues.push("Some screenshot metadata lacks visible non-empty source evidence text.");
+  }
   if (commands.some((item) => item.status !== "pass")) majorIssues.push("One or more required commands failed or were blocked.");
   const passed = fatalIssues.length === 0 && majorIssues.length === 0;
 
@@ -141,8 +163,8 @@ function buildReport(closeoutReport) {
     summary: {
       pagesTotal: pages.length,
       pagesPassed: pages.filter((page) => page.conclusion === "pass").length,
-      nativeSidePanelSamples: screenshots.length,
-      evidenceCardSamples: screenshots.filter((item) => item.containsEvidenceCardMindmap).length,
+      nativeSidePanelSamples: nativeEvidenceScreenshots.length,
+      evidenceCardSamples: nativeEvidenceScreenshots.filter((item) => item.containsEvidenceCardMindmap).length,
       fallbackSamples: Math.max(1, sourceSamples.filter((sample) => sample.result === "fallback_shown").length)
     },
     pages,
@@ -264,6 +286,9 @@ function validateReport(report) {
     if (!screenshot.isNativeSidePanel || !screenshot.containsWebPageBody || !screenshot.containsNaviaPanel || !screenshot.containsEvidenceCardMindmap) {
       failures.push(`invalid screenshot evidence: ${screenshot.screenshotPath}`);
     }
+    if (!screenshot.containsSourcePanel || !screenshot.sourceEvidenceVisible || !screenshot.sourceEvidenceText) {
+      failures.push(`missing visible source evidence text: ${screenshot.screenshotPath}`);
+    }
   }
   return failures;
 }
@@ -297,11 +322,11 @@ writeJson(path.join(evidenceRoot, "report.json"), report);
 writeText(path.join(evidenceRoot, "acceptance-report.html"), buildHtml(report));
 writeText(
   path.join(evidenceRoot, "prd-review.md"),
-  `# V1.3 PRD Review\n\n- Evidence Card Mindmap primary view: ${report.summary.evidenceCardSamples >= 3 ? "pass" : "fail"}\n- Source panel visible: ${report.summary.nativeSidePanelSamples >= 3 && report.screenshots.every((item) => item.containsSourcePanel) ? "pass" : "fail"}\n- Native Side Panel evidence: ${report.summary.nativeSidePanelSamples >= 3 ? "pass" : "fail"}\n- Completion claim boundary: \`${report.claim}\`.\n- Not claimed: full V1, Canvas Knowledge Map, RAG, Memory, Web Research, PPT, Deep Research.\n`
+  `# V1.3 PRD Review\n\n- Evidence Card Mindmap primary view: ${report.summary.evidenceCardSamples >= 3 ? "pass" : "fail"}\n- Source panel visible with evidence text: ${report.summary.nativeSidePanelSamples >= 3 && report.screenshots.every((item) => item.containsSourcePanel && item.sourceEvidenceVisible && item.sourceEvidenceText) ? "pass" : "fail"}\n- Native Side Panel evidence: ${report.summary.nativeSidePanelSamples >= 3 ? "pass" : "fail"}\n- Completion claim boundary: \`${report.claim}\`.\n- Not claimed: full V1, Canvas Knowledge Map, RAG, Memory, Web Research, PPT, Deep Research.\n`
 );
 writeText(
   path.join(evidenceRoot, "false-green-audit.md"),
-  `# V1.3 False-Green Audit\n\n- Fullscreen extension page screenshots are not accepted as native UX proof.\n- Mermaid CSS-only changes are not enough; Evidence Card samples are counted separately.\n- Fallback samples must not be labeled as DOM success.\n- B does not claim A/C/D generation ownership.\n\nResult: ${report.passed ? "pass" : "needs work"}\n`
+  `# V1.3 False-Green Audit\n\n- Fullscreen extension page screenshots are not accepted as native UX proof.\n- Mermaid CSS-only changes are not enough; Evidence Card samples are counted separately.\n- Source panel proof requires visible non-empty source evidence text, not only a DOM container flag.\n- Fallback samples must not be labeled as DOM success.\n- B does not claim A/C/D generation ownership.\n\nResult: ${report.passed ? "pass" : "needs work"}\n`
 );
 
 if (!report.passed) {

@@ -355,6 +355,36 @@ def test_v1_0_e_mindmap_creates_mermaid_artifact_and_trace() -> None:
     assert all(node.get("fallbackText") for node in primary_nodes)
 
 
+def test_v1_0_e_mock_provider_mindmap_uses_page_adapter_artifact_path() -> None:
+    event_store.events.clear()
+    event_stream.published.clear()
+    client = TestClient(app)
+    session_id = create_session_with_page(client)
+    response = client.post(
+        "/v1/chat/stream",
+        json={
+            "session_id": session_id,
+            "message": "生成 Mermaid 思维导图",
+            "source": "typed",
+            "coreProvider": "mock",
+            "intentHint": "mindmap_page",
+            "request_id": "req_000000000000000000000793",
+        },
+    )
+    events = [data for _, data in parse_sse(response.text)]
+    event_types = [event["type"] for event in events]
+    assert "tool.done" in event_types
+    assert "artifact.created" in event_types
+    artifact = next(event for event in events if event["type"] == "artifact.created")["data"]["artifact"]
+    assert artifact["type"] == "mindmap"
+    assert artifact["metadata"]["nodeSourceMap"]
+    assert any(
+        node.get("textQuote") or node.get("fallbackText")
+        for node_id, node in artifact["metadata"]["nodeSourceMap"].items()
+        if node_id != "root"
+    )
+
+
 def test_v1_0_d_page_context_endpoint_records_active_page_and_event() -> None:
     event_store.events.clear()
     event_stream.published.clear()

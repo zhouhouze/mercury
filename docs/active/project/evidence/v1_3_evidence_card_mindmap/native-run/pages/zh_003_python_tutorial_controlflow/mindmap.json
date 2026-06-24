@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((4. 更多控制流工具 — Python 3.14.5 文档))\n    函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找\n    match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或\n    函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符\n    对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ，\n    在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的\n    如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return\n    range   返回的对象在很多方面和列表的行为一样 ， 但其实它和列表不一样 。 该对象只有在被迭代时才一个一个地返回所期\n    这种对象称为可迭代对象 iterable ， 适合作为需要获取一系列值的函数或程序构件的参数 。 for 语句就是这样的程序构件\n    一些内置类 （ 如 dataclass ） 为属性提供了一个顺序 ， 此时 ， 可以使用位置参数 。 自定义类可通过在类中设置特\n    建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只\n    我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。\n    语句 result . append  a  调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’\n    函数定义在当前符号表中把函数名与函数对象关联在一起 。 解释器把函数名指向的对象作为用户自定义函数 。 还可以使用其他名称指向同\n    给出所有实参 ： ask_ok   OK to overwrite the file ?  , 2 , \n    该函数接受一个必选参数  voltage  和三个可选参数  state , action 和 type  。 该函数可\n    重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面\n    请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ，\n    后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list   的更多",
+  "mermaidSource": "mindmap\n  root((4. 更多控制流工具 — Python 3.14.5 文档))\n    4.8. 定义函数 ¶\n      函数在 执行…\n    4.7. match 语句 ¶\n      match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或…\n      函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring，详见…\n    4.6. pass 语句 ¶\n      对于这后一种情况，许多人会使用省略符字面值... 而不是 pass。 这种用法在 Python…\n      在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值…\n      如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return…\n    4.3. range 函数 ¶\n      range…\n      这种对象称为可迭代对象 iterable，适合作为需要获取一系列值的函数或程序构件的参数。 for…\n      一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性…\n      建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match…\n      我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case…\n      语句 result.appenda 调用了列表对象 result 的 方法。 方法是‘从属于’对象的函数，其名称为…\n    4.9.1. 默认值参数 ¶\n      给出所有实参： ask_okOK to overwrite file?, 2, Come on, only yes or no!\n    4.9.2. 关键字参数 ¶\n      该函数接受一个必选参数 voltage 和三个可选参数 state, action 和 type。…\n      重要警告：…\n      请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量…\n      后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list 的更多细节。",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -28,12 +28,38 @@
       },
       {
         "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
+          "ck_zh_003_python_tutorial_controlflow_0007",
+          "ck_zh_003_python_tutorial_controlflow_0008"
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找",
+        "nodeLabel": "4.8. 定义函数 ¶",
         "nodeSourceMapKey": "node_1",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0082",
+          "pg_zh_003_python_tutorial_controlflow_0081",
+          "pg_zh_003_python_tutorial_controlflow_0083",
+          "pg_zh_003_python_tutorial_controlflow_0086",
+          "pg_zh_003_python_tutorial_controlflow_0092",
+          "pg_zh_003_python_tutorial_controlflow_0084"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0082",
+          "src_zh_003_python_tutorial_controlflow_0081",
+          "src_zh_003_python_tutorial_controlflow_0083",
+          "src_zh_003_python_tutorial_controlflow_0086",
+          "src_zh_003_python_tutorial_controlflow_0092",
+          "src_zh_003_python_tutorial_controlflow_0084"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0007"
+        ],
+        "mermaidLineIndex": 3,
+        "nodeId": "node_2",
+        "nodeLabel": "函数在 执行…",
+        "nodeSourceMapKey": "node_2",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0082"
         ],
@@ -43,12 +69,36 @@
       },
       {
         "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004",
+          "ck_zh_003_python_tutorial_controlflow_0005"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "4.7. match 语句 ¶",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0050",
+          "pg_zh_003_python_tutorial_controlflow_0061",
+          "pg_zh_003_python_tutorial_controlflow_0063",
+          "pg_zh_003_python_tutorial_controlflow_0066",
+          "pg_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0050",
+          "src_zh_003_python_tutorial_controlflow_0061",
+          "src_zh_003_python_tutorial_controlflow_0063",
+          "src_zh_003_python_tutorial_controlflow_0066",
+          "src_zh_003_python_tutorial_controlflow_0058"
+        ]
+      },
+      {
+        "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0004"
         ],
-        "mermaidLineIndex": 3,
-        "nodeId": "node_2",
-        "nodeLabel": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或",
-        "nodeSourceMapKey": "node_2",
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0050"
         ],
@@ -60,10 +110,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0007"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring，详见…",
+        "nodeSourceMapKey": "node_5",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0081"
         ],
@@ -75,10 +125,25 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0004"
         ],
-        "mermaidLineIndex": 5,
-        "nodeId": "node_4",
-        "nodeLabel": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ，",
-        "nodeSourceMapKey": "node_4",
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "4.6. pass 语句 ¶",
+        "nodeSourceMapKey": "node_6",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0049"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004"
+        ],
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "对于这后一种情况，许多人会使用省略符字面值... 而不是 pass。 这种用法在 Python…",
+        "nodeSourceMapKey": "node_7",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0049"
         ],
@@ -90,10 +155,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0007"
         ],
-        "mermaidLineIndex": 6,
-        "nodeId": "node_5",
-        "nodeLabel": "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的",
-        "nodeSourceMapKey": "node_5",
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值…",
+        "nodeSourceMapKey": "node_8",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0083"
         ],
@@ -105,10 +170,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0007"
         ],
-        "mermaidLineIndex": 7,
-        "nodeId": "node_6",
-        "nodeLabel": "如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return",
-        "nodeSourceMapKey": "node_6",
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return…",
+        "nodeSourceMapKey": "node_9",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0086"
         ],
@@ -120,10 +185,29 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
-        "mermaidLineIndex": 8,
-        "nodeId": "node_7",
-        "nodeLabel": "range   返回的对象在很多方面和列表的行为一样 ， 但其实它和列表不一样 。 该对象只有在被迭代时才一个一个地返回所期",
-        "nodeSourceMapKey": "node_7",
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "4.3. range 函数 ¶",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0027",
+          "pg_zh_003_python_tutorial_controlflow_0028",
+          "pg_zh_003_python_tutorial_controlflow_0030"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0027",
+          "src_zh_003_python_tutorial_controlflow_0028",
+          "src_zh_003_python_tutorial_controlflow_0030"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0002"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "range…",
+        "nodeSourceMapKey": "node_11",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0027"
         ],
@@ -135,10 +219,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
-        "mermaidLineIndex": 9,
-        "nodeId": "node_8",
-        "nodeLabel": "这种对象称为可迭代对象 iterable ， 适合作为需要获取一系列值的函数或程序构件的参数 。 for 语句就是这样的程序构件",
-        "nodeSourceMapKey": "node_8",
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "这种对象称为可迭代对象 iterable，适合作为需要获取一系列值的函数或程序构件的参数。 for…",
+        "nodeSourceMapKey": "node_12",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0028"
         ],
@@ -150,10 +234,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0005"
         ],
-        "mermaidLineIndex": 10,
-        "nodeId": "node_9",
-        "nodeLabel": "一些内置类 （ 如 dataclass ） 为属性提供了一个顺序 ， 此时 ， 可以使用位置参数 。 自定义类可通过在类中设置特",
-        "nodeSourceMapKey": "node_9",
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性…",
+        "nodeSourceMapKey": "node_13",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0061"
         ],
@@ -165,10 +249,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0005"
         ],
-        "mermaidLineIndex": 11,
-        "nodeId": "node_10",
-        "nodeLabel": "建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只",
-        "nodeSourceMapKey": "node_10",
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match…",
+        "nodeSourceMapKey": "node_14",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0063"
         ],
@@ -180,10 +264,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0005"
         ],
-        "mermaidLineIndex": 12,
-        "nodeId": "node_11",
-        "nodeLabel": "我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。",
-        "nodeSourceMapKey": "node_11",
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case…",
+        "nodeSourceMapKey": "node_15",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0066"
         ],
@@ -195,10 +279,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0008"
         ],
-        "mermaidLineIndex": 13,
-        "nodeId": "node_12",
-        "nodeLabel": "语句 result . append  a  调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’",
-        "nodeSourceMapKey": "node_12",
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "语句 result.appenda 调用了列表对象 result 的 方法。 方法是‘从属于’对象的函数，其名称为…",
+        "nodeSourceMapKey": "node_16",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0092"
         ],
@@ -208,27 +292,29 @@
       },
       {
         "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
+          "ck_zh_003_python_tutorial_controlflow_0008"
         ],
-        "mermaidLineIndex": 14,
-        "nodeId": "node_13",
-        "nodeLabel": "函数定义在当前符号表中把函数名与函数对象关联在一起 。 解释器把函数名指向的对象作为用户自定义函数 。 还可以使用其他名称指向同",
-        "nodeSourceMapKey": "node_13",
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "4.9.1. 默认值参数 ¶",
+        "nodeSourceMapKey": "node_17",
         "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0084"
+          "pg_zh_003_python_tutorial_controlflow_0098",
+          "pg_zh_003_python_tutorial_controlflow_0102"
         ],
         "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0084"
+          "src_zh_003_python_tutorial_controlflow_0098",
+          "src_zh_003_python_tutorial_controlflow_0102"
         ]
       },
       {
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0008"
         ],
-        "mermaidLineIndex": 15,
-        "nodeId": "node_14",
-        "nodeLabel": "给出所有实参 ： ask_ok   OK to overwrite the file ?  , 2 , ",
-        "nodeSourceMapKey": "node_14",
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "给出所有实参： ask_okOK to overwrite file?, 2, Come on, only yes or no!",
+        "nodeSourceMapKey": "node_18",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0098"
         ],
@@ -240,10 +326,25 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0009"
         ],
-        "mermaidLineIndex": 16,
-        "nodeId": "node_15",
-        "nodeLabel": "该函数接受一个必选参数  voltage  和三个可选参数  state , action 和 type  。 该函数可",
-        "nodeSourceMapKey": "node_15",
+        "mermaidLineIndex": 20,
+        "nodeId": "node_19",
+        "nodeLabel": "4.9.2. 关键字参数 ¶",
+        "nodeSourceMapKey": "node_19",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0109"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0009"
+        ],
+        "mermaidLineIndex": 21,
+        "nodeId": "node_20",
+        "nodeLabel": "该函数接受一个必选参数 voltage 和三个可选参数 state, action 和 type。…",
+        "nodeSourceMapKey": "node_20",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0109"
         ],
@@ -255,10 +356,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0008"
         ],
-        "mermaidLineIndex": 17,
-        "nodeId": "node_16",
-        "nodeLabel": "重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面",
-        "nodeSourceMapKey": "node_16",
+        "mermaidLineIndex": 22,
+        "nodeId": "node_21",
+        "nodeLabel": "重要警告：…",
+        "nodeSourceMapKey": "node_21",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0102"
         ],
@@ -270,10 +371,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0004"
         ],
-        "mermaidLineIndex": 18,
-        "nodeId": "node_17",
-        "nodeLabel": "请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ，",
-        "nodeSourceMapKey": "node_17",
+        "mermaidLineIndex": 23,
+        "nodeId": "node_22",
+        "nodeLabel": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量…",
+        "nodeSourceMapKey": "node_22",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0058"
         ],
@@ -285,10 +386,10 @@
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
-        "mermaidLineIndex": 19,
-        "nodeId": "node_18",
-        "nodeLabel": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list   的更多",
-        "nodeSourceMapKey": "node_18",
+        "mermaidLineIndex": 24,
+        "nodeId": "node_23",
+        "nodeLabel": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list 的更多细节。",
+        "nodeSourceMapKey": "node_23",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0030"
         ],
@@ -300,10 +401,16 @@
     "nodeSourceMap": {
       "node_1": {
         "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
+          "ck_zh_003_python_tutorial_controlflow_0007",
+          "ck_zh_003_python_tutorial_controlflow_0008"
         ],
         "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0082"
+          "item_block_pg_zh_003_python_tutorial_controlflow_0082",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0081",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0083",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0086",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0092",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0084"
         ],
         "excerpt": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ，",
         "fallbackText": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。",
@@ -311,324 +418,54 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找",
+        "nodeLabel": "4.8. 定义函数 ¶",
         "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0082"
+          "pg_zh_003_python_tutorial_controlflow_0082",
+          "pg_zh_003_python_tutorial_controlflow_0081",
+          "pg_zh_003_python_tutorial_controlflow_0083",
+          "pg_zh_003_python_tutorial_controlflow_0086",
+          "pg_zh_003_python_tutorial_controlflow_0092",
+          "pg_zh_003_python_tutorial_controlflow_0084"
         ],
         "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0082"
+          "src_zh_003_python_tutorial_controlflow_0082",
+          "src_zh_003_python_tutorial_controlflow_0081",
+          "src_zh_003_python_tutorial_controlflow_0083",
+          "src_zh_003_python_tutorial_controlflow_0086",
+          "src_zh_003_python_tutorial_controlflow_0092",
+          "src_zh_003_python_tutorial_controlflow_0084"
         ],
         "textQuote": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。"
       },
       "node_10": {
         "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0063"
-        ],
-        "excerpt": "建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只会为单一的名称 ( 如上面的 var ) 赋值 ， 而不会赋值给带点号的名称",
-        "fallbackText": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0063"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0063"
-        ],
-        "textQuote": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。"
-      },
-      "node_11": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0066"
-        ],
-        "excerpt": "我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。 注意是先将值捕获 ， 再对守卫子句求值 ：",
-        "fallbackText": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值：",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0066"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0066"
-        ],
-        "textQuote": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值："
-      },
-      "node_12": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0008"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0092"
-        ],
-        "excerpt": "语句 result . append ( a ) 调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’",
-        "fallbackText": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自己的对象类型和方法，参见 类 。） 在示例中显示的方法 append() 是由列表对象定义的；它会在列表的末尾添加一个新",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "语句 result . append  a  调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0092"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0092"
-        ],
-        "textQuote": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自"
-      },
-      "node_13": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0084"
-        ],
-        "excerpt": "函数定义在当前符号表中把函数名与函数对象关联在一起 。 解释器把函数名指向的对象作为用户自定义函数 。 还可以使用其他名称指向同一个函数对象 ， 并访问该函数 ：",
-        "fallbackText": "函数定义在当前符号表中把函数名与函数对象关联在一起。解释器把函数名指向的对象作为用户自定义函数。还可以使用其他名称指向同一个函数对象，并访问该函数：",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "函数定义在当前符号表中把函数名与函数对象关联在一起 。 解释器把函数名指向的对象作为用户自定义函数 。 还可以使用其他名称指向同",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0084"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0084"
-        ],
-        "textQuote": "函数定义在当前符号表中把函数名与函数对象关联在一起。解释器把函数名指向的对象作为用户自定义函数。还可以使用其他名称指向同一个函数对象，并访问该函数："
-      },
-      "node_14": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0008"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0098"
-        ],
-        "excerpt": "给出所有实参 ： ask_ok ( ' OK to overwrite the file ? ' , 2 , '",
-        "fallbackText": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "给出所有实参 ： ask_ok   OK to overwrite the file ?  , 2 , ",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0098"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0098"
-        ],
-        "textQuote": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')"
-      },
-      "node_15": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0009"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0109"
-        ],
-        "excerpt": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type ) 。 该函数可用下列方式调用 ：",
-        "fallbackText": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用：",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "该函数接受一个必选参数  voltage  和三个可选参数  state , action 和 type  。 该函数可",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0109"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0109"
-        ],
-        "textQuote": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用："
-      },
-      "node_16": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0008"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0102"
-        ],
-        "excerpt": "重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面的函数会累积后续调用时传递的参数 ：",
-        "fallbackText": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数：",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0102"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0102"
-        ],
-        "textQuote": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数："
-      },
-      "node_17": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0058"
-        ],
-        "excerpt": "请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ， 变量 绑定 了来自主语 ( point ) 的一个值 。",
-        "fallbackText": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ，",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0058"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0058"
-        ],
-        "textQuote": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。"
-      },
-      "node_18": {
-        "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
         "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0027",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0028",
           "item_block_pg_zh_003_python_tutorial_controlflow_0030"
         ],
-        "excerpt": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list ( ) 的更多细节 。",
-        "fallbackText": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。",
+        "excerpt": "range ( ) 返回的对象在很多方面和列表的行为一样 ， 但其实它和列表不一样 。 该对象只有在被迭代时才一个一个地返回所期望的列表项 ， 并没有真正生成过一个含有全部项的列表 ， 从而节省了空间 。",
+        "fallbackText": "range() 返回的对象在很多方面和列表的行为一样，但其实它和列表不一样。该对象只有在被迭代时才一个一个地返回所期望的列表项，并没有真正生成过一个含有全部项的列表，从而节省了空间。",
         "jumpback": {
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list   的更多",
+        "nodeLabel": "4.3. range 函数 ¶",
         "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0027",
+          "pg_zh_003_python_tutorial_controlflow_0028",
           "pg_zh_003_python_tutorial_controlflow_0030"
         ],
         "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0027",
+          "src_zh_003_python_tutorial_controlflow_0028",
           "src_zh_003_python_tutorial_controlflow_0030"
         ],
-        "textQuote": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。"
+        "textQuote": "range() 返回的对象在很多方面和列表的行为一样，但其实它和列表不一样。该对象只有在被迭代时才一个一个地返回所期望的列表项，并没有真正生成过一个含有全部项的列表，从而节省了空间。"
       },
-      "node_2": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0050"
-        ],
-        "excerpt": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch",
-        "fallbackText": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配的case，则不执行任何分支。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0050"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0050"
-        ],
-        "textQuote": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配"
-      },
-      "node_3": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0081"
-        ],
-        "excerpt": "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符串可以自动生成在线文档或打印版文档 ， 还可以让开发者在浏览代码时直接查阅文档 ； Python 开发者最好养成在代码中加入文档字符串的好习惯",
-        "fallbackText": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0081"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0081"
-        ],
-        "textQuote": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。"
-      },
-      "node_4": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0049"
-        ],
-        "excerpt": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ， 也不是语言定义的一部分 （ 这里你可以使用任意常量表达式",
-        "fallbackText": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ，",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0049"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0049"
-        ],
-        "textQuote": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。"
-      },
-      "node_5": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0083"
-        ],
-        "excerpt": "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的 值 始终是对象的 引用",
-        "fallbackText": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0083"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0083"
-        ],
-        "textQuote": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。"
-      },
-      "node_6": {
-        "chunkIds": [
-          "ck_zh_003_python_tutorial_controlflow_0007"
-        ],
-        "digestItemIds": [
-          "item_block_pg_zh_003_python_tutorial_controlflow_0086"
-        ],
-        "excerpt": "如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return 语句的函数也有返回值 ， 尽管这个值可能相当无聊 。",
-        "fallbackText": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return",
-        "paragraphIds": [
-          "pg_zh_003_python_tutorial_controlflow_0086"
-        ],
-        "sourceRefIds": [
-          "src_zh_003_python_tutorial_controlflow_0086"
-        ],
-        "textQuote": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:"
-      },
-      "node_7": {
+      "node_11": {
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
@@ -641,7 +478,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "range   返回的对象在很多方面和列表的行为一样 ， 但其实它和列表不一样 。 该对象只有在被迭代时才一个一个地返回所期",
+        "nodeLabel": "range…",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0027"
         ],
@@ -650,7 +487,7 @@
         ],
         "textQuote": "range() 返回的对象在很多方面和列表的行为一样，但其实它和列表不一样。该对象只有在被迭代时才一个一个地返回所期望的列表项，并没有真正生成过一个含有全部项的列表，从而节省了空间。"
       },
-      "node_8": {
+      "node_12": {
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0002"
         ],
@@ -663,7 +500,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "这种对象称为可迭代对象 iterable ， 适合作为需要获取一系列值的函数或程序构件的参数 。 for 语句就是这样的程序构件",
+        "nodeLabel": "这种对象称为可迭代对象 iterable，适合作为需要获取一系列值的函数或程序构件的参数。 for…",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0028"
         ],
@@ -672,7 +509,7 @@
         ],
         "textQuote": "这种对象称为可迭代对象 iterable ，适合作为需要获取一系列值的函数或程序构件的参数。 for 语句就是这样的程序构件；以可迭代对象作为参数的函数例如 sum() ："
       },
-      "node_9": {
+      "node_13": {
         "chunkIds": [
           "ck_zh_003_python_tutorial_controlflow_0005"
         ],
@@ -685,7 +522,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "一些内置类 （ 如 dataclass ） 为属性提供了一个顺序 ， 此时 ， 可以使用位置参数 。 自定义类可通过在类中设置特",
+        "nodeLabel": "一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性…",
         "paragraphIds": [
           "pg_zh_003_python_tutorial_controlflow_0061"
         ],
@@ -693,6 +530,418 @@
           "src_zh_003_python_tutorial_controlflow_0061"
         ],
         "textQuote": "一些内置类（如 dataclass）为属性提供了一个顺序，此时，可以使用位置参数。自定义类可通过在类中设置特殊属性 __match_args__ ，为属性指定其在模式中对应的位置。若设为 (\"x\", \"y\")，则以下模式相互等价 (且都把属性 y 绑定到变量 var )："
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0063"
+        ],
+        "excerpt": "建议这样来阅读一个模式 — — 通过将其视为赋值语句等号左边的一种扩展形式 ， 来理解各个变量被设为何值 。 match 语句只会为单一的名称 ( 如上面的 var ) 赋值 ， 而不会赋值给带点号的名称",
+        "fallbackText": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0063"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0063"
+        ],
+        "textQuote": "建议这样来阅读一个模式——通过将其视为赋值语句等号左边的一种扩展形式，来理解各个变量被设为何值。 match 语句只会为单一的名称 (如上面的 var ) 赋值，而不会赋值给带点号的名称 (如 foo.bar )、属性名 (如上面的 x= 和 y= ) 以及类名 (是通过其后的 \"(...)\" 来识别的，如上面的 Point )。"
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0066"
+        ],
+        "excerpt": "我们可以为模式添加 if 作为守卫子句 。 如果守卫子句的值为假 ， 那么 match 会继续尝试匹配下一个 case 块 。 注意是先将值捕获 ， 再对守卫子句求值 ：",
+        "fallbackText": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值：",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0066"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0066"
+        ],
+        "textQuote": "我们可以为模式添加 if 作为守卫子句。如果守卫子句的值为假，那么 match 会继续尝试匹配下一个 case 块。注意是先将值捕获，再对守卫子句求值："
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0092"
+        ],
+        "excerpt": "语句 result . append ( a ) 调用了列表对象 result 的 方法 。 方法是 ‘ 从属于 ’",
+        "fallbackText": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自己的对象类型和方法，参见 类 。） 在示例中显示的方法 append() 是由列表对象定义的；它会在列表的末尾添加一个新",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "语句 result.appenda 调用了列表对象 result 的 方法。 方法是‘从属于’对象的函数，其名称为…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0092"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0092"
+        ],
+        "textQuote": "语句 result.append(a) 调用了列表对象 result 的 方法 。 方法是‘从属于’对象的函数，其名称为 obj.methodname ，其中 obj 是某个对象（可以是一个表达式）， methodname 是由对象的类型定义的方法名称。 不同的类型定义了不同的方法。 不同的类型的方法可以使用相同的名称而不会产生歧义。 （使用 类 可以定义自"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0098",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "excerpt": "给出所有实参 ： ask_ok ( ' OK to overwrite the file ? ' , 2 , '",
+        "fallbackText": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "4.9.1. 默认值参数 ¶",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0098",
+          "pg_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0098",
+          "src_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "textQuote": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0098"
+        ],
+        "excerpt": "给出所有实参 ： ask_ok ( ' OK to overwrite the file ? ' , 2 , '",
+        "fallbackText": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "给出所有实参： ask_okOK to overwrite file?, 2, Come on, only yes or no!",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0098"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0098"
+        ],
+        "textQuote": "给出所有实参： ask_ok('OK to overwrite the file?', 2, 'Come on, only yes or no!')"
+      },
+      "node_19": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0009"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "excerpt": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type ) 。 该函数可用下列方式调用 ：",
+        "fallbackText": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用：",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "4.9.2. 关键字参数 ¶",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "textQuote": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用："
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0082"
+        ],
+        "excerpt": "函数在 执行 时使用函数局部变量符号表 ， 所有函数变量赋值都存在局部符号表中 ； 引用变量时 ， 首先 ， 在局部符号表里查找变量 ， 然后 ， 是外层函数局部符号表 ，",
+        "fallbackText": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "函数在 执行…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0082"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0082"
+        ],
+        "textQuote": "函数在 执行 时使用函数局部变量符号表，所有函数变量赋值都存在局部符号表中；引用变量时，首先，在局部符号表里查找变量，然后，是外层函数局部符号表，再是全局符号表，最后是内置名称符号表。因此，尽管可以引用全局变量和外层函数的变量，但最好不要在函数内直接赋值（除非是 global 语句定义的全局变量，或 nonlocal 语句定义的外层函数变量）。"
+      },
+      "node_20": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0009"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "excerpt": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type ) 。 该函数可用下列方式调用 ：",
+        "fallbackText": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用：",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "该函数接受一个必选参数 voltage 和三个可选参数 state, action 和 type。…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0109"
+        ],
+        "textQuote": "该函数接受一个必选参数 ( voltage ) 和三个可选参数 ( state , action 和 type )。 该函数可用下列方式调用："
+      },
+      "node_21": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0008"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "excerpt": "重要警告 ： 默认值只计算一次 。 默认值为列表 、 字典或类实例等可变对象时 ， 会产生与该规则不同的结果 。 例如 ， 下面的函数会累积后续调用时传递的参数 ：",
+        "fallbackText": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数：",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "重要警告：…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0102"
+        ],
+        "textQuote": "重要警告： 默认值只计算一次。默认值为列表、字典或类实例等可变对象时，会产生与该规则不同的结果。例如，下面的函数会累积后续调用时传递的参数："
+      },
+      "node_22": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "excerpt": "请仔细学习此代码 ！ 第一个模式有两个字面值 ， 可视为前述字面值模式的扩展 。 接下来的两个模式结合了一个字面值和一个变量 ， 变量 绑定 了来自主语 ( point ) 的一个值 。",
+        "fallbackText": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "textQuote": "请仔细学习此代码！ 第一个模式有两个字面值，可视为前述字面值模式的扩展。 接下来的两个模式结合了一个字面值和一个变量，变量 绑定 了来自主语 ( point ) 的一个值。 第四个模式捕获了两个值，使其在概念上与解包赋值 (x, y) = point 类似。"
+      },
+      "node_23": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0030"
+        ],
+        "excerpt": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数 。 在 数据结构 一章中 ， 我们将讨论 list ( ) 的更多细节 。",
+        "fallbackText": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list 的更多细节。",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0030"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0030"
+        ],
+        "textQuote": "后续我们会看到更多返回可迭代对象并以可迭代对象作为参数的函数。 在 数据结构 一章中，我们将讨论 list() 的更多细节。"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004",
+          "ck_zh_003_python_tutorial_controlflow_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0050",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0061",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0063",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0066",
+          "item_block_pg_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "excerpt": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch",
+        "fallbackText": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配的case，则不执行任何分支。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "4.7. match 语句 ¶",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0050",
+          "pg_zh_003_python_tutorial_controlflow_0061",
+          "pg_zh_003_python_tutorial_controlflow_0063",
+          "pg_zh_003_python_tutorial_controlflow_0066",
+          "pg_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0050",
+          "src_zh_003_python_tutorial_controlflow_0061",
+          "src_zh_003_python_tutorial_controlflow_0063",
+          "src_zh_003_python_tutorial_controlflow_0066",
+          "src_zh_003_python_tutorial_controlflow_0058"
+        ],
+        "textQuote": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0050"
+        ],
+        "excerpt": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较 。 这表面上像 C 、 Java 或 JavaScript （ 以及许多其他程序设计语言 ） 中的 switch",
+        "fallbackText": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配的case，则不执行任何分支。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0050"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0050"
+        ],
+        "textQuote": "match 语句接受一个表达式并把它的值与一个或多个 case 块给出的一系列模式进行比较。这表面上像 C、Java 或 JavaScript（以及许多其他程序设计语言）中的 switch 语句，但其实它更像 Rust 或 Haskell 中的模式匹配。只有第一个匹配的模式会被执行，并且它还可以提取值的组成部分（序列的元素或对象的属性）赋给变量。如果没有匹配"
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0081"
+        ],
+        "excerpt": "函数内的第一条语句是字符串时 ， 该字符串就是文档字符串 ， 也称为 docstring ， 详见 文档字符串 。 利用文档字符串可以自动生成在线文档或打印版文档 ， 还可以让开发者在浏览代码时直接查阅文档 ； Python 开发者最好养成在代码中加入文档字符串的好习惯",
+        "fallbackText": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring，详见…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0081"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0081"
+        ],
+        "textQuote": "函数内的第一条语句是字符串时，该字符串就是文档字符串，也称为 docstring ，详见 文档字符串 。利用文档字符串可以自动生成在线文档或打印版文档，还可以让开发者在浏览代码时直接查阅文档；Python 开发者最好养成在代码中加入文档字符串的好习惯。"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "excerpt": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ， 也不是语言定义的一部分 （ 这里你可以使用任意常量表达式",
+        "fallbackText": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "4.6. pass 语句 ¶",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "textQuote": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。"
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "excerpt": "对于这后一种情况 ， 许多人会使用省略符字面值 . . . 而不是 pass 。 这种用法在 Python 中没有特殊含义 ， 也不是语言定义的一部分 （ 这里你可以使用任意常量表达式",
+        "fallbackText": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "对于这后一种情况，许多人会使用省略符字面值... 而不是 pass。 这种用法在 Python…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0049"
+        ],
+        "textQuote": "对于这后一种情况，许多人会使用省略符字面值 ... 而不是 pass 。 这种用法在 Python 中没有特殊含义，也不是语言定义的一部分（这里你可以使用任意常量表达式），但 ... 在传统上也被用作占位符号。 参见 省略符对象 。"
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0083"
+        ],
+        "excerpt": "在调用函数时会将实际参数 （ 实参 ） 引入到被调用函数的局部符号表中 ； 因此 ， 实参是使用 按值调用 来传递的 （ 其中的 值 始终是对象的 引用",
+        "fallbackText": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0083"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0083"
+        ],
+        "textQuote": "在调用函数时会将实际参数（实参）引入到被调用函数的局部符号表中；因此，实参是使用 按值调用 来传递的（其中的 值 始终是对象的 引用 而不是对象的值）。 [ 1 ] 当一个函数调用另外一个函数时，会为该调用创建一个新的局部符号表。"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_zh_003_python_tutorial_controlflow_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_zh_003_python_tutorial_controlflow_0086"
+        ],
+        "excerpt": "如果你用过其他语言 ， 你可能会认为 fib 不是函数而是一个过程 ， 因为它没有返回值 。 事实上 ， 即使没有 return 语句的函数也有返回值 ， 尽管这个值可能相当无聊 。",
+        "fallbackText": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return…",
+        "paragraphIds": [
+          "pg_zh_003_python_tutorial_controlflow_0086"
+        ],
+        "sourceRefIds": [
+          "src_zh_003_python_tutorial_controlflow_0086"
+        ],
+        "textQuote": "如果你用过其他语言，你可能会认为 fib 不是函数而是一个过程，因为它没有返回值。 事实上，即使没有 return 语句的函数也有返回值，尽管这个值可能相当无聊。 这个值被称为 None (是一个内置名称)。 通常解释器会屏蔽单独的返回值 None 。 如果你确有需要可以使用 print() 查看它:"
       },
       "root": {
         "chunkIds": [
@@ -722,7 +971,7 @@
         "textQuote": "Image metadata: Python logo"
       }
     },
-    "nodesCount": 19,
+    "nodesCount": 24,
     "repairCount": 0,
     "sourcePageId": "zh_003_python_tutorial_controlflow",
     "validation": {

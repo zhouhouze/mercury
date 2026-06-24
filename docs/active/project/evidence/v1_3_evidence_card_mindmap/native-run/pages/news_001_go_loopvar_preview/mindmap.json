@@ -1,6 +1,6 @@
 {
   "error": null,
-  "mermaidSource": "mindmap\n  root((Fixing For Loops in Go 1.22 - The Go Programming Language))\n    Next article  Deconstructing Type Parameters Previous article \n    Tools have been written to identify these mistakes , but it is h\n    Old code will continue to mean exactly what it means today  the\n    This kind of mistake has caused production problems at many comp\n    For Go 1 . 22 , we plan to change for loops to make these variab\n    To ensure backwards compatibility with existing code , the new s\n    If you run into other problems , the FAQ has links to examples a\n    / / authz2ModelMapToPB converts a mapping of domain name to auth\n    Although concurrency is often involved , it need not be . This e\n    The Go FAQ entry “ What happens with closures running as gorouti\n    If you ’ ve written any amount of Go code , you ’ ve probably ma\n    Go 1 . 21 includes a preview of the scoping change . If you comp\n    We patched our internal Go toolchain at Google to force this mod\n    One pair of examples we found was particularly illuminating \n    Learn and network with Go developers from around the world\n    The author of this code clearly understood the general problem ,\n    Tips for writing clear , performant , and idiomatic Go code\n    A complete introduction to building software with Go",
+  "mermaidSource": "mindmap\n  root((Fixing For Loops in Go 1.22 - Go Programming Language))\n    More Information\n      Next article Deconstructing Type Parameters Previous article…\n    Problem\n      Tools have been written to identify these mistakes, but it is…\n    Fix\n      Old code will continue to mean exactly what it means today fix…\n      This kind of mistake has caused production problems at many…\n      For Go 1.22, we plan to change for loops to make these…\n      To ensure backwards compatibility with existing code, new…\n    Fixing Buggy Tests\n      If you run into other problems, FAQ has links to examples and…\n      // authz2ModelMapToPB converts mapping of domain name to…\n      Although concurrency is often involved, it need not be. This…\n      Go FAQ entry “What happens with closures running as…\n    Previewing Fix\n      Go 1.21 includes preview of scoping change. If you compile…\n      We patched our internal Go toolchain at Google to force this…\n    核心要点\n      Learn and network with Go developers from around world\n      Tips for writing clear, performant, and idiomatic Go code\n      complete introduction to building software with Go",
   "metadata": {
     "format": "mermaid",
     "nodeBindings": [
@@ -32,7 +32,7 @@
         ],
         "mermaidLineIndex": 2,
         "nodeId": "node_1",
-        "nodeLabel": "Next article  Deconstructing Type Parameters Previous article ",
+        "nodeLabel": "More Information",
         "nodeSourceMapKey": "node_1",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0062"
@@ -43,12 +43,58 @@
       },
       {
         "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0004"
+          "ck_news_001_go_loopvar_preview_0007"
         ],
         "mermaidLineIndex": 3,
         "nodeId": "node_2",
-        "nodeLabel": "Tools have been written to identify these mistakes , but it is h",
+        "nodeLabel": "Next article Deconstructing Type Parameters Previous article…",
         "nodeSourceMapKey": "node_2",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0062"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0062"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0004",
+          "ck_news_001_go_loopvar_preview_0002",
+          "ck_news_001_go_loopvar_preview_0003"
+        ],
+        "mermaidLineIndex": 4,
+        "nodeId": "node_3",
+        "nodeLabel": "Problem",
+        "nodeSourceMapKey": "node_3",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0041",
+          "pg_news_001_go_loopvar_preview_0038",
+          "pg_news_001_go_loopvar_preview_0039",
+          "pg_news_001_go_loopvar_preview_0036",
+          "pg_news_001_go_loopvar_preview_0035",
+          "pg_news_001_go_loopvar_preview_0032",
+          "pg_news_001_go_loopvar_preview_0042",
+          "pg_news_001_go_loopvar_preview_0040"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0041",
+          "src_news_001_go_loopvar_preview_0038",
+          "src_news_001_go_loopvar_preview_0039",
+          "src_news_001_go_loopvar_preview_0036",
+          "src_news_001_go_loopvar_preview_0035",
+          "src_news_001_go_loopvar_preview_0032",
+          "src_news_001_go_loopvar_preview_0042",
+          "src_news_001_go_loopvar_preview_0040"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0004"
+        ],
+        "mermaidLineIndex": 5,
+        "nodeId": "node_4",
+        "nodeLabel": "Tools have been written to identify these mistakes, but it is…",
+        "nodeSourceMapKey": "node_4",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0041"
         ],
@@ -60,10 +106,29 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0005"
         ],
-        "mermaidLineIndex": 4,
-        "nodeId": "node_3",
-        "nodeLabel": "Old code will continue to mean exactly what it means today  the",
-        "nodeSourceMapKey": "node_3",
+        "mermaidLineIndex": 6,
+        "nodeId": "node_5",
+        "nodeLabel": "Fix",
+        "nodeSourceMapKey": "node_5",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0050",
+          "pg_news_001_go_loopvar_preview_0048",
+          "pg_news_001_go_loopvar_preview_0049"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0050",
+          "src_news_001_go_loopvar_preview_0048",
+          "src_news_001_go_loopvar_preview_0049"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0005"
+        ],
+        "mermaidLineIndex": 7,
+        "nodeId": "node_6",
+        "nodeLabel": "Old code will continue to mean exactly what it means today fix…",
+        "nodeSourceMapKey": "node_6",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0050"
         ],
@@ -75,10 +140,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0002"
         ],
-        "mermaidLineIndex": 5,
-        "nodeId": "node_4",
-        "nodeLabel": "This kind of mistake has caused production problems at many comp",
-        "nodeSourceMapKey": "node_4",
+        "mermaidLineIndex": 8,
+        "nodeId": "node_7",
+        "nodeLabel": "This kind of mistake has caused production problems at many…",
+        "nodeSourceMapKey": "node_7",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0038"
         ],
@@ -90,10 +155,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0005"
         ],
-        "mermaidLineIndex": 6,
-        "nodeId": "node_5",
-        "nodeLabel": "For Go 1 . 22 , we plan to change for loops to make these variab",
-        "nodeSourceMapKey": "node_5",
+        "mermaidLineIndex": 9,
+        "nodeId": "node_8",
+        "nodeLabel": "For Go 1.22, we plan to change for loops to make these…",
+        "nodeSourceMapKey": "node_8",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0048"
         ],
@@ -105,10 +170,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0005"
         ],
-        "mermaidLineIndex": 7,
-        "nodeId": "node_6",
-        "nodeLabel": "To ensure backwards compatibility with existing code , the new s",
-        "nodeSourceMapKey": "node_6",
+        "mermaidLineIndex": 10,
+        "nodeId": "node_9",
+        "nodeLabel": "To ensure backwards compatibility with existing code, new…",
+        "nodeSourceMapKey": "node_9",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0049"
         ],
@@ -120,10 +185,25 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0007"
         ],
-        "mermaidLineIndex": 8,
-        "nodeId": "node_7",
-        "nodeLabel": "If you run into other problems , the FAQ has links to examples a",
-        "nodeSourceMapKey": "node_7",
+        "mermaidLineIndex": 11,
+        "nodeId": "node_10",
+        "nodeLabel": "Fixing Buggy Tests",
+        "nodeSourceMapKey": "node_10",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0059"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0059"
+        ]
+      },
+      {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0007"
+        ],
+        "mermaidLineIndex": 12,
+        "nodeId": "node_11",
+        "nodeLabel": "If you run into other problems, FAQ has links to examples and…",
+        "nodeSourceMapKey": "node_11",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0059"
         ],
@@ -135,10 +215,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0003"
         ],
-        "mermaidLineIndex": 9,
-        "nodeId": "node_8",
-        "nodeLabel": "/ / authz2ModelMapToPB converts a mapping of domain name to auth",
-        "nodeSourceMapKey": "node_8",
+        "mermaidLineIndex": 13,
+        "nodeId": "node_12",
+        "nodeLabel": "// authz2ModelMapToPB converts mapping of domain name to…",
+        "nodeSourceMapKey": "node_12",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0039"
         ],
@@ -150,10 +230,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0002"
         ],
-        "mermaidLineIndex": 10,
-        "nodeId": "node_9",
-        "nodeLabel": "Although concurrency is often involved , it need not be . This e",
-        "nodeSourceMapKey": "node_9",
+        "mermaidLineIndex": 14,
+        "nodeId": "node_13",
+        "nodeLabel": "Although concurrency is often involved, it need not be. This…",
+        "nodeSourceMapKey": "node_13",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0036"
         ],
@@ -165,10 +245,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0002"
         ],
-        "mermaidLineIndex": 11,
-        "nodeId": "node_10",
-        "nodeLabel": "The Go FAQ entry “ What happens with closures running as gorouti",
-        "nodeSourceMapKey": "node_10",
+        "mermaidLineIndex": 15,
+        "nodeId": "node_14",
+        "nodeLabel": "Go FAQ entry “What happens with closures running as…",
+        "nodeSourceMapKey": "node_14",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0035"
         ],
@@ -178,27 +258,29 @@
       },
       {
         "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0002"
+          "ck_news_001_go_loopvar_preview_0006"
         ],
-        "mermaidLineIndex": 12,
-        "nodeId": "node_11",
-        "nodeLabel": "If you ’ ve written any amount of Go code , you ’ ve probably ma",
-        "nodeSourceMapKey": "node_11",
+        "mermaidLineIndex": 16,
+        "nodeId": "node_15",
+        "nodeLabel": "Previewing Fix",
+        "nodeSourceMapKey": "node_15",
         "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0032"
+          "pg_news_001_go_loopvar_preview_0051",
+          "pg_news_001_go_loopvar_preview_0053"
         ],
         "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0032"
+          "src_news_001_go_loopvar_preview_0051",
+          "src_news_001_go_loopvar_preview_0053"
         ]
       },
       {
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0006"
         ],
-        "mermaidLineIndex": 13,
-        "nodeId": "node_12",
-        "nodeLabel": "Go 1 . 21 includes a preview of the scoping change . If you comp",
-        "nodeSourceMapKey": "node_12",
+        "mermaidLineIndex": 17,
+        "nodeId": "node_16",
+        "nodeLabel": "Go 1.21 includes preview of scoping change. If you compile…",
+        "nodeSourceMapKey": "node_16",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0051"
         ],
@@ -210,10 +292,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0006"
         ],
-        "mermaidLineIndex": 14,
-        "nodeId": "node_13",
-        "nodeLabel": "We patched our internal Go toolchain at Google to force this mod",
-        "nodeSourceMapKey": "node_13",
+        "mermaidLineIndex": 18,
+        "nodeId": "node_17",
+        "nodeLabel": "We patched our internal Go toolchain at Google to force this…",
+        "nodeSourceMapKey": "node_17",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0053"
         ],
@@ -223,27 +305,31 @@
       },
       {
         "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0004"
+          "ck_news_001_go_loopvar_preview_0001"
         ],
-        "mermaidLineIndex": 15,
-        "nodeId": "node_14",
-        "nodeLabel": "One pair of examples we found was particularly illuminating ",
-        "nodeSourceMapKey": "node_14",
+        "mermaidLineIndex": 19,
+        "nodeId": "node_18",
+        "nodeLabel": "核心要点",
+        "nodeSourceMapKey": "node_18",
         "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0042"
+          "pg_news_001_go_loopvar_preview_0020",
+          "pg_news_001_go_loopvar_preview_0013",
+          "pg_news_001_go_loopvar_preview_0009"
         ],
         "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0042"
+          "src_news_001_go_loopvar_preview_0020",
+          "src_news_001_go_loopvar_preview_0013",
+          "src_news_001_go_loopvar_preview_0009"
         ]
       },
       {
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0001"
         ],
-        "mermaidLineIndex": 16,
-        "nodeId": "node_15",
-        "nodeLabel": "Learn and network with Go developers from around the world",
-        "nodeSourceMapKey": "node_15",
+        "mermaidLineIndex": 20,
+        "nodeId": "node_19",
+        "nodeLabel": "Learn and network with Go developers from around world",
+        "nodeSourceMapKey": "node_19",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0020"
         ],
@@ -253,27 +339,12 @@
       },
       {
         "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0003"
-        ],
-        "mermaidLineIndex": 17,
-        "nodeId": "node_16",
-        "nodeLabel": "The author of this code clearly understood the general problem ,",
-        "nodeSourceMapKey": "node_16",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0040"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0040"
-        ]
-      },
-      {
-        "chunkIds": [
           "ck_news_001_go_loopvar_preview_0001"
         ],
-        "mermaidLineIndex": 18,
-        "nodeId": "node_17",
-        "nodeLabel": "Tips for writing clear , performant , and idiomatic Go code",
-        "nodeSourceMapKey": "node_17",
+        "mermaidLineIndex": 21,
+        "nodeId": "node_20",
+        "nodeLabel": "Tips for writing clear, performant, and idiomatic Go code",
+        "nodeSourceMapKey": "node_20",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0013"
         ],
@@ -285,10 +356,10 @@
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0001"
         ],
-        "mermaidLineIndex": 19,
-        "nodeId": "node_18",
-        "nodeLabel": "A complete introduction to building software with Go",
-        "nodeSourceMapKey": "node_18",
+        "mermaidLineIndex": 22,
+        "nodeId": "node_21",
+        "nodeLabel": "complete introduction to building software with Go",
+        "nodeSourceMapKey": "node_21",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0009"
         ],
@@ -311,324 +382,16 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Next article  Deconstructing Type Parameters Previous article ",
+        "nodeLabel": "More Information",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0062"
         ],
         "sourceRefIds": [
           "src_news_001_go_loopvar_preview_0062"
         ],
-        "textQuote": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages "
+        "textQuote": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages"
       },
       "node_10": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0035"
-        ],
-        "excerpt": "The Go FAQ entry “ What happens with closures running as goroutines ? ” , gives",
-        "fallbackText": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "The Go FAQ entry “ What happens with closures running as gorouti",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0035"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0035"
-        ],
-        "textQuote": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”"
-      },
-      "node_11": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0032"
-        ],
-        "excerpt": "If you ’ ve written any amount of Go code , you ’ ve probably made",
-        "fallbackText": "If you’ve written any amount of Go code, you’ve probably made the mistake of keeping a reference to a loop variable past the end of its iteration, at which point it takes on a new value that you didn’t want. For example, consider this progr",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "If you ’ ve written any amount of Go code , you ’ ve probably ma",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0032"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0032"
-        ],
-        "textQuote": "If you’ve written any amount of Go code, you’ve probably made the mistake of keeping a reference to a loop variable past the end of its iteration, at which point it takes on a new "
-      },
-      "node_12": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0051"
-        ],
-        "excerpt": "Go 1 . 21 includes a preview of the scoping change . If you compile your",
-        "fallbackText": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignoring the go.mod go lines). For example, to check whether your",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Go 1 . 21 includes a preview of the scoping change . If you comp",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0051"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0051"
-        ],
-        "textQuote": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignor"
-      },
-      "node_13": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0006"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0053"
-        ],
-        "excerpt": "We patched our internal Go toolchain at Google to force this mode during all builds at",
-        "fallbackText": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems in production code.",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "We patched our internal Go toolchain at Google to force this mod",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0053"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0053"
-        ],
-        "textQuote": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems i"
-      },
-      "node_14": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0042"
-        ],
-        "excerpt": "One pair of examples we found was particularly illuminating :",
-        "fallbackText": "One pair of examples we found was particularly illuminating:",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "One pair of examples we found was particularly illuminating ",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0042"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0042"
-        ],
-        "textQuote": "One pair of examples we found was particularly illuminating:"
-      },
-      "node_15": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0020"
-        ],
-        "excerpt": "Learn and network with Go developers from around the world",
-        "fallbackText": "Learn and network with Go developers from around the world",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Learn and network with Go developers from around the world",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0020"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0020"
-        ],
-        "textQuote": "Learn and network with Go developers from around the world"
-      },
-      "node_16": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0003"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0040"
-        ],
-        "excerpt": "The author of this code clearly understood the general problem , because they made a copy",
-        "fallbackText": "The author of this code clearly understood the general problem, because they made a copy of k , but it turns out modelToAuthzPB used pointers to fields in v when constructing its result, so the loop also needed to make a copy of v .",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "The author of this code clearly understood the general problem ,",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0040"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0040"
-        ],
-        "textQuote": "The author of this code clearly understood the general problem, because they made a copy of k , but it turns out modelToAuthzPB used pointers to fields in v when constructing its r"
-      },
-      "node_17": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0013"
-        ],
-        "excerpt": "Tips for writing clear , performant , and idiomatic Go code",
-        "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Tips for writing clear , performant , and idiomatic Go code",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0013"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0013"
-        ],
-        "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
-      },
-      "node_18": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0001"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0009"
-        ],
-        "excerpt": "A complete introduction to building software with Go",
-        "fallbackText": "A complete introduction to building software with Go",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "A complete introduction to building software with Go",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0009"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0009"
-        ],
-        "textQuote": "A complete introduction to building software with Go"
-      },
-      "node_2": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0004"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0041"
-        ],
-        "excerpt": "Tools have been written to identify these mistakes , but it is hard to analyze whether",
-        "fallbackText": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false negatives and false positives. The loopclosure analyzer used ",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Tools have been written to identify these mistakes , but it is h",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0041"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0041"
-        ],
-        "textQuote": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false n"
-      },
-      "node_3": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0050"
-        ],
-        "excerpt": "Old code will continue to mean exactly what it means today : the fix only applies",
-        "fallbackText": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a particular package. As a consequence of our forward compatibility",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "Old code will continue to mean exactly what it means today  the",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0050"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0050"
-        ],
-        "textQuote": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a parti"
-      },
-      "node_4": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0002"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0038"
-        ],
-        "excerpt": "This kind of mistake has caused production problems at many companies , including a publicly documented",
-        "fallbackText": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop variable was spread across multiple functions and much more ",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "This kind of mistake has caused production problems at many comp",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0038"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0038"
-        ],
-        "textQuote": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop "
-      },
-      "node_5": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0048"
-        ],
-        "excerpt": "For Go 1 . 22 , we plan to change for loops to make these variables",
-        "fallbackText": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no longer buggy Go programs; it will end the production problems ",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "For Go 1 . 22 , we plan to change for loops to make these variab",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0048"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0048"
-        ],
-        "textQuote": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no lo"
-      },
-      "node_6": {
-        "chunkIds": [
-          "ck_news_001_go_loopvar_preview_0005"
-        ],
-        "digestItemIds": [
-          "item_block_pg_news_001_go_loopvar_preview_0049"
-        ],
-        "excerpt": "To ensure backwards compatibility with existing code , the new semantics will only apply in packages",
-        "fallbackText": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This per-module decision provides developer control of a gradual u",
-        "jumpback": {
-          "mode": "fallback",
-          "reason": "selector_missing"
-        },
-        "nodeLabel": "To ensure backwards compatibility with existing code , the new s",
-        "paragraphIds": [
-          "pg_news_001_go_loopvar_preview_0049"
-        ],
-        "sourceRefIds": [
-          "src_news_001_go_loopvar_preview_0049"
-        ],
-        "textQuote": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This p"
-      },
-      "node_7": {
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0007"
         ],
@@ -641,7 +404,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "If you run into other problems , the FAQ has links to examples a",
+        "nodeLabel": "Fixing Buggy Tests",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0059"
         ],
@@ -650,7 +413,29 @@
         ],
         "textQuote": "If you run into other problems, the FAQ has links to examples and details about using a tool we’ve written to identify which specific loop is causing a test failure when the new se"
       },
-      "node_8": {
+      "node_11": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0059"
+        ],
+        "excerpt": "If you run into other problems , the FAQ has links to examples and details about",
+        "fallbackText": "If you run into other problems, the FAQ has links to examples and details about using a tool we’ve written to identify which specific loop is causing a test failure when the new semantics are applied.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "If you run into other problems, FAQ has links to examples and…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0059"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0059"
+        ],
+        "textQuote": "If you run into other problems, the FAQ has links to examples and details about using a tool we’ve written to identify which specific loop is causing a test failure when the new se"
+      },
+      "node_12": {
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0003"
         ],
@@ -663,7 +448,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "/ / authz2ModelMapToPB converts a mapping of domain name to auth",
+        "nodeLabel": "// authz2ModelMapToPB converts mapping of domain name to…",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0039"
         ],
@@ -672,7 +457,7 @@
         ],
         "textQuote": "// authz2ModelMapToPB converts a mapping of domain name to authz2Models into a // protobuf authorizations map func authz2ModelMapToPB(m map[string]authz2Model) (*sapb.Authorization"
       },
-      "node_9": {
+      "node_13": {
         "chunkIds": [
           "ck_news_001_go_loopvar_preview_0002"
         ],
@@ -685,7 +470,7 @@
           "mode": "fallback",
           "reason": "selector_missing"
         },
-        "nodeLabel": "Although concurrency is often involved , it need not be . This e",
+        "nodeLabel": "Although concurrency is often involved, it need not be. This…",
         "paragraphIds": [
           "pg_news_001_go_loopvar_preview_0036"
         ],
@@ -693,6 +478,396 @@
           "src_news_001_go_loopvar_preview_0036"
         ],
         "textQuote": "Although concurrency is often involved, it need not be. This example has the same problem but no goroutines:"
+      },
+      "node_14": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0035"
+        ],
+        "excerpt": "The Go FAQ entry “ What happens with closures running as goroutines ? ” , gives",
+        "fallbackText": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go FAQ entry “What happens with closures running as…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0035"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0035"
+        ],
+        "textQuote": "The Go FAQ entry “What happens with closures running as goroutines?” , gives this example and remarks “Some confusion may arise when using closures with concurrency.”"
+      },
+      "node_15": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0051",
+          "item_block_pg_news_001_go_loopvar_preview_0053"
+        ],
+        "excerpt": "Go 1 . 21 includes a preview of the scoping change . If you compile your",
+        "fallbackText": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignoring the go.mod go lines). For example, to check whether your",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Previewing Fix",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0051",
+          "pg_news_001_go_loopvar_preview_0053"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0051",
+          "src_news_001_go_loopvar_preview_0053"
+        ],
+        "textQuote": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignor"
+      },
+      "node_16": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0051"
+        ],
+        "excerpt": "Go 1 . 21 includes a preview of the scoping change . If you compile your",
+        "fallbackText": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignoring the go.mod go lines). For example, to check whether your",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Go 1.21 includes preview of scoping change. If you compile…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0051"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0051"
+        ],
+        "textQuote": "Go 1.21 includes a preview of the scoping change. If you compile your code with GOEXPERIMENT=loopvar set in your environment, then the new semantics are applied to all loops (ignor"
+      },
+      "node_17": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0006"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0053"
+        ],
+        "excerpt": "We patched our internal Go toolchain at Google to force this mode during all builds at",
+        "fallbackText": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems in production code.",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "We patched our internal Go toolchain at Google to force this…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0053"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0053"
+        ],
+        "textQuote": "We patched our internal Go toolchain at Google to force this mode during all builds at the start of May 2023, and in the past four months we have had zero reports of any problems i"
+      },
+      "node_18": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0020",
+          "item_block_pg_news_001_go_loopvar_preview_0013",
+          "item_block_pg_news_001_go_loopvar_preview_0009"
+        ],
+        "excerpt": "Learn and network with Go developers from around the world",
+        "fallbackText": "Learn and network with Go developers from around the world",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "核心要点",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0020",
+          "pg_news_001_go_loopvar_preview_0013",
+          "pg_news_001_go_loopvar_preview_0009"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0020",
+          "src_news_001_go_loopvar_preview_0013",
+          "src_news_001_go_loopvar_preview_0009"
+        ],
+        "textQuote": "Learn and network with Go developers from around the world"
+      },
+      "node_19": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0020"
+        ],
+        "excerpt": "Learn and network with Go developers from around the world",
+        "fallbackText": "Learn and network with Go developers from around the world",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Learn and network with Go developers from around world",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0020"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0020"
+        ],
+        "textQuote": "Learn and network with Go developers from around the world"
+      },
+      "node_2": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0007"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0062"
+        ],
+        "excerpt": "Next article : Deconstructing Type Parameters Previous article : WASI support in Go Blog Index Why",
+        "fallbackText": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages Standard Library About Go Packages About Download Blog Issue",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Next article Deconstructing Type Parameters Previous article…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0062"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0062"
+        ],
+        "textQuote": "Next article: Deconstructing Type Parameters Previous article: WASI support in Go Blog Index Why Go Use Cases Case Studies Get Started Playground Tour Stack Overflow Help Packages "
+      },
+      "node_20": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0013"
+        ],
+        "excerpt": "Tips for writing clear , performant , and idiomatic Go code",
+        "fallbackText": "Tips for writing clear, performant, and idiomatic Go code",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Tips for writing clear, performant, and idiomatic Go code",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0013"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0013"
+        ],
+        "textQuote": "Tips for writing clear, performant, and idiomatic Go code"
+      },
+      "node_21": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0001"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0009"
+        ],
+        "excerpt": "A complete introduction to building software with Go",
+        "fallbackText": "A complete introduction to building software with Go",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "complete introduction to building software with Go",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0009"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0009"
+        ],
+        "textQuote": "A complete introduction to building software with Go"
+      },
+      "node_3": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0004",
+          "ck_news_001_go_loopvar_preview_0002",
+          "ck_news_001_go_loopvar_preview_0003"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0041",
+          "item_block_pg_news_001_go_loopvar_preview_0038",
+          "item_block_pg_news_001_go_loopvar_preview_0039",
+          "item_block_pg_news_001_go_loopvar_preview_0036",
+          "item_block_pg_news_001_go_loopvar_preview_0035",
+          "item_block_pg_news_001_go_loopvar_preview_0032",
+          "item_block_pg_news_001_go_loopvar_preview_0042",
+          "item_block_pg_news_001_go_loopvar_preview_0040"
+        ],
+        "excerpt": "Tools have been written to identify these mistakes , but it is hard to analyze whether",
+        "fallbackText": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false negatives and false positives. The loopclosure analyzer used",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Problem",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0041",
+          "pg_news_001_go_loopvar_preview_0038",
+          "pg_news_001_go_loopvar_preview_0039",
+          "pg_news_001_go_loopvar_preview_0036",
+          "pg_news_001_go_loopvar_preview_0035",
+          "pg_news_001_go_loopvar_preview_0032",
+          "pg_news_001_go_loopvar_preview_0042",
+          "pg_news_001_go_loopvar_preview_0040"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0041",
+          "src_news_001_go_loopvar_preview_0038",
+          "src_news_001_go_loopvar_preview_0039",
+          "src_news_001_go_loopvar_preview_0036",
+          "src_news_001_go_loopvar_preview_0035",
+          "src_news_001_go_loopvar_preview_0032",
+          "src_news_001_go_loopvar_preview_0042",
+          "src_news_001_go_loopvar_preview_0040"
+        ],
+        "textQuote": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false n"
+      },
+      "node_4": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0004"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0041"
+        ],
+        "excerpt": "Tools have been written to identify these mistakes , but it is hard to analyze whether",
+        "fallbackText": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false negatives and false positives. The loopclosure analyzer used ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Tools have been written to identify these mistakes, but it is…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0041"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0041"
+        ],
+        "textQuote": "Tools have been written to identify these mistakes, but it is hard to analyze whether references to a variable outlive its iteration or not. These tools must choose between false n"
+      },
+      "node_5": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0050",
+          "item_block_pg_news_001_go_loopvar_preview_0048",
+          "item_block_pg_news_001_go_loopvar_preview_0049"
+        ],
+        "excerpt": "Old code will continue to mean exactly what it means today : the fix only applies",
+        "fallbackText": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a particular package. As a consequence of our forward compatibility",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Fix",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0050",
+          "pg_news_001_go_loopvar_preview_0048",
+          "pg_news_001_go_loopvar_preview_0049"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0050",
+          "src_news_001_go_loopvar_preview_0048",
+          "src_news_001_go_loopvar_preview_0049"
+        ],
+        "textQuote": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a parti"
+      },
+      "node_6": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0050"
+        ],
+        "excerpt": "Old code will continue to mean exactly what it means today : the fix only applies",
+        "fallbackText": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a particular package. As a consequence of our forward compatibility",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "Old code will continue to mean exactly what it means today fix…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0050"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0050"
+        ],
+        "textQuote": "Old code will continue to mean exactly what it means today: the fix only applies to new or updated code. This will give developers control over when the semantics change in a parti"
+      },
+      "node_7": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0002"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0038"
+        ],
+        "excerpt": "This kind of mistake has caused production problems at many companies , including a publicly documented",
+        "fallbackText": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop variable was spread across multiple functions and much more ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "This kind of mistake has caused production problems at many…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0038"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0038"
+        ],
+        "textQuote": "This kind of mistake has caused production problems at many companies, including a publicly documented issue at Lets Encrypt . In that instance, the accidental capture of the loop "
+      },
+      "node_8": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0048"
+        ],
+        "excerpt": "For Go 1 . 22 , we plan to change for loops to make these variables",
+        "fallbackText": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no longer buggy Go programs; it will end the production problems ",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "For Go 1.22, we plan to change for loops to make these…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0048"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0048"
+        ],
+        "textQuote": "For Go 1.22, we plan to change for loops to make these variables have per-iteration scope instead of per-loop scope. This change will fix the examples above, so that they are no lo"
+      },
+      "node_9": {
+        "chunkIds": [
+          "ck_news_001_go_loopvar_preview_0005"
+        ],
+        "digestItemIds": [
+          "item_block_pg_news_001_go_loopvar_preview_0049"
+        ],
+        "excerpt": "To ensure backwards compatibility with existing code , the new semantics will only apply in packages",
+        "fallbackText": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This per-module decision provides developer control of a gradual u",
+        "jumpback": {
+          "mode": "fallback",
+          "reason": "selector_missing"
+        },
+        "nodeLabel": "To ensure backwards compatibility with existing code, new…",
+        "paragraphIds": [
+          "pg_news_001_go_loopvar_preview_0049"
+        ],
+        "sourceRefIds": [
+          "src_news_001_go_loopvar_preview_0049"
+        ],
+        "textQuote": "To ensure backwards compatibility with existing code, the new semantics will only apply in packages contained in modules that declare go 1.22 or later in their go.mod files. This p"
       },
       "root": {
         "chunkIds": [
@@ -722,7 +897,7 @@
         "textQuote": "Image metadata: Go"
       }
     },
-    "nodesCount": 19,
+    "nodesCount": 22,
     "repairCount": 0,
     "sourcePageId": "news_001_go_loopvar_preview",
     "validation": {

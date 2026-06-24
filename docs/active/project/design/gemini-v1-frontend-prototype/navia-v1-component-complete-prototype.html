@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navia V1 Component Complete Sandbox - Polished Pro Premium</title>
+  <style>
+    :root {
+      /* 页面背景及磨砂透光基色 */
+      --page-bg: #e2e6e2;
+      --paper: #fffefc;
+      
+      /* 高级毛玻璃微光材质配置 - 降低底板透明度至极致28%，增强背板透光饱和度 */
+      --glass-panel: rgba(251, 253, 251, 0.28);
+      --glass-panel-heavy: rgba(251, 253, 251, 0.48);
+      --glass-border: rgba(255, 255, 255, 0.55);
+      --glass-border-strong: rgba(7, 101, 92, 0.22);
+      
+      --ink: #0f1614;
+      --muted: #55625e;
+      --line: rgba(7, 101, 92, 0.08);
+      --line-strong: rgba(7, 101, 92, 0.18);
+      
+      /* 品牌核心色彩体系 */
+      --brand: #05544b;
+      --brand-dark: #013a33;
+      --brand-soft: rgba(5, 84, 75, 0.06);
+      --brand-glow: rgba(5, 84, 75, 0.45);
+      
+      /* 语义微光反馈 */
+      --amber: #8c570f;
+      --amber-soft: rgba(255, 243, 212, 0.7);
+      --amber-glow: rgba(140, 87, 15, 0.45);
+      --red: #932c25;
+      --red-soft: rgba(253, 230, 228, 0.7);
+      --red-glow: rgba(147, 44, 37, 0.45);
+      --ok: #1c5e37;
+      --ok-soft: rgba(228, 245, 231, 0.75);
+      --ok-glow: rgba(28, 94, 55, 0.45);
+      
+      /* 多层物理压感投影 (Tactile Shadow) - 提升对比度与深度 */
+      --shadow-ambient: 0 16px 40px rgba(4, 24, 21, 0.06);
+      --shadow-sharp: 0 4px 12px rgba(4, 24, 21, 0.04);
+      --shadow-lift: 0 24px 50px rgba(4, 24, 21, 0.15), 0 6px 16px rgba(4, 24, 21, 0.05);
+      --shadow-press: 0 2px 6px rgba(4, 24, 21, 0.08), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      
+      --radius: 14px;
+      --sidebar-width: 410px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Noto Sans SC", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #cbd2cb; color: var(--ink); height: 100vh; overflow: hidden; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; }
+
+    /* 顶部评审沙箱工具栏 */
+    .sandbox-topbar {
+      height: 50px;
+      background: rgba(12, 18, 16, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #f1f5f3;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      border-bottom: 1.5px solid var(--brand-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1000;
+    }
+    .sandbox-logo { display: flex; align-items: center; gap: 8px; font-weight: 800; letter-spacing: -0.01em; }
+    .sandbox-logo span { font-size: 10px; font-weight: 800; background: var(--brand); color: #fff; padding: 2px 6px; border-radius: 4px; box-shadow: 0 2px 8px var(--brand-glow); }
+    .viewport-controls { display: flex; gap: 8px; }
+    .view-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #cbd5e1;
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .view-btn:hover { background: rgba(255, 255, 255, 0.15); color: #fff; transform: translateY(-1px); }
+    .view-btn:active { transform: translateY(1px); }
+    .view-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; box-shadow: 0 4px 12px var(--brand-glow); }
+
+    /* 沙箱主工作视口 */
+    .sandbox-viewport {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 仿真容器设备 */
+    .sandbox-device {
+      width: 100%;
+      height: 100%;
+      background: var(--paper);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lift);
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+    }
+
+    /* === 左侧宿主网页 === */
+    .host-page {
+      flex: 1;
+      height: 100%;
+      overflow-y: auto;
+      background: var(--paper);
+      padding: 50px clamp(28px, 5vw, 70px) 100px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .article-container { max-width: 680px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; font-weight: 800; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    h1 { font-size: 28px; font-weight: 900; line-height: 1.25; color: var(--ink); letter-spacing: -0.01em; }
+    .lede { font-size: 14.5px; line-height: 1.65; color: var(--muted); margin: 12px 0 24px; }
+    
+    .article-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .meta-tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(7, 101, 92, 0.04); color: var(--muted); border: 1px solid var(--line); }
+    .meta-tag.indicator { background: var(--amber-soft); color: var(--amber); border-color: rgba(140, 87, 15, 0.2); }
+    .meta-tag.indicator.ready { background: var(--ok-soft); color: var(--ok); border-color: rgba(28, 94, 55, 0.2); }
+
+    .article-section { background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; margin-bottom: 16px; box-shadow: var(--shadow-sharp); }
+    .article-section h3 { font-size: 15px; margin-bottom: 8px; font-weight: 700; color: var(--brand-dark); }
+    .article-section p { font-size: 13px; color: var(--ink); line-height: 1.65; margin-bottom: 10px; }
+    .article-section p:last-child { margin-bottom: 0; }
+
+    /* 与 Canvas 脑图精准联动的真实高亮节点 */
+    .navia-highlight-target {
+      padding: 2px 6px;
+      margin: 0 -6px;
+      border-radius: 6px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .navia-highlight-target.pulse-active {
+      background: linear-gradient(90deg, #ffe082, #ffd54f);
+      box-shadow: 0 0 0 6px #ffe082, 0 4px 15px rgba(255, 213, 79, 0.45);
+      color: #000;
+      font-weight: 600;
+    }
+
+    /* === 右侧 Navia 侧边栏系统：高级毛玻璃质感 (Real Glassmorphism 28% 透光) === */
+    .navia-sidebar {
+      width: var(--sidebar-width);
+      min-width: var(--sidebar-width);
+      height: 100%;
+      border-left: 1px solid var(--glass-border);
+      background: var(--glass-panel);
+      backdrop-filter: blur(28px) saturate(160%);
+      -webkit-backdrop-filter: blur(28px) saturate(160%);
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      position: relative;
+      overflow: hidden;
+      transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), min-width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+      z-index: 100;
+    }
+
+    /* 边缘微调折叠把手 */
+    .edge-toggle-handle {
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 70px;
+      background: rgba(251, 252, 250, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border-strong);
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 110;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.04);
+      transition: background-color 0.2s, left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .edge-toggle-handle:hover { background: #ffffff; }
+    .edge-toggle-handle::after {
+      content: "‹";
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brand);
+      transition: transform 0.35s ease;
+    }
+
+    /* Header 模块 */
+    .navia-header {
+      padding: 12px 14px;
+      border-bottom: 1.5px solid var(--line);
+      background: rgba(255, 255, 255, 0.35); /* 降低透明度让背板更显通透 */
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .header-top { display: flex; justify-content: space-between; align-items: center; }
+    .brand-row { display: flex; align-items: center; gap: 6px; }
+    .brand-title { font-size: 18px; font-weight: 900; color: var(--brand-dark); letter-spacing: -0.02em; }
+    .brand-badge { font-size: 9px; font-weight: 800; background: var(--brand-soft); color: var(--brand-dark); padding: 1px 5px; border-radius: 4px; border: 1px solid var(--line-strong); }
+    
+    .runtime-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: rgba(228, 245, 231, 0.85);
+      color: var(--ok);
+      border: 1px solid rgba(28, 94, 55, 0.2);
+      box-shadow: 0 2px 8px rgba(28, 94, 55, 0.08);
+    }
+    .runtime-dot { width: 5px; height: 5px; background: var(--ok); border-radius: 50%; box-shadow: 0 0 6px var(--ok); animation: status-pulse 1.8s infinite alternate; }
+
+    @keyframes status-pulse {
+      0% { opacity: 0.6; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1.1); }
+    }
+
+    /* 历史会话选择器 */
+    .history-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--line);
+    }
+    .history-label { font-size: 11px; font-weight: 700; color: var(--muted); }
+    .history-select {
+      height: 28px;
+      border: 1px solid rgba(7, 101, 92, 0.18);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 0 6px;
+      outline: none;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: var(--shadow-sharp);
+      transition: all 0.2s ease;
+    }
+    .history-select:hover { border-color: var(--brand); box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .lock-state { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; }
+
+    /* 侧边栏主体框架 */
+    .navia-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 52px;
+      overflow: hidden;
+    }
+
+    /* 工作区 Main Workspace */
+    .workspace-pane { height: 100%; overflow: hidden; position: relative; }
+    .view-container { width: 100%; height: 100%; display: none; flex-direction: column; overflow-y: auto; padding: 14px; }
+    .view-container.active { display: flex; }
+
+    /* 右侧主导航切页轨 (Right Tool Rail) - Satin-Glass UI */
+    .right-tool-rail {
+      border-left: 1px solid var(--line);
+      background: rgba(235, 242, 238, 0.25); /* 再次降低底板透明度 */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 0;
+      gap: 12px;
+      justify-content: space-between;
+    }
+    .rail-group { display: flex; flex-direction: column; gap: 10px; align-items: center; width: 100%; }
+    
+    /* 图标按钮样式 - 力学压感回弹反馈与高对比选中态 */
+    .rail-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid transparent;
+      background: transparent;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+    .rail-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); filter: drop-shadow(0 1px 1px rgba(0,0,0,0.02)); }
+    .rail-btn span { font-size: 8px; font-weight: 800; margin-top: 3px; letter-spacing: -0.01em; opacity: 0.8; }
+    
+    .rail-btn:hover { background: rgba(5, 84, 75, 0.08); color: var(--brand-dark); transform: translateY(-1px) scale(1.05); }
+    .rail-btn:active { transform: scale(0.95) translateY(0); }
+    
+    /* 激活态：高光与外发光脉冲 */
+    .rail-btn.active {
+      background: #ffffff;
+      border-color: rgba(5, 84, 75, 0.25);
+      color: var(--brand);
+      box-shadow: 0 6px 16px rgba(5, 84, 75, 0.08), 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .rail-btn.active svg { filter: drop-shadow(0 0 4px var(--brand-glow)); }
+    .rail-btn.active::after {
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 25%;
+      height: 50%;
+      width: 3.5px;
+      background: var(--brand);
+      border-radius: 4px 0 0 4px;
+      box-shadow: -2px 0 8px var(--brand);
+    }
+
+    /* 1. Chat 工作区 */
+    .view-header { margin-bottom: 12px; }
+    .view-header .kicker { font-size: 10px; font-weight: 800; color: var(--brand); text-transform: uppercase; letter-spacing: 0.06em; }
+    .view-header h2 { font-size: 15px; font-weight: 800; color: var(--ink); }
+
+    .currentPageContextCard {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--brand);
+      border-radius: var(--radius);
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sharp);
+    }
+    .context-desc h4 { font-size: 11.5px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px; }
+    .context-desc p { font-size: 9.5px; color: var(--muted); margin-top: 2px; }
+    .status-badge { font-size: 9px; font-weight: 800; color: var(--muted); background: rgba(240, 244, 241, 0.9); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line-strong); }
+    .status-badge.parsed { background: var(--ok-soft); color: var(--ok); border-color: rgba(28, 94, 55, 0.15); box-shadow: 0 1px 3px var(--ok-glow); }
+
+    /* 消息历史时间轴 */
+    .messageTimeline { display: flex; flex-direction: column; gap: 12px; padding-bottom: 230px; }
+    .msg-bubble { max-width: 95%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid rgba(7, 101, 92, 0.15); font-size: 12px; line-height: 1.55; box-shadow: var(--shadow-sharp); transition: all 0.3s ease; }
+    .msg-bubble.user { background: rgba(220, 240, 236, 0.85); border-color: rgba(5, 84, 75, 0.18); align-self: flex-end; color: #072622; box-shadow: 0 4px 12px rgba(5, 84, 75, 0.03); }
+    .msg-bubble.assistant { background: rgba(255, 255, 255, 0.85); align-self: flex-start; }
+    
+    /* 聊天内嵌式 Evidence Mindmap 容器卡片 - Glassmorphism UI */
+    .conversational-artifact {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      margin-top: 10px;
+      padding: 12px;
+      box-shadow: var(--shadow-lift);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    .artifact-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed var(--line);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+    .artifact-meta-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: var(--brand);
+    }
+    .artifact-status-glow {
+      font-size: 9px;
+      font-weight: 800;
+      background: var(--ok-soft);
+      color: var(--ok);
+      padding: 2px 6px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px var(--ok-glow);
+    }
+
+    /* 紧凑型 Canvas 渲染区域 */
+    .canvas-card-wrapper {
+      position: relative;
+      width: 100%;
+      height: 165px;
+      border: 1px solid rgba(7, 101, 92, 0.15);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      margin-bottom: 10px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+    }
+    #mindmapCanvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    /* 对话内嵌源证据核验审查卡 */
+    .sourceEvidencePanel {
+      border-radius: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(7, 101, 92, 0.15);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sharp);
+    }
+    .sourceEvidencePanel.state-located { background: rgba(250, 253, 251, 0.85); border-color: rgba(28, 94, 55, 0.25); border-left: 4px solid var(--ok); box-shadow: 0 4px 12px rgba(28, 94, 55, 0.04); }
+    .sourceEvidencePanel.state-fallback { background: rgba(255, 252, 245, 0.85); border-color: rgba(140, 87, 15, 0.25); border-left: 4px solid var(--amber); box-shadow: 0 4px 12px rgba(140, 87, 15, 0.04); }
+    .sourceEvidencePanel.state-blocked { background: rgba(253, 250, 251, 0.85); border-color: rgba(147, 44, 37, 0.25); border-left: 4px solid var(--red); box-shadow: 0 4px 12px rgba(147, 44, 37, 0.04); }
+    
+    .inspector-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .inspector-title { font-size: 11.5px; font-weight: 700; color: var(--ink); }
+    .evidence-state-badge { font-size: 8.5px; font-weight: 800; text-transform: uppercase; padding: 1px 5px; border-radius: 3px; }
+    
+    .state-located .evidence-state-badge { background: var(--ok-soft); color: var(--ok); box-shadow: 0 1px 3px var(--ok-glow); }
+    .state-fallback .evidence-state-badge { background: var(--amber-soft); color: var(--amber); box-shadow: 0 1px 3px var(--amber-glow); }
+    .state-blocked .evidence-state-badge { background: var(--red-soft); color: var(--red); box-shadow: 0 1px 3px var(--red-glow); }
+
+    .evidence-quote-box { font-size: 10.5px; line-height: 1.45; color: #3f4443; background: rgba(255,255,255,0.7); padding: 8px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.03); margin-bottom: 6px; font-style: italic; }
+    .evidence-warning-desc { font-size: 9.5px; font-weight: 600; margin-bottom: 6px; display: none; line-height: 1.35; }
+    .state-fallback .evidence-warning-desc, .state-blocked .evidence-warning-desc { display: block; }
+    .state-fallback .evidence-warning-desc { color: var(--amber); }
+    .state-blocked .evidence-warning-desc { color: var(--red); }
+
+    .highlight-action-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 8px; font-size: 11px; font-weight: 700; border-radius: 6px; border: 1px solid var(--line-strong); background: #fff; cursor: pointer; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: var(--shadow-sharp); }
+    .state-located .highlight-action-btn { border-color: var(--ok); color: var(--ok); }
+    .state-located .highlight-action-btn:hover { background: var(--ok-soft); transform: translateY(-1.5px); box-shadow: 0 6px 14px rgba(28, 94, 55, 0.12); }
+    .state-located .highlight-action-btn:active { transform: translateY(1px); }
+    .state-fallback .highlight-action-btn, .state-blocked .highlight-action-btn { background: #eeefec; color: var(--muted); border-color: var(--line); cursor: not-allowed; }
+
+    /* 线性 Reading Map */
+    .reading-map-box { border: 1px solid var(--line); border-radius: var(--radius); background: #ffffff; overflow: hidden; box-shadow: var(--shadow-sharp); }
+    .reading-map-header { background: #f7f8f6; padding: 6px 10px; font-size: 10px; font-weight: 700; border-bottom: 1px solid var(--line); }
+    .map-item-row { padding: 8px 10px; border-bottom: 1px solid #f5f5f5; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 11px; transition: all 0.2s ease; }
+    .map-item-row:last-child { border-bottom: none; }
+    .map-item-row:hover { background: var(--brand-soft); }
+    .map-item-row.active { background: var(--brand-soft); color: var(--brand-dark); font-weight: 700; }
+    .map-item-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--line-strong); }
+    .map-item-row.active .map-item-dot { background: var(--brand); box-shadow: 0 0 4px var(--brand); }
+
+    /* 底部 Composer 控制器 - Premium Blur Glass */
+    .composer-area {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 14px 16px;
+      border-top: 1px solid rgba(7, 101, 92, 0.12);
+      background: rgba(255, 255, 255, 0.45); /* 极低背板透明度，渲染完美透光 */
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 -6px 22px rgba(4, 24, 21, 0.04);
+    }
+    
+    /* 紧贴输入框顶部的快速操作快捷条 */
+    .composer-action-strip {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .comp-action-btn {
+      flex: 1;
+      height: 28px;
+      font-size: 10px;
+      font-weight: 800;
+      text-align: center;
+      border: 1px solid rgba(7, 101, 92, 0.15);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      box-shadow: var(--shadow-sharp);
+    }
+    .comp-action-btn:hover {
+      border-color: var(--brand);
+      color: var(--brand-dark);
+      background: var(--brand-soft);
+      transform: translateY(-1.5px);
+    }
+    .comp-action-btn:active {
+      transform: translateY(1px);
+    }
+    .comp-action-btn.active-run {
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      border-color: var(--brand);
+      font-weight: 850;
+      box-shadow: 0 3px 10px var(--brand-glow);
+    }
+
+    .composer-wrapper { display: flex; flex-direction: column; background: rgba(255, 255, 255, 0.85); border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 6px 8px; transition: all 0.25s ease; box-shadow: var(--shadow-sharp); }
+    .composer-wrapper:focus-within { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-glow), var(--shadow-lift); background: #ffffff; }
+    .composer-input { width: 100%; min-height: 36px; max-height: 52px; border: none; resize: none; outline: none; font-size: 12px; color: var(--ink); line-height: 1.45; background: transparent; }
+    .composer-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+    .context-checkbox-label { display: flex; align-items: center; gap: 4px; font-size: 10px; color: var(--muted); cursor: pointer; }
+    .send-btn { background: var(--brand); color: #fff; border: none; border-radius: 6px; padding: 4px 14px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 8px var(--brand-glow); }
+    .send-btn:hover { background: var(--brand-dark); transform: scale(1.03); }
+    .send-btn:active { transform: scale(0.97); }
+
+    /* 4. Debug 工作区 (暗黑终端极简降噪) */
+    .debug-terminal { background: #111514; color: #cbd5e1; padding: 14px; border-radius: 8px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 10.5px; line-height: 1.5; overflow-x: auto; box-shadow: inset 0 2px 10px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.05); }
+    .debug-annotation { font-size: 11px; color: var(--muted); margin-bottom: 8px; line-height: 1.45; }
+    .json-key { color: #818cf8; }
+    .json-val { color: #fbbf24; }
+    .json-bool { color: #f43f5e; }
+
+    /* 5. Settings 工作区 */
+    .settings-grid { display: flex; flex-direction: column; gap: 12px; }
+    .settings-group { display: flex; flex-direction: column; gap: 4px; }
+    .settings-group label { font-size: 11px; font-weight: 700; color: var(--muted); }
+    .settings-input { height: 32px; border: 1px solid var(--line-strong); border-radius: 6px; padding: 0 10px; font-size: 12px; outline: none; background: #fff; box-shadow: var(--shadow-sharp); transition: border 0.2s ease; }
+    .settings-input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-glow); }
+
+    /* === Premium Glassmorphism Floating Launcher (超现代雷达星环无字符设计) === */
+    .future-launcher {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.45); /* 再次调低透光 */
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 16px 40px rgba(5, 84, 75, 0.15), 0 2px 6px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .future-launcher:hover {
+      transform: scale(1.08) translateY(-3px);
+      border-color: var(--brand);
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 24px 50px rgba(5, 84, 75, 0.2), 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .future-launcher:active { transform: scale(0.95); }
+    
+    /* 现代感极强的复合 SVG 星环雷达图标 */
+    .launcher-svg {
+      width: 24px;
+      height: 24px;
+      color: var(--brand-dark);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .future-launcher:hover .launcher-svg {
+      transform: rotate(15deg) scale(1.05);
+    }
+    
+    .launcher-runtime-dot {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1c5e37;
+      border: 2px solid #fff;
+      box-shadow: 0 0 6px rgba(28, 94, 55, 0.5);
+    }
+    .launcher-grip {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+      margin-right: 5px;
+    }
+    .launcher-grip span { width: 3px; height: 3px; background: var(--line-strong); border-radius: 50%; }
+    
+    .future-label-overlay {
+      position: absolute;
+      right: 80px;
+      bottom: 30px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--brand-dark);
+      font-size: 10px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 1001;
+      transition: all 0.3s ease;
+    }
+
+    /* 模拟沙箱折叠切换状态 */
+    .sandbox-device.collapsed .navia-sidebar { width: 0 !important; min-width: 0 !important; border-left: none; }
+    .sandbox-device.collapsed .edge-toggle-handle { transform: translateY(-50%) rotate(180deg); left: -12px; border-right: 1px solid var(--line-strong); border-radius: 0 8px 8px 0; }
+    .sandbox-device.collapsed .future-label-overlay { opacity: 0; }
+
+    /* 仿真窄视口下 Overlay 的表现 - 完美透出下层内容 */
+    .sandbox-device.narrow-mode .navia-sidebar {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: var(--sidebar-width);
+      box-shadow: -10px 0 40px rgba(7, 26, 23, 0.15);
+    }
+    .sandbox-device.narrow-mode.collapsed .navia-sidebar { transform: translateX(100%); }
+    .sandbox-device.narrow-mode .host-page { padding-right: 20px !important; }
+    
+    /* 仿真移动端表现 */
+    .sandbox-device.mobile-mode .host-page { display: none; }
+    .sandbox-device.mobile-mode .navia-sidebar { width: 100%; border-left: none; }
+    .sandbox-device.mobile-mode .edge-toggle-handle { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 顶部评审控制台 -->
+  <header class="sandbox-topbar">
+    <div class="sandbox-logo">
+      <span>Navia Sandbox</span>
+      <h1>V1 Component complete playground</h1>
+    </div>
+    <div class="viewport-controls">
+      <button class="view-btn active" data-mode="desktop">桌面分栏挤压 (Desktop)</button>
+      <button class="view-btn" data-mode="narrow">窄视口覆层 (Narrow Overlay)</button>
+      <button class="view-btn" data-mode="mobile">移动端独立 (Mobile Frame)</button>
+    </div>
+  </header>
+
+  <!-- 2. 沙箱视口容器 -->
+  <main class="sandbox-viewport">
+    
+    <!-- 仿真设备外壳 -->
+    <div class="sandbox-device" id="deviceFrame">
+      
+      <!-- [A] 模拟网页正文区 (左栏) -->
+      <main class="host-page" id="simulatedHost">
+        <div class="article-container">
+          <header class="article-header">
+            <p class="eyebrow">Navia 评审演示页面</p>
+            <h1>伴随阅读产品的设计哲学</h1>
+            <p class="lede">
+              伴随式 Chrome 阅读助手应当对宿主页生态保持极高的敬畏。我们需要在保留原生页面完整性的同时，精确提供高追溯性的源证据视图。
+            </p>
+            <div class="article-meta">
+              <span class="meta-tag">精读时长 8 min</span>
+              <span class="meta-tag indicator" id="hostReadIndicator">上下文：等待初始化</span>
+              <span class="meta-tag">源节点追踪: 4</span>
+            </div>
+          </header>
+
+          <section class="article-section" id="sec-1">
+            <h3>第一节：显式感知当前页面上下文</h3>
+            <p class="navia-highlight-target" id="loc-target-root">
+              好的 AI 伴随助手永远不会让用户猜测“它是否已经读取了我的当前页”。我们需要显式传递已读就绪（Context Ready）信号，让阅读进度与对话上下文牢牢铆定。
+            </p>
+            <p class="navia-highlight-target" id="loc-target-n1">
+              当用户通过侧边栏对当前页提出细部观点质疑时，AI 提炼的核心证据环应该被精确关联（Grounded）到宿主 DOM 的段落中，绝不伪造高亮。
+            </p>
+          </section>
+
+          <section class="article-section" id="sec-2">
+            <h3>第二节：严格防范 False-Green 欺骗高亮</h3>
+            <p>
+              在极端的宿主网页安全或动态闭包阻断下，源证据追溯需要向用户表明真实的工程降维。
+            </p>
+            <p>
+              如果特定节点因 CSP 拦截导致无法在原文产生黄色高亮标记，前端渲染必须将该状态亮起醒目的琥珀色（Fallback）或红色（Blocked）警示，严禁模糊正则匹配滥竽充数。
+            </p>
+          </section>
+        </div>
+
+        <!-- [Optional Future Launcher Candidate] (精致悬浮球 - 超现代雷达星环设计) -->
+        <div class="future-launcher" id="futureLauncher" title="未来候选：精致浏览器控制入口">
+          <!-- 纯非字符抽象：外围扫描星环 + 核心高精密四角闪烁星芒 -->
+          <svg class="launcher-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M5 12a7 7 0 1 1 14 0c0 1.25-.33 2.42-.9 3.44M12 3v2.5M12 18v3" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M12 7.5l1.2 3.3 3.3 1.2-3.3 1.2-1.2 3.3-1.2-3.3-3.3-1.2 3.3-1.2 1.2-3.3z" fill="var(--brand)" stroke="none" />
+          </svg>
+          <div class="launcher-runtime-dot"></div>
+        </div>
+        <div class="future-label-overlay" id="launcherLabel">展开 Navia 阅读助手</div>
+
+      </main>
+
+      <!-- [B] Navia 伴随侧边栏 (右栏) -->
+      <aside class="navia-sidebar" id="simulatedSidebar">
+        
+        <!-- 边缘微型弹性挂靠折叠把手 -->
+        <div class="edge-toggle-handle" id="edgeToggle" title="折叠/展开侧边栏"></div>
+        
+        <!-- TopBar 品牌及状态配置 -->
+        <header class="navia-header">
+          <div class="header-top">
+            <div class="brand-row">
+              <span class="brand-title">Navia</span>
+              <span class="brand-badge">V1 MVP</span>
+            </div>
+            <div class="runtime-status">
+              <span class="runtime-dot"></span>
+              <span>Runtime 正常</span>
+            </div>
+          </div>
+          
+          <!-- 历史会话选择器 -->
+          <div class="history-row">
+            <span class="history-label">历史会话</span>
+            <select class="history-select" id="sessionSelector" aria-label="切换历史聊天记录">
+              <option value="today">今天：当前上下文深度问答</option>
+              <option value="yesterday">昨天：React 文档精读</option>
+              <option value="lastweek">上周：LLM 论文摘要脑图</option>
+            </select>
+            <span class="lock-state">
+              <input type="checkbox" id="headerLockPage" checked disabled />
+              <span>锁定宿主网页</span>
+            </span>
+          </div>
+        </header>
+
+        <!-- 侧边栏内部架构：工作区在左，工具轨在右 -->
+        <div class="navia-body">
+          
+          <!-- 左侧：Main Workspace 展示 -->
+          <main class="workspace-pane">
+            
+            <!-- 1. Chat Workspace 工作区 -->
+            <section class="view-container active" id="view-chat">
+              <div class="view-header">
+                <p class="kicker">伴随多轮交互</p>
+                <h2>当前上下文深度问答</h2>
+              </div>
+
+              <!-- 当前页面上下文解析状态卡 -->
+              <div class="currentPageContextCard">
+                <div class="context-desc">
+                  <h4 id="contextTitle">伴随阅读产品的设计哲学...</h4>
+                  <p id="contextStatusDesc">长页分析未触发</p>
+                </div>
+                <span class="status-badge" id="chatReadyBadge">未解析</span>
+              </div>
+
+              <!-- 消息历史时间轴 -->
+              <div class="messageTimeline" id="messageFlow">
+                <div class="msg-bubble assistant" id="welcomeMsg">
+                  我是您的伴随助手 Navia。请点击下方输入栏上方的<b>“读取网页”</b>，我将直接在这条对话流内生成精美、可交互的证据链脑图。
+                </div>
+              </div>
+
+              <!-- 底部 Composer 控制器（按钮组+输入框完全合一） -->
+              <footer class="composer-area">
+                
+                <!-- 紧贴输入框顶部的快速快捷动作工具栏 -->
+                <div class="composer-action-strip">
+                  <button class="comp-action-btn active-run" id="btnReadPage">
+                    <svg style="width:11px; height:11px; fill:none; stroke:currentColor; stroke-width:2.5; display:inline-block; vertical-align:middle; margin-right:3px;" viewBox="0 0 24 24">
+                      <path d="M12 4.5V19.5M12 19.5L5.25 12.75M12 19.5L18.75 12.75" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    读取网页
+                  </button>
+                  <button class="comp-action-btn" id="btnSummarize">生成摘要</button>
+                  <button class="comp-action-btn" id="btnGenMindmap">脑图制品</button>
+                  <button class="comp-action-btn" id="btnAskPage">深度问答</button>
+                </div>
+
+                <div class="composer-wrapper">
+                  <textarea class="composer-input" id="chatInput" placeholder="关于此页面，您想了解什么？..." disabled></textarea>
+                  <div class="composer-footer">
+                    <label class="context-checkbox-label">
+                      <input type="checkbox" id="useContextToggle" checked disabled />
+                      <span>强制锁定网页上下文</span>
+                    </label>
+                    <button class="send-btn" id="btnSendChat" disabled>发送</button>
+                  </div>
+                </div>
+              </footer>
+            </section>
+
+            <!-- 2. Debug Workspace 工作区 (极简开发者终端) -->
+            <section class="view-container" id="view-debug">
+              <div class="view-header">
+                <p class="kicker">开发者辅助面板</p>
+                <h2>Runtime Artifact Trace</h2>
+              </div>
+              <p class="debug-annotation">此视图仅为现场研发诊断使用，不抢占生产用户核心流。</p>
+              
+              <div class="debug-terminal">
+                <div>{</div>
+                <div>&nbsp;&nbsp;"<span class="json-key">runtimeConnection</span>": <span class="json-val">"established_online"</span>,</div>
+                <div>&nbsp;&nbsp;"<span class="json-key">isPageRead</span>": <span class="json-bool" id="jsonReadState">false</span>,</div>
+                <div>&nbsp;&nbsp;"<span class="json-key">activeNodeId</span>": <span class="json-val" id="jsonActiveNode">"root"</span>,</div>
+                <div>&nbsp;&nbsp;"<span class="json-key">evidenceReport</span>": {</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;"<span class="json-key">locatedCount</span>": <span class="json-val">2</span>,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;"<span class="json-key">fallbackCount</span>": <span class="json-val">1</span>,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;"<span class="json-key">blockedCount</span>": <span class="json-val">1</span></div>
+                <div>&nbsp;&nbsp;}</div>
+                <div>}</div>
+              </div>
+            </section>
+
+            <!-- 3. Settings Workspace 工作区 -->
+            <section class="view-container" id="view-settings">
+              <div class="view-header">
+                <p class="kicker">内核配置参数</p>
+                <h2>Configuration Endpoint</h2>
+              </div>
+              <div class="settings-grid">
+                <div class="settings-group">
+                  <label>本地 Runtime 通信端点</label>
+                  <input type="text" class="settings-input" value="http://127.0.0.1:17861" />
+                </div>
+                <div class="settings-group">
+                  <label>内核驱动提供商模式</label>
+                  <select class="settings-input">
+                    <option>Mock 生产挡板测试模型</option>
+                    <option>本地 Native 双向桥接内核</option>
+                  </select>
+                </div>
+                <div class="settings-group" style="margin-top: 4px;">
+                  <label style="font-size:11px; color:var(--muted); display:flex; align-items:center; gap:6px;">
+                    <input type="checkbox" checked />
+                    <span>Fallback 时强制弹出安全警示框</span>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+          </main>
+
+          <!-- 右侧：重新手绘图标的高精导航切卡栏 (Right Tool Rail) -->
+          <nav class="right-tool-rail" aria-label="功能卡切换">
+            <div class="rail-group">
+              
+              <!-- Chat 按钮 (SVG 聊天气泡) -->
+              <button class="rail-btn active" data-tab="chat" title="伴随对话">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 20.25c4.556 0 8.25-3.694 8.25-8.25S16.556 3.75 12 3.75 3.75 7.444 3.75 12c0 1.944.671 3.73 1.794 5.143L4.25 21l3.857-1.294A8.214 8.214 0 0012 20.25z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Chat</span>
+              </button>
+
+              <!-- Debug 按钮 (SVG 终端命令行) -->
+              <button class="rail-btn" data-tab="debug" title="开发者诊断">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.75 7.5l5.25 4.5-5.25 4.5M12.75 16.5h4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Debug</span>
+              </button>
+            </div>
+            
+            <div class="rail-group">
+              <!-- Settings 按钮 (SVG 齿轮) -->
+              <button class="rail-btn" data-tab="settings" title="配置选项">
+                <svg viewBox="0 0 24 24">
+                  <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Config</span>
+              </button>
+            </div>
+          </nav>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- 动态交互与 Canvas 双重渲染引擎核心脚本 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // === 沙箱多分辨率及仿真断点控制 ===
+      const deviceBtns = document.querySelectorAll(".view-btn");
+      const deviceFrame = document.getElementById("deviceFrame");
+
+      deviceBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          deviceBtns.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          
+          const mode = btn.dataset.mode;
+          deviceFrame.className = "sandbox-device";
+          
+          if (mode === "desktop") {
+            deviceFrame.classList.add("desktop-mode");
+          } else if (mode === "narrow") {
+            deviceFrame.classList.add("narrow-mode");
+          } else if (mode === "mobile") {
+            deviceFrame.classList.add("mobile-mode");
+          }
+          resizeDynamicCanvas();
+        });
+      });
+
+      // === 收折折叠动画逻辑双向控制 (把手与悬浮球共同触发) ===
+      const edgeToggle = document.getElementById("edgeToggle");
+      const futureLauncher = document.getElementById("futureLauncher");
+      const launcherLabel = document.getElementById("launcherLabel");
+
+      function toggleSidebarCollapse() {
+        deviceFrame.classList.toggle("collapsed");
+        if (deviceFrame.classList.contains("collapsed")) {
+          launcherLabel.textContent = "展开 Navia 阅读助手";
+        } else {
+          launcherLabel.textContent = "折叠 Navia 阅读助手";
+        }
+        setTimeout(resizeDynamicCanvas, 380); // 等过渡动画快结束时重算Canvas像素防止形变
+      }
+
+      edgeToggle.addEventListener("click", toggleSidebarCollapse);
+      futureLauncher.addEventListener("click", toggleSidebarCollapse);
+
+      // === 右侧工具栏 Tab 切换机制 ===
+      const railBtns = document.querySelectorAll(".rail-btn");
+      const views = document.querySelectorAll(".view-container");
+
+      railBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          railBtns.forEach(b => b.classList.remove("active"));
+          views.forEach(v => v.classList.remove("active"));
+          
+          btn.classList.add("active");
+          const targetView = document.getElementById(`view-${btn.dataset.tab}`);
+          if (targetView) targetView.classList.add("active");
+
+          if (btn.dataset.tab === "chat") {
+            setTimeout(resizeDynamicCanvas, 50);
+          }
+        });
+      });
+
+      // === Dropdown 历史记录下拉切换支持 ===
+      const sessionSelector = document.getElementById("sessionSelector");
+      sessionSelector.addEventListener("change", (e) => {
+        const val = e.target.value;
+        const flow = document.getElementById("messageFlow");
+        flow.innerHTML = "";
+        
+        let reply = "";
+        if (val === "today") {
+          reply = "<b>【当前会话：深度问答】</b> 上下文已挂载。您可以开始在正文核实或在下方提问。";
+        } else if (val === "yesterday") {
+          reply = "<b>【历史：React 文档精读】</b> 调取历史对话：针对 React concurrent 渲染模式 of 3 处位于 DOM 的 Sources 定位成功。";
+        } else {
+          reply = "<b>【历史：LLM 论文摘要脑图】</b> 已恢复脑图结构历史制品记录。";
+        }
+
+        const bubble = document.createElement("div");
+        bubble.className = "msg-bubble assistant";
+        bubble.innerHTML = reply;
+        flow.appendChild(bubble);
+        flow.scrollTop = flow.scrollHeight;
+      });
+
+      // === 模拟解析宿主正文并内嵌原生 Canvas 脑图 bubble ===
+      const btnReadPage = document.getElementById("btnReadPage");
+      const btnGenMindmap = document.getElementById("btnGenMindmap");
+      const btnSummarize = document.getElementById("btnSummarize");
+      const btnAskPage = document.getElementById("btnAskPage");
+      
+      const contextStatusDesc = document.getElementById("contextStatusDesc");
+      const chatReadyBadge = document.getElementById("chatReadyBadge");
+      const hostReadIndicator = document.getElementById("hostReadIndicator");
+      const messageFlow = document.getElementById("messageFlow");
+      
+      const chatInput = document.getElementById("chatInput");
+      const btnSendChat = document.getElementById("btnSendChat");
+      const useContextToggle = document.getElementById("useContextToggle");
+      const jsonReadState = document.getElementById("jsonReadState");
+
+      // 定义核心数据节点 (用于 Canvas 碰撞与 Sources panel 的无缝联动)
+      const canvasNodes = [
+        { id: "root", label: "核心设计", x: 60, y: 75, status: "located", title: "高可靠伴随助手设计哲学", quote: "“伴随式 Chrome 阅读助手应当对宿主页生态保持极高的敬畏...”", warning: "", targetId: "loc-target-root" },
+        { id: "n1", label: "1. 显式感知", x: 195, y: 35, status: "located", title: "第一节：显式感知当前页面上下文", quote: "“当用户通过侧边栏对当前页提出细部观点质疑时，AI 提炼的核心证据环应该被精确关联...”", warning: "", targetId: "loc-target-n1" },
+        { id: "n2", label: "2. 渲染防伪", x: 195, y: 75, status: "fallback", title: "第二节：严格防范 False-Green 欺骗高亮", quote: "“如果特定节点因 CSP 拦截导致无法在原文产生黄色高亮标记，前端渲染必须将该状态亮起醒目的琥珀色（Fallback）警告...”", warning: "⚠️ 降级比对提示：此节点文本未能在左侧当前 DOM 树中命中精确 Selector。该凭证由本地缓存历史快照提供，请注意审查风险。", targetId: "" },
+        { id: "n3", label: "3. 安全隔离", x: 195, y: 115, status: "blocked", title: "第三节：沙箱隔离限制说明", quote: "[ 安全沙箱拦截：原网页对该部分段落设置了闭锁阻断 ]", warning: "🚫 策略阻断警示：宿主页容器已开启 Content Security Policy (CSP) 防护或多重 Shadow DOM 沙箱隔离，Navia 内容脚本无法切入定位。", targetId: "" }
+      ];
+
+      let selectedNodeId = "root";
+      let hoveredNodeId = null;
+      let particleProgress = 0;
+      let canvasRef = null;
+      let ctxRef = null;
+
+      // 核心触发：在对话框内生成 Canvas Artifact
+      function triggerGenerateConversationalArtifact() {
+        // 先检查是否已经在流中生成过，防止冗余创建
+        const exist = document.getElementById("inChatArtifact");
+        if (exist) {
+          exist.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+
+        contextStatusDesc.textContent = "分析中...";
+        chatReadyBadge.textContent = "PARSING";
+
+        setTimeout(() => {
+          // 修改就绪状态
+          contextStatusDesc.textContent = "正文解析完毕，源证据追踪就绪";
+          chatReadyBadge.textContent = "READY";
+          chatReadyBadge.className = "status-badge parsed";
+          
+          hostReadIndicator.textContent = "上下文：读取成功";
+          hostReadIndicator.classList.add("ready");
+          jsonReadState.textContent = "true";
+
+          // 开启 composer 锁定区
+          chatInput.disabled = false;
+          btnSendChat.disabled = false;
+          useContextToggle.disabled = false;
+
+          // 创建原生内嵌聊天泡泡
+          const containerBubble = document.createElement("div");
+          containerBubble.className = "msg-bubble assistant";
+          containerBubble.style.width = "95%";
+          containerBubble.innerHTML = `
+            <p>已成功为您读取网页正文，并抽离了相关的源证据拓扑脑图。<b>请直接在下方卡片中点击节点体验深度高亮联动。</b></p>
+            
+            <!-- Conversational Artifact Card -->
+            <div class="conversational-artifact" id="inChatArtifact">
+              <div class="artifact-title-row">
+                <span class="artifact-meta-tag">Evidence Card Mindmap</span>
+                <span class="artifact-status-glow">4 NODES INTERACTIVE</span>
+              </div>
+
+              <!-- Canvas 模块 -->
+              <div class="canvas-card-wrapper">
+                <canvas id="mindmapCanvas"></canvas>
+              </div>
+
+              <!-- 证据状态面板 -->
+              <div class="sourceEvidencePanel state-located" id="evidenceInspector">
+                <div class="inspector-header">
+                  <span class="inspector-title" id="inspTitle">高可靠伴随助手设计哲学</span>
+                  <span class="evidence-state-badge" id="inspBadge">Located</span>
+                </div>
+                <div class="evidence-quote-box" id="inspQuote">
+                  “伴随式 Chrome 阅读助手应当对宿主页生态保持极高的敬畏...”
+                </div>
+                <div class="evidence-warning-desc" id="inspWarning"></div>
+                <button class="highlight-action-btn" id="btnTriggerHighlight">
+                  <span>在网页正文中平滑高亮并居中定位</span>
+                </button>
+              </div>
+
+              <!-- Reading Map 导航目录 -->
+              <div class="reading-map-box">
+                <div class="reading-map-header">Reading Map 线性章节索引</div>
+                <div class="map-item-row active" data-target-sec="sec-1">
+                  <span>Section 1：显式感知当前页面上下文</span>
+                  <span class="map-item-dot"></span>
+                </div>
+                <div class="map-item-row" data-target-sec="sec-2">
+                  <span>Section 2：严格防范 False-Green 欺骗高亮</span>
+                  <span class="map-item-dot"></span>
+                </div>
+              </div>
+
+            </div>
+          `;
+
+          messageFlow.appendChild(containerBubble);
+          messageFlow.scrollTop = messageFlow.scrollHeight;
+
+          // 初始化 Canvas
+          initCanvasEngine();
+        }, 800);
+      }
+
+      btnReadPage.addEventListener("click", triggerGenerateConversationalArtifact);
+      btnGenMindmap.addEventListener("click", triggerGenerateConversationalArtifact);
+      btnSummarize.addEventListener("click", triggerGenerateConversationalArtifact);
+      btnAskPage.addEventListener("click", triggerGenerateConversationalArtifact);
+
+      // === Canvas 拓扑图引擎核心逻辑 ===
+      function initCanvasEngine() {
+        canvasRef = document.getElementById("mindmapCanvas");
+        if (!canvasRef) return;
+        ctxRef = canvasRef.getContext("2d");
+
+        // 监听位置碰撞及点击
+        canvasRef.addEventListener("mousemove", handleCanvasMouseMove);
+        canvasRef.addEventListener("click", handleCanvasClick);
+
+        resizeDynamicCanvas();
+        animateCanvasLoop();
+
+        // 动态对齐下方的交互 DOM 控制
+        bindArtifactInteractions();
+      }
+
+      function resizeDynamicCanvas() {
+        if (!canvasRef) return;
+        const rect = canvasRef.parentNode.getBoundingClientRect();
+        canvasRef.width = rect.width * window.devicePixelRatio;
+        canvasRef.height = rect.height * window.devicePixelRatio;
+        ctxRef.scale(window.devicePixelRatio, window.devicePixelRatio);
+        drawMindmap();
+      }
+
+      function getNodeAtPos(mx, my) {
+        for (let node of canvasNodes) {
+          // 判定框：80 x 26
+          if (mx >= node.x - 40 && mx <= node.x + 40 && my >= node.y - 13 && my <= node.y + 13) {
+            return node.id;
+          }
+        }
+        return null;
+      }
+
+      function handleCanvasMouseMove(e) {
+        const rect = canvasRef.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const targetHover = getNodeAtPos(mx, my);
+        if (targetHover !== hoveredNodeId) {
+          hoveredNodeId = targetHover;
+          drawMindmap();
+        }
+      }
+
+      function handleCanvasClick(e) {
+        const rect = canvasRef.getBoundingClientRect();
+        const mx = e.clientX - rect.left;
+        const my = e.clientY - rect.top;
+        const targetClick = getNodeAtPos(mx, my);
+        if (targetClick) {
+          selectedNodeId = targetClick;
+          updateInteractiveInspector(targetClick);
+          drawMindmap();
+        }
+      }
+
+      function drawMindmap() {
+        if (!ctxRef || !canvasRef) return;
+        ctxRef.clearRect(0, 0, canvasRef.width, canvasRef.height);
+
+        // 背景微格
+        ctxRef.strokeStyle = "rgba(7, 101, 92, 0.03)";
+        ctxRef.lineWidth = 1;
+        const step = 14;
+        for (let x = 0; x < canvasRef.width; x += step) {
+          ctxRef.beginPath(); ctxRef.moveTo(x, 0); ctxRef.lineTo(x, canvasRef.height); ctxRef.stroke();
+        }
+        for (let y = 0; y < canvasRef.height; y += step) {
+          ctxRef.beginPath(); ctxRef.moveTo(0, y); ctxRef.lineTo(canvasRef.width, y); ctxRef.stroke();
+        }
+
+        // 连线 - 霓虹流光渐变笔触
+        canvasNodes.forEach(node => {
+          if (node.id === "root") return;
+          const rootNode = canvasNodes.find(n => n.id === "root");
+
+          ctxRef.beginPath();
+          ctxRef.moveTo(rootNode.x + 40, rootNode.y);
+          ctxRef.bezierCurveTo(
+            rootNode.x + 100, rootNode.y,
+            node.x - 50, node.y,
+            node.x - 40, node.y
+          );
+          
+          // 给选中连线增加荧光感
+          if (selectedNodeId === node.id) {
+            ctxRef.strokeStyle = "rgba(6, 91, 82, 0.4)";
+            ctxRef.lineWidth = 2.5;
+            ctxRef.shadowColor = "rgba(6, 91, 82, 0.3)";
+            ctxRef.shadowBlur = 4;
+          } else {
+            ctxRef.strokeStyle = "rgba(7, 101, 92, 0.15)";
+            ctxRef.lineWidth = 1.5;
+            ctxRef.shadowBlur = 0;
+          }
+          ctxRef.stroke();
+
+          // 重置 Shadow
+          ctxRef.shadowBlur = 0;
+
+          // 数据传输粒子
+          const t = particleProgress;
+          const px = (1-t)*(1-t)*(1-t)*(rootNode.x+40) + 3*(1-t)*(1-t)*t*(rootNode.x+100) + 3*(1-t)*t*t*(node.x-50) + t*t*t*(node.x-40);
+          const py = (1-t)*(1-t)*(1-t)*(rootNode.y) + 3*(1-t)*(1-t)*t*(rootNode.y) + 3*(1-t)*t*t*(node.y) + t*t*t*(node.y);
+          
+          ctxRef.beginPath();
+          ctxRef.arc(px, py, 3, 0, Math.PI * 2);
+          ctxRef.fillStyle = "var(--brand)";
+          ctxRef.shadowColor = "rgba(7, 101, 92, 0.6)";
+          ctxRef.shadowBlur = 5;
+          ctxRef.fill();
+          
+          // 重置 Shadow
+          ctxRef.shadowBlur = 0;
+        });
+
+        // 绘制脑图节点
+        canvasNodes.forEach(node => {
+          const isSelected = node.id === selectedNodeId;
+          const isHovered = node.id === hoveredNodeId;
+
+          const w = 78;
+          const h = 24;
+          const rx = node.x - w/2;
+          const ry = node.y - h/2;
+
+          // 绘制多态发光外圈 (高保真微光霓虹 - 强化选中光影对比)
+          if (isSelected) {
+            ctxRef.beginPath();
+            ctxRef.roundRect(rx - 5, ry - 5, w + 10, h + 10, 8);
+            ctxRef.fillStyle = node.status === "located" ? "rgba(28, 94, 55, 0.18)" : 
+                               node.status === "fallback" ? "rgba(140, 87, 15, 0.15)" : 
+                               "rgba(147, 44, 37, 0.15)";
+            ctxRef.fill();
+          }
+
+          // 绘制节点底盒
+          ctxRef.beginPath();
+          ctxRef.roundRect(rx, ry, w, h, 6);
+          ctxRef.fillStyle = "#ffffff";
+          ctxRef.shadowColor = isSelected ? "rgba(7, 101, 92, 0.25)" : "rgba(0, 0, 0, 0.04)";
+          ctxRef.shadowBlur = isSelected ? 12 : 3; // 增强选中发光模糊度
+          ctxRef.shadowOffsetY = 1;
+          ctxRef.fill();
+          
+          // 重置 Shadow
+          ctxRef.shadowBlur = 0;
+          ctxRef.shadowOffsetY = 0;
+
+          // 状态边界指示条
+          ctxRef.beginPath();
+          ctxRef.roundRect(rx, ry, 3.5, h, { topLeft: 6, bottomLeft: 6, topRight: 0, bottomRight: 0 });
+          ctxRef.fillStyle = node.status === "located" ? "var(--ok)" : 
+                             node.status === "fallback" ? "var(--amber)" : 
+                             "var(--red)";
+          ctxRef.fill();
+
+          // 绘制边框线
+          ctxRef.strokeStyle = isSelected ? "var(--brand)" : isHovered ? "var(--line-strong)" : "var(--line)";
+          ctxRef.lineWidth = isSelected ? 2.0 : 1; // 增加选中边框粗度
+          ctxRef.beginPath();
+          ctxRef.roundRect(rx, ry, w, h, 6);
+          ctxRef.stroke();
+
+          // 绘制精密字体
+          ctxRef.font = "bold 9px -apple-system, sans-serif";
+          ctxRef.fillStyle = "var(--ink)";
+          ctxRef.textAlign = "center";
+          ctxRef.textBaseline = "middle";
+          ctxRef.fillText(node.label, node.x + 1.5, node.y);
+        });
+      }
+
+      function animateCanvasLoop() {
+        particleProgress += 0.0075;
+        if (particleProgress > 1) particleProgress = 0;
+        drawMindmap();
+        requestAnimationFrame(animateCanvasLoop);
+      }
+
+      // === 动态刷新内嵌源证据核验审查卡 ===
+      function updateInteractiveInspector(nodeId) {
+        const node = canvasNodes.find(n => n.id === nodeId);
+        if (!node) return;
+
+        // 同步修改 Debug 视图的 JSON 指针
+        document.getElementById("jsonActiveNode").textContent = nodeId;
+
+        const evidenceInspector = document.getElementById("evidenceInspector");
+        const inspTitle = document.getElementById("inspTitle");
+        const inspBadge = document.getElementById("inspBadge");
+        const inspQuote = document.getElementById("inspQuote");
+        const inspWarning = document.getElementById("inspWarning");
+        const btnTriggerHighlight = document.getElementById("btnTriggerHighlight");
+
+        evidenceInspector.className = `sourceEvidencePanel state-${node.status}`;
+        inspTitle.textContent = node.title;
+        inspBadge.textContent = node.status.toUpperCase();
+        inspQuote.textContent = node.quote;
+        inspWarning.textContent = node.warning;
+
+        if (node.status === "located") {
+          btnTriggerHighlight.style.opacity = "1";
+          btnTriggerHighlight.style.cursor = "pointer";
+        } else {
+          btnTriggerHighlight.style.opacity = "0.5";
+          btnTriggerHighlight.style.cursor = "not-allowed";
+        }
+      }
+
+      // === 绑定内嵌 Artifact 事件与跨栏 DOM 高亮机制 ===
+      function bindArtifactInteractions() {
+        const btnHighlight = document.getElementById("btnTriggerHighlight");
+        btnHighlight.addEventListener("click", () => {
+          const node = canvasNodes.find(n => n.id === selectedNodeId);
+          if (!node || node.status !== "located" || !node.targetId) return;
+
+          const hostEl = document.getElementById(node.targetId);
+          if (hostEl) {
+            hostEl.scrollIntoView({ behavior: "smooth", block: "center" });
+            hostEl.classList.remove("pulse-active");
+            void hostEl.offsetWidth; // 触发 reflow 重置动画
+            hostEl.classList.add("pulse-active");
+
+            setTimeout(() => {
+              hostEl.classList.remove("pulse-active");
+            }, 3000);
+          }
+        });
+
+        // Reading Map 点击锚定目录跳转
+        const rows = document.querySelectorAll(".map-item-row");
+        rows.forEach(row => {
+          row.addEventListener("click", () => {
+            rows.forEach(r => r.classList.remove("active"));
+            row.classList.add("active");
+            
+            const targetSec = row.dataset.targetSec;
+            const simulatedSec = document.getElementById(targetSec);
+            if (simulatedSec) {
+              simulatedSec.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+      }
+
+    });
+  </script>
+</body>
+</html>

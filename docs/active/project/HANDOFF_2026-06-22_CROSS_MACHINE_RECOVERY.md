@@ -139,6 +139,9 @@ Expected notes:
 - Build output is generated in `apps/chrome-extension/chrome-mv3-unpacked/`.
 - WXT may warn about large chunks; this is a known warning, not a failed build by itself.
 - ASR status may be unavailable; ASR is not a V1.3 readiness requirement.
+- On Ubuntu / WSL, `python3 -m venv .venv` requires the matching `python3.x-venv` package. If `ensurepip` is missing, install the system venv package or temporarily run verification with `PYTHONPATH=<repo>/.tmp/python-deps:services/local-runtime` after `pip install --target .tmp/python-deps -r requirements.txt`.
+- Chrome Side Panel E2E requires a launchable Linux Chrome / Chromium for Playwright. If Playwright reports missing libraries such as `libnspr4.so`, run `npx playwright install-deps chromium` with sufficient system privileges before treating native Side Panel E2E as failed.
+- In sandboxed Codex environments, Runtime health checks may need the Runtime process to be started outside the sandbox network namespace; otherwise `uvicorn` can report started while `127.0.0.1:17861` is unreachable from Chrome or a separate shell.
 
 ## Local State Not Uploaded
 

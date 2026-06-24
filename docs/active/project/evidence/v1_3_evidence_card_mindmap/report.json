@@ -1,7 +1,7 @@
 {
   "schemaVersion": "v1.3-evidence-card-mindmap-report",
   "stage": "V1.3",
-  "generatedAt": "2026-06-17T04:06:41.122Z",
+  "generatedAt": "2026-06-24T07:45:58.574Z",
   "passed": true,
   "summary": {
     "pagesTotal": 8,
@@ -48,23 +48,11 @@
       "conclusion": "pass"
     },
     {
-      "pageId": "tech_001_go_effective",
-      "url": "https://go.dev/doc/effective_go",
-      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_001_go_effective.html",
-      "category": "technical_doc",
-      "expectedRisk": "missing_source",
-      "evidenceCardRendered": false,
-      "sourcePanelVisible": false,
-      "fallbackVisibleWhenNeeded": false,
-      "visualEvidenceStatus": "not_sampled",
-      "conclusion": "pass"
-    },
-    {
       "pageId": "tech_002_python_tutorial_intro",
       "url": "https://docs.python.org/3/tutorial/introduction.html",
       "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/tech_002_python_tutorial_intro.html",
       "category": "technical_doc",
-      "expectedRisk": "normal",
+      "expectedRisk": "missing_source",
       "evidenceCardRendered": false,
       "sourcePanelVisible": false,
       "fallbackVisibleWhenNeeded": false,
@@ -106,62 +94,84 @@
       "fallbackVisibleWhenNeeded": false,
       "visualEvidenceStatus": "not_sampled",
       "conclusion": "pass"
+    },
+    {
+      "pageId": "blog_001_pep_0008",
+      "url": "https://peps.python.org/pep-0008/",
+      "snapshotPath": "services/local-runtime/navia_runtime/modules/page_reading/tests/evidence/a_v1_2/snapshots/blog_001_pep_0008.html",
+      "category": "long_article",
+      "expectedRisk": "normal",
+      "evidenceCardRendered": false,
+      "sourcePanelVisible": false,
+      "fallbackVisibleWhenNeeded": false,
+      "visualEvidenceStatus": "not_sampled",
+      "conclusion": "pass"
     }
   ],
   "screenshots": [
     {
       "screenshotPath": "screenshots/article-jumpback-after.png",
       "metadataPath": "screenshots/article-jumpback-after.png.metadata.json",
-      "pageUrl": "http://127.0.0.1:61462/article.html",
+      "pageUrl": "http://127.0.0.1:46269/article.html",
       "isNativeSidePanel": true,
       "containsWebPageBody": true,
       "containsNaviaPanel": true,
       "containsEvidenceCardMindmap": true,
       "containsSourcePanel": true,
+      "sourceEvidenceVisible": true,
+      "sourceEvidenceText": "Browser extensionBrowser extension A browser extension is a small software module that changes or extends a web browser. It can add interface controls, modify page behavior, or connect the browserBrowser extension A browser extension is a small software module that changes or extends a web browser. It can add interface controls, modify page behavior, or connect the browser已定位并高亮来源。",
       "result": "pass"
     },
     {
       "screenshotPath": "screenshots/docs-jumpback-after.png",
       "metadataPath": "screenshots/docs-jumpback-after.png.metadata.json",
-      "pageUrl": "http://127.0.0.1:61462/docs.html",
+      "pageUrl": "http://127.0.0.1:46269/docs.html",
       "isNativeSidePanel": true,
       "containsWebPageBody": true,
       "containsNaviaPanel": true,
       "containsEvidenceCardMindmap": true,
       "containsSourcePanel": true,
+      "sourceEvidenceVisible": true,
+      "sourceEvidenceText": "流程与操作Content scripts Content scripts run in the context of web pages and can inspect or alter the DOM of pages that match an extension's permissions and configuration. Work in an isolated world A content script uses an isolated JavaScript enviro已定位并高亮来源。",
       "result": "pass"
     },
     {
       "screenshotPath": "screenshots/zh-python-modules-jumpback-after.png",
       "metadataPath": "screenshots/zh-python-modules-jumpback-after.png.metadata.json",
-      "pageUrl": "http://127.0.0.1:61462/zh_python_modules.html",
+      "pageUrl": "http://127.0.0.1:46269/zh_python_modules.html",
       "isNativeSidePanel": true,
       "containsWebPageBody": true,
       "containsNaviaPanel": true,
       "containsEvidenceCardMindmap": true,
       "containsSourcePanel": true,
+      "sourceEvidenceVisible": true,
+      "sourceEvidenceText": "目录主题 自动 明亮 黑暗 目录 6. 模块 6.1. 模块详解 6.1.1. 以脚本方式执行模块 6.1.2. 模块搜索路径 6.1.3. “已编译的” Python 文件 6.2. 标准模块 6.3. dir() 函数 6.4. 包 6.4.1. 从包中导入 * 6.4.2. 相对导入 6.4.3. 多目录中的包 上一主题 5. 数据结构 下一主题 7. 输主题 自动 明亮 黑暗 目录 6. 模块 6.1. 模块详解 6.1.1. 以脚本方式执行模块 6.1.2. 模块搜索路径 6.1.3. “已编译的” Python 文件 6.2. 标准模块 6.3. dir() 函数 6.4. 包 6.4.1. 从包中导入 * 6.4.2. 相对导入 6.4.3. 多目录中的包 上一主题 5. 数据结构 下一主题 7. 输已定位并高亮来源。",
       "result": "pass"
     },
     {
       "screenshotPath": "screenshots/github-readme-drift-jumpback-after.png",
       "metadataPath": "screenshots/github-readme-drift-jumpback-after.png.metadata.json",
-      "pageUrl": "http://127.0.0.1:61462/github_readme.html",
+      "pageUrl": "http://127.0.0.1:46269/github_readme.html",
       "isNativeSidePanel": true,
       "containsWebPageBody": true,
       "containsNaviaPanel": true,
       "containsEvidenceCardMindmap": true,
       "containsSourcePanel": true,
+      "sourceEvidenceVisible": true,
+      "sourceEvidenceText": "核心要点WXT WXT is a framework for building browser extensions with modern frontend tooling, TypeScript support, and development workflow helpers. Features Manifest generation for browser extensions. Entrypoints for background logic, content script未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom",
       "result": "pass"
     },
     {
       "screenshotPath": "screenshots/flask-quickstart-drift-jumpback-after.png",
       "metadataPath": "screenshots/flask-quickstart-drift-jumpback-after.png.metadata.json",
-      "pageUrl": "http://127.0.0.1:61462/product_doc.html",
+      "pageUrl": "http://127.0.0.1:46269/product_doc.html",
       "isNativeSidePanel": true,
       "containsWebPageBody": true,
       "containsNaviaPanel": true,
       "containsEvidenceCardMindmap": true,
       "containsSourcePanel": true,
+      "sourceEvidenceVisible": true,
+      "sourceEvidenceText": "核心要点Here is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.tHere is a simple example showing how that works: from flask import request @app.route('/upload', methods=['GET', 'POST']) def upload_file(): if request.method == 'POST': f = request.files['the_file'] f.save('/var/www/uploads/uploaded_file.t未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom",
       "result": "pass"
     }
   ],

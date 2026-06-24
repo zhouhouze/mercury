@@ -1,22 +1,22 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6" pages="6">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" pages="6">
   <diagram id="v13-01" name="01 当前与目标差异">
-    <mxGraphModel dx="1394" dy="745" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="3005" dy="1531" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="V1.3 Evidence Card Mindmap：当前实现基线与剩余体验缺口&#xa;当前状态：B 层 Evidence Card / 二级折叠 / 密度收纳已实现；C 语义标签仍需补强" vertex="1">
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=22;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="V1.3 Evidence Card Mindmap：当前架构与目标架构差异&#xa;当前口径：目标已确认；基线存在；出门验收尚需 V1.3-0 到 V1.3-5 闭环" vertex="1">
           <mxGeometry height="70" width="1100" x="150" y="25" as="geometry" />
         </mxCell>
         <mxCell id="legend1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=14;align=left;spacing=10;" value="绿色=已实现基线&#xa;橙色=需要修改&#xa;蓝色=需要新增&#xa;灰色=长期规划" vertex="1">
           <mxGeometry height="110" width="280" x="1190" y="30" as="geometry" />
         </mxCell>
-        <mxCell id="cur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=16;fontStyle=1;spacing=12;" value="当前已实现基线&#xa;Chrome 原生 Side Panel 可用&#xa;Evidence Card Mindmap 主视图&#xa;Source card + Jumpback 可用&#xa;20 页 E2E / 5 个 jumpback 样本通过" vertex="1">
+        <mxCell id="cur" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=16;fontStyle=1;spacing=12;" value="当前实现基线&#xa;Chrome 原生 Side Panel 是主体验容器&#xa;Mindmap Artifact / Mermaid / nodeSourceMap 可用&#xa;Evidence Card 基线和 source panel 已存在&#xa;Runtime 仍是 Artifact / Event / Trace 唯一出口" vertex="1">
           <mxGeometry height="160" width="360" x="110" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="gap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffedd5;strokeColor=#f97316;fontSize=15;spacing=12;" value="剩余体验缺口&#xa;1. C 生成的主题标签仍偏泛化&#xa;2. 节点语义压缩质量不足&#xa;3. 仍未回到 PRD 要求的网页内悬浮球主体验&#xa;4. 高质量图谱布局仍是 B 层 MVP&#xa;5. 不能声明完整 V1 complete" vertex="1">
+        <mxCell id="gap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffedd5;strokeColor=#f97316;fontSize=15;spacing=12;" value="阶段缺口&#xa;1. V1.3-0 文档 / 审计门禁需关闭&#xa;2. C 主题归并和标签压缩需证据化&#xa;3. B 卡片树可读性需截图验收&#xa;4. highlighted / fallback / blocked 需一致记录&#xa;5. 8 页矩阵和 3 个 native 截图样本未闭环" vertex="1">
           <mxGeometry height="200" width="360" x="520" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="target" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=16;fontStyle=1;spacing=12;" value="V1.3 当前目标实现&#xa;Evidence Card Mindmap 主视图&#xa;主题可折叠 / 只展示 2 级标签&#xa;按信息密度裁剪并显示收纳数&#xa;Mermaid 保留为 fallback / debug" vertex="1">
+        <mxCell id="target" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=16;fontStyle=1;spacing=12;" value="V1.3 目标架构&#xa;Evidence Card Mindmap 是主视图&#xa;Artifact + nodeSourceMap 派生 ViewModel&#xa;主题 / 子节点两级可读结构&#xa;source evidence panel 和 Mermaid fallback 并存&#xa;真实 Side Panel 证据可审计" vertex="1">
           <mxGeometry height="200" width="360" x="930" y="150" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="cur" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;endArrow=block;strokeColor=#64748b;" target="gap">
@@ -34,7 +34,7 @@
         <mxCell id="card3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=10;" value="来源证据&#xa;textQuote / fallbackText / sourceRefIds&#xa;DOM highlight 或 fallback reason" vertex="1">
           <mxGeometry height="100" width="300" x="930" y="450" as="geometry" />
         </mxCell>
-        <mxCell id="future" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5e7eb;strokeColor=#6b7280;fontSize=14;spacing=10;" value="长期规划：Canvas Knowledge Map&#xa;灰色表示不进入 V1.3 实现，只作为 V2+ 路线" vertex="1">
+        <mxCell id="future" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e5e7eb;strokeColor=#6b7280;fontSize=14;spacing=10;" value="非本阶段：最终网页内悬浮球 / 双轨面板、Canvas Knowledge Map、RAG / Memory / Web Research / PPT&#xa;这些能力必须另起 PRD / 架构 / 验收门禁" vertex="1">
           <mxGeometry height="90" width="560" x="420" y="650" as="geometry" />
         </mxCell>
       </root>
@@ -89,25 +89,25 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="t3" value="V1.3 开发及验收计划：已实现基线与后续补强" style="text;html=1;fontSize=24;fontStyle=1;align=center;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="t3" value="V1.3 开发及验收计划：从文档门禁到出门报告" style="text;html=1;fontSize=24;fontStyle=1;align=center;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="280" y="30" width="840" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="s0" value="V1.3-0&#xa;合同 / 验收口径冻结&#xa;schema + report.json + 截图标准&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s0" value="V1.3-0&#xa;PRD / 架构 / gap / 验收冻结&#xa;schema + report.json + 截图标准&#xa;出门：审计无 fatal / major" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffedd5;strokeColor=#f97316;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="70" y="150" width="205" height="145" as="geometry" />
         </mxCell>
-        <mxCell id="s1" value="V1.3-1&#xa;EvidenceCardViewModel&#xa;fixture 覆盖缺 source / 重复标题 / 长文本&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s1" value="V1.3-1&#xa;EvidenceCardViewModel&#xa;Artifact + nodeSourceMap 派生&#xa;fixture：缺 source / 重复标题 / 长文本" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="300" y="160" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="s2" value="V1.3-2&#xa;卡片树布局 / 视觉 token&#xa;Side Panel 窄宽度可读&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s2" value="V1.3-2&#xa;卡片树布局 / 视觉 token&#xa;Side Panel 窄宽度可读&#xa;截图证明无溢出 / 重叠" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="520" y="160" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="s3" value="V1.3-3&#xa;hover / selected / 邻接高亮&#xa;source panel 稳定展示&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s3" value="V1.3-3&#xa;hover / selected / 邻接高亮&#xa;source panel 稳定展示&#xa;点击节点后证据可读" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="740" y="160" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="s4" value="V1.3-4&#xa;Jumpback / fallback 集成&#xa;DOM success 与 fallback 严格区分&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s4" value="V1.3-4&#xa;Jumpback / fallback 集成&#xa;highlighted / fallback_shown / blocked&#xa;UI / JSON / 截图 metadata 一致" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="960" y="160" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="s5" value="V1.3-5&#xa;真实网页 E2E / HTML 报告&#xa;20 页矩阵 / 5 个 jumpback 样本&#xa;已完成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=14;spacing=8;" vertex="1" parent="1">
+        <mxCell id="s5" value="V1.3-5&#xa;真实网页 / snapshot 出门验收&#xa;8 页矩阵 / 3 个 native Side Panel 截图样本&#xa;HTML 报告 + PRD review + false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=14;spacing=8;" vertex="1" parent="1">
           <mxGeometry x="1180" y="160" width="190" height="120" as="geometry" />
         </mxCell>
         <mxCell id="p01" edge="1" parent="1" source="s0" target="s1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;endArrow=block;strokeColor=#64748b;">
@@ -125,7 +125,7 @@
         <mxCell id="p45" edge="1" parent="1" source="s4" target="s5" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;endArrow=block;strokeColor=#64748b;">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="audit" value="当前验收结论&#xa;前端 typecheck 通过；Mindmap / Chat / Debug 相关单测通过；Runtime 关键测试通过；WXT build 通过。&#xa;V1.3 体验基线可用，但不等于完整 V1 complete。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=16;fontStyle=1;spacing=12;" vertex="1" parent="1">
+        <mxCell id="audit" value="当前验收结论&#xa;阶段目标已确认；已有实现可作为基线输入。&#xa;仍需关闭 V1.3-0 文档 / 审计门禁，并完成 V1.3-5 出门证据包。&#xa;不得声明完整 V1 complete 或 Canvas / RAG / Memory ready。" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#94a3b8;fontSize=16;fontStyle=1;spacing=12;" vertex="1" parent="1">
           <mxGeometry x="170" y="430" width="1060" height="120" as="geometry" />
         </mxCell>
         <mxCell id="evidence" value="固定证据包&#xa;docs/active/project/evidence/v1_3_evidence_card_mindmap/&#xa;report.json&#xa;acceptance-report.html&#xa;screenshots/&#xa;native-run/report.json" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=15;spacing=10;" vertex="1" parent="1">
@@ -145,7 +145,7 @@
         <mxCell id="t4" value="V1.3 验收门槛与出门条件" style="text;html=1;fontSize=24;fontStyle=1;align=center;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="300" y="30" width="800" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="go" value="已通过 / 可验收条件&#xa;1. Evidence Card 为主视图&#xa;2. ViewModel + displayPolicy 可用&#xa;3. 只展示 2 级标签，主题可折叠&#xa;4. 高密度页面显示收纳数量&#xa;5. source evidence panel 可读&#xa;6. DOM success / fallback / blocked 严格区分&#xa;7. 20 页矩阵 + 5 个 jumpback 样本&#xa;8. HTML 报告、JSON、截图结论一致" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=15;spacing=12;" vertex="1" parent="1">
+        <mxCell id="go" value="出门条件&#xa;1. Evidence Card 为主视图&#xa;2. ViewModel 由 Artifact + metadata 派生&#xa;3. 两级主题结构可读，长标签被压缩&#xa;4. source evidence panel 可读&#xa;5. highlighted / fallback_shown / blocked 严格区分&#xa;6. 8 页矩阵 + 3 个 native Side Panel 截图样本&#xa;7. HTML 报告、JSON、截图、PRD review 一致" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=15;spacing=12;" vertex="1" parent="1">
           <mxGeometry x="110" y="120" width="540" height="340" as="geometry" />
         </mxCell>
         <mxCell id="nogo" value="仍然 No-Go&#xa;1. 只改 Mermaid CSS 就声明完成&#xa;2. 全屏 extension page 冒充 Side Panel&#xa;3. fallback 冒充 DOM 成功&#xa;4. B 生成事实 / Artifact / Trace&#xa;5. C 输出前端组件结构&#xa;6. 借本阶段引入 RAG / Memory / Web Research / PPT / Deep Research&#xa;7. 用 V1.3 声明完整 V1 complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=15;spacing=12;" vertex="1" parent="1">
@@ -224,7 +224,7 @@
         <mxCell id="t6" value="Mindmap 长期路线：V1.3 完成 B 层体验基线，不提前实现 Canvas / RAG" style="text;html=1;fontSize=24;fontStyle=1;align=center;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="120" y="30" width="1160" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="l1" value="V1.3 当前&#xa;Evidence Card Mindmap&#xa;二级折叠 / 密度收纳&#xa;单页 artifact 体验升级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#16a34a;fontSize=16;fontStyle=1;spacing=12;" vertex="1" parent="1">
+        <mxCell id="l1" value="V1.3 当前阶段&#xa;Evidence Card Mindmap&#xa;两级主题 / source evidence / jumpback 状态&#xa;单页 artifact 体验升级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=16;fontStyle=1;spacing=12;" vertex="1" parent="1">
           <mxGeometry x="120" y="180" width="240" height="130" as="geometry" />
         </mxCell>
         <mxCell id="l2" value="V1.4 / V1.x&#xa;C 语义标签压缩&#xa;双栏阅读地图&#xa;Side Panel 伴读导航" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffedd5;strokeColor=#f97316;fontSize=16;spacing=12;" vertex="1" parent="1">

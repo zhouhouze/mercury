@@ -3,6 +3,7 @@ import {
   buildEvidenceCardJumpbackRequest,
   presentMindmapArtifact,
   selectEvidenceCardNode,
+  toReadingMapViewModel,
   toEvidenceCardViewModel,
   type EvidenceCardNode
 } from "../mindmapPresentation";
@@ -238,6 +239,26 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
       jumpbackStatus: "fallback_shown"
     });
     expect(selected.nodes.find((node) => node.nodeId === "capture")?.uiState).toBe("fallback_shown");
+  });
+
+  it("derives a V1.4 ReadingMapViewModel from EvidenceCardViewModel", () => {
+    const viewModel = toEvidenceCardViewModel(baseArtifact);
+    const selected = selectEvidenceCardNode(viewModel, "capture");
+    const readingMap = toReadingMapViewModel(selected, "capture");
+
+    expect(readingMap.artifactId).toBe("art_v13");
+    expect(readingMap.rootLabel).toBe("Companion Reading Architecture");
+    expect(readingMap.selectedNodeId).toBe("capture");
+    expect(readingMap.navItems.map((item) => item.nodeId)).toEqual(expect.arrayContaining(["root", "capture", "capture2", "long"]));
+    expect(readingMap.detail).toMatchObject({
+      nodeId: "capture",
+      qualityState: "ready",
+      sourceCount: 1
+    });
+    expect(readingMap.detail?.sourceItems[0]).toMatchObject({
+      sourceRefId: "src_capture",
+      jumpbackStatus: "not_attempted"
+    });
   });
 
   it("keeps Mermaid as fallback when render fails", () => {

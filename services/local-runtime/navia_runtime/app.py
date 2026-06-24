@@ -530,6 +530,23 @@ async def chat_stream(request: Request):
         err = page_context_auto_capture_event(session_id, request_id)
         persist_and_publish(err)
         return StreamingResponse(sse([err]), media_type="text/event-stream")
+    if body.get("coreProvider") == "mock" and intent in {"summarize_page", "mindmap_page", "explain_selection", "page_qa"}:
+        result = run_agentic_turn(
+            {
+                "sessionId": session_id,
+                "requestId": request_id,
+                "userMessage": message,
+                "activePage": active_page,
+                "recentMessages": normalize_recent_messages(session_store.get_session_record(session_id)),
+                "budget": body.get("budget") if isinstance(body.get("budget"), dict) else {},
+                "adapterRegistry": integration_adapter_registry(),
+                "forceAdapterId": "fixture.denied" if is_high_risk_message(message) else body.get("forceAdapterId"),
+            }
+        )
+        persist_turn_result(session_id, message, result)
+        for event in result["events"]:
+            persist_and_publish(event)
+        return StreamingResponse(sse(result["events"]), media_type="text/event-stream")
     if is_explicit_core_provider_request(body):
         core_config_or_error = resolve_core_config(body, session_id=session_id, request_id=request_id)
         if isinstance(core_config_or_error, dict) and "provider" in core_config_or_error:

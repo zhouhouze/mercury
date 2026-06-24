@@ -736,6 +736,7 @@ function App() {
     if (!isE2ECommand(command)) throw new Error("Invalid E2E command.");
     const handlers = e2eHandlersRef.current;
     if (command.action === "snapshot") return { snapshot: e2eStateRef.current };
+    if (command.action === "panel_identity") return panelIdentitySnapshot();
     if (command.action === "check_runtime") {
       await handlers.checkRuntime?.();
       return { action: command.action };
@@ -765,13 +766,21 @@ function App() {
       return { action: command.action };
     }
     if (command.action === "source_cards_snapshot") {
-      const evidenceCardCount = document.querySelectorAll("[data-testid^='evidence-card-node-']").length;
+      const scope = latestEvidenceCardScope();
+      const evidenceCardCount = scope.querySelectorAll("[data-testid^='evidence-card-node-']").length;
+      const readingMap = readingMapSnapshot();
+      const sourceEvidence = sourceEvidenceSnapshot();
       return {
         action: command.action,
         sourceCards: sourceCardsSnapshot(),
         evidenceCardCount,
         containsEvidenceCardMindmap: evidenceCardCount > 0,
-        containsSourcePanel: Boolean(document.querySelector("[data-testid='mindmap-source-panel']"))
+        containsReadingMap: readingMap.visible,
+        readingMapNavCount: readingMap.navCount,
+        readingMapDetailText: readingMap.detailText,
+        containsSourcePanel: Boolean(document.querySelector("[data-testid='mindmap-source-panel']")),
+        sourceEvidenceVisible: sourceEvidence.visible,
+        sourceEvidenceText: sourceEvidence.text
       };
     }
     if (command.action === "jumpback_source_card") {
@@ -867,7 +876,15 @@ function App() {
               <p className="topbar-status topbar-status-sr" data-testid="runtime-status">
                 Runtime {runtimeStatus} · Page {pageContextState} · {chatTurnState}
               </p>
-              <div className="topbar-edge" aria-hidden="true" />
+              <div className="topbar-brand-lockup">
+                <div className="brand-row">
+                  <span className="brand-title">Navia</span>
+                  <span className="brand-badge">V1 MVP</span>
+                </div>
+                <span className={`runtime-status-pill runtime-status-${runtimeStatus}`}>
+                  Runtime {runtimeStatus === "online" ? "连通正常" : runtimeStatus === "checking" ? "检查中" : "离线"}
+                </span>
+              </div>
               <div className="session-picker-wrap topbar-session-picker">
                 <button
                   ref={sessionPickerRef}
@@ -925,6 +942,17 @@ function App() {
 
         {activeView === "chat" ? (
           <section className="chat-stage">
+            <section className="current-page-card" data-testid="current-page-context-card" aria-label="Current page context">
+              <div className="current-page-copy">
+                <span className="current-page-kicker">当前上下文</span>
+                <strong title={pageContext?.title ?? undefined}>{pageContext?.title ?? "等待读取当前网页"}</strong>
+                <span>{pageSubmitted ? submitStatus : pageContext ? "页面已读取，尚未提交上下文。" : "点击读取当前页面后，Navia 会基于网页内容回答。"}</span>
+              </div>
+              <div className="current-page-status">
+                <span className={`context-state context-state-${pageContextState}`}>{pageStateLabel(pageContextState)}</span>
+                <span>{pageContext?.domain ?? "host page"}</span>
+              </div>
+            </section>
             <div className="messages-frame">
               <div className="messages" aria-live="polite" ref={messagesRef}>
                 {messageGroups.map((group) => {
@@ -1286,7 +1314,8 @@ function App() {
           aria-current={activeView === "chat" ? "true" : undefined}
           onClick={() => syncView("chat")}
         >
-          聊天
+          <span className="tool-glyph" aria-hidden="true">C</span>
+          <span className="tool-label">Chat</span>
         </button>
         <button
           className={`tool-button ${activeView === "agent" ? "active" : ""}`}
@@ -1295,7 +1324,8 @@ function App() {
           aria-current={activeView === "agent" ? "true" : undefined}
           onClick={() => syncView("agent")}
         >
-          Agent
+          <span className="tool-glyph" aria-hidden="true">A</span>
+          <span className="tool-label">Agent</span>
         </button>
         <button
           className={`tool-button ${activeView === "debug" ? "active" : ""}`}
@@ -1304,7 +1334,8 @@ function App() {
           aria-current={activeView === "debug" ? "true" : undefined}
           onClick={() => syncView("debug")}
         >
-          Debug
+          <span className="tool-glyph" aria-hidden="true">D</span>
+          <span className="tool-label">Debug</span>
         </button>
         <button
           className={`tool-button ${activeView === "settings" ? "active" : ""}`}
@@ -1313,11 +1344,22 @@ function App() {
           aria-current={activeView === "settings" ? "true" : undefined}
           onClick={() => syncView("settings")}
         >
-          设置
+          <span className="tool-glyph" aria-hidden="true">S</span>
+          <span className="tool-label">Set</span>
         </button>
       </aside>
     </main>
   );
+}
+
+function pageStateLabel(state: PageContextState): string {
+  if (state === "captured") return "已解析";
+  if (state === "capturing") return "解析中";
+  if (state === "capture_ready") return "可读取";
+  if (state === "stale") return "需刷新";
+  if (state === "unsupported") return "不支持";
+  if (state === "failed") return "失败";
+  return "未解析";
 }
 
 function renderChatMessage(message: ChatMessageView): React.ReactNode {
@@ -1336,6 +1378,7 @@ function turnDomId(turnId: string): string {
 
 type E2ECommand =
   | { action: "snapshot" }
+  | { action: "panel_identity" }
   | { action: "check_runtime" }
   | { action: "view"; view: SideView }
   | { action: "capture" }
@@ -1369,6 +1412,7 @@ function isE2ECommand(value: unknown): value is E2ECommand {
   }
   return (
     action === "snapshot" ||
+    action === "panel_identity" ||
     action === "check_runtime" ||
     action === "capture" ||
     action === "submit" ||
@@ -1381,8 +1425,7 @@ function isE2ECommand(value: unknown): value is E2ECommand {
 }
 
 function sourceCardsSnapshot(): Array<{ index: number; testId: string | null; nodeId: string; sourceRefIds: string[]; label: string; excerpt: string }> {
-  const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-panel']"));
-  const scope = panels.at(-1) ?? document;
+  const scope = latestMindmapScope();
   return Array.from(scope.querySelectorAll<HTMLButtonElement>("[data-testid^='mindmap-source-card-']")).map((button, index) => {
     const label = button.querySelector("span")?.textContent?.trim() ?? button.textContent?.trim() ?? "";
     const excerpt = button.querySelector("small")?.textContent?.trim() ?? "";
@@ -1397,9 +1440,69 @@ function sourceCardsSnapshot(): Array<{ index: number; testId: string | null; no
   });
 }
 
+function sourceEvidenceSnapshot(): { visible: boolean; text: string } {
+  const scope = latestMindmapScope();
+  const element = Array.from(scope.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-evidence']")).at(-1) ?? null;
+  if (!element) return { visible: false, text: "" };
+  const rect = element.getBoundingClientRect();
+  const style = window.getComputedStyle(element);
+  const visible =
+    rect.width > 0 &&
+    rect.height > 0 &&
+    style.display !== "none" &&
+    style.visibility !== "hidden" &&
+    Number(style.opacity || "1") > 0;
+  return {
+    visible,
+    text: element.textContent?.replace(/\s+/g, " ").trim() ?? ""
+  };
+}
+
+function readingMapSnapshot(): { visible: boolean; navCount: number; detailText: string } {
+  const scope = latestEvidenceCardScope();
+  const map = scope.querySelector<HTMLElement>("[data-testid='reading-map']");
+  const nav = scope.querySelector<HTMLElement>("[data-testid='reading-map-nav']");
+  const detail = scope.querySelector<HTMLElement>("[data-testid='reading-map-detail']");
+  if (!map) return { visible: false, navCount: 0, detailText: "" };
+  const rect = map.getBoundingClientRect();
+  const style = window.getComputedStyle(map);
+  return {
+    visible: rect.width > 0 && rect.height > 0 && style.display !== "none" && style.visibility !== "hidden" && Number(style.opacity || "1") > 0,
+    navCount: nav ? nav.querySelectorAll("[data-testid^='reading-map-nav-']").length : 0,
+    detailText: detail?.textContent?.replace(/\s+/g, " ").trim() ?? ""
+  };
+}
+
+function panelIdentitySnapshot(): Record<string, unknown> {
+  const root = document.querySelector<HTMLElement>("[data-testid='navia-sidepanel-root']");
+  const scope = latestEvidenceCardScope();
+  const evidenceCardCount = scope.querySelectorAll("[data-testid^='evidence-card-node-']").length;
+  const readingMap = readingMapSnapshot();
+  const sourceEvidence = sourceEvidenceSnapshot();
+  const bodyText = scope.textContent?.replace(/\s+/g, " ").trim() ?? "";
+  return {
+    locationHref: window.location.href,
+    title: document.title,
+    viewport: {
+      width: window.innerWidth,
+      height: window.innerHeight
+    },
+    hasNaviaRoot: Boolean(root),
+    naviaRootVisible: Boolean(root && root.getBoundingClientRect().width > 0 && root.getBoundingClientRect().height > 0),
+    evidenceCardCount,
+    containsEvidenceCardMindmap: evidenceCardCount > 0,
+    containsReadingMap: readingMap.visible,
+    readingMapNavCount: readingMap.navCount,
+    readingMapDetailText: readingMap.detailText,
+    containsSourcePanel: Boolean(document.querySelector("[data-testid='mindmap-source-panel']")),
+    sourceEvidenceVisible: sourceEvidence.visible,
+    sourceEvidenceText: sourceEvidence.text,
+    visibleTextSample: bodyText.slice(0, 320)
+  };
+}
+
 async function jumpbackSourceCard(index: number): Promise<Record<string, unknown>> {
-  const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-panel']"));
-  const scope = panels.at(-1) ?? document;
+  const scope = latestMindmapScope();
   const cards = Array.from(scope.querySelectorAll<HTMLButtonElement>("[data-testid^='mindmap-source-card-']"));
   const card = cards[index];
   if (!card) {
@@ -1409,7 +1512,7 @@ async function jumpbackSourceCard(index: number): Promise<Record<string, unknown
   const startedAt = Date.now();
   let evidenceText = "";
   while (Date.now() - startedAt < 10_000) {
-    evidenceText = document.querySelector("[data-testid='mindmap-source-evidence']")?.textContent?.trim() ?? "";
+    evidenceText = sourceEvidenceSnapshot().text;
     if (evidenceText.includes("已定位并高亮来源") || evidenceText.includes("未能定位到原文位置")) {
       break;
     }
@@ -1420,8 +1523,20 @@ async function jumpbackSourceCard(index: number): Promise<Record<string, unknown
     index,
     sourceCards: sourceCardsSnapshot(),
     evidenceText,
+    sourceEvidenceVisible: sourceEvidenceSnapshot().visible,
     status: evidenceText.includes("已定位并高亮来源") ? "highlighted" : evidenceText.includes("未能定位到原文位置") ? "fallback_shown" : "blocked"
   };
+}
+
+function latestMindmapScope(): ParentNode {
+  const panels = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='mindmap-source-panel']"));
+  return panels.at(-1) ?? document;
+}
+
+function latestEvidenceCardScope(): ParentNode {
+  const mindmaps = Array.from(document.querySelectorAll<HTMLElement>("[data-testid='evidence-card-mindmap']"));
+  const latest = mindmaps.at(-1) ?? null;
+  return latest?.closest(".artifact-inline-card") ?? latest ?? document;
 }
 
 function isTerminalChatProviderTestStatus(status: ChatProviderTestStatus): boolean {

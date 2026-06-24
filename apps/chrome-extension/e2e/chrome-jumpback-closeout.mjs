@@ -17,6 +17,7 @@ const evidenceRoot = path.join(
 const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const blockerRoot = path.join(evidenceRoot, "blockers");
 const browserMode = process.env.NAVIA_NATIVE_BROWSER || "chromium";
+const browserExecutable = process.env.NAVIA_BROWSER_EXECUTABLE || "";
 const reportPathFromRepoRoot = path.relative(repoRoot, path.join(evidenceRoot, "report.json"));
 
 const fixturePages = [
@@ -68,6 +69,102 @@ async function run(command, args, options = {}) {
   });
 }
 
+async function commandAvailable(command) {
+  const result = await run("bash", ["-lc", `command -v ${command}`]);
+  return result.code === 0;
+}
+
+async function toWindowsPath(filePath) {
+  const result = await run("wslpath", ["-w", filePath]);
+  if (result.code !== 0) throw new Error(`wslpath failed for ${filePath}: ${result.stderr || result.stdout}`);
+  return result.stdout.trim();
+}
+
+async function toWindowsChromeArgPath(filePath) {
+  return (await toWindowsPath(filePath)).replaceAll("\\", "/");
+}
+
+function isWindowsExecutable(filePath) {
+  return /\.exe$/i.test(filePath);
+}
+
+function browserAppName() {
+  const normalized = browserExecutable.replaceAll("\\", "/").toLowerCase();
+  if (normalized.endsWith("msedge.exe")) return "Microsoft Edge";
+  if (normalized.endsWith("chrome.exe")) return "Google Chrome";
+  return browserMode === "chrome" ? "Google Chrome" : "Google Chrome for Testing";
+}
+
+function windowsBrowserProcessName(appName) {
+  if (appName === "Microsoft Edge") return "msedge";
+  return "chrome";
+}
+
+async function waitForCdp(port, timeoutMs = 15000) {
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    try {
+      const response = await fetch(`http://127.0.0.1:${port}/json/version`);
+      if (response.ok) return true;
+    } catch {
+      // Keep polling until Chrome finishes opening the remote debugging port.
+    }
+    await wait(250);
+  }
+  return false;
+}
+
+async function launchWindowsChromeOverCdp(userDataDir) {
+  const port = 9300 + Math.floor(Math.random() * 500);
+  const extensionRootForBrowser = await toWindowsChromeArgPath(extensionRoot);
+  const userDataDirForBrowser = await toWindowsChromeArgPath(userDataDir);
+  const child = spawn(browserExecutable, [
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--disable-popup-blocking",
+    "--disable-sync",
+    "--window-position=40,40",
+    "--window-size=940,820",
+    "--enable-features=ExtensionsSidePanel,SidePanelPinning",
+    "--disable-features=DisableLoadExtensionCommandLineSwitch",
+    "--enable-unsafe-extension-debugging",
+    `--load-extension=${extensionRootForBrowser}`,
+    `--user-data-dir=${userDataDirForBrowser}`,
+    `--remote-debugging-port=${port}`,
+    "about:blank"
+  ], {
+    cwd: repoRoot,
+    env: { ...process.env },
+    stdio: ["ignore", "pipe", "pipe"]
+  });
+  child.stdout.on("data", (chunk) => process.stdout.write(`[windows-chrome] ${chunk}`));
+  child.stderr.on("data", (chunk) => process.stderr.write(`[windows-chrome] ${chunk}`));
+  if (!(await waitForCdp(port))) {
+    child.kill("SIGTERM");
+    throw new Error(`Windows Chrome did not expose CDP on 127.0.0.1:${port}.`);
+  }
+  const browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`);
+  const context = browser.contexts()[0];
+  if (!context) {
+    await browser.close();
+    child.kill("SIGTERM");
+    throw new Error("Windows Chrome CDP connected but no browser context was exposed.");
+  }
+  return { browser, context, process: child };
+}
+
+async function cleanupWindowsChromeProfile(userDataDir) {
+  if (!browserExecutable || !isWindowsExecutable(browserExecutable) || !(await commandAvailable("powershell.exe"))) return;
+  const profileName = path.basename(userDataDir).replaceAll("'", "''");
+  await run("powershell.exe", [
+    "-NoProfile",
+    "-Command",
+    `$profileName = '${profileName}'; ` +
+      `$targets = Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'chrome.exe' -and $_.CommandLine -like "*$profileName*" }; ` +
+      `$targets | ForEach-Object { try { Stop-Process -Id $_.ProcessId -Force -ErrorAction Stop } catch {} }`
+  ]);
+}
+
 async function fetchJson(url, options) {
   const response = await fetch(url, options);
   return response.json();
@@ -93,12 +190,15 @@ async function waitForRuntime(timeoutMs = 15000) {
 
 function startRuntime() {
   const dbPath = path.join(os.tmpdir(), `navia-closeout-${Date.now()}.sqlite3`);
+  const pythonPath = [path.join(repoRoot, ".tmp/python-deps"), path.join(repoRoot, "services/local-runtime"), process.env.PYTHONPATH]
+    .filter(Boolean)
+    .join(path.delimiter);
   const child = spawn(
     "uvicorn",
     ["navia_runtime.app:app", "--host", "127.0.0.1", "--port", "17861", "--app-dir", "services/local-runtime"],
     {
       cwd: repoRoot,
-      env: { ...process.env, NAVIA_DB_PATH: dbPath },
+      env: { ...process.env, NAVIA_DB_PATH: dbPath, PYTHONPATH: pythonPath },
       stdio: ["ignore", "pipe", "pipe"]
     }
   );
@@ -155,20 +255,59 @@ function startFixtureServer() {
 }
 
 async function activateBrowserApp(appName) {
-  await run("osascript", ["-e", `tell application "${appName}" to activate`]);
+  if (await commandAvailable("osascript")) {
+    await run("osascript", ["-e", `tell application "${appName}" to activate`]);
+  } else if (await commandAvailable("powershell.exe")) {
+    const escapedName = appName.replaceAll("'", "''");
+    const processName = windowsBrowserProcessName(appName);
+    await run("powershell.exe", [
+      "-NoProfile",
+      "-Command",
+      `$shell = New-Object -ComObject WScript.Shell; $p = Get-Process ${processName} | Sort-Object StartTime -Descending | Select-Object -First 1; if ($p) { $shell.AppActivate($p.Id) | Out-Null } else { $shell.AppActivate('${escapedName}') | Out-Null }`
+    ]);
+  }
   await wait(600);
 }
 
-async function pressSystemShortcutForNavia() {
-  await run("osascript", ["-e", 'tell application "System Events" to key code 53']);
-  await wait(200);
-  await run("osascript", ["-e", 'tell application "System Events" to key code 45 using {option down, shift down}']);
+async function pressSystemShortcutForNavia(appName) {
+  if (await commandAvailable("osascript")) {
+    await run("osascript", ["-e", 'tell application "System Events" to key code 53']);
+    await wait(200);
+    await run("osascript", ["-e", 'tell application "System Events" to key code 45 using {option down, shift down}']);
+  } else if (await commandAvailable("powershell.exe")) {
+    const escapedName = appName.replaceAll("'", "''");
+    const processName = windowsBrowserProcessName(appName);
+    await run("powershell.exe", [
+      "-NoProfile",
+      "-Command",
+      `$shell = New-Object -ComObject WScript.Shell; $p = Get-Process ${processName} | Sort-Object StartTime -Descending | Select-Object -First 1; if ($p) { $shell.AppActivate($p.Id) | Out-Null } else { $shell.AppActivate('${escapedName}') | Out-Null }; Start-Sleep -Milliseconds 500; $shell.SendKeys('%+n')`
+    ]);
+  }
 }
 
 async function regionScreenshot(name) {
   const file = path.join(screenshotRoot, name);
-  const result = await run("screencapture", ["-x", "-R", "40,40,1360,860", file]);
-  if (result.code !== 0) throw new Error(`screencapture failed: ${result.stderr || result.stdout}`);
+  if (await commandAvailable("screencapture")) {
+    const result = await run("screencapture", ["-x", "-R", "40,40,1360,860", file]);
+    if (result.code !== 0) throw new Error(`screencapture failed: ${result.stderr || result.stdout}`);
+  } else if (await commandAvailable("powershell.exe")) {
+    const escapedPath = (await toWindowsPath(file)).replaceAll("'", "''");
+    const script = [
+      "Add-Type -AssemblyName System.Windows.Forms",
+      "Add-Type -AssemblyName System.Drawing",
+      "$bounds = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds",
+      "$bitmap = New-Object Drawing.Bitmap $bounds.Width, $bounds.Height",
+      "$graphics = [Drawing.Graphics]::FromImage($bitmap)",
+      "$graphics.CopyFromScreen($bounds.Location, [Drawing.Point]::Empty, $bounds.Size)",
+      `$bitmap.Save('${escapedPath}', [Drawing.Imaging.ImageFormat]::Png)`,
+      "$graphics.Dispose()",
+      "$bitmap.Dispose()"
+    ].join("; ");
+    const result = await run("powershell.exe", ["-NoProfile", "-Command", script]);
+    if (result.code !== 0) throw new Error(`powershell screenshot failed: ${result.stderr || result.stdout}`);
+  } else {
+    throw new Error("No supported native screenshot command found. Expected screencapture or powershell.exe.");
+  }
   return path.relative(evidenceRoot, file);
 }
 
@@ -179,12 +318,76 @@ function writeJson(relativePath, value) {
 }
 
 async function findExtensionServiceWorker(context) {
-  const existing = context.serviceWorkers()[0];
+  const existing = await findNaviaServiceWorker(context.serviceWorkers());
   if (existing) return existing;
   try {
-    return await context.waitForEvent("serviceworker", { timeout: 15000 });
+    const deadline = Date.now() + 15000;
+    while (Date.now() < deadline) {
+      const worker = await Promise.race([
+        context.waitForEvent("serviceworker", { timeout: 1000 }).catch(() => null),
+        wait(1000).then(() => null)
+      ]);
+      const naviaWorker = await findNaviaServiceWorker(worker ? [...context.serviceWorkers(), worker] : context.serviceWorkers());
+      if (naviaWorker) return naviaWorker;
+    }
+    return null;
   } catch {
     return null;
+  }
+}
+
+async function findNaviaServiceWorker(workers) {
+  for (const worker of workers) {
+    try {
+      const result = await worker.evaluate(() => ({
+        manifestName: chrome.runtime.getManifest?.().name,
+        hasE2EExecutor: typeof globalThis.__naviaE2EExecuteSidePanelCommand === "function",
+        hasSidePanelApi: typeof chrome.sidePanel !== "undefined"
+      }));
+      if (result?.manifestName === "Navia" || result?.hasE2EExecutor) return worker;
+    } catch {
+      // Ignore non-extension or inaccessible workers.
+    }
+  }
+  return null;
+}
+
+async function collectTargets(context) {
+  const page = context.pages()[0];
+  if (!page) return [];
+  try {
+    const session = await context.newCDPSession(page);
+    const result = await session.send("Target.getTargets");
+    return result.targetInfos.map((target) => ({
+      type: target.type,
+      title: target.title,
+      url: target.url,
+      attached: target.attached
+    }));
+  } catch (error) {
+    return [
+      {
+        type: "diagnostic_error",
+        title: "Target.getTargets failed",
+        url: error instanceof Error ? error.message : String(error),
+        attached: false
+      }
+    ];
+  }
+}
+
+async function collectExtensionDiagnostics(serviceWorker) {
+  if (!serviceWorker) return null;
+  try {
+    return await serviceWorker.evaluate(async () => ({
+      manifestName: chrome.runtime.getManifest?.().name ?? null,
+      sidePanelApi: typeof chrome.sidePanel,
+      commands: chrome.commands?.getAll ? await chrome.commands.getAll() : []
+    }));
+  } catch (error) {
+    return {
+      error: error instanceof Error ? error.message : String(error)
+    };
   }
 }
 
@@ -229,36 +432,138 @@ async function waitForSnapshot(serviceWorker, predicate, timeoutMs = 25000) {
   throw new Error(`Timed out waiting for bridge snapshot. Last=${JSON.stringify(lastResult)}`);
 }
 
-async function openNativeSidePanel(context, serviceWorker, fixturePage) {
+async function openNativeSidePanel(context, serviceWorker, fixturePage, appName) {
   const attempts = [];
   const existingBridge = await executeBridgeCommand(serviceWorker, { action: "snapshot" });
   if (existingBridge?.ok) {
-    attempts.push({ ok: true, method: "reuse_existing_native_sidepanel_bridge" });
-    return attempts;
+    const existingIdentity = await executeBridgeCommand(serviceWorker, { action: "panel_identity" });
+    attempts.push({ ok: true, method: "existing_sidepanel_bridge_probe", identity: existingIdentity?.result ?? existingIdentity });
+    const identity = existingIdentity?.result ?? {};
+    if (isLikelyNativeNaviaPanelIdentity(identity)) {
+      attempts.push({ ok: true, method: "reuse_existing_native_sidepanel_bridge" });
+      return attempts;
+    }
   }
   if (serviceWorker) {
-    const result = await serviceWorker.evaluate(async () => {
+    const targetPageUrl = fixturePage.url();
+    const result = await serviceWorker.evaluate(async (pageUrl) => {
       try {
         await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
-        const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-        if (!tabs[0]?.id || !tabs[0]?.windowId) return { ok: false, method: "chrome.sidePanel.open", message: "No active tab." };
-        await chrome.sidePanel.setOptions({ tabId: tabs[0].id, path: "sidepanel.html", enabled: true });
-        await chrome.sidePanel.open({ windowId: tabs[0].windowId });
-        return { ok: true, method: "chrome.sidePanel.open" };
+        const tabs = await chrome.tabs.query({});
+        const target = tabs.find((tab) => tab.url === pageUrl) ?? tabs.find((tab) => tab.active && tab.windowId !== undefined);
+        if (!target?.id || !target.windowId) return { ok: false, method: "chrome.sidePanel.open", message: "No target tab." };
+        await chrome.sidePanel.close?.({ tabId: target.id, windowId: target.windowId }).catch(() => undefined);
+        await chrome.sidePanel.setOptions({ tabId: target.id, path: `sidepanel.html?naviaE2ETabId=${target.id}`, enabled: true });
+        await chrome.sidePanel.open({ tabId: target.id, windowId: target.windowId });
+        return { ok: true, method: "chrome.sidePanel.open", tabId: target.id };
       } catch (error) {
         return { ok: false, method: "chrome.sidePanel.open", message: error instanceof Error ? error.message : String(error) };
       }
-    });
+    }, targetPageUrl);
     attempts.push(result);
+    if (result?.ok) {
+      await wait(1500);
+      const bridge = await executeBridgeCommand(serviceWorker, { action: "snapshot" });
+      const identityResult = bridge?.ok ? await executeBridgeCommand(serviceWorker, { action: "panel_identity" }) : null;
+      const identity = identityResult?.result ?? {};
+      attempts.push({ ok: Boolean(bridge?.ok), method: "chrome.sidePanel.open_bridge_probe", identity });
+      if (bridge?.ok && isLikelyNativeNaviaPanelIdentity(identity)) return attempts;
+    }
   }
-  await fixturePage.bringToFront();
-  await fixturePage.keyboard.press("Alt+Shift+N");
-  attempts.push({ ok: true, method: "Playwright Alt+Shift+N sent" });
-  await wait(1000);
-  await pressSystemShortcutForNavia();
-  attempts.push({ ok: true, method: "System Events Option+Shift+N sent" });
-  await wait(2500);
+  if (serviceWorker) {
+    const result = await openSidePanelViaExtensionUserGesture(context, serviceWorker, fixturePage.url());
+    attempts.push(result);
+    await fixturePage.bringToFront();
+    await activateBrowserApp(appName);
+    await wait(1500);
+    if (result?.ok) {
+      const bridge = await executeBridgeCommand(serviceWorker, { action: "snapshot" });
+      const identityResult = bridge?.ok ? await executeBridgeCommand(serviceWorker, { action: "panel_identity" }) : null;
+      const identity = identityResult?.result ?? {};
+      attempts.push({ ok: Boolean(bridge?.ok), method: "extension_page_user_gesture_bridge_probe", identity });
+      if (bridge?.ok && isLikelyNativeNaviaPanelIdentity(identity)) return attempts;
+    }
+  }
+  attempts.push({ ok: false, method: "shortcut_open_skipped", message: "Skipped to avoid opening Chrome built-in panels during native Side Panel acceptance." });
   return attempts;
+}
+
+async function openSidePanelViaExtensionUserGesture(context, serviceWorker, targetPageUrl) {
+  const extensionId = new URL(serviceWorker.url()).host;
+  const helperPage = await context.newPage();
+  try {
+    await helperPage.goto(`chrome-extension://${extensionId}/mermaid-renderer.html`);
+    await helperPage.evaluate((pageUrl) => {
+      const button = document.createElement("button");
+      button.id = "navia-e2e-open-sidepanel";
+      button.textContent = "Open Navia Side Panel";
+      button.style.cssText = "position:fixed;left:20px;top:20px;z-index:2147483647;padding:12px;font-size:16px";
+      button.addEventListener("click", () => {
+        void (async () => {
+          try {
+            globalThis.__naviaE2ESidePanelOpenResult = { status: "started" };
+            await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+            const tabs = await chrome.tabs.query({});
+            const target = tabs.find((tab) => tab.url === pageUrl) ?? tabs.find((tab) => tab.active && tab.windowId !== undefined);
+            const windowId = target?.windowId;
+            if (!target?.id || windowId === undefined) throw new Error("No target tab for helper user gesture.");
+            await chrome.sidePanel.close?.({ tabId: target.id, windowId }).catch(() => undefined);
+            await chrome.sidePanel.setOptions({ tabId: target.id, path: `sidepanel.html?naviaE2ETabId=${target.id}`, enabled: true });
+            await chrome.sidePanel.open({ tabId: target.id, windowId });
+            globalThis.__naviaE2ESidePanelOpenResult = { status: "opened", windowId, tabId: target.id };
+          } catch (error) {
+            globalThis.__naviaE2ESidePanelOpenResult = {
+              status: "failed",
+              message: error instanceof Error ? error.message : String(error)
+            };
+          }
+        })();
+      });
+      document.body.append(button);
+    }, targetPageUrl);
+    await helperPage.click("#navia-e2e-open-sidepanel");
+    const result = await helperPage.waitForFunction(
+      () => globalThis.__naviaE2ESidePanelOpenResult?.status === "opened" || globalThis.__naviaE2ESidePanelOpenResult?.status === "failed",
+      null,
+      { timeout: 5000 }
+    ).then((handle) => handle.jsonValue());
+    if (result?.status !== "opened") {
+      return { ok: false, method: "extension_page_user_gesture_sidePanel.open", message: result?.message ?? "Helper page did not open Side Panel." };
+    }
+    return { ok: true, method: "extension_page_user_gesture_sidePanel.open", result };
+  } catch (error) {
+    return {
+      ok: false,
+      method: "extension_page_user_gesture_sidePanel.open",
+      message: error instanceof Error ? error.message : String(error)
+    };
+  } finally {
+    await helperPage.close().catch(() => undefined);
+  }
+}
+
+function isLikelyNativeNaviaPanelIdentity(identity) {
+  const viewport = identity?.viewport && typeof identity.viewport === "object" ? identity.viewport : {};
+  const width = Number(viewport.width ?? 0);
+  const height = Number(viewport.height ?? 0);
+  return Boolean(
+    identity?.hasNaviaRoot &&
+      identity?.naviaRootVisible &&
+      typeof identity?.locationHref === "string" &&
+      identity.locationHref.includes("sidepanel.html") &&
+      width > 0 &&
+      width <= 720 &&
+      height >= 480
+  );
+}
+
+async function collectPanelIdentity(serviceWorker) {
+  const identityResult = await executeBridgeCommand(serviceWorker, { action: "panel_identity" });
+  const identity = identityResult?.result ?? identityResult ?? {};
+  return {
+    ...identity,
+    nativePanelViewportLikely: isLikelyNativeNaviaPanelIdentity(identity)
+  };
 }
 
 async function removeVisibleText(page, text) {
@@ -299,25 +604,42 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
   await fixturePage.goto(pageUrl);
   await fixturePage.bringToFront();
   await activateBrowserApp(browserAppName);
+  const context = nullSafeContext(fixturePage);
+  const activeServiceWorker = serviceWorker ?? (await findExtensionServiceWorker(context));
+  const activeExtensionId = activeServiceWorker ? new URL(activeServiceWorker.url()).host : extensionId;
   const expectedTitle = await fixturePage.title();
-  const attempts = await openNativeSidePanel(nullSafeContext(fixturePage), serviceWorker, fixturePage);
-  const bridgeReady = await waitForBridge(serviceWorker);
-  if (!bridgeReady) throw new Error("Native Side Panel bridge did not connect.");
+  const attempts = await openNativeSidePanel(context, activeServiceWorker, fixturePage, browserAppName);
+  const bridgeReady = await waitForBridge(activeServiceWorker);
+  if (!bridgeReady) {
+    throw new Error(
+      `Native Side Panel bridge did not connect. diagnostics=${JSON.stringify({
+        extensionId: activeExtensionId,
+        extensionDiagnostics: await collectExtensionDiagnostics(activeServiceWorker),
+        serviceWorkers: context.serviceWorkers().map((worker) => worker.url()),
+        pages: context.pages().map((page) => page.url()),
+        targets: await collectTargets(context),
+        attempts
+      })}`
+    );
+  }
 
-  await runBridgeCommand(serviceWorker, { action: "capture" });
+  await runBridgeCommand(activeServiceWorker, { action: "capture" });
   await waitForSnapshot(
-    serviceWorker,
+    activeServiceWorker,
     (snapshot) => (snapshot.pageContextState === "capture_ready" || snapshot.pageContextState === "captured") && snapshot.pageTitle === expectedTitle
   );
-  await runBridgeCommand(serviceWorker, { action: "submit" });
-  await waitForSnapshot(serviceWorker, (snapshot) => snapshot.pageContextState === "captured" && snapshot.pageTitle === expectedTitle);
-  await runBridgeCommand(serviceWorker, { action: "mindmap" });
-  await waitForSnapshot(serviceWorker, (snapshot) => snapshot.chatTurnState === "done" || snapshot.streamStatus === "done");
+  await runBridgeCommand(activeServiceWorker, { action: "submit" });
+  await waitForSnapshot(activeServiceWorker, (snapshot) => snapshot.pageContextState === "captured" && snapshot.pageTitle === expectedTitle);
+  await runBridgeCommand(activeServiceWorker, { action: "mindmap" });
+  await waitForSnapshot(activeServiceWorker, (snapshot) => snapshot.chatTurnState === "done" || snapshot.streamStatus === "done");
   await wait(1200);
 
-  const cardsResult = await runBridgeCommand(serviceWorker, { action: "source_cards_snapshot" });
+  const cardsResult = await runBridgeCommand(activeServiceWorker, { action: "source_cards_snapshot" });
   const sourceCards = cardsResult.result?.sourceCards ?? cardsResult.sourceCards ?? [];
   const containsEvidenceCardMindmap = Boolean(cardsResult.result?.containsEvidenceCardMindmap ?? cardsResult.containsEvidenceCardMindmap);
+  const containsReadingMap = Boolean(cardsResult.result?.containsReadingMap ?? cardsResult.containsReadingMap);
+  const readingMapNavCount = Number(cardsResult.result?.readingMapNavCount ?? cardsResult.readingMapNavCount ?? 0);
+  const readingMapDetailText = String(cardsResult.result?.readingMapDetailText ?? cardsResult.readingMapDetailText ?? "").replace(/\s+/g, " ").trim();
   const containsSourcePanel = Boolean(cardsResult.result?.containsSourcePanel ?? cardsResult.containsSourcePanel);
   const evidenceCardCount = Number(cardsResult.result?.evidenceCardCount ?? cardsResult.evidenceCardCount ?? 0);
   if (!Array.isArray(sourceCards) || sourceCards.length === 0) throw new Error(`No source cards for ${pageSpec.label}.`);
@@ -329,22 +651,31 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
     drift = await removeVisibleText(fixturePage, selectedCard.excerpt || selectedCard.label);
     drift = await replacePageBodyForFallback(fixturePage, pageSpec.label);
   }
-  const jumpResult = await runBridgeCommand(serviceWorker, { action: "jumpback_source_card", index: cardIndex });
+  const jumpResult = await runBridgeCommand(activeServiceWorker, { action: "jumpback_source_card", index: cardIndex });
   await wait(800);
   const highlighted = await fixturePage.evaluate(() => Boolean(document.querySelector("[data-navia-jumpback-highlight='true']")));
   const afterScreenshotPath = await regionScreenshot(`${pageSpec.label}-jumpback-after.png`);
+  const panelIdentity = await collectPanelIdentity(activeServiceWorker);
   const evidenceText = jumpResult.result?.evidenceText ?? jumpResult.evidenceText ?? "";
+  const sourceEvidenceVisible = Boolean(jumpResult.result?.sourceEvidenceVisible ?? jumpResult.sourceEvidenceVisible);
   const result = highlighted ? "highlighted" : String(evidenceText).includes("未能定位到原文位置") || (pageSpec.forceFallback && String(evidenceText).trim()) ? "fallback_shown" : "blocked";
+  const containsNaviaPanel = Boolean(panelIdentity.nativePanelViewportLikely);
   const metadataPath = `${afterScreenshotPath}.metadata.json`;
   const metadata = {
     screenshotPath: afterScreenshotPath,
     pageUrl,
     tabTitle: await fixturePage.title(),
-    isNativeSidePanel: true,
+    isNativeSidePanel: containsNaviaPanel,
     containsWebPageBody: true,
-    containsNaviaPanel: true,
+    containsNaviaPanel,
     containsEvidenceCardMindmap,
+    containsReadingMap,
+    readingMapNavCount,
+    readingMapDetailText,
     containsSourcePanel,
+    panelIdentity,
+    sourceEvidenceVisible,
+    sourceEvidenceText: String(evidenceText).replace(/\s+/g, " ").trim(),
     evidenceCardCount,
     nodeId: String(selectedCard.nodeId || selectedCard.testId || selectedCard.label || pageSpec.label).replace(/^mindmap-source-card-/, ""),
     result,
@@ -352,11 +683,14 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
       result === "highlighted"
         ? "右侧 Navia Side Panel 显示来源证据，网页主体中可见高亮来源。"
         : "右侧 Navia Side Panel 显示 fallback evidence；本样本用于验证 DOM 漂移或无法定位时不冒充高亮成功。",
-    extensionId,
+    extensionId: activeExtensionId,
     drift,
     evidenceText
   };
   writeJson(metadataPath, metadata);
+  if (!containsNaviaPanel) {
+    throw new Error(`Visible Navia native Side Panel was not proven for ${pageSpec.label}. panelIdentity=${JSON.stringify(panelIdentity)}`);
+  }
   return {
     sampleId: `jb_${pageSpec.label.replace(/[^a-z0-9]+/gi, "_")}`,
     pageId: pageSpec.label,
@@ -372,7 +706,12 @@ async function runJumpbackSample({ serviceWorker, fixturePage, pageSpec, pageUrl
     afterScreenshotPath,
     metadataPath,
     containsEvidenceCardMindmap,
+    containsReadingMap,
+    readingMapNavCount,
+    readingMapDetailText,
     containsSourcePanel,
+    sourceEvidenceVisible,
+    sourceEvidenceText: metadata.sourceEvidenceText,
     evidenceCardCount,
     attempts
   };
@@ -452,27 +791,40 @@ async function main() {
   await configureRuntime();
 
   const { server, origin } = await startFixtureServer();
-  const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "navia-closeout-profile-"));
+  const profileRoot = browserExecutable && isWindowsExecutable(browserExecutable)
+    ? path.join(repoRoot, ".tmp")
+    : os.tmpdir();
+  fs.mkdirSync(profileRoot, { recursive: true });
+  const userDataDir = fs.mkdtempSync(path.join(profileRoot, "navia-closeout-profile-"));
   let context = null;
+  let cdpBrowser = null;
+  let windowsChromeProcess = null;
   try {
-    context = await chromium.launchPersistentContext(userDataDir, {
-      ...(browserMode === "chrome" ? { channel: "chrome" } : {}),
-      headless: false,
-      viewport: { width: 1360, height: 900 },
-      ignoreDefaultArgs: ["--disable-extensions"],
-      args: [
-        "--window-position=40,40",
-        "--window-size=1360,900",
-        "--disable-features=DisableLoadExtensionCommandLineSwitch",
-        "--enable-unsafe-extension-debugging",
-        `--disable-extensions-except=${extensionRoot}`,
-        `--load-extension=${extensionRoot}`
-      ]
-    });
+    if (browserExecutable && isWindowsExecutable(browserExecutable)) {
+      const launched = await launchWindowsChromeOverCdp(userDataDir);
+      context = launched.context;
+      cdpBrowser = launched.browser;
+      windowsChromeProcess = launched.process;
+    } else {
+      context = await chromium.launchPersistentContext(userDataDir, {
+        ...(browserExecutable ? { executablePath: browserExecutable } : browserMode === "chrome" ? { channel: "chrome" } : {}),
+        headless: false,
+        viewport: { width: 940, height: 820 },
+        ignoreDefaultArgs: ["--disable-extensions"],
+        args: [
+          "--window-position=40,40",
+          "--window-size=940,820",
+          "--disable-features=DisableLoadExtensionCommandLineSwitch",
+          "--enable-unsafe-extension-debugging",
+          `--disable-extensions-except=${extensionRoot}`,
+          `--load-extension=${extensionRoot}`
+        ]
+      });
+    }
     const fixturePage = await context.newPage();
     const serviceWorker = await findExtensionServiceWorker(context);
     const extensionId = serviceWorker ? new URL(serviceWorker.url()).host : null;
-    const browserAppName = browserMode === "chrome" ? "Google Chrome" : "Google Chrome for Testing";
+    const activeBrowserAppName = browserAppName();
     const samples = [];
     const blockers = [];
     for (const pageSpec of fixturePages) {
@@ -483,7 +835,7 @@ async function main() {
           pageSpec,
           pageUrl: `${origin}${pageSpec.route}`,
           extensionId,
-          browserAppName
+          browserAppName: activeBrowserAppName
         });
         samples.push(sample);
       } catch (error) {
@@ -498,7 +850,10 @@ async function main() {
     console.log(JSON.stringify(report, null, 2));
     process.exitCode = report.passed ? 0 : 2;
   } finally {
-    if (context) await context.close();
+    if (cdpBrowser) await cdpBrowser.close();
+    else if (context) await context.close();
+    if (windowsChromeProcess) windowsChromeProcess.kill("SIGTERM");
+    await cleanupWindowsChromeProfile(userDataDir);
     server.close();
     if (runtimeProcess) runtimeProcess.kill("SIGTERM");
   }

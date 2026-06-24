@@ -1,0 +1,114 @@
+{
+  "viewModelId": "evm_art_v13_fixture",
+  "artifactId": "art_v13_fixture",
+  "sourcePageId": "page_v13_fixture",
+  "renderMode": "evidence_card",
+  "nodes": [
+    {
+      "nodeId": "root",
+      "label": "Companion Reading Architecture",
+      "note": "Navia reads the active page and produces traceable artifacts.",
+      "depth": 0,
+      "parentNodeId": null,
+      "childNodeIds": [
+        "capture"
+      ],
+      "sourceRefIds": [
+        "src_root"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.94,
+      "qualityState": "ready",
+      "uiState": "default",
+      "tags": [
+        "root",
+        "1 source"
+      ],
+      "degradedReason": null,
+      "textQuote": "Navia reads the active page and produces traceable artifacts.",
+      "fallbackText": "Navia reads the active page and produces traceable artifacts."
+    },
+    {
+      "nodeId": "capture",
+      "label": "Page Capture",
+      "note": "Page capture creates structured page context.",
+      "depth": 1,
+      "parentNodeId": "root",
+      "childNodeIds": [],
+      "sourceRefIds": [
+        "src_capture"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.86,
+      "qualityState": "ready",
+      "uiState": "selected",
+      "tags": [
+        "detail",
+        "1 source"
+      ],
+      "degradedReason": null,
+      "textQuote": "Page capture creates structured page context.",
+      "fallbackText": "Page capture creates structured page context."
+    }
+  ],
+  "edges": [
+    {
+      "edgeId": "root->capture",
+      "sourceNodeId": "root",
+      "targetNodeId": "capture",
+      "uiState": "highlighted"
+    }
+  ],
+  "themes": [
+    {
+      "themeId": "theme_capture",
+      "nodeId": "capture",
+      "label": "Page Capture",
+      "sourceCount": 1,
+      "confidence": 0.86,
+      "qualityState": "ready",
+      "uiState": "selected",
+      "childNodeIds": [],
+      "visibleChildNodeIds": [],
+      "hiddenChildCount": 0,
+      "totalNodeCount": 1,
+      "score": 5.92
+    }
+  ],
+  "displayPolicy": {
+    "maxDepth": 2,
+    "density": "low",
+    "maxVisibleThemes": 6,
+    "maxVisibleChildrenPerTheme": 4,
+    "hiddenNodeCount": 0,
+    "rootNodeId": "root",
+    "rootLabel": "Companion Reading Architecture"
+  },
+  "sourcePanel": {
+    "status": "ready",
+    "selectedNodeId": "capture",
+    "sourceRefIds": [
+      "src_capture"
+    ],
+    "items": [
+      {
+        "sourceRefId": "src_capture",
+        "displayText": "Page capture creates structured page context.",
+        "jumpbackStatus": "not_attempted",
+        "failureReason": null
+      }
+    ],
+    "failureReason": null
+  },
+  "interactionState": {
+    "selectedNodeId": "capture",
+    "hoveredNodeId": null,
+    "focusedNodeId": "capture",
+    "neighborNodeIds": [
+      "root"
+    ],
+    "dimmedNodeIds": []
+  },
+  "fallbacks": [],
+  "warnings": []
+}

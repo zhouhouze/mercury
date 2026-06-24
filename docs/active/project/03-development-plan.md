@@ -1201,6 +1201,19 @@ docs/active/project/evidence/v1_2_closeout/screenshots/
 
 V1.3 承接 V1.2-Closeout，目标是把 Mindmap 的主体验从 Mermaid 默认图升级为 Evidence Card Mindmap。它不新增 A/C/D 能力边界，不做 Canvas Knowledge Map，不引入 RAG / Memory / Web Research / PPT。
 
+用户已确认 V1.3 作为当前阶段目标。本阶段以“Chrome 原生 Side Panel 中的 Evidence Card Mindmap 体验完整可验收”为开发终点；已有 Evidence Card 基线和 C 标签压缩改进只能算阶段输入，不能替代最终验收报告。
+
+本阶段开发主线：
+
+```text
+文档门禁冻结
+-> B-local EvidenceCardViewModel 派生
+-> Evidence Card 卡片树布局和可读性
+-> 节点交互与 source evidence panel
+-> DOM jumpback / fallback / blocked 状态闭环
+-> 真实网页矩阵、PRD 复检、false-green audit、HTML 报告
+```
+
 阶段拆分：
 
 ```text
@@ -1216,12 +1229,23 @@ V1.3-5：真实网页 E2E、PRD 复检、false-green audit、HTML 报告
 
 | 子阶段 | 开发重点 | 验收重点 |
 |---|---|---|
-| `V1.3-0` | 冻结 Evidence Card 节点字段、状态、降级口径、`report.json` schema 和截图证据 | 外部审计无 fatal / major |
+| `V1.3-0` | 冻结 Evidence Card 节点字段、状态、降级口径、`report.json` schema 和截图证据 | 文档一致性审计无 fatal / major |
 | `V1.3-1` | 实现 `EvidenceCardViewModel` 派生，不改变 Artifact 合同 | normal / missing source / duplicate label / long text fixture 全覆盖 |
 | `V1.3-2` | 实现 Evidence Card 布局和视觉系统 | Side Panel 窄宽度截图无文本溢出、节点重叠或不可读 |
 | `V1.3-3` | 实现选中、hover、邻接高亮和 source panel | 点击节点后可稳定展示来源证据 |
 | `V1.3-4` | 整合 DOM jumpback success、fallback shown、blocked 状态 | UI 与报告严格区分成功和 fallback |
 | `V1.3-5` | 真实 Chrome / snapshot 验收与报告 | 至少 8 页矩阵，3 个原生 Side Panel 截图级样本 |
+
+当前里程碑状态口径：
+
+| 里程碑 | 当前判断 | 下一步 |
+|---|---|---|
+| `V1.3-0` 文档门禁 | 需补齐并复核 | 同步 PRD、目标架构、gap drawio、验收计划、stage gate |
+| `V1.3-1` view model | 基线存在，需证据闭环 | 补 fixture class gate 和 schema validation 记录 |
+| `V1.3-2` 布局可读性 | 基线存在，需截图验收 | 补窄 Side Panel 截图和文本溢出检查 |
+| `V1.3-3` 交互状态 | 基线存在，需统一验收 | 补 selected / neighbor / source panel 截图证据 |
+| `V1.3-4` source interaction | 基线存在，需状态一致性审计 | 严格区分 highlighted、fallback_shown、blocked |
+| `V1.3-5` 出门验收 | 未完成 | 产出 8 页矩阵、3 个 native Side Panel 截图级样本、HTML 报告 |
 
 打回规则：
 
@@ -1250,9 +1274,105 @@ docs/active/project/contracts/v1_3_evidence_card_mindmap.schema.json
 启动口径：
 
 ```text
-V1.3-0: Go for external audit.
+V1.3-0: Go for documentation and audit closure.
 V1.3-1+: Conditional Go after V1.3-0 closes with no fatal / major issue.
 ```
+
+本阶段禁止把以下内容作为 V1.3 任务：
+
+- 网页内最终悬浮球 / 双轨面板补齐，除非另起 V1 final interaction stage gate。
+- Canvas Knowledge Map、长期记忆、RAG、Web Research、PPT、Deep Research、多 Agent。
+- 默认本地文件读取、浏览器自动操作、语音、桌宠。
+- 让 B 直接调用 A/C/D 服务，或让 C 输出前端组件结构。
+
+---
+
+### 13.11 V1.4 Reading Map Side Panel Navigation
+
+V1.4 承接 V1.3，不重开 A/C/D 合同。目标是把 Evidence Card Mindmap 变成 Side Panel 内的双栏阅读地图：左栏提供主题 / 节点导航，右栏提供选中节点详情、来源证据和 jumpback / fallback 状态。
+
+阶段拆分：
+
+```text
+V1.4-0：PRD、stage gate、验收口径、No-Go 和审计闭环
+V1.4-1：B-local ReadingMapViewModel，从 EvidenceCardViewModel 派生
+V1.4-2：双栏 Reading Map UI，适配 Side Panel 窄宽度
+V1.4-3：节点选择、详情、source evidence、jumpback / fallback 状态
+V1.4-4：自动化验收、PRD 复检、false-green audit、报告
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.4-0` | 冻结阶段边界、验收门槛和文档审计 | 无 fatal / major 文档风险 |
+| `V1.4-1` | 从 V1.3 ViewModel 派生 ReadingMapViewModel | normal / missing source / dense theme fixture 覆盖 |
+| `V1.4-2` | 在 Mindmap artifact 中渲染左导航 + 右详情 | 组件测试证明双栏可见、文本不溢出 |
+| `V1.4-3` | 选择节点、来源详情、jumpback / fallback 状态 | located / fallback shown / blocked 不混淆 |
+| `V1.4-4` | 真实 Chrome 或可复现 snapshot 验收 | 产出 report、PRD review、false-green audit |
+
+V1.4 禁止：
+
+- 改变 Runtime public contract。
+- 让 C 输出前端组件结构。
+- 把 Reading Map 扩大为 Canvas Knowledge Map、多网页知识图谱、Memory、RAG、Web Research、PPT、Deep Research 或多 Agent。
+- 借 V1.4 声明完整 V1 complete。
+
+### 13.12 V1 Gemini Style Pass 开发计划
+
+本阶段承接 Gemini 原型审查结果，只在当前实现范围内提升样式、按钮设计和状态反馈。它不新增真实产品页面，不实现 floating ball / collapse / resize，不改变 Runtime 合同。
+
+阶段拆分：
+
+```text
+V1-GSP-0：PRD、架构、开发计划、验收计划、gap drawio、No-Go 口径冻结
+V1-GSP-1：Gemini 原型和 UX review HTML 落盘到 active docs
+V1-GSP-2：sidepanel 视觉 token、按钮系统、右侧工具栏、Header 样式升级
+V1-GSP-3：当前网页上下文卡、Runtime 状态、Source Evidence 状态色增强
+V1-GSP-4：类型检查、组件测试、构建和选择器回归
+V1-GSP-5：真实 Chrome 截图、PRD review、false-green audit、出门报告
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1-GSP-0` | 同步 stage gate、PRD、架构、计划、验收、drawio | 文档无冲突，范围不扩大 |
+| `V1-GSP-1` | 保存 Gemini sandbox 和审查页 | humans 可打开 review HTML 快速理解目标体验 |
+| `V1-GSP-2` | 应用 Gemini 样式 token 和按钮系统 | 不破坏 Chat / Agent / Debug / Settings |
+| `V1-GSP-3` | 增强当前网页上下文与 Source Evidence 状态 | located / fallback / blocked 可区分 |
+| `V1-GSP-4` | 跑 typecheck、focused tests、build | 现有体验和测试选择器不回归 |
+| `V1-GSP-5` | 真实 Chrome 视觉验收 | 截图、PRD review、false-green audit 一致 |
+
+打回规则：
+
+- 如果新增真实产品页面、launcher、折叠或 resize，打回 stage gate。
+- 如果样式升级导致历史会话、快捷操作、composer、Agent、Debug、Settings、Mindmap、Reading Map 或 Source Evidence 不可用，打回实现阶段。
+- 如果 fallback evidence 被展示为 DOM highlight success，打回 Source Evidence 阶段。
+- 如果测试或构建失败，打回实现阶段。
+
+证据包建议路径：
+
+```text
+docs/active/project/evidence/v1_gemini_style_pass/acceptance-report.md
+docs/active/project/evidence/v1_gemini_style_pass/prd-review.md
+docs/active/project/evidence/v1_gemini_style_pass/false-green-audit.md
+docs/active/project/evidence/v1_gemini_style_pass/screenshots/
+```
+
+### 13.13 V1 Launcher / Collapse / Resize 开发计划
+
+本阶段把 Gemini 原型中的外层交互控制提升为真实 content script 能力。
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1-LCR-0` | 冻结 launcher / collapse / resize stage gate | 文档边界不引入禁用能力 |
+| `V1-LCR-1` | content script 状态机和 launcher | 默认展开、点击折叠/展开 |
+| `V1-LCR-2` | resize handle 和 push / overlay | 宽度限制、页面 margin 正确 |
+| `V1-LCR-3` | launcher 拖拽和状态持久化 | 垂直位置、左右贴边、localStorage |
+| `V1-LCR-4` | 回归验证 | page context、jumpback、sidepanel 体验不回归 |
 
 ---
 

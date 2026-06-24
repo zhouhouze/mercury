@@ -14,6 +14,8 @@
         "renderMode",
         "nodes",
         "edges",
+        "themes",
+        "displayPolicy",
         "sourcePanel",
         "interactionState",
         "fallbacks",
@@ -52,6 +54,15 @@
           "items": {
             "$ref": "#/$defs/EvidenceCardEdge"
           }
+        },
+        "themes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceCardTheme"
+          }
+        },
+        "displayPolicy": {
+          "$ref": "#/$defs/EvidenceCardDisplayPolicy"
         },
         "sourcePanel": {
           "$ref": "#/$defs/EvidenceCardSourcePanel"
@@ -175,6 +186,144 @@
           ]
         },
         "fallbackText": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "EvidenceCardTheme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "themeId",
+        "nodeId",
+        "label",
+        "sourceCount",
+        "confidence",
+        "qualityState",
+        "uiState",
+        "childNodeIds",
+        "visibleChildNodeIds",
+        "hiddenChildCount",
+        "totalNodeCount",
+        "score"
+      ],
+      "properties": {
+        "themeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 96
+        },
+        "sourceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "qualityState": {
+          "enum": [
+            "ready",
+            "degraded",
+            "missing_source"
+          ]
+        },
+        "uiState": {
+          "enum": [
+            "default",
+            "hover",
+            "focus",
+            "selected",
+            "neighbor_highlighted",
+            "dimmed",
+            "locating",
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "childNodeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "visibleChildNodeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hiddenChildCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "totalNodeCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "score": {
+          "type": "number"
+        }
+      }
+    },
+    "EvidenceCardDisplayPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxDepth",
+        "density",
+        "maxVisibleThemes",
+        "maxVisibleChildrenPerTheme",
+        "hiddenNodeCount",
+        "rootNodeId",
+        "rootLabel"
+      ],
+      "properties": {
+        "maxDepth": {
+          "const": 2
+        },
+        "density": {
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "maxVisibleThemes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maxVisibleChildrenPerTheme": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "hiddenNodeCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rootNodeId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rootLabel": {
           "type": [
             "string",
             "null"
@@ -368,6 +517,7 @@
       "required": [
         "schemaVersion",
         "stage",
+        "generatedAt",
         "passed",
         "summary",
         "pages",
@@ -383,6 +533,10 @@
         },
         "stage": {
           "const": "V1.3"
+        },
+        "generatedAt": {
+          "type": "string",
+          "minLength": 1
         },
         "passed": {
           "type": "boolean"
@@ -453,7 +607,10 @@
           }
         },
         "claim": {
-          "const": "V1.3 Evidence Card Mindmap experience complete"
+          "enum": [
+            "V1.3 Evidence Card Mindmap experience complete",
+            "No completion claim. V1.3 Evidence Card Mindmap remains blocked."
+          ]
         }
       }
     },
@@ -468,6 +625,7 @@
         "evidenceCardRendered",
         "sourcePanelVisible",
         "fallbackVisibleWhenNeeded",
+        "visualEvidenceStatus",
         "conclusion"
       ],
       "properties": {
@@ -496,6 +654,14 @@
             "render_failure"
           ]
         },
+        "evidenceMode": {
+          "enum": [
+            "runtime_snapshot",
+            "live_chrome_native_sidepanel",
+            "visual_sample",
+            "component_fixture"
+          ]
+        },
         "evidenceCardRendered": {
           "type": "boolean"
         },
@@ -504,6 +670,14 @@
         },
         "fallbackVisibleWhenNeeded": {
           "type": "boolean"
+        },
+        "visualEvidenceStatus": {
+          "enum": [
+            "sampled_pass",
+            "sampled_degraded",
+            "sampled_fail",
+            "not_sampled"
+          ]
         },
         "conclusion": {
           "enum": [
@@ -525,6 +699,8 @@
         "containsNaviaPanel",
         "containsEvidenceCardMindmap",
         "containsSourcePanel",
+        "sourceEvidenceVisible",
+        "sourceEvidenceText",
         "result"
       ],
       "properties": {
@@ -554,6 +730,13 @@
         },
         "containsSourcePanel": {
           "type": "boolean"
+        },
+        "sourceEvidenceVisible": {
+          "type": "boolean"
+        },
+        "sourceEvidenceText": {
+          "type": "string",
+          "minLength": 1
         },
         "result": {
           "enum": [

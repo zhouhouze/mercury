@@ -64,10 +64,14 @@ export default defineBackground(() => {
   });
 
   chrome.action.onClicked.addListener(async (tab) => {
-    if (tab.windowId !== undefined && chrome.sidePanel?.open) {
-      await configureSidePanel(tab.id);
-      await chrome.sidePanel.open({ windowId: tab.windowId });
-    }
+    await openSidePanelForTab(tab);
+  });
+
+  chrome.commands?.onCommand.addListener((command) => {
+    if (command !== "open-navia-sidepanel") return;
+    void chrome.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
+      if (tabs[0]) return openSidePanelForTab(tabs[0]);
+    });
   });
 });
 
@@ -81,6 +85,12 @@ async function configureSidePanel(tabId?: number) {
       enabled: true
     });
   }
+}
+
+async function openSidePanelForTab(tab: chrome.tabs.Tab) {
+  if (tab.windowId === undefined || tab.id === undefined || !chrome.sidePanel?.open) return;
+  await configureSidePanel(tab.id);
+  await chrome.sidePanel.open({ tabId: tab.id, windowId: tab.windowId });
 }
 
 function executeSidePanelE2ECommand(command: unknown): Promise<unknown> {

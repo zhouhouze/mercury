@@ -5,8 +5,10 @@ import {
   buildJumpbackRequest,
   presentMindmapArtifact,
   selectEvidenceCardNode,
+  toReadingMapViewModel,
   type EvidenceCardNode,
   type EvidenceCardTheme,
+  type ReadingMapNavItem,
   type EvidenceCardSourcePanelStatus,
   type SourceEvidenceCard
 } from "../mindmap_renderer/mindmapPresentation";
@@ -35,6 +37,7 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
     () => (selectedNodeId ? selectEvidenceCardNode(presentation.evidenceCardViewModel, selectedNodeId, selectedStatus, selectedFailureReason) : presentation.evidenceCardViewModel),
     [presentation.evidenceCardViewModel, selectedFailureReason, selectedNodeId, selectedStatus]
   );
+  const readingMap = useMemo(() => toReadingMapViewModel(evidenceView, selectedNodeId), [evidenceView, selectedNodeId]);
   const nodeById = useMemo(() => new Map(evidenceView.nodes.map((node) => [node.nodeId, node])), [evidenceView.nodes]);
 
   useEffect(() => {
@@ -148,6 +151,25 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
     );
   }
 
+  function renderReadingMapNavItem(item: ReadingMapNavItem) {
+    const node = nodeById.get(item.nodeId);
+    return (
+      <button
+        className={`reading-map-nav-item reading-map-nav-depth-${item.depth} reading-map-nav-${item.qualityState} reading-map-nav-${item.uiState}`}
+        data-node-id={item.nodeId}
+        data-testid={`reading-map-nav-${item.nodeId}`}
+        key={item.nodeId}
+        onClick={() => (node ? selectNode(node) : undefined)}
+        type="button"
+      >
+        <span className="reading-map-nav-label">{compactMindmapLabel(item.label, Math.min(2, item.depth), readingMap.density)}</span>
+        <span className="reading-map-nav-meta">
+          {item.sourceCount}源{item.hiddenChildCount > 0 ? ` · +${item.hiddenChildCount}` : ""}
+        </span>
+      </button>
+    );
+  }
+
   return (
     <>
       {evidenceView.renderMode === "evidence_card" ? (
@@ -158,6 +180,36 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
               2级 · {densityLabel(evidenceView.displayPolicy.density)}
               {evidenceView.displayPolicy.hiddenNodeCount > 0 ? ` · 收纳${evidenceView.displayPolicy.hiddenNodeCount}` : ""} · {presentation.sourceCards.length} 来源
             </small>
+          </div>
+          <div className="reading-map" data-testid="reading-map" aria-label="Reading Map">
+            <nav className="reading-map-nav" data-testid="reading-map-nav" aria-label="Reading Map nodes">
+              {readingMap.navItems.map((item) => renderReadingMapNavItem(item))}
+            </nav>
+            <aside className="reading-map-detail" data-testid="reading-map-detail" aria-label="Reading Map detail">
+              {readingMap.detail ? (
+                <>
+                  <div className="reading-map-detail-header">
+                    <strong title={readingMap.detail.label}>{readingMap.detail.label}</strong>
+                    <span>{qualityLabel(readingMap.detail.qualityState)}</span>
+                  </div>
+                  <p>{readingMap.detail.note ?? readingMap.detail.textQuote ?? readingMap.detail.fallbackText ?? readingMap.detail.degradedReason ?? "来源证据暂不可用。"}</p>
+                  <div className="reading-map-detail-meta">
+                    <span>{readingMap.detail.sourceCount} source</span>
+                    {readingMap.detail.confidence !== null ? <span>{Math.round(readingMap.detail.confidence * 100)}%</span> : null}
+                    {readingMap.detail.tags.slice(0, 2).map((tag) => <span key={tag}>{tag}</span>)}
+                  </div>
+                  <div className="reading-map-evidence" data-testid="reading-map-evidence">
+                    {readingMap.detail.sourceItems.slice(0, 2).map((item) => (
+                      <p data-jumpback-status={item.jumpbackStatus} key={item.sourceRefId}>
+                        {item.displayText}
+                      </p>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <p>选择节点查看来源证据。</p>
+              )}
+            </aside>
           </div>
           <div className="evidence-mindmap-canvas" data-node-count={evidenceView.themes.length}>
             {evidenceView.themes.map((theme) => {
@@ -234,7 +286,7 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
             ))}
           </div>
           {evidenceView.sourcePanel.selectedNodeId ? (
-            <div className="mindmap-source-evidence" data-testid="mindmap-source-evidence">
+            <div className={`mindmap-source-evidence mindmap-source-evidence-${evidenceView.sourcePanel.status}`} data-testid="mindmap-source-evidence">
               <strong>{evidenceView.nodes.find((node) => node.nodeId === evidenceView.sourcePanel.selectedNodeId)?.label ?? "来源证据"}</strong>
               {evidenceView.sourcePanel.items.map((item) => (
                 <p data-jumpback-status={item.jumpbackStatus} key={item.sourceRefId}>

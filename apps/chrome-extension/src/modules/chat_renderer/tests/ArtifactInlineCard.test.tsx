@@ -185,6 +185,9 @@ describe("ArtifactInlineCard jumpback", () => {
       });
 
       expect(container.querySelector("[data-testid='evidence-card-mindmap']")).toBeTruthy();
+      expect(container.querySelector("[data-testid='reading-map']")).toBeTruthy();
+      expect(container.querySelector("[data-testid='reading-map-nav-root']")?.textContent).toContain("Source node");
+      expect(container.querySelector("[data-testid='reading-map-detail']")?.textContent).toContain("Traceable source quote.");
       expect(container.querySelector("[data-testid='evidence-card-node-root']")?.textContent).toContain("Source node");
       expect(container.querySelector("[data-testid='mindmap-source-panel']")).toBeTruthy();
 
@@ -193,6 +196,7 @@ describe("ArtifactInlineCard jumpback", () => {
       });
 
       expect(container.querySelector("[data-testid='mindmap-source-evidence']")?.textContent).toContain("Traceable source quote.");
+      expect(container.querySelector("[data-testid='reading-map-evidence']")?.textContent).toContain("Traceable source quote.");
     } finally {
       root.unmount();
       globalThis.chrome = originalChrome;
@@ -221,6 +225,8 @@ describe("ArtifactInlineCard jumpback", () => {
       });
 
       expect(container.querySelector("[data-testid='evidence-card-node-theme']")?.textContent).toContain("Dense Theme");
+      expect(container.querySelector("[data-testid='reading-map-nav-theme']")?.textContent).toContain("Dense Theme");
+      expect(container.querySelector("[data-testid='reading-map-nav-leaf']")?.textContent).toContain("Second Level Fact");
       expect(container.querySelector("[data-testid='evidence-card-node-leaf']")?.textContent).toContain("Second Level Fact");
 
       await act(async () => {

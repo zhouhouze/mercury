@@ -123,6 +123,30 @@ def test_pass_quality_uses_digest_items_and_source_refs_first() -> None:
     assert all(isinstance(binding["mermaidLineIndex"], int) and binding["mermaidLineIndex"] >= 2 for binding in primary_bindings)
 
 
+def test_pass_quality_groups_digest_items_into_readable_themes() -> None:
+    result = generate_mindmap_payload(
+        {
+            "sessionId": "sess_c_grouped",
+            "turnId": "turn_c_grouped",
+            "toolCallId": "tc_c_grouped",
+            "structuredPage": structured_page("product_doc"),
+            "perceptionDigest": evidence_payload("product_doc", "perception-digest"),
+            "sourceMap": evidence_payload("product_doc", "source-map"),
+            "qualityReport": evidence_payload("product_doc", "quality-report"),
+        }
+    )
+
+    assert result["ok"] is True
+    lines = result["mermaidSource"].splitlines()
+    theme_lines = [line for line in lines if line.startswith("    ") and not line.startswith("      ")]
+    child_lines = [line for line in lines if line.startswith("      ")]
+    assert theme_lines
+    assert child_lines
+    assert all(len(line.strip()) <= 64 for line in lines[1:])
+    assert any("Adapter Contract" in line or "架构与接口" in line or "来源与追踪" in line or "流程与操作" in line for line in theme_lines)
+    assert all("pageId , contentHash" not in line for line in theme_lines)
+
+
 def test_fail_quality_does_not_create_fake_high_signal_mindmap() -> None:
     quality = evidence_payload("article", "quality-report")
     quality = {**quality, "downstreamReadiness": "fail"}
