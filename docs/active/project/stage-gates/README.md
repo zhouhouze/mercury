@@ -1,6 +1,6 @@
 # Navia Active Stage Gates
 
-本目录只保留当前仍然激活的 V1.2 / V1.3 / A-V1.2 stage gate。
+本目录只保留当前仍然激活或仍需作为 active 口径引用的 V1.2 / V1.3 / V1.4 / V1 mainline / A-V1.2 stage gate。
 
 已完成或不再激活的 V1.0、V1.1、A-V1.1 stage gate 已移动到：
 
@@ -20,7 +20,12 @@ docs/history/
 | `v1.2-ac-quality-hardening.md` | 当前 AC-Quality 门禁 | A/C 质量深化、真实网页扩展、digest-first Mindmap、Debug 可读性和 false-green audit |
 | `v1.2-ac-jumpback-mvp.md` | 当前 AC-Jumpback MVP 门禁 | Mindmap 节点点击、来源证据卡片、基础 DOM 定位、失败 fallback 和反跳 false-green audit |
 | `v1.2-closeout.md` | 当前 V1.2 收关门禁 | 将 Jumpback P1 补强项固化为 V1.2 完成声明前的截图级验收、20 页矩阵、PRD 复检和出门条件 |
-| `v1.3-evidence-card-mindmap.md` | 当前 V1.3 规划门禁 | Evidence Card Mindmap 主渲染、source evidence panel、交互反馈、真实 Side Panel 截图级验收 |
+| `v1.3-evidence-card-mindmap.md` | V1.3 规划门禁 | Evidence Card Mindmap 主渲染、source evidence panel、交互反馈、真实 Side Panel 截图级验收 |
+| `v1.4-reading-map.md` | V1.4 规划门禁 | Reading Map 双栏伴读导航、节点详情、source evidence 和 jumpback / fallback 状态 |
+| `v1-complex-site-reading-hardening.md` | V1 complex-site hardening 门禁 | B站 / 小红书 / 观察者网首页与详情页的当前页读取、导图质量和 source evidence 验收 |
+| `v1-gemini-style-pass.md` | V1 visual style 门禁 | 当前 sidebar 的 Gemini 样式、按钮系统和 source 状态表达 |
+| `v1-launcher-resize-interaction.md` | V1 interaction shell 门禁 | launcher、collapse、resize、drag、push / overlay 的 content script 交互壳 |
+| `v1-mainline-closeout.md` | 当前 V1 主线收口门禁 | 汇总 V1.3、V1.4、complex-site、Gemini style、launcher，进入人工产品核查和 V1 complete 候选审计 |
 | `v1.2-b-chat-renderer.md` | V1.2 B 模块门禁 | 前端结构化渲染、流式输出、Debug 和 Mindmap 展示 |
 | `v1.2-c-mindmap.md` | V1.2 C 模块门禁 | Mermaid / Mindmap 生成、source map 和反跳来源 |
 | `v1.2-d-agentic-loop.md` | V1.2 D 模块门禁 | CoreProvider / Adapter Layer、治理桥和 ToolResult / Artifact / Event / Trace 映射 |

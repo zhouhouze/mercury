@@ -1,0 +1,325 @@
+{
+  "schemaVersion": "v1-mainline-closeout.1",
+  "generatedAt": "2026-06-25T09:32:22.818Z",
+  "passed": true,
+  "claim": "V1 mainline closeout candidate passed automated acceptance.",
+  "summary": {
+    "upstreamReports": 5,
+    "upstreamPassed": 5,
+    "launcherScreenshots": 6,
+    "externalVisualSamples": 6,
+    "complexSiteSamples": 6,
+    "complexSitePassed": 6,
+    "highlightedSamples": 6,
+    "fallbackSamples": 0,
+    "oldV12CloseoutHandling": "superseded_failed_report_explained_by_v1_mainline_closeout"
+  },
+  "testCommands": [
+    {
+      "command": "npm --prefix apps/chrome-extension run typecheck",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run build",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout",
+      "passed": true,
+      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+    }
+  ],
+  "sourceEvidenceCoverage": {
+    "currentMainlineFallbackSamples": 0,
+    "upstreamFallbackSamples": 4,
+    "sourceReports": [
+      "docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json",
+      "docs/active/project/evidence/v1_4_reading_map/report.json",
+      "docs/active/project/evidence/v1_real_site_complex_pages/report.json",
+      "docs/active/project/evidence/v1_external_visual_acceptance/report.json"
+    ],
+    "status": "covered_by_upstream_evidence"
+  },
+  "architecture": {
+    "target": "Chrome Web Page -> Content Script Interaction Shell -> Floating Launcher / SidebarInteractionState / Resize Handle / iframe sidepanel.html -> Chat / Agent / Debug / Settings -> Evidence Card Mindmap / Reading Map / Source Evidence -> Local Runtime A/C/D/B.",
+    "current": "Current implementation uses a WXT/React Chrome extension, content-script in-page sidebar/launcher shell, sidepanel.html React app, and Python Local Runtime. V1.3, V1.4, complex-site diagnostics, external visual acceptance, and launcher closeout are treated as upstream evidence.",
+    "notClaimed": "This report does not claim full V1 complete, final Monica-like UX complete, logged-in high-quality Bilibili/Xiaohongshu pass, V2 Memory/RAG, Web Research, PPT, Deep Research, multi-agent, voice, desktop pet, browser automation product features, or default local file access."
+  },
+  "upstreamReports": {
+    "v13": {
+      "key": "v13",
+      "path": "docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "V1.3 Evidence Card Mindmap experience complete",
+      "summary": {
+        "pagesTotal": 8,
+        "pagesPassed": 8,
+        "nativeSidePanelSamples": 5,
+        "evidenceCardSamples": 5,
+        "fallbackSamples": 2
+      },
+      "generatedAt": "2026-06-24T07:45:58.574Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "v14": {
+      "key": "v14",
+      "path": "docs/active/project/evidence/v1_4_reading_map/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "V1.4 Reading Map Side Panel navigation experience complete",
+      "summary": {
+        "sourceSamples": 5,
+        "screenshotSamples": 5,
+        "nativeReadingMapSamples": 5,
+        "fallbackSamples": 2
+      },
+      "generatedAt": "2026-06-24T07:46:05.647Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "realSite": {
+      "key": "realSite",
+      "path": "docs/active/project/evidence/v1_real_site_complex_pages/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples.",
+      "summary": {
+        "samplesTotal": 6,
+        "passedSamples": 6,
+        "degradedSamples": 0,
+        "blockedSamples": 0,
+        "highlightedSamples": 6,
+        "fallbackSamples": 0
+      },
+      "generatedAt": "2026-06-25T09:32:21.601Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "externalVisual": {
+      "key": "externalVisual",
+      "path": "docs/active/project/evidence/v1_external_visual_acceptance/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "Navia 当前可实现的真实网页伴读、Evidence Card Mindmap、Reading Map 和 source jumpback 用户路径通过自动化可视化验收。",
+      "summary": {
+        "commandTotal": 5,
+        "commandPassed": 5,
+        "samplesTotal": 6,
+        "samplesPassed": 6,
+        "highlightedSamples": 6,
+        "fallbackSamples": 0
+      },
+      "generatedAt": "2026-06-25T09:32:22.525Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "launcherCloseout": {
+      "key": "launcherCloseout",
+      "path": "docs/active/project/evidence/v1_launcher_resize_closeout/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "V1 docked launcher / expand / collapse / resize interaction baseline passed real Chrome behavior acceptance.",
+      "summary": {
+        "screenshotSamples": 6,
+        "statesCaptured": 6,
+        "defaultDocked": true,
+        "launcherPeeksOnHover": true,
+        "expandedAfterClick": true,
+        "collapsedRestoresMargin": true,
+        "resizedOverlay": true,
+        "launcherDraggedLeft": true
+      },
+      "generatedAt": "2026-06-25T09:29:41.045Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "launcherVisualProbe": {
+      "key": "launcherVisualProbe",
+      "path": "docs/active/project/evidence/v1_launcher_resize_visual_probe/report.json",
+      "present": true,
+      "passed": false,
+      "claim": "",
+      "summary": null,
+      "generatedAt": "2026-06-24T12:53:23.247Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "oldV12Closeout": {
+      "key": "oldV12Closeout",
+      "path": "docs/active/project/evidence/v1_2_closeout/report.json",
+      "present": true,
+      "passed": false,
+      "claim": "V1.2 AI Reading mock-first product path complete",
+      "summary": {
+        "pagesTotal": 20,
+        "pagesPassed": 0,
+        "chromeJumpbackSamples": 0,
+        "domHighlightedCount": 0,
+        "fallbackShownCount": 0,
+        "fatalIssues": 1,
+        "majorIssues": 0
+      },
+      "generatedAt": "2026-06-22T16:53:44.458Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    }
+  },
+  "launcherEvidence": [
+    {
+      "label": "docked-default",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/01-docked-default.png",
+      "path": "screenshots/launcher-docked-default.png"
+    },
+    {
+      "label": "launcher-hover-peek",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/02-launcher-hover-peek.png",
+      "path": "screenshots/launcher-launcher-hover-peek.png"
+    },
+    {
+      "label": "expanded-after-click",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/03-expanded-after-click.png",
+      "path": "screenshots/launcher-expanded-after-click.png"
+    },
+    {
+      "label": "resized-overlay",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/04-resized-overlay.png",
+      "path": "screenshots/launcher-resized-overlay.png"
+    },
+    {
+      "label": "collapsed-after-use",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/05-collapsed-after-use.png",
+      "path": "screenshots/launcher-collapsed-after-use.png"
+    },
+    {
+      "label": "launcher-drag-left",
+      "source": "docs/active/project/evidence/v1_launcher_resize_closeout/screenshots/06-launcher-drag-left.png",
+      "path": "screenshots/launcher-launcher-drag-left.png"
+    }
+  ],
+  "visualSamples": [
+    {
+      "sampleId": "bilibili-homepage",
+      "siteName": "B站",
+      "pageKind": "homepage",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 13,
+        "uniqueRatio": 0.6923076923076923,
+        "noisyRatio": 0,
+        "averageLabelLength": 12.307692307692308,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-bilibili-homepage-after.png"
+    },
+    {
+      "sampleId": "bilibili-detail",
+      "siteName": "B站",
+      "pageKind": "video-detail",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 16,
+        "uniqueRatio": 0.75,
+        "noisyRatio": 0,
+        "averageLabelLength": 13.875,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-bilibili-detail-after.png"
+    },
+    {
+      "sampleId": "xiaohongshu-homepage",
+      "siteName": "小红书",
+      "pageKind": "homepage",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 16,
+        "uniqueRatio": 0.75,
+        "noisyRatio": 0,
+        "averageLabelLength": 15.9375,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-xiaohongshu-homepage-after.png"
+    },
+    {
+      "sampleId": "xiaohongshu-detail",
+      "siteName": "小红书",
+      "pageKind": "note-detail",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 19,
+        "uniqueRatio": 0.7894736842105263,
+        "noisyRatio": 0,
+        "averageLabelLength": 15.157894736842104,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-xiaohongshu-detail-after.png"
+    },
+    {
+      "sampleId": "guancha-homepage",
+      "siteName": "观察者网",
+      "pageKind": "homepage",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 18,
+        "uniqueRatio": 0.7777777777777778,
+        "noisyRatio": 0,
+        "averageLabelLength": 12.222222222222221,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-guancha-homepage-after.png"
+    },
+    {
+      "sampleId": "guancha-detail",
+      "siteName": "观察者网",
+      "pageKind": "article-detail",
+      "result": "pass",
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 14,
+        "uniqueRatio": 0.7142857142857143,
+        "noisyRatio": 0,
+        "averageLabelLength": 16.5,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "afterScreenshot": "screenshots/external-guancha-detail-after.png"
+    }
+  ],
+  "environmentNotes": [
+    "Complex-site evidence is public/no-login automation unless a later logged-in report explicitly says otherwise.",
+    "Legacy v1_2_closeout/report.json is failed and must not be used as a current completion claim; this V1-MC report supersedes it only after passing.",
+    "Current V1-MC real-site/external samples all highlighted successfully; fallback path coverage is inherited from V1.3/V1.4 upstream evidence and must remain visible in the report.",
+    "Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.",
+    "Human product review is still required before any full V1 complete candidate claim."
+  ],
+  "fatalIssues": [],
+  "majorIssues": []
+}

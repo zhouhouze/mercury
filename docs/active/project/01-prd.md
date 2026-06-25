@@ -29,7 +29,7 @@ V1 的重点不是“大而全”，而是完成一个稳定闭环：
 
 ## 2. 一句话定位
 
-Navia / 伴航是一个常驻在网页边缘的本地伴随式 AI 助手。V1 前端页面体验以当前 active 文档 `docs/active/project/interaction-prd/窗口交互_PRD.md` 为准；当前实现基线暂时收敛为无悬浮球、默认右侧侧边栏聊天面板，悬浮球与 hover 小长条保留为后续前端体验优化阶段的设计参考。系统能够理解当前网页，提供伴读问答、摘要生成、Mermaid 思维导图，并以可观测、可监督的 Headless AgentCore 为后续个人知识库、观影观赛陪伴、个人秘书与多端产品化打基础。
+Navia / 伴航是一个常驻在网页边缘的本地伴随式 AI 助手。V1 前端页面体验以当前 active 文档 `docs/active/project/interaction-prd/窗口交互_PRD.md` 和后续用户确认的 `V1 Launcher / Collapse / Resize` 阶段为准；较早的“无悬浮球、默认右侧侧边栏聊天面板”只代表历史 baseline，不再作为当前 V1 主线收口目标。系统能够理解当前网页，提供伴读问答、摘要生成、Mermaid / Evidence Card / Reading Map 思维导图，并以可观测、可监督的 Headless AgentCore 为后续个人知识库、观影观赛陪伴、个人秘书与多端产品化打基础。
 
 ---
 
@@ -1066,12 +1066,80 @@ Web Research / PPT / Deep Research ready。
 
 ```text
 普通网页打开
--> Navia 默认右侧展开
--> 用户点击 floating launcher 折叠 / 展开
--> 折叠后页面恢复可用宽度，保留 launcher
+-> Navia 默认只显示贴边 launcher，不展开 sidebar，不挤压正文
+-> 用户 hover 或键盘 focus 后 launcher 从边缘弹出为完整悬浮球
+-> 用户点击 floating launcher 展开右侧 sidebar
+-> 展开后再次点击 launcher 收起 sidebar，页面恢复可用宽度
 -> 用户拖拽 launcher 调整位置并贴边
 -> 用户拖拽 sidebar 左边界调整宽度
 -> 宽工作区或窄视口进入 overlay，不继续挤压正文
 ```
 
 不得引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
+
+### 14.10 V1 Mainline Closeout Candidate 主线收口目标
+
+`V1 Mainline Closeout Candidate` 是当前 V1 主线的总收口阶段。它不新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取；它把已经规划或已实现的 V1.3、V1.4、复杂站点读取 hardening、Gemini 样式、Launcher / Collapse / Resize 统一到一个可审计的用户体验和出门证据链。
+
+目标用户路径：
+
+```text
+普通网页打开
+-> Navia floating launcher 以贴边低打扰形态可见
+-> 用户 hover / focus 后 launcher 弹出
+-> 用户点击 launcher 展开右侧 Navia sidebar
+-> 用户再次点击 launcher 折叠 sidebar，页面恢复宽度
+-> 用户可拖拽 launcher 调整位置，拖拽 sidebar 左边界 resize
+-> 用户读取当前网页
+-> Chat 中完成总结、页面问答、Mindmap
+-> Mindmap 以 Evidence Card / Reading Map 为主体验
+-> 用户点击节点或来源
+-> 当前网页 DOM 可定位则高亮，失败则展示 fallback evidence，blocked 则明确说明
+-> Debug / Settings 仍可用于诊断和配置
+```
+
+本阶段必须整合的已有阶段能力：
+
+| 能力 | 当前完成口径 | V1 主线收口要求 |
+|---|---|---|
+| `V1.3 Evidence Card Mindmap` | 可声明 V1.3 experience complete 时，只代表 Mindmap 主体验闭环 | 作为 V1 Chat artifact 的主导图体验进入总验收 |
+| `V1.4 Reading Map` | 可声明 V1.4 Side Panel navigation complete 时，只代表阅读地图闭环 | 作为 Mindmap 的连续伴读导航进入总验收 |
+| `V1 Complex Site Reading Hardening` | scoped matrix 通过只代表限定站点矩阵 | public no-login 与登录态边界必须写清，不得冒充全站高质量 |
+| `V1 Gemini Style Pass` | 只代表当前 sidebar 视觉和按钮系统完成 | 作为统一视觉语言进入总体验收，不扩大产品范围 |
+| `V1 Launcher / Collapse / Resize` | 只代表外层 content script 交互壳完成 | 必须完成正式 closeout 证据，证明不破坏读取、问答、导图和 source jumpback |
+
+本阶段允许声明：
+
+```text
+V1 mainline closeout candidate passed automated acceptance.
+```
+
+只有在自动化验收、PRD 复检、false-green audit、复杂站点边界说明和人工产品体验核查全部通过后，才允许进入完整 V1 complete 候选审计。
+
+本阶段完成后的用户可见效果必须是：
+
+- 普通网页中 Navia 以插件伴随形态出现，而不是独立营销页或只存在于 Chrome 原生 Side Panel。
+- 用户可以通过默认贴边的 floating launcher 感知 Navia 状态，hover / focus 后弹出完整入口，并完成展开、折叠、拖拽、resize 后继续阅读原网页。
+- 右侧 sidebar 内的 Chat / Agent / Debug / Settings 入口仍然可发现，不能被视觉优化或布局状态遮挡。
+- 用户可以在同一条体验链中完成读取当前页、提交上下文、总结、问答、生成 Mindmap、查看 Evidence Card / Reading Map。
+- source evidence 必须给用户明确反馈：能定位时高亮网页正文，不能定位时展示 fallback evidence，被页面或策略阻止时说明 blocked。
+- B站 / 小红书 / 观察者网等复杂中文站点的验收结果必须让人类能看出是 public no-login 还是 logged-in，不允许把公开态样本解释成登录态质量通过。
+
+本阶段不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+完整 V1 complete 的剩余硬门槛：
+
+- Launcher / collapse / resize 必须有正式验收报告，而不是仅有视觉 probe。
+- 真实 Chrome 截图必须覆盖普通网页中的 launcher、展开、折叠、resize、overlay 或 push、Chat、Debug、Settings、Evidence Card、Reading Map、source evidence。
+- B站 / 小红书 / 观察者网等复杂中文站点必须区分 public no-login 验收和登录态体验核查。
+- 旧的失败 closeout 证据必须被重新生成、明确废止或在总报告中解释，不能与新的完成声明并存。
+- V1 结束前必须安排人工产品体验核查。
+
+当前自动化证据如果通过，只能进入人工产品体验核查；人工核查未完成时，项目状态仍是 `V1 mainline closeout candidate`，不是 `完整 V1 complete`。

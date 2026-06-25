@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "v1-external-visual-acceptance.1",
+  "generatedAt": "2026-06-25T09:32:22.525Z",
+  "passed": true,
+  "summary": {
+    "commandTotal": 5,
+    "commandPassed": 5,
+    "samplesTotal": 6,
+    "samplesPassed": 6,
+    "highlightedSamples": 6,
+    "fallbackSamples": 0
+  },
+  "commandResults": [
+    {
+      "label": "前端类型检查",
+      "command": "npm --prefix apps/chrome-extension run typecheck",
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-06-25T09:29:41.238Z",
+      "durationMs": 11222,
+      "logPath": "command-logs/01_npm_prefix_apps_chrome_extension_run_typecheck.log"
+    },
+    {
+      "label": "前端单元测试",
+      "command": "npm --prefix apps/chrome-extension test -- pageContext contentBridge",
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-06-25T09:29:52.460Z",
+      "durationMs": 16065,
+      "logPath": "command-logs/02_npm_prefix_apps_chrome_extension_test_pagecontext_contentbridge.log"
+    },
+    {
+      "label": "A/C 模块测试",
+      "command": "PYTHONPATH=.tmp/python-deps:services/local-runtime python3 -m pytest services/local-runtime/navia_runtime/modules/page_reading/tests services/local-runtime/navia_runtime/modules/mindmap/tests -q",
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-06-25T09:30:08.525Z",
+      "durationMs": 6613,
+      "logPath": "command-logs/03_pythonpath_tmp_python_deps_services_local_runtime_python3_m_pytest_services_local_runtime_navia_runtime_modules_page_reading_tests_services_local_runtime_navia_runtime_modules_mindmap_tests_q.log"
+    },
+    {
+      "label": "E2E 扩展构建",
+      "command": "npm --prefix apps/chrome-extension run build:e2e",
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-06-25T09:30:15.138Z",
+      "durationMs": 17131,
+      "logPath": "command-logs/04_npm_prefix_apps_chrome_extension_run_build_e2e.log"
+    },
+    {
+      "label": "真实站点 Chrome 自动化诊断",
+      "command": "npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
+      "status": "passed",
+      "exitCode": 0,
+      "startedAt": "2026-06-25T09:30:32.269Z",
+      "durationMs": 109373,
+      "logPath": "command-logs/05_npm_prefix_apps_chrome_extension_run_e2e_chrome_real_site_diagnostics.log"
+    }
+  ],
+  "upstreamReports": {
+    "realSiteComplexPages": {
+      "path": "docs/active/project/evidence/v1_real_site_complex_pages/report.json",
+      "passed": true,
+      "summary": {
+        "samplesTotal": 6,
+        "passedSamples": 6,
+        "degradedSamples": 0,
+        "blockedSamples": 0,
+        "highlightedSamples": 6,
+        "fallbackSamples": 0
+      },
+      "claim": "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples."
+    },
+    "v13EvidenceCardMindmap": {
+      "path": "docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json",
+      "passed": true,
+      "summary": {
+        "pagesTotal": 8,
+        "pagesPassed": 8,
+        "nativeSidePanelSamples": 5,
+        "evidenceCardSamples": 5,
+        "fallbackSamples": 2
+      },
+      "claim": "V1.3 Evidence Card Mindmap experience complete"
+    },
+    "v14ReadingMap": {
+      "path": "docs/active/project/evidence/v1_4_reading_map/report.json",
+      "passed": true,
+      "summary": {
+        "sourceSamples": 5,
+        "screenshotSamples": 5,
+        "nativeReadingMapSamples": 5,
+        "fallbackSamples": 2
+      },
+      "claim": "V1.4 Reading Map Side Panel navigation experience complete"
+    }
+  },
+  "architecture": {
+    "target": "Content Script 注入网页内入口/侧栏 -> Side Panel / iframe shell -> Python Local Runtime -> A Page Reading -> C Mindmap -> D Adapter/Event/Trace -> B Evidence Card Mindmap / Reading Map -> 用户触发 source evidence / DOM highlight / fallback。",
+    "current": "当前实现为 WXT/React Chrome extension + Python local runtime。页面内侧栏/launcher 与 Chrome Side Panel 作为前端承载，Mock CoreProvider 支撑本地可重复验收；A/C/D/B 模块已支持当前页读取、结构化摘要/问答、Evidence Card Mindmap、Reading Map、source cards 和 jumpback。",
+    "notClaimed": "不声明完整 V1 complete，不声明 V2 Memory/RAG、Web Research、PPT、Deep Research、多 Agent、语音、桌宠或浏览器自动操作产品能力 ready。"
+  },
+  "visualSamples": [
+    {
+      "sampleId": "bilibili-homepage",
+      "siteName": "B站",
+      "pageKind": "homepage",
+      "url": "https://www.bilibili.com/",
+      "finalUrl": "https://www.bilibili.com/",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 613,
+      "sourceRefs": 80,
+      "digestItems": 18,
+      "evidenceCardCount": 5,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 13,
+        "uniqueRatio": 0.6923076923076923,
+        "noisyRatio": 0,
+        "averageLabelLength": 12.307692307692308,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/bilibili-homepage-before.png",
+      "afterScreenshot": "screenshots/bilibili-homepage-after.png",
+      "issues": []
+    },
+    {
+      "sampleId": "bilibili-detail",
+      "siteName": "B站",
+      "pageKind": "video-detail",
+      "url": "https://www.bilibili.com/video/BV1dhjn68E5Z",
+      "finalUrl": "https://www.bilibili.com/video/BV1dhjn68E5Z/",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 1236,
+      "sourceRefs": 90,
+      "digestItems": 18,
+      "evidenceCardCount": 8,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 16,
+        "uniqueRatio": 0.75,
+        "noisyRatio": 0,
+        "averageLabelLength": 13.875,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/bilibili-detail-before.png",
+      "afterScreenshot": "screenshots/bilibili-detail-after.png",
+      "issues": []
+    },
+    {
+      "sampleId": "xiaohongshu-homepage",
+      "siteName": "小红书",
+      "pageKind": "homepage",
+      "url": "https://www.xiaohongshu.com/explore",
+      "finalUrl": "https://www.xiaohongshu.com/explore",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 1527,
+      "sourceRefs": 93,
+      "digestItems": 18,
+      "evidenceCardCount": 8,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 16,
+        "uniqueRatio": 0.75,
+        "noisyRatio": 0,
+        "averageLabelLength": 15.9375,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/xiaohongshu-homepage-before.png",
+      "afterScreenshot": "screenshots/xiaohongshu-homepage-after.png",
+      "issues": []
+    },
+    {
+      "sampleId": "xiaohongshu-detail",
+      "siteName": "小红书",
+      "pageKind": "note-detail",
+      "url": "https://www.xiaohongshu.com/explore/645c3dc900000000110132cb",
+      "finalUrl": "https://www.xiaohongshu.com/explore",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 1685,
+      "sourceRefs": 93,
+      "digestItems": 18,
+      "evidenceCardCount": 11,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 19,
+        "uniqueRatio": 0.7894736842105263,
+        "noisyRatio": 0,
+        "averageLabelLength": 15.157894736842104,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/xiaohongshu-detail-before.png",
+      "afterScreenshot": "screenshots/xiaohongshu-detail-after.png",
+      "issues": []
+    },
+    {
+      "sampleId": "guancha-homepage",
+      "siteName": "观察者网",
+      "pageKind": "homepage",
+      "url": "https://www.guancha.cn/",
+      "finalUrl": "https://www.guancha.cn/",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 17784,
+      "sourceRefs": 126,
+      "digestItems": 18,
+      "evidenceCardCount": 10,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 18,
+        "uniqueRatio": 0.7777777777777778,
+        "noisyRatio": 0,
+        "averageLabelLength": 12.222222222222221,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/guancha-homepage-before.png",
+      "afterScreenshot": "screenshots/guancha-homepage-after.png",
+      "issues": []
+    },
+    {
+      "sampleId": "guancha-detail",
+      "siteName": "观察者网",
+      "pageKind": "article-detail",
+      "url": "https://www.guancha.cn/politics/2026_06_25_821593.shtml",
+      "finalUrl": "https://h.xinhuaxmt.com/vh512/share/13166398?newstype=1001&homeshow=1",
+      "result": "pass",
+      "readiness": "pass",
+      "textLength": 1989,
+      "sourceRefs": 21,
+      "digestItems": 18,
+      "evidenceCardCount": 6,
+      "sourceCards": 8,
+      "jumpbackStatus": "highlighted",
+      "mindmapQuality": {
+        "labelCount": 14,
+        "uniqueRatio": 0.7142857142857143,
+        "noisyRatio": 0,
+        "averageLabelLength": 16.5,
+        "fatalIssues": [],
+        "majorIssues": []
+      },
+      "beforeScreenshot": "screenshots/guancha-detail-before.png",
+      "afterScreenshot": "screenshots/guancha-detail-after.png",
+      "issues": []
+    }
+  ],
+  "fatalIssues": [],
+  "majorIssues": [],
+  "environmentNotes": [
+    "Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state."
+  ],
+  "claim": "Navia 当前可实现的真实网页伴读、Evidence Card Mindmap、Reading Map 和 source jumpback 用户路径通过自动化可视化验收。"
+}

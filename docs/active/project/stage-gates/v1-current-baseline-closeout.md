@@ -1,13 +1,13 @@
 # V1 Current Interaction Baseline Closeout Gate
 
 Date: 2026-06-24
-Status: Active closeout gate
+Status: Superseded baseline gate; current closeout gate is `v1-mainline-closeout.md`
 
 ---
 
 ## Scope
 
-This gate closes the current active V1 interaction baseline from `docs/active/project/interaction-prd/窗口交互_PRD.md` section 0:
+This gate records the older V1 interaction baseline from `docs/active/project/interaction-prd/窗口交互_PRD.md` section 0:
 
 ```text
 No floating ball.
@@ -16,7 +16,14 @@ No in-page collapse entry.
 Default right-side in-page chatbot sidebar.
 ```
 
-The legacy floating ball / hover strip / collapse states remain product design references and must be reviewed manually after this closeout. They are not claimed as automated V1 completion in this gate.
+The user later accepted launcher / collapse / resize as the current V1 mainline target. New work and completion claims must use:
+
+```text
+docs/active/project/stage-gates/v1-mainline-closeout.md
+docs/active/project/stage-gates/v1-launcher-resize-interaction.md
+```
+
+This older gate must not be used to block or contradict the accepted launcher stage.
 
 ## Required Evidence
 
@@ -31,4 +38,3 @@ The legacy floating ball / hover strip / collapse states remain product design r
 - Claiming legacy floating ball / hover strip complete from this gate.
 - Claiming Canvas, Memory, RAG, Web Research, PPT, Deep Research, multi-agent, voice, desktop pet, browser automation product feature, or default local file access.
 - Using only Chrome native Side Panel evidence without proving in-page sidebar injection.
-

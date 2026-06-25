@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia 对外可视化自动化验收报告</title>
+  <style>
+    :root { color-scheme: light; --ink: #10201d; --muted: #5b6b67; --line: #dbe7e2; --panel: #ffffff; --wash: #f4f8f6; --green: #075f52; --red: #b42318; --amber: #ad6500; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; color: var(--ink); background: var(--wash); }
+    header { padding: 34px 40px 24px; background: linear-gradient(135deg, #062e2a, #0a5f52); color: white; }
+    header p { max-width: 960px; color: #d8efea; line-height: 1.7; }
+    main { padding: 28px 40px 64px; max-width: 1440px; margin: 0 auto; }
+    section { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px; margin-bottom: 20px; box-shadow: 0 18px 50px rgba(9, 48, 43, .06); }
+    h1, h2, h3 { margin: 0 0 12px; letter-spacing: 0; }
+    p { line-height: 1.7; }
+    code { background: #ecf4f1; padding: 2px 5px; border-radius: 5px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; font-weight: 800; background: #dcfce7; color: #166534; }
+    .summary { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .metric-card { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: #fbfdfc; }
+    .metric-card strong { display: block; font-size: 28px; }
+    .arch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .arch-card, .upstream { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: #fbfdfc; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .pass { color: #087443; font-weight: 800; }
+    .fail { color: var(--red); font-weight: 800; }
+    .pill { display: inline-flex; border-radius: 999px; padding: 6px 10px; font-weight: 800; white-space: nowrap; }
+    .pill.ok { color: #075f52; background: #dff7ed; }
+    .pill.warn { color: var(--amber); background: #fff2cc; }
+    .pill.bad { color: var(--red); background: #ffe4e0; }
+    .sample { border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 18px; background: #fbfdfc; }
+    .sample-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+    .sample-head p { color: var(--muted); margin: 0; word-break: break-all; }
+    .metrics { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+    .metrics span { border: 1px solid var(--line); background: white; border-radius: 999px; padding: 5px 9px; font-size: 13px; }
+    .shot-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    figure { margin: 0; }
+    img { width: 100%; border: 1px solid #c8d8d3; border-radius: 10px; background: white; display: block; }
+    figcaption { color: var(--muted); font-size: 13px; margin-top: 7px; }
+    .issues { color: var(--muted); margin-bottom: 0; }
+    .upstream-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .notes { color: var(--muted); }
+    @media (max-width: 900px) { main, header { padding-left: 18px; padding-right: 18px; } .summary, .arch, .shot-grid, .upstream-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia 对外可视化自动化验收报告</h1>
+    <p><span class="status">验收通过</span></p>
+    <p>Navia 当前可实现的真实网页伴读、Evidence Card Mindmap、Reading Map 和 source jumpback 用户路径通过自动化可视化验收。</p>
+    <p>生成时间：2026-06-25T09:32:22.525Z</p>
+  </header>
+  <main>
+    <section>
+      <h2>验收摘要</h2>
+      <div class="summary">
+        <div class="metric-card"><strong>5/5</strong><span>自动化命令通过</span></div>
+        <div class="metric-card"><strong>6/6</strong><span>真实页面样本通过</span></div>
+        <div class="metric-card"><strong>6</strong><span>DOM highlight</span></div>
+        <div class="metric-card"><strong>0</strong><span>Fallback</span></div>
+        <div class="metric-card"><strong>0</strong><span>Fatal issues</span></div>
+        <div class="metric-card"><strong>0</strong><span>Major issues</span></div>
+      </div>
+      <p class="notes">Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.</p>
+    </section>
+    <section>
+      <h2>目标架构与当前实现</h2>
+      <div class="arch">
+        <div class="arch-card"><h3>目标架构</h3><p>Content Script 注入网页内入口/侧栏 -&gt; Side Panel / iframe shell -&gt; Python Local Runtime -&gt; A Page Reading -&gt; C Mindmap -&gt; D Adapter/Event/Trace -&gt; B Evidence Card Mindmap / Reading Map -&gt; 用户触发 source evidence / DOM highlight / fallback。</p></div>
+        <div class="arch-card"><h3>当前实现</h3><p>当前实现为 WXT/React Chrome extension + Python local runtime。页面内侧栏/launcher 与 Chrome Side Panel 作为前端承载，Mock CoreProvider 支撑本地可重复验收；A/C/D/B 模块已支持当前页读取、结构化摘要/问答、Evidence Card Mindmap、Reading Map、source cards 和 jumpback。</p></div>
+        <div class="arch-card"><h3>不声明范围</h3><p>不声明完整 V1 complete，不声明 V2 Memory/RAG、Web Research、PPT、Deep Research、多 Agent、语音、桌宠或浏览器自动操作产品能力 ready。</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>自动化命令</h2>
+      <table>
+        <thead><tr><th>检查项</th><th>命令</th><th>结果</th><th>耗时</th><th>证据</th></tr></thead>
+        <tbody><tr>
+        <td>前端类型检查</td>
+        <td><code>npm --prefix apps/chrome-extension run typecheck</code></td>
+        <td class="pass">通过</td>
+        <td>11s</td>
+        <td><a href="command-logs/01_npm_prefix_apps_chrome_extension_run_typecheck.log">日志</a></td>
+      </tr><tr>
+        <td>前端单元测试</td>
+        <td><code>npm --prefix apps/chrome-extension test -- pageContext contentBridge</code></td>
+        <td class="pass">通过</td>
+        <td>16s</td>
+        <td><a href="command-logs/02_npm_prefix_apps_chrome_extension_test_pagecontext_contentbridge.log">日志</a></td>
+      </tr><tr>
+        <td>A/C 模块测试</td>
+        <td><code>PYTHONPATH=.tmp/python-deps:services/local-runtime python3 -m pytest services/local-runtime/navia_runtime/modules/page_reading/tests services/local-runtime/navia_runtime/modules/mindmap/tests -q</code></td>
+        <td class="pass">通过</td>
+        <td>7s</td>
+        <td><a href="command-logs/03_pythonpath_tmp_python_deps_services_local_runtime_python3_m_pytest_services_local_runtime_navia_runtime_modules_page_reading_tests_services_local_runtime_navia_runtime_modules_mindmap_tests_q.log">日志</a></td>
+      </tr><tr>
+        <td>E2E 扩展构建</td>
+        <td><code>npm --prefix apps/chrome-extension run build:e2e</code></td>
+        <td class="pass">通过</td>
+        <td>17s</td>
+        <td><a href="command-logs/04_npm_prefix_apps_chrome_extension_run_build_e2e.log">日志</a></td>
+      </tr><tr>
+        <td>真实站点 Chrome 自动化诊断</td>
+        <td><code>npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics</code></td>
+        <td class="pass">通过</td>
+        <td>109s</td>
+        <td><a href="command-logs/05_npm_prefix_apps_chrome_extension_run_e2e_chrome_real_site_diagnostics.log">日志</a></td>
+      </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>上游阶段证据</h2>
+      <div class="upstream-grid"><div class="upstream">
+        <strong>realSiteComplexPages</strong>
+        <span class="pass">通过</span>
+        <p>Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples.</p>
+        <code>docs/active/project/evidence/v1_real_site_complex_pages/report.json</code>
+      </div><div class="upstream">
+        <strong>v13EvidenceCardMindmap</strong>
+        <span class="pass">通过</span>
+        <p>V1.3 Evidence Card Mindmap experience complete</p>
+        <code>docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json</code>
+      </div><div class="upstream">
+        <strong>v14ReadingMap</strong>
+        <span class="pass">通过</span>
+        <p>V1.4 Reading Map Side Panel navigation experience complete</p>
+        <code>docs/active/project/evidence/v1_4_reading_map/report.json</code>
+      </div></div>
+    </section>
+    <section>
+      <h2>用户体验路径截图</h2>
+      <p>以下截图来自自动化打开真实网页、加载 Navia 插件、读取当前页、生成 Mindmap / Reading Map、点击 source evidence 并完成 DOM highlight 的流程。</p>
+      <article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>B站 / homepage</h3>
+            <p>https://www.bilibili.com/</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 613</span>
+          <span>SourceRef 80</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 5</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 13 · 噪声 0.00 · 唯一 0.69</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/bilibili-homepage-before.png" alt="bilibili-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/bilibili-homepage-after.png" alt="bilibili-homepage after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article><article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>B站 / video-detail</h3>
+            <p>https://www.bilibili.com/video/BV1dhjn68E5Z/</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 1236</span>
+          <span>SourceRef 90</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 8</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 16 · 噪声 0.00 · 唯一 0.75</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/bilibili-detail-before.png" alt="bilibili-detail before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/bilibili-detail-after.png" alt="bilibili-detail after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article><article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>小红书 / homepage</h3>
+            <p>https://www.xiaohongshu.com/explore</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 1527</span>
+          <span>SourceRef 93</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 8</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 16 · 噪声 0.00 · 唯一 0.75</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/xiaohongshu-homepage-before.png" alt="xiaohongshu-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/xiaohongshu-homepage-after.png" alt="xiaohongshu-homepage after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article><article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>小红书 / note-detail</h3>
+            <p>https://www.xiaohongshu.com/explore</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 1685</span>
+          <span>SourceRef 93</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 11</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 19 · 噪声 0.00 · 唯一 0.79</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/xiaohongshu-detail-before.png" alt="xiaohongshu-detail before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/xiaohongshu-detail-after.png" alt="xiaohongshu-detail after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article><article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>观察者网 / homepage</h3>
+            <p>https://www.guancha.cn/</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 17784</span>
+          <span>SourceRef 126</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 10</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 18 · 噪声 0.00 · 唯一 0.78</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/guancha-homepage-before.png" alt="guancha-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/guancha-homepage-after.png" alt="guancha-homepage after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article><article class="sample">
+        <div class="sample-head">
+          <div>
+            <h3>观察者网 / article-detail</h3>
+            <p>https://h.xinhuaxmt.com/vh512/share/13166398?newstype=1001&amp;homeshow=1</p>
+          </div>
+          <span class="pill ok">通过</span>
+        </div>
+        <div class="metrics">
+          <span>文本 1989</span>
+          <span>SourceRef 21</span>
+          <span>Digest 18</span>
+          <span>EvidenceCard 6</span>
+          <span>Jumpback highlighted</span>
+          <span>导图标签 14 · 噪声 0.00 · 唯一 0.71</span>
+        </div>
+        <div class="shot-grid">
+          <figure><img src="screenshots/guancha-detail-before.png" alt="guancha-detail before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
+          <figure><img src="screenshots/guancha-detail-after.png" alt="guancha-detail after" /><figcaption>读取后：Mindmap / source evidence / highlight 路径</figcaption></figure>
+        </div>
+        <p class="issues">无 fatal / major issue</p>
+      </article>
+    </section>
+    <section>
+      <h2>False-green 审计</h2>
+      <p>未发现 fatal / major false-green 风险。</p>
+      <ul>
+        <li>不把登录态缺失、验证码、404 或反爬页面伪装为通过。</li>
+        <li>不把 fallback 误记为 DOM highlight success。</li>
+        <li>不以旧截图或非当前运行结果替代本次自动化证据。</li>
+        <li>不声明未验收的完整 V1、RAG、Memory、Web Research、PPT、Deep Research 或多 Agent 能力。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # V1 Component Baseline Stage Gate
 
 Date: 2026-06-24
-Status: Superseded baseline; current implementation gate is `v1-gemini-style-pass.md`
+Status: Superseded baseline; current closeout gate is `v1-mainline-closeout.md`
 
 ---
 
@@ -9,17 +9,19 @@ Status: Superseded baseline; current implementation gate is `v1-gemini-style-pas
 
 This gate freezes the V1 component baseline that existed before the Gemini experience optimization stage.
 
-It is intentionally not a high-fidelity UX gate. Gemini review has now landed back into active docs. Current style and button-system implementation is governed by:
+It is intentionally not a high-fidelity UX gate. Gemini review and the later user-approved launcher / collapse / resize stage have landed back into active docs. Current V1 mainline closeout is governed by:
 
 ```text
+docs/active/project/stage-gates/v1-mainline-closeout.md
+docs/active/project/stage-gates/v1-launcher-resize-interaction.md
 docs/active/project/stage-gates/v1-gemini-style-pass.md
 ```
 
 ---
 
-## 2. Current Baseline
+## 2. Older Baseline
 
-The current active V1 interaction baseline is defined by `docs/active/project/interaction-prd/窗口交互_PRD.md` section 0:
+This superseded V1 interaction baseline was defined by `docs/active/project/interaction-prd/窗口交互_PRD.md` section 0:
 
 ```text
 No floating ball.
@@ -28,7 +30,7 @@ No in-page collapse entry.
 Default right-side in-page chatbot sidebar.
 ```
 
-Current implementation:
+The implementation from that baseline:
 
 ```text
 Chrome content script
@@ -61,21 +63,19 @@ docs/active/project/evidence/v1_4_reading_map/report.json
 | `EvidenceCardMindmap` | B mindmap renderer | Implemented V1.3 | Artifact-local Evidence Card Mindmap |
 | `ReadingMap` | B mindmap renderer | Implemented V1.4 | Two-column map navigation from EvidenceCardViewModel |
 | `SourceEvidencePanel` | B mindmap renderer | Implemented baseline | textQuote / fallbackText, located / fallback / blocked status |
-| `FloatingBall` | Future UX optimization | Not current baseline | Requires Gemini / product review before implementation |
-| `HoverStrip` | Future UX optimization | Not current baseline | Requires Gemini / product review before implementation |
-| `CollapseResizeController` | Future UX optimization | Not current baseline | Requires explicit V1.x interaction stage gate |
+| `FloatingBall` | Content script interaction shell | Accepted for V1 launcher stage | Governed by `v1-launcher-resize-interaction.md` |
+| `HoverStrip` | Legacy interaction reference | Not current V1-MC requirement | Do not require unless a later gate reactivates it |
+| `CollapseResizeController` | Content script interaction shell | Accepted for V1 launcher stage | Governed by `v1-launcher-resize-interaction.md` |
 
 ---
 
 ## 4. No-Go
 
-Do not start implementation that depends on any of the following unless a later active stage gate explicitly accepts it:
+This older baseline no longer blocks the later accepted `V1 Launcher / Collapse / Resize` stage. Any further expansion beyond that stage still requires a new active gate:
 
-- Floating ball default / drag / snap behavior.
-- Hover strip.
-- In-page collapse entry.
-- Resize handle and push / overlay breakpoint behavior.
-- Real product interaction redesign beyond the current Gemini style pass.
+- Hover strip as a required product path.
+- New standalone Map / Sources pages.
+- Real product interaction redesign beyond the current V1 mainline closeout.
 - Any claim of final Monica-like UX completion.
 
 Also prohibited:

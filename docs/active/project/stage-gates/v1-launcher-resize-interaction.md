@@ -11,8 +11,9 @@ Target user experience:
 
 ```text
 普通网页
--> Navia 默认展开为右侧 in-page sidebar
--> 用户可点击 floating launcher 折叠 / 展开
+-> Navia 默认只显示贴边 launcher，不展开右侧 in-page sidebar
+-> 用户 hover / focus 后 launcher 从边缘弹出为完整悬浮球
+-> 用户可点击 floating launcher 展开 / 收起 sidebar
 -> 用户可拖拽 launcher 改变其垂直位置并贴近左右边缘
 -> 用户可拖拽 sidebar 左边界 resize
 -> sidebar 根据宽度和视口进入 push 或 overlay 布局
@@ -24,6 +25,8 @@ Target user experience:
 Allowed:
 
 - Floating launcher visual control.
+- Docked low-interruption launcher default state.
+- Hover / focus launcher peek state.
 - Sidebar expanded / collapsed state.
 - Drag-to-position launcher.
 - Drag-to-resize sidebar width.
@@ -40,9 +43,10 @@ Not allowed:
 
 Must pass:
 
-- [ ] Default state still opens the current right-side sidebar.
+- [ ] Default state shows only a docked launcher and does not open or push the current right-side sidebar.
 - [ ] Floating launcher is visible and styled as Navia, not as a generic black widget.
-- [ ] Launcher click toggles sidebar expanded / collapsed.
+- [ ] Launcher hover / focus peeks the full launcher from the page edge.
+- [ ] Launcher click expands the sidebar; a second click collapses it.
 - [ ] No duplicate edge toggle / bar control appears outside the sidebar.
 - [ ] Collapsed state restores page body margin.
 - [ ] Expanded push state reserves page width.

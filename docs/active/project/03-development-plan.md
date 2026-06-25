@@ -1369,16 +1369,84 @@ docs/active/project/evidence/v1_gemini_style_pass/screenshots/
 | 子阶段 | 开发重点 | 验收重点 |
 |---|---|---|
 | `V1-LCR-0` | 冻结 launcher / collapse / resize stage gate | 文档边界不引入禁用能力 |
-| `V1-LCR-1` | content script 状态机和 launcher | 默认展开、点击折叠/展开 |
+| `V1-LCR-1` | content script 状态机和 launcher | 默认贴边、hover / focus 弹出、点击展开 / 收起 |
 | `V1-LCR-2` | resize handle 和 push / overlay | 宽度限制、页面 margin 正确 |
 | `V1-LCR-3` | launcher 拖拽和状态持久化 | 垂直位置、左右贴边、localStorage |
 | `V1-LCR-4` | 回归验证 | page context、jumpback、sidepanel 体验不回归 |
+
+### 13.14 V1 Mainline Closeout Candidate 开发计划
+
+本阶段把当前认可的 V1 主线目标收束为可执行、可验收、可审计的总计划。它不新增新的产品能力，而是补齐 V1.3 / V1.4 / complex-site hardening / Gemini style / Launcher Resize 之间的证据链和完成声明边界。
+
+阶段拆分：
+
+```text
+V1-MC-0：PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 同步
+V1-MC-1：Launcher / Collapse / Resize 正式 closeout
+V1-MC-2：复杂站点读取与 Mindmap 质量证据整理
+V1-MC-3：V1 主线自动化总体验收报告
+V1-MC-4：人工产品体验核查准备
+V1-MC-5：V1 complete 候选审计
+```
+
+开发计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1-MC-0` | 统一 PRD、架构、计划、验收、stage gate、drawio；补齐当前实现实体映射 | 文档无冲突，drawio 不超过 8 页，完成声明边界清楚，能看出 `contentBridge.ts`、iframe React、B Renderer、background proxy、Runtime A/C/D/C Mindmap 和 source jumpback 的交互关系 |
+| `V1-MC-1` | 对 launcher、collapse、resize、push / overlay 做正式验收闭环 | 真实 Chrome 截图和报告覆盖默认贴边、hover / focus 弹出、点击展开、点击收起、恢复 margin、拖拽、resize |
+| `V1-MC-2` | 汇总 B站 / 小红书 / 观察者网等复杂站点质量证据 | public no-login 与登录态边界清楚，degraded 不冒充 pass |
+| `V1-MC-3` | 生成 V1 主线总体验收 HTML / JSON 报告，并逐个校验上游 evidence 路径、`passed`、`fatalIssues`、`majorIssues`、允许声明和固定验证命令 | 读取、Debug、总结、问答、Evidence Card、Reading Map、source evidence 全链路通过；`report.json` 记录 `testCommands` 和上游 evidence 语义校验结果 |
+| `V1-MC-4` | 输出人工体验核查清单和待审核证据路径 | 人类能快速检查目标体验、目标架构和关键截图；清单必须包含 `reviewStatus`、`reviewer`、`reviewedAt`、`blockingIssues` 字段，初始状态为 `pending` |
+| `V1-MC-5` | PRD 复检、false-green audit、旧证据冲突处理、fallback 覆盖口径核对 | 无 fatal / major，才允许进入完整 V1 complete 候选审计；若当前 V1-MC 样本 `fallbackSamples = 0`，必须引用 V1.3 / V1.4 fallback evidence，不能声明本轮真实站点 fallback 抽样已覆盖 |
+
+每个子阶段完成后必须留下可审查产物：
+
+| 子阶段 | 必须产物 |
+|---|---|
+| `V1-MC-0` | PRD、架构、开发计划、验收计划、stage gate、drawio gap 内容一致性审计结论；当前实现实体与目标架构差异映射 |
+| `V1-MC-1` | docked launcher / hover or focus peek / expand / collapse / drag / resize / push 或 overlay 的真实 Chrome 截图和 JSON report |
+| `V1-MC-2` | B站、小红书、观察者网首页 / 详情页的 public no-login 或 logged-in 边界说明 |
+| `V1-MC-3` | 汇总 HTML report、机器可读 `report.json`、截图索引、`testCommands`、逐个上游 evidence 校验结果 |
+| `V1-MC-4` | 面向人类产品核查的 checklist，覆盖目标体验、目标架构和关键截图，并包含 `reviewStatus: pending` 等人工核查状态字段 |
+| `V1-MC-5` | PRD review、false-green audit、旧 failed / superseded evidence 处理说明、fallback coverage 来源说明 |
+
+打回规则：
+
+- `V1-MC-0` 如果 PRD、架构、验收或 drawio 对当前目标有冲突，打回文档门禁。
+- `V1-MC-1` 如果 launcher 只完成视觉 probe，或折叠 / resize / margin 恢复没有真实浏览器证据，打回交互验收。
+- `V1-MC-2` 如果 public no-login 样本被写成登录态高质量通过，打回复杂站点验收。
+- `V1-MC-3` 如果总报告与阶段 report 结论不一致、上游 evidence 路径缺失、上游 report 存在 fatal / major、或 `testCommands` 未记录，打回报告生成。
+- `V1-MC-4` 如果 checklist 不能指导人类快速核查 launcher、sidebar、读取、问答、导图和 source evidence，或缺少 review status 字段，打回人工核查材料。
+- `V1-MC-5` 如果旧 failed closeout 证据未解释、废止或重跑，或 fallback coverage 没有说明当前抽样 / 上游继承来源，不得进入完整 V1 complete 候选审计。
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
+npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout
+npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
+```
+
+证据包建议路径：
+
+```text
+docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html
+docs/active/project/evidence/v1_mainline_closeout/report.json
+docs/active/project/evidence/v1_mainline_closeout/prd-review.md
+docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+docs/active/project/evidence/v1_mainline_closeout/screenshots/
+```
 
 ---
 
 ## 14. 推荐开发顺序
 
-最小可行顺序：
+以下顺序是早期 V1 底座从零建设时的历史推荐顺序，用于理解 Runtime / AgentCore / 插件底座的依赖关系；它不再代表 2026-06-25 当前 V1 主线收口阶段的直接执行顺序。
 
 ```text
 1. contract freeze: API envelope / ErrorCode / State / Event / Tool / Budget / ID / SSE
@@ -1398,4 +1466,15 @@ docs/active/project/evidence/v1_gemini_style_pass/screenshots/
 15. session restore + trace export
 ```
 
-不要先做 UI 细节，也不要先做本地知识库。V1 成败取决于 AgentCore 是否稳，以及 Chrome 插件是否能完成最小可用的当前网页基础对话闭环。
+当前 V1 主线收口推荐顺序固定为：
+
+```text
+1. V1-MC-0 文档门禁和 drawio gap 同步
+2. V1-MC-1 launcher / collapse / resize 正式 closeout
+3. V1-MC-2 complex-site 读取和导图证据整理
+4. V1-MC-3 V1 主线自动化总体验收报告
+5. V1-MC-4 人工产品体验核查材料
+6. V1-MC-5 V1 complete 候选审计
+```
+
+当前仍然不要扩展到本地知识库、RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。V1 主线成败取决于当前网页伴读链路是否可被真实 Chrome 证据、PRD 复检和人工体验核查共同证明。

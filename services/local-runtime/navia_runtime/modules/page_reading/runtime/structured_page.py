@@ -43,6 +43,9 @@ class ParsedParagraph:
     text: str
     heading_path: list[str]
     block_type: str = "paragraph"
+    selector: str | None = None
+    href: str | None = None
+    role: str | None = None
 
 
 @dataclass
@@ -217,7 +220,8 @@ def build_structured_page_context(input_data: dict[str, Any]) -> dict[str, Any]:
     content_hash = "sha256_" + hashlib.sha256(canonical_hash_text(url, title, cleaned_text).encode("utf-8")).hexdigest()
     page_id = read_str(input_data, "pageId", "page_id") or "page_" + content_hash.removeprefix("sha256_")[:16]
 
-    parsed_paragraphs = parsed_html.paragraphs or split_text_into_paragraphs(cleaned_text)
+    signal_paragraphs = dom_signal_paragraphs(input_data.get("dom_signals"))
+    parsed_paragraphs = signal_paragraphs + (parsed_html.paragraphs or split_text_into_paragraphs(cleaned_text))
     paragraphs = build_paragraphs(page_id, parsed_paragraphs)
     heading_tree = build_heading_tree(headings, paragraphs)
     chunks = build_chunks(page_id, paragraphs)
@@ -232,7 +236,7 @@ def build_structured_page_context(input_data: dict[str, Any]) -> dict[str, Any]:
         "domain": domain,
         "capturedAt": captured_at,
         "contentHash": content_hash,
-        "metadata": build_metadata(input_data.get("metadata"), url, title, cleaned_text, paragraphs, headings),
+        "metadata": build_metadata(input_data.get("metadata"), url, title, cleaned_text, paragraphs, headings, input_data.get("dom_signals")),
         "imageMetadata": build_image_metadata(parsed_html.images),
         "headingTree": heading_tree,
         "paragraphs": paragraphs,
@@ -283,9 +287,85 @@ def build_paragraphs(page_id: str, parsed_paragraphs: list[ParsedParagraph]) -> 
                 "text": text[:2400],
                 "headingPath": item.heading_path[:6],
                 "sourceBlockType": item.block_type,
+                **({"selector": item.selector} if item.selector else {}),
+                **({"href": item.href} if item.href else {}),
+                **({"domSignalRole": item.role} if item.role else {}),
             }
         )
     return paragraphs
+
+
+def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
+    if not isinstance(value, dict):
+        return []
+    paragraphs: list[ParsedParagraph] = []
+    seen: set[str] = set()
+
+    for item in value.get("blocks", []) if isinstance(value.get("blocks"), list) else []:
+        if not isinstance(item, dict):
+            continue
+        text = normalize_text(str(item.get("text") or ""))
+        if len(text) < 16:
+            continue
+        key = text[:140]
+        if key in seen:
+            continue
+        seen.add(key)
+        paragraphs.append(
+            ParsedParagraph(
+                text=text[:700],
+                heading_path=["DOM signals", str(item.get("role") or "visible block")],
+                block_type="list_item" if str(item.get("role") or "").endswith("card") else "section",
+                selector=read_optional_str(item.get("selector")),
+                href=read_optional_str(item.get("href")),
+                role=read_optional_str(item.get("role")),
+            )
+        )
+
+    for item in value.get("links", []) if isinstance(value.get("links"), list) else []:
+        if not isinstance(item, dict):
+            continue
+        text = normalize_text(str(item.get("text") or ""))
+        href = read_optional_str(item.get("href"))
+        if len(text) < 4 or not href:
+            continue
+        role = read_optional_str(item.get("role")) or "link"
+        if role in {"auth_link", "link"} and len(text) < 8:
+            continue
+        line = f"{text} ({href})"
+        key = line[:160]
+        if key in seen:
+            continue
+        seen.add(key)
+        paragraphs.append(
+            ParsedParagraph(
+                text=line[:520],
+                heading_path=["DOM signals", role],
+                block_type="list_item",
+                selector=read_optional_str(item.get("selector")),
+                href=href,
+                role=role,
+            )
+        )
+        if len(paragraphs) >= 80:
+            break
+
+    for item in value.get("meta", []) if isinstance(value.get("meta"), list) else []:
+        if not isinstance(item, dict):
+            continue
+        name = normalize_text(str(item.get("name") or ""))
+        content = normalize_text(str(item.get("content") or ""))
+        if not name or len(content) < 12:
+            continue
+        key = f"{name}:{content[:120]}"
+        if key in seen:
+            continue
+        seen.add(key)
+        paragraphs.append(ParsedParagraph(text=f"{name}: {content}"[:520], heading_path=["DOM signals", "metadata"], block_type="paragraph", role="metadata"))
+        if len(paragraphs) >= 100:
+            break
+
+    return paragraphs[:100]
 
 
 def build_heading_tree(headings: list[dict[str, Any]], paragraphs: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -441,7 +521,7 @@ def sentence_windows(text: str) -> list[str]:
     return windows
 
 
-def build_metadata(raw_metadata: Any, url: str, title: str, text: str, paragraphs: list[dict[str, Any]], headings: list[dict[str, Any]]) -> dict[str, Any]:
+def build_metadata(raw_metadata: Any, url: str, title: str, text: str, paragraphs: list[dict[str, Any]], headings: list[dict[str, Any]], dom_signals: Any = None) -> dict[str, Any]:
     metadata = raw_metadata.copy() if isinstance(raw_metadata, dict) else {}
     metadata.update(
         {
@@ -453,7 +533,20 @@ def build_metadata(raw_metadata: Any, url: str, title: str, text: str, paragraph
     )
     if "language" not in metadata:
         metadata["language"] = "zh" if re.search(r"[\u4e00-\u9fff]", text) else "en"
+    if isinstance(dom_signals, dict):
+        hints = [str(item) for item in dom_signals.get("pageStateHints", []) if isinstance(item, str)]
+        if hints:
+            metadata["pageStateHints"] = sorted(set(hints))
+        metadata["domSignalBlockCount"] = len(dom_signals.get("blocks", [])) if isinstance(dom_signals.get("blocks"), list) else 0
+        metadata["domSignalLinkCount"] = len(dom_signals.get("links", [])) if isinstance(dom_signals.get("links"), list) else 0
     return metadata
+
+
+def read_optional_str(value: Any) -> str | None:
+    if not isinstance(value, str):
+        return None
+    text = normalize_text(value)
+    return text or None
 
 
 def infer_content_type(url: str, title: str, text: str) -> str:
@@ -501,7 +594,8 @@ def word_count(text: str) -> int:
 
 
 def normalize_text(value: str) -> str:
-    return html.unescape(value).replace("\xa0", " ").strip()
+    text = html.unescape(value).replace("\xa0", " ")
+    return text.encode("utf-8", errors="replace").decode("utf-8").strip()
 
 
 def canonical_hash_text(url: str, title: str, text: str) -> str:

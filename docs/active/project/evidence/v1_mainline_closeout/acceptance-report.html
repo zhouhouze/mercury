@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia V1 主线收口自动化验收报告</title>
+  <style>
+    :root { --ink:#10201d; --muted:#60736e; --line:#dbe7e2; --panel:#fff; --wash:#f4f8f6; --green:#075f52; --red:#b42318; --amber:#ad6500; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--wash); }
+    header { padding:34px 42px 28px; background:linear-gradient(135deg,#062e2a,#0a5f52); color:white; }
+    main { max-width:1440px; margin:0 auto; padding:28px 40px 70px; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; margin-bottom:20px; box-shadow:0 18px 50px rgba(9,48,43,.06); }
+    h1,h2,h3 { margin:0 0 12px; }
+    p,li { line-height:1.7; }
+    code { background:#ecf4f1; border-radius:5px; padding:2px 5px; }
+    .status { display:inline-flex; border-radius:999px; padding:7px 12px; font-weight:800; background:#dcfce7; color:#166534; }
+    .summary { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
+    .metric { border:1px solid var(--line); border-radius:10px; padding:14px; background:#fbfdfc; }
+    .metric strong { display:block; font-size:26px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th,td { text-align:left; vertical-align:top; padding:10px; border-bottom:1px solid var(--line); }
+    .pass { color:#087443; font-weight:800; } .fail { color:var(--red); font-weight:800; } .warn { color:var(--amber); font-weight:800; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    figure { margin:0; }
+    img { display:block; width:100%; border:1px solid #c8d8d3; border-radius:10px; background:white; }
+    figcaption { color:var(--muted); font-size:13px; margin-top:7px; }
+    .arch { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .card { border:1px solid var(--line); border-radius:10px; padding:14px; background:#fbfdfc; }
+    @media (max-width:900px){ main,header{padding-left:18px;padding-right:18px}.summary,.grid,.arch{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia V1 主线收口自动化验收报告</h1>
+    <p><span class="status">自动化验收通过</span></p>
+    <p>V1 mainline closeout candidate passed automated acceptance.</p>
+    <p>生成时间：2026-06-25T09:32:22.818Z</p>
+  </header>
+  <main>
+    <section>
+      <h2>摘要</h2>
+      <div class="summary">
+        <div class="metric"><strong>5/5</strong><span>上游报告通过</span></div>
+        <div class="metric"><strong>6</strong><span>launcher 截图</span></div>
+        <div class="metric"><strong>6</strong><span>真实网页样本</span></div>
+        <div class="metric"><strong>6</strong><span>DOM highlight</span></div>
+        <div class="metric"><strong>0</strong><span>Fatal issues</span></div>
+        <div class="metric"><strong>0</strong><span>Major notes</span></div>
+      </div>
+    </section>
+    <section>
+      <h2>目标架构与当前实现</h2>
+      <div class="arch">
+        <div class="card"><h3>目标架构</h3><p>Chrome Web Page -&gt; Content Script Interaction Shell -&gt; Floating Launcher / SidebarInteractionState / Resize Handle / iframe sidepanel.html -&gt; Chat / Agent / Debug / Settings -&gt; Evidence Card Mindmap / Reading Map / Source Evidence -&gt; Local Runtime A/C/D/B.</p></div>
+        <div class="card"><h3>当前实现</h3><p>Current implementation uses a WXT/React Chrome extension, content-script in-page sidebar/launcher shell, sidepanel.html React app, and Python Local Runtime. V1.3, V1.4, complex-site diagnostics, external visual acceptance, and launcher closeout are treated as upstream evidence.</p></div>
+        <div class="card"><h3>不声明范围</h3><p>This report does not claim full V1 complete, final Monica-like UX complete, logged-in high-quality Bilibili/Xiaohongshu pass, V2 Memory/RAG, Web Research, PPT, Deep Research, multi-agent, voice, desktop pet, browser automation product features, or default local file access.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>上游证据</h2>
+      <table><thead><tr><th>阶段</th><th>报告</th><th>状态</th><th>声明</th></tr></thead><tbody><tr>
+        <td>v13</td>
+        <td><code>docs/active/project/evidence/v1_3_evidence_card_mindmap/report.json</code></td>
+        <td class="pass">通过</td>
+        <td>V1.3 Evidence Card Mindmap experience complete</td>
+      </tr><tr>
+        <td>v14</td>
+        <td><code>docs/active/project/evidence/v1_4_reading_map/report.json</code></td>
+        <td class="pass">通过</td>
+        <td>V1.4 Reading Map Side Panel navigation experience complete</td>
+      </tr><tr>
+        <td>realSite</td>
+        <td><code>docs/active/project/evidence/v1_real_site_complex_pages/report.json</code></td>
+        <td class="pass">通过</td>
+        <td>Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples.</td>
+      </tr><tr>
+        <td>externalVisual</td>
+        <td><code>docs/active/project/evidence/v1_external_visual_acceptance/report.json</code></td>
+        <td class="pass">通过</td>
+        <td>Navia 当前可实现的真实网页伴读、Evidence Card Mindmap、Reading Map 和 source jumpback 用户路径通过自动化可视化验收。</td>
+      </tr><tr>
+        <td>launcherCloseout</td>
+        <td><code>docs/active/project/evidence/v1_launcher_resize_closeout/report.json</code></td>
+        <td class="pass">通过</td>
+        <td>V1 docked launcher / expand / collapse / resize interaction baseline passed real Chrome behavior acceptance.</td>
+      </tr><tr>
+        <td>launcherVisualProbe</td>
+        <td><code>docs/active/project/evidence/v1_launcher_resize_visual_probe/report.json</code></td>
+        <td class="warn">失败</td>
+        <td></td>
+      </tr><tr>
+        <td>oldV12Closeout</td>
+        <td><code>docs/active/project/evidence/v1_2_closeout/report.json</code></td>
+        <td class="warn">失败</td>
+        <td>V1.2 AI Reading mock-first product path complete</td>
+      </tr></tbody></table>
+    </section>
+    <section>
+      <h2>固定验证命令</h2>
+      <table><thead><tr><th>命令</th><th>状态</th><th>证据口径</th></tr></thead><tbody><tr>
+        <td><code>npm --prefix apps/chrome-extension run typecheck</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr><tr>
+        <td><code>npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr><tr>
+        <td><code>npm --prefix apps/chrome-extension run build</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr><tr>
+        <td><code>npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr><tr>
+        <td><code>npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr><tr>
+        <td><code>npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout</code></td>
+        <td class="pass">通过</td>
+        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+      </tr></tbody></table>
+    </section>
+    <section>
+      <h2>Source Evidence 覆盖</h2>
+      <p>当前 V1-MC real-site / external 样本 fallback 数：0；V1.3 / V1.4 上游 fallback 样本数：4。</p>
+      <p>如果当前样本全部 DOM highlight 成功，fallback path 只能通过上游 V1.3 / V1.4 证据继承，不得写成本轮真实站点 fallback 抽样。</p>
+    </section>
+    <section>
+      <h2>Launcher / Collapse / Resize 行为截图</h2>
+      <div class="grid"><figure>
+        <img src="screenshots/launcher-docked-default.png" alt="docked-default" />
+        <figcaption>docked-default</figcaption>
+      </figure><figure>
+        <img src="screenshots/launcher-launcher-hover-peek.png" alt="launcher-hover-peek" />
+        <figcaption>launcher-hover-peek</figcaption>
+      </figure><figure>
+        <img src="screenshots/launcher-expanded-after-click.png" alt="expanded-after-click" />
+        <figcaption>expanded-after-click</figcaption>
+      </figure><figure>
+        <img src="screenshots/launcher-resized-overlay.png" alt="resized-overlay" />
+        <figcaption>resized-overlay</figcaption>
+      </figure><figure>
+        <img src="screenshots/launcher-collapsed-after-use.png" alt="collapsed-after-use" />
+        <figcaption>collapsed-after-use</figcaption>
+      </figure><figure>
+        <img src="screenshots/launcher-launcher-drag-left.png" alt="launcher-drag-left" />
+        <figcaption>launcher-drag-left</figcaption>
+      </figure></div>
+    </section>
+    <section>
+      <h2>真实网页伴读路径截图</h2>
+      <div class="grid"><figure>
+        <img src="screenshots/external-bilibili-homepage-after.png" alt="bilibili-homepage" />
+        <figcaption>B站 / homepage / highlighted</figcaption>
+      </figure><figure>
+        <img src="screenshots/external-bilibili-detail-after.png" alt="bilibili-detail" />
+        <figcaption>B站 / video-detail / highlighted</figcaption>
+      </figure><figure>
+        <img src="screenshots/external-xiaohongshu-homepage-after.png" alt="xiaohongshu-homepage" />
+        <figcaption>小红书 / homepage / highlighted</figcaption>
+      </figure><figure>
+        <img src="screenshots/external-xiaohongshu-detail-after.png" alt="xiaohongshu-detail" />
+        <figcaption>小红书 / note-detail / highlighted</figcaption>
+      </figure><figure>
+        <img src="screenshots/external-guancha-homepage-after.png" alt="guancha-homepage" />
+        <figcaption>观察者网 / homepage / highlighted</figcaption>
+      </figure><figure>
+        <img src="screenshots/external-guancha-detail-after.png" alt="guancha-detail" />
+        <figcaption>观察者网 / article-detail / highlighted</figcaption>
+      </figure></div>
+    </section>
+    <section>
+      <h2>False-green 边界</h2>
+      <ul>
+        <li>不把 V1.3 / V1.4 单阶段证据声明为完整 V1 complete。</li>
+        <li>不把 public no-login 复杂站点样本声明为登录态高质量通过。</li>
+        <li>不把 fallback evidence 冒充 DOM highlight success。</li>
+        <li>不忽略旧 failed closeout 证据；本报告将其标记为 superseded evidence，仍需人工核查前最终确认。</li>
+        <li>完整 V1 complete 仍需人工产品体验核查。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

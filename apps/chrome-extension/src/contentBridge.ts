@@ -13,6 +13,10 @@ const IN_PAGE_SIDEBAR_OVERLAY_RATIO = 0.52;
 const IN_PAGE_NARROW_OVERLAY_WIDTH = 900;
 const IN_PAGE_SIDEBAR_INSET = 12;
 const LAUNCHER_DEFAULT_TOP = 0.9;
+const SIDEBAR_STATE_STORAGE_KEY = "navia.inpageSidebarState";
+const SIDEBAR_DEFAULT_MODE: SidebarMode = "collapsed";
+const CONTENT_BRIDGE_READY_ATTRIBUTE = "data-navia-content-bridge-ready";
+const pendingSidebarReadyDocuments = new WeakSet<Document>();
 
 type SidebarMode = "expanded" | "collapsed";
 type SidebarLayoutMode = "push" | "overlay";
@@ -62,9 +66,40 @@ function getErrorMessage(error: unknown): string {
 }
 
 export function initializeContentBridge(documentRef: Document, href: string): void {
+  if (documentRef.documentElement?.getAttribute(CONTENT_BRIDGE_READY_ATTRIBUTE) === "true") {
+    ensureInPageSidebarWhenReady(documentRef);
+    return;
+  }
+  documentRef.documentElement?.setAttribute(CONTENT_BRIDGE_READY_ATTRIBUTE, "true");
   cleanupLegacyInjectedPanel(documentRef);
-  ensureInPageSidebar(documentRef);
+  ensureInPageSidebarWhenReady(documentRef);
   chrome.runtime.onMessage.addListener(createPageContextMessageHandler(documentRef, href));
+}
+
+function ensureInPageSidebarWhenReady(documentRef: Document): void {
+  if (ensureInPageSidebar(documentRef)) return;
+  if (pendingSidebarReadyDocuments.has(documentRef)) return;
+  pendingSidebarReadyDocuments.add(documentRef);
+
+  let observer: MutationObserver | null = null;
+  let timeoutId: number | null = null;
+  const cleanup = () => {
+    pendingSidebarReadyDocuments.delete(documentRef);
+    documentRef.removeEventListener("DOMContentLoaded", retry);
+    observer?.disconnect();
+    if (timeoutId !== null) window.clearTimeout(timeoutId);
+  };
+  const retry = () => {
+    if (ensureInPageSidebar(documentRef)) cleanup();
+  };
+
+  documentRef.addEventListener("DOMContentLoaded", retry, { once: true });
+  if (documentRef.documentElement) {
+    observer = new MutationObserver(retry);
+    observer.observe(documentRef.documentElement, { childList: true, subtree: true });
+  }
+  window.setTimeout(retry, 0);
+  timeoutId = window.setTimeout(cleanup, 30_000);
 }
 
 export function cleanupLegacyInjectedPanel(documentRef: Document = document): void {
@@ -85,7 +120,7 @@ export function ensureInPageSidebar(documentRef: Document = document): HTMLEleme
   host.id = IN_PAGE_SIDEBAR_HOST_ID;
   host.setAttribute("data-testid", "navia-inpage-sidebar");
   host.setAttribute("aria-label", "Navia in-page sidebar");
-  host.dataset.naviaMode = "expanded";
+  host.dataset.naviaMode = SIDEBAR_DEFAULT_MODE;
   Object.assign(host.style, {
     position: "fixed",
     top: `${IN_PAGE_SIDEBAR_INSET}px`,
@@ -138,7 +173,7 @@ export function ensureInPageSidebar(documentRef: Document = document): HTMLEleme
   });
   host.append(frame);
   documentRef.body.append(host);
-  const state = readSidebarState(documentRef);
+  const state = { ...readSidebarState(documentRef), mode: SIDEBAR_DEFAULT_MODE };
   ensureFloatingLauncher(documentRef, host);
   bindSidebarInteractions(documentRef, host, resizeHandle);
   applyInPageSidebarLayout(documentRef, host, state);
@@ -175,6 +210,14 @@ function ensureInPageInteractionStyles(documentRef: Document): void {
     }
     #${IN_PAGE_LAUNCHER_ID}:hover [data-navia-launcher-svg="true"] {
       transform: rotate(15deg) scale(1.05);
+    }
+    #${IN_PAGE_LAUNCHER_ID}[data-navia-mode="collapsed"] {
+      filter: saturate(0.96);
+    }
+    #${IN_PAGE_LAUNCHER_ID}[data-navia-mode="collapsed"]:hover,
+    #${IN_PAGE_LAUNCHER_ID}[data-navia-mode="collapsed"]:focus-visible {
+      transform: var(--navia-launcher-peek-transform, translateX(0)) scale(1.04) translateY(-2px);
+      opacity: 1 !important;
     }
     #${IN_PAGE_SIDEBAR_HOST_ID} [data-testid="navia-inpage-sidebar-resize-handle"] {
       transition: opacity 0.18s ease, background 0.18s ease;
@@ -341,19 +384,30 @@ function applyInPageSidebarLayout(documentRef: Document, host: HTMLElement, stat
   host.dataset.naviaLayout = layoutMode;
   host.style.width = `${width}px`;
   host.style.transform = mode === "collapsed" ? `translateX(${width + IN_PAGE_SIDEBAR_INSET * 2}px)` : "translateX(0)";
-  host.style.opacity = mode === "collapsed" ? "0.96" : "1";
+  host.style.opacity = mode === "collapsed" ? "0" : "1";
   host.style.boxShadow = mode === "collapsed" ? "none" : "-22px 0 62px rgba(5, 84, 75, 0.16), -6px 0 18px rgba(4, 24, 21, 0.07), inset 1px 0 0 rgba(255,255,255,0.66)";
+  host.style.pointerEvents = mode === "collapsed" ? "none" : "auto";
   const frame = host.querySelector<HTMLIFrameElement>("[data-testid='navia-inpage-sidebar-frame']");
   if (frame) frame.tabIndex = mode === "collapsed" ? -1 : 0;
   const launcher = documentRef.getElementById(IN_PAGE_LAUNCHER_ID);
   if (launcher instanceof HTMLElement) {
     const top = launcherTopPx(documentRef, nextState);
     launcher.style.top = `${top}px`;
-    launcher.style.left = nextState.launcherSide === "left" ? `${IN_PAGE_SIDEBAR_INSET + 12}px` : "";
-    const rightWhenExpanded = mode === "expanded" && nextState.launcherSide === "right" ? width + IN_PAGE_SIDEBAR_INSET + 34 : IN_PAGE_SIDEBAR_INSET + 12;
-    launcher.style.right = nextState.launcherSide === "right" ? `${rightWhenExpanded}px` : "";
-    launcher.style.setProperty("--navia-launcher-transform", "scale(1)");
-    launcher.style.opacity = mode === "expanded" ? "0.94" : "1";
+    launcher.dataset.naviaMode = mode;
+    launcher.dataset.naviaSide = nextState.launcherSide;
+    if (nextState.launcherSide === "left") {
+      launcher.style.left = mode === "collapsed" ? "0px" : `${IN_PAGE_SIDEBAR_INSET + 12}px`;
+      launcher.style.right = "";
+      launcher.style.setProperty("--navia-launcher-transform", mode === "collapsed" ? "translateX(-28px) scale(0.84)" : "scale(1)");
+      launcher.style.setProperty("--navia-launcher-peek-transform", "translateX(0px)");
+    } else {
+      launcher.style.left = "";
+      const rightWhenExpanded = mode === "expanded" ? width + IN_PAGE_SIDEBAR_INSET + 34 : 0;
+      launcher.style.right = `${rightWhenExpanded}px`;
+      launcher.style.setProperty("--navia-launcher-transform", mode === "collapsed" ? "translateX(28px) scale(0.84)" : "scale(1)");
+      launcher.style.setProperty("--navia-launcher-peek-transform", "translateX(0px)");
+    }
+    launcher.style.opacity = mode === "expanded" ? "0.94" : "0.86";
     launcher.setAttribute("aria-label", mode === "expanded" ? "折叠 Navia 阅读助手" : "打开 Navia 阅读助手");
   }
   if (!documentRef.body.hasAttribute("data-navia-original-margin-right")) {
@@ -368,7 +422,7 @@ function applyInPageSidebarLayout(documentRef: Document, host: HTMLElement, stat
 function readSidebarState(documentRef: Document): SidebarInteractionState {
   const parsed = safeParse(readStoredSidebarState(documentRef));
   const width = typeof parsed.width === "number" ? parsed.width : IN_PAGE_SIDEBAR_DEFAULT_WIDTH;
-  const mode = parsed.mode === "collapsed" ? "collapsed" : "expanded";
+  const mode = parsed.mode === "expanded" ? "expanded" : SIDEBAR_DEFAULT_MODE;
   const launcherSide = parsed.launcherSide === "left" ? "left" : "right";
   const launcherTopRatio = typeof parsed.launcherTopRatio === "number" ? parsed.launcherTopRatio : LAUNCHER_DEFAULT_TOP;
   const clampedWidth = clampSidebarWidth(documentRef, width);
@@ -383,7 +437,7 @@ function readSidebarState(documentRef: Document): SidebarInteractionState {
 
 function writeSidebarState(documentRef: Document, state: SidebarInteractionState): void {
   try {
-    documentRef.defaultView?.localStorage?.setItem("navia.inpageSidebarState", JSON.stringify(state));
+    documentRef.defaultView?.localStorage?.setItem(SIDEBAR_STATE_STORAGE_KEY, JSON.stringify(state));
   } catch {
     // Some embedded or restricted page contexts deny localStorage. UI state can safely fall back to defaults.
   }
@@ -391,7 +445,7 @@ function writeSidebarState(documentRef: Document, state: SidebarInteractionState
 
 function readStoredSidebarState(documentRef: Document): string | null {
   try {
-    return documentRef.defaultView?.localStorage?.getItem("navia.inpageSidebarState") ?? null;
+    return documentRef.defaultView?.localStorage?.getItem(SIDEBAR_STATE_STORAGE_KEY) ?? null;
   } catch {
     return null;
   }

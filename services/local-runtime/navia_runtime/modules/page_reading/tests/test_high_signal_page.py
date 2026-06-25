@@ -127,6 +127,102 @@ def test_video_stub_is_planning_only_not_real_perception_ready() -> None:
     assert any(issue["code"] == "PLANNING_ONLY_MEDIA" for issue in result["qualityReport"]["warnings"])
 
 
+def test_dom_signals_create_source_backed_feed_digest_items() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_feed",
+            "url": "https://www.bilibili.com/",
+            "title": "Bilibili feed fixture",
+            "domain": "www.bilibili.com",
+            "capturedAt": "2026-06-25T00:00:00Z",
+            "cleaned_text": "首页 登录 热门 知识 科技 数码 投稿 登录后你可以免费看高清视频。",
+            "visible_text": "首页 登录 热门 知识 科技 数码 投稿 登录后你可以免费看高清视频。",
+            "dom_signals": {
+                "pageStateHints": [],
+                "links": [
+                    {"text": "全国清理戒网瘾学校？持续十年的战斗要结束了吗！", "href": "https://www.bilibili.com/video/BV1", "selector": "a.video-card", "role": "media_link"},
+                    {"text": "他们这样为牛肉注入灵魂", "href": "https://www.bilibili.com/video/BV2", "selector": "a.video-card:nth-of-type(2)", "role": "media_link"},
+                    {"text": "请辨别眼前一切的生物", "href": "https://www.bilibili.com/video/BV3", "selector": "a.video-card:nth-of-type(3)", "role": "media_link"},
+                ],
+                "blocks": [
+                    {"text": "全国清理戒网瘾学校？持续十年的战斗要结束了吗！ 温柔JUNZ 昨天 31.5万 400", "selector": ".video-card:nth-of-type(1)", "href": "https://www.bilibili.com/video/BV1", "role": "feed_card"},
+                    {"text": "他们这样为牛肉注入灵魂 美食创作者 19.7万 580", "selector": ".video-card:nth-of-type(2)", "href": "https://www.bilibili.com/video/BV2", "role": "feed_card"},
+                    {"text": "请辨别眼前一切的生物！他们中混入了伪人 与山0v0 昨天 74.1万", "selector": ".video-card:nth-of-type(3)", "href": "https://www.bilibili.com/video/BV3", "role": "feed_card"},
+                ],
+                "meta": [{"name": "og:description", "content": "B站首页热门视频推荐"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    assert len(result["sourceMap"]["sourceRefs"]) >= 4
+    assert len(result["perceptionDigest"]["items"]) >= 3
+    assert any(ref.get("selector") == ".video-card:nth-of-type(1)" for ref in result["sourceMap"]["sourceRefs"])
+
+
+def test_auth_verification_or_not_found_dom_state_does_not_pass() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_auth",
+            "url": "https://www.xiaohongshu.com/404?error_code=300031",
+            "title": "小红书 - 你访问的页面不见了",
+            "domain": "www.xiaohongshu.com",
+            "capturedAt": "2026-06-25T00:00:00Z",
+            "cleaned_text": "登录后推荐更懂你的笔记 可用 小红书 或 微信 扫码 手机号登录 获取验证码 页面不见了 Sorry This Page Isn't Available Right Now.",
+            "visible_text": "登录后推荐更懂你的笔记 可用 小红书 或 微信 扫码 手机号登录 获取验证码 页面不见了 Sorry This Page Isn't Available Right Now.",
+            "dom_signals": {
+                "pageStateHints": ["auth_gated", "verification_gated", "not_found"],
+                "links": [],
+                "blocks": [{"text": "手机号登录 获取验证码 页面不见了", "selector": ".login-box", "role": "auth_block"}],
+                "meta": [],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    assert result["qualityReport"]["downstreamReadiness"] != "pass"
+    warning_codes = {issue["code"] for issue in result["qualityReport"]["warnings"]}
+    assert {"AUTH_GATED_DEGRADED", "VERIFICATION_GATED_DEGRADED", "NOT_FOUND_PAGE_FAILED"} <= warning_codes
+
+
+def test_unpaired_unicode_surrogate_text_does_not_crash_source_hashing() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_surrogate",
+            "url": "https://www.xiaohongshu.com/explore",
+            "title": "小红书 - 你的生活兴趣社区",
+            "domain": "www.xiaohongshu.com",
+            "capturedAt": "2026-06-25T00:00:00Z",
+            "cleaned_text": "这是一条混入非法字符的公开笔记内容 \ud83d 但仍然应该可以被读取、摘要、生成来源证据。",
+            "visible_text": "这是一条混入非法字符的公开笔记内容 \ud83d 但仍然应该可以被读取、摘要、生成来源证据。",
+            "dom_signals": {
+                "pageStateHints": ["media_dom_limited"],
+                "links": [
+                    {
+                        "text": "混入非法字符的笔记链接 \ud83d",
+                        "href": "https://www.xiaohongshu.com/explore/surrogate",
+                        "selector": "a.note-card",
+                        "role": "content_link",
+                    }
+                ],
+                "blocks": [
+                    {
+                        "text": "混入非法字符的笔记卡片 \ud83d 包含足够正文、作者、互动数字和可反跳来源。",
+                        "selector": ".note-card",
+                        "href": "https://www.xiaohongshu.com/explore/surrogate",
+                        "role": "feed_card",
+                    }
+                ],
+                "meta": [{"name": "description", "content": "小红书公开笔记 surrogate regression"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    assert result["sourceMap"]["sourceRefs"]
+    assert all("\ud83d" not in ref["textQuote"] for ref in result["sourceMap"]["sourceRefs"])
+
+
 def test_candidate_extractor_output_is_not_leaked_to_final_payloads() -> None:
     result = run_fixture("product_doc.html")
     forbidden_keys = {"extractorName", "candidateBlockId"}

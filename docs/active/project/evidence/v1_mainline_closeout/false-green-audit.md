@@ -1,0 +1,21 @@
+# V1 Mainline Closeout False-Green Audit
+
+Result: PASS
+
+Fatal issues:
+
+- none
+
+Major notes:
+
+- none
+
+Checks:
+
+- V1.3 / V1.4 reports are upstream evidence only, not full V1 complete.
+- Launcher closeout requires behavior screenshots, not just visual comparison.
+- Complex-site evidence is public/no-login unless a separate logged-in report exists.
+- Source fallback and DOM highlight are not mixed.
+- If V1-MC current samples contain no fallback sample, upstream V1.3 / V1.4 fallback evidence must be cited and visible.
+- Old failed closeout evidence is explicitly documented.
+- Forbidden capabilities are not included in the claim.

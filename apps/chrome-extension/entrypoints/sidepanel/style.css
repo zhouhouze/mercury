@@ -2259,6 +2259,238 @@ body {
   background: var(--navia-red-soft);
 }
 
+.evidence-mindmap {
+  gap: 10px;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.evidence-mindmap-toolbar {
+  min-width: 0;
+  align-items: flex-start;
+}
+
+.evidence-mindmap-toolbar > span {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.evidence-mindmap-toolbar small {
+  max-width: 58%;
+  text-align: right;
+  line-height: 1.25;
+  white-space: normal;
+}
+
+.reading-map {
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 8px;
+}
+
+.reading-map-nav,
+.reading-map-detail {
+  max-height: 176px;
+  border-radius: 10px;
+}
+
+.reading-map-nav {
+  gap: 5px;
+  padding: 7px;
+}
+
+.reading-map-nav-item {
+  min-height: 34px;
+  border-radius: 8px;
+  padding: 6px 7px;
+}
+
+.reading-map-nav-depth-1,
+.reading-map-nav-depth-2 {
+  margin-left: 0;
+  width: 100%;
+}
+
+.reading-map-nav-depth-2 {
+  border-left: 3px solid rgba(5, 84, 75, 0.12);
+  padding-left: 9px;
+}
+
+.reading-map-nav-label {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.reading-map-detail {
+  padding: 9px;
+}
+
+.reading-map-detail-header {
+  align-items: flex-start;
+}
+
+.reading-map-detail-header strong {
+  white-space: normal;
+}
+
+.reading-map-detail p,
+.reading-map-evidence p {
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.evidence-mindmap-canvas {
+  max-height: 420px;
+  gap: 10px;
+  padding: 5px 4px 10px 14px;
+}
+
+.evidence-theme-group {
+  gap: 7px;
+}
+
+.evidence-theme-header {
+  grid-template-columns: 22px minmax(0, 1fr);
+}
+
+.evidence-theme-count {
+  display: none;
+}
+
+.evidence-theme-toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 8px;
+}
+
+.evidence-theme-children {
+  gap: 6px;
+  margin-left: 28px;
+  padding-left: 10px;
+}
+
+.evidence-card-node {
+  grid-template-columns: 10px minmax(0, 1fr);
+  align-items: start;
+  min-height: 68px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.evidence-card-node-child {
+  min-height: 58px;
+}
+
+.evidence-card-node-body {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.evidence-card-node strong {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.evidence-card-node-note {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--navia-muted);
+  font-size: 11px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.evidence-card-node-footer {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.evidence-card-node-meta,
+.evidence-card-node-action {
+  display: inline-flex;
+}
+
+.evidence-card-node-meta {
+  min-width: 0;
+  gap: 4px;
+}
+
+.evidence-card-node-meta span {
+  padding: 2px 6px;
+  font-size: 9px;
+}
+
+.evidence-card-node-action {
+  flex: 0 0 auto;
+  padding: 3px 6px;
+}
+
+.evidence-mindmap-edge-summary {
+  display: none;
+}
+
+.mindmap-debug-fallback {
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.mindmap-source-panel {
+  gap: 7px;
+}
+
+.mindmap-source-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-height: 168px;
+  overflow: auto;
+}
+
+.mindmap-source-card {
+  min-height: 54px;
+  border-radius: 8px;
+  padding: 7px;
+}
+
+.mindmap-source-card span {
+  overflow: hidden;
+  font-size: 11px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mindmap-source-card small {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.mindmap-source-evidence {
+  border-radius: 10px;
+  padding: 9px;
+}
+
+@media (max-width: 460px) {
+  .reading-map,
+  .mindmap-source-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reading-map-nav,
+  .reading-map-detail {
+    max-height: 154px;
+  }
+
+  .evidence-mindmap-canvas {
+    max-height: 360px;
+  }
+}
+
 .debug-log {
   background: rgba(20, 30, 26, 0.92);
 }

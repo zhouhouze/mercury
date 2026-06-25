@@ -1,0 +1,76 @@
+{
+  "activePage": {
+    "pageId": "page_cf6902dad7c0ff72",
+    "title": "小红书 - 你的生活兴趣社区",
+    "url": "https://www.xiaohongshu.com/explore",
+    "domain": "www.xiaohongshu.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.912,
+  "warnings": [
+    "VERIFICATION_GATED_DEGRADED",
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 91,
+  "digestItems": 18,
+  "sourceRefs": 93,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.022,
+      "numerator": 2,
+      "denominator": 93,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.917,
+      "numerator": 10905,
+      "denominator": 11886,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": true
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 91,
+      "denominator": 91,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 93,
+      "denominator": 93,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.117,
+      "numerator": 148,
+      "denominator": 1266,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.056,
+      "numerator": 1,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": false
+    }
+  }
+}

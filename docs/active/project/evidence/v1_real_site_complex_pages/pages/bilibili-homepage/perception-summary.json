@@ -1,0 +1,75 @@
+{
+  "activePage": {
+    "pageId": "page_df312db3b312c5f7",
+    "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+    "url": "https://www.bilibili.com/",
+    "domain": "www.bilibili.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.923,
+  "warnings": [
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 79,
+  "digestItems": 18,
+  "sourceRefs": 80,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.013,
+      "numerator": 1,
+      "denominator": 80,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.899,
+      "numerator": 5482,
+      "denominator": 6095,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": true
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 79,
+      "denominator": 79,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 80,
+      "denominator": 80,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.143,
+      "numerator": 147,
+      "denominator": 1031,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.222,
+      "numerator": 4,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": false
+    }
+  }
+}

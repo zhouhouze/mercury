@@ -1117,6 +1117,7 @@ def page_reading_input(session_id: str, body: dict[str, Any]) -> dict[str, Any]:
         "cleanedText": body.get("cleaned_text") or body.get("cleanedText") or body.get("visible_text") or body.get("visibleText") or "",
         "html": body.get("html"),
         "metadata": body.get("metadata", {}),
+        "dom_signals": body.get("dom_signals") or body.get("domSignals") or {},
     }
 
 

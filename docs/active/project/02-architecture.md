@@ -1340,7 +1340,7 @@ Chat artifacts
 - B frontend 可以渲染更好的视觉状态，但不能生成事实内容。
 - B frontend 不直接调用 A/C/D 服务。
 - A/C/D 不为本阶段新增公共合同字段。
-- Gemini sandbox 中的 launcher、折叠、resize、viewport control 只作为审查材料，不进入当前真实产品架构。
+- 在 `V1 Gemini Style Pass` 阶段，Gemini sandbox 中的 launcher、折叠、resize、viewport control 只作为审查材料，不进入该阶段真实产品架构；后续用户已在 `V1 Launcher / Collapse / Resize` 阶段单独接受 launcher / collapse / resize 进入真实 content script 架构。
 
 出门架构条件：
 
@@ -1372,11 +1372,92 @@ Content Script
 
 状态规则：
 
+- `collapsed + docked launcher`：默认状态只显示贴边 launcher，sidebar 移出视口，页面 body margin 恢复。
+- `launcher hover / focus`：launcher 从边缘弹出为完整悬浮球，但不自动展开 sidebar。
 - `expanded + push`：右侧 sidebar 展开，页面 body margin 预留 sidebar 宽度。
 - `expanded + overlay`：sidebar 展开但覆盖页面，不继续挤压正文。
 - `collapsed`：sidebar 收起，body margin 恢复，floating launcher 保留。
 - `resize`：拖拽左边界更新宽度，并重新计算 push / overlay。
 - `launcher drag`：更新 launcher 垂直位置和左右贴边。
+
+### 16.5 V1 Mainline Closeout Candidate 目标架构
+
+V1 主线收口阶段把 V1.3、V1.4、复杂站点读取 hardening、Gemini 样式和 Launcher / Collapse / Resize 统一为一个可审计的当前网页伴读体验。它不是新的 Runtime 架构，不改变 A/C/D/B 公共合同；新增的总架构重点是把 content script 外层交互壳、iframe sidepanel、Runtime 和 source jumpback 的责任边界固定下来。
+
+目标架构：
+
+```text
+Chrome Web Page
+  -> Content Script Interaction Shell
+       -> Floating Launcher
+       -> SidebarInteractionState
+       -> Resize Handle
+       -> Push / Overlay layout
+       -> iframe sidepanel.html
+            -> Chat / Agent / Debug / Settings
+            -> Current Page Actions
+            -> Evidence Card Mindmap
+            -> Reading Map
+            -> Source Evidence states
+  -> Content Script Source Jumpback
+       -> DOM highlight | fallback shown | blocked
+
+Local Runtime 127.0.0.1
+  -> A Page Reading
+  -> D Adapter / Artifact / Event / Trace boundary
+  -> C Mindmap
+  -> B Renderer consumes artifacts only
+```
+
+目标架构中的关联关系：
+
+| 层级 | 当前职责 | 与目标体验的关系 |
+|---|---|---|
+| Chrome Web Page | 承载用户正在阅读的真实网页 | 默认不被挤压；在 Navia 展开、折叠、resize、overlay / push 后仍保持可阅读 |
+| Content Script Interaction Shell | 管理 launcher、sidebar 容器、resize、drag、push / overlay | 负责 Monica-like 插件伴随形态，但不生成阅读事实 |
+| iframe `sidepanel.html` | 承载现有 React app 的 Chat / Agent / Debug / Settings | 复用当前主体验，不新建未验收的顶层页面 |
+| B Renderer | 渲染 Artifact、Evidence Card Mindmap、Reading Map、source evidence 状态 | 只消费 Runtime / Artifact 输出，不直接调用 A/C/D |
+| Local Runtime A/C/D | 页面读取、Adapter / Artifact / Event / Trace、Mindmap 生成 | 不因 V1 主线收口新增公共合同字段 |
+| Content Script Source Jumpback | 执行用户触发的 DOM highlight、fallback shown、blocked 反馈 | 只能响应用户动作，不做自动浏览器任务 |
+
+当前实现实体映射：
+
+| 分层 | 实体 / 文件 | 当前职责 | 本阶段约束 |
+|---|---|---|---|
+| 内容脚本入口 | `apps/chrome-extension/entrypoints/content/index.ts` | 在普通网页上调用 `initializeContentBridge(document, window.location.href)` | 只负责初始化伴随 UI 和页面消息桥，不读取本地文件，不启动浏览器自动操作产品能力 |
+| 网页内交互壳 | `apps/chrome-extension/src/contentBridge.ts` | 注入 `aside#navia-inpage-sidebar`、`iframe sidepanel.html?naviaInPage=1`、`button#navia-floating-launcher` 和 resize handle | `SidebarInteractionState` 只属于 content script，不能成为 Runtime / A / C / D 公共合同 |
+| 交互状态 | `SidebarInteractionState` | 管理 `collapsed / expanded`、`push / overlay`、宽度、launcher 左右贴边和垂直位置 | 默认贴边 launcher、hover / focus 弹出、点击展开 / 收起、drag、resize 必须由真实 Chrome 行为验收覆盖 |
+| iframe React App | `apps/chrome-extension/entrypoints/sidepanel/main.tsx` | 承载 Chat / Agent / Debug / Settings、当前页读取、会话、输入框和 artifact 展示 | 不新增未验收的新顶层页面，不丢失现有主体验 |
+| B Renderer | `apps/chrome-extension/src/modules/chat_renderer/`、`apps/chrome-extension/src/modules/mindmap_renderer/` | 渲染 SSE、ArtifactInlineCard、Evidence Card Mindmap、Reading Map、Source Evidence UI | 只消费 Runtime / Artifact 输出，不生成网页事实，不直接调用 A/C/D |
+| Runtime Client | `apps/chrome-extension/src/runtimeClient.ts` | 调用 `/v1/health`、session、page context、`/v1/chat/stream`；in-page 场景通过 Chrome runtime proxy | 不改变 Runtime public API；HTTP / SSE 失败必须进入可审计错误态 |
+| 扩展桥接 | `apps/chrome-extension/entrypoints/background/index.ts` | 动态注入 content script，保留 Chrome 原生 Side Panel 过渡入口，代理 `navia.runtimeFetch` / `navia.runtimeStream` | native Side Panel、in-page iframe、visual probe 必须在报告里分层标注 |
+| 本地 Runtime | `http://127.0.0.1:17861` | 提供页面读取、会话、流式问答、Artifact / Event / Trace | V1 主线收口不新增 Runtime public contract |
+| A Page Reading | `services/local-runtime/navia_runtime/modules/page_reading/` | 当前页结构化感知、`PerceptionDigest`、`SourceRef`、quality | 不生成 Mindmap，不写 Artifact / Event / Trace |
+| D Adapter Boundary | `services/local-runtime/navia_runtime/modules/agent_loop/`、`services/local-runtime/navia_runtime/modules/adapters/` | ToolResult / Artifact / Event / Trace 的治理映射边界 | 仍是唯一公共治理出口，B / A / C 不绕过 D |
+| C Mindmap | `services/local-runtime/navia_runtime/modules/mindmap/` | digest-first 主题、节点、Mermaid、`nodeSourceMap` | 不渲染 UI，不读取 DOM，不调用 content script |
+| Source Jumpback | `contentBridge.ts` 中 `navia.jumpToSource` 处理 | 响应用户触发的 selector / domPath / textQuote 定位，输出 highlighted / fallback shown | fallback、blocked 不得被合并成 success |
+
+当前架构与目标架构差异：
+
+| 维度 | 当前状态 | V1 主线收口目标 |
+|---|---|---|
+| 外层入口 | in-page iframe sidebar 和 launcher baseline 已存在，formal closeout 不完整 | launcher、collapse、resize、push / overlay 都有正式截图级验收 |
+| 主阅读体验 | Chat / Debug / Mindmap / Reading Map 分阶段通过 | 统一为一条用户路径，不用单阶段证据冒充完整 V1 |
+| 复杂站点 | scoped public matrix 通过 | public no-login、登录态和 degraded 边界在报告中清晰区分 |
+| 导图体验 | V1.3 / V1.4 已有独立证据 | Evidence Card 和 Reading Map 作为 V1 artifact 主体验进入总验收 |
+| Source evidence | jumpback / fallback path 已存在 | located、fallback shown、blocked 在 UI、截图 metadata、report 中一致 |
+| 旧证据 | 部分旧 closeout 报告仍可为 failed 或 superseded | 总报告必须解释、废止或重新生成冲突证据 |
+| 公共合同 | Runtime / Artifact / ViewModel 已冻结 | 本阶段不新增 Runtime public API，不反向污染 A/C/D |
+
+架构出门条件：
+
+- `SidebarInteractionState` 只属于 content script，不进入 Runtime。
+- `sidepanel.html` 继续承载现有 `Chat / Agent / Debug / Settings`，不得拆成未验收的新顶层产品页。
+- B Renderer 只消费 Runtime / Artifact 结果，不生成事实内容，不直接调用 A/C/D。
+- A/C/D 不因 launcher、Gemini 样式或 Reading Map 新增公共合同字段。
+- 自动化报告必须把 native Side Panel、in-page iframe sidebar、visual probe、real acceptance 分层标注。
+- public no-login、logged-in、fallback、blocked 必须在 evidence report 中保留原始语义，不得为了通过率合并为 success。
+- 完整 V1 complete 候选审计必须在人工产品体验核查之后进行。
 
 ---
 

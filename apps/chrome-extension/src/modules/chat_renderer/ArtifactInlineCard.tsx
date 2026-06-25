@@ -141,12 +141,19 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
         type="button"
       >
         <span className="evidence-card-node-pin" aria-hidden="true" />
-        <strong title={node.label}>{compactMindmapLabel(node.label, nodeLevel, evidenceView.displayPolicy.density)}</strong>
-        <span className="evidence-card-node-meta">
-          <span>{node.sourceCount}源</span>
-          <span>{node.confidence === null ? qualityLabel(node.qualityState) : `${Math.round(node.confidence * 100)}%`}</span>
+        <span className="evidence-card-node-body">
+          <strong title={node.label}>{compactMindmapLabel(node.label, nodeLevel, evidenceView.displayPolicy.density)}</strong>
+          <span className="evidence-card-node-note">
+            {compactEvidenceNote(node.note ?? node.textQuote ?? node.fallbackText ?? node.degradedReason ?? "来源证据待补充。", role)}
+          </span>
+          <span className="evidence-card-node-footer">
+            <span className="evidence-card-node-meta">
+              <span>{node.sourceCount}源</span>
+              <span>{node.confidence === null ? qualityLabel(node.qualityState) : `${Math.round(node.confidence * 100)}%`}</span>
+            </span>
+            {card ? <span className="evidence-card-node-action">来源</span> : <span className="evidence-card-node-action evidence-card-node-action-muted">降级</span>}
+          </span>
         </span>
-        {card ? <span className="evidence-card-node-action">来源</span> : <span className="evidence-card-node-action evidence-card-node-action-muted">降级</span>}
       </button>
     );
   }
@@ -321,9 +328,16 @@ function artifactTitle(artifact: ArtifactPreview): string {
 function compactMindmapLabel(label: string, depth: number, density: "low" | "medium" | "high"): string {
   const normalized = label.replace(/\s+/g, " ").trim();
   const densityBudget = density === "high" ? -4 : density === "medium" ? -2 : 0;
-  const maxLength = Math.max(14, (depth === 1 ? 28 : 22) + densityBudget);
+  const maxLength = Math.max(14, (depth === 1 ? 24 : 22) + densityBudget);
   if (normalized.length <= maxLength) return normalized;
   return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}…`;
+}
+
+function compactEvidenceNote(value: string, role: "theme" | "child"): string {
+  const normalized = value.replace(/\s+/g, " ").trim();
+  const maxLength = role === "theme" ? 46 : 36;
+  if (normalized.length <= maxLength) return normalized;
+  return `${normalized.slice(0, maxLength - 1).trim()}…`;
 }
 
 function densityLabel(density: "low" | "medium" | "high"): string {

@@ -16,6 +16,7 @@ describe("content page context bridge", () => {
   beforeEach(() => {
     document.body.innerHTML = "";
     document.documentElement.removeAttribute("style");
+    document.documentElement.removeAttribute("data-navia-content-bridge-ready");
     document.body.removeAttribute("style");
     document.body.removeAttribute("data-navia-original-margin-right");
     window.localStorage.removeItem("navia.inpageSidebarState");
@@ -64,10 +65,14 @@ describe("content page context bridge", () => {
 
     try {
       const host = ensureInPageSidebar(document);
+      const launcher = document.getElementById(IN_PAGE_LAUNCHER_ID);
       expect(host?.id).toBe(IN_PAGE_SIDEBAR_HOST_ID);
       expect(host?.querySelector("iframe")?.getAttribute("src")).toBe("chrome-extension://navia/sidepanel.html?naviaInPage=1");
-      expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
-      expect(document.getElementById(IN_PAGE_LAUNCHER_ID)).not.toBeNull();
+      expect(host?.dataset.naviaMode).toBe("collapsed");
+      expect(document.body.style.marginRight).toBe("");
+      expect(launcher).not.toBeNull();
+      expect(launcher?.dataset.naviaMode).toBe("collapsed");
+      expect(launcher?.style.getPropertyValue("--navia-launcher-transform")).toContain("translateX");
       expect(document.querySelector("[data-testid='navia-inpage-sidebar-edge-toggle']")).toBeNull();
       expect(ensureInPageSidebar(document)).toBe(host);
     } finally {
@@ -75,7 +80,70 @@ describe("content page context bridge", () => {
     }
   });
 
-  it("collapses and expands the in-page sidebar through the launcher", () => {
+  it("retries in-page sidebar injection when the content script runs before body exists", async () => {
+    const earlyDocument = document.implementation.createHTMLDocument("early");
+    earlyDocument.documentElement.removeChild(earlyDocument.body);
+    const listeners: Array<Parameters<typeof chrome.runtime.onMessage.addListener>[0]> = [];
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        },
+        onMessage: {
+          addListener(listener: Parameters<typeof chrome.runtime.onMessage.addListener>[0]) {
+            listeners.push(listener);
+          }
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      initializeContentBridge(earlyDocument, "https://example.com");
+      expect(earlyDocument.getElementById(IN_PAGE_SIDEBAR_HOST_ID)).toBeNull();
+
+      const body = earlyDocument.createElement("body");
+      earlyDocument.documentElement.append(body);
+      earlyDocument.dispatchEvent(new Event("DOMContentLoaded"));
+      await new Promise((resolve) => window.setTimeout(resolve, 0));
+
+      expect(earlyDocument.getElementById(IN_PAGE_SIDEBAR_HOST_ID)).not.toBeNull();
+      expect(earlyDocument.getElementById(IN_PAGE_LAUNCHER_ID)).not.toBeNull();
+      expect(listeners).toHaveLength(1);
+    } finally {
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("does not bind duplicate runtime message listeners when injected more than once", () => {
+    const listeners: Array<Parameters<typeof chrome.runtime.onMessage.addListener>[0]> = [];
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        },
+        onMessage: {
+          addListener(listener: Parameters<typeof chrome.runtime.onMessage.addListener>[0]) {
+            listeners.push(listener);
+          }
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      initializeContentBridge(document, "https://example.com");
+      initializeContentBridge(document, "https://example.com");
+
+      expect(listeners).toHaveLength(1);
+      expect(document.querySelectorAll("[data-testid='navia-inpage-sidebar']")).toHaveLength(1);
+      expect(document.querySelectorAll("[data-testid='navia-floating-launcher']")).toHaveLength(1);
+    } finally {
+      globalThis.chrome = originalChrome;
+    }
+  });
+
+  it("defaults to a docked launcher and expands the in-page sidebar through the launcher", () => {
     const originalChrome = globalThis.chrome;
     globalThis.chrome = {
       runtime: {
@@ -88,16 +156,19 @@ describe("content page context bridge", () => {
     try {
       const host = ensureInPageSidebar(document);
       const launcher = document.getElementById(IN_PAGE_LAUNCHER_ID);
-      expect(host?.dataset.naviaMode).toBe("expanded");
-      expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
-
-      launcher?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
       expect(host?.dataset.naviaMode).toBe("collapsed");
+      expect(launcher?.dataset.naviaMode).toBe("collapsed");
       expect(document.body.style.marginRight).toBe("");
 
       launcher?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
       expect(host?.dataset.naviaMode).toBe("expanded");
+      expect(launcher?.dataset.naviaMode).toBe("expanded");
       expect(document.body.style.marginRight).toContain("var(--navia-inpage-sidebar-width)");
+
+      launcher?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      expect(host?.dataset.naviaMode).toBe("collapsed");
+      expect(launcher?.dataset.naviaMode).toBe("collapsed");
+      expect(document.body.style.marginRight).toBe("");
     } finally {
       globalThis.chrome = originalChrome;
     }
@@ -120,6 +191,7 @@ describe("content page context bridge", () => {
       );
       const host = ensureInPageSidebar(document);
       expect(host?.dataset.naviaLayout).toBe("overlay");
+      expect(host?.dataset.naviaMode).toBe("collapsed");
       expect(document.body.style.marginRight).toBe("");
     } finally {
       window.localStorage.removeItem("navia.inpageSidebarState");
@@ -144,7 +216,7 @@ describe("content page context bridge", () => {
       const host = ensureInPageSidebar(document);
       expect(host).not.toBeNull();
       expect(document.getElementById(IN_PAGE_LAUNCHER_ID)).not.toBeNull();
-      expect(host?.dataset.naviaMode).toBe("expanded");
+      expect(host?.dataset.naviaMode).toBe("collapsed");
     } finally {
       storageSpy.mockRestore();
       globalThis.chrome = originalChrome;

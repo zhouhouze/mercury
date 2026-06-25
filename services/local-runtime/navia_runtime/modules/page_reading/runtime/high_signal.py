@@ -260,15 +260,31 @@ def build_quality_report(
     warnings = []
     fixture_class = str(input_data.get("fixtureClass") or input_data.get("fixture_class") or "")
     low_signal = raw_tokens < 40
+    page_state_hints = page_state_hints_from_metadata(page.get("metadata"))
+    strongly_grounded = len(high_blocks) >= 6 and len(source_refs) >= 6 and len(digest_items) >= 6 and refs_with_fallback >= 6
     if not high_blocks:
         fatal_issues.append(issue("NO_HIGH_SIGNAL_BLOCKS", "No high-signal blocks were produced.", "fatal"))
     if low_signal and not fatal_issues:
         warnings.append(issue("LOW_SIGNAL_PAGE_DEGRADED", "Page has too little grounded readable content to be marked pass.", "major"))
+    if "auth_gated" in page_state_hints:
+        severity = "warning" if strongly_grounded else "major"
+        warnings.append(issue("AUTH_GATED_DEGRADED", "Page shows login-gated hints; no-login output is degraded only when grounded public content is insufficient.", severity))
+    if "verification_gated" in page_state_hints:
+        severity = "warning" if strongly_grounded else "major"
+        warnings.append(issue("VERIFICATION_GATED_DEGRADED", "Page shows verification hints; no-login output is degraded only when grounded public content is insufficient.", severity))
+    if "not_found" in page_state_hints:
+        warnings.append(issue("NOT_FOUND_PAGE_FAILED", "Page appears to be a 404 or unavailable detail page.", "major"))
+    if "media_dom_limited" in page_state_hints:
+        warnings.append(issue("MEDIA_DOM_LIMITED", "Media page output is limited to DOM-visible text and metadata; no video/audio understanding is claimed.", "warning"))
     if fixture_class == "planning_only":
         warnings.append(issue("PLANNING_ONLY_MEDIA", "Media fixture is planning-only and not real perception ready.", "major"))
     downstream = readiness(score, metrics, fatal_issues, fixture_class)
     if low_signal and downstream == "pass":
         downstream = "degraded"
+    if {"auth_gated", "verification_gated"} & page_state_hints and not strongly_grounded and downstream == "pass":
+        downstream = "degraded"
+    if "not_found" in page_state_hints:
+        downstream = "fail" if score < 0.75 else "degraded"
     return {
         "reportId": f"q_{page['pageId']}",
         "pageId": page["pageId"],
@@ -297,6 +313,10 @@ def source_ref_for_paragraph(page: dict[str, Any], paragraph: dict[str, Any], bl
         "fallbackText": quote(text, limit=360),
         "confidence": 0.92,
     }
+    if paragraph.get("selector"):
+        ref["selector"] = str(paragraph["selector"])
+    elif paragraph.get("domPath"):
+        ref["domPath"] = str(paragraph["domPath"])
     if paragraph.get("chunkId"):
         ref["chunkId"] = paragraph["chunkId"]
     return ref
@@ -310,6 +330,11 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
     text = str(paragraph.get("text", ""))
     lowered = text.lower()
     source_type = str(paragraph.get("sourceBlockType") or "paragraph")
+    dom_role = str(paragraph.get("domSignalRole") or "")
+    if dom_role in {"feed_card", "media_link", "content_link", "media_block", "content_block", "metadata"}:
+        return "section", "unknown", 0.12 if dom_role != "metadata" else 0.18
+    if dom_role in {"auth_block", "not_found_block", "auth_link"}:
+        return "unknown", dom_role, 0.82
     if source_type == "image_metadata":
         return "metadata", "unknown", 0.18
     for region, keywords in NOISE_KEYWORDS.items():
@@ -426,6 +451,15 @@ def status_from_quality(quality_report: dict[str, Any], input_data: dict[str, An
     return {"pass": "ready", "degraded": "degraded", "fail": "failed"}[quality_report["downstreamReadiness"]]
 
 
+def page_state_hints_from_metadata(metadata: Any) -> set[str]:
+    if not isinstance(metadata, dict):
+        return set()
+    hints = metadata.get("pageStateHints")
+    if not isinstance(hints, list):
+        return set()
+    return {str(item) for item in hints if isinstance(item, str)}
+
+
 def issue(code: str, message: str, severity: str) -> dict[str, Any]:
     return {"code": code, "message": message, "severity": severity, "relatedIds": []}
 
@@ -435,11 +469,12 @@ def token_estimate(text: str) -> int:
 
 
 def quote(text: str, limit: int = 220) -> str:
-    return re.sub(r"\s+", " ", text).strip()[:limit] or "empty"
+    safe_text = text.encode("utf-8", errors="replace").decode("utf-8")
+    return re.sub(r"\s+", " ", safe_text).strip()[:limit] or "empty"
 
 
 def text_hash(text: str) -> str:
-    return "sha256_" + hashlib.sha256(quote(text, limit=2000).encode("utf-8")).hexdigest()[:32]
+    return "sha256_" + hashlib.sha256(quote(text, limit=2000).encode("utf-8", errors="replace")).hexdigest()[:32]
 
 
 def clamp(value: float) -> float:

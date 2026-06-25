@@ -1,4 +1,6 @@
 const RUNTIME_URL = "http://127.0.0.1:17861";
+const CONTENT_SCRIPT_FILE = "content-scripts/content.js";
+const INJECTABLE_PROTOCOLS = new Set(["http:", "https:"]);
 
 declare const __NAVIA_E2E_BRIDGE__: boolean;
 
@@ -22,6 +24,15 @@ export default defineBackground(() => {
 
   chrome.runtime.onStartup?.addListener(() => {
     void configureSidePanel();
+  });
+
+  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.status !== "complete") return;
+    void ensureContentBridgeForTab(tabId, tab.url);
+  });
+
+  chrome.tabs.onActivated.addListener((activeInfo) => {
+    void chrome.tabs.get(activeInfo.tabId).then((tab) => ensureContentBridgeForTab(activeInfo.tabId, tab.url));
   });
 
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
@@ -89,8 +100,31 @@ async function configureSidePanel(tabId?: number) {
 
 async function openSidePanelForTab(tab: chrome.tabs.Tab) {
   if (tab.windowId === undefined || tab.id === undefined || !chrome.sidePanel?.open) return;
+  await ensureContentBridgeForTab(tab.id, tab.url);
   await configureSidePanel(tab.id);
   await chrome.sidePanel.open({ tabId: tab.id, windowId: tab.windowId });
+}
+
+async function ensureContentBridgeForTab(tabId: number, url?: string) {
+  if (!chrome.scripting?.executeScript || !isInjectableUrl(url)) return;
+  try {
+    await chrome.scripting.executeScript({
+      target: { tabId },
+      files: [CONTENT_SCRIPT_FILE]
+    });
+  } catch {
+    // Some browser-owned, restricted, discarded, or transient tabs reject script injection.
+    // Static content scripts still cover normal pages when Chrome registers them correctly.
+  }
+}
+
+function isInjectableUrl(url?: string) {
+  if (!url) return false;
+  try {
+    return INJECTABLE_PROTOCOLS.has(new URL(url).protocol);
+  } catch {
+    return false;
+  }
 }
 
 function executeSidePanelE2ECommand(command: unknown): Promise<unknown> {

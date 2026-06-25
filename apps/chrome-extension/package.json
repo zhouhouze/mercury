@@ -19,6 +19,10 @@
     "e2e:chrome:jumpback-closeout:report": "node e2e/generate-jumpback-closeout-report.mjs",
     "e2e:chrome:v1.3-evidence-card": "NAVIA_CLOSEOUT_EVIDENCE_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run npm run e2e:chrome:jumpback-closeout; NAVIA_V1_3_CLOSEOUT_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run node e2e/generate-v1.3-evidence-card-report.mjs",
     "e2e:chrome:v1.3-evidence-card:report": "NAVIA_V1_3_CLOSEOUT_ROOT=docs/active/project/evidence/v1_3_evidence_card_mindmap/native-run node e2e/generate-v1.3-evidence-card-report.mjs",
+    "e2e:chrome:external-visual-acceptance": "node e2e/external-visual-acceptance.mjs",
+    "e2e:chrome:real-site-diagnostics": "node e2e/chrome-real-site-diagnostics.mjs",
+    "e2e:chrome:launcher-resize-closeout": "node e2e/chrome-launcher-resize-closeout.mjs",
+    "e2e:chrome:v1-mainline-closeout": "npm run build:e2e && npm run e2e:chrome:launcher-resize-closeout && npm run e2e:chrome:external-visual-acceptance && node e2e/generate-v1-mainline-closeout-report.mjs",
     "e2e:chrome:visual": "node e2e/chrome-sidepanel-visual-e2e.mjs"
   },
   "dependencies": {

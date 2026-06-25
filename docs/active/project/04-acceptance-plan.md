@@ -1248,9 +1248,9 @@ Web Research / PPT / Deep Research ready。
 
 必须通过：
 
-- [ ] 默认打开普通网页时 Navia 仍显示右侧 sidebar。
-- [ ] Floating launcher 可见，视觉符合 Navia 品牌。
-- [ ] 点击 launcher 可折叠 / 展开 sidebar。
+- [ ] 默认打开普通网页时 Navia 只显示贴边 launcher，不展开 sidebar，不挤压正文。
+- [ ] Floating launcher 默认贴边，hover / focus 后弹出为完整悬浮球，视觉符合 Navia 品牌。
+- [ ] 点击 launcher 可展开 sidebar；展开后再次点击可收起 sidebar。
 - [ ] sidebar 外侧不得出现与 floating launcher 重复的 bar / edge toggle 控件。
 - [ ] 折叠后页面 margin 恢复。
 - [ ] 展开 push 状态下页面内容为 sidebar 预留宽度。
@@ -1266,4 +1266,77 @@ Web Research / PPT / Deep Research ready。
 npm --prefix apps/chrome-extension run typecheck
 npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
 npm --prefix apps/chrome-extension run build
+```
+
+### 8.13 V1 Mainline Closeout Candidate 验收
+
+本阶段验收目标是证明当前 V1 主线体验已经具备进入人工产品核查和完整 V1 complete 候选审计的条件。它整合 V1.3、V1.4、复杂站点 hardening、Gemini 样式和 Launcher / Collapse / Resize，但不自动继承任何单阶段完成声明为完整 V1 complete。
+
+必须通过：
+
+- [ ] `docs/active/project/stage-gates/v1-mainline-closeout.md` 已完成文档门禁。
+- [ ] `docs/active/project/design/v1-mainline-closeout-gap.drawio` 可打开，分页不超过 8 页，中文书写。
+- [ ] drawio `02 当前架构与目标架构差异` 必须能看出真实实现实体、分层结构和交互方向，包括 `contentBridge.ts`、注入 DOM、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap 和 source jumpback。
+- [ ] PRD、架构、开发计划、验收计划、stage gate、drawio 的阶段目标和 No-Go 不冲突。
+- [ ] 普通网页中默认可见贴边 Navia floating launcher，右侧 Navia sidebar 在用户点击后展开。
+- [ ] launcher default docked、hover / focus peek、click expand、collapse、drag、resize、push / overlay 至少有真实 Chrome 截图或自动化 evidence。
+- [ ] Chat / Agent / Debug / Settings 顶层体验仍可访问。
+- [ ] 用户可完成读取当前网页、提交上下文、总结、页面问答、Mindmap。
+- [ ] Evidence Card Mindmap 和 Reading Map 作为 Chat artifact 主体验可见。
+- [ ] Source Evidence 的 `located`、`fallback_shown`、`blocked` 在 UI、截图 metadata 和 report 中严格区分。
+- [ ] B站 / 小红书 / 观察者网等复杂站点验收必须标注 public no-login 或 logged-in；public no-login 不得冒充登录态高质量通过。
+- [ ] 旧 `v1_2_closeout` failed / superseded 证据必须被解释、废止或重新生成，不能与新的 V1 主线完成声明并存。
+- [ ] 总报告必须列出 V1.3、V1.4、complex-site、launcher、Gemini style 的证据路径和结论。
+- [ ] 总报告必须记录固定验证命令 `testCommands`，并逐个校验上游 evidence 路径存在、`passed = true`、`fatalIssues = []`、`majorIssues = []`、claim 在允许范围内。
+- [ ] 如果当前 V1-MC real-site / external 样本 `fallbackSamples = 0`，总报告必须引用 V1.3 / V1.4 或其他 active 阶段 fallback evidence；否则不得声明 fallback path 已被当前总体验收覆盖。
+- [ ] 人工产品体验核查清单已生成，等待 V1 结束后人工审查。
+- [ ] 人工产品体验核查清单必须包含 `reviewStatus: pending | passed | failed`、`reviewer`、`reviewedAt`、`blockingIssues` 字段；自动化阶段只能生成 `pending`。
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
+npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout
+npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
+```
+
+出门证据：
+
+```text
+docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html
+docs/active/project/evidence/v1_mainline_closeout/report.json
+docs/active/project/evidence/v1_mainline_closeout/prd-review.md
+docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+docs/active/project/evidence/v1_mainline_closeout/screenshots/
+```
+
+No-Go：
+
+- [ ] 用 V1.3 或 V1.4 单阶段 report 直接声明完整 V1 complete。
+- [ ] 用 launcher 视觉截图替代折叠、展开、拖拽、resize、push / overlay 行为验收。
+- [ ] 用 public no-login 复杂站点样本冒充登录态体验通过。
+- [ ] 用自动化候选态报告替代人工产品体验核查。
+- [ ] fallback evidence 被标记成 DOM highlight success。
+- [ ] 当前 V1-MC 样本没有 fallback sample，且没有引用上游 fallback evidence，却声明 fallback path 已覆盖。
+- [ ] Debug、Settings、Agent boundary 被样式或交互改动遮挡到不可发现。
+- [ ] 旧 failed closeout 证据未处理，却输出新的完整 V1 complete 声明。
+- [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
+
+允许声明：
+
+```text
+V1 mainline closeout candidate passed automated acceptance.
+```
+
+不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
 ```

@@ -1,0 +1,76 @@
+{
+  "activePage": {
+    "pageId": "page_ff7c73d7d8742687",
+    "title": "当bro看世界杯时，中国足球队阵容_哔哩哔哩_bilibili",
+    "url": "https://www.bilibili.com/video/BV1dhjn68E5Z/",
+    "domain": "www.bilibili.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.912,
+  "warnings": [
+    "AUTH_GATED_DEGRADED",
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 89,
+  "digestItems": 18,
+  "sourceRefs": 90,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.011,
+      "numerator": 1,
+      "denominator": 90,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.944,
+      "numerator": 8773,
+      "denominator": 9290,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": true
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 89,
+      "denominator": 89,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 90,
+      "denominator": 90,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.1,
+      "numerator": 139,
+      "denominator": 1388,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0,
+      "numerator": 0,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": false
+    }
+  }
+}

@@ -686,6 +686,9 @@ function App() {
     pageSubmitted,
     submitStatus,
     pageTitle: pageContext?.title ?? null,
+    domSignalBlockCount: pageContext?.dom_signals?.blocks?.length ?? 0,
+    domSignalLinkCount: pageContext?.dom_signals?.links?.length ?? 0,
+    pageStateHints: pageContext?.dom_signals?.pageStateHints ?? [],
     messageCount: chatView.messages.length,
     debugEventCount: chatView.debugEvents.length,
     deferredNotice: Boolean(chatView.deferredNotice),
@@ -694,6 +697,7 @@ function App() {
 
   e2eHandlersRef.current = {
     checkRuntime,
+    newSession: startNewSession,
     captureCurrentPage,
     submitPageContext,
     sendChat,
@@ -741,6 +745,10 @@ function App() {
       await handlers.checkRuntime?.();
       return { action: command.action };
     }
+    if (command.action === "new_session") {
+      const session = await handlers.newSession?.();
+      return { action: command.action, sessionId: session?.id ?? null };
+    }
     if (command.action === "view") {
       handlers.syncView?.(command.view);
       return { action: command.action, view: command.view };
@@ -768,12 +776,14 @@ function App() {
     if (command.action === "source_cards_snapshot") {
       const scope = latestEvidenceCardScope();
       const evidenceCardCount = scope.querySelectorAll("[data-testid^='evidence-card-node-']").length;
+      const evidenceCardLabels = evidenceCardLabelsSnapshot(scope);
       const readingMap = readingMapSnapshot();
       const sourceEvidence = sourceEvidenceSnapshot();
       return {
         action: command.action,
         sourceCards: sourceCardsSnapshot(),
         evidenceCardCount,
+        evidenceCardLabels,
         containsEvidenceCardMindmap: evidenceCardCount > 0,
         containsReadingMap: readingMap.visible,
         readingMapNavCount: readingMap.navCount,
@@ -1380,6 +1390,7 @@ type E2ECommand =
   | { action: "snapshot" }
   | { action: "panel_identity" }
   | { action: "check_runtime" }
+  | { action: "new_session" }
   | { action: "view"; view: SideView }
   | { action: "capture" }
   | { action: "submit" }
@@ -1391,6 +1402,7 @@ type E2ECommand =
 
 type E2EHandlers = {
   checkRuntime?: () => Promise<boolean>;
+  newSession?: () => Promise<ChatSession | null>;
   captureCurrentPage?: () => Promise<void>;
   submitPageContext?: () => Promise<void>;
   sendChat?: (message: string, intentHint?: ChatIntent, retriedAfterCapture?: boolean) => Promise<void>;
@@ -1414,6 +1426,7 @@ function isE2ECommand(value: unknown): value is E2ECommand {
     action === "snapshot" ||
     action === "panel_identity" ||
     action === "check_runtime" ||
+    action === "new_session" ||
     action === "capture" ||
     action === "submit" ||
     action === "summarize" ||
@@ -1438,6 +1451,13 @@ function sourceCardsSnapshot(): Array<{ index: number; testId: string | null; no
       excerpt
     };
   });
+}
+
+function evidenceCardLabelsSnapshot(scope: ParentNode): string[] {
+  return Array.from(scope.querySelectorAll<HTMLButtonElement>("[data-testid^='evidence-card-node-']"))
+    .map((button) => button.querySelector("strong")?.textContent?.replace(/\s+/g, " ").trim() ?? "")
+    .filter(Boolean)
+    .slice(0, 20);
 }
 
 function sourceEvidenceSnapshot(): { visible: boolean; text: string } {
@@ -1477,6 +1497,7 @@ function panelIdentitySnapshot(): Record<string, unknown> {
   const root = document.querySelector<HTMLElement>("[data-testid='navia-sidepanel-root']");
   const scope = latestEvidenceCardScope();
   const evidenceCardCount = scope.querySelectorAll("[data-testid^='evidence-card-node-']").length;
+  const evidenceCardLabels = evidenceCardLabelsSnapshot(scope);
   const readingMap = readingMapSnapshot();
   const sourceEvidence = sourceEvidenceSnapshot();
   const bodyText = scope.textContent?.replace(/\s+/g, " ").trim() ?? "";
@@ -1490,6 +1511,7 @@ function panelIdentitySnapshot(): Record<string, unknown> {
     hasNaviaRoot: Boolean(root),
     naviaRootVisible: Boolean(root && root.getBoundingClientRect().width > 0 && root.getBoundingClientRect().height > 0),
     evidenceCardCount,
+    evidenceCardLabels,
     containsEvidenceCardMindmap: evidenceCardCount > 0,
     containsReadingMap: readingMap.visible,
     readingMapNavCount: readingMap.navCount,
@@ -1641,6 +1663,62 @@ function intentRequiresPageContext(intent: ChatIntent, message: string): boolean
 
 function extractPageContextInTab(): ExtractedPageContext {
   const normalizeText = (text: string) => text.replace(/\s+/g, " ").trim();
+  const cssEscape = (value: string) => value.replace(/[^a-zA-Z0-9_-]/g, "\\$&");
+  const cssPath = (node: Element): string => {
+    const parts: string[] = [];
+    let current: Element | null = node;
+    while (current && current.nodeType === Node.ELEMENT_NODE && parts.length < 5) {
+      let part = current.tagName.toLowerCase();
+      if (current.id) {
+        part += `#${cssEscape(current.id)}`;
+        parts.unshift(part);
+        break;
+      }
+      const className = String(current.getAttribute("class") || "")
+        .split(/\s+/)
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((item) => `.${cssEscape(item)}`)
+        .join("");
+      part += className;
+      const parent = current.parentElement;
+      if (parent) {
+        const siblings = Array.from(parent.children).filter((item) => item.tagName === current?.tagName);
+        if (siblings.length > 1) part += `:nth-of-type(${siblings.indexOf(current) + 1})`;
+      }
+      parts.unshift(part);
+      current = current.parentElement;
+    }
+    return parts.join(" > ");
+  };
+  const pageStateHints = (text: string, title: string, href: string) => {
+    const haystack = `${title} ${href} ${text.slice(0, 1200)}`.toLowerCase();
+    const hints: string[] = [];
+    if (/请先登录|扫码登录|登录后.{0,12}(查看|继续|评论|发布)|需要登录|未登录|sign in to|login to|please log in/.test(haystack)) {
+      hints.push("auth_gated");
+    }
+    if (/验证码|安全验证|滑动验证|人机验证|verify you are human|verification required|captcha/.test(haystack)) {
+      hints.push("verification_gated");
+    }
+    if (/404|not found|页面不见了|无法浏览|isn'?t available/.test(haystack)) hints.push("not_found");
+    if (/弹幕|倍速|字幕|播放|video|bilibili|小红书|red/.test(haystack)) hints.push("media_dom_limited");
+    return Array.from(new Set(hints));
+  };
+  const classifyLink = (href: string, text: string) => {
+    const lowered = `${href} ${text}`.toLowerCase();
+    if (/video|bvid|直播|play|watch/.test(lowered)) return "media_link";
+    if (/explore|note|item|post|article|shtml|read/.test(lowered)) return "content_link";
+    if (/login|passport|account|signin/.test(lowered)) return "auth_link";
+    return "link";
+  };
+  const classifyBlock = (node: HTMLElement, text: string) => {
+    const marker = `${node.tagName} ${node.className || ""} ${node.getAttribute("role") || ""} ${text.slice(0, 160)}`.toLowerCase();
+    if (/login|验证码|扫码|sign in/.test(marker)) return "auth_block";
+    if (/404|not found|页面不见了|无法浏览/.test(marker)) return "not_found_block";
+    if (/video|bvid|弹幕|播放|字幕|倍速/.test(marker)) return "media_block";
+    if (/card|item|feed|note|li/.test(marker)) return "feed_card";
+    return "content_block";
+  };
   const url = window.location.href;
   const parsedUrl = new URL(url);
   const headings = Array.from(document.querySelectorAll("h1,h2,h3"))
@@ -1654,6 +1732,53 @@ function extractPageContextInTab(): ExtractedPageContext {
   const body = document.body;
   const rawVisibleText = body ? body.innerText || body.textContent || "" : "";
   const visibleText = normalizeText(rawVisibleText);
+  const meta = Array.from(document.querySelectorAll<HTMLMetaElement>("meta[name], meta[property]"))
+    .map((node) => ({
+      name: normalizeText(node.getAttribute("name") || node.getAttribute("property") || ""),
+      content: normalizeText(node.getAttribute("content") || "")
+    }))
+    .filter((item) => item.name && item.content)
+    .slice(0, 40);
+  const canonical = document.querySelector<HTMLLinkElement>("link[rel='canonical']");
+  if (canonical?.href) meta.push({ name: "canonical", content: canonical.href });
+  const linkKeys = new Set<string>();
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>("a[href]"))
+    .map((node) => ({
+      text: normalizeText(node.textContent || node.getAttribute("aria-label") || node.getAttribute("title") || ""),
+      href: node.href,
+      selector: cssPath(node),
+      role: classifyLink(node.href, node.textContent || "")
+    }))
+    .filter((item) => item.text.length >= 2 && item.href)
+    .filter((item) => {
+      const key = `${item.text.slice(0, 80)}|${item.href.replace(/#.*$/, "")}`;
+      if (linkKeys.has(key)) return false;
+      linkKeys.add(key);
+      return true;
+    })
+    .slice(0, 160);
+  const blockKeys = new Set<string>();
+  const blocks = Array.from(
+    document.querySelectorAll<HTMLElement>("article,[role='article'],main section,li,[class*='card'],[class*='item'],[class*='video'],[class*='note'],[class*='feed']")
+  )
+    .map((node) => {
+      const text = normalizeText(node.innerText || node.textContent || "");
+      const firstLink = node.querySelector<HTMLAnchorElement>("a[href]");
+      return {
+        text: text.slice(0, 520),
+        selector: cssPath(node),
+        href: firstLink?.href,
+        role: classifyBlock(node, text)
+      };
+    })
+    .filter((item) => item.text.length >= 16 && item.text.length <= 900)
+    .filter((item) => {
+      const key = item.text.slice(0, 120);
+      if (blockKeys.has(key)) return false;
+      blockKeys.add(key);
+      return true;
+    })
+    .slice(0, 120);
 
   return {
     url,
@@ -1663,7 +1788,13 @@ function extractPageContextInTab(): ExtractedPageContext {
     headings,
     selected_text: selection ? normalizeText(selection) : undefined,
     visible_text: visibleText.slice(0, 24000),
-    cleaned_text: visibleText.slice(0, 24000)
+    cleaned_text: visibleText.slice(0, 24000),
+    dom_signals: {
+      meta,
+      links,
+      blocks,
+      pageStateHints: pageStateHints(visibleText, document.title, url)
+    }
   };
 }
 
