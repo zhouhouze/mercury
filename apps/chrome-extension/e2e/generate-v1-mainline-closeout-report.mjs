@@ -256,6 +256,18 @@ function buildReport() {
   if (externalSamples.length < 6) fatalIssues.push("External visual acceptance has fewer than 6 visual samples.");
 
   const passed = fatalIssues.length === 0;
+  const testCommandResults = testCommands.map((item) => {
+    let commandPassed = true;
+    if (item.command.includes("e2e:chrome:launcher-resize-closeout")) commandPassed = Boolean(launcherCloseout?.passed);
+    else if (item.command.includes("e2e:chrome:external-visual-acceptance")) commandPassed = Boolean(externalVisual?.passed);
+    else if (item.command.includes("e2e:chrome:real-site-diagnostics")) commandPassed = Boolean(realSite?.passed);
+    else if (item.command.includes("generate-v1-mainline-closeout-report")) commandPassed = passed;
+    return {
+      command: item.command,
+      passed: commandPassed,
+      evidence: item.evidence
+    };
+  });
   return {
     schemaVersion: "v1-mainline-closeout.1",
     generatedAt: new Date().toISOString(),
@@ -274,11 +286,7 @@ function buildReport() {
       fallbackSamples: realSite?.summary?.fallbackSamples ?? 0,
       oldV12CloseoutHandling: oldV12Handling
     },
-    testCommands: testCommands.map((item) => ({
-      command: item.command,
-      passed: true,
-      evidence: item.evidence
-    })),
+    testCommands: testCommandResults,
     sourceEvidenceCoverage: fallbackCoverage,
     architecture: {
       target:
@@ -348,6 +356,15 @@ function buildHtml(report) {
       </tr>`
     )
     .join("");
+  const fatalItems = report.fatalIssues.length
+    ? report.fatalIssues.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+    : "<li>none</li>";
+  const majorItems = report.majorIssues.length
+    ? report.majorIssues.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+    : "<li>none</li>";
+  const environmentItems = report.environmentNotes.length
+    ? report.environmentNotes.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
+    : "<li>none</li>";
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -401,6 +418,14 @@ function buildHtml(report) {
       </div>
     </section>
     <section>
+      <h2>当前阻塞与环境说明</h2>
+      <div class="arch">
+        <div class="card"><h3>Fatal issues</h3><ul>${fatalItems}</ul></div>
+        <div class="card"><h3>Major notes</h3><ul>${majorItems}</ul></div>
+        <div class="card"><h3>Environment notes</h3><ul>${environmentItems}</ul></div>
+      </div>
+    </section>
+    <section>
       <h2>目标架构与当前实现</h2>
       <div class="arch">
         <div class="card"><h3>目标架构</h3><p>${escapeHtml(report.architecture.target)}</p></div>
@@ -445,6 +470,10 @@ function buildHtml(report) {
 }
 
 function buildPrdReview(report) {
+  const fallbackText =
+    report.summary.fallbackSamples > 0
+      ? `Current V1-MC real-site samples include ${report.summary.fallbackSamples} fallback-only source evidence sample(s); this blocks automated candidate pass until fixed or explicitly accepted as degraded.`
+      : "Current V1-MC real-site samples all use DOM highlight; fallback path coverage is inherited from V1.3 / V1.4 upstream evidence when available.";
   return `# V1 Mainline Closeout PRD Review
 
 Result: ${report.passed ? "PASS" : "FAIL"}
@@ -454,7 +483,7 @@ Covered PRD experience:
 - Floating launcher is visible on a normal webpage.
 - Sidebar can expand, collapse, resize, and switch push / overlay behavior.
 - Current-page reading, summary, Q&A, Evidence Card Mindmap, Reading Map, and source evidence are covered by upstream automated evidence.
-- Current V1-MC real-site samples all use DOM highlight when \`fallbackSamples = 0\`; fallback path coverage is inherited from V1.3 / V1.4 upstream evidence when available.
+- ${fallbackText}
 - Debug / Settings remain in the existing sidepanel surface.
 
 Claim allowed:

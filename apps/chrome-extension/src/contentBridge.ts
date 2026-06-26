@@ -527,13 +527,13 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
 
   if (selector) {
     attemptedStrategies.push("selector");
-    const element = findBySelector(documentRef, selector);
+    const element = findBySelector(documentRef, selector, textQuote);
     if (element) return highlightElement(element, { attemptedStrategies, matchedStrategy: "selector" });
   }
 
   if (domPath) {
     attemptedStrategies.push("domPath");
-    const element = findBySelector(documentRef, domPath);
+    const element = findBySelector(documentRef, domPath, textQuote);
     if (element) return highlightElement(element, { attemptedStrategies, matchedStrategy: "domPath" });
   }
 
@@ -619,10 +619,12 @@ function cleanString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function findBySelector(documentRef: Document, selector: string): HTMLElement | null {
+function findBySelector(documentRef: Document, selector: string, textQuote = ""): HTMLElement | null {
   try {
     const element = documentRef.querySelector(selector);
-    return element instanceof HTMLElement ? element : null;
+    if (!(element instanceof HTMLElement)) return null;
+    if (isTraceableElement(element, textQuote)) return element;
+    return textQuote ? findBestDescendantMatch(element, textQuote) : null;
   } catch {
     return null;
   }
@@ -632,24 +634,115 @@ function findByTextQuote(documentRef: Document, textQuote: string): HTMLElement 
   const target = normalizeText(textQuote);
   if (!target) return null;
   const candidates = textQuoteCandidates(target);
-  const walker = documentRef.createTreeWalker(documentRef.body, NodeFilter.SHOW_TEXT);
+  const body = documentRef.body;
+  if (!body) return null;
+  const walker = documentRef.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+  const scored = new Map<HTMLElement, number>();
   let node = walker.nextNode();
   while (node) {
     const normalizedNodeText = normalizeText(node.textContent || "");
-    if (candidates.some((candidate) => normalizedNodeText.includes(candidate))) {
-      const parent = node.parentElement;
-      if (parent && !["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) return parent;
+    const score = textMatchScore(normalizedNodeText, candidates);
+    if (score > 0) {
+      const parent = nearestTraceableParent(node.parentElement, target);
+      if (parent) scored.set(parent, Math.max(scored.get(parent) ?? 0, score + elementQualityScore(parent, target)));
     }
     node = walker.nextNode();
   }
-  const elements = Array.from(documentRef.body.querySelectorAll<HTMLElement>("p, li, td, th, pre, blockquote, h1, h2, h3, h4, h5, h6, section, article, main, div"));
+  const elements = Array.from(body.querySelectorAll<HTMLElement>("h1, h2, h3, h4, h5, h6, p, li, td, th, pre, blockquote, article, section, main, [role='article'], [class*='title'], [class*='desc'], [class*='content'], [class*='note'], [class*='video'], div"));
   for (const element of elements) {
-    if (["SCRIPT", "STYLE", "NOSCRIPT"].includes(element.tagName)) continue;
+    if (isIgnoredJumpbackElement(element)) continue;
     const elementText = normalizeText(element.textContent || "");
     if (!elementText) continue;
-    if (candidates.some((candidate) => elementText.includes(candidate) || candidate.includes(elementText))) return element;
+    const score = textMatchScore(elementText, candidates);
+    if (score <= 0) continue;
+    if (!isTraceableElement(element, target)) continue;
+    scored.set(element, Math.max(scored.get(element) ?? 0, score + elementQualityScore(element, target)));
   }
-  return null;
+  return Array.from(scored.entries()).sort((left, right) => right[1] - left[1])[0]?.[0] ?? null;
+}
+
+function findBestDescendantMatch(root: HTMLElement, textQuote: string): HTMLElement | null {
+  const candidates = textQuoteCandidates(textQuote);
+  const descendants = Array.from(root.querySelectorAll<HTMLElement>("h1, h2, h3, p, li, blockquote, pre, [class*='title'], [class*='desc'], [class*='content'], [class*='note'], [class*='video'], div"));
+  const scored = descendants
+    .filter((element) => isTraceableElement(element, textQuote))
+    .map((element) => [element, textMatchScore(normalizeText(element.textContent || ""), candidates) + elementQualityScore(element, textQuote)] as const)
+    .filter(([, score]) => score > 0)
+    .sort((left, right) => right[1] - left[1]);
+  return scored[0]?.[0] ?? null;
+}
+
+function nearestTraceableParent(parent: HTMLElement | null, textQuote: string): HTMLElement | null {
+  let current = parent;
+  let best: HTMLElement | null = null;
+  while (current && current !== current.ownerDocument.body) {
+    if (isTraceableElement(current, textQuote)) best = current;
+    const textLength = normalizeText(current.textContent || "").length;
+    if (textLength > Math.max(700, textQuote.length * 5)) break;
+    current = current.parentElement;
+  }
+  return best;
+}
+
+function isTraceableElement(element: HTMLElement, textQuote: string): boolean {
+  if (isIgnoredJumpbackElement(element)) return false;
+  const text = normalizeText(element.textContent || "");
+  if (!text) return false;
+  const quote = normalizeText(textQuote);
+  if (!quote) return text.length <= 1200;
+  if (/^(MAIN|BODY|DIV)$/.test(element.tagName) && element.children.length >= 3) return false;
+  if (text.length > Math.max(900, quote.length * 5) && !hasPreciseTextOverlap(text, quote)) return false;
+  if (element.children.length >= 3 && text.length > Math.max(180, quote.length * 2.5) && !/^(ARTICLE|SECTION)$/.test(element.tagName)) return false;
+  if (element.children.length > 12 && text.length > Math.max(520, quote.length * 4)) return false;
+  return textMatchScore(text, textQuoteCandidates(quote)) > 0 || hasPreciseTextOverlap(text, quote);
+}
+
+function hasPreciseTextOverlap(text: string, quote: string): boolean {
+  const normalizedText = normalizeForMatch(text);
+  const normalizedQuote = normalizeForMatch(quote);
+  if (!normalizedText || !normalizedQuote) return false;
+  if (normalizedText.includes(normalizedQuote)) return true;
+  const probe = normalizedQuote.slice(0, Math.min(64, normalizedQuote.length));
+  return probe.length >= 18 && normalizedText.includes(probe);
+}
+
+function isIgnoredJumpbackElement(element: HTMLElement): boolean {
+  if (["SCRIPT", "STYLE", "NOSCRIPT", "NAV", "FOOTER", "HEADER", "ASIDE"].includes(element.tagName)) return true;
+  const marker = `${element.tagName} ${element.id || ""} ${element.className || ""} ${element.getAttribute("role") || ""}`.toLowerCase();
+  if (/nav|footer|header|sidebar|side-bar|comment|reply|recommend|related|rec-list|danmaku|弹幕|广告|ad-|banner|activity|promo|login|passport|toolbar|control|player|playlist/.test(marker)) return true;
+  return Boolean(element.closest("nav, footer, header, aside, [class*='comment'], [class*='reply'], [class*='recommend'], [class*='related'], [class*='danmaku'], [class*='toolbar'], [class*='login']"));
+}
+
+function textMatchScore(text: string, candidates: string[]): number {
+  const normalizedText = normalizeForMatch(text);
+  if (!normalizedText) return 0;
+  let best = 0;
+  for (const candidate of candidates) {
+    const normalizedCandidate = normalizeForMatch(candidate);
+    if (normalizedCandidate.length < 4) continue;
+    if (normalizedText.includes(normalizedCandidate)) {
+      best = Math.max(best, Math.min(80, 30 + normalizedCandidate.length / Math.max(1, normalizedText.length) * 120));
+    } else if (normalizedCandidate.includes(normalizedText) && normalizedText.length >= 6) {
+      best = Math.max(best, Math.min(55, 18 + normalizedText.length / Math.max(1, normalizedCandidate.length) * 80));
+    }
+  }
+  return best;
+}
+
+function elementQualityScore(element: HTMLElement, textQuote: string): number {
+  const tag = element.tagName.toLowerCase();
+  const marker = `${tag} ${element.id || ""} ${element.className || ""}`.toLowerCase();
+  const textLength = normalizeText(element.textContent || "").length;
+  let score = 0;
+  if (/^(h1|h2|h3|p|blockquote|li)$/.test(tag)) score += 18;
+  if (/article|main|note|desc|content|title|video/.test(marker)) score += 12;
+  if (textLength > Math.max(900, textQuote.length * 5)) score -= 45;
+  if (element.children.length > 12) score -= 25;
+  return score;
+}
+
+function normalizeForMatch(value: string): string {
+  return normalizeText(value).replace(/[^\p{L}\p{N}#]+/gu, "").toLowerCase();
 }
 
 function highlightElement(
@@ -700,9 +793,26 @@ function normalizeText(value: string): string {
 
 function textQuoteCandidates(value: string): string[] {
   const normalized = normalizeText(value);
-  const candidates = [normalized, normalized.slice(0, 160), normalized.slice(0, 120), normalized.slice(0, 80), normalized.slice(0, 48)]
+  const withoutUrls = normalizeText(
+    normalized
+      .replace(/https?:\/\/\S+/gi, " ")
+      .replace(/\([^)]{0,16}\s*\)/g, " ")
+      .replace(/（[^）]{0,16}\s*）/g, " ")
+  );
+  const candidates = [
+    normalized,
+    withoutUrls,
+    withoutUrls.slice(0, 160),
+    withoutUrls.slice(0, 120),
+    withoutUrls.slice(0, 80),
+    withoutUrls.slice(0, 48),
+    normalized.slice(0, 160),
+    normalized.slice(0, 120),
+    normalized.slice(0, 80),
+    normalized.slice(0, 48)
+  ]
     .map((item) => item.trim())
     .filter((item) => item.length >= 4);
-  const sentences = normalized.split(/[。.!?；;]\s*/).map((item) => item.trim()).filter((item) => item.length >= 4);
+  const sentences = withoutUrls.split(/[。.!?；;]\s*/).map((item) => item.trim()).filter((item) => item.length >= 4);
   return Array.from(new Set([...candidates, ...sentences]));
 }

@@ -1400,6 +1400,17 @@ V1-MC-QA-4：Mindmap / Reading Map / Source Evidence 截图级可读性验收
 V1-MC-QA-5：总报告、PRD review、false-green audit、human review checklist 更新
 ```
 
+当前阻塞修复子阶段：
+
+```text
+V1-MC-SJ-0：Source Jumpback Hardening 文档、架构和验收口径冻结
+V1-MC-SJ-1：A Page Reading 复杂站点主内容识别和 SourceRef 质量提升
+V1-MC-SJ-2：C Mindmap / B Renderer source card 排序和主内容优先级提升
+V1-MC-SJ-3：Content Script 多 sourceRef / selector / domPath / textQuote / href-card jumpback 策略
+V1-MC-SJ-4：E2E source card 选择策略、headless-first、mute-audio 和报告语义修订
+V1-MC-SJ-5：真实站点 6 样本复验、PRD review、false-green audit 和 V1-MC 总报告再聚合
+```
+
 开发计划：
 
 | 子阶段 | 开发重点 | 验收重点 |
@@ -1411,6 +1422,17 @@ V1-MC-QA-5：总报告、PRD review、false-green audit、human review checklist
 | `V1-MC-4` | 输出人工体验核查清单和待审核证据路径 | 人类能快速检查目标体验、目标架构和关键截图；清单必须包含 `reviewStatus`、`reviewer`、`reviewedAt`、`blockingIssues` 字段，初始状态为 `pending` |
 | `V1-MC-5` | PRD 复检、false-green audit、旧证据冲突处理、fallback 覆盖口径核对 | 无 fatal / major，才允许进入完整 V1 complete 候选审计；若当前 V1-MC 样本 `fallbackSamples = 0`，必须引用 V1.3 / V1.4 fallback evidence，不能声明本轮真实站点 fallback 抽样已覆盖 |
 
+Source Jumpback Hardening 开发及验收计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1-MC-SJ-0` | 同步 PRD、架构、开发计划、验收计划、stage gate、drawio；记录当前 `xiaohongshu-homepage`、`guancha-detail` fallback-only 基线 | 文档无 fatal / major；当前失败不被写成通过；drawio 仍不超过 8 页 |
+| `V1-MC-SJ-1` | A Page Reading 对复杂站点主内容提权：小红书 feed card、观察者 article 正文、B站视频主内容；过滤评论、推荐、站点壳、footer、活动广告 | `perception-summary.json` 中 sourceRefs 和 digestItems 能对应主内容；噪声不主导摘要和 Mindmap |
+| `V1-MC-SJ-2` | C/B 对 Mindmap 节点和 source card 排序：root / 高层节点优先正文和可定位来源，避免默认卡片指向评论或推荐 | `source-cards.json` 前几张卡片包含主内容来源；E2E 不再因第 0 张卡片选错导致假失败 |
+| `V1-MC-SJ-3` | Content Script jumpback 在用户触发后尝试多个 sourceRef，并按 selector、domPath、textQuote、href/card 文本评分定位 | DOM highlight 成功时必须出现 Navia source marker；失败必须 fallback_shown，blocked 必须单独记录 |
+| `V1-MC-SJ-4` | E2E 选择“主内容且可定位概率最高”的 source card；报告记录选择原因；真实站点默认 headless 和 `--mute-audio` | 自动化不抢焦点、不发声；`jumpback.json` 记录 selectedSourceCardIndex / reason / result |
+| `V1-MC-SJ-5` | 重新跑 B站、小红书、观察者网首页和详情页 6 样本；重新聚合 V1-MC 总报告 | 6/6 pass、0 degraded、0 blocked 才允许 V1-MC 自动化候选通过；否则保持 no-completion claim |
+
 专项质量闭环：
 
 | 专项 | 开发重点 | 验收重点 |
@@ -1419,6 +1441,8 @@ V1-MC-QA-5：总报告、PRD review、false-green audit、human review checklist
 | B站详情页 | 指定 `https://www.bilibili.com/video/BV1gcyFBZEUf...` 作为固定样本之一 | 摘要和 Mindmap 不被推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集主导 |
 | Mindmap 可读性 | 复核 Evidence Card Mindmap、Reading Map、状态卡和目录浮层层级 | 真实截图中无文本虚影、节点重叠、卡片截断、输入框遮挡 |
 | Source Jumpback | 复核 located / fallback_shown / blocked 三态 | DOM highlighter、Navia source marker、fallback evidence 和 blocked 原因在 UI / report 中一致 |
+| 小红书首页 | feed card sourceRef、source card 排序和跳转定位 | 不得仅 `fallback_shown`；无法稳定定位时必须作为 degraded/blocker 留在报告中 |
+| 观察者详情页 | article 正文、标题、作者、发布时间和正文段落提权 | 默认 source card 不得指向评论、推荐、最新视频或头条侧栏 |
 
 Chrome 验收技术路线矩阵：
 
@@ -1450,6 +1474,7 @@ Chrome 验收技术路线矩阵：
 - `V1-MC-3` 如果总报告与阶段 report 结论不一致、上游 evidence 路径缺失、上游 report 存在 fatal / major、或 `testCommands` 未记录，打回报告生成。
 - `V1-MC-4` 如果 checklist 不能指导人类快速核查 launcher、sidebar、读取、问答、导图和 source evidence，或缺少 review status 字段，打回人工核查材料。
 - `V1-MC-5` 如果旧 failed closeout 证据未解释、废止或重跑，或 fallback coverage 没有说明当前抽样 / 上游继承来源，不得进入完整 V1 complete 候选审计。
+- `V1-MC-SJ-5` 如果 `v1_real_site_complex_pages/report.json` 仍有 degraded / blocked，或 `v1_external_visual_acceptance/report.json` 未通过，不得生成 V1-MC passed claim。
 
 固定验证命令：
 

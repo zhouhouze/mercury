@@ -50,9 +50,12 @@ const commandSpecs = [
   },
   {
     label: "真实站点 Chrome 自动化诊断",
-    command: "npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
+    command: "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
     args: ["npm", ["--prefix", "apps/chrome-extension", "run", "e2e:chrome:real-site-diagnostics"]],
-    env: fs.existsSync(chromeForTesting) ? { NAVIA_BROWSER_EXECUTABLE: chromeForTesting } : {}
+    env: {
+      NAVIA_REAL_SITE_HEADLESS: "1",
+      ...(fs.existsSync(chromeForTesting) ? { NAVIA_BROWSER_EXECUTABLE: chromeForTesting } : {})
+    }
   }
 ];
 

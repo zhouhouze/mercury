@@ -1286,8 +1286,12 @@ npm --prefix apps/chrome-extension run build
 - [ ] Source Evidence 的 `located`、`fallback_shown`、`blocked` 在 UI、截图 metadata 和 report 中严格区分。
 - [ ] B站 / 小红书 / 观察者网等复杂站点验收必须标注 public no-login 或 logged-in；public no-login 不得冒充登录态高质量通过。
 - [ ] B站指定详情页 fresh evidence 必须证明摘要和 Mindmap 主节点来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容；推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集、版权提示等不得主导输出。
+- [ ] 小红书首页 fresh evidence 不得仅 `fallback_shown`；source evidence 应优先定位到 feed card、标题、作者、链接或卡片文本。若页面风控或虚拟列表导致无法定位，必须保留 degraded / blocked，不能声明复杂站点矩阵通过。
+- [ ] 观察者网详情页 fresh evidence 不得默认反跳到评论、推荐、最新视频、头条侧栏或站点壳；正文标题、作者、发布时间和正文段落必须优先进入 source card 和 Mindmap 主节点。
+- [ ] E2E source jumpback 不得固定点击第 0 张 source card；必须记录 `selectedSourceCardIndex`、选择理由和最终 `highlighted / fallback_shown / blocked` 结果。
 - [ ] Mindmap / Reading Map / 状态卡截图不得出现文本虚影、节点重叠、聊天输入框遮挡、当前页面状态卡截断或目录浮层遮挡主要内容。
 - [ ] Chrome 自动化环境失败必须显式记录为 blocked / degraded；真实登录态 profile 被锁定、unpacked extension 未加载或只能使用 public no-login 临时配置时，不得产出登录态通过声明。
+- [ ] 自动化测试优先使用 headless；必须给 Chrome 启动参数加入 `--mute-audio`，除 launcher 行为截图等必须可见 Chrome 的验收外，不得抢占用户焦点。
 - [ ] 旧 `v1_2_closeout` failed / superseded 证据必须被解释、废止或重新生成，不能与新的 V1 主线完成声明并存。
 - [ ] 总报告必须列出 V1.3、V1.4、complex-site、launcher、Gemini style 的证据路径和结论。
 - [ ] 总报告必须记录固定验证命令 `testCommands`，并逐个校验上游 evidence 路径存在、`passed = true`、`fatalIssues = []`、`majorIssues = []`、claim 在允许范围内。
@@ -1304,6 +1308,14 @@ npm --prefix apps/chrome-extension run build
 npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout
 npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
 npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
+```
+
+Source Jumpback Hardening 固定复验命令：
+
+```bash
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
 ```
 
 出门证据：
@@ -1327,6 +1339,8 @@ No-Go：
 - [ ] Mindmap 截图存在文本虚影、节点覆盖或输入框遮挡，却只用单元测试 / build 结果声明视觉验收通过。
 - [ ] 用自动化候选态报告替代人工产品体验核查。
 - [ ] fallback evidence 被标记成 DOM highlight success。
+- [ ] E2E 通过选择更容易定位的卡片掩盖产品 UI 排序错误，且报告没有记录选择原因。
+- [ ] 小红书首页或观察者详情页仍为 `fallback_shown`，却声明复杂站点矩阵通过。
 - [ ] 当前 V1-MC 样本没有 fallback sample，且没有引用上游 fallback evidence，却声明 fallback path 已覆盖。
 - [ ] Debug、Settings、Agent boundary 被样式或交互改动遮挡到不可发现。
 - [ ] 旧 failed closeout 证据未处理，却输出新的完整 V1 complete 声明。

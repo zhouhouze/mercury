@@ -110,6 +110,17 @@ Local Runtime
 | `V1-MC-QA-3` 复杂站点 fresh evidence | B站 / 小红书 / 观察者网首页与详情页重新验收 | 每个样本明确 public no-login / logged-in / degraded；旧证据不能覆盖新代码质量结论 |
 | `V1-MC-QA-4` 可读性与反跳 | Mindmap、Reading Map、状态卡和 source jumpback 截图级复核 | 无文本虚影、重叠、遮挡；located / fallback_shown / blocked 三态一致 |
 
+当前阻塞修复专项：
+
+| 专项 | 目标 | 出门条件 |
+|---|---|---|
+| `V1-MC-SJ-0` 文档与审计冻结 | 将当前 fallback-only 阻塞、目标架构、开发计划、验收门槛和 drawio 同步 | active 文档无 fatal / major；当前 failed evidence 不得写成 pass |
+| `V1-MC-SJ-1` A SourceRef 质量 | 小红书 feed card、观察者 article 正文、B站视频主内容的 sourceRef 更稳定 | `perception-summary.json` 和 sourceRefs 证明主内容进入 digest，不被评论 / 推荐 / 站点壳主导 |
+| `V1-MC-SJ-2` C/B source card 排序 | Mindmap 节点和 source card 优先主内容、可定位来源 | `source-cards.json` 前置卡片不默认指向评论、推荐、最新视频或侧栏 |
+| `V1-MC-SJ-3` Content Script jumpback | 用户触发后尝试多个 sourceRef / selector / domPath / textQuote / href-card 线索 | 成功时有 Navia source marker；失败时 fallback_shown；blocked 单独记录 |
+| `V1-MC-SJ-4` E2E 与报告语义 | 自动化选择主内容 source card，记录选择原因；真实站点 headless-first 和 mute-audio | `jumpback.json` / report 记录 selected source card、原因和状态；不抢焦点、不发声 |
+| `V1-MC-SJ-5` 真实站点复验 | B站、小红书、观察者网首页与详情页 6 样本重新验收 | 6/6 pass、0 degraded、0 blocked；否则 V1-MC 总报告保持 no-completion claim |
+
 ## 5. 必需证据
 
 总证据包：
@@ -147,8 +158,12 @@ docs/active/project/evidence/v1_mainline_closeout/screenshots/
 - [ ] 当前页读取、总结、问答、Mindmap、Evidence Card、Reading Map 和 Source Evidence 仍然可用。
 - [ ] DOM highlight success、fallback shown、blocked 没有混淆。
 - [ ] B站指定详情页 fresh evidence 证明视频主内容进入摘要和 Mindmap，站点壳、推荐、弹幕设置和活动广告没有主导输出。
+- [ ] 小红书首页 source evidence 不得仅 fallback；若只能 fallback，必须保留 degraded / blocked，不能声明复杂站点矩阵通过。
+- [ ] 观察者网详情页 source evidence 不得默认定位评论、推荐、最新视频、头条侧栏或站点壳；正文来源必须优先。
+- [ ] E2E source card 选择必须记录选择原因，不能用“点更容易通过的卡片”掩盖产品 UI 中 source card 排序错误。
 - [ ] Mindmap / Reading Map / 当前页面状态卡截图没有文本虚影、节点重叠、聊天输入框遮挡或状态卡截断。
 - [ ] Chrome 自动化环境问题被准确标记；真实登录态 profile 被锁定或 unpacked extension 未加载时，报告不得通过登录态验收。
+- [ ] 自动化测试优先 headless；Chrome 自动化必须静音。必须可见 Chrome 的 launcher 行为截图需要提前告知并在结束后关闭实例。
 - [ ] 如果当前 V1-MC 样本 `fallbackSamples = 0`，报告必须引用 V1.3 / V1.4 或其他 active 阶段 fallback evidence；不得把“全部 highlight 成功”写成“当前阶段 fallback 已抽样通过”。
 - [ ] 复杂站点证据区分 public no-login 与 logged-in validation。
 - [ ] `report.json` 记录固定验证命令 `testCommands`，并逐个检查上游 evidence 路径、`passed`、fatal / major issues 和 claim 边界。
@@ -166,6 +181,14 @@ npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
 npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
 ```
 
+Source Jumpback Hardening 复验命令：
+
+```bash
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
+```
+
 ## 7. No-Go
 
 - 在人工产品体验核查前声明完整 V1 complete。
@@ -175,6 +198,8 @@ npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
 - Chrome 自动化环境 blocked 被包装成真实登录态验收通过。
 - B站详情页 Mindmap 被推荐列表、弹幕设置、活动广告、QQ群 / 微信或自动连播主导，却声明高质量通过。
 - 真实截图存在 Mindmap 文本虚影、节点覆盖或状态卡截断，却只用单元测试 / build 结果替代视觉验收。
+- 小红书首页或观察者详情页仍为 fallback-only，却声明复杂站点矩阵通过。
+- E2E source card 选择策略没有记录选择原因。
 - 当前 V1-MC 样本无 fallback sample，也无上游 fallback evidence 引用，却声明 fallback path 已覆盖。
 - 旧 failed closeout evidence 被忽略。
 - Runtime public contracts 因本阶段发生变更。

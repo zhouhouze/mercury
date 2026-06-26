@@ -241,6 +241,132 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
     expect(selected.nodes.find((node) => node.nodeId === "capture")?.uiState).toBe("fallback_shown");
   });
 
+  it("deduplicates repeated source evidence text for multi-source nodes", () => {
+    const artifact = {
+      ...baseArtifact,
+      artifactId: "art_multi_source",
+      metadata: {
+        ...baseArtifact.metadata,
+        nodeBindings: [
+          {
+            nodeId: "multi",
+            nodeSourceMapKey: "multi",
+            nodeLabel: "多来源同段证据",
+            mermaidLineIndex: 1,
+            sourceRefIds: ["src_a", "src_b", "src_c"],
+            paragraphIds: ["pg_a", "pg_b", "pg_c"],
+            chunkIds: ["ck_a"]
+          }
+        ],
+        nodeSourceMap: {
+          multi: {
+            nodeLabel: "多来源同段证据",
+            sourceRefIds: ["src_a", "src_b", "src_c"],
+            paragraphIds: ["pg_a", "pg_b", "pg_c"],
+            chunkIds: ["ck_a"],
+            textQuote: "同一段来源证据不应该因为多个 SourceRef 在面板中重复三遍。",
+            fallbackText: "同一段来源证据不应该因为多个 SourceRef 在面板中重复三遍。",
+            jumpback: { mode: "fallback", reason: "selector_missing" }
+          }
+        }
+      }
+    };
+
+    const viewModel = toEvidenceCardViewModel(artifact);
+    const selected = selectEvidenceCardNode(viewModel, "multi");
+
+    expect(selected.sourcePanel.sourceRefIds).toEqual(["src_a", "src_b", "src_c"]);
+    expect(selected.sourcePanel.items).toHaveLength(1);
+    expect(selected.sourcePanel.items[0]).toMatchObject({
+      sourceRefId: "src_a",
+      displayText: "同一段来源证据不应该因为多个 SourceRef 在面板中重复三遍。"
+    });
+  });
+
+  it("prioritizes main article source cards before root, comments and recommendations", () => {
+    const noisyArtifact = {
+      ...baseArtifact,
+      artifactId: "art_noisy_source_order",
+      content: "mindmap\n  root((观察者网页面))\n    comment((评论区))\n    article((正文核心事实))\n    recommend((最新视频))",
+      metadata: {
+        ...baseArtifact.metadata,
+        nodeBindings: [
+          {
+            nodeId: "root",
+            nodeSourceMapKey: "root",
+            nodeLabel: "root",
+            mermaidLineIndex: 1,
+            sourceRefIds: ["root_ref"],
+            paragraphIds: ["root_pg"],
+            chunkIds: ["root_ck"]
+          },
+          {
+            nodeId: "comment",
+            nodeSourceMapKey: "comment",
+            nodeLabel: "评论区",
+            mermaidLineIndex: 2,
+            sourceRefIds: ["comment_ref"],
+            paragraphIds: ["comment_pg"],
+            chunkIds: ["comment_ck"]
+          },
+          {
+            nodeId: "article",
+            nodeSourceMapKey: "article",
+            nodeLabel: "正文核心事实",
+            mermaidLineIndex: 3,
+            sourceRefIds: ["article_ref"],
+            paragraphIds: ["article_pg"],
+            chunkIds: ["article_ck"]
+          },
+          {
+            nodeId: "recommend",
+            nodeSourceMapKey: "recommend",
+            nodeLabel: "最新视频",
+            mermaidLineIndex: 4,
+            sourceRefIds: ["recommend_ref"],
+            paragraphIds: ["recommend_pg"],
+            chunkIds: ["recommend_ck"]
+          }
+        ],
+        nodeSourceMap: {
+          root: {
+            nodeLabel: "root",
+            sourceRefIds: ["root_ref"],
+            textQuote: "首页 动态 热门 投稿 消息 推荐频道",
+            fallbackText: "首页 动态 热门 投稿 消息 推荐频道"
+          },
+          comment: {
+            nodeLabel: "评论区",
+            sourceRefIds: ["comment_ref"],
+            textQuote: "评论区 网友回复 踩12 赞34 我来说两句",
+            fallbackText: "评论区 网友回复 踩12 赞34 我来说两句"
+          },
+          article: {
+            nodeLabel: "正文核心事实",
+            sourceRefIds: ["article_ref"],
+            textQuote: "观察者网文章正文说明背景、争议焦点和后续影响，来源：观察者网，文/张三。",
+            fallbackText: "观察者网文章正文说明背景、争议焦点和后续影响，来源：观察者网，文/张三。",
+            jumpback: { mode: "selector", selector: ".article-content" }
+          },
+          recommend: {
+            nodeLabel: "最新视频",
+            sourceRefIds: ["recommend_ref"],
+            textQuote: "最新视频 查看全部 推荐阅读 相关新闻",
+            fallbackText: "最新视频 查看全部 推荐阅读 相关新闻"
+          }
+        }
+      }
+    };
+
+    const presentation = presentMindmapArtifact(noisyArtifact);
+
+    expect(presentation.sourceCards[0]).toMatchObject({
+      nodeId: "article",
+      nodeLabel: "正文核心事实"
+    });
+    expect(presentation.sourceCards[0].textQuote || presentation.sourceCards[0].fallbackText).toContain("观察者网文章正文");
+  });
+
   it("derives a V1.4 ReadingMapViewModel from EvidenceCardViewModel", () => {
     const viewModel = toEvidenceCardViewModel(baseArtifact);
     const selected = selectEvidenceCardNode(viewModel, "capture");
@@ -273,7 +399,11 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
 
   it("builds jumpback requests from cards and fallback requests from missing source nodes", () => {
     const presentation = presentMindmapArtifact(baseArtifact);
-    expect(buildEvidenceCardJumpbackRequest(presentation.evidenceCardViewModel.nodes[0], presentation.sourceCards[0])).toMatchObject({
+    const rootNode = presentation.evidenceCardViewModel.nodes.find((node) => node.nodeId === "root");
+    const rootCard = presentation.sourceCards.find((card) => card.nodeId === "root");
+    expect(rootNode).toBeTruthy();
+    expect(rootCard).toBeTruthy();
+    expect(buildEvidenceCardJumpbackRequest(rootNode as EvidenceCardNode, rootCard)).toMatchObject({
       nodeId: "root",
       sourceRefIds: ["src_root"],
       selector: "#root-source"

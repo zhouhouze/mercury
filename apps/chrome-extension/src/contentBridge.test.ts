@@ -317,6 +317,27 @@ describe("content page context bridge", () => {
     expect(document.querySelector("[data-testid='navia-jumpback-marker']")?.textContent).toContain("Navia 已定位来源");
   });
 
+  it("matches selector source text when the evidence quote includes a URL suffix", () => {
+    document.body.innerHTML = `
+      <main>
+        <a id="video-title" href="https://www.bilibili.com/video/BV1Fixture">【现场直拍】《亲爱的，那不是爱情》唯美雨中现场！百变精灵</a>
+      </main>
+    `;
+
+    const result = performJumpback(document, {
+      selector: "#video-title",
+      textQuote:
+        "【现场直拍】《亲爱的，那不是爱情》唯美雨中现场！百变精灵 (https://www.bilibili.com/video/BV1Fixture)",
+      fallbackText: "【现场直拍】《亲爱的，那不是爱情》唯美雨中现场！百变精灵"
+    });
+
+    expect(result).toMatchObject({
+      status: "highlighted",
+      matchedStrategy: "selector"
+    });
+    expect(document.querySelector("#video-title")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
+  });
+
   it("clears the previous source marker before applying a new jumpback highlight", () => {
     document.body.innerHTML = `
       <article>
@@ -350,6 +371,56 @@ describe("content page context bridge", () => {
       matchedStrategy: "textQuote"
     });
     expect(document.querySelector("[data-navia-jumpback-highlight='true']")).not.toBeNull();
+  });
+
+  it("rejects oversized selector containers and highlights the precise source text", () => {
+    document.body.innerHTML = `
+      <main id="page-shell">
+        <nav>首页 动态 热门 投稿</nav>
+        <section class="recommend-list">相关推荐 自动连播 订阅合集</section>
+        <article>
+          <h1>真正有价值的视频主题</h1>
+          <p id="precise-source">视频简介：真正有价值的主题说明，包含背景、过程和结论。</p>
+        </article>
+      </main>
+    `;
+
+    const result = performJumpback(document, {
+      selector: "#page-shell",
+      textQuote: "视频简介：真正有价值的主题说明，包含背景、过程和结论。",
+      fallbackText: "视频简介：真正有价值的主题说明，包含背景、过程和结论。"
+    });
+
+    expect(result).toMatchObject({
+      status: "highlighted",
+      matchedStrategy: "selector"
+    });
+    expect(document.querySelector("#page-shell")?.getAttribute("data-navia-jumpback-highlight")).toBeNull();
+    expect(document.querySelector("#precise-source")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
+  });
+
+  it("does not treat comment or recommendation text as a valid jumpback match", () => {
+    document.body.innerHTML = `
+      <main>
+        <article><p>正文说明产品能力和结论。</p></article>
+        <section class="comment-list">
+          <p>正文说明产品能力和结论。</p>
+        </section>
+      </main>
+    `;
+
+    const result = performJumpback(document, {
+      selector: ".comment-list p",
+      textQuote: "正文说明产品能力和结论。",
+      fallbackText: "正文说明产品能力和结论。"
+    });
+
+    expect(result).toMatchObject({
+      status: "highlighted",
+      matchedStrategy: "textQuote"
+    });
+    expect(document.querySelector(".comment-list p")?.getAttribute("data-navia-jumpback-highlight")).toBeNull();
+    expect(document.querySelector("article p")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
   });
 
   it("matches textQuote against enclosing element text when the quote spans nested text nodes", () => {

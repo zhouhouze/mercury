@@ -14,23 +14,25 @@ Date: 2026-06-25
 - 当前架构与目标架构差异。
 - Content Script、iframe sidepanel、B Renderer、Runtime A/C/D、source jumpback 的责任边界。
 - `V1-MC-0` 到 `V1-MC-5` 的开发及验收计划。
+- `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的复杂站点 Source Jumpback Hardening 阻塞修复计划。
 - 已完成自动化候选态与仍需人工产品体验核查的边界。
 - 验收门槛、No-Go 和允许声明。
 - 固定验证命令 `testCommands`、上游 evidence 路径逐个校验、fallback coverage 来源和人工核查状态字段。
 
 ## 分页
 
-分页固定为 7 页，不超过 8 页：
+分页固定为 8 页，不超过 8 页：
 
 | 页面 | 目的 |
 |---|---|
 | `01 阶段目标与体验路径` | 展示从普通网页、默认贴边 launcher、hover / focus 弹出、点击展开右侧 sidebar、读取当前页、总结 / 问答 / Mindmap 到 source evidence 的目标体验路径。 |
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
 | `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
-| `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login 与 logged-in 验收分流，特别标注 B站详情页主内容抽取和噪声过滤目标。 |
-| `05 开发及验收计划` | 展示 `V1-MC-DOC-0` 到 `V1-MC-QA-5`，以及每个阶段的验收产物。 |
-| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成或候选完成内容，以及人工核查 / 登录态复验边界。 |
+| `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login 与 logged-in 验收分流，特别标注小红书首页和观察者详情页 fallback-only 阻塞、B站详情页主内容抽取和噪声过滤目标。 |
+| `05 开发及验收计划` | 展示 `V1-MC-DOC-0` 到 `V1-MC-QA-5`，以及 `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的验收产物。 |
+| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成、未通过或候选完成内容，以及人工核查 / 登录态复验边界。 |
 | `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
+| `08 风险路线与备选技术` | 展示登录态 CDP、专用 profile / cookie 注入、public no-login headless、blocker + 人工截图补位四条路线，以及小红书 / 观察者 / B站 / E2E false-green 风险。 |
 
 ## 色块图例
 
@@ -41,6 +43,23 @@ Date: 2026-06-25
 - 灰色：保留入口、历史证据或非主完成声明。
 
 ## 当前证据边界
+
+当前 `v1_mainline_closeout` 总报告不得声明通过：
+
+```text
+docs/active/project/evidence/v1_mainline_closeout/report.json
+passed = false
+claim = No completion claim. V1 mainline closeout candidate has blocking issues.
+```
+
+当前阻塞样本：
+
+| 样本 | 状态 | 原因 | 文档目标 |
+|---|---|---|---|
+| `xiaohongshu-homepage` | degraded | source jumpback only showed fallback evidence | feed card sourceRef、source card 排序、content script 定位共同修复 |
+| `guancha-detail` | degraded | source jumpback only showed fallback evidence | article 正文优先，评论 / 推荐 / 最新视频不得默认主导 |
+
+本图中红色节点必须表示当前阻塞或 false-green 风险，不能被解释为已通过。
 
 ## 02 页阅读方式
 
@@ -64,6 +83,17 @@ Date: 2026-06-25
 - `03 目标架构交互链路` 补充用户动作、Runtime 请求、Artifact 返回、Source Jumpback、状态回写和禁止越界边界。
 - `04 复杂站点质量链路` 补充 B站详情页主内容 signals、噪声黑名单、A Page Reading 质量层、Mindmap / Reading Map 可读性、source jumpback、Chrome 路线与 evidence 输出。
 - `05 开发及验收计划` 补充“先审计、再开发、再端到端验收，失败即打回”的闭环，并把 Chrome 路线、B站详情页、复杂站点矩阵、导图 UI、总报告拆成独立阶段。
+
+## 2026-06-26 Source Jumpback Hardening 修订
+
+本轮根据最新自动化验收失败结果修订 drawio 和 companion：
+
+- `01` 页增加当前 `No completion claim` 和 fallback-only 阻塞入口。
+- `02` 页把 `pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`sidepanel/main.tsx`、`contentBridge.ts` source jumpback、E2E/report 作为强关联实现实体展示。
+- `04` 页明确小红书首页和观察者详情页的失败原因、目标修复链路和 No-Go。
+- `05` 页加入 `V1-MC-SJ-0` 到 `V1-MC-SJ-5`，并保留失败打回规则。
+- `06` 页把 real-site / external visual 标为未通过，V1.3 / V1.4 / launcher 标为已通过，V1 mainline 标为 no-completion。
+- `07` 页加入 6/6 real-site pass、headless-first、mute-audio、E2E source card 选择原因等出门条件。
 
 当前自动化报告如果通过，只允许进入人工产品体验核查：
 
@@ -90,6 +120,16 @@ Web Research / PPT / Deep Research ready。
 - Mindmap / Reading Map / 状态卡截图必须证明无文本虚影、节点重叠、输入框遮挡和状态卡截断。
 
 如果当前 V1-MC real-site / external 样本没有 fallback sample，报告必须明确 fallback path 由 V1.3 / V1.4 或其他 active 阶段证据继承；不得把“当前样本全部 DOM highlight 成功”写成“当前总验收已抽样覆盖 fallback”。人工核查清单只能由自动化生成 `reviewStatus: pending`，不能替代人工结论。
+
+## 2026-06-26 外部文档审查补强
+
+本轮外部文档审查后的结论：
+
+- active 文档可以支撑 `V1-MC-SJ` 分阶段开发、自动化验收和 no-completion 边界。
+- 文档不能保证本阶段开发后一定顺利出门，因为小红书首页、观察者详情页和登录态复杂站点仍受真实 DOM、虚拟列表、cookie、风控和页面模板变化影响。
+- 风险已经转化为 drawio `08 风险路线与备选技术` 页和执行审计文档中的路线矩阵。
+- 默认技术路线为 A 登录态 Chrome CDP -> B 专用测试 profile / cookie 注入 -> C public no-login headless -> D blocker + 人工截图补位。
+- 任何低等级路线通过都不能覆盖高等级路线失败事实；fallback-only 仍不能作为复杂站点矩阵 pass。
 
 ## 关联 active 文档
 

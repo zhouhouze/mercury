@@ -63,8 +63,10 @@ BOILERPLATE_PATTERNS = [
 ]
 BILI_MAIN_ROLES = {"bili_video_title", "bili_video_description", "bili_video_author", "bili_video_stats"}
 BILI_NOISE_ROLES = {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo"}
-XHS_MAIN_ROLES = {"xhs_note_title", "xhs_note_body", "xhs_note_author", "xhs_note_stats"}
+XHS_MAIN_ROLES = {"xhs_note_title", "xhs_note_body", "xhs_note_author", "xhs_note_stats", "xhs_feed_card"}
 XHS_NOISE_ROLES = {"xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "profile_link"}
+GUANCHA_MAIN_ROLES = {"guancha_article_title", "guancha_article_meta", "guancha_article_body"}
+GUANCHA_NOISE_ROLES = {"guancha_comment", "guancha_recommendation", "guancha_video", "guancha_sidebar"}
 DIGEST_KINDS = [
     "key_fact",
     "entity",
@@ -411,12 +413,18 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
             "profile_link": "nav",
         }[dom_role]
         return region, dom_role, 0.96
+    if dom_role in GUANCHA_NOISE_ROLES:
+        region = "comment" if dom_role == "guancha_comment" else "recommendation"
+        return region, dom_role, 0.96
     if dom_role in BILI_MAIN_ROLES:
         reason = "bili_video_main"
         return "main", reason, 0.04 if dom_role in {"bili_video_title", "bili_video_description"} else 0.08
     if dom_role in XHS_MAIN_ROLES:
-        reason = "xhs_note_main"
-        return "main", reason, 0.04 if dom_role in {"xhs_note_title", "xhs_note_body"} else 0.08
+        reason = "xhs_note_main" if dom_role != "xhs_feed_card" else "xhs_feed_card"
+        return "main", reason, 0.04 if dom_role in {"xhs_note_title", "xhs_note_body", "xhs_feed_card"} else 0.08
+    if dom_role in GUANCHA_MAIN_ROLES:
+        reason = "guancha_article_main"
+        return "main", reason, 0.04 if dom_role in {"guancha_article_title", "guancha_article_body"} else 0.08
     if dom_role in {"feed_card", "media_link", "content_link", "media_block", "content_block", "metadata"}:
         return "section", "unknown", 0.12 if dom_role != "metadata" else 0.18
     if dom_role in {"auth_block", "not_found_block", "auth_link"}:

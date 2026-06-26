@@ -479,6 +479,7 @@ function normalizeBinding(value: unknown): MindmapNodeBinding | null {
 }
 
 function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap: Record<string, unknown>): SourceEvidenceCard[] {
+  const seen = new Set<string>();
   return bindings
     .map((binding) => {
       const source = nodeSourceMap[binding.nodeSourceMapKey];
@@ -498,7 +499,43 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
       };
     })
     .filter((item): item is SourceEvidenceCard => Boolean(item))
-    .filter((card) => Boolean(card.textQuote || card.fallbackText));
+    .filter((card) => Boolean(card.textQuote || card.fallbackText))
+    .sort((left, right) => sourceEvidenceCardScore(right) - sourceEvidenceCardScore(left))
+    .filter((card) => {
+      const evidenceKey = compactSourcePanelText(card.fallbackText || card.textQuote).replace(/\s+/g, "").slice(0, 120);
+      const key = `${card.nodeId}|${evidenceKey}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+}
+
+function compactSourcePanelText(value: string): string {
+  const normalized = value
+    .replace(/\s+/g, " ")
+    .replace(/(?:首页|动态|热门|频道|消息|投稿)\s+/g, "")
+    .replace(/(?:图\s*\d+\s*)+/g, "")
+    .trim();
+  if (normalized.length <= 260) return normalized;
+  return `${normalized.slice(0, 259).trim()}…`;
+}
+
+function sourceEvidenceCardScore(card: SourceEvidenceCard): number {
+  const text = `${card.nodeLabel} ${card.textQuote} ${card.fallbackText}`.toLowerCase();
+  let score = 0;
+  if (card.sourceRefIds.length > 0) score += Math.min(12, card.sourceRefIds.length * 2);
+  if (card.textQuote) score += 10;
+  if (card.fallbackText) score += 4;
+  if (/article|正文|标题|作者|发布时间|来源：|文\/|观察者网|视频简介|up主|播放|弹幕|笔记|note|feed|card|explore|xiaohongshu\.com\/explore|guancha\.cn\/.+\.shtml/.test(text)) score += 22;
+  if (/^root$|首页|推荐\s+穿搭\s+美食\s+彩妆|频道|动态|热门|消息|投稿/.test(text)) score -= 28;
+  if (/评论|回复|热评|踩\d*|赞\d*|收藏|举报|分享|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置/.test(text)) score -= 34;
+  if (normalizeSourceEvidenceText(card.fallbackText || card.textQuote).length > 520) score -= 10;
+  if (card.nodeId === "root") score -= 16;
+  return score;
+}
+
+function normalizeSourceEvidenceText(value: string): string {
+  return value.replace(/\s+/g, " ").trim();
 }
 
 function firstString(...values: unknown[]): string {
@@ -567,14 +604,14 @@ function applyEvidenceCardTree(nodes: EvidenceCardNode[], mermaidNodes: ParsedMe
 }
 
 function sourcePanelItemsForNode(node: EvidenceCardNode, status: EvidenceCardSourcePanelStatus, failureReason: string | null): EvidenceCardSourcePanelItem[] {
-  const displayText = node.fallbackText ?? node.textQuote ?? node.degradedReason ?? "Source evidence unavailable.";
-  const ids = node.sourceRefIds.length ? node.sourceRefIds : [`missing_source_${node.nodeId}`];
-  return ids.map((sourceRefId) => ({
+  const displayText = compactSourcePanelText(node.fallbackText ?? node.textQuote ?? node.degradedReason ?? "Source evidence unavailable.");
+  const sourceRefId = node.sourceRefIds[0] ?? `missing_source_${node.nodeId}`;
+  return [{
     sourceRefId,
     displayText,
     jumpbackStatus: statusToJumpbackStatus(status),
     failureReason
-  }));
+  }];
 }
 
 function statusToNodeUiState(status: EvidenceCardSourcePanelStatus): EvidenceCardNodeUiState {

@@ -7,7 +7,7 @@ Covered PRD experience:
 - Floating launcher is visible on a normal webpage.
 - Sidebar can expand, collapse, resize, and switch push / overlay behavior.
 - Current-page reading, summary, Q&A, Evidence Card Mindmap, Reading Map, and source evidence are covered by upstream automated evidence.
-- Current V1-MC real-site samples all use DOM highlight when `fallbackSamples = 0`; fallback path coverage is inherited from V1.3 / V1.4 upstream evidence when available.
+- Current V1-MC real-site samples all use DOM highlight; fallback path coverage is inherited from V1.3 / V1.4 upstream evidence when available.
 - Debug / Settings remain in the existing sidepanel surface.
 
 Claim allowed:

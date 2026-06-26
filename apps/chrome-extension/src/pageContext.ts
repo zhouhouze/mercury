@@ -32,9 +32,13 @@ export function extractPageContext(documentRef: Document, url: string): Extracte
   const body = documentRef.body;
   const rawVisibleText = body ? body.innerText || body.textContent || "" : "";
   const visibleText = normalizeText(rawVisibleText);
-  const cleanedText = domSignals.pageStateHints.includes("bili_video_detail") || domSignals.pageStateHints.includes("xhs_note_detail")
+  const cleanedText = domSignals.pageStateHints.includes("bili_video_detail") ||
+    domSignals.pageStateHints.includes("xhs_note_detail") ||
+    domSignals.pageStateHints.includes("xhs_home_feed") ||
+    domSignals.pageStateHints.includes("guancha_article_detail")
     ? focusedCleanedText(documentRef.title || parsedUrl.hostname, domSignals, visibleText)
     : visibleText.slice(0, 24000);
+  const selectedText = selection ? cleanSelectedText(selection, domSignals.pageStateHints) : "";
 
   return {
     url,
@@ -42,7 +46,7 @@ export function extractPageContext(documentRef: Document, url: string): Extracte
     domain: parsedUrl.hostname,
     captured_at: new Date().toISOString(),
     headings,
-    selected_text: selection ? normalizeText(selection) : undefined,
+    selected_text: selectedText || undefined,
     visible_text: visibleText.slice(0, 24000),
     cleaned_text: cleanedText,
     dom_signals: domSignals
@@ -51,6 +55,62 @@ export function extractPageContext(documentRef: Document, url: string): Extracte
 
 function normalizeText(text: string): string {
   return text.replace(/\s+/g, " ").trim();
+}
+
+function cleanSelectedText(text: string, pageStateHints: string[]): string {
+  const normalized = text.replace(/\r/g, "\n");
+  const lines = normalized
+    .split(/\n+|(?<=[。！？!?；;])\s+/)
+    .map((line) => {
+      if (pageStateHints.includes("bili_video_detail")) return normalizeBilibiliText(line);
+      if (pageStateHints.includes("xhs_note_detail")) return normalizeXiaohongshuText(line);
+      return normalizeText(line);
+    })
+    .filter((line) => isUsefulSelectedLine(line, pageStateHints));
+  const deduped: string[] = [];
+  const seen = new Set<string>();
+  for (const line of lines) {
+    const key = line.replace(/[^\p{L}\p{N}#]+/gu, "").slice(0, 80).toLowerCase();
+    if (!key || seen.has(key)) continue;
+    if (deduped.some((item) => textOverlapRatio(item, line) > 0.82)) continue;
+    seen.add(key);
+    deduped.push(line);
+  }
+  return normalizeText(deduped.join("\n")).slice(0, 1800);
+}
+
+function isUsefulSelectedLine(line: string, pageStateHints: string[]): boolean {
+  const normalized = normalizeText(line);
+  if (normalized.length < 4) return false;
+  if (/^(首页|动态|热门|频道|消息|投稿|登录|注册|关注|赞|收藏|分享|评论|弹幕|图\s*\d+|作者|时间)$/i.test(normalized)) return false;
+  if (/^(图\s*)?\d+\s*$/.test(normalized)) return false;
+  if (/https?:\/\/|www\./i.test(normalized) && normalized.length < 60) return false;
+  if (/^\d{1,2}[:：]\d{2}(?::\d{2})?$/.test(normalized)) return false;
+  if (/^\d+(?:\.\d+)?万?$/.test(normalized)) return false;
+  if (/未经作者授权|禁止转载|下载客户端|扫码登录|登录后|自动连播|订阅合集|相关推荐/.test(normalized)) return false;
+  if (/弹幕列表|按类型过滤|滚动\s*固定\s*彩色|防挡字幕|智能防挡弹幕|高级弹幕/.test(normalized)) return false;
+  if (/本视频参加过|活动已结束|QQ群|群号|微信|商务请私信|充电\s*关注/.test(normalized)) return false;
+  if (/沪ICP备|营业执照|公网安备|增值电信业务|网络文化经营许可证|违法不良信息举报|隐私政策|关于我们/.test(normalized)) return false;
+  if (/说点什么|共\s*\d+\s*条评论|展开\s*\d+\s*条回复|回复|发布\s+\d*通知|\d+消息/.test(normalized) && normalized.length < 120) return false;
+  if (pageStateHints.includes("bili_video_detail") && /(?:播放|弹幕|点赞|投币|收藏|转发|稿件投诉)/.test(normalized) && normalized.length < 80) return false;
+  if (pageStateHints.includes("xhs_note_detail") && /(?:刚刚|分钟前|小时前|昨天|前天|赞过|收藏|分享)/.test(normalized) && normalized.length < 80) return false;
+  const digitCount = (normalized.match(/\d/g) || []).length;
+  if (digitCount >= 8 && digitCount / normalized.length > 0.32 && normalized.length < 120) return false;
+  return true;
+}
+
+function textOverlapRatio(left: string, right: string): number {
+  const a = left.replace(/\s+/g, "");
+  const b = right.replace(/\s+/g, "");
+  if (!a || !b) return 0;
+  const shorter = a.length <= b.length ? a : b;
+  const longer = a.length > b.length ? a : b;
+  if (longer.includes(shorter)) return shorter.length / longer.length;
+  let shared = 0;
+  for (let index = 0; index < shorter.length; index += 1) {
+    if (longer.includes(shorter[index])) shared += 1;
+  }
+  return shared / shorter.length;
 }
 
 function extractDomSignals(documentRef: Document, url = documentRef.location?.href || ""): DomSignals {
@@ -69,6 +129,12 @@ function extractDomSignals(documentRef: Document, url = documentRef.location?.hr
   }
   if (isXiaohongshuNotePage(url)) {
     return extractXiaohongshuNoteSignals(documentRef, meta, bodyText, url);
+  }
+  if (isXiaohongshuHomePage(url)) {
+    return extractXiaohongshuFeedSignals(documentRef, meta, bodyText, url);
+  }
+  if (isGuanchaArticlePage(url)) {
+    return extractGuanchaArticleSignals(documentRef, meta, bodyText, url);
   }
 
   const links = uniqueByTextAndHref(
@@ -236,6 +302,108 @@ function extractXiaohongshuNoteSignals(documentRef: Document, meta: DomSignals["
   };
 }
 
+function extractXiaohongshuFeedSignals(documentRef: Document, meta: DomSignals["meta"], bodyText: string, url: string): DomSignals {
+  const blocks: DomSignals["blocks"] = [];
+  const links: DomSignals["links"] = [];
+  const cardSelector = [
+    "#exploreFeeds section",
+    "#exploreFeeds [class*='note']",
+    "#mfContainer section",
+    "[class*='feeds'] [class*='note']",
+    "[class*='feed'] [class*='card']",
+    "a[href*='/explore/']"
+  ].join(",");
+  for (const node of Array.from(documentRef.querySelectorAll<HTMLElement>(cardSelector))) {
+    const element = node instanceof HTMLAnchorElement ? node : node.closest<HTMLElement>("section, article, li, [class*='note'], [class*='card']") ?? node;
+    const text = normalizeXiaohongshuText(element.innerText || element.textContent || "");
+    const firstLink = element instanceof HTMLAnchorElement ? element : element.querySelector<HTMLAnchorElement>("a[href*='/explore/']");
+    if (!isUsefulXiaohongshuFeedText(text)) continue;
+    blocks.push({
+      text: text.slice(0, 420),
+      selector: cssPath(element),
+      href: firstLink?.href,
+      role: "xhs_feed_card"
+    });
+    if (firstLink?.href) {
+      links.push({
+        text: text.slice(0, 140),
+        href: firstLink.href,
+        selector: cssPath(firstLink),
+        role: "content_link"
+      });
+    }
+    if (blocks.length >= 24) break;
+  }
+  const hints = detectPageStateHints(bodyText, documentRef.title, url);
+  hints.push("xhs_home_feed");
+  return {
+    meta,
+    links: uniqueByTextAndHref(links).slice(0, 40),
+    blocks: uniqueByText(blocks).slice(0, 24),
+    pageStateHints: Array.from(new Set(hints))
+  };
+}
+
+function extractGuanchaArticleSignals(documentRef: Document, meta: DomSignals["meta"], bodyText: string, url: string): DomSignals {
+  const blocks: DomSignals["blocks"] = [];
+  const links: DomSignals["links"] = [];
+  const addBlock = (selectors: string[], role: string, options: { minLength?: number; maxLength?: number } = {}) => {
+    for (const selector of selectors) {
+      const node = documentRef.querySelector<HTMLElement>(selector);
+      if (!node) continue;
+      const text = normalizeGuanchaText(node.innerText || node.textContent || "");
+      if (!isUsefulGuanchaArticleText(text, options)) continue;
+      blocks.push({ text: text.slice(0, options.maxLength ?? 700), selector: cssPath(node), role });
+      return;
+    }
+  };
+
+  addBlock(["h1", ".article-title", "[class*='article'] h1", "[class*='title']"], "guancha_article_title", { minLength: 6, maxLength: 180 });
+  addBlock([".article-info", ".time", ".author", "[class*='author']", "[class*='date']"], "guancha_article_meta", { minLength: 4, maxLength: 220 });
+  addBlock(
+    [
+      "article",
+      ".article-content",
+      ".article-txt",
+      ".article_text",
+      ".left-main",
+      "[class*='article'] [class*='content']",
+      "[class*='content-main'] .left-main"
+    ],
+    "guancha_article_body",
+    { minLength: 80, maxLength: 1600 }
+  );
+
+  const titleMeta = firstMetaContent(meta, ["og:title", "title"]);
+  if (isUsefulGuanchaArticleText(titleMeta, { minLength: 6 })) blocks.push({ text: titleMeta.slice(0, 180), role: "guancha_article_title" });
+  const descriptionMeta = firstMetaContent(meta, ["description", "og:description"]);
+  if (isUsefulGuanchaArticleText(descriptionMeta, { minLength: 24 })) blocks.push({ text: descriptionMeta.slice(0, 700), role: "guancha_article_body" });
+
+  const canonical = meta.find((item) => item.name === "canonical")?.content || url;
+  links.push({ text: "当前观察者网文章", href: canonical, role: "content_link" });
+
+  for (const node of Array.from(documentRef.querySelectorAll<HTMLElement>("#comments-container li, [class*='comment'], [class*='recommend'], [class*='related'], [class*='video']"))) {
+    const text = normalizeGuanchaText(node.innerText || node.textContent || "");
+    if (text.length < 16) continue;
+    const role = /comment|cmt|评论/.test(`${node.id} ${node.className}`.toLowerCase())
+      ? "guancha_comment"
+      : /video|视频/.test(`${node.id} ${node.className} ${text}`.toLowerCase())
+        ? "guancha_video"
+        : "guancha_recommendation";
+    blocks.push({ text: text.slice(0, 520), selector: cssPath(node), role });
+    if (blocks.length >= 40) break;
+  }
+
+  const hints = detectPageStateHints(bodyText, documentRef.title, url);
+  hints.push("guancha_article_detail");
+  return {
+    meta,
+    links: uniqueByTextAndHref(links).slice(0, 20),
+    blocks: uniqueByText(blocks).slice(0, 40),
+    pageStateHints: Array.from(new Set(hints))
+  };
+}
+
 function uniqueByText(items: Array<{ text: string; selector?: string; href?: string; role?: string }>) {
   const seen = new Set<string>();
   const result: Array<{ text: string; selector?: string; href?: string; role?: string }> = [];
@@ -272,6 +440,9 @@ function detectPageStateHints(text: string, title: string, href: string): string
   if (/(^|[^\d])404([^\d]|$)|not found|页面不见了|无法浏览|isn'?t available/.test(haystack)) hints.push("not_found");
   if (/弹幕|倍速|字幕|播放|video|bilibili|小红书|red/.test(haystack)) hints.push("media_dom_limited");
   if (/bilibili\.com\/video\//.test(haystack)) hints.push("bili_video_detail");
+  if (/xiaohongshu\.com\/explore/.test(haystack)) hints.push("xhs_note_detail");
+  if (/xiaohongshu\.com(?:\/explore)?(?:\s|$)/.test(haystack)) hints.push("xhs_home_feed");
+  if (/guancha\.cn\/.+\.shtml/.test(haystack)) hints.push("guancha_article_detail");
   return Array.from(new Set(hints));
 }
 
@@ -289,6 +460,8 @@ function classifyBlock(node: HTMLElement, text: string): string {
   if (/channel-container|side-bar|app-info|sidebar|footer/.test(marker)) return "xhs_sidebar";
   if (/(mfcontainer|explorefeeds)/.test(marker) && text.length > 360) return "xhs_feed_container";
   if (/comment|评论|热评/.test(marker) && /xiaohongshu|note|red|小红书/.test(marker)) return "xhs_comment";
+  if (/guancha/.test(marker) && /comment|评论|cmt/.test(marker)) return "guancha_comment";
+  if (/guancha/.test(marker) && /recommend|related|最新|视频|侧栏/.test(marker)) return "guancha_recommendation";
   if (/reply|comment|评论|热评/.test(marker)) return "bili_comment";
   if (/recommend|related|rec-list|相关推荐|自动连播|订阅合集/.test(marker)) return "bili_recommendation";
   if (/danmaku|弹幕列表|弹幕设置|防挡字幕|字幕/.test(marker)) return "bili_danmaku";
@@ -318,8 +491,28 @@ function isXiaohongshuNotePage(url: string): boolean {
   }
 }
 
+function isXiaohongshuHomePage(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return /(^|\.)xiaohongshu\.com$/.test(parsed.hostname) && (parsed.pathname === "/" || parsed.pathname === "/explore");
+  } catch {
+    return /xiaohongshu\.com\/?(?:explore)?(?:[?#]|$)/i.test(url);
+  }
+}
+
+function isGuanchaArticlePage(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return /(^|\.)guancha\.cn$/.test(parsed.hostname) && parsed.pathname.endsWith(".shtml");
+  } catch {
+    return /guancha\.cn\/.+\.shtml/i.test(url);
+  }
+}
+
 function normalizeBilibiliText(text: string): string {
   return normalizeText(text)
+    .replace(/(?:，|,)?\s*相关视频[:：].*$/g, "")
+    .replace(/(?:，|,)?\s*更多精彩.*$/g, "")
     .replace(/展开更多|收起|复制链接|举报|分享至.*$/g, "")
     .trim();
 }
@@ -343,7 +536,7 @@ function isUsefulBilibiliMainText(text: string, options: { minLength?: number; m
 
 function focusedCleanedText(title: string, domSignals: DomSignals, fallback: string): string {
   const mainBlocks = domSignals.blocks
-    .filter((block) => /^(bili_video_|xhs_note_)/.test(block.role || ""))
+    .filter((block) => /^(bili_video_|xhs_note_|xhs_feed_card|guancha_article_)/.test(block.role || ""))
     .map((block) => block.text)
     .filter(Boolean);
   const text = [title, ...mainBlocks].join("\n");
@@ -366,6 +559,34 @@ function isUsefulXiaohongshuMainText(text: string, options: { minLength?: number
   if (/扫码登录|获取验证码|手机号登录|登录后推荐|发布\s+\d*通知|\d+消息/.test(normalized)) return false;
   if (/共\s*\d+\s*条评论|回复|展开\s*\d+\s*条回复|说点什么/.test(normalized) && normalized.length > 80) return false;
   if ((normalized.match(/(?:\d+\s*)?(?:小时前|分钟前|刚刚|昨天|前天|回复|赞)/g) || []).length >= 4) return false;
+  return true;
+}
+
+function isUsefulXiaohongshuFeedText(text: string): boolean {
+  const normalized = normalizeXiaohongshuText(text);
+  if (normalized.length < 8 || normalized.length > 520) return false;
+  if (/推荐\s+穿搭\s+美食\s+彩妆|首页\s+动态\s+热门|问点点\s+ai/.test(normalized)) return false;
+  if (/沪ICP备|营业执照|违法不良信息举报|扫码登录|手机号登录|获取验证码/.test(normalized)) return false;
+  if (/^(赞|收藏|分享|评论|关注|\d+|图\s*\d+)$/i.test(normalized)) return false;
+  return true;
+}
+
+function normalizeGuanchaText(text: string): string {
+  return normalizeText(text)
+    .replace(/分享到：.*?来源：/g, "来源：")
+    .replace(/字号：A-\s*A\s*A\+?/g, "")
+    .replace(/举报\s+分享\s+回复\s+踩\d*\s+赞\d*\s+收藏/g, "")
+    .replace(/最新视频\s+查看全部.*$/g, "")
+    .trim();
+}
+
+function isUsefulGuanchaArticleText(text: string, options: { minLength?: number; maxLength?: number } = {}): boolean {
+  const normalized = normalizeGuanchaText(text);
+  const minLength = options.minLength ?? 12;
+  if (normalized.length < minLength) return false;
+  if (/举报\s+分享\s+回复|踩\d+\s+赞\d+|评论区|登录后评论|我来说两句/.test(normalized)) return false;
+  if (/最新视频|查看全部|相关新闻|相关阅读|为您推荐|热门评论/.test(normalized)) return false;
+  if (/广告|下载客户端|观察者网风闻社区/.test(normalized)) return false;
   return true;
 }
 

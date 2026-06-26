@@ -234,6 +234,80 @@ def test_xiaohongshu_note_detail_uses_main_dom_signals_without_comments_or_foote
     assert result["sourceMap"]["sourceRefs"]
 
 
+def test_xiaohongshu_home_feed_uses_card_dom_signals_without_shell_noise() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_xhs_home",
+            "url": "https://www.xiaohongshu.com/explore",
+            "title": "小红书 - 你的生活兴趣社区",
+            "domain": "www.xiaohongshu.com",
+            "capturedAt": "2026-06-26T00:00:00Z",
+            "cleaned_text": "AI 编程工作流：从需求拆解到代码审查\n周末城市徒步路线，适合第一次去的人",
+            "visible_text": "推荐 穿搭 美食 彩妆 首页 动态 热门 AI 编程工作流：从需求拆解到代码审查 开发者小周 1.2万点赞 周末城市徒步路线，适合第一次去的人 沪ICP备13030189号",
+            "dom_signals": {
+                "pageStateHints": ["media_dom_limited", "xhs_home_feed"],
+                "links": [
+                    {"text": "AI 编程工作流：从需求拆解到代码审查", "href": "https://www.xiaohongshu.com/explore/feed001", "selector": "#exploreFeeds .note-card:nth-of-type(1) a", "role": "content_link"},
+                    {"text": "周末城市徒步路线，适合第一次去的人", "href": "https://www.xiaohongshu.com/explore/feed002", "selector": "#exploreFeeds .note-card:nth-of-type(2) a", "role": "content_link"},
+                ],
+                "blocks": [
+                    {"text": "AI 编程工作流：从需求拆解到代码审查 开发者小周 1.2万点赞", "selector": "#exploreFeeds .note-card:nth-of-type(1)", "href": "https://www.xiaohongshu.com/explore/feed001", "role": "xhs_feed_card"},
+                    {"text": "周末城市徒步路线，适合第一次去的人 城市观察员 856收藏", "selector": "#exploreFeeds .note-card:nth-of-type(2)", "href": "https://www.xiaohongshu.com/explore/feed002", "role": "xhs_feed_card"},
+                    {"text": "推荐 穿搭 美食 彩妆 首页 动态 热门", "selector": "#channel-container", "role": "xhs_sidebar"},
+                    {"text": "沪ICP备13030189号 营业执照 网上有害信息举报专区", "selector": ".side-bar", "role": "xhs_footer"},
+                ],
+                "meta": [{"name": "description", "content": "小红书首页公开笔记推荐"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+    digest_text = " ".join(item["text"] for item in result["perceptionDigest"]["items"])
+
+    assert "AI 编程工作流" in paragraph_text
+    assert "周末城市徒步路线" in digest_text
+    assert "推荐 穿搭 美食 彩妆" not in paragraph_text
+    assert "沪ICP备" not in paragraph_text
+    assert any(ref.get("selector") == "#exploreFeeds .note-card:nth-of-type(1)" for ref in result["sourceMap"]["sourceRefs"])
+
+
+def test_guancha_article_detail_uses_article_dom_signals_without_comments_or_recommendations() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_guancha_detail",
+            "url": "https://www.guancha.cn/internation/2026_06_26_821741.shtml",
+            "title": "观察者网文章核心标题 - 观察者网",
+            "domain": "www.guancha.cn",
+            "capturedAt": "2026-06-26T00:00:00Z",
+            "cleaned_text": "观察者网文章核心标题\n来源：观察者网 发布时间：2026-06-26 作者：张三\n这是一段观察者网文章正文，围绕真实新闻事件说明背景、争议焦点和后续影响。",
+            "visible_text": "观察者网文章核心标题 来源：观察者网 发布时间：2026-06-26 作者：张三 这是一段观察者网文章正文 评论区 网友回复 踩12 赞34 最新视频 查看全部 推荐阅读",
+            "dom_signals": {
+                "pageStateHints": ["media_dom_limited", "guancha_article_detail"],
+                "links": [{"text": "当前观察者网文章", "href": "https://www.guancha.cn/internation/2026_06_26_821741.shtml", "role": "content_link"}],
+                "blocks": [
+                    {"text": "观察者网文章核心标题", "selector": "h1.article-title", "role": "guancha_article_title"},
+                    {"text": "来源：观察者网 发布时间：2026-06-26 作者：张三", "selector": ".article-info", "role": "guancha_article_meta"},
+                    {"text": "这是一段观察者网文章正文，围绕真实新闻事件说明背景、争议焦点和后续影响。第二段继续解释关键事实。", "selector": ".article-content", "role": "guancha_article_body"},
+                    {"text": "评论区 网友回复 踩12 赞34 我来说两句", "selector": ".comment-list", "role": "guancha_comment"},
+                    {"text": "最新视频 查看全部 推荐阅读 相关新闻", "selector": ".recommend-list", "role": "guancha_recommendation"},
+                ],
+                "meta": [{"name": "description", "content": "观察者网文章摘要：这是正文相关背景说明。"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+    digest_text = " ".join(item["text"] for item in result["perceptionDigest"]["items"])
+
+    assert "观察者网文章核心标题" in paragraph_text
+    assert "第二段继续解释关键事实" in digest_text
+    assert "评论区" not in paragraph_text
+    assert "最新视频" not in paragraph_text
+    assert result["sourceMap"]["sourceRefs"]
+
+
 def test_dom_signal_links_without_blocks_do_not_reuse_uninitialized_role() -> None:
     result = build_high_signal_page_perception(
         {

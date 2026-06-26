@@ -344,6 +344,7 @@ async function launchBrowser() {
       args: [
         "--no-first-run",
         "--no-default-browser-check",
+        "--mute-audio",
         "--disable-popup-blocking",
         "--disable-sync",
         "--enable-unsafe-extension-debugging",
@@ -376,6 +377,7 @@ async function launchBrowser() {
     const args = [
       "--no-first-run",
       "--no-default-browser-check",
+      "--mute-audio",
       "--disable-popup-blocking",
       "--disable-sync",
       realSiteHeadless ? "--headless=new" : "--window-position=40,40",
@@ -425,6 +427,7 @@ async function launchBrowser() {
     args: [
       "--no-first-run",
       "--no-default-browser-check",
+      "--mute-audio",
       realSiteHeadless ? "--headless=new" : "--window-position=40,40",
       "--window-size=1280,900",
       "--disable-features=DisableLoadExtensionCommandLineSwitch",
@@ -446,6 +449,7 @@ async function launchWindowsTempPublicProfile(loginLaunchError) {
   const args = [
     "--no-first-run",
     "--no-default-browser-check",
+    "--mute-audio",
     "--disable-popup-blocking",
     "--disable-sync",
     realSiteHeadless ? "--headless=new" : "--window-position=40,40",
@@ -789,6 +793,51 @@ function noisyMindmapLabel(label) {
   return signalChars < Math.max(3, Math.floor(text.length / 3));
 }
 
+function sourceCardSelectionScore(card, siteId) {
+  const label = normalizeText(card?.label ?? "");
+  const excerpt = normalizeText(card?.excerpt ?? "");
+  const text = `${label} ${excerpt}`;
+  let score = 0;
+  if (label.length >= 4) score += 6;
+  if (excerpt.length >= 12) score += 8;
+  if (Array.isArray(card?.sourceRefIds) && card.sourceRefIds.length > 0) score += Math.min(10, card.sourceRefIds.length * 2);
+  if (/^(核心要点|视频与内容|主要内容|内容概览)$/.test(label)) score -= 18;
+  if (Array.isArray(card?.sourceRefIds) && card.sourceRefIds.length >= 4) score -= 8;
+  if (/正文|标题|作者|发布时间|来源|文\/|视频简介|up主|播放|弹幕|笔记|note|explore|article/.test(text)) score += 24;
+  if (siteId === "xiaohongshu" && /xiaohongshu\.com\/explore|笔记|note|feed|card|小红书/.test(text)) score += 18;
+  if (siteId === "guancha" && /观察者网|guancha\.cn\/.+\.shtml|来源：|文\/|article|正文/.test(text)) score += 22;
+  if (siteId === "bilibili" && /bilibili|视频|up主|播放|弹幕|简介/.test(text)) score += 14;
+  if (/首页|频道|动态|热门|投稿|消息|推荐\s+穿搭\s+美食\s+彩妆/.test(text)) score -= 30;
+  if (/评论|回复|热评|举报|分享|踩\d*|赞\d*|收藏|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置/.test(text)) score -= 40;
+  if (/https?:\/\/cm\.bilibili\.com|\/cm\/api\/fees/.test(text)) score -= 18;
+  if (/blackboard\/era|sourceType=adPut|广告|活动抽|抽测试资格/.test(text)) score -= 28;
+  if (/^(og\s+(url|image)|.*site-verification|360-site-verification|google-site-verification|shenma-site-verification)$/i.test(label)) score -= 34;
+  if (/og:(url|image)|site-verification|xhscdn\.com/.test(text)) score -= 18;
+  if (String(card?.nodeId ?? "") === "root") score -= 16;
+  if (excerpt.length > 520) score -= 8;
+  return score;
+}
+
+function selectSourceCardForJumpback(sourceCards, siteId) {
+  const candidates = Array.isArray(sourceCards) ? sourceCards : [];
+  const scored = candidates
+    .map((card, fallbackIndex) => ({
+      index: typeof card.index === "number" ? card.index : fallbackIndex,
+      label: card.label ?? "",
+      excerpt: card.excerpt ?? "",
+      score: sourceCardSelectionScore(card, siteId)
+    }))
+    .sort((left, right) => right.score - left.score || left.index - right.index);
+  const selected = scored[0] ?? null;
+  return {
+    selectedSourceCardIndex: selected?.index ?? 0,
+    selectedSourceCardReason: selected
+      ? `selected highest main-content score ${selected.score} for ${siteId}; label=${String(selected.label).slice(0, 80)}`
+      : "no source card candidates; fallback index 0",
+    sourceCardCandidates: scored.slice(0, 6)
+  };
+}
+
 function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) {
   const fatalIssues = [];
   const majorIssues = [];
@@ -965,8 +1014,34 @@ async function diagnosePage({ page, serviceWorker, site, pageKind, url, label })
     writeJson(path.join(sampleDir, "source-cards.json"), sample.cards);
 
     if (Array.isArray(sample.cards.sourceCards) && sample.cards.sourceCards.length > 0) {
-      const jumpbackResult = await runBridgeCommand(serviceWorker, { action: "jumpback_source_card", index: 0 });
-      sample.jumpback = jumpbackResult.result ?? jumpbackResult;
+      const selection = selectSourceCardForJumpback(sample.cards.sourceCards, site.siteId);
+      const attempts = [];
+      let selectedAttempt = null;
+      for (const candidate of selection.sourceCardCandidates) {
+        const jumpbackResult = await runBridgeCommand(serviceWorker, { action: "jumpback_source_card", index: candidate.index });
+        const result = jumpbackResult.result ?? jumpbackResult;
+        const attempt = {
+          ...result,
+          selectedSourceCardIndex: candidate.index,
+          selectedSourceCardReason: `candidate score ${candidate.score} for ${site.siteId}; label=${String(candidate.label).slice(0, 80)}`
+        };
+        attempts.push(attempt);
+        selectedAttempt = attempt;
+        if (result.status === "highlighted") break;
+      }
+      sample.jumpback = {
+        ...(selectedAttempt ?? { status: "blocked", evidenceText: "No source card candidate could be attempted." }),
+        selectedSourceCardIndex: selectedAttempt?.selectedSourceCardIndex ?? selection.selectedSourceCardIndex,
+        selectedSourceCardReason: selectedAttempt?.selectedSourceCardReason ?? selection.selectedSourceCardReason,
+        sourceCardAttemptCount: attempts.length,
+        sourceCardAttempts: attempts.map((attempt) => ({
+          index: attempt.selectedSourceCardIndex,
+          status: attempt.status,
+          reason: attempt.selectedSourceCardReason,
+          failureReason: attempt.failureReason ?? null
+        })),
+        sourceCardCandidates: selection.sourceCardCandidates
+      };
     } else {
       sample.jumpback = { status: "blocked", evidenceText: "No source cards available." };
     }
@@ -1057,6 +1132,8 @@ function buildReport(samples, browserMode, authCookies = []) {
       containsReadingMap: Boolean(sample.cards?.containsReadingMap),
       sourceCards: Array.isArray(sample.cards?.sourceCards) ? sample.cards.sourceCards.length : 0,
       jumpbackStatus: sample.jumpback?.status ?? "missing",
+      selectedSourceCardIndex: sample.jumpback?.selectedSourceCardIndex ?? null,
+      selectedSourceCardReason: sample.jumpback?.selectedSourceCardReason ?? null,
       mindmapQuality: sample.mindmapQuality ?? null,
       fatalIssues: sample.fatalIssues ?? [],
       majorIssues: sample.majorIssues ?? []
@@ -1074,7 +1151,7 @@ function writeMarkdownReports(report) {
   const rows = report.samples
     .map(
       (sample) =>
-        `| ${sample.siteName} | ${sample.pageKind} | ${sample.result} | ${sample.readiness} | ${sample.bodyTextLength} | ${sample.sourceRefs} | ${sample.digestItems} | ${sample.jumpbackStatus} | ${sample.mindmapQuality ? `${sample.mindmapQuality.labelCount} labels / noise ${Number(sample.mindmapQuality.noisyRatio ?? 0).toFixed(2)} / unique ${Number(sample.mindmapQuality.uniqueRatio ?? 0).toFixed(2)}` : "n/a"} | ${[...sample.fatalIssues, ...sample.majorIssues].join("; ") || "none"} |`
+        `| ${sample.siteName} | ${sample.pageKind} | ${sample.result} | ${sample.readiness} | ${sample.bodyTextLength} | ${sample.sourceRefs} | ${sample.digestItems} | ${sample.jumpbackStatus} | ${sample.selectedSourceCardIndex ?? "n/a"} | ${sample.mindmapQuality ? `${sample.mindmapQuality.labelCount} labels / noise ${Number(sample.mindmapQuality.noisyRatio ?? 0).toFixed(2)} / unique ${Number(sample.mindmapQuality.uniqueRatio ?? 0).toFixed(2)}` : "n/a"} | ${[...sample.fatalIssues, ...sample.majorIssues].join("; ") || "none"} |`
     )
     .join("\n");
   writeText(
@@ -1100,8 +1177,8 @@ Result: ${report.passed ? "PASS" : "FAIL"}
 ${report.claim}
 \`\`\`
 
-| Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Mindmap quality | Issues |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Selected source card | Mindmap quality | Issues |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 ${rows}
 `
   );

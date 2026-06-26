@@ -1461,6 +1461,35 @@ Local Runtime 127.0.0.1
 | 阻塞 / 需处理 | Chrome 自动化环境与 `e2e/chrome-real-site-diagnostics.mjs` | 已支持指定站点和详情 URL；真实登录态 profile 可能被锁定，临时 Chrome 可能未加载 unpacked extension | 报告必须把 login profile locked、extension not loaded、public no-login fallback 记录为 blocker / degraded，不得写成通过 |
 | 待人工确认 | `human-review-checklist.md` | `reviewStatus: pending` | 人工产品体验核查完成后才能进入完整 V1 complete 候选审计 |
 
+V1-MC-SJ Source Jumpback Hardening 目标链路：
+
+```text
+Host Page DOM / Page Context
+  -> apps/chrome-extension/src/pageContext.ts
+  -> A Page Reading: high-signal blocks + SourceRef quality
+  -> C Mindmap: digest-first node + nodeSourceMap
+  -> B Renderer: Evidence Card / Reading Map / source card ordering
+  -> sidepanel/main.tsx: user-triggered source card action
+  -> contentBridge.ts: selector / domPath / textQuote / href-card matching
+  -> highlighted | fallback_shown | blocked
+  -> report.json / acceptance-report.html / screenshots
+```
+
+当前阻塞实体：
+
+| 阻塞样本 | 当前失败点 | 目标架构修复点 | 不允许的捷径 |
+|---|---|---|---|
+| `xiaohongshu-homepage` | source card 主要来自信息流拼接文本，jumpback 只能 fallback | A 生成 feed card 级 sourceRef；B/C 优先展示可定位卡片；content script 用 card text / href / textQuote 多线索定位 | 把 fallback 写成 highlighted；把 public no-login 写成 logged-in |
+| `guancha-detail` | source card 可能指向评论、推荐、最新视频或头条侧栏；第 0 张卡不是稳定正文来源 | A/C 对 article 正文、标题、作者、发布时间、正文段落提权；B source card 排序把正文置前；E2E 记录选择原因 | 继续固定点击第 0 张卡；推荐/评论主导仍声明高质量 |
+
+责任边界：
+
+- A 可以改善主内容识别、噪声降权、sourceRef selector / textQuote / fallbackText 质量。
+- C 可以改善主题归并和 nodeSourceMap 绑定，但不得输出 React / SVG / CSS 组件结构。
+- B 可以派生和排序 Evidence Card / Reading Map / source card view model，但不得生成事实内容。
+- Content Script 只执行用户触发的定位，不做自动浏览器任务，不读取本地文件。
+- E2E 可以选择“主内容且可定位概率最高”的 source card，但必须在报告里记录选择原因，不能用选择策略掩盖产品 UI 里的错误排序。
+
 架构出门条件：
 
 - `SidebarInteractionState` 只属于 content script，不进入 Runtime。

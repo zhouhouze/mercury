@@ -1,40 +1,40 @@
 {
   "activePage": {
-    "pageId": "page_fa0e3425bd35b86c",
+    "pageId": "page_bfed7fb1f2e81df2",
     "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
     "url": "https://www.bilibili.com/",
     "domain": "www.bilibili.com"
   },
   "readiness": "pass",
-  "overallScore": 0.89,
+  "overallScore": 0.897,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 79,
+  "highSignalBlocks": 71,
   "digestItems": 18,
-  "sourceRefs": 86,
+  "sourceRefs": 77,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.081,
-      "numerator": 7,
-      "denominator": 86,
+      "value": 0.078,
+      "numerator": 6,
+      "denominator": 77,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.773,
-      "numerator": 5764,
-      "denominator": 7452,
+      "value": 0.76,
+      "numerator": 4954,
+      "denominator": 6516,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 79,
-      "denominator": 79,
+      "numerator": 71,
+      "denominator": 71,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -49,23 +49,23 @@
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 86,
-      "denominator": 86,
+      "numerator": 77,
+      "denominator": 77,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.134,
-      "numerator": 132,
-      "denominator": 988,
+      "value": 0.146,
+      "numerator": 136,
+      "denominator": 932,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.056,
-      "numerator": 1,
+      "value": 0.167,
+      "numerator": 3,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

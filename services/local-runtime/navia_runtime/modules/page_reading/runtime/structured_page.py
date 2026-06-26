@@ -223,7 +223,10 @@ def build_structured_page_context(input_data: dict[str, Any]) -> dict[str, Any]:
     dom_signals = input_data.get("dom_signals")
     signal_paragraphs = dom_signal_paragraphs(dom_signals)
     if signal_paragraphs and (
-        dom_signal_has_hint(dom_signals, "bili_video_detail") or dom_signal_has_hint(dom_signals, "xhs_note_detail")
+        dom_signal_has_hint(dom_signals, "bili_video_detail")
+        or dom_signal_has_hint(dom_signals, "xhs_note_detail")
+        or dom_signal_has_hint(dom_signals, "xhs_home_feed")
+        or dom_signal_has_hint(dom_signals, "guancha_article_detail")
     ):
         parsed_paragraphs = signal_paragraphs
     else:
@@ -282,7 +285,7 @@ def build_paragraphs(page_id: str, parsed_paragraphs: list[ParsedParagraph]) -> 
     paragraphs: list[dict[str, Any]] = []
     for index, item in enumerate(parsed_paragraphs[:MAX_PARAGRAPHS]):
         text = normalize_text(item.text)
-        min_length = 4 if item.role in {"bili_video_title", "bili_video_author", "bili_video_stats"} else 16
+        min_length = 4 if item.role in {"bili_video_title", "bili_video_author", "bili_video_stats", "xhs_note_title", "xhs_note_author", "xhs_note_stats", "guancha_article_title", "guancha_article_meta"} else 16
         if len(text) < min_length:
             continue
         paragraph_id = f"pg_{page_id}_{len(paragraphs) + 1:04d}"
@@ -309,6 +312,8 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
     seen: set[str] = set()
     bili_video_detail = dom_signal_has_hint(value, "bili_video_detail")
     xhs_note_detail = dom_signal_has_hint(value, "xhs_note_detail")
+    xhs_home_feed = dom_signal_has_hint(value, "xhs_home_feed")
+    guancha_article_detail = dom_signal_has_hint(value, "guancha_article_detail")
 
     for item in value.get("blocks", []) if isinstance(value.get("blocks"), list) else []:
         if not isinstance(item, dict):
@@ -318,8 +323,12 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
             continue
         if xhs_note_detail and role in {"bili_comment", "xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "auth_block"}:
             continue
+        if xhs_home_feed and role in {"xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "auth_block"}:
+            continue
+        if guancha_article_detail and role in {"guancha_comment", "guancha_recommendation", "guancha_video", "guancha_sidebar", "auth_block"}:
+            continue
         text = normalize_text(str(item.get("text") or ""))
-        min_length = 4 if role in {"bili_video_title", "bili_video_author", "bili_video_stats", "xhs_note_title", "xhs_note_author", "xhs_note_stats"} else 16
+        min_length = 4 if role in {"bili_video_title", "bili_video_author", "bili_video_stats", "xhs_note_title", "xhs_note_author", "xhs_note_stats", "guancha_article_title", "guancha_article_meta"} else 16
         if len(text) < min_length:
             continue
         key = text[:140]

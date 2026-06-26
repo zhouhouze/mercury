@@ -914,17 +914,6 @@ function App() {
                   <span className="session-caret">⌄</span>
                 </button>
               </div>
-              <button
-                className="new-session-button topbar-new-session"
-                type="button"
-                data-testid="new-session"
-                aria-label="新建会话"
-                title="新建会话"
-                disabled={runtimeStatus !== "online" || sessionState.creatingSession || isStreamingOrExecuting}
-                onClick={() => void startNewSession()}
-              >
-                +
-              </button>
             </>
           ) : (
             <div className="topbar-view-copy">

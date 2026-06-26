@@ -64,10 +64,11 @@ export function SessionHistoryOverlay({
           <button
             className="session-menu-new"
             type="button"
+            data-testid="new-session"
             disabled={!canCreateSession || creatingSession}
             onClick={onCreate}
           >
-            <span>+ 新会话</span>
+            <span>新会话</span>
             <kbd>⌘N</kbd>
           </button>
         </div>

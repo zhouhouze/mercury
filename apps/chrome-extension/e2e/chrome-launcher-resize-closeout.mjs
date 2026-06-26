@@ -108,6 +108,7 @@ async function launchBrowser(userDataDir) {
     const args = [
       "--no-first-run",
       "--no-default-browser-check",
+      "--mute-audio",
       "--disable-popup-blocking",
       "--disable-sync",
       "--window-position=40,40",
@@ -146,6 +147,7 @@ async function launchBrowser(userDataDir) {
     args: [
       "--no-first-run",
       "--no-default-browser-check",
+      "--mute-audio",
       "--disable-popup-blocking",
       `--disable-extensions-except=${extensionRoot}`,
       `--load-extension=${extensionRoot}`,

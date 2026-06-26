@@ -1,13 +1,14 @@
 {
   "activePage": {
-    "pageId": "page_2744fc636a5e46ad",
-    "title": "我也是吕公公的干儿子，杨金水叫我师兄_哔哩哔哩_bilibili",
-    "url": "https://www.bilibili.com/video/BV1HTGy68Epv/",
+    "pageId": "page_8372eecdfa625ff4",
+    "title": "我叫你别拆了！_游戏热门视频",
+    "url": "https://www.bilibili.com/video/BV1i5GJ6mE55/",
     "domain": "www.bilibili.com"
   },
   "readiness": "pass",
-  "overallScore": 0.926,
+  "overallScore": 0.921,
   "warnings": [
+    "AUTH_GATED_DEGRADED",
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
@@ -24,9 +25,9 @@
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.918,
-      "numerator": 1147,
-      "denominator": 1249,
+      "value": 0.942,
+      "numerator": 1090,
+      "denominator": 1157,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
@@ -56,9 +57,9 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.389,
-      "numerator": 74,
-      "denominator": 190,
+      "value": 0.479,
+      "numerator": 70,
+      "denominator": 146,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": false

@@ -341,8 +341,8 @@ function artifactTitle(artifact: ArtifactPreview): string {
 
 function compactMindmapLabel(label: string, depth: number, density: "low" | "medium" | "high"): string {
   const normalized = label.replace(/\s+/g, " ").trim();
-  const densityBudget = density === "high" ? -6 : density === "medium" ? -2 : 0;
-  const maxLength = Math.max(28, (depth === 1 ? 54 : 48) + densityBudget);
+  const densityBudget = density === "high" ? -10 : density === "medium" ? -4 : 0;
+  const maxLength = Math.max(48, (depth === 1 ? 86 : 78) + densityBudget);
   if (normalized.length <= maxLength) return normalized;
   return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}…`;
 }

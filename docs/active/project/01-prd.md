@@ -1158,3 +1158,61 @@ Web Research / PPT / Deep Research ready。
 5. V1-MC-QA-4：Mindmap / Reading Map / source jumpback 截图级复核。
 6. V1-MC-QA-5：总报告、PRD review、false-green audit、人类 review checklist 更新。
 ```
+
+### 14.11 V1-MC-SJ 复杂站点 Source Jumpback Hardening 目标
+
+`V1-MC-SJ` 是 V1 Mainline Closeout Candidate 内的阻塞修复子阶段。它不新增产品能力，不引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取；它只把当前真实复杂站点验收中暴露的 source jumpback、主内容抽取和 source card 选择问题补齐到可重新进入 V1-MC 自动化候选验收的水平。
+
+当前阻塞基线：
+
+```text
+docs/active/project/evidence/v1_real_site_complex_pages/report.json
+passed = false
+samplesTotal = 6
+passedSamples = 4
+degradedSamples = 2
+fallbackSamples = 2
+blockingSamples = xiaohongshu-homepage, guancha-detail
+```
+
+本子阶段目标用户路径：
+
+```text
+用户在 B站 / 小红书 / 观察者网等复杂中文网页打开 Navia
+-> 读取当前页
+-> 生成总结 / 问答 / Evidence Card Mindmap / Reading Map
+-> 用户点击 Mindmap 节点或 Source Evidence
+-> 系统优先定位主内容卡片、文章段落、标题或稳定 sourceRef
+-> 成功时网页出现 Navia source marker 和明确高亮
+-> 无法定位时展示 fallback evidence 和失败原因
+-> blocked 时明确说明环境或页面阻塞
+```
+
+必须修复的体验问题：
+
+- 小红书首页不得只依赖整段信息流拼接文本作为 source evidence；应优先绑定可定位的 feed card、标题、作者、链接或卡片文本。
+- 观察者网详情页不得默认把评论、推荐、最新视频、头条侧栏或站点壳作为首要 source card；正文标题、作者、发布时间、正文段落必须优先。
+- B站详情页继续保持 fresh validation：摘要和 Mindmap 主节点应来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容。
+- E2E 验收不得固定点击第 0 张 source card；必须选择主内容优先、可定位概率最高的 source card，并在报告中记录选择原因。
+- `located`、`fallback_shown`、`blocked` 必须在 UI、JSON、HTML 报告和截图证据中一致。
+
+允许的实现方向：
+
+- A Page Reading 改善复杂站点主内容识别、噪声降权和 sourceRef 质量。
+- C Mindmap 改善节点与 sourceRef 的主题绑定，避免推荐/评论主导 root 或高层节点。
+- B Renderer 改善 source card 排序、展示和 E2E 可观测字段，但不得生成事实内容。
+- Content Script Source Jumpback 在用户触发时尝试多个 sourceRef、selector、domPath、textQuote、href/card 线索；失败时保留 fallback，不得伪装成功。
+
+本子阶段完成后仍只能支持：
+
+```text
+V1 mainline closeout candidate passed automated acceptance.
+```
+
+不得支持：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+登录态全站高质量通过。
+```
