@@ -220,8 +220,14 @@ def build_structured_page_context(input_data: dict[str, Any]) -> dict[str, Any]:
     content_hash = "sha256_" + hashlib.sha256(canonical_hash_text(url, title, cleaned_text).encode("utf-8")).hexdigest()
     page_id = read_str(input_data, "pageId", "page_id") or "page_" + content_hash.removeprefix("sha256_")[:16]
 
-    signal_paragraphs = dom_signal_paragraphs(input_data.get("dom_signals"))
-    parsed_paragraphs = signal_paragraphs + (parsed_html.paragraphs or split_text_into_paragraphs(cleaned_text))
+    dom_signals = input_data.get("dom_signals")
+    signal_paragraphs = dom_signal_paragraphs(dom_signals)
+    if signal_paragraphs and (
+        dom_signal_has_hint(dom_signals, "bili_video_detail") or dom_signal_has_hint(dom_signals, "xhs_note_detail")
+    ):
+        parsed_paragraphs = signal_paragraphs
+    else:
+        parsed_paragraphs = signal_paragraphs + (parsed_html.paragraphs or split_text_into_paragraphs(cleaned_text))
     paragraphs = build_paragraphs(page_id, parsed_paragraphs)
     heading_tree = build_heading_tree(headings, paragraphs)
     chunks = build_chunks(page_id, paragraphs)
@@ -276,7 +282,8 @@ def build_paragraphs(page_id: str, parsed_paragraphs: list[ParsedParagraph]) -> 
     paragraphs: list[dict[str, Any]] = []
     for index, item in enumerate(parsed_paragraphs[:MAX_PARAGRAPHS]):
         text = normalize_text(item.text)
-        if len(text) < 16:
+        min_length = 4 if item.role in {"bili_video_title", "bili_video_author", "bili_video_stats"} else 16
+        if len(text) < min_length:
             continue
         paragraph_id = f"pg_{page_id}_{len(paragraphs) + 1:04d}"
         paragraphs.append(
@@ -300,12 +307,20 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
         return []
     paragraphs: list[ParsedParagraph] = []
     seen: set[str] = set()
+    bili_video_detail = dom_signal_has_hint(value, "bili_video_detail")
+    xhs_note_detail = dom_signal_has_hint(value, "xhs_note_detail")
 
     for item in value.get("blocks", []) if isinstance(value.get("blocks"), list) else []:
         if not isinstance(item, dict):
             continue
+        role = read_optional_str(item.get("role"))
+        if bili_video_detail and role in {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo"}:
+            continue
+        if xhs_note_detail and role in {"bili_comment", "xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "auth_block"}:
+            continue
         text = normalize_text(str(item.get("text") or ""))
-        if len(text) < 16:
+        min_length = 4 if role in {"bili_video_title", "bili_video_author", "bili_video_stats", "xhs_note_title", "xhs_note_author", "xhs_note_stats"} else 16
+        if len(text) < min_length:
             continue
         key = text[:140]
         if key in seen:
@@ -318,18 +333,22 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
                 block_type="list_item" if str(item.get("role") or "").endswith("card") else "section",
                 selector=read_optional_str(item.get("selector")),
                 href=read_optional_str(item.get("href")),
-                role=read_optional_str(item.get("role")),
+                role=role,
             )
         )
 
     for item in value.get("links", []) if isinstance(value.get("links"), list) else []:
         if not isinstance(item, dict):
             continue
+        role = read_optional_str(item.get("role")) or "link"
         text = normalize_text(str(item.get("text") or ""))
+        if role in {"profile_link"}:
+            continue
         href = read_optional_str(item.get("href"))
         if len(text) < 4 or not href:
             continue
-        role = read_optional_str(item.get("role")) or "link"
+        if xhs_note_detail and role not in {"content_link"}:
+            continue
         if role in {"auth_link", "link"} and len(text) < 8:
             continue
         line = f"{text} ({href})"
@@ -366,6 +385,13 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
             break
 
     return paragraphs[:100]
+
+
+def dom_signal_has_hint(value: Any, hint: str) -> bool:
+    if not isinstance(value, dict):
+        return False
+    hints = value.get("pageStateHints")
+    return isinstance(hints, list) and hint in {str(item) for item in hints}
 
 
 def build_heading_tree(headings: list[dict[str, Any]], paragraphs: list[dict[str, Any]]) -> list[dict[str, Any]]:

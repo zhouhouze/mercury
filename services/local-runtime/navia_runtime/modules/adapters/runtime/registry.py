@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Any, Callable
 
@@ -60,6 +61,136 @@ def structured_draft_points(page: dict[str, Any]) -> list[str]:
     return []
 
 
+LOW_VALUE_SIGNAL_PATTERNS = [
+    r"^首页$",
+    r"^首页\s+",
+    r"^keywords[:：]",
+    r"未经作者授权",
+    r"禁止转载",
+    r"下载客户端",
+    r"打开客户端",
+    r"扫码登录",
+    r"登录后推荐",
+    r"输入手机号",
+    r"输入验证码",
+    r"更多精彩",
+    r"关于我们",
+    r"隐私政策",
+    r"用户协议",
+    r"专栏\s+直播\s+活动\s+课堂\s+社区中心",
+    r"番剧\s+电影\s+国创",
+    r"会员购\s+漫画\s+赛事",
+]
+
+
+def normalize_adapter_text(value: str) -> str:
+    normalized = re.sub(r"[\u200b-\u200f\u202a-\u202e]", "", value)
+    normalized = re.sub(r"\s+", " ", normalized).strip()
+    return normalized
+
+
+def is_low_value_signal_text(value: str) -> bool:
+    normalized = normalize_adapter_text(value)
+    if not normalized:
+        return True
+    if len(normalized) <= 2:
+        return True
+    lowered = normalized.lower()
+    if re.fullmatch(r"[\d\s,，.。:：;；+\-/|]+", normalized):
+        return True
+    if any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in LOW_VALUE_SIGNAL_PATTERNS):
+        return True
+    if lowered.count(",") >= 8 and len(normalized) < 220:
+        return True
+    nav_tokens = ["首页", "动态", "热门", "频道", "专栏", "直播", "课堂", "社区", "登录", "注册", "下载"]
+    if sum(1 for token in nav_tokens if token in normalized) >= 4 and len(normalized) < 160:
+        return True
+    alpha_num_or_cjk = sum(1 for char in normalized if char.isalnum() or "\u4e00" <= char <= "\u9fff")
+    return alpha_num_or_cjk < max(4, len(normalized) // 3)
+
+
+def page_perception(page: dict[str, Any]) -> dict[str, Any]:
+    perception = page.get("perception")
+    return perception if isinstance(perception, dict) else {}
+
+
+def perception_digest_items(page: dict[str, Any]) -> list[dict[str, Any]]:
+    perception = page_perception(page)
+    digest = perception.get("perceptionDigest") if isinstance(perception.get("perceptionDigest"), dict) else page.get("perceptionDigest")
+    items = digest.get("items") if isinstance(digest, dict) else None
+    return [item for item in items if isinstance(item, dict)] if isinstance(items, list) else []
+
+
+def text_candidates_from_digest_item(item: dict[str, Any]) -> list[str]:
+    candidates = [str(item.get("text") or "")]
+    refs = item.get("sourceRefs")
+    if isinstance(refs, list):
+        for ref in refs:
+            if isinstance(ref, dict):
+                candidates.extend([str(ref.get("fallbackText") or ""), str(ref.get("textQuote") or "")])
+    return [normalize_adapter_text(value) for value in candidates if normalize_adapter_text(value)]
+
+
+def high_signal_points(page: dict[str, Any], *, limit: int = 5) -> list[str]:
+    points: list[str] = []
+    seen: set[str] = set()
+
+    def add(value: str) -> None:
+        normalized = normalize_adapter_text(value)
+        if is_low_value_signal_text(normalized):
+            return
+        key = re.sub(r"\W+", "", normalized.lower())[:80]
+        if key and key not in seen:
+            seen.add(key)
+            points.append(normalized[:260])
+
+    digest_items = sorted(
+        perception_digest_items(page),
+        key=lambda item: numeric_signal_score(item.get("importance") or item.get("confidence")),
+        reverse=True,
+    )
+    for item in digest_items:
+        for candidate in text_candidates_from_digest_item(item):
+            add(candidate)
+            if len(points) >= limit:
+                return points
+
+    for point in structured_draft_points(page):
+        add(point)
+        if len(points) >= limit:
+            return points
+
+    for paragraph in paragraph_texts(page, 12):
+        add(paragraph)
+        if len(points) >= limit:
+            return points
+    return points
+
+
+def numeric_signal_score(value: Any) -> float:
+    try:
+        return float(value or 0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def page_has_media_dom_limit(page: dict[str, Any]) -> bool:
+    perception = page_perception(page)
+    quality = perception.get("qualityReport") if isinstance(perception.get("qualityReport"), dict) else page.get("qualityReport")
+    warnings = quality.get("warnings") if isinstance(quality, dict) else []
+    if isinstance(warnings, list) and any("media_dom_limited" in str(item) for item in warnings):
+        return True
+    metadata = page.get("metadata") if isinstance(page.get("metadata"), dict) else {}
+    hints = metadata.get("pageStateHints")
+    return isinstance(hints, list) and "media_dom_limited" in hints
+
+
+def summary_boundary_note(page: dict[str, Any]) -> str:
+    if page_has_media_dom_limit(page):
+        return "\n\n### 读取边界\n- 当前为媒体/动态页面，Navia 只总结 DOM 可见文字和页面元数据，不声称理解视频、音频或登录后内容。"
+    return ""
+
+
 def artifact(
     invocation: dict[str, Any],
     *,
@@ -112,6 +243,14 @@ def require_page(invocation: dict[str, Any]) -> dict[str, Any] | None:
     return page if isinstance(page, dict) and page_id(page) else None
 
 
+def structured_page_for_mindmap(page: dict[str, Any]) -> dict[str, Any]:
+    perception = page.get("perception") if isinstance(page.get("perception"), dict) else {}
+    structured_page = perception.get("structuredPage") if isinstance(perception.get("structuredPage"), dict) else None
+    if structured_page is not None and page_paragraphs(structured_page):
+        return structured_page
+    return page
+
+
 def summarize_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
     page = require_page(invocation)
     if page is None:
@@ -121,8 +260,12 @@ def summarize_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
             content={},
             error={"code": ErrorCode.PAGE_CONTEXT_REQUIRED.value, "message": "Active page is required.", "recoverable": True},
         )
-    points = structured_draft_points(page) or paragraph_texts(page, 4)
-    summary = f"## {page_title(page)}\n\n### 关键要点\n" + "\n".join(f"- {point[:220]}" for point in points[:4])
+    points = high_signal_points(page, limit=5)
+    if points:
+        summary = f"## {page_title(page)}\n\n### 关键要点\n" + "\n".join(f"- {point}" for point in points[:5])
+    else:
+        summary = f"## {page_title(page)}\n\n### 关键要点\n- 当前页面未提取到足够高信号正文，只能展示已捕获的页面标题和可见上下文。"
+    summary += summary_boundary_note(page)
     record = artifact(
         invocation,
         artifact_type="summary",
@@ -144,10 +287,14 @@ def answer_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
             error={"code": ErrorCode.PAGE_CONTEXT_REQUIRED.value, "message": "Active page is required.", "recoverable": True},
         )
     user_message = str(invocation.get("input", {}).get("userMessage") or "")
-    excerpts = paragraph_texts(page, 3)
-    answer = f"基于当前页面《{page_title(page)}》回答：\n" + "\n".join(f"- {excerpt[:220]}" for excerpt in excerpts)
+    excerpts = high_signal_points(page, limit=4)
+    if excerpts:
+        answer = f"基于当前页面《{page_title(page)}》的可见高信号内容：\n" + "\n".join(f"- {excerpt}" for excerpt in excerpts)
+    else:
+        answer = f"基于当前页面《{page_title(page)}》回答：\n- 当前页面未提取到足够高信号正文，请先读取正文更完整的页面或展开登录后内容。"
     if user_message:
         answer += f"\n\n问题：{user_message}"
+    answer += summary_boundary_note(page)
     record = artifact(
         invocation,
         artifact_type="answer",
@@ -168,12 +315,13 @@ def mindmap_adapter(invocation: dict[str, Any]) -> dict[str, Any]:
             error={"code": ErrorCode.PAGE_CONTEXT_REQUIRED.value, "message": "Active page is required.", "recoverable": True},
         )
     perception = page.get("perception") if isinstance(page.get("perception"), dict) else {}
+    structured_page = structured_page_for_mindmap(page)
     result = generate_mindmap_payload(
         {
             "sessionId": invocation["sessionId"],
             "turnId": invocation["turnId"],
             "toolCallId": invocation["toolCallId"],
-            "structuredPage": page,
+            "structuredPage": structured_page,
             "perceptionDigest": perception.get("perceptionDigest") or page.get("perceptionDigest"),
             "sourceMap": perception.get("sourceMap") or page.get("sourceMap"),
             "qualityReport": perception.get("qualityReport") or page.get("qualityReport"),

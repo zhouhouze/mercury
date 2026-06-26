@@ -23,27 +23,78 @@ SITE_SHELL_TITLES = {
 }
 
 NOISE_TEXT_PATTERNS = [
+    r"^首页$",
+    r"^首页\s+",
     r"扫码登录",
     r"登录后推荐",
     r"输入手机号",
     r"输入验证码",
     r"更多精彩",
     r"下载客户端",
+    r"打开客户端",
     r"免费看高清视频",
+    r"未经作者授权",
+    r"禁止转载",
+    r"动态\s+热门\s+频道",
+    r"专栏\s+直播\s+活动\s+课堂\s+社区中心",
     r"首页\s+番剧\s+直播",
     r"番剧\s+电影\s+国创",
     r"会员购\s+漫画\s+赛事",
     r"游戏中心",
     r"不感兴趣将减少此类内容推荐",
     r"添加至稍后再看",
-    r"^(dom signals|metadata|keywords|feed_card|media_link|media_block|content_block|nav_block|link)$",
+    r"^(dom signals|metadata|keywords|feed_card|media_link|content_link|media_block|content_block|nav_block|link)$",
     r"^keywords[:：]",
+    r"问点点\s+ai\s+推荐\s+穿搭",
+    r"大报版\s+要闻\s+时评\s+朋友圈\s+风闻\s+知识\s+视频\s+滚动",
     r"关于我们",
     r"隐私政策",
     r"用户协议",
+    r"ICP备",
+    r"沪公网安备",
+    r"营业执照",
+    r"互联网药品信息服务资格证书",
+    r"医疗器械网络交易服务",
+    r"网络文化经营许可证",
+    r"增值电信业务经营许可证",
+    r"违法不良信息举报",
+    r"互联网举报中心",
+    r"网上有害信息举报专区",
+    r"个性化推荐算法",
+    r"baidu-site-verification",
+    r"本视频参加过",
+    r"整点电子榨菜",
+    r"活动已结束",
+    r"有砸性多壮志",
+    r"QQ群",
+    r"群号",
+    r"微信",
+    r"弹幕列表",
+    r"弹幕设置",
+    r"自动连播",
+    r"订阅合集",
+    r"防挡字幕",
+    r"智能防挡弹幕",
+    r"按类型过滤",
+    r"滚动\s+固定\s+彩色",
+    r"充电\s+关注",
+    r"相关推荐",
+    r"更多推荐",
+    r"^\d+\s*消息$",
+    r"共\s*\d+\s*条评论",
+    r"展开\s*\d+\s*条回复",
+    r"说点什么",
+    r"^\d+\s*(通知|消息)$",
+    r"小红书\s+发布",
+    r"当前小红书笔记详情页",
+    r"user\s*/\s*profile",
 ]
 
 CHINESE_THEME_KEYWORDS: list[tuple[str, tuple[str, ...]]] = [
+    ("视频主题", ("视频标题", "标题", "主题", "本视频", "讲述")),
+    ("内容简介", ("简介", "介绍", "内容", "说明", "描述")),
+    ("UP主与发布", ("UP主", "作者", "发布", "投稿", "频道")),
+    ("互动数据", ("播放", "弹幕", "点赞", "投币", "收藏", "转发")),
     ("核心事件", ("宣布", "发生", "回应", "发布", "启动", "指出", "表示", "称", "要求", "决定")),
     ("人物与机构", ("作者", "专家", "公司", "机构", "政府", "部门", "委员会", "发言人", "代表")),
     ("背景原因", ("原因", "背景", "由于", "因为", "此前", "长期", "历史", "争议")),
@@ -132,7 +183,8 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
             item_source_refs = [ref for ref in item.get("sourceRefs", []) if isinstance(ref, dict)]
             source_ref_ids = [str(ref.get("sourceRefId")) for ref in item_source_refs if ref.get("sourceRefId")]
             refs_by_id = [source_refs[source_ref_id] for source_ref_id in source_ref_ids if source_ref_id in source_refs]
-            effective_refs = refs_by_id or item_source_refs
+            effective_refs = ranked_source_refs(refs_by_id or item_source_refs, limit=4)
+            source_ref_ids = [str(ref.get("sourceRefId")) for ref in effective_refs if ref.get("sourceRefId")] or source_ref_ids
             paragraph_ids = [str(pid) for pid in item.get("relatedParagraphIds", []) if str(pid).strip()]
             chunk_ids = [str(cid) for cid in item.get("relatedChunkIds", []) if str(cid).strip()]
             for ref in effective_refs:
@@ -211,6 +263,8 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
     for heading in heading_tree[:MAX_NODES]:
         if not isinstance(heading, dict) or not heading.get("text"):
             continue
+        if is_noise_text(str(heading.get("text") or "")):
+            continue
         paragraph_ids = [str(item) for item in heading.get("paragraphIds", []) if str(item).strip()]
         related_paragraphs = [p for p in paragraphs if isinstance(p, dict) and p.get("paragraphId") in paragraph_ids]
         chunk_ids = sorted({str(p.get("chunkId")) for p in related_paragraphs if p.get("chunkId")})
@@ -238,6 +292,8 @@ def select_nodes(page: dict[str, Any], *, digest: dict[str, Any] | None = None, 
     if len(nodes) < 2:
         for paragraph in paragraphs[:MAX_NODES]:
             if not isinstance(paragraph, dict):
+                continue
+            if is_noise_text(str(paragraph.get("text") or "")):
                 continue
             paragraph_ids = [str(paragraph["paragraphId"])] if paragraph.get("paragraphId") else []
             chunk_ids = [str(paragraph["chunkId"])] if paragraph.get("chunkId") else []
@@ -292,11 +348,59 @@ def validate_mermaid_source(source: str) -> dict[str, Any]:
         return {"valid": False, "error": "Mermaid source must start with mindmap."}
     if len(lines) < 2 or "root((" not in lines[1]:
         return {"valid": False, "error": "Mermaid source must contain root node."}
-    if len(lines) > MAX_NODES:
+    node_line_count = max(0, len(lines) - 1)
+    if node_line_count > MAX_NODES:
         return {"valid": False, "error": "Mermaid node count exceeds V1.2 limit."}
     if any(len(line.strip()) > MAX_LABEL_CHARS + 12 for line in lines[1:]):
         return {"valid": False, "error": "Mermaid label exceeds V1.2 limit."}
     return {"valid": True, "status": "passed", "error": None}
+
+
+def ranked_source_refs(source_refs: list[dict[str, Any]], *, limit: int = 4) -> list[dict[str, Any]]:
+    ranked = sorted(
+        [ref for ref in source_refs if isinstance(ref, dict)],
+        key=source_ref_signal_score,
+        reverse=True,
+    )
+    selected = [ref for ref in ranked if source_ref_signal_score(ref) > 0]
+    return selected[:limit]
+
+
+def source_ref_signal_score(ref: dict[str, Any]) -> float:
+    text = source_ref_display_text(ref)
+    if not text:
+        return -10.0
+    score = 0.0
+    if is_noise_text(text):
+        score -= 8.0
+    else:
+        score += 3.0
+    length = len(normalize_label_text(text))
+    if 18 <= length <= 260:
+        score += 1.4
+    elif length > 360:
+        score -= 0.8
+    if ref.get("selector") or ref.get("domPath"):
+        score += 1.2
+    confidence = ref.get("confidence")
+    if isinstance(confidence, (int, float)):
+        score += min(1.0, max(0.0, float(confidence)))
+    block_type = str(ref.get("blockType") or "")
+    if block_type in {"nav", "footer", "ad", "comment"}:
+        score -= 2.0
+    return score
+
+
+def source_ref_display_text(ref: dict[str, Any]) -> str:
+    return first_non_empty(str(ref.get("fallbackText") or ""), str(ref.get("textQuote") or ""))
+
+
+def first_non_noise_source_ref_text(source_refs: list[dict[str, Any]]) -> str:
+    for ref in ranked_source_refs(source_refs, limit=1):
+        text = source_ref_display_text(ref)
+        if text and not is_noise_text(text):
+            return text[:180]
+    return ""
 
 
 def build_source_map(page: dict[str, Any], nodes: list[dict[str, Any]], source_map_input: dict[str, Any] | None = None) -> dict[str, dict[str, Any]]:
@@ -305,11 +409,13 @@ def build_source_map(page: dict[str, Any], nodes: list[dict[str, Any]], source_m
     source_refs = [ref for ref in (source_map_input or {}).get("sourceRefs", []) if isinstance(ref, dict)]
     root_paragraph_ids = [str(p.get("paragraphId")) for p in paragraphs[:4] if isinstance(p, dict) and p.get("paragraphId")]
     root_chunk_ids = [str(c.get("chunkId") or c.get("chunk_id")) for c in chunks[:2] if isinstance(c, dict) and (c.get("chunkId") or c.get("chunk_id"))]
-    root_source_ref_ids = [str(ref.get("sourceRefId")) for ref in source_refs[:4] if ref.get("sourceRefId")]
+    ranked_root_refs = ranked_source_refs(source_refs, limit=4)
+    root_ref = ranked_root_refs[0] if ranked_root_refs else source_refs[0] if source_refs else {}
+    root_source_ref_ids = [str(ref.get("sourceRefId")) for ref in ranked_root_refs if ref.get("sourceRefId")]
     root_fallback = first_non_empty(
-        first_signal_excerpt(paragraphs[:6]),
-        *(str(ref.get("fallbackText") or ref.get("textQuote") or "") for ref in source_refs[:4] if not is_noise_text(str(ref.get("fallbackText") or ref.get("textQuote") or ""))),
-        first_excerpt(paragraphs[:2]),
+        *(str(ref.get("fallbackText") or ref.get("textQuote") or "") for ref in ranked_root_refs),
+        first_signal_excerpt(paragraphs[:12]),
+        first_non_noise_source_ref_text(source_refs),
     )
     source_map: dict[str, dict[str, Any]] = {
         "root": {
@@ -319,9 +425,9 @@ def build_source_map(page: dict[str, Any], nodes: list[dict[str, Any]], source_m
             "paragraphIds": root_paragraph_ids,
             "chunkIds": root_chunk_ids,
             "excerpt": root_fallback[:180],
-            "textQuote": str(source_refs[0].get("textQuote") or "")[:180] if source_refs else "",
+            "textQuote": str(root_ref.get("textQuote") or "")[:180] if root_ref else "",
             "fallbackText": root_fallback[:240],
-            "jumpback": jumpback_from_ref(source_refs[0] if source_refs else {}, fallback_reason="selector_missing" if source_refs else "source_ref_missing"),
+            "jumpback": jumpback_from_ref(root_ref, fallback_reason="selector_missing" if root_ref else "source_ref_missing"),
         }
     }
     for index, node in enumerate(nodes[: MAX_NODES - 1], start=1):
@@ -441,6 +547,8 @@ def compact_theme_label(value: str) -> str:
 def normalize_label_text(value: str) -> str:
     normalized = re.sub(r"[\ud800-\udfff]", "", value)
     normalized = re.sub(r"[\u200b-\u200f\u202a-\u202e]", "", normalized)
+    normalized = re.sub(r"https?://\S+", " ", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"https?\s*:\s*/\s*/(?:\s*[\w.-]+)+(?:\s*/\s*[\w%.-]+)*", " ", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"[^\w\u4e00-\u9fff，。；：、,.!?！？%+\-/\s]", " ", normalized)
     normalized = re.sub(r"\s+", " ", normalized).strip()
     normalized = re.sub(r"\s+([,.;:!?，。；：！？])", r"\1", normalized)
@@ -450,6 +558,7 @@ def normalize_label_text(value: str) -> str:
     normalized = re.sub(r"\b(the|a|an)\s+", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
     normalized = re.sub(r"\b(media|nav|header|footer|content|main)\b[_-]?\d*", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"\bhttps?\b", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\s+", " ", normalized).strip(" ，。；：、,.")
     return normalized
 
@@ -484,6 +593,11 @@ def semantic_theme_label(text: str) -> str | None:
 
 
 def is_noise_text(value: str) -> bool:
+    raw = re.sub(r"\s+", " ", value).strip()
+    if re.search(r"https?\s*:\s*/\s*/(?:\s*[\w.-]+)+(?:\s*/\s*[\w%.-]+)*", raw, flags=re.IGNORECASE) and re.search(
+        r"user\s*/\s*profile", raw, flags=re.IGNORECASE
+    ):
+        return True
     normalized = normalize_label_text(value)
     if not normalized:
         return True
@@ -493,7 +607,33 @@ def is_noise_text(value: str) -> bool:
         return True
     if sum(1 for char in normalized if char.isalnum() or "\u4e00" <= char <= "\u9fff") < max(3, len(normalized) // 3):
         return True
+    if looks_like_bili_mixed_media_listing(normalized):
+        return True
+    if looks_like_comment_thread(normalized):
+        return True
     return any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in NOISE_TEXT_PATTERNS)
+
+
+def looks_like_bili_mixed_media_listing(value: str) -> bool:
+    count_metrics = len(re.findall(r"\d+(?:\.\d+)?万", value))
+    count_timecodes = len(re.findall(r"\b\d{1,2}:\d{2}\b", value))
+    dense_media_terms = sum(1 for token in ["播放", "弹幕", "简介", "订阅合集", "自动连播", "相关推荐"] if token in value)
+    noisy_ui_terms = sum(1 for token in ["按类型过滤", "滚动", "固定", "彩色", "防挡字幕", "智能防挡弹幕", "充电", "关注"] if token in value)
+    if len(value) > 90 and count_metrics >= 3 and dense_media_terms >= 2:
+        return True
+    if len(value) > 60 and count_timecodes >= 3 and dense_media_terms >= 1:
+        return True
+    return noisy_ui_terms >= 2
+
+
+def looks_like_comment_thread(value: str) -> bool:
+    comment_terms = len(re.findall(r"回复|赞|小时前|分钟前|刚刚|昨天|前天", value))
+    location_terms = len(re.findall(r"北京|上海|广东|江苏|浙江|四川|新加坡", value))
+    if len(value) > 90 and comment_terms >= 4:
+        return True
+    if len(value) > 60 and comment_terms >= 3 and location_terms >= 2:
+        return True
+    return False
 
 
 def root_page_label(page: dict[str, Any]) -> str:

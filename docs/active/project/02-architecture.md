@@ -1449,6 +1449,18 @@ Local Runtime 127.0.0.1
 | 旧证据 | 部分旧 closeout 报告仍可为 failed 或 superseded | 总报告必须解释、废止或重新生成冲突证据 |
 | 公共合同 | Runtime / Artifact / ViewModel 已冻结 | 本阶段不新增 Runtime public API，不反向污染 A/C/D |
 
+当前剩余目标的具体实现实体和状态：
+
+| 状态 | 实体 / 证据 | 当前判断 | 目标闭环 |
+|---|---|---|---|
+| 已实现并需 fresh evidence | `apps/chrome-extension/src/pageContext.ts` | 已有当前页 context、复杂站点 DOM signal、B站详情页 focused extraction 方向 | B站详情页只把标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容作为高信号输入 |
+| 已实现并需 fresh evidence | `services/local-runtime/navia_runtime/modules/page_reading/` | A 能生成 `StructuredPageContext`、`PerceptionDigest`、`SourceRef`、quality | 复杂站点噪声过滤不得让推荐、弹幕设置、活动广告主导摘要 |
+| 已实现并需 fresh evidence | `services/local-runtime/navia_runtime/modules/mindmap/` | C digest-first Mindmap 与 `nodeSourceMap` 已存在 | Mindmap 主题归并、节点文本和 source 绑定在真实复杂站点上可读、可追踪 |
+| 已实现并需视觉复核 | `apps/chrome-extension/src/modules/chat_renderer/` 和 `mindmap_renderer/` | Evidence Card Mindmap、Reading Map、Source Evidence 已进入 Chat artifact | 截图证明无文本虚影、无卡片重叠、无输入框遮挡、状态卡不截断 |
+| 已实现并需行为复核 | `contentBridge.ts` 中 `navia.jumpToSource` | DOM highlight / fallback / blocked 语义存在 | 真实网页点击 source 后能清楚看到 located、fallback_shown 或 blocked |
+| 阻塞 / 需处理 | Chrome 自动化环境与 `e2e/chrome-real-site-diagnostics.mjs` | 已支持指定站点和详情 URL；真实登录态 profile 可能被锁定，临时 Chrome 可能未加载 unpacked extension | 报告必须把 login profile locked、extension not loaded、public no-login fallback 记录为 blocker / degraded，不得写成通过 |
+| 待人工确认 | `human-review-checklist.md` | `reviewStatus: pending` | 人工产品体验核查完成后才能进入完整 V1 complete 候选审计 |
+
 架构出门条件：
 
 - `SidebarInteractionState` 只属于 content script，不进入 Runtime。

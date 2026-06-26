@@ -1285,6 +1285,9 @@ npm --prefix apps/chrome-extension run build
 - [ ] Evidence Card Mindmap 和 Reading Map 作为 Chat artifact 主体验可见。
 - [ ] Source Evidence 的 `located`、`fallback_shown`、`blocked` 在 UI、截图 metadata 和 report 中严格区分。
 - [ ] B站 / 小红书 / 观察者网等复杂站点验收必须标注 public no-login 或 logged-in；public no-login 不得冒充登录态高质量通过。
+- [ ] B站指定详情页 fresh evidence 必须证明摘要和 Mindmap 主节点来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容；推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集、版权提示等不得主导输出。
+- [ ] Mindmap / Reading Map / 状态卡截图不得出现文本虚影、节点重叠、聊天输入框遮挡、当前页面状态卡截断或目录浮层遮挡主要内容。
+- [ ] Chrome 自动化环境失败必须显式记录为 blocked / degraded；真实登录态 profile 被锁定、unpacked extension 未加载或只能使用 public no-login 临时配置时，不得产出登录态通过声明。
 - [ ] 旧 `v1_2_closeout` failed / superseded 证据必须被解释、废止或重新生成，不能与新的 V1 主线完成声明并存。
 - [ ] 总报告必须列出 V1.3、V1.4、complex-site、launcher、Gemini style 的证据路径和结论。
 - [ ] 总报告必须记录固定验证命令 `testCommands`，并逐个校验上游 evidence 路径存在、`passed = true`、`fatalIssues = []`、`majorIssues = []`、claim 在允许范围内。
@@ -1319,6 +1322,9 @@ No-Go：
 - [ ] 用 V1.3 或 V1.4 单阶段 report 直接声明完整 V1 complete。
 - [ ] 用 launcher 视觉截图替代折叠、展开、拖拽、resize、push / overlay 行为验收。
 - [ ] 用 public no-login 复杂站点样本冒充登录态体验通过。
+- [ ] 用 Chrome 自动化环境 blocked 的运行结果冒充真实登录态验收通过。
+- [ ] B站详情页输出被推荐、弹幕设置、活动广告或站点壳文本主导，却声明复杂站点高质量通过。
+- [ ] Mindmap 截图存在文本虚影、节点覆盖或输入框遮挡，却只用单元测试 / build 结果声明视觉验收通过。
 - [ ] 用自动化候选态报告替代人工产品体验核查。
 - [ ] fallback evidence 被标记成 DOM highlight success。
 - [ ] 当前 V1-MC 样本没有 fallback sample，且没有引用上游 fallback evidence，却声明 fallback path 已覆盖。

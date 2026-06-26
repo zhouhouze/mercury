@@ -2475,6 +2475,106 @@ body {
   padding: 9px;
 }
 
+.artifact-inline-markdown {
+  display: grid;
+  gap: 8px;
+  color: var(--navia-text);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.artifact-inline-markdown h3,
+.artifact-inline-markdown h4,
+.artifact-inline-markdown p {
+  margin: 0;
+}
+
+.artifact-inline-markdown h3 {
+  color: var(--navia-brand-dark);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.artifact-inline-markdown h4 {
+  margin-top: 2px;
+  color: var(--navia-brand);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.artifact-inline-bullet {
+  position: relative;
+  padding-left: 16px;
+}
+
+.artifact-inline-bullet::before {
+  position: absolute;
+  top: 0.75em;
+  left: 3px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--navia-brand);
+  content: "";
+}
+
+.artifact-inline-card pre {
+  white-space: pre-wrap;
+}
+
+.reading-map-nav,
+.reading-map-detail,
+.evidence-mindmap-canvas,
+.mindmap-source-list {
+  max-height: none;
+}
+
+.evidence-mindmap-canvas,
+.mindmap-source-list {
+  overflow: visible;
+}
+
+.reading-map-nav-label,
+.evidence-card-node strong,
+.mindmap-source-card span,
+.mindmap-source-card small {
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.evidence-card-node {
+  min-height: auto;
+}
+
+.evidence-card-node-note {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: initial;
+}
+
+.mindmap-source-list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.mindmap-source-card {
+  min-height: auto;
+  align-items: start;
+}
+
+.mindmap-source-evidence-located {
+  border-color: rgba(5, 84, 75, 0.24);
+  background: linear-gradient(180deg, rgba(231, 246, 241, 0.96), rgba(255, 255, 255, 0.9));
+  box-shadow: inset 3px 0 0 var(--navia-brand);
+}
+
+.mindmap-source-evidence-fallback_shown {
+  border-color: rgba(140, 87, 15, 0.26);
+  background: linear-gradient(180deg, rgba(255, 248, 229, 0.92), rgba(255, 255, 255, 0.88));
+  box-shadow: inset 3px 0 0 var(--navia-amber);
+}
+
 @media (max-width: 460px) {
   .reading-map,
   .mindmap-source-list {
@@ -2813,4 +2913,120 @@ body {
   .unified-topbar {
     grid-template-columns: minmax(0, 1fr) 30px;
   }
+}
+
+/* V1 mainline quality hardening: keep generated artifacts inside their own layer. */
+.messages-frame {
+  isolation: isolate;
+}
+
+.conversation-turn,
+.message,
+.artifact-inline-card,
+.artifact-inline-card-mindmap,
+.artifact-inline-card-reading_map {
+  position: relative;
+  min-width: 0;
+}
+
+.artifact-inline-card,
+.artifact-inline-card-mindmap,
+.artifact-inline-card-reading_map {
+  z-index: 1;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.current-page-card {
+  position: relative;
+  z-index: 8;
+  overflow: hidden;
+}
+
+.evidence-mindmap,
+.reading-map {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.evidence-mindmap-canvas,
+.reading-map-nav,
+.reading-map-detail,
+.mindmap-source-list {
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.evidence-mindmap-canvas {
+  max-height: min(42vh, 360px);
+  padding-right: 4px;
+  contain: layout paint;
+}
+
+.reading-map-nav,
+.reading-map-detail {
+  max-height: min(34vh, 260px);
+}
+
+.mindmap-source-list {
+  grid-template-columns: minmax(0, 1fr);
+  max-height: min(30vh, 220px);
+}
+
+.evidence-theme-group,
+.evidence-theme-header,
+.evidence-theme-children,
+.evidence-card-node,
+.mindmap-source-card {
+  min-width: 0;
+}
+
+.evidence-card-node,
+.mindmap-source-card {
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.evidence-card-node strong,
+.mindmap-source-card span {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.evidence-card-node-note,
+.mindmap-source-card small {
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.evidence-card-node-selected .evidence-card-node-note,
+.evidence-card-node-located .evidence-card-node-note {
+  -webkit-line-clamp: 4;
+}
+
+.turn-navigator {
+  right: 14px;
+  bottom: 78px;
+  z-index: 30;
+}
+
+.turn-navigator-trigger {
+  box-shadow: 0 14px 34px rgba(4, 24, 21, 0.14);
+}
+
+.turn-navigator-popover {
+  z-index: 31;
+  max-height: min(50vh, 360px);
 }

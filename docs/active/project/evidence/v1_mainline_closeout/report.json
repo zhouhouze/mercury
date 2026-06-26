@@ -1,6 +1,6 @@
 {
   "schemaVersion": "v1-mainline-closeout.1",
-  "generatedAt": "2026-06-25T09:32:22.818Z",
+  "generatedAt": "2026-06-26T02:37:12.130Z",
   "passed": true,
   "claim": "V1 mainline closeout candidate passed automated acceptance.",
   "summary": {
@@ -18,32 +18,42 @@
     {
       "command": "npm --prefix apps/chrome-extension run typecheck",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Executed in the V1-MC remaining closeout loop before report aggregation; rerun required if source files change."
     },
     {
-      "command": "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard",
+      "command": "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard pageContext",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Executed in the V1-MC remaining closeout loop; covers content shell, renderer, artifact card, and page-context extraction."
+    },
+    {
+      "command": "PYTHONPATH=services/local-runtime .venv/bin/pytest services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py services/local-runtime/navia_runtime/modules/mindmap/tests/test_mindmap.py services/local-runtime/tests/test_adapter_summary_quality.py -q",
+      "passed": true,
+      "evidence": "Executed in the V1-MC remaining closeout loop; covers A/C/Adapter regression for complex-site extraction and mindmap quality."
     },
     {
       "command": "npm --prefix apps/chrome-extension run build",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Executed in the V1-MC remaining closeout loop; produced current chrome-mv3-unpacked build."
     },
     {
       "command": "npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Validated by upstream launcher report referenced by this aggregate report."
     },
     {
       "command": "npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Validated by upstream external visual report referenced by this aggregate report."
     },
     {
-      "command": "npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout",
+      "command": "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
       "passed": true,
-      "evidence": "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      "evidence": "Validated by latest real-site complex pages report referenced by this aggregate report; cookie values are intentionally omitted."
+    },
+    {
+      "command": "node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+      "passed": true,
+      "evidence": "Executed in this loop to aggregate latest upstream reports and regenerate V1-MC evidence."
     }
   ],
   "sourceEvidenceCoverage": {
@@ -110,7 +120,7 @@
         "highlightedSamples": 6,
         "fallbackSamples": 0
       },
-      "generatedAt": "2026-06-25T09:32:21.601Z",
+      "generatedAt": "2026-06-26T02:34:49.216Z",
       "fatalIssues": [],
       "majorIssues": []
     },
@@ -128,7 +138,7 @@
         "highlightedSamples": 6,
         "fallbackSamples": 0
       },
-      "generatedAt": "2026-06-25T09:32:22.525Z",
+      "generatedAt": "2026-06-26T02:34:50.634Z",
       "fatalIssues": [],
       "majorIssues": []
     },
@@ -148,7 +158,7 @@
         "resizedOverlay": true,
         "launcherDraggedLeft": true
       },
-      "generatedAt": "2026-06-25T09:29:41.045Z",
+      "generatedAt": "2026-06-26T02:31:32.293Z",
       "fatalIssues": [],
       "majorIssues": []
     },
@@ -223,10 +233,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 13,
-        "uniqueRatio": 0.6923076923076923,
+        "labelCount": 12,
+        "evidenceCardLabelCount": 12,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 1,
         "noisyRatio": 0,
-        "averageLabelLength": 12.307692307692308,
+        "averageLabelLength": 16.083333333333332,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -239,10 +251,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 16,
-        "uniqueRatio": 0.75,
+        "labelCount": 9,
+        "evidenceCardLabelCount": 9,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 0.8888888888888888,
         "noisyRatio": 0,
-        "averageLabelLength": 13.875,
+        "averageLabelLength": 13.333333333333334,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -255,10 +269,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 16,
-        "uniqueRatio": 0.75,
+        "labelCount": 9,
+        "evidenceCardLabelCount": 9,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 1,
         "noisyRatio": 0,
-        "averageLabelLength": 15.9375,
+        "averageLabelLength": 16.77777777777778,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -271,10 +287,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 19,
-        "uniqueRatio": 0.7894736842105263,
+        "labelCount": 8,
+        "evidenceCardLabelCount": 8,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 1,
         "noisyRatio": 0,
-        "averageLabelLength": 15.157894736842104,
+        "averageLabelLength": 16.375,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -287,10 +305,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 18,
-        "uniqueRatio": 0.7777777777777778,
+        "labelCount": 6,
+        "evidenceCardLabelCount": 6,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 1,
         "noisyRatio": 0,
-        "averageLabelLength": 12.222222222222221,
+        "averageLabelLength": 15.333333333333334,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -303,10 +323,12 @@
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
-        "labelCount": 14,
-        "uniqueRatio": 0.7142857142857143,
+        "labelCount": 15,
+        "evidenceCardLabelCount": 15,
+        "sourceCardLabelCount": 8,
+        "uniqueRatio": 1,
         "noisyRatio": 0,
-        "averageLabelLength": 16.5,
+        "averageLabelLength": 15.4,
         "fatalIssues": [],
         "majorIssues": []
       },
@@ -318,6 +340,7 @@
     "Legacy v1_2_closeout/report.json is failed and must not be used as a current completion claim; this V1-MC report supersedes it only after passing.",
     "Current V1-MC real-site/external samples all highlighted successfully; fallback path coverage is inherited from V1.3/V1.4 upstream evidence and must remain visible in the report.",
     "Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.",
+    "Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.",
     "Human product review is still required before any full V1 complete candidate claim."
   ],
   "fatalIssues": [],

@@ -18,7 +18,21 @@ export function ArtifactInlineCard({ artifact }: { artifact: ArtifactPreview }) 
   return (
     <div className={`artifact-inline-card artifact-inline-card-${artifact.type}`}>
       <div className="artifact-inline-title">{artifactTitle(artifact)}</div>
-      {isMermaid ? <MermaidInline artifact={artifact} /> : <pre>{artifact.content}</pre>}
+      {isMermaid ? <MermaidInline artifact={artifact} /> : <TextArtifact content={artifact.content} />}
+    </div>
+  );
+}
+
+function TextArtifact({ content }: { content: string }) {
+  const lines = content.split(/\n+/).map((line) => line.trim()).filter(Boolean);
+  return (
+    <div className="artifact-inline-markdown">
+      {lines.map((line, index) => {
+        if (line.startsWith("### ")) return <h4 key={`${line}-${index}`}>{line.slice(4)}</h4>;
+        if (line.startsWith("## ")) return <h3 key={`${line}-${index}`}>{line.slice(3)}</h3>;
+        if (line.startsWith("- ")) return <p className="artifact-inline-bullet" key={`${line}-${index}`}>{line.slice(2)}</p>;
+        return <p key={`${line}-${index}`}>{line}</p>;
+      })}
     </div>
   );
 }
@@ -327,15 +341,15 @@ function artifactTitle(artifact: ArtifactPreview): string {
 
 function compactMindmapLabel(label: string, depth: number, density: "low" | "medium" | "high"): string {
   const normalized = label.replace(/\s+/g, " ").trim();
-  const densityBudget = density === "high" ? -4 : density === "medium" ? -2 : 0;
-  const maxLength = Math.max(14, (depth === 1 ? 24 : 22) + densityBudget);
+  const densityBudget = density === "high" ? -6 : density === "medium" ? -2 : 0;
+  const maxLength = Math.max(28, (depth === 1 ? 54 : 48) + densityBudget);
   if (normalized.length <= maxLength) return normalized;
   return `${normalized.slice(0, Math.max(0, maxLength - 1)).trim()}…`;
 }
 
 function compactEvidenceNote(value: string, role: "theme" | "child"): string {
   const normalized = value.replace(/\s+/g, " ").trim();
-  const maxLength = role === "theme" ? 46 : 36;
+  const maxLength = role === "theme" ? 140 : 110;
   if (normalized.length <= maxLength) return normalized;
   return `${normalized.slice(0, maxLength - 1).trim()}…`;
 }

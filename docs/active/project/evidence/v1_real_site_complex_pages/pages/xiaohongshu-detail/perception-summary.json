@@ -1,76 +1,75 @@
 {
   "activePage": {
-    "pageId": "page_cf6902dad7c0ff72",
-    "title": "小红书 - 你的生活兴趣社区",
-    "url": "https://www.xiaohongshu.com/explore",
+    "pageId": "page_9299929bcb3a514e",
+    "title": "有本事你就接着跌啊！ - 小红书",
+    "url": "https://www.xiaohongshu.com/explore/6a3d1f9e000000001102c5e9?xsec_token=[redacted]&xsec_source=",
     "domain": "www.xiaohongshu.com"
   },
   "readiness": "pass",
-  "overallScore": 0.912,
+  "overallScore": 0.904,
   "warnings": [
-    "VERIFICATION_GATED_DEGRADED",
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 91,
-  "digestItems": 18,
-  "sourceRefs": 93,
+  "highSignalBlocks": 14,
+  "digestItems": 14,
+  "sourceRefs": 14,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.022,
-      "numerator": 2,
-      "denominator": 93,
+      "value": 0,
+      "numerator": 0,
+      "denominator": 14,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.917,
-      "numerator": 10905,
-      "denominator": 11886,
+      "value": 1,
+      "numerator": 903,
+      "denominator": 903,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 91,
-      "denominator": 91,
+      "numerator": 14,
+      "denominator": 14,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
     },
     "groundingCompleteness": {
       "value": 1,
-      "numerator": 18,
-      "denominator": 18,
+      "numerator": 14,
+      "denominator": 14,
       "method": "digestItemsWithSourceRefs / digestItemsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 93,
-      "denominator": 93,
+      "numerator": 14,
+      "denominator": 14,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.117,
-      "numerator": 148,
-      "denominator": 1266,
+      "value": 0.79,
+      "numerator": 79,
+      "denominator": 100,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
-      "passed": true
+      "passed": false
     },
     "candidateFactDensity": {
-      "value": 0.056,
-      "numerator": 1,
-      "denominator": 18,
+      "value": 0.786,
+      "numerator": 11,
+      "denominator": 14,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,
-      "passed": false
+      "passed": true
     }
   }
 }

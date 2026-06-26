@@ -20,16 +20,25 @@ Date: 2026-06-25
 
 ## 分页
 
-分页固定为 6 页，不超过 8 页：
+分页固定为 7 页，不超过 8 页：
 
 | 页面 | 目的 |
 |---|---|
-| `01 目标体验总览` | 展示从普通网页、默认贴边 launcher、hover / focus 弹出、点击展开右侧 sidebar、读取当前页、总结 / 问答 / Mindmap 到 source evidence 的目标体验路径。 |
+| `01 阶段目标与体验路径` | 展示从普通网页、默认贴边 launcher、hover / focus 弹出、点击展开右侧 sidebar、读取当前页、总结 / 问答 / Mindmap 到 source evidence 的目标体验路径。 |
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
-| `03 目标架构细化` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的关系。 |
-| `04 开发及验收计划` | 展示 `V1-MC-0` 到 `V1-MC-5`，以及每个阶段的验收产物。 |
-| `05 项目里程碑` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout 等已完成或候选完成内容，以及人工核查 / 登录态复验边界。 |
-| `06 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
+| `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
+| `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login 与 logged-in 验收分流，特别标注 B站详情页主内容抽取和噪声过滤目标。 |
+| `05 开发及验收计划` | 展示 `V1-MC-DOC-0` 到 `V1-MC-QA-5`，以及每个阶段的验收产物。 |
+| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成或候选完成内容，以及人工核查 / 登录态复验边界。 |
+| `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
+
+## 色块图例
+
+- 绿色：已实现并已有 active evidence，可作为候选态输入。
+- 黄色：已实现或已修复，但仍需 fresh evidence 或截图复核。
+- 蓝色：待执行的文档、验收、报告或人工核查动作。
+- 红色：当前阻塞或 false-green 风险，不能被包装成通过。
+- 灰色：保留入口、历史证据或非主完成声明。
 
 ## 当前证据边界
 
@@ -37,13 +46,24 @@ Date: 2026-06-25
 
 `02 当前架构与目标架构差异` 页不是抽象目标图，而是当前实现实体图：
 
-- `1 当前真实网页层`：说明 Navia 运行在真实网页 DOM 上，并通过 content script 初始化。
-- `2 当前 Content Script 交互壳`：对应 `apps/chrome-extension/src/contentBridge.ts`，包括 `aside#navia-inpage-sidebar`、`iframe sidepanel.html?naviaInPage=1`、`button#navia-floating-launcher`、resize handle 和 `SidebarInteractionState`。
-- `3 当前 iframe React 与 B 渲染层`：对应 `entrypoints/sidepanel/main.tsx`、`runtimeClient.ts`、`chat_renderer`、`mindmap_renderer`、Reading Map 和 Source Evidence UI。
-- `4 Chrome 扩展桥接层`：对应 `entrypoints/background/index.ts`，包括 content script 注入、原生 Side Panel 过渡入口、`navia.runtimeFetch` 和 `navia.runtimeStream`。
-- `5 本地 Runtime 模块层`：对应 `127.0.0.1:17861` 下 A Page Reading、D Adapter Boundary、C Mindmap。B 只消费 Artifact / SSE，不生成事实。
+- `1 宿主网页层`：说明 Navia 运行在真实网页 DOM 上，并区分用户主内容、推荐区、弹幕 / 评论、广告、登录态差异和页面布局影响。
+- `2 Content Script 注入交互壳`：对应 `apps/chrome-extension/src/contentBridge.ts`，包括 `aside#navia-inpage-sidebar`、`iframe sidepanel.html?naviaInPage=1`、`button#navia-floating-launcher`、resize handle、collapse handle 和 `SidebarInteractionState`。
+- `3 iframe React + B Renderer`：对应 `entrypoints/sidepanel/main.tsx`、`chat_renderer`、`mindmap_renderer`、`artifact_renderer`、`debug_renderer`、Reading Map 和 Source Evidence UI。B 只消费 Artifact / SSE，不生成事实内容。
+- `4 Chrome 扩展桥接层`：对应 `runtimeClient.ts` 和 `entrypoints/background/index.ts`，包括 `navia.runtimeFetch`、`navia.runtimeStream`、Chrome CDP / 专用 profile / public no-login / blocker 四种验收路线。
+- `5 Local Runtime A/C/D`：对应 `127.0.0.1:17861` 下 API Gateway、A Page Reading、D Adapter Boundary、C Mindmap。A/C/D 不因 launcher、resize 或视觉收口新增 public API。
 
-底部黄色区域是 V1 主线目标差异闭环：自动化截图链路、Side Panel / iframe / native side panel 分层标注、复杂站点 public no-login 边界、旧失败证据处理、不新增 Runtime public API、人工产品体验核查。
+底部黄色区域是 V1 主线目标差异闭环：自动化截图链路、Side Panel / iframe / native side panel 分层标注、复杂站点 public no-login / logged-in 边界、B站指定详情页 fresh validation、旧失败证据处理、不新增 Runtime public API、人工产品体验核查。
+
+`02` 页必须拒绝不明确架构描述：不得只画“前端”“后端”“AI 模块”这类抽象节点；必须使用具体代码实体、DOM 实体、Runtime 模块或 evidence report。
+
+## 2026-06-25 可读性修订
+
+本轮根据人工反馈修订 drawio，重点修复“架构细致程度退化”和“页面可读性不足”：
+
+- `02 当前架构与目标架构差异` 从单链路图改为五层实体图，明确宿主网页、Content Script、iframe React、Chrome 扩展桥接、Local Runtime A/C/D 的分层和交互方向。
+- `03 目标架构交互链路` 补充用户动作、Runtime 请求、Artifact 返回、Source Jumpback、状态回写和禁止越界边界。
+- `04 复杂站点质量链路` 补充 B站详情页主内容 signals、噪声黑名单、A Page Reading 质量层、Mindmap / Reading Map 可读性、source jumpback、Chrome 路线与 evidence 输出。
+- `05 开发及验收计划` 补充“先审计、再开发、再端到端验收，失败即打回”的闭环，并把 Chrome 路线、B站详情页、复杂站点矩阵、导图 UI、总报告拆成独立阶段。
 
 当前自动化报告如果通过，只允许进入人工产品体验核查：
 
@@ -61,6 +81,13 @@ Web Research / PPT / Deep Research ready。
 ```
 
 复杂站点证据必须标注 `public no-login` 或 `logged-in`。public no-login 证据不能被解释成登录态高质量通过。
+
+当前 B站详情页专项质量目标：
+
+- 摘要和 Mindmap 主节点来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容。
+- 推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集、版权提示不得主导输出。
+- 如果真实 Chrome 登录态 profile 被锁定、unpacked extension 未加载或只能使用 public no-login 临时配置，必须写成 blocked / degraded，不得作为登录态通过证据。
+- Mindmap / Reading Map / 状态卡截图必须证明无文本虚影、节点重叠、输入框遮挡和状态卡截断。
 
 如果当前 V1-MC real-site / external 样本没有 fallback sample，报告必须明确 fallback path 由 V1.3 / V1.4 或其他 active 阶段证据继承；不得把“当前样本全部 DOM highlight 成功”写成“当前总验收已抽样覆盖 fallback”。人工核查清单只能由自动化生成 `reviewStatus: pending`，不能替代人工结论。
 

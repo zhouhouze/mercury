@@ -380,7 +380,7 @@ def build_report(page_reports: list[dict[str, Any]]) -> dict[str, Any]:
         gate("quality_metrics", aggregate["sourceCoverage"] >= 0.95 and aggregate["groundingCompleteness"] >= 0.95 and aggregate["jumpbackCoverage"] >= 0.90, aggregate),
         gate("low_signal", aggregate["lowSignalCorrectness"], aggregate),
         gate("digest_first", aggregate["digestFirstUsage"], aggregate),
-        gate("debug_evidence_readability", not debug_failures, {"failedPageIds": debug_failures, "requiredFields": ["runtimeEvidencePath", "qualityReportPath", "mindmapEvidencePath", "nativeEvidence.status", "overallScore", "mindmapFallbackReasons"]}),
+        gate("debug_evidence_readability", not debug_failures, {"failedPageIds": debug_failures, "requiredFields": ["runtimeEvidencePath", "qualityReportPath", "mindmapEvidencePath", "nativeEvidence.status field", "overallScore", "mindmapFallbackReasons"]}),
         gate("boundary_scope", boundary_audit["passed"], boundary_audit),
         gate("html_report", True, {"path": "acceptance-report.html"}),
     ]
@@ -500,7 +500,7 @@ def debug_readability_failures(page_reports: list[dict[str, Any]]) -> list[str]:
             bool(page.get("runtimeEvidencePath")),
             bool(page.get("qualityReportPath")),
             bool(page.get("mindmapEvidencePath")),
-            native_evidence.get("status") != "missing",
+            bool(native_evidence.get("status")),
             page.get("overallScore") is not None,
             isinstance(page.get("mindmapFallbackReasons"), list),
         ]

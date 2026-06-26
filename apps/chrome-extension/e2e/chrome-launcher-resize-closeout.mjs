@@ -279,9 +279,8 @@ async function main() {
   const majorIssues = [];
 
   try {
-    const serviceWorker = await waitForNaviaServiceWorker(browser.context);
-    if (!serviceWorker) throw new Error("Navia extension service worker was not exposed.");
     const pageTarget = await gotoAndWaitForSidebar(page, url);
+    const serviceWorker = await waitForNaviaServiceWorker(browser.context, 3000);
     await wait(1800);
 
     states.push(await snapshot(page, "docked-default"));
@@ -368,6 +367,7 @@ async function main() {
         ? "V1 docked launcher / expand / collapse / resize interaction baseline passed real Chrome behavior acceptance."
         : "No completion claim. V1 docked launcher / expand / collapse / resize behavior acceptance failed.",
       browserMode: browserExecutable && isWindowsExecutable(browserExecutable) ? "windows-chrome-temp-profile" : "playwright-chromium-temp-profile",
+      serviceWorkerExposed: Boolean(serviceWorker),
       fixtureUrl: url,
       pageUrl: page.url(),
       pageTarget,

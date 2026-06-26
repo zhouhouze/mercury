@@ -1,6 +1,6 @@
 # V1 Real-Site Complex Pages Diagnostic Acceptance Report
 
-Date: 2026-06-25T09:32:21.601Z
+Date: 2026-06-26T02:34:49.216Z
 Result: PASS
 
 ## Summary
@@ -11,7 +11,7 @@ Result: PASS
 - Blocked: 0
 - DOM highlighted: 6
 - Fallback shown: 0
-- Environment: Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.
+- Environment: Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state. Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.
 
 ## Claim
 
@@ -21,9 +21,9 @@ Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha 
 
 | Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Mindmap quality | Issues |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| B站 | homepage | pass | pass | 613 | 80 | 18 | highlighted | 13 labels / noise 0.00 / unique 0.69 | none |
-| B站 | video-detail | pass | pass | 1236 | 90 | 18 | highlighted | 16 labels / noise 0.00 / unique 0.75 | none |
-| 小红书 | homepage | pass | pass | 1527 | 93 | 18 | highlighted | 16 labels / noise 0.00 / unique 0.75 | none |
-| 小红书 | note-detail | pass | pass | 1685 | 93 | 18 | highlighted | 19 labels / noise 0.00 / unique 0.79 | none |
-| 观察者网 | homepage | pass | pass | 17784 | 126 | 18 | highlighted | 18 labels / noise 0.00 / unique 0.78 | none |
-| 观察者网 | article-detail | pass | pass | 1989 | 21 | 18 | highlighted | 14 labels / noise 0.00 / unique 0.71 | none |
+| B站 | homepage | pass | pass | 619 | 86 | 18 | highlighted | 12 labels / noise 0.00 / unique 1.00 | none |
+| B站 | video-detail | pass | pass | 1196 | 15 | 14 | highlighted | 9 labels / noise 0.00 / unique 0.89 | none |
+| 小红书 | homepage | pass | pass | 1629 | 87 | 18 | highlighted | 9 labels / noise 0.00 / unique 1.00 | none |
+| 小红书 | note-detail | pass | pass | 1361 | 14 | 14 | highlighted | 8 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | homepage | pass | pass | 17821 | 125 | 10 | highlighted | 6 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | article-detail | pass | pass | 7265 | 93 | 18 | highlighted | 15 labels / noise 0.00 / unique 1.00 | none |

@@ -1,5 +1,6 @@
 import { spawn } from "node:child_process";
 import fs from "node:fs";
+import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,6 +20,25 @@ const cdpUrl = process.env.NAVIA_CDP_URL || "";
 const chromeUserDataDir =
   process.env.NAVIA_CHROME_USER_DATA_DIR || "/mnt/c/Users/Administrator/AppData/Local/Google/Chrome/User Data";
 const chromeProfile = process.env.NAVIA_CHROME_PROFILE || "Default";
+const realSiteOnly = process.env.NAVIA_REAL_SITE_ONLY || "";
+const realSiteHeadless = process.env.NAVIA_REAL_SITE_HEADLESS === "1";
+const cookieDir = process.env.NAVIA_REAL_SITE_COOKIE_DIR || path.join(repoRoot, ".tmp/navia-real-site-cookies");
+const detailUrlOverrides = {
+  bilibili: process.env.NAVIA_REAL_SITE_BILIBILI_DETAIL_URL || "",
+  xiaohongshu: process.env.NAVIA_REAL_SITE_XIAOHONGSHU_DETAIL_URL || "",
+  guancha: process.env.NAVIA_REAL_SITE_GUANCHA_DETAIL_URL || ""
+};
+const homeUrlOverrides = {
+  bilibili: process.env.NAVIA_REAL_SITE_BILIBILI_HOME_URL || "",
+  xiaohongshu: process.env.NAVIA_REAL_SITE_XIAOHONGSHU_HOME_URL || "",
+  guancha: process.env.NAVIA_REAL_SITE_GUANCHA_HOME_URL || ""
+};
+const maxDetailAttempts = Math.max(1, Number.parseInt(process.env.NAVIA_REAL_SITE_MAX_DETAIL_ATTEMPTS || "3", 10) || 3);
+const cookieSiteDomains = {
+  bilibili: "https://www.bilibili.com/",
+  xiaohongshu: "https://www.xiaohongshu.com/",
+  guancha: "https://www.guancha.cn/"
+};
 
 const sites = [
   {
@@ -51,6 +71,27 @@ function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+async function startWakeFixtureServer() {
+  const html = `<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>Navia wake fixture</title></head>
+<body>
+  <main style="max-width:760px;margin:40px auto;font:18px/1.7 system-ui,sans-serif">
+    <h1>Navia 扩展唤醒页</h1>
+    <p>这个本地页面只用于真实站点自动化验收前唤醒 MV3 service worker，不作为产品验收样本。</p>
+    <p>后续验收仍然会进入 B站、小红书、观察者网的真实页面并采集截图和来源反跳证据。</p>
+  </main>
+</body>
+</html>`;
+  const server = http.createServer((_, response) => {
+    response.writeHead(200, { "content-type": "text/html; charset=utf-8" });
+    response.end(html);
+  });
+  await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
+  const address = server.address();
+  return { server, url: `http://127.0.0.1:${address.port}/wake.html` };
+}
+
 async function run(command, args, options = {}) {
   return new Promise((resolve) => {
     const child = spawn(command, args, {
@@ -77,6 +118,7 @@ async function commandAvailable(command) {
 
 function detectWindowsChromeExecutable() {
   const candidates = [
+    path.join(repoRoot, ".tmp/chrome-for-testing/chrome-win64/chrome.exe"),
     "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
     "/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe",
     "/mnt/c/Users/Administrator/AppData/Local/Google/Chrome/Application/chrome.exe"
@@ -109,12 +151,47 @@ async function toWindowsChromeArgPath(filePath) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(value, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(sanitizeEvidenceValue(value), null, 2));
 }
 
 function writeText(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, value);
+  fs.writeFileSync(filePath, sanitizeEvidenceString(value));
+}
+
+function shouldRedactQueryKey(key) {
+  return /(?:token|session|cookie|auth|secret|password|sessdata|bili_jct|dedeuserid|vd_source)/i.test(String(key));
+}
+
+function sanitizeEvidenceString(value) {
+  let text = String(value ?? "");
+  text = text.replace(
+    /([?&](?:xsec_token|access_token|refresh_token|web_session|session|token|auth|cookie|SESSDATA|bili_jct|DedeUserID|vd_source)=)[^&#\s"'<>()]+/gi,
+    "$1[redacted]"
+  );
+  try {
+    const parsed = new URL(text);
+    let changed = false;
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (shouldRedactQueryKey(key)) {
+        parsed.searchParams.set(key, "[redacted]");
+        changed = true;
+      }
+    }
+    if (changed) text = parsed.toString();
+  } catch {
+    // Not a standalone URL; regex redaction above still handles embedded URLs.
+  }
+  return text;
+}
+
+function sanitizeEvidenceValue(value) {
+  if (typeof value === "string") return sanitizeEvidenceString(value);
+  if (Array.isArray(value)) return value.map((item) => sanitizeEvidenceValue(item));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, sanitizeEvidenceValue(item)]));
+  }
+  return value;
 }
 
 async function fetchJson(url, options) {
@@ -176,6 +253,73 @@ async function configureRuntime() {
   if (!response.ok) throw new Error(`Runtime setup failed: ${response.status} ${await response.text()}`);
 }
 
+function normalizeSameSite(value) {
+  const text = String(value ?? "").toLowerCase();
+  if (text === "strict") return "Strict";
+  if (text === "none" || text === "no_restriction") return "None";
+  return "Lax";
+}
+
+function normalizeCookie(siteId, cookie) {
+  if (!cookie || typeof cookie !== "object" || !cookie.name || cookie.value == null) return null;
+  const normalized = {
+    name: String(cookie.name),
+    value: String(cookie.value),
+    path: String(cookie.path || "/"),
+    httpOnly: Boolean(cookie.httpOnly ?? cookie.http_only),
+    secure: Boolean(cookie.secure),
+    sameSite: normalizeSameSite(cookie.sameSite ?? cookie.same_site)
+  };
+  if (cookie.domain) normalized.domain = String(cookie.domain);
+  else normalized.url = cookieSiteDomains[siteId];
+  const expires = Number(cookie.expires ?? cookie.expirationDate ?? cookie.expiry ?? -1);
+  if (Number.isFinite(expires) && expires > 0) normalized.expires = Math.floor(expires);
+  return normalized;
+}
+
+function readCookieFile(siteId) {
+  const filePath = process.env[`NAVIA_REAL_SITE_${siteId.toUpperCase()}_COOKIE_FILE`] || path.join(cookieDir, `${siteId}.json`);
+  if (!fs.existsSync(filePath)) return { siteId, filePath, cookies: [] };
+  const text = fs.readFileSync(filePath, "utf-8").trim();
+  if (!text) return { siteId, filePath, cookies: [] };
+  let rawCookies = [];
+  try {
+    const payload = JSON.parse(text);
+    rawCookies = Array.isArray(payload) ? payload : Array.isArray(payload?.cookies) ? payload.cookies : [];
+  } catch {
+    rawCookies = text
+      .split(";")
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .map((part) => {
+        const separator = part.indexOf("=");
+        if (separator <= 0) return null;
+        return {
+          name: part.slice(0, separator).trim(),
+          value: part.slice(separator + 1).trim(),
+          url: cookieSiteDomains[siteId],
+          path: "/",
+          secure: true,
+          sameSite: "None"
+        };
+      })
+      .filter(Boolean);
+  }
+  const cookies = rawCookies.map((cookie) => normalizeCookie(siteId, cookie)).filter(Boolean);
+  return { siteId, filePath, cookies };
+}
+
+async function applyAuthCookies(context, targetSites) {
+  const loaded = [];
+  for (const site of targetSites) {
+    const { siteId, filePath, cookies } = readCookieFile(site.siteId);
+    if (!cookies.length) continue;
+    await context.addCookies(cookies);
+    loaded.push({ siteId, filePath, count: cookies.length });
+  }
+  return loaded;
+}
+
 async function waitForCdp(port, timeoutMs = 20000) {
   const started = Date.now();
   while (Date.now() - started < timeoutMs) {
@@ -194,7 +338,7 @@ async function launchBrowser() {
   if (browserModeOverride === "playwright-chromium") {
     const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "navia-real-site-chromium-profile-"));
     const context = await chromium.launchPersistentContext(userDataDir, {
-      headless: false,
+      headless: realSiteHeadless,
       viewport: { width: 1280, height: 900 },
       ignoreDefaultArgs: ["--disable-extensions"],
       args: [
@@ -234,7 +378,7 @@ async function launchBrowser() {
       "--no-default-browser-check",
       "--disable-popup-blocking",
       "--disable-sync",
-      "--window-position=40,40",
+      realSiteHeadless ? "--headless=new" : "--window-position=40,40",
       "--window-size=1280,900",
       "--disable-gpu",
       "--enable-features=ExtensionsSidePanel,SidePanelPinning",
@@ -275,13 +419,13 @@ async function launchBrowser() {
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "navia-real-site-profile-"));
   const context = await chromium.launchPersistentContext(userDataDir, {
     executablePath: browserExecutable,
-    headless: false,
+    headless: realSiteHeadless,
     viewport: { width: 1280, height: 900 },
     ignoreDefaultArgs: ["--disable-extensions"],
     args: [
       "--no-first-run",
       "--no-default-browser-check",
-      "--window-position=40,40",
+      realSiteHeadless ? "--headless=new" : "--window-position=40,40",
       "--window-size=1280,900",
       "--disable-features=DisableLoadExtensionCommandLineSwitch",
       "--enable-unsafe-extension-debugging",
@@ -295,23 +439,23 @@ async function launchBrowser() {
 async function launchWindowsTempPublicProfile(loginLaunchError) {
   if (!browserExecutable || !isWindowsExecutable(browserExecutable)) throw loginLaunchError;
   if (process.env.NAVIA_REAL_SITE_DISABLE_TEMP_FALLBACK === "1") throw loginLaunchError;
-  const userDataDir = fs.mkdtempSync(path.join(windowsLocalTempRoot(), "navia-real-site-public-profile-"));
+  const profileRoot = path.join(repoRoot, ".tmp");
+  fs.mkdirSync(profileRoot, { recursive: true });
+  const userDataDir = fs.mkdtempSync(path.join(profileRoot, "navia-real-site-public-profile-"));
   const port = 10400 + Math.floor(Math.random() * 500);
   const args = [
     "--no-first-run",
     "--no-default-browser-check",
     "--disable-popup-blocking",
     "--disable-sync",
-    "--window-position=40,40",
+    realSiteHeadless ? "--headless=new" : "--window-position=40,40",
     "--window-size=1280,900",
-    "--disable-gpu",
-    "--enable-features=ExtensionsSidePanel,SidePanelPinning",
     "--disable-features=DisableLoadExtensionCommandLineSwitch",
     "--enable-unsafe-extension-debugging",
+    `--remote-debugging-port=${port}`,
+    `--user-data-dir=${await toWindowsChromeArgPath(userDataDir)}`,
     `--disable-extensions-except=${await toWindowsChromeArgPath(extensionRoot)}`,
     `--load-extension=${await toWindowsChromeArgPath(extensionRoot)}`,
-    `--user-data-dir=${await toWindowsChromeArgPath(userDataDir)}`,
-    `--remote-debugging-port=${port}`,
     "about:blank"
   ];
   const child = spawn(browserExecutable, args, { cwd: repoRoot, env: { ...process.env }, stdio: ["ignore", "pipe", "pipe"] });
@@ -368,6 +512,27 @@ async function waitForServiceWorker(context, timeoutMs = 15000) {
     } catch {
       // continue
     }
+  }
+  return null;
+}
+
+async function wakeExtensionAndWaitForServiceWorker(page, context, timeoutMs = 25000) {
+  const selectors = [
+    "[data-testid='navia-inpage-sidebar-frame']",
+    "[data-testid='navia-inpage-sidebar']",
+    "[data-testid='navia-floating-launcher']"
+  ];
+  for (const selector of selectors) {
+    const found = await page.locator(selector).count().catch(() => 0);
+    if (found > 0) break;
+    await page.waitForSelector(selector, { timeout: 5000 }).catch(() => undefined);
+  }
+  const started = Date.now();
+  while (Date.now() - started < timeoutMs) {
+    const worker = await waitForServiceWorker(context, 3000);
+    if (worker) return worker;
+    await page.evaluate(() => document.documentElement?.dispatchEvent(new Event("mousemove", { bubbles: true }))).catch(() => undefined);
+    await wait(500);
   }
   return null;
 }
@@ -459,16 +624,87 @@ async function discoverDetailCandidates(page, site) {
     }
     const current = location.href.replace(/#.*$/, "");
     return links
-      .filter((link) => link.href.replace(/#.*$/, "") !== current && !/passport|login|account|mall|download|creator|publish/.test(link.href))
-      .slice(0, 8);
+      .filter(
+        (link) =>
+          link.href.replace(/#.*$/, "") !== current &&
+          !/passport|login|account|mall|download|creator|publish|member\.bilibili\.com|platform\/upload|studio|creator-center/.test(link.href)
+      )
+      .map((link, index) => {
+        const text = link.text.replace(/\s+/g, " ").trim();
+        let score = 0;
+        if (text.length >= 5) score += 8;
+        if (!text || /^(\[?全文\]?|阅读\s*\d+|评论\s*\d+)$/i.test(text)) score -= 20;
+        if (/#comment|javascript:|void\(0\)/i.test(link.href)) score -= 20;
+        if (spec.siteId === "bilibili" && /\/video\/BV/i.test(link.href)) score += 12;
+        if (spec.siteId === "xiaohongshu" && /\/explore\/[a-z0-9]+/i.test(link.href)) score += 12;
+        if (spec.siteId === "guancha") {
+          if (/\/politics\//i.test(link.href)) score -= 12;
+          if (/\.shtml(?:[?#].*)?$/i.test(link.href) && !/\/politics\//i.test(link.href)) score += 14;
+        }
+        return { ...link, text, score, index };
+      })
+      .filter((link) => link.score > -20)
+      .sort((left, right) => right.score - left.score || left.index - right.index)
+      .slice(0, 12)
+      .map(({ href, text, score }) => ({ href, text, score }));
   }, site);
+}
+
+function routeValidationIssues(site, pageKind, originalUrl, finalUrl) {
+  const issues = [];
+  let parsed;
+  try {
+    parsed = new URL(String(finalUrl || originalUrl || ""));
+  } catch {
+    return [`Final URL is not parseable: ${finalUrl || originalUrl || "missing"}.`];
+  }
+  const host = parsed.hostname.replace(/^www\./, "").toLowerCase();
+  const pathName = parsed.pathname.toLowerCase();
+  const detailKind = pageKind !== "homepage";
+  if (site.siteId === "bilibili") {
+    if (!host.endsWith("bilibili.com")) issues.push(`Bilibili sample reached unexpected host: ${parsed.hostname}.`);
+    if (/^member\.bilibili\.com$/i.test(parsed.hostname) || /\/platform\/upload|creator|studio/.test(pathName)) {
+      issues.push(`Bilibili sample reached creator/upload backend instead of public reading target: ${parsed.href}.`);
+    }
+    if (detailKind && !/^\/(video|read)\//.test(pathName)) {
+      issues.push(`Bilibili detail sample did not reach /video/ or /read/: ${parsed.href}.`);
+    }
+  }
+  if (site.siteId === "xiaohongshu") {
+    if (!host.endsWith("xiaohongshu.com")) issues.push(`Xiaohongshu sample reached unexpected host: ${parsed.hostname}.`);
+    if (/creator|publish|login|passport/.test(`${host}${pathName}`)) {
+      issues.push(`Xiaohongshu sample reached non-reading backend/login path: ${parsed.href}.`);
+    }
+    if (detailKind && !/^\/(explore|discovery\/item)\//.test(pathName)) {
+      issues.push(`Xiaohongshu detail sample did not reach /explore/ or /discovery/item/: ${parsed.href}.`);
+    }
+  }
+  if (site.siteId === "guancha") {
+    if (!host.endsWith("guancha.cn")) issues.push(`Guancha sample reached unexpected host: ${parsed.hostname}.`);
+    if (detailKind && !pathName.endsWith(".shtml")) {
+      issues.push(`Guancha detail sample did not reach an article .shtml path: ${parsed.href}.`);
+    }
+  }
+  return issues;
 }
 
 function isUnavailableDetailSample(sample) {
   const finalUrl = String(sample.finalUrl ?? sample.url ?? "").toLowerCase();
   const title = String(sample.dom?.title ?? sample.perception?.activePage?.title ?? "").toLowerCase();
   const warnings = new Set([...(sample.perception?.warnings ?? []), ...(sample.perception?.fatalIssues ?? [])].map(String));
-  return finalUrl.includes("/404") || title.includes("404") || title.includes("页面不见了") || warnings.has("NOT_FOUND_PAGE_FAILED");
+  const verificationOrAuthGated =
+    warnings.has("AUTH_GATED_DEGRADED") ||
+    warnings.has("VERIFICATION_GATED_DEGRADED") ||
+    (Array.isArray(sample.majorIssues) && sample.majorIssues.some((issue) => /登录|验证码|verification|auth/i.test(String(issue))));
+  const noUsableMindmap = !sample.cards?.containsEvidenceCardMindmap || !Array.isArray(sample.cards?.sourceCards) || sample.cards.sourceCards.length === 0;
+  return (
+    (Array.isArray(sample.routeValidation?.fatalIssues) && sample.routeValidation.fatalIssues.length > 0) ||
+    finalUrl.includes("/404") ||
+    title.includes("404") ||
+    title.includes("页面不见了") ||
+    warnings.has("NOT_FOUND_PAGE_FAILED") ||
+    (verificationOrAuthGated && noUsableMindmap)
+  );
 }
 
 function perceptionSummary(sessionPayload) {
@@ -518,6 +754,14 @@ function normalizeText(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim().toLowerCase();
 }
 
+function canonicalMindmapLabel(value) {
+  return normalizeText(value)
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/\bhttps?\b/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function hostFromUrl(value) {
   try {
     return new URL(String(value ?? "")).hostname.replace(/^www\./, "");
@@ -548,15 +792,15 @@ function noisyMindmapLabel(label) {
 function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) {
   const fatalIssues = [];
   const majorIssues = [];
-  const labels = [
-    ...(Array.isArray(cards?.evidenceCardLabels) ? cards.evidenceCardLabels : []),
-    ...(Array.isArray(cards?.sourceCards) ? cards.sourceCards.map((card) => card.label) : [])
-  ].filter(Boolean);
+  const evidenceCardLabels = Array.isArray(cards?.evidenceCardLabels) ? cards.evidenceCardLabels.filter(Boolean) : [];
+  const sourceCardLabels = Array.isArray(cards?.sourceCards) ? cards.sourceCards.map((card) => card.label).filter(Boolean) : [];
+  const labels = evidenceCardLabels.length >= 3 ? evidenceCardLabels : [...evidenceCardLabels, ...sourceCardLabels];
   const visibleText = normalizeText([
     sidepanel?.pageTitle,
     cards?.readingMapDetailText,
     cards?.sourceEvidenceText,
-    labels.join(" ")
+    evidenceCardLabels.join(" "),
+    sourceCardLabels.join(" ")
   ].join(" "));
   const currentHost = hostFromUrl(dom?.url);
   const activeHost = hostFromUrl(perception?.activePage?.url);
@@ -568,7 +812,7 @@ function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) 
     fatalIssues.push(`Mindmap appears contaminated by another site: ${contamination.join(", ")}.`);
   }
   if (labels.length >= 3) {
-    const normalizedLabels = labels.map((label) => normalizeText(label)).filter(Boolean);
+    const normalizedLabels = labels.map((label) => canonicalMindmapLabel(label)).filter(Boolean);
     const uniqueRatio = new Set(normalizedLabels).size / normalizedLabels.length;
     const noisyRatio = normalizedLabels.filter(noisyMindmapLabel).length / normalizedLabels.length;
     const averageLabelLength = normalizedLabels.reduce((sum, label) => sum + label.length, 0) / normalizedLabels.length;
@@ -577,6 +821,8 @@ function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) 
     if (averageLabelLength > 28) majorIssues.push(`Mindmap labels are too long for side panel reading: avgLength=${averageLabelLength.toFixed(1)}.`);
     return {
       labelCount: normalizedLabels.length,
+      evidenceCardLabelCount: evidenceCardLabels.length,
+      sourceCardLabelCount: sourceCardLabels.length,
       uniqueRatio,
       noisyRatio,
       averageLabelLength,
@@ -587,6 +833,8 @@ function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) 
   majorIssues.push("Mindmap label sample is too small for quality assessment.");
   return {
     labelCount: labels.length,
+    evidenceCardLabelCount: evidenceCardLabels.length,
+    sourceCardLabelCount: sourceCardLabels.length,
     uniqueRatio: labels.length ? 1 : 0,
     noisyRatio: labels.length ? labels.filter(noisyMindmapLabel).length / labels.length : 1,
     averageLabelLength: labels.length ? labels.reduce((sum, label) => sum + normalizeText(label).length, 0) / labels.length : 0,
@@ -595,7 +843,7 @@ function mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards }) 
   };
 }
 
-function classifySample({ site, pageKind, dom, sidepanel, perception, cards, jumpback, error }) {
+function classifySample({ site, pageKind, routeValidation, dom, sidepanel, perception, cards, jumpback, error }) {
   const fatalIssues = [];
   const majorIssues = [];
   const knownDegradedCodes = new Set(["AUTH_GATED_DEGRADED", "VERIFICATION_GATED_DEGRADED", "NOT_FOUND_PAGE_FAILED"]);
@@ -616,6 +864,9 @@ function classifySample({ site, pageKind, dom, sidepanel, perception, cards, jum
     else fatalIssues.push(message);
   };
   if (error) fatalIssues.push(error);
+  if (Array.isArray(routeValidation?.fatalIssues) && routeValidation.fatalIssues.length > 0) {
+    fatalIssues.push(...routeValidation.fatalIssues);
+  }
   if (!dom || dom.bodyTextLength < 80) majorIssues.push("Visible page body text is very short; page may be login-gated, JS-empty, media-heavy, or anti-bot limited.");
   if (hardGateHints.length && (!strongEvidence || knownPublicDegrade)) {
     majorIssues.push(`Login or verification hints visible: ${hardGateHints.join(", ")}`);
@@ -666,6 +917,9 @@ async function diagnosePage({ page, serviceWorker, site, pageKind, url, label })
     await wait(5000);
     sample.finalUrl = page.url();
     sample.dom = await collectDomSnapshot(page);
+    sample.routeValidation = {
+      fatalIssues: routeValidationIssues(site, pageKind, url, sample.finalUrl || sample.dom?.url || "")
+    };
     writeJson(path.join(sampleDir, "dom-snapshot.json"), sample.dom);
     await page.screenshot({ path: path.join(screenshotRoot, `${sampleId}-before.png`), fullPage: false });
 
@@ -723,6 +977,7 @@ async function diagnosePage({ page, serviceWorker, site, pageKind, url, label })
     const classification = classifySample({
       site,
       pageKind,
+      routeValidation: sample.routeValidation,
       dom: sample.dom,
       sidepanel: sample.sidepanel,
       perception: sample.perception,
@@ -743,7 +998,7 @@ async function diagnosePage({ page, serviceWorker, site, pageKind, url, label })
   return sample;
 }
 
-function buildReport(samples, browserMode) {
+function buildReport(samples, browserMode, authCookies = []) {
   const passedSamples = samples.filter((sample) => sample.result === "pass").length;
   const degradedSamples = samples.filter((sample) => sample.result === "degraded").length;
   const blockedSamples = samples.filter((sample) => sample.result === "blocked").length;
@@ -759,11 +1014,15 @@ function buildReport(samples, browserMode) {
   if (browserMode === "launch-playwright-chromium") {
     environmentNotes.push("Diagnostic used Playwright Chromium with a temporary public profile because local Chrome stable did not load the unpacked extension through command-line flags.");
   }
+  if (authCookies.length) {
+    environmentNotes.push(`Auth cookies were injected for: ${authCookies.map((item) => `${item.siteId}(${item.count})`).join(", ")}. Cookie values are intentionally omitted from evidence.`);
+  }
   const passed = fatalIssues.length === 0 && majorIssues.length === 0 && samples.length === 6;
   return {
     schemaVersion: "v1-real-site-complex-pages-diagnostic.1",
     generatedAt: new Date().toISOString(),
     browserMode,
+    authCookieSites: authCookies.map((item) => ({ siteId: item.siteId, count: item.count })),
     loginStatePolicy:
       browserMode === "launch-temp-public-profile"
         ? "temp-public-profile-no-login"
@@ -900,6 +1159,8 @@ async function main() {
 
   const runtime = (await isRuntimeOnline()) ? null : startRuntime();
   let browserHandle = null;
+  let wakeFixture = null;
+  let authCookies = [];
   const samples = [];
   try {
     if (!(await waitForRuntime())) throw new Error("Runtime did not become healthy on http://127.0.0.1:17861.");
@@ -912,18 +1173,29 @@ async function main() {
       browserHandle = await launchWindowsTempPublicProfile(error);
     }
     const page = await browserHandle.context.newPage();
-    const serviceWorker = await waitForServiceWorker(browserHandle.context, 20000);
+    const targetSites = realSiteOnly ? sites.filter((site) => site.siteId === realSiteOnly) : sites;
+    authCookies = await applyAuthCookies(browserHandle.context, targetSites);
+    wakeFixture = await startWakeFixtureServer();
+    const wakeUrl = wakeFixture.url;
+    await page.goto(wakeUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => undefined);
+    await wait(2500);
+    const serviceWorker = await wakeExtensionAndWaitForServiceWorker(page, browserHandle.context, 25000);
     if (!serviceWorker) throw new Error("Extension service worker not exposed. Run NAVIA_E2E_BRIDGE=1 npm --prefix apps/chrome-extension run build:e2e first.");
 
-    for (const site of sites) {
-      const homeSample = await diagnosePage({ page, serviceWorker, site, pageKind: "homepage", url: site.homeUrl, label: "homepage" });
+    for (const site of targetSites) {
+      const homeUrl = homeUrlOverrides[site.siteId] || site.homeUrl;
+      const homeSample = await diagnosePage({ page, serviceWorker, site, pageKind: "homepage", url: homeUrl, label: "homepage" });
       samples.push(homeSample);
-      const detailCandidates = await discoverDetailCandidates(page, site).catch(() => []);
+      const overrideUrl = detailUrlOverrides[site.siteId] || "";
+      const detailCandidates = overrideUrl
+        ? [{ href: overrideUrl, text: "explicit detail URL from NAVIA_REAL_SITE_*_DETAIL_URL" }]
+        : await discoverDetailCandidates(page, site).catch(() => []);
       if (detailCandidates.length) {
         let selectedDetailSample = null;
         const attemptedDetails = [];
-        for (let index = 0; index < detailCandidates.length; index += 1) {
-          const detail = detailCandidates[index];
+        const limitedDetailCandidates = detailCandidates.slice(0, maxDetailAttempts);
+        for (let index = 0; index < limitedDetailCandidates.length; index += 1) {
+          const detail = limitedDetailCandidates[index];
           const detailSample = await diagnosePage({ page, serviceWorker, site, pageKind: site.detailLabel, url: detail.href, label: "detail" });
           detailSample.discoveredFromHome = detail;
           detailSample.detailCandidateIndex = index;
@@ -937,11 +1209,12 @@ async function main() {
           });
           selectedDetailSample = detailSample;
           if (!isUnavailableDetailSample(detailSample)) break;
-          await page.goto(site.homeUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => undefined);
+          await page.goto(homeUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => undefined);
           await page.waitForLoadState("networkidle", { timeout: 12000 }).catch(() => undefined);
           await wait(2500);
         }
         selectedDetailSample.attemptedDetails = attemptedDetails;
+        writeJson(path.join(dataRoot, selectedDetailSample.sampleId, "sample-report.json"), selectedDetailSample);
         samples.push(selectedDetailSample);
       } else {
         const blocked = {
@@ -977,10 +1250,11 @@ async function main() {
   } finally {
     if (browserHandle?.ownsBrowser) await browserHandle.close().catch(() => undefined);
     if (!browserHandle?.ownsBrowser && browserHandle?.browser) await browserHandle.browser.close().catch(() => undefined);
+    if (wakeFixture) await new Promise((resolve) => wakeFixture.server.close(resolve)).catch(() => undefined);
     if (runtime) runtime.kill("SIGTERM");
   }
 
-  const report = buildReport(samples, browserHandle?.mode ?? "not-launched");
+  const report = buildReport(samples, browserHandle?.mode ?? "not-launched", authCookies);
   writeJson(path.join(evidenceRoot, "report.json"), report);
   writeMarkdownReports(report);
   console.log(JSON.stringify(report, null, 2));

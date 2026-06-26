@@ -1139,7 +1139,22 @@ Web Research / PPT / Deep Research ready。
 - Launcher / collapse / resize 必须有正式验收报告，而不是仅有视觉 probe。
 - 真实 Chrome 截图必须覆盖普通网页中的 launcher、展开、折叠、resize、overlay 或 push、Chat、Debug、Settings、Evidence Card、Reading Map、source evidence。
 - B站 / 小红书 / 观察者网等复杂中文站点必须区分 public no-login 验收和登录态体验核查。
+- B站详情页质量必须完成 fresh evidence：摘要和 Mindmap 主节点应来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容，不得由推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集或版权提示等低价值文本主导。
+- Mindmap / Reading Map / 状态卡必须通过真实截图复核：不得出现节点文本虚影、导图卡片互相覆盖、聊天输入框遮挡、当前页面状态卡截断或目录浮层遮挡主要内容。
+- source jumpback 必须在真实网页中可见可解释：定位成功时有明确高亮和 Navia source marker；无法定位时展示 fallback evidence；被页面或策略阻止时显示 blocked，不得合并成 success。
+- Chrome 自动化环境本身必须可审计：如果真实登录态 profile 被锁定、unpacked extension 未加载、或只能使用 public no-login 临时配置，报告必须标记 blocked / degraded，不能作为登录态通过证据。
 - 旧的失败 closeout 证据必须被重新生成、明确废止或在总报告中解释，不能与新的完成声明并存。
 - V1 结束前必须安排人工产品体验核查。
 
 当前自动化证据如果通过，只能进入人工产品体验核查；人工核查未完成时，项目状态仍是 `V1 mainline closeout candidate`，不是 `完整 V1 complete`。
+
+当前剩余开发目标按以下顺序纳入本阶段，不得跳过文档与验收闭环：
+
+```text
+1. V1-MC-DOC-0：PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 同步。
+2. V1-MC-QA-1：修复或明确 Chrome 自动化环境阻塞，支持真实登录态或明确 public no-login。
+3. V1-MC-QA-2：B站指定详情页登录态 fresh validation。
+4. V1-MC-QA-3：B站 / 小红书 / 观察者网首页与详情页 fresh evidence。
+5. V1-MC-QA-4：Mindmap / Reading Map / source jumpback 截图级复核。
+6. V1-MC-QA-5：总报告、PRD review、false-green audit、人类 review checklist 更新。
+```

@@ -79,12 +79,34 @@ Status: Active documentation audit
 - 如果当前 V1-MC real-site / external 样本 `fallbackSamples = 0`，必须引用 V1.3 / V1.4 或其他 active 阶段 fallback evidence；否则不得声明 fallback path 已被当前总体验收覆盖。
 - `human-review-checklist.md` 必须包含 `reviewStatus`、`reviewer`、`reviewedAt`、`blockingIssues` 字段；自动化阶段只能生成 `pending`，不能冒充人工核查通过。
 
-当前文档水平可以完整支撑本阶段 V1 Mainline Closeout Candidate 的剩余开发计划和自动化验收。
+2026-06-25 B站详情页质量与 Chrome 验收阻塞复核更新：
+
+- PRD、目标架构、开发计划、验收计划、stage gate 和 drawio 已补充 B站详情页 fresh evidence 要求。
+- 文档已明确：摘要和 Mindmap 主节点必须来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容；推荐、弹幕设置、活动广告、QQ群 / 微信、自动连播、订阅合集不得主导输出。
+- 文档已明确：Mindmap / Reading Map / 状态卡必须通过真实截图复核，不得出现文本虚影、节点重叠、输入框遮挡或状态卡截断。
+- 文档已明确：Chrome profile locked、extension not loaded、public no-login fallback 必须记录为 blocked / degraded，不得冒充登录态通过。
+- `03-development-plan.md` 已增加 Chrome 验收技术路线矩阵，默认执行顺序为 A 连接用户登录态 Chrome CDP -> B 专用测试 profile 登录 -> C public no-login 临时 profile -> D structured blocker + 人工截图补位。
+
+当前文档水平可以支撑本阶段 V1 Mainline Closeout Candidate 的剩余开发计划、自动化验收和人工验收准备，但存在一个无法仅靠文档完全消除的外部环境风险：
+
+| 风险 | 等级 | 文档是否已覆盖 | 剩余处理方式 |
+|---|---|---|---|
+| Windows Chrome 不加载 unpacked Navia extension，或用户主 profile 被锁定 | Major | 已覆盖 blocker 记录和 A/B/C/D 技术路线 | 执行阶段必须选择可行 Chrome 验收路线；无法加载扩展时不得声明通过 |
+| B站登录态需要人工授权或站点风控 | Major | 已覆盖 logged-in 与 public no-login 分流 | 使用专用测试 profile 或人工 CDP；失败时只能 blocked / degraded |
+| Mindmap 视觉质量只能由真实截图最终判断 | Major | 已覆盖截图门槛和 No-Go | 执行阶段必须重新截图，不得只用单测 / build |
+
+因此当前审计结论是：
+
+```text
+Go for V1-MC-DOC-0 documentation baseline closure.
+Conditional Go for V1-MC-QA-1+ automated verification.
+No-Go for full V1 complete until Chrome / manual evidence closes.
+```
 
 下一步可进入：
 
 ```text
-V1-MC-1+ staged implementation / verification
+V1-MC-QA-1 Chrome automation route verification
 ```
 
 但完整 V1 complete 仍必须等待：

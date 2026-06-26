@@ -160,6 +160,108 @@ def test_dom_signals_create_source_backed_feed_digest_items() -> None:
     assert any(ref.get("selector") == ".video-card:nth-of-type(1)" for ref in result["sourceMap"]["sourceRefs"])
 
 
+def test_bilibili_video_detail_uses_main_dom_signals_without_page_shell_noise() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_bili_detail",
+            "url": "https://www.bilibili.com/video/BV1gcyFBZEUf",
+            "title": "这期视频真正讨论的核心主题 - 哔哩哔哩",
+            "domain": "www.bilibili.com",
+            "capturedAt": "2026-06-25T00:00:00Z",
+            "cleaned_text": "这期视频真正讨论的核心主题\n视频简介：围绕一个具体议题展开分析，解释背景、过程和结论。",
+            "visible_text": "这期视频真正讨论的核心主题 Rookie、青果 46.9万 3515 45:16 自动连播 订阅合集 按类型过滤 滚动 固定 彩色 高级 弹幕随屏幕缩放 防挡字幕 智能防挡弹幕 本视频参加过 整点电子榨菜第26期 活动已结束 QQ群549775842 微信",
+            "dom_signals": {
+                "pageStateHints": ["media_dom_limited", "bili_video_detail"],
+                "links": [{"text": "当前 B站视频详情页", "href": "https://www.bilibili.com/video/BV1gcyFBZEUf", "role": "media_link"}],
+                "blocks": [
+                    {"text": "这期视频真正讨论的核心主题", "selector": "h1.video-title", "role": "bili_video_title"},
+                    {"text": "视频简介：围绕一个具体议题展开分析，解释背景、过程和结论。", "selector": ".desc-info-text", "role": "bili_video_description"},
+                    {"text": "可靠UP主 2026-06-25 发布", "selector": ".up-info", "role": "bili_video_author"},
+                    {"text": "12.3万播放 856弹幕 2026-06-25发布", "selector": ".video-data", "role": "bili_video_stats"},
+                    {"text": "Rookie、青果 46.9万 3515 45:16 自动连播 订阅合集 相关推荐", "selector": ".recommend-list", "role": "bili_recommendation"},
+                    {"text": "按类型过滤 滚动 固定 彩色 高级 弹幕随屏幕缩放 防挡字幕 智能防挡弹幕", "selector": ".danmaku-panel", "role": "bili_danmaku"},
+                    {"text": "本视频参加过 整点电子榨菜第26期 活动已结束 QQ群549775842 微信", "selector": ".activity-banner", "role": "bili_promo"},
+                ],
+                "meta": [{"name": "description", "content": "视频简介：围绕一个具体议题展开分析，解释背景、过程和结论。"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+    digest_text = " ".join(item["text"] for item in result["perceptionDigest"]["items"])
+
+    assert "这期视频真正讨论的核心主题" in paragraph_text
+    assert "视频简介" in digest_text
+    assert "Rookie" not in paragraph_text
+    assert "防挡字幕" not in paragraph_text
+    assert "整点电子榨菜" not in digest_text
+
+
+def test_xiaohongshu_note_detail_uses_main_dom_signals_without_comments_or_footer() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_xhs_detail",
+            "url": "https://www.xiaohongshu.com/explore/6a3cdf8a000000001c027699",
+            "title": "AI时代码农进化史 - 小红书",
+            "domain": "www.xiaohongshu.com",
+            "capturedAt": "2026-06-25T00:00:00Z",
+            "cleaned_text": "AI时代码农进化史\nAI时代码农进化史 #人工智能 #大模型 #码农 编辑于 6小时前 北京",
+            "visible_text": "首页 点点 ai 发布 20消息 沪ICP备13030189号 营业执照 AI时代码农进化史 #人工智能 #大模型 #码农 编辑于 6小时前 北京 共 27 条评论 momo 在美团的码农算活水吗 5小时前北京 38 9 回复",
+            "dom_signals": {
+                "pageStateHints": ["media_dom_limited", "xhs_note_detail"],
+                "links": [{"text": "当前小红书笔记详情页", "href": "https://www.xiaohongshu.com/explore/6a3cdf8a000000001c027699", "role": "content_link"}],
+                "blocks": [
+                    {"text": "AI时代码农进化史", "selector": "#noteContainer .title", "role": "xhs_note_title"},
+                    {"text": "AI时代码农进化史 #人工智能 #大模型 #码农 编辑于 6小时前 北京", "selector": "#noteContainer .desc", "role": "xhs_note_body"},
+                    {"text": "凝紫暮", "selector": "#noteContainer .author .name", "role": "xhs_note_author"},
+                    {"text": "共 27 条评论 momo 在美团的码农算活水吗 5小时前北京 38 9 回复", "selector": "#comment-1", "role": "xhs_comment"},
+                    {"text": "沪ICP备13030189号 营业执照 网上有害信息举报专区", "selector": ".side-bar", "role": "xhs_footer"},
+                ],
+                "meta": [{"name": "description", "content": "AI时代码农进化史 #人工智能 #大模型 #码农"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+    digest_text = " ".join(item["text"] for item in result["perceptionDigest"]["items"])
+
+    assert "AI时代码农进化史" in paragraph_text
+    assert "人工智能" in digest_text
+    assert "momo" not in paragraph_text
+    assert "沪ICP备" not in paragraph_text
+    assert result["sourceMap"]["sourceRefs"]
+
+
+def test_dom_signal_links_without_blocks_do_not_reuse_uninitialized_role() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_links_only",
+            "url": "https://www.xiaohongshu.com/explore/6a3cdf8a000000001c027699",
+            "title": "小红书链接输入",
+            "domain": "www.xiaohongshu.com",
+            "capturedAt": "2026-06-26T00:00:00Z",
+            "cleaned_text": "AI时代码农进化史 #人工智能 #大模型 #码农 编辑于 6小时前 北京",
+            "visible_text": "AI时代码农进化史 #人工智能 #大模型 #码农 编辑于 6小时前 北京",
+            "dom_signals": {
+                "pageStateHints": ["xhs_note_detail"],
+                "links": [
+                    {"text": "作者主页", "href": "https://www.xiaohongshu.com/user/profile/fixture", "role": "profile_link"},
+                    {"text": "AI时代码农进化史", "href": "https://www.xiaohongshu.com/explore/fixture", "role": "content_link"},
+                ],
+                "blocks": [],
+                "meta": [],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+    assert "AI时代码农进化史" in paragraph_text
+    assert "作者主页" not in paragraph_text
+
+
 def test_auth_verification_or_not_found_dom_state_does_not_pass() -> None:
     result = build_high_signal_page_perception(
         {

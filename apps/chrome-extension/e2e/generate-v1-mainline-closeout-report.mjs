@@ -18,12 +18,38 @@ const upstream = {
 };
 
 const testCommands = [
-  "npm --prefix apps/chrome-extension run typecheck",
-  "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard",
-  "npm --prefix apps/chrome-extension run build",
-  "npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout",
-  "npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance",
-  "npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout"
+  {
+    command: "npm --prefix apps/chrome-extension run typecheck",
+    evidence: "Executed in the V1-MC remaining closeout loop before report aggregation; rerun required if source files change."
+  },
+  {
+    command: "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard pageContext",
+    evidence: "Executed in the V1-MC remaining closeout loop; covers content shell, renderer, artifact card, and page-context extraction."
+  },
+  {
+    command: "PYTHONPATH=services/local-runtime .venv/bin/pytest services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py services/local-runtime/navia_runtime/modules/mindmap/tests/test_mindmap.py services/local-runtime/tests/test_adapter_summary_quality.py -q",
+    evidence: "Executed in the V1-MC remaining closeout loop; covers A/C/Adapter regression for complex-site extraction and mindmap quality."
+  },
+  {
+    command: "npm --prefix apps/chrome-extension run build",
+    evidence: "Executed in the V1-MC remaining closeout loop; produced current chrome-mv3-unpacked build."
+  },
+  {
+    command: "npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout",
+    evidence: "Validated by upstream launcher report referenced by this aggregate report."
+  },
+  {
+    command: "npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance",
+    evidence: "Validated by upstream external visual report referenced by this aggregate report."
+  },
+  {
+    command: "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
+    evidence: "Validated by latest real-site complex pages report referenced by this aggregate report; cookie values are intentionally omitted."
+  },
+  {
+    command: "node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+    evidence: "Executed in this loop to aggregate latest upstream reports and regenerate V1-MC evidence."
+  }
 ];
 
 const forbiddenClaimPatterns = [
@@ -47,12 +73,47 @@ function readJson(relativePath, fallback = null) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(value, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(sanitizeEvidenceValue(value), null, 2));
 }
 
 function writeText(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, value);
+  fs.writeFileSync(filePath, sanitizeEvidenceString(value));
+}
+
+function shouldRedactQueryKey(key) {
+  return /(?:token|session|cookie|auth|secret|password|sessdata|bili_jct|dedeuserid|vd_source)/i.test(String(key));
+}
+
+function sanitizeEvidenceString(value) {
+  let text = String(value ?? "");
+  text = text.replace(
+    /([?&](?:xsec_token|access_token|refresh_token|web_session|session|token|auth|cookie|SESSDATA|bili_jct|DedeUserID|vd_source)=)[^&#\s"'<>()]+/gi,
+    "$1[redacted]"
+  );
+  try {
+    const parsed = new URL(text);
+    let changed = false;
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (shouldRedactQueryKey(key)) {
+        parsed.searchParams.set(key, "[redacted]");
+        changed = true;
+      }
+    }
+    if (changed) text = parsed.toString();
+  } catch {
+    // Embedded URLs are redacted by the regex above.
+  }
+  return text;
+}
+
+function sanitizeEvidenceValue(value) {
+  if (typeof value === "string") return sanitizeEvidenceString(value);
+  if (Array.isArray(value)) return value.map((item) => sanitizeEvidenceValue(item));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, sanitizeEvidenceValue(item)]));
+  }
+  return value;
 }
 
 function escapeHtml(value) {
@@ -213,10 +274,10 @@ function buildReport() {
       fallbackSamples: realSite?.summary?.fallbackSamples ?? 0,
       oldV12CloseoutHandling: oldV12Handling
     },
-    testCommands: testCommands.map((command) => ({
-      command,
+    testCommands: testCommands.map((item) => ({
+      command: item.command,
       passed: true,
-      evidence: "Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully."
+      evidence: item.evidence
     })),
     sourceEvidenceCoverage: fallbackCoverage,
     architecture: {

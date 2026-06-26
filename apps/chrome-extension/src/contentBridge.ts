@@ -6,6 +6,8 @@ export const LEGACY_INJECTED_HOST_ID = ["navia", "injected", "host"].join("-");
 export const IN_PAGE_SIDEBAR_HOST_ID = ["navia", "inpage", "sidebar"].join("-");
 export const IN_PAGE_LAUNCHER_ID = ["navia", "floating", "launcher"].join("-");
 const IN_PAGE_INTERACTION_STYLE_ID = ["navia", "inpage", "interaction", "style"].join("-");
+const JUMPBACK_STYLE_ID = ["navia", "jumpback", "style"].join("-");
+const JUMPBACK_MARKER_ID = ["navia", "jumpback", "marker"].join("-");
 const IN_PAGE_SIDEBAR_DEFAULT_WIDTH = 440;
 const IN_PAGE_SIDEBAR_MIN_WIDTH = 360;
 const IN_PAGE_SIDEBAR_MAX_VIEWPORT_RATIO = 0.8;
@@ -521,6 +523,7 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
   const selector = cleanString(request.selector);
   const domPath = cleanString(request.domPath);
   const textQuote = cleanString(request.textQuote);
+  clearJumpbackHighlights(documentRef);
 
   if (selector) {
     attemptedStrategies.push("selector");
@@ -546,6 +549,64 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
     fallbackText: cleanString(request.fallbackText) || textQuote,
     failureReason: attemptedStrategies.length ? "source_not_found_in_dom" : "no_jumpback_strategy_available"
   };
+}
+
+function ensureJumpbackStyles(documentRef: Document): void {
+  if (documentRef.getElementById(JUMPBACK_STYLE_ID)) return;
+  const style = documentRef.createElement("style");
+  style.id = JUMPBACK_STYLE_ID;
+  style.textContent = `
+    [data-navia-jumpback-highlight="true"] {
+      position: relative !important;
+      outline: 3px solid rgba(5, 84, 75, 0.9) !important;
+      outline-offset: 5px !important;
+      background:
+        linear-gradient(90deg, rgba(5, 84, 75, 0.18), rgba(5, 84, 75, 0.055)) !important;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.92),
+        0 18px 42px rgba(5, 84, 75, 0.22) !important;
+      border-radius: 10px !important;
+      transition: outline-color 180ms ease, background 180ms ease, box-shadow 180ms ease !important;
+    }
+    #${JUMPBACK_MARKER_ID} {
+      position: fixed;
+      z-index: 2147483647;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: min(320px, calc(100vw - 24px));
+      padding: 7px 10px;
+      border: 1px solid rgba(5, 84, 75, 0.24);
+      border-radius: 999px;
+      background: rgba(245, 252, 249, 0.94);
+      color: #013a33;
+      box-shadow: 0 16px 36px rgba(5, 84, 75, 0.2), inset 0 1px 0 rgba(255,255,255,0.88);
+      font: 700 12px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      pointer-events: none;
+      backdrop-filter: blur(12px) saturate(140%);
+      -webkit-backdrop-filter: blur(12px) saturate(140%);
+    }
+    #${JUMPBACK_MARKER_ID}::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #1c7c54;
+      box-shadow: 0 0 0 4px rgba(28, 124, 84, 0.13);
+      content: "";
+    }
+  `;
+  documentRef.head?.append(style);
+}
+
+function clearJumpbackHighlights(documentRef: Document): void {
+  documentRef.querySelectorAll<HTMLElement>("[data-navia-jumpback-highlight='true']").forEach((element) => {
+    element.removeAttribute("data-navia-jumpback-highlight");
+    element.removeAttribute("data-navia-jumpback-strategy");
+    element.style.removeProperty("outline");
+    element.style.removeProperty("outline-offset");
+    element.style.removeProperty("background-color");
+  });
+  documentRef.getElementById(JUMPBACK_MARKER_ID)?.remove();
 }
 
 function isJumpbackRequest(value: unknown): value is JumpbackRequest {
@@ -595,17 +656,42 @@ function highlightElement(
   element: HTMLElement,
   input: { attemptedStrategies: JumpbackStrategy[]; matchedStrategy: JumpbackStrategy }
 ): JumpbackResult {
+  ensureJumpbackStyles(element.ownerDocument);
   element.scrollIntoView?.({ behavior: "smooth", block: "center", inline: "nearest" });
   element.setAttribute("data-navia-jumpback-highlight", "true");
-  element.style.outline = "3px solid #635bff";
-  element.style.outlineOffset = "3px";
-  element.style.backgroundColor = "rgba(99, 91, 255, 0.12)";
+  element.setAttribute("data-navia-jumpback-strategy", input.matchedStrategy);
+  placeJumpbackMarker(element, input.matchedStrategy);
   return {
     status: "highlighted",
     attemptedStrategies: input.attemptedStrategies,
     matchedStrategy: input.matchedStrategy,
     highlightedText: normalizeText(element.textContent || "").slice(0, 240)
   };
+}
+
+function placeJumpbackMarker(element: HTMLElement, strategy: JumpbackStrategy): void {
+  const documentRef = element.ownerDocument;
+  const view = documentRef.defaultView;
+  if (!documentRef.body || !view) return;
+  documentRef.getElementById(JUMPBACK_MARKER_ID)?.remove();
+  const marker = documentRef.createElement("div");
+  marker.id = JUMPBACK_MARKER_ID;
+  marker.setAttribute("data-testid", "navia-jumpback-marker");
+  marker.textContent = `Navia 已定位来源 · ${strategyLabel(strategy)}`;
+  const rect = element.getBoundingClientRect();
+  const top = Math.max(12, Math.min(rect.top - 38, view.innerHeight - 44));
+  const left = Math.max(12, Math.min(rect.left, view.innerWidth - 332));
+  Object.assign(marker.style, {
+    top: `${top}px`,
+    left: `${left}px`
+  });
+  documentRef.body.append(marker);
+}
+
+function strategyLabel(strategy: JumpbackStrategy): string {
+  if (strategy === "selector") return "页面选择器";
+  if (strategy === "domPath") return "DOM 路径";
+  return "文本证据";
 }
 
 function normalizeText(value: string): string {

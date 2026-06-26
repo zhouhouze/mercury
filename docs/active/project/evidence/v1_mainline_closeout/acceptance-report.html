@@ -35,7 +35,7 @@
     <h1>Navia V1 主线收口自动化验收报告</h1>
     <p><span class="status">自动化验收通过</span></p>
     <p>V1 mainline closeout candidate passed automated acceptance.</p>
-    <p>生成时间：2026-06-25T09:32:22.818Z</p>
+    <p>生成时间：2026-06-26T02:37:12.130Z</p>
   </header>
   <main>
     <section>
@@ -101,27 +101,35 @@
       <table><thead><tr><th>命令</th><th>状态</th><th>证据口径</th></tr></thead><tbody><tr>
         <td><code>npm --prefix apps/chrome-extension run typecheck</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Executed in the V1-MC remaining closeout loop before report aggregation; rerun required if source files change.</td>
       </tr><tr>
-        <td><code>npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard</code></td>
+        <td><code>npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard pageContext</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Executed in the V1-MC remaining closeout loop; covers content shell, renderer, artifact card, and page-context extraction.</td>
+      </tr><tr>
+        <td><code>PYTHONPATH=services/local-runtime .venv/bin/pytest services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py services/local-runtime/navia_runtime/modules/mindmap/tests/test_mindmap.py services/local-runtime/tests/test_adapter_summary_quality.py -q</code></td>
+        <td class="pass">通过</td>
+        <td>Executed in the V1-MC remaining closeout loop; covers A/C/Adapter regression for complex-site extraction and mindmap quality.</td>
       </tr><tr>
         <td><code>npm --prefix apps/chrome-extension run build</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Executed in the V1-MC remaining closeout loop; produced current chrome-mv3-unpacked build.</td>
       </tr><tr>
         <td><code>npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Validated by upstream launcher report referenced by this aggregate report.</td>
       </tr><tr>
         <td><code>npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Validated by upstream external visual report referenced by this aggregate report.</td>
       </tr><tr>
-        <td><code>npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout</code></td>
+        <td><code>NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics</code></td>
         <td class="pass">通过</td>
-        <td>Command is part of the fixed V1-MC gate; this report is generated only after the scripted command chain exits successfully.</td>
+        <td>Validated by latest real-site complex pages report referenced by this aggregate report; cookie values are intentionally omitted.</td>
+      </tr><tr>
+        <td><code>node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></td>
+        <td class="pass">通过</td>
+        <td>Executed in this loop to aggregate latest upstream reports and regenerate V1-MC evidence.</td>
       </tr></tbody></table>
     </section>
     <section>

@@ -26,9 +26,9 @@ const commandSpecs = [
   {
     label: "A/C 模块测试",
     command:
-      "PYTHONPATH=.tmp/python-deps:services/local-runtime python3 -m pytest services/local-runtime/navia_runtime/modules/page_reading/tests services/local-runtime/navia_runtime/modules/mindmap/tests -q",
+      "PYTHONPATH=.tmp/python-deps:services/local-runtime .venv/bin/python -m pytest services/local-runtime/navia_runtime/modules/page_reading/tests services/local-runtime/navia_runtime/modules/mindmap/tests -q",
     args: [
-      "python3",
+      ".venv/bin/python",
       [
         "-m",
         "pytest",
@@ -74,12 +74,47 @@ function readJson(filePath, fallback = null) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(value, null, 2));
+  fs.writeFileSync(filePath, JSON.stringify(sanitizeEvidenceValue(value), null, 2));
 }
 
 function writeText(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, value);
+  fs.writeFileSync(filePath, sanitizeEvidenceString(value));
+}
+
+function shouldRedactQueryKey(key) {
+  return /(?:token|session|cookie|auth|secret|password|sessdata|bili_jct|dedeuserid|vd_source)/i.test(String(key));
+}
+
+function sanitizeEvidenceString(value) {
+  let text = String(value ?? "");
+  text = text.replace(
+    /([?&](?:xsec_token|access_token|refresh_token|web_session|session|token|auth|cookie|SESSDATA|bili_jct|DedeUserID|vd_source)=)[^&#\s"'<>()]+/gi,
+    "$1[redacted]"
+  );
+  try {
+    const parsed = new URL(text);
+    let changed = false;
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (shouldRedactQueryKey(key)) {
+        parsed.searchParams.set(key, "[redacted]");
+        changed = true;
+      }
+    }
+    if (changed) text = parsed.toString();
+  } catch {
+    // Embedded URLs are redacted by the regex above.
+  }
+  return text;
+}
+
+function sanitizeEvidenceValue(value) {
+  if (typeof value === "string") return sanitizeEvidenceString(value);
+  if (Array.isArray(value)) return value.map((item) => sanitizeEvidenceValue(item));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, sanitizeEvidenceValue(item)]));
+  }
+  return value;
 }
 
 function slug(value) {

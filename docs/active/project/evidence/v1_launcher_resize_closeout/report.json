@@ -1,17 +1,18 @@
 {
   "schemaVersion": "v1-launcher-resize-closeout.1",
-  "generatedAt": "2026-06-25T09:29:41.045Z",
+  "generatedAt": "2026-06-26T02:31:32.293Z",
   "passed": true,
   "claim": "V1 docked launcher / expand / collapse / resize interaction baseline passed real Chrome behavior acceptance.",
   "browserMode": "windows-chrome-temp-profile",
-  "fixtureUrl": "http://127.0.0.1:44819/fixture.html",
-  "pageUrl": "http://127.0.0.1:44819/fixture.html",
+  "serviceWorkerExposed": true,
+  "fixtureUrl": "http://127.0.0.1:44727/fixture.html",
+  "pageUrl": "http://127.0.0.1:44727/fixture.html",
   "pageTarget": {
-    "url": "http://127.0.0.1:44819/fixture.html",
+    "url": "http://127.0.0.1:44727/fixture.html",
     "label": "local-fixture",
     "attempts": [
       {
-        "url": "http://127.0.0.1:44819/fixture.html",
+        "url": "http://127.0.0.1:44727/fixture.html",
         "label": "local-fixture",
         "hasSidebar": 1,
         "hasLauncher": 1

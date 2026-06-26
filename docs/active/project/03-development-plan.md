@@ -1389,6 +1389,17 @@ V1-MC-4：人工产品体验核查准备
 V1-MC-5：V1 complete 候选审计
 ```
 
+当前剩余目标补充拆分：
+
+```text
+V1-MC-DOC-0：当前文档和 drawio 基线闭环，只做文档，不进入代码实现
+V1-MC-QA-1：Chrome 自动化环境阻塞处理，明确真实登录态、CDP 连接或 public no-login 降级路径
+V1-MC-QA-2：B站指定详情页 fresh validation，重点复核摘要、Mindmap、source jumpback 和状态卡
+V1-MC-QA-3：B站 / 小红书 / 观察者网首页与详情页 fresh evidence，明确 public no-login / logged-in / degraded
+V1-MC-QA-4：Mindmap / Reading Map / Source Evidence 截图级可读性验收
+V1-MC-QA-5：总报告、PRD review、false-green audit、human review checklist 更新
+```
+
 开发计划：
 
 | 子阶段 | 开发重点 | 验收重点 |
@@ -1399,6 +1410,26 @@ V1-MC-5：V1 complete 候选审计
 | `V1-MC-3` | 生成 V1 主线总体验收 HTML / JSON 报告，并逐个校验上游 evidence 路径、`passed`、`fatalIssues`、`majorIssues`、允许声明和固定验证命令 | 读取、Debug、总结、问答、Evidence Card、Reading Map、source evidence 全链路通过；`report.json` 记录 `testCommands` 和上游 evidence 语义校验结果 |
 | `V1-MC-4` | 输出人工体验核查清单和待审核证据路径 | 人类能快速检查目标体验、目标架构和关键截图；清单必须包含 `reviewStatus`、`reviewer`、`reviewedAt`、`blockingIssues` 字段，初始状态为 `pending` |
 | `V1-MC-5` | PRD 复检、false-green audit、旧证据冲突处理、fallback 覆盖口径核对 | 无 fatal / major，才允许进入完整 V1 complete 候选审计；若当前 V1-MC 样本 `fallbackSamples = 0`，必须引用 V1.3 / V1.4 fallback evidence，不能声明本轮真实站点 fallback 抽样已覆盖 |
+
+专项质量闭环：
+
+| 专项 | 开发重点 | 验收重点 |
+|---|---|---|
+| Chrome 自动化环境 | 复核真实 Chrome profile、`NAVIA_CDP_URL`、unpacked extension load、service worker 暴露 | 不能接管登录态或无法加载扩展时，报告写 blocked / degraded，不得伪造截图通过 |
+| B站详情页 | 指定 `https://www.bilibili.com/video/BV1gcyFBZEUf...` 作为固定样本之一 | 摘要和 Mindmap 不被推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集主导 |
+| Mindmap 可读性 | 复核 Evidence Card Mindmap、Reading Map、状态卡和目录浮层层级 | 真实截图中无文本虚影、节点重叠、卡片截断、输入框遮挡 |
+| Source Jumpback | 复核 located / fallback_shown / blocked 三态 | DOM highlighter、Navia source marker、fallback evidence 和 blocked 原因在 UI / report 中一致 |
+
+Chrome 验收技术路线矩阵：
+
+| 路线 | 使用条件 | 优点 | 缺点 | 允许声明 |
+|---|---|---|---|---|
+| A. 连接用户已打开的登录态 Chrome CDP | 用户主动以 remote debugging 方式启动或提供 `NAVIA_CDP_URL`；Navia extension 已可见 | 最接近真实登录态体验；可验证 B站详情页登录态 | 需要人类配合启动浏览器；不能由自动化强制接管现有 profile | 可声明 logged-in validation，仅限实际截图和 report 覆盖的页面 |
+| B. 新建专用 Chrome 测试 profile 并手动登录 | 自动化 profile 能加载 unpacked extension；用户可在该 profile 登录 B站 / 小红书 | 可重复、不会锁用户主 profile；适合长期回归 | 初次登录需要人工；登录态有效期依赖站点策略 | 可声明 logged-in validation，仅限该专用 profile |
+| C. public no-login 临时 profile | 登录态不可用但 extension 可加载 | 自动化程度高；适合公开态回归 | 不能证明登录态高质量；小红书 / B站详情可能降级 | 只能声明 public no-login / degraded，不得冒充 logged-in |
+| D. 结构化 blocker + 人工截图补位 | Chrome profile locked、extension not loaded、Playwright/Chrome 环境不可用 | 不做虚假验收；保留风险事实 | 不能自动化通过；会阻塞完整 V1 candidate | 只能声明 blocked / manual review required |
+
+默认执行顺序固定为 A -> B -> C -> D。任一低等级路线不得覆盖高等级路线的失败事实；例如 C 通过不能抵消 A/B 登录态 blocked。
 
 每个子阶段完成后必须留下可审查产物：
 

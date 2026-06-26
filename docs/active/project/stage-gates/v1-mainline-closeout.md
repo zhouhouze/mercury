@@ -101,6 +101,15 @@ Local Runtime
 | `V1-MC-4` | 人工产品体验核查准备 | human checklist 和证据路径已生成，可指导人类快速核查；checklist 初始包含 `reviewStatus: pending`、`reviewer`、`reviewedAt`、`blockingIssues` |
 | `V1-MC-5` | V1 complete 候选审计 | PRD review 和 false-green audit 无 fatal / major issue；旧 failed / superseded evidence 已解释、废止或重跑；fallback coverage 来源已说明；仍需人工核查后才能进入完整 V1 complete 候选声明 |
 
+当前剩余专项闭环：
+
+| 专项 | 目标 | 出门条件 |
+|---|---|---|
+| `V1-MC-QA-1` Chrome 自动化环境 | 明确真实登录态、CDP 连接、unpacked extension load 和 service worker 暴露路径 | profile locked、extension not loaded 或 public no-login fallback 必须写入 report，不得冒充登录态通过 |
+| `V1-MC-QA-2` B站指定详情页 | 对固定 B站视频详情页完成 fresh validation | 摘要 / Mindmap 主节点来自标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容；推荐、弹幕设置、活动横幅、QQ群 / 微信、自动连播不得主导 |
+| `V1-MC-QA-3` 复杂站点 fresh evidence | B站 / 小红书 / 观察者网首页与详情页重新验收 | 每个样本明确 public no-login / logged-in / degraded；旧证据不能覆盖新代码质量结论 |
+| `V1-MC-QA-4` 可读性与反跳 | Mindmap、Reading Map、状态卡和 source jumpback 截图级复核 | 无文本虚影、重叠、遮挡；located / fallback_shown / blocked 三态一致 |
+
 ## 5. 必需证据
 
 总证据包：
@@ -137,6 +146,9 @@ docs/active/project/evidence/v1_mainline_closeout/screenshots/
 - [ ] Chat / Agent / Debug / Settings 仍然可访问。
 - [ ] 当前页读取、总结、问答、Mindmap、Evidence Card、Reading Map 和 Source Evidence 仍然可用。
 - [ ] DOM highlight success、fallback shown、blocked 没有混淆。
+- [ ] B站指定详情页 fresh evidence 证明视频主内容进入摘要和 Mindmap，站点壳、推荐、弹幕设置和活动广告没有主导输出。
+- [ ] Mindmap / Reading Map / 当前页面状态卡截图没有文本虚影、节点重叠、聊天输入框遮挡或状态卡截断。
+- [ ] Chrome 自动化环境问题被准确标记；真实登录态 profile 被锁定或 unpacked extension 未加载时，报告不得通过登录态验收。
 - [ ] 如果当前 V1-MC 样本 `fallbackSamples = 0`，报告必须引用 V1.3 / V1.4 或其他 active 阶段 fallback evidence；不得把“全部 highlight 成功”写成“当前阶段 fallback 已抽样通过”。
 - [ ] 复杂站点证据区分 public no-login 与 logged-in validation。
 - [ ] `report.json` 记录固定验证命令 `testCommands`，并逐个检查上游 evidence 路径、`passed`、fatal / major issues 和 claim 边界。
@@ -160,6 +172,9 @@ npm --prefix apps/chrome-extension run e2e:chrome:v1-mainline-closeout
 - 使用 V1.3 或 V1.4 单阶段 evidence 冒充完整 V1 evidence。
 - 只有 launcher 视觉截图，没有行为证据。
 - public no-login 复杂站点样本被报告为 logged-in 高质量通过。
+- Chrome 自动化环境 blocked 被包装成真实登录态验收通过。
+- B站详情页 Mindmap 被推荐列表、弹幕设置、活动广告、QQ群 / 微信或自动连播主导，却声明高质量通过。
+- 真实截图存在 Mindmap 文本虚影、节点覆盖或状态卡截断，却只用单元测试 / build 结果替代视觉验收。
 - 当前 V1-MC 样本无 fallback sample，也无上游 fallback evidence 引用，却声明 fallback path 已覆盖。
 - 旧 failed closeout evidence 被忽略。
 - Runtime public contracts 因本阶段发生变更。

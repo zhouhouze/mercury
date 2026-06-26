@@ -314,6 +314,25 @@ describe("content page context bridge", () => {
     expect(handled).toBe(true);
     expect(response).toMatchObject({ ok: true, result: { status: "highlighted", matchedStrategy: "selector" } });
     expect(document.querySelector("#source-one")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
+    expect(document.querySelector("[data-testid='navia-jumpback-marker']")?.textContent).toContain("Navia 已定位来源");
+  });
+
+  it("clears the previous source marker before applying a new jumpback highlight", () => {
+    document.body.innerHTML = `
+      <article>
+        <p id="source-one">First traceable source.</p>
+        <p id="source-two">Second traceable source.</p>
+      </article>
+    `;
+
+    const first = performJumpback(document, { selector: "#source-one", fallbackText: "First traceable source." });
+    const second = performJumpback(document, { selector: "#source-two", fallbackText: "Second traceable source." });
+
+    expect(first.status).toBe("highlighted");
+    expect(second.status).toBe("highlighted");
+    expect(document.querySelector("#source-one")?.getAttribute("data-navia-jumpback-highlight")).toBeNull();
+    expect(document.querySelector("#source-two")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
+    expect(document.querySelectorAll("[data-testid='navia-jumpback-marker']")).toHaveLength(1);
   });
 
   it("falls back to textQuote when selector is unavailable", () => {

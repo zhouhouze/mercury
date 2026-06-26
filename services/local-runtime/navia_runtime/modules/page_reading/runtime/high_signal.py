@@ -9,12 +9,62 @@ from .structured_page import build_structured_page_context, density_score
 
 SCHEMA_VERSION = "a-v1.1-high-signal-2026-06-05"
 NOISE_KEYWORDS = {
-    "nav": ["home", "pricing", "sign in", "login", "menu", "subscribe", "登录", "导航", "首页"],
+    "nav": ["home", "pricing", "sign in", "login", "menu", "subscribe", "登录", "导航", "首页", "频道", "专栏", "直播", "社区中心"],
     "footer": ["copyright", "privacy", "terms", "©", "备案", "隐私", "条款"],
-    "recommendation": ["related", "recommended", "you may also", "更多推荐", "相关阅读"],
+    "recommendation": ["related", "recommended", "you may also", "更多推荐", "相关阅读", "不感兴趣将减少此类内容推荐", "添加至稍后再看"],
     "ad_like": ["advertisement", "sponsored", "推广", "广告"],
     "comment": ["comment", "reply", "评论", "留言"],
 }
+BOILERPLATE_PATTERNS = [
+    r"^keywords[:：]",
+    r"未经作者授权",
+    r"禁止转载",
+    r"下载客户端",
+    r"打开客户端",
+    r"扫码登录",
+    r"登录后推荐",
+    r"输入手机号",
+    r"输入验证码",
+    r"专栏\s+直播\s+活动\s+课堂\s+社区中心",
+    r"首页\s+番剧\s+直播",
+    r"番剧\s+电影\s+国创",
+    r"会员购\s+漫画\s+赛事",
+    r"本视频参加过",
+    r"整点电子榨菜",
+    r"活动已结束",
+    r"有砸性多壮志",
+    r"QQ群",
+    r"群号",
+    r"微信",
+    r"弹幕列表",
+    r"自动连播",
+    r"订阅合集",
+    r"防挡字幕",
+    r"智能防挡弹幕",
+    r"按类型过滤",
+    r"滚动\s+固定\s+彩色",
+    r"充电\s+关注",
+    r"相关推荐",
+    r"更多推荐",
+    r"沪ICP备",
+    r"沪公网安备",
+    r"营业执照",
+    r"增值电信业务经营许可证",
+    r"网络文化经营许可证",
+    r"互联网药品信息服务资格证书",
+    r"医疗器械网络交易服务",
+    r"违法不良信息举报",
+    r"互联网举报中心",
+    r"网上有害信息举报专区",
+    r"个性化推荐算法",
+    r"共\s*\d+\s*条评论",
+    r"展开\s*\d+\s*条回复",
+    r"说点什么",
+]
+BILI_MAIN_ROLES = {"bili_video_title", "bili_video_description", "bili_video_author", "bili_video_stats"}
+BILI_NOISE_ROLES = {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo"}
+XHS_MAIN_ROLES = {"xhs_note_title", "xhs_note_body", "xhs_note_author", "xhs_note_stats"}
+XHS_NOISE_ROLES = {"xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "profile_link"}
 DIGEST_KINDS = [
     "key_fact",
     "entity",
@@ -279,6 +329,17 @@ def build_quality_report(
     if fixture_class == "planning_only":
         warnings.append(issue("PLANNING_ONLY_MEDIA", "Media fixture is planning-only and not real perception ready.", "major"))
     downstream = readiness(score, metrics, fatal_issues, fixture_class)
+    if (
+        downstream == "degraded"
+        and strongly_grounded
+        and metrics["sourceCoverage"]["passed"]
+        and metrics["groundingCompleteness"]["passed"]
+        and metrics["jumpbackCoverage"]["passed"]
+        and metrics["digestCompressionRatio"]["passed"]
+        and len(filtered_blocks) >= 6
+        and {"auth_gated", "verification_gated", "not_found"}.isdisjoint(page_state_hints)
+    ):
+        downstream = "pass"
     if low_signal and downstream == "pass":
         downstream = "degraded"
     if {"auth_gated", "verification_gated"} & page_state_hints and not strongly_grounded and downstream == "pass":
@@ -331,6 +392,31 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
     lowered = text.lower()
     source_type = str(paragraph.get("sourceBlockType") or "paragraph")
     dom_role = str(paragraph.get("domSignalRole") or "")
+    if is_boilerplate_text(text):
+        return "nav", "boilerplate", 0.94
+    if dom_role in BILI_NOISE_ROLES:
+        region = {
+            "bili_comment": "comment",
+            "bili_recommendation": "recommendation",
+            "bili_danmaku": "ad_like",
+            "bili_promo": "ad_like",
+        }[dom_role]
+        return region, dom_role, 0.96
+    if dom_role in XHS_NOISE_ROLES:
+        region = {
+            "xhs_comment": "comment",
+            "xhs_footer": "footer",
+            "xhs_sidebar": "nav",
+            "xhs_feed_container": "recommendation",
+            "profile_link": "nav",
+        }[dom_role]
+        return region, dom_role, 0.96
+    if dom_role in BILI_MAIN_ROLES:
+        reason = "bili_video_main"
+        return "main", reason, 0.04 if dom_role in {"bili_video_title", "bili_video_description"} else 0.08
+    if dom_role in XHS_MAIN_ROLES:
+        reason = "xhs_note_main"
+        return "main", reason, 0.04 if dom_role in {"xhs_note_title", "xhs_note_body"} else 0.08
     if dom_role in {"feed_card", "media_link", "content_link", "media_block", "content_block", "metadata"}:
         return "section", "unknown", 0.12 if dom_role != "metadata" else 0.18
     if dom_role in {"auth_block", "not_found_block", "auth_link"}:
@@ -348,6 +434,16 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
     return "main", "unknown", 0.08
 
 
+def is_boilerplate_text(text: str) -> bool:
+    normalized = re.sub(r"\s+", " ", text).strip()
+    if not normalized:
+        return True
+    if any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in BOILERPLATE_PATTERNS):
+        return True
+    nav_tokens = ["首页", "动态", "热门", "频道", "专栏", "直播", "课堂", "社区", "登录", "注册", "下载"]
+    return sum(1 for token in nav_tokens if token in normalized) >= 5 and len(normalized) < 180
+
+
 def should_filter(paragraph: dict[str, Any], region_type: str, noise: float, density: float) -> bool:
     if region_type in {"nav", "footer", "recommendation", "comment", "ad_like"}:
         return True
@@ -357,6 +453,13 @@ def should_filter(paragraph: dict[str, Any], region_type: str, noise: float, den
 def digest_kind_for_block(block: dict[str, Any]) -> str:
     text = str(block.get("text", ""))
     block_type = str(block.get("blockType", "paragraph"))
+    region_type = str(block.get("regionType") or "")
+    if block.get("noiseScore") in {0.04, 0.08} and region_type == "main":
+        if re.search(r"\bUP\b|UP主|作者|发布|投稿", text, flags=re.IGNORECASE):
+            return "entity"
+        if re.search(r"播放|弹幕|点赞|投币|收藏|转发|\d+(?:\.\d+)?万", text):
+            return "evidence"
+        return "claim"
     if block_type == "image":
         return "image_metadata"
     if block_type == "table_cell":
