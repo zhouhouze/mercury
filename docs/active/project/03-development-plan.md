@@ -649,6 +649,8 @@ PageContext -> Outline Extractor -> Mindmap Prompt Builder -> MindmapModelAdapte
 
 ### 11.4 验收
 
+本节为未来完整 V1 候选审计模板，不代表当前 V1-HR/CC 阶段已经允许声明完整 V1 complete。当前允许状态仍以 `V1 mainline closeout candidate passed automated acceptance.` 和 `Ready for V1 human product review and complete-candidate audit preparation.` 为边界。
+
 只能声明：
 
 ```text
@@ -1534,3 +1536,51 @@ docs/active/project/evidence/v1_mainline_closeout/screenshots/
 ```
 
 当前仍然不要扩展到本地知识库、RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。V1 主线成败取决于当前网页伴读链路是否可被真实 Chrome 证据、PRD 复检和人工体验核查共同证明。
+
+### 14.1 V1-HR/CC 人工产品核查与 Complete Candidate 准备计划
+
+前一阶段自动化候选验收和审查报告已确认通过。本阶段只做文档开发和验收基线整理，不进入产品代码实现。目标是把当前 active 文档、drawio、证据路径和人工核查材料整理到可直接支持人工产品体验核查的水平。
+
+阶段拆分：
+
+```text
+V1-HR-0：文档基线同步，确认当前允许声明仍是 V1 mainline closeout candidate passed automated acceptance
+V1-HR-1：人工核查材料整理，明确报告、截图、JSON、PRD review、false-green audit 入口
+V1-HR-2：体验场景清单固化，覆盖 launcher、sidebar、Chat、Debug、Settings、Mindmap、Reading Map、source evidence
+V1-HR-3：证据一致性复核，确认自动化报告、drawio、stage gate 和 active PRD 不冲突
+V1-HR-4：Complete candidate 审计准备，列出人工 passed 后需要复跑的验证命令和 No-Go
+V1-HR-5：人工结论落盘后再进入完整 V1 complete 候选审计
+```
+
+开发及验收计划：
+
+| 子阶段 | 文档开发重点 | 验收重点 |
+|---|---|---|
+| `V1-HR-0` | 更新 PRD、架构、开发计划、验收计划、stage gate、gap companion、drawio | 当前状态不被写成完整 V1 complete；drawio 不超过 8 页 |
+| `V1-HR-1` | 整理人工核查入口和证据路径 | 人类可从一组 active 文档快速打开总报告、截图和 checklist |
+| `V1-HR-2` | 固化最小体验路径和复杂站点场景 | 覆盖普通网页、B站、小红书、观察者网、source located/fallback/blocked |
+| `V1-HR-3` | 对齐 report、PRD review、false-green audit、fallback coverage 继承口径 | 不出现 Cookie-injected 冒充用户主 Profile 的描述 |
+| `V1-HR-4` | 准备人工 passed 后的 complete candidate 审计路线 | 明确必须复跑自动化验证、重新聚合报告、确认无 fatal / major |
+| `V1-HR-5` | 人工核查结果落盘模板 | `reviewStatus`、`reviewer`、`reviewedAt`、`blockingIssues` 必须完整 |
+
+本阶段出门材料：
+
+```text
+docs/active/project/01-prd.md
+docs/active/project/02-architecture.md
+docs/active/project/03-development-plan.md
+docs/active/project/04-acceptance-plan.md
+docs/active/project/stage-gates/v1-mainline-closeout.md
+docs/active/project/design/v1-mainline-closeout-gap.md
+docs/active/project/design/v1-mainline-closeout-gap.drawio
+docs/active/project/design/v1-mainline-closeout-readiness-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+```
+
+打回规则：
+
+- 如果任一 active 文档把当前状态写成完整 V1 complete，打回 `V1-HR-0`。
+- 如果 drawio 只画抽象“前端 / 后端 / AI 模块”，看不到具体代码实体和交互关系，打回 `V1-HR-0`。
+- 如果人工核查材料不能让人类快速找到体验路径、截图和报告，打回 `V1-HR-1`。
+- 如果 B站 / 小红书 / 观察者网验证边界没有区分 temporary cookie profile、public no-login 和用户主 Profile，打回 `V1-HR-3`。
+- 如果 fallback coverage 被写成本轮 fresh 样本已覆盖，打回 `V1-HR-3`。

@@ -35,7 +35,8 @@
     <h1>Navia V1 主线收口自动化验收报告</h1>
     <p><span class="status">自动化验收通过</span></p>
     <p>V1 mainline closeout candidate passed automated acceptance.</p>
-    <p>生成时间：2026-06-29T10:55:23.830Z</p>
+    <p>本 HTML 是本轮阶段性审计给人类查看的唯一入口；所有结论必须回到本页列出的命令、截图、JSON 报告和 No-Go 边界。</p>
+    <p>生成时间：2026-06-29T18:05:32.987Z</p>
   </header>
   <main>
     <section>
@@ -48,6 +49,11 @@
         <div class="metric"><strong>0</strong><span>Fatal issues</span></div>
         <div class="metric"><strong>0</strong><span>Major notes</span></div>
       </div>
+    </section>
+    <section>
+      <h2>当前项目可以实现的用户场景体验路径</h2>
+      <p>本节只描述当前证据能够支持的用户体验，不扩大到完整 V1 complete 或最终 Monica-like UX。</p>
+      <ol><li>普通网页打开后，Navia 以贴边 launcher 低打扰出现；hover / focus 后弹出完整入口。</li><li>用户点击 launcher 展开右侧 sidebar；可再次折叠，页面 margin 或 overlay 行为有截图证据。</li><li>用户在 sidebar 内读取当前网页，继续完成总结、问答、Evidence Card Mindmap 和 Reading Map。</li><li>用户点击 source evidence 后，当前样本以 DOM highlight 为主；fallback 路径由 V1.3 / V1.4 上游证据继承。</li><li>复杂站点样本覆盖 B站、小红书、观察者网首页与详情页，但本轮证据是临时 profile / cookie-injected 路线，不等同用户主 Profile 全站登录态质量。</li></ol>
     </section>
     <section>
       <h2>环境说明与剩余边界</h2>

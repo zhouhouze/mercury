@@ -208,3 +208,46 @@ node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
 ## 8. 当前证据状态口径
 
 如果 `docs/active/project/evidence/v1_mainline_closeout/report.json` 通过，只代表自动化候选态通过。当前 active 总报告已通过，且 real-site complex page matrix 为 6/6 pass、0 degraded、0 blocked；这支持进入人工产品体验核查准备。自动化报告仍不能替代人工核查，也不能单独支持完整 V1 complete 声明。
+
+## 9. V1-HR/CC 人工产品核查与 Complete Candidate 准备门禁
+
+本门禁在 V1-MC 自动化候选通过之后执行，只做文档和验收材料准备，不进入产品代码实现。
+
+阶段目标：
+
+```text
+Ready for V1 human product review and complete-candidate audit preparation.
+```
+
+子阶段：
+
+| 子阶段 | 目标 | 出门条件 |
+|---|---|---|
+| `V1-HR-0` | PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 同步 | 当前状态仍是自动化候选通过，未被升级为完整 V1 complete |
+| `V1-HR-1` | 人工核查材料整理 | 总报告、截图、JSON、PRD review、false-green audit、checklist 路径完整 |
+| `V1-HR-2` | 体验场景清单固化 | 覆盖普通网页、复杂站点、launcher、sidebar、Chat、Mindmap、Reading Map、source evidence |
+| `V1-HR-3` | 证据一致性复核 | Cookie-injected、public no-login、logged-in、fallback coverage 继承口径清楚 |
+| `V1-HR-4` | Complete candidate 审计准备 | 明确人工 passed 后必须复跑自动化验收并重新生成 PRD review / false-green audit |
+| `V1-HR-5` | 人工结论落盘前置 | `human-review-checklist.md` 仍为 pending，除非人类明确给出 passed / failed |
+
+必需文档：
+
+```text
+docs/active/project/01-prd.md
+docs/active/project/02-architecture.md
+docs/active/project/03-development-plan.md
+docs/active/project/04-acceptance-plan.md
+docs/active/project/design/v1-mainline-closeout-gap.md
+docs/active/project/design/v1-mainline-closeout-gap.drawio
+docs/active/project/design/v1-mainline-closeout-readiness-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+```
+
+No-Go：
+
+- drawio 超过 8 页。
+- drawio 架构页只写抽象模块，看不到 `contentBridge.ts`、iframe sidepanel、B Renderer、Runtime A/C/D、source jumpback、evidence report、human review checklist。
+- 文档把自动化候选态写成完整 V1 complete。
+- 文档把 temporary cookie profile 证据写成用户主 Profile 登录态全站高质量通过。
+- 文档把当前 `fallbackSamples = 0` 写成当前 fresh fallback 抽样已覆盖。
+- 文档新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。

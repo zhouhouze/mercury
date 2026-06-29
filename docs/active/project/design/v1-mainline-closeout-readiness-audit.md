@@ -136,3 +136,115 @@ Go for V1-MC automated candidate acceptance verification.
 Conditional Go for full V1 complete candidate audit only after human product review.
 No-Go for full V1 complete from automated reports or drawio alone.
 ```
+
+## 8. 2026-06-30 V1-HR/CC Documentation Baseline Audit
+
+前一阶段审查报告已由人类确认通过。本轮审计对象是下一阶段文档基线：人工产品体验核查与完整 V1 complete 候选审计准备。
+
+结论：
+
+```text
+Go for V1-HR/CC documentation baseline.
+Go for human product review preparation.
+Conditional Go for full V1 complete candidate audit only after human review passes and fresh PRD/false-green audit remains clean.
+No-Go for full V1 complete from documentation, drawio, or automated candidate reports alone.
+```
+
+本轮文档必须支撑：
+
+- 人工核查普通网页中的贴边 launcher、hover / focus、展开、折叠、拖拽、resize、push / overlay。
+- 人工核查 Chat / Agent / Debug / Settings 可发现性。
+- 人工核查读取当前页、总结、问答、Evidence Card Mindmap、Reading Map 和 Source Evidence。
+- 人工核查 B站、小红书、观察者网真实页面体验，并理解 temporary cookie profile、public no-login、用户主 Profile logged-in 的差异。
+- 人工核查 source evidence 的 `located`、`fallback_shown`、`blocked` 是否可理解。
+- 人工核查当前 `fallbackSamples = 0` 是否在总报告中正确引用上游 fallback evidence。
+
+本轮文档不能支撑：
+
+- 在 `human-review-checklist.md` 仍为 `reviewStatus: pending` 时声明完整 V1 complete。
+- 将 Cookie-injected 证据升级为用户主 Profile 登录态全站高质量通过。
+- 将当前 V1-MC 全部 highlighted 写成当前 fresh fallback 抽样覆盖。
+- 任何 V2+ 或禁用能力承诺。
+
+剩余风险：
+
+| 风险 | 等级 | 文档处理 |
+|---|---|---|
+| 人工核查通过前误声明完整 V1 | Major | 所有 active 文档保留 candidate-only 和 pending review 边界 |
+| drawio 架构抽象化导致审查者看不到实现实体 | Major | drawio 02 页必须列出代码实体、DOM 实体、Runtime 模块和 evidence 实体 |
+| 复杂站点 Cookie-injected 证据被误读 | Major | PRD、验收计划、drawio 04 页和 No-Go 均保留边界 |
+| fallback coverage 被误写成本轮 fresh 样本覆盖 | Major | 总报告和文档继续引用 V1.3 / V1.4 upstream fallback evidence |
+
+## 9. 2026-06-30 Final Documentation Sufficiency Review
+
+本轮自审结论：
+
+```text
+Go for V1-HR/CC documentation baseline.
+Current active documents fully support this documentation-only stage.
+No additional product-code development is required for this stage.
+No unresolved fatal / major documentation gap remains.
+```
+
+支撑完整性判断：
+
+| 维度 | 结论 | 依据 |
+|---|---|---|
+| 阶段目标 | Pass | PRD、stage gate、acceptance plan 均把本阶段限定为人工产品核查与 complete candidate 准备 |
+| 架构清晰度 | Pass | 架构文档和 drawio 02 页列出具体代码实体、DOM 实体、Runtime 模块、evidence 实体和交互方向 |
+| 开发及验收计划 | Pass | `V1-HR-0` 到 `V1-HR-5` 已覆盖文档同步、人工核查材料、场景清单、证据一致性、candidate 审计准备和人工结论落盘 |
+| 出门条件 | Pass | 允许声明固定为 `Ready for V1 human product review and complete-candidate audit preparation.` |
+| No-Go | Pass | 完整 V1 complete、用户主 Profile 登录态全站高质量通过、V2+ 能力和 fresh fallback 误声明均被列为禁止 |
+| drawio | Pass | 固定 8 页，中文书写，包含目标架构差异、体验路径、复杂站点、计划、里程碑、验收门槛和打回路径 |
+
+本阶段开发完成后可以完整达成的目标：
+
+- 让人类审查者快速理解当前 V1 自动化候选通过后的下一步。
+- 支撑人工产品体验核查执行。
+- 支撑完整 V1 complete 候选审计的准备工作。
+- 保持自动化候选态、人工核查 pending 和完整 V1 complete No-Go 的边界清晰。
+
+本阶段仍不能直接达成的目标：
+
+- 完整 V1 complete。
+- 最终 Monica-like UX complete。
+- 用户主 Profile 登录态全站高质量通过。
+- V2 / V3 / V4 / V5 能力 ready。
+
+因此本轮没有需要用户在技术路线中选择的不可消减风险。后续如果进入产品体验修复或完整 V1 candidate audit，风险会重新来自真实浏览器、人工体验判断、复杂站点登录态和截图质量，而不是当前文档基线不足。
+
+## 10. External ChatGPT Audit Decision
+
+本轮已经完成两类独立自审：
+
+1. Technical Writer 审计：检查 PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 和 human checklist 是否能指导本阶段文档开发与人工核查准备。
+2. Reality Checker 审计：检查是否存在自动化候选态冒充完整 V1 complete、Cookie-injected 冒充用户主 Profile 登录态、fallback coverage 被误写成 fresh 覆盖、drawio 抽象化或 V2+ 过度承诺。
+
+结论：
+
+```text
+No mandatory external ChatGPT audit is required before V1-HR/CC documentation exit.
+Optional external review is acceptable if the human reviewer wants a second opinion on direction drift or over-commitment.
+```
+
+如果需要外部 ChatGPT 审计，建议审计包控制在以下 10 个 active 文档内：
+
+```text
+docs/active/project/01-prd.md
+docs/active/project/02-architecture.md
+docs/active/project/03-development-plan.md
+docs/active/project/04-acceptance-plan.md
+docs/active/project/stage-gates/v1-mainline-closeout.md
+docs/active/project/design/v1-mainline-closeout-gap.md
+docs/active/project/design/v1-mainline-closeout-gap.drawio
+docs/active/project/design/v1-mainline-closeout-readiness-audit.md
+docs/active/project/design/v1-mainline-closeout-execution-plan-and-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+```
+
+待外部审计确认的问题：
+
+- 是否同意当前阶段只支持 `Ready for V1 human product review and complete-candidate audit preparation`。
+- 是否同意完整 V1 complete 仍需要人工产品体验核查通过、PRD review 和 false-green audit clean。
+- 是否同意 drawio 已恢复旧版细粒度架构和风险路线表达，且没有过度承诺产品能力。
+- 是否同意当前文档不需要进入产品代码实现即可完成本阶段目标。

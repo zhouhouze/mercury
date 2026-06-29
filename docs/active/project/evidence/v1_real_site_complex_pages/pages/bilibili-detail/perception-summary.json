@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_033aa5da83927751",
+    "pageId": "page_2abb0ccad55bfa03",
     "title": "瓜物志第121期_哔哩哔哩_bilibili",
     "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
     "domain": "www.bilibili.com"
   },
   "readiness": "pass",
-  "overallScore": 0.913,
+  "overallScore": 0.911,
   "warnings": [
     "AUTH_GATED_DEGRADED",
     "MEDIA_DOM_LIMITED"
@@ -25,9 +25,9 @@
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.931,
-      "numerator": 942,
-      "denominator": 1012,
+      "value": 0.929,
+      "numerator": 920,
+      "denominator": 990,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
@@ -57,9 +57,9 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.479,
+      "value": 0.493,
       "numerator": 69,
-      "denominator": 144,
+      "denominator": 140,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": false

@@ -1,6 +1,6 @@
 # V1 Real-Site Complex Pages Diagnostic Acceptance Report
 
-Date: 2026-06-29T10:55:13.261Z
+Date: 2026-06-29T18:04:01.177Z
 Result: PASS
 
 ## Summary
@@ -21,9 +21,9 @@ Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha 
 
 | Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Selected source card | Mindmap quality | Issues |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| B站 | homepage | pass | pass | 538 | 81 | 18 | highlighted | 1 | 14 labels / noise 0.00 / unique 1.00 | none |
-| B站 | video-detail | pass | pass | 2689 | 15 | 14 | highlighted | 1 | 11 labels / noise 0.00 / unique 1.00 | none |
-| 小红书 | homepage | pass | pass | 1516 | 52 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
-| 小红书 | note-detail | pass | pass | 1437 | 23 | 18 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
-| 观察者网 | homepage | pass | pass | 17518 | 124 | 16 | highlighted | 0 | 13 labels / noise 0.00 / unique 1.00 | none |
-| 观察者网 | article-detail | pass | pass | 12243 | 7 | 7 | highlighted | 1 | 10 labels / noise 0.00 / unique 1.00 | none |
+| B站 | homepage | pass | pass | 609 | 82 | 18 | highlighted | 5 | 10 labels / noise 0.00 / unique 1.00 | none |
+| B站 | video-detail | pass | pass | 2690 | 15 | 14 | highlighted | 1 | 11 labels / noise 0.00 / unique 1.00 | none |
+| 小红书 | homepage | pass | pass | 8994 | 105 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
+| 小红书 | note-detail | pass | pass | 1499 | 20 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | homepage | pass | pass | 17754 | 125 | 16 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | article-detail | pass | pass | 4519 | 8 | 8 | highlighted | 1 | 13 labels / noise 0.00 / unique 1.00 | none |

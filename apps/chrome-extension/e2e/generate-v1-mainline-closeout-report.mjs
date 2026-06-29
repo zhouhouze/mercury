@@ -369,6 +369,15 @@ function buildHtml(report) {
   const environmentItems = report.environmentNotes.length
     ? report.environmentNotes.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
     : "<li>none</li>";
+  const scenarioItems = [
+    "普通网页打开后，Navia 以贴边 launcher 低打扰出现；hover / focus 后弹出完整入口。",
+    "用户点击 launcher 展开右侧 sidebar；可再次折叠，页面 margin 或 overlay 行为有截图证据。",
+    "用户在 sidebar 内读取当前网页，继续完成总结、问答、Evidence Card Mindmap 和 Reading Map。",
+    "用户点击 source evidence 后，当前样本以 DOM highlight 为主；fallback 路径由 V1.3 / V1.4 上游证据继承。",
+    "复杂站点样本覆盖 B站、小红书、观察者网首页与详情页，但本轮证据是临时 profile / cookie-injected 路线，不等同用户主 Profile 全站登录态质量。"
+  ]
+    .map((item) => `<li>${escapeHtml(item)}</li>`)
+    .join("");
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -407,6 +416,7 @@ function buildHtml(report) {
     <h1>Navia V1 主线收口自动化验收报告</h1>
     <p><span class="status">${report.passed ? "自动化验收通过" : "自动化验收未通过"}</span></p>
     <p>${escapeHtml(report.claim)}</p>
+    <p>本 HTML 是本轮阶段性审计给人类查看的唯一入口；所有结论必须回到本页列出的命令、截图、JSON 报告和 No-Go 边界。</p>
     <p>生成时间：${escapeHtml(report.generatedAt)}</p>
   </header>
   <main>
@@ -420,6 +430,11 @@ function buildHtml(report) {
         <div class="metric"><strong>${report.fatalIssues.length}</strong><span>Fatal issues</span></div>
         <div class="metric"><strong>${report.majorIssues.length}</strong><span>Major notes</span></div>
       </div>
+    </section>
+    <section>
+      <h2>当前项目可以实现的用户场景体验路径</h2>
+      <p>本节只描述当前证据能够支持的用户体验，不扩大到完整 V1 complete 或最终 Monica-like UX。</p>
+      <ol>${scenarioItems}</ol>
     </section>
     <section>
       <h2>${report.passed ? "环境说明与剩余边界" : "当前阻塞与环境说明"}</h2>

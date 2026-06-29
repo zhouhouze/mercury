@@ -1227,3 +1227,63 @@ V1 mainline closeout candidate passed automated acceptance.
 最终 Monica-like UX complete。
 登录态全站高质量通过。
 ```
+
+### 14.12 V1-HR/CC 人工产品核查与 Complete Candidate 准备目标
+
+前一阶段审查报告已经通过。`V1-HR/CC` 是 V1 主线从自动化候选态进入人工产品体验核查和完整 V1 complete 候选审计准备的文档阶段。它只做文档、验收计划、证据索引和 drawio 架构表达更新，不进入产品代码实现，不改变 Runtime / Artifact / ViewModel 公共合同。
+
+当前事实基线：
+
+```text
+docs/active/project/evidence/v1_mainline_closeout/report.json
+passed = true
+claim = V1 mainline closeout candidate passed automated acceptance.
+
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+reviewStatus = pending
+```
+
+本阶段目标：
+
+- 将自动化候选通过后的下一步明确为人工产品体验核查和 complete candidate audit 准备。
+- 把 PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 与当前 active evidence 对齐。
+- 让人类能快速理解当前目标体验、当前架构实现、目标架构差异、验收门槛、出门条件和 No-Go。
+- 明确 Cookie-injected 真实站点验证、fallback coverage 继承、人工核查 pending 的边界。
+
+用户可见核查路径：
+
+```text
+普通网页
+-> Navia 默认贴边 launcher
+-> hover / focus 弹出完整入口
+-> 点击展开右侧 sidebar
+-> 读取当前网页
+-> 总结 / 问答 / Evidence Card Mindmap / Reading Map
+-> 点击 source evidence
+-> 网页高亮 located，或展示 fallback evidence，或明确 blocked
+-> 人工核查视觉质量、可读性、交互力感和复杂站点边界
+```
+
+本阶段允许声明：
+
+```text
+Ready for V1 human product review and complete-candidate audit preparation.
+```
+
+本阶段仍不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+进入完整 V1 complete 候选审计的前置条件：
+
+- 人工产品体验核查清单从 `pending` 更新为 `passed`，并记录 reviewer、reviewedAt、blockingIssues。
+- PRD review 和 false-green audit 无 fatal / major。
+- 最新自动化报告、截图证据和人工核查结论一致。
+- 旧 failed / superseded evidence 已解释、废止或重新生成。
+- `fallbackSamples = 0` 时，总报告继续引用 V1.3 / V1.4 或其他 active fallback evidence，不能写成本轮 fresh fallback 已覆盖。

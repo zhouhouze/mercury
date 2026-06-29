@@ -1503,7 +1503,55 @@ Host Page DOM / Page Context
 
 ---
 
-## 17. V1 架构结论
+## 17. V1-HR/CC 人工产品核查与 Complete Candidate 目标架构
+
+本阶段不新增运行时代码实体，只把当前已实现实体、目标体验、验收证据和人工核查材料整理成可审计架构。目标架构必须让审查者看出“用户看到什么、代码实体如何协作、证据如何证明、哪些声明仍被禁止”。
+
+目标链路：
+
+```text
+Host Page DOM
+  -> contentBridge.ts
+     -> button#navia-floating-launcher
+     -> aside#navia-inpage-sidebar
+     -> iframe sidepanel.html?naviaInPage=1
+     -> SidebarInteractionState / resize / drag / push / overlay
+  -> sidepanel/main.tsx React App
+     -> Chat / Agent / Debug / Settings
+     -> B Renderer
+     -> Evidence Card Mindmap / Reading Map / Source Evidence
+  -> runtimeClient.ts / background runtime proxy
+  -> Local Runtime A Page Reading / D Adapter Boundary / C Mindmap
+  -> user-triggered contentBridge.ts source jumpback
+  -> located | fallback_shown | blocked
+  -> report.json / acceptance-report.html / human-review-checklist.md
+```
+
+当前实现与目标核查关系：
+
+| 状态 | 代码或证据实体 | 当前职责 | 人工核查目标 |
+|---|---|---|---|
+| 已实现 | `apps/chrome-extension/src/contentBridge.ts` | 注入 launcher、sidebar、iframe、resize、source jumpback | 默认贴边、hover/focus、展开、折叠、拖拽、resize、source marker 清晰 |
+| 已实现 | `apps/chrome-extension/entrypoints/sidepanel/main.tsx` | 承载 Chat / Agent / Debug / Settings | 入口可发现，不被样式或布局遮挡 |
+| 已实现 | `apps/chrome-extension/src/modules/chat_renderer/` 与 `mindmap_renderer/` | 渲染 Artifact、Evidence Card Mindmap、Reading Map、Source Evidence | 导图无虚影、无重叠、窄屏可读，source 三态可理解 |
+| 已实现 | `apps/chrome-extension/src/runtimeClient.ts` 与 background proxy | in-page iframe 到 Local Runtime 的请求桥接 | Runtime offline / failure 可诊断，不改变 public API |
+| 已实现 | `services/local-runtime/navia_runtime/modules/page_reading/` | A Page Reading、SourceRef、质量判断 | 复杂站点主内容优先，噪声不主导摘要和导图 |
+| 已实现 | `services/local-runtime/navia_runtime/modules/mindmap/` | C Mindmap、主题节点、`nodeSourceMap` | 节点来源可追踪，主题归并可读 |
+| 已实现 | `docs/active/project/evidence/v1_mainline_closeout/report.json` | 自动化候选验收总报告 | 只能支持人工核查准备，不能支持完整 V1 complete |
+| 待人工确认 | `human-review-checklist.md` | 人工体验核查状态 | `reviewStatus` 必须由人类从 pending 改为 passed / failed |
+
+架构边界：
+
+- `SidebarInteractionState`、launcher、resize、drag、push / overlay 只属于 content script 外层交互壳。
+- B Renderer 只消费 Runtime / Artifact / SSE，不生成网页事实，不直接调用 A/C/D。
+- A/C/D 不因人工核查、drawio 或视觉收口新增公共合同字段。
+- 自动化测试中的 Chrome 控制只属于验收工具，不是产品浏览器自动操作能力。
+- Cookie-injected evidence 只能说明临时测试 profile 覆盖过指定页面，不能冒充用户主 Profile 登录态全站质量。
+- 完整 V1 complete 候选审计必须发生在人工产品体验核查通过之后。
+
+---
+
+## 18. V1 架构结论
 
 Navia V1 的架构不是“插件 + 模型调用”，而是：
 

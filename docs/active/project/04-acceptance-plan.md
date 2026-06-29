@@ -819,6 +819,8 @@ docs/history/V1.1/
 
 ## 7. V1 最终声明模板
 
+当前 V1-HR/CC 阶段不得使用本节模板作为当前完成声明。本节只保留为未来候选审计模板；只有人工产品体验核查 `passed`、重新生成的自动化总报告通过、PRD review 与 false-green audit 无 fatal / major，且旧 failed / superseded evidence 已解释、废止或重跑后，才允许进入是否使用该模板的候选审计。
+
 允许声明：
 
 ```text
@@ -1368,4 +1370,46 @@ V1 mainline closeout candidate passed automated acceptance.
 最终 Monica-like UX complete。
 V2 Memory / RAG ready。
 Web Research / PPT / Deep Research ready。
+```
+
+### 8.14 V1-HR/CC 人工产品核查与 Complete Candidate 准备验收
+
+本阶段只验收文档和人工核查准备质量，不验收新的产品代码实现。通过后只能说明“可进入人工产品体验核查”，不能说明完整 V1 complete。
+
+必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 均使用同一阶段目标：人工产品核查与 complete candidate 准备。
+- [ ] drawio 不超过 8 页，中文书写，包含目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- [ ] drawio 架构页必须出现具体实现实体：`contentBridge.ts`、注入 DOM、`sidepanel.html` / `main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback、evidence report、human review checklist。
+- [ ] 当前允许声明仍为 `V1 mainline closeout candidate passed automated acceptance.`，下一步只能写成 ready for human product review / complete-candidate audit preparation。
+- [ ] 人工核查路径覆盖 launcher 默认贴边、hover / focus、展开、折叠、拖拽、resize、push / overlay、Chat、Agent、Debug、Settings。
+- [ ] 人工核查路径覆盖读取当前页、总结、问答、Evidence Card Mindmap、Reading Map、Source Evidence。
+- [ ] 人工核查路径覆盖 source evidence 三态：`located`、`fallback_shown`、`blocked`，不得把 fallback 写成 DOM success。
+- [ ] 人工核查路径覆盖 B站、小红书、观察者网首页和详情页，并明确 temporary cookie profile、public no-login、用户主 Profile logged-in 的差异。
+- [ ] `fallbackSamples = 0` 的当前 V1-MC fresh 样本必须继续引用 V1.3 / V1.4 或其他 active fallback evidence，不能声明本轮 fresh fallback 已覆盖。
+- [ ] `human-review-checklist.md` 保持 `reviewStatus: pending`，除非人类明确完成核查并给出结论。
+- [ ] 文档不得承诺新增 Runtime public API、RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
+
+出门条件：
+
+```text
+Ready for V1 human product review and complete-candidate audit preparation.
+```
+
+不得作为出门条件：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+文档验收命令：
+
+```bash
+git diff --check
+rg -n "完整 V1 complete|Final Monica-like|logged-in high-quality|RAG ready|Memory ready" docs/active/project
+node -e "const fs=require('fs'); const s=fs.readFileSync('docs/active/project/design/v1-mainline-closeout-gap.drawio','utf8'); const n=(s.match(/<diagram\\b/g)||[]).length; if(n>8) process.exit(1); console.log(n)"
 ```

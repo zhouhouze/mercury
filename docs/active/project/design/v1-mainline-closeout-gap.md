@@ -29,7 +29,7 @@ Date: 2026-06-25
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
 | `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
 | `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login、cookie-injected 与 logged-in 验收分流，特别标注 B站详情页主内容抽取、噪声过滤、source jumpback 和 fallback 路径复核目标。 |
-| `05 开发及验收计划` | 展示 `V1-MC-DOC-0` 到 `V1-MC-QA-5`，以及 `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的验收产物。 |
+| `05 开发及验收计划` | 在旧版闭环布局上展示 `V1-HR-0` 到 `V1-HR-5` 的文档基线、人工核查材料、场景清单、证据一致性、complete candidate 准备和人工结论落盘产物。 |
 | `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成、候选完成或待人工核查内容，以及人工核查 / 登录态复验边界。 |
 | `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
 | `08 风险路线与备选技术` | 展示登录态 CDP、专用 profile / cookie 注入、public no-login headless、blocker + 人工截图补位四条路线，以及小红书 / 观察者 / B站 / E2E false-green 风险。 |
@@ -137,6 +137,39 @@ Web Research / PPT / Deep Research ready。
 - 风险已经转化为 drawio `08 风险路线与备选技术` 页和执行审计文档中的路线矩阵。
 - 默认技术路线为 B 专用测试 profile / cookie 注入 -> A 登录态 Chrome CDP -> C public no-login headless -> D blocker + 人工截图补位；路线 B 出错时再走路线 A 进行登录态 CDP 复验。
 - 任何低等级路线通过都不能覆盖高等级路线失败事实；fresh validation 如果出现 fallback-only，仍不能作为复杂站点矩阵 pass。
+
+## 2026-06-30 V1-HR/CC 人工产品核查准备修订
+
+前一阶段审查报告已确认通过。本轮 drawio 和 companion 的目标从“恢复自动化候选通过”转为“支撑人工产品体验核查与完整 V1 complete 候选审计准备”。
+
+新增表达要求：
+
+- `01` 页必须明确当前事实：自动化候选通过、人工核查 pending、完整 V1 complete 仍 No-Go。
+- `02` 页继续使用具体实现实体，不得退化为“前端 / 后端 / AI 模块”抽象图。
+- `03` 页继续展示目标架构交互链路和责任边界，避免退化为只有体验步骤的浅层流程图。
+- `04` 页继续展示复杂站点质量链路，并标注 temporary cookie profile、public no-login、用户主 Profile logged-in 的差异，避免复杂站点证据被误读。
+- `05` 页必须在旧版闭环版式上展示 `V1-HR-0` 到 `V1-HR-5` 的文档、人工核查和 complete candidate 准备流程。
+- `06` 页必须把 V1.3、V1.4、Gemini style、launcher closeout、complex-site、external visual、mainline closeout、人类 review 串成证据链。
+- `07` 页必须列出人类实际能体验到的功能门槛和报告门槛。
+- `08` 页必须保留旧版风险路线与备选技术矩阵，并补充 V1-HR/CC 不支撑完整 V1 complete 的出门判断。
+
+本轮 drawio 的允许声明：
+
+```text
+Ready for V1 human product review and complete-candidate audit preparation.
+```
+
+本轮 drawio 仍不得支持：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+如果人工核查清单仍是 `reviewStatus: pending`，drawio 和任何 active 文档都不能把项目状态升级为完整 V1 complete。
 
 ## 关联 active 文档
 

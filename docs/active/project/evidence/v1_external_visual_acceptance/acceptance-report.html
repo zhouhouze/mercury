@@ -49,7 +49,7 @@
     <h1>Navia 对外可视化自动化验收报告</h1>
     <p><span class="status">验收通过</span></p>
     <p>Navia 当前可实现的真实网页伴读、Evidence Card Mindmap、Reading Map 和 source jumpback 用户路径通过自动化可视化验收。</p>
-    <p>生成时间：2026-06-29T10:55:13.987Z</p>
+    <p>生成时间：2026-06-29T18:04:02.180Z</p>
   </header>
   <main>
     <section>
@@ -80,13 +80,13 @@
         <td>前端类型检查</td>
         <td><code>npm --prefix apps/chrome-extension run typecheck</code></td>
         <td class="pass">通过</td>
-        <td>11s</td>
+        <td>14s</td>
         <td><a href="command-logs/01_npm_prefix_apps_chrome_extension_run_typecheck.log">日志</a></td>
       </tr><tr>
         <td>前端单元测试</td>
         <td><code>npm --prefix apps/chrome-extension test -- pageContext contentBridge</code></td>
         <td class="pass">通过</td>
-        <td>14s</td>
+        <td>16s</td>
         <td><a href="command-logs/02_npm_prefix_apps_chrome_extension_test_pagecontext_contentbridge.log">日志</a></td>
       </tr><tr>
         <td>A/C 模块测试</td>
@@ -98,13 +98,13 @@
         <td>E2E 扩展构建</td>
         <td><code>npm --prefix apps/chrome-extension run build:e2e</code></td>
         <td class="pass">通过</td>
-        <td>15s</td>
+        <td>19s</td>
         <td><a href="command-logs/04_npm_prefix_apps_chrome_extension_run_build_e2e.log">日志</a></td>
       </tr><tr>
         <td>真实站点 Chrome 自动化诊断</td>
         <td><code>NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics</code></td>
         <td class="pass">通过</td>
-        <td>125s</td>
+        <td>127s</td>
         <td><a href="command-logs/05_navia_real_site_headless_1_npm_prefix_apps_chrome_extension_run_e2e_chrome_real_site_diagnostics.log">日志</a></td>
       </tr></tbody>
       </table>
@@ -140,12 +140,12 @@
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 538</span>
-          <span>SourceRef 81</span>
+          <span>文本 609</span>
+          <span>SourceRef 82</span>
           <span>Digest 18</span>
-          <span>EvidenceCard 14</span>
+          <span>EvidenceCard 10</span>
           <span>Jumpback highlighted</span>
-          <span>导图标签 14 · 噪声 0.00 · 唯一 1.00</span>
+          <span>导图标签 10 · 噪声 0.00 · 唯一 1.00</span>
         </div>
         <div class="shot-grid">
           <figure><img src="screenshots/bilibili-homepage-before.png" alt="bilibili-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
@@ -161,7 +161,7 @@
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 2689</span>
+          <span>文本 2690</span>
           <span>SourceRef 15</span>
           <span>Digest 14</span>
           <span>EvidenceCard 11</span>
@@ -177,17 +177,17 @@
         <div class="sample-head">
           <div>
             <h3>小红书 / homepage</h3>
-            <p>https://www.xiaohongshu.com/explore</p>
+            <p>https://www.xiaohongshu.com/worldcup26?pageFrom=nightRedirect&amp;wcup_source=nightRedirect</p>
           </div>
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 1516</span>
-          <span>SourceRef 52</span>
+          <span>文本 8994</span>
+          <span>SourceRef 105</span>
           <span>Digest 18</span>
-          <span>EvidenceCard 8</span>
+          <span>EvidenceCard 6</span>
           <span>Jumpback highlighted</span>
-          <span>导图标签 8 · 噪声 0.00 · 唯一 1.00</span>
+          <span>导图标签 6 · 噪声 0.00 · 唯一 1.00</span>
         </div>
         <div class="shot-grid">
           <figure><img src="screenshots/xiaohongshu-homepage-before.png" alt="xiaohongshu-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
@@ -198,17 +198,17 @@
         <div class="sample-head">
           <div>
             <h3>小红书 / note-detail</h3>
-            <p>https://www.xiaohongshu.com/explore/6a4246d8000000001700a938?xsec_token=[redacted]&amp;xsec_source=</p>
+            <p>https://www.xiaohongshu.com/explore/6a2aa1e9000000002202f747?xsec_token=[redacted]&amp;xsec_source=pc_sfeed</p>
           </div>
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 1437</span>
-          <span>SourceRef 23</span>
+          <span>文本 1499</span>
+          <span>SourceRef 20</span>
           <span>Digest 18</span>
-          <span>EvidenceCard 14</span>
+          <span>EvidenceCard 11</span>
           <span>Jumpback highlighted</span>
-          <span>导图标签 14 · 噪声 0.00 · 唯一 1.00</span>
+          <span>导图标签 11 · 噪声 0.00 · 唯一 1.00</span>
         </div>
         <div class="shot-grid">
           <figure><img src="screenshots/xiaohongshu-detail-before.png" alt="xiaohongshu-detail before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
@@ -224,12 +224,12 @@
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 17518</span>
-          <span>SourceRef 124</span>
+          <span>文本 17754</span>
+          <span>SourceRef 125</span>
           <span>Digest 16</span>
-          <span>EvidenceCard 13</span>
+          <span>EvidenceCard 12</span>
           <span>Jumpback highlighted</span>
-          <span>导图标签 13 · 噪声 0.00 · 唯一 1.00</span>
+          <span>导图标签 12 · 噪声 0.00 · 唯一 1.00</span>
         </div>
         <div class="shot-grid">
           <figure><img src="screenshots/guancha-homepage-before.png" alt="guancha-homepage before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
@@ -240,17 +240,17 @@
         <div class="sample-head">
           <div>
             <h3>观察者网 / article-detail</h3>
-            <p>https://www.guancha.cn/internation/2026_06_29_821954.shtml</p>
+            <p>https://www.guancha.cn/internation/2026_06_29_822013.shtml</p>
           </div>
           <span class="pill ok">通过</span>
         </div>
         <div class="metrics">
-          <span>文本 12243</span>
-          <span>SourceRef 7</span>
-          <span>Digest 7</span>
-          <span>EvidenceCard 10</span>
+          <span>文本 4519</span>
+          <span>SourceRef 8</span>
+          <span>Digest 8</span>
+          <span>EvidenceCard 13</span>
           <span>Jumpback highlighted</span>
-          <span>导图标签 10 · 噪声 0.00 · 唯一 1.00</span>
+          <span>导图标签 13 · 噪声 0.00 · 唯一 1.00</span>
         </div>
         <div class="shot-grid">
           <figure><img src="screenshots/guancha-detail-before.png" alt="guancha-detail before" /><figcaption>读取前：真实网页与 Navia 入口</figcaption></figure>
