@@ -380,6 +380,8 @@ def source_ref_for_paragraph(page: dict[str, Any], paragraph: dict[str, Any], bl
         ref["selector"] = str(paragraph["selector"])
     elif paragraph.get("domPath"):
         ref["domPath"] = str(paragraph["domPath"])
+    if paragraph.get("href"):
+        ref["href"] = str(paragraph["href"])
     if paragraph.get("chunkId"):
         ref["chunkId"] = paragraph["chunkId"]
     return ref

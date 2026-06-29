@@ -11,6 +11,9 @@ const commandLogRoot = path.join(evidenceRoot, "command-logs");
 const realSiteRoot = path.join(repoRoot, "docs/active/project/evidence/v1_real_site_complex_pages");
 const realSiteScreenshotsRoot = path.join(realSiteRoot, "screenshots");
 const chromeForTesting = path.join(repoRoot, ".tmp/chrome-for-testing/chrome-win64/chrome.exe");
+const stableRealSiteDefaults = {
+  NAVIA_REAL_SITE_BILIBILI_DETAIL_URL: "https://www.bilibili.com/video/BV18W7t6GEmc/"
+};
 
 const commandSpecs = [
   {
@@ -54,6 +57,12 @@ const commandSpecs = [
     args: ["npm", ["--prefix", "apps/chrome-extension", "run", "e2e:chrome:real-site-diagnostics"]],
     env: {
       NAVIA_REAL_SITE_HEADLESS: "1",
+      NAVIA_REAL_SITE_MUTE_AUDIO: "1",
+      NAVIA_REAL_SITE_BILIBILI_DETAIL_URL:
+        process.env.NAVIA_REAL_SITE_BILIBILI_DETAIL_URL || stableRealSiteDefaults.NAVIA_REAL_SITE_BILIBILI_DETAIL_URL,
+      ...(process.env.NAVIA_REAL_SITE_XIAOHONGSHU_DETAIL_URL
+        ? { NAVIA_REAL_SITE_XIAOHONGSHU_DETAIL_URL: process.env.NAVIA_REAL_SITE_XIAOHONGSHU_DETAIL_URL }
+        : {}),
       ...(fs.existsSync(chromeForTesting) ? { NAVIA_BROWSER_EXECUTABLE: chromeForTesting } : {})
     }
   }
@@ -163,7 +172,7 @@ async function runCommand(spec, index) {
       const logSlug = slug(spec.command) || slug(spec.label) || "command";
       const logPath = path.join(commandLogRoot, `${String(index + 1).padStart(2, "0")}_${logSlug}.log`);
       fs.mkdirSync(path.dirname(logPath), { recursive: true });
-      fs.writeFileSync(logPath, `${stdout}\n${stderr}`);
+      fs.writeFileSync(logPath, sanitizeEvidenceString(`${stdout}\n${stderr}`));
       resolve({
         label: spec.label,
         command: spec.command,

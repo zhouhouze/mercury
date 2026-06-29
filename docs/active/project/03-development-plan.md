@@ -1400,7 +1400,7 @@ V1-MC-QA-4：Mindmap / Reading Map / Source Evidence 截图级可读性验收
 V1-MC-QA-5：总报告、PRD review、false-green audit、human review checklist 更新
 ```
 
-当前阻塞修复子阶段：
+当前质量硬化子阶段：
 
 ```text
 V1-MC-SJ-0：Source Jumpback Hardening 文档、架构和验收口径冻结
@@ -1426,12 +1426,12 @@ Source Jumpback Hardening 开发及验收计划：
 
 | 子阶段 | 开发重点 | 验收重点 |
 |---|---|---|
-| `V1-MC-SJ-0` | 同步 PRD、架构、开发计划、验收计划、stage gate、drawio；记录当前 `xiaohongshu-homepage`、`guancha-detail` fallback-only 基线 | 文档无 fatal / major；当前失败不被写成通过；drawio 仍不超过 8 页 |
+| `V1-MC-SJ-0` | 同步 PRD、架构、开发计划、验收计划、stage gate、drawio；记录当前 real-site 6/6 pass、0 degraded、0 blocked、`fallbackSamples = 0`、人工核查 pending 和 cookie-injected 复核边界 | 文档无 fatal / major；自动化候选通过事实不被升级为完整 V1 complete；drawio 仍不超过 8 页 |
 | `V1-MC-SJ-1` | A Page Reading 对复杂站点主内容提权：小红书 feed card、观察者 article 正文、B站视频主内容；过滤评论、推荐、站点壳、footer、活动广告 | `perception-summary.json` 中 sourceRefs 和 digestItems 能对应主内容；噪声不主导摘要和 Mindmap |
 | `V1-MC-SJ-2` | C/B 对 Mindmap 节点和 source card 排序：root / 高层节点优先正文和可定位来源，避免默认卡片指向评论或推荐 | `source-cards.json` 前几张卡片包含主内容来源；E2E 不再因第 0 张卡片选错导致假失败 |
 | `V1-MC-SJ-3` | Content Script jumpback 在用户触发后尝试多个 sourceRef，并按 selector、domPath、textQuote、href/card 文本评分定位 | DOM highlight 成功时必须出现 Navia source marker；失败必须 fallback_shown，blocked 必须单独记录 |
 | `V1-MC-SJ-4` | E2E 选择“主内容且可定位概率最高”的 source card；报告记录选择原因；真实站点默认 headless 和 `--mute-audio` | 自动化不抢焦点、不发声；`jumpback.json` 记录 selectedSourceCardIndex / reason / result |
-| `V1-MC-SJ-5` | 重新跑 B站、小红书、观察者网首页和详情页 6 样本；重新聚合 V1-MC 总报告 | 6/6 pass、0 degraded、0 blocked 才允许 V1-MC 自动化候选通过；否则保持 no-completion claim |
+| `V1-MC-SJ-5` | 重新跑 B站、小红书、观察者网首页和详情页 6 样本；重新聚合 V1-MC 总报告 | 当前已恢复 6/6 pass、0 degraded、0 blocked 和 V1-MC 自动化候选通过；后续若任一样本 degraded / blocked，必须打回质量硬化并恢复 no-completion claim |
 
 专项质量闭环：
 
@@ -1448,12 +1448,12 @@ Chrome 验收技术路线矩阵：
 
 | 路线 | 使用条件 | 优点 | 缺点 | 允许声明 |
 |---|---|---|---|---|
-| A. 连接用户已打开的登录态 Chrome CDP | 用户主动以 remote debugging 方式启动或提供 `NAVIA_CDP_URL`；Navia extension 已可见 | 最接近真实登录态体验；可验证 B站详情页登录态 | 需要人类配合启动浏览器；不能由自动化强制接管现有 profile | 可声明 logged-in validation，仅限实际截图和 report 覆盖的页面 |
-| B. 新建专用 Chrome 测试 profile 并手动登录 | 自动化 profile 能加载 unpacked extension；用户可在该 profile 登录 B站 / 小红书 | 可重复、不会锁用户主 profile；适合长期回归 | 初次登录需要人工；登录态有效期依赖站点策略 | 可声明 logged-in validation，仅限该专用 profile |
+| B. 新建专用 Chrome 测试 profile 并手动登录 / cookie 注入 | 自动化 profile 能加载 unpacked extension；用户可在该 profile 登录 B站 / 小红书，或注入用户授权 cookie | 首选路线；可重复、不会锁用户主 profile；适合长期回归 | 初次登录需要人工；cookie 可能过期；登录态有效期依赖站点策略 | 可声明 dedicated-profile / cookie-injected validation，仅限该专用 profile 和实际覆盖页面 |
+| A. 连接用户已打开的登录态 Chrome CDP | 路线 B 出错、cookie 失效、专用 profile 风控或无法加载扩展时，用户主动以 remote debugging 方式启动或提供 `NAVIA_CDP_URL`；Navia extension 已可见 | 最接近真实登录态体验；可验证 B站详情页登录态；适合作为 B 失败后的复验路线 | 需要人类配合启动浏览器；不能由自动化强制接管现有 profile | 可声明 logged-in validation，仅限实际截图和 report 覆盖的页面 |
 | C. public no-login 临时 profile | 登录态不可用但 extension 可加载 | 自动化程度高；适合公开态回归 | 不能证明登录态高质量；小红书 / B站详情可能降级 | 只能声明 public no-login / degraded，不得冒充 logged-in |
 | D. 结构化 blocker + 人工截图补位 | Chrome profile locked、extension not loaded、Playwright/Chrome 环境不可用 | 不做虚假验收；保留风险事实 | 不能自动化通过；会阻塞完整 V1 candidate | 只能声明 blocked / manual review required |
 
-默认执行顺序固定为 A -> B -> C -> D。任一低等级路线不得覆盖高等级路线的失败事实；例如 C 通过不能抵消 A/B 登录态 blocked。
+默认执行顺序固定为 B -> A -> C -> D。路线 B 出错时再走路线 A 进行登录态 CDP 复验；任一低等级路线不得覆盖高等级路线的失败事实，例如 C 通过不能抵消 B/A 登录态 blocked。
 
 每个子阶段完成后必须留下可审查产物：
 
@@ -1474,7 +1474,7 @@ Chrome 验收技术路线矩阵：
 - `V1-MC-3` 如果总报告与阶段 report 结论不一致、上游 evidence 路径缺失、上游 report 存在 fatal / major、或 `testCommands` 未记录，打回报告生成。
 - `V1-MC-4` 如果 checklist 不能指导人类快速核查 launcher、sidebar、读取、问答、导图和 source evidence，或缺少 review status 字段，打回人工核查材料。
 - `V1-MC-5` 如果旧 failed closeout 证据未解释、废止或重跑，或 fallback coverage 没有说明当前抽样 / 上游继承来源，不得进入完整 V1 complete 候选审计。
-- `V1-MC-SJ-5` 如果 `v1_real_site_complex_pages/report.json` 仍有 degraded / blocked，或 `v1_external_visual_acceptance/report.json` 未通过，不得生成 V1-MC passed claim。
+- `V1-MC-SJ-5` 如果重新生成后的 `v1_real_site_complex_pages/report.json` 出现 degraded / blocked，或 `v1_external_visual_acceptance/report.json` 未通过，必须撤回 V1-MC passed claim 并生成 no-completion claim。
 
 固定验证命令：
 

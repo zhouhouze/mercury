@@ -315,20 +315,21 @@ function extractXiaohongshuFeedSignals(documentRef: Document, meta: DomSignals["
   ].join(",");
   for (const node of Array.from(documentRef.querySelectorAll<HTMLElement>(cardSelector))) {
     const element = node instanceof HTMLAnchorElement ? node : node.closest<HTMLElement>("section, article, li, [class*='note'], [class*='card']") ?? node;
-    const text = normalizeXiaohongshuText(element.innerText || element.textContent || "");
     const firstLink = element instanceof HTMLAnchorElement ? element : element.querySelector<HTMLAnchorElement>("a[href*='/explore/']");
+    const text = xiaohongshuCardText(element, firstLink);
     if (!isUsefulXiaohongshuFeedText(text)) continue;
+    const href = firstLink ? resolveHref(firstLink.getAttribute("href") || firstLink.href, url) : undefined;
     blocks.push({
       text: text.slice(0, 420),
       selector: cssPath(element),
-      href: firstLink?.href,
+      href,
       role: "xhs_feed_card"
     });
-    if (firstLink?.href) {
+    if (href) {
       links.push({
         text: text.slice(0, 140),
-        href: firstLink.href,
-        selector: cssPath(firstLink),
+        href,
+        selector: firstLink ? cssPath(firstLink) : undefined,
         role: "content_link"
       });
     }
@@ -523,6 +524,14 @@ function firstMetaContent(meta: DomSignals["meta"], names: string[]): string {
   return found?.content ?? "";
 }
 
+function resolveHref(href: string, baseUrl: string): string {
+  try {
+    return new URL(href, baseUrl).toString();
+  } catch {
+    return href;
+  }
+}
+
 function isUsefulBilibiliMainText(text: string, options: { minLength?: number; maxLength?: number } = {}): boolean {
   const normalized = normalizeText(text);
   const minLength = options.minLength ?? 8;
@@ -548,6 +557,31 @@ function normalizeXiaohongshuText(text: string): string {
     .replace(/展开更多|收起|复制链接|举报|分享至.*$/g, "")
     .replace(/说点什么.*$/g, "")
     .trim();
+}
+
+function xiaohongshuCardText(element: HTMLElement, firstLink?: HTMLAnchorElement | null): string {
+  const candidates = [
+    element.innerText,
+    element.textContent,
+    firstLink?.textContent,
+    firstLink?.getAttribute("aria-label"),
+    firstLink?.getAttribute("title"),
+    element.getAttribute("aria-label"),
+    element.getAttribute("title"),
+    ...Array.from(element.querySelectorAll<HTMLImageElement>("img[alt]")).map((image) => image.getAttribute("alt") || "")
+  ]
+    .map((value) => normalizeXiaohongshuText(value || ""))
+    .filter(Boolean)
+    .filter((value) => !/^(图片|图像|avatar|头像|封面)$/i.test(value));
+  const deduped: string[] = [];
+  const seen = new Set<string>();
+  for (const candidate of candidates) {
+    const key = candidate.replace(/[^\p{L}\p{N}#]+/gu, "").slice(0, 80).toLowerCase();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(candidate);
+  }
+  return normalizeXiaohongshuText(deduped.join(" "));
 }
 
 function isUsefulXiaohongshuMainText(text: string, options: { minLength?: number; maxLength?: number } = {}): boolean {

@@ -36,13 +36,14 @@ type PageContextBridgeResponse =
   | { ok: true; context: ExtractedPageContext }
   | { ok: false; error: string };
 
-type JumpbackStrategy = "selector" | "domPath" | "textQuote";
+type JumpbackStrategy = "selector" | "domPath" | "href" | "textQuote";
 
 type JumpbackRequest = {
   nodeId?: string;
   nodeSourceMapKey?: string;
   selector?: string;
   domPath?: string;
+  href?: string;
   textQuote?: string;
   fallbackText?: string;
 };
@@ -364,12 +365,17 @@ function bindLauncherDrag(documentRef: Document, host: HTMLElement, launcher: HT
     const onUp = () => {
       launcher.dataset.naviaDragging = dragged ? "true" : "false";
       launcher.style.cursor = "grab";
+      launcher.releasePointerCapture?.(event.pointerId);
+      launcher.removeEventListener("pointermove", onMove);
+      launcher.removeEventListener("pointerup", onUp);
       view.removeEventListener("pointermove", onMove);
       view.removeEventListener("pointerup", onUp);
       view.setTimeout(() => {
         launcher.dataset.naviaDragging = "false";
       }, 0);
     };
+    launcher.addEventListener("pointermove", onMove);
+    launcher.addEventListener("pointerup", onUp, { once: true });
     view.addEventListener("pointermove", onMove);
     view.addEventListener("pointerup", onUp, { once: true });
   });
@@ -522,6 +528,7 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
   const attemptedStrategies: JumpbackStrategy[] = [];
   const selector = cleanString(request.selector);
   const domPath = cleanString(request.domPath);
+  const href = cleanString(request.href);
   const textQuote = cleanString(request.textQuote);
   clearJumpbackHighlights(documentRef);
 
@@ -535,6 +542,12 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
     attemptedStrategies.push("domPath");
     const element = findBySelector(documentRef, domPath, textQuote);
     if (element) return highlightElement(element, { attemptedStrategies, matchedStrategy: "domPath" });
+  }
+
+  if (href) {
+    attemptedStrategies.push("href");
+    const element = findByHref(documentRef, href, textQuote);
+    if (element) return highlightElement(element, { attemptedStrategies, matchedStrategy: "href" });
   }
 
   if (textQuote) {
@@ -612,7 +625,7 @@ function clearJumpbackHighlights(documentRef: Document): void {
 function isJumpbackRequest(value: unknown): value is JumpbackRequest {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const record = value as Record<string, unknown>;
-  return [record.selector, record.domPath, record.textQuote, record.fallbackText].some((item) => typeof item === "string" && item.trim().length > 0);
+  return [record.selector, record.domPath, record.href, record.textQuote, record.fallbackText].some((item) => typeof item === "string" && item.trim().length > 0);
 }
 
 function cleanString(value: unknown): string {
@@ -661,6 +674,27 @@ function findByTextQuote(documentRef: Document, textQuote: string): HTMLElement 
   return Array.from(scored.entries()).sort((left, right) => right[1] - left[1])[0]?.[0] ?? null;
 }
 
+function findByHref(documentRef: Document, href: string, textQuote = ""): HTMLElement | null {
+  const target = normalizeHref(href, documentRef.baseURI);
+  if (!target) return null;
+  const anchors = Array.from(documentRef.querySelectorAll<HTMLAnchorElement>("a[href]"));
+  const scored = anchors
+    .map((anchor) => {
+      const anchorHref = normalizeHref(anchor.href || anchor.getAttribute("href") || "", documentRef.baseURI);
+      if (!anchorHref || !hrefsMatch(anchorHref, target)) return null;
+      const card = nearestTraceableCard(anchor, textQuote) ?? anchor;
+      const score =
+        (anchorHref === target ? 40 : 24) +
+        elementQualityScore(card, textQuote || normalizeText(anchor.textContent || "")) +
+        textMatchScore(normalizeText(card.textContent || anchor.textContent || ""), textQuoteCandidates(textQuote || anchor.textContent || ""));
+      return [card, score] as const;
+    })
+    .filter((item): item is readonly [HTMLElement, number] => Boolean(item))
+    .filter(([element]) => isTraceableElement(element, textQuote || normalizeText(element.textContent || "")))
+    .sort((left, right) => right[1] - left[1]);
+  return scored[0]?.[0] ?? null;
+}
+
 function findBestDescendantMatch(root: HTMLElement, textQuote: string): HTMLElement | null {
   const candidates = textQuoteCandidates(textQuote);
   const descendants = Array.from(root.querySelectorAll<HTMLElement>("h1, h2, h3, p, li, blockquote, pre, [class*='title'], [class*='desc'], [class*='content'], [class*='note'], [class*='video'], div"));
@@ -670,6 +704,23 @@ function findBestDescendantMatch(root: HTMLElement, textQuote: string): HTMLElem
     .filter(([, score]) => score > 0)
     .sort((left, right) => right[1] - left[1]);
   return scored[0]?.[0] ?? null;
+}
+
+function nearestTraceableCard(anchor: HTMLElement, textQuote: string): HTMLElement | null {
+  const selectors = [
+    "article",
+    "section",
+    "li",
+    "[role='article']",
+    "[class*='card']",
+    "[class*='note']",
+    "[class*='feed']",
+    "[class*='video']",
+    "[class*='item']"
+  ].join(",");
+  const card = anchor.closest<HTMLElement>(selectors);
+  if (card && !isIgnoredJumpbackElement(card) && normalizeText(card.textContent || "").length <= 900) return card;
+  return nearestTraceableParent(anchor, textQuote || normalizeText(anchor.textContent || ""));
 }
 
 function nearestTraceableParent(parent: HTMLElement | null, textQuote: string): HTMLElement | null {
@@ -784,6 +835,7 @@ function placeJumpbackMarker(element: HTMLElement, strategy: JumpbackStrategy): 
 function strategyLabel(strategy: JumpbackStrategy): string {
   if (strategy === "selector") return "页面选择器";
   if (strategy === "domPath") return "DOM 路径";
+  if (strategy === "href") return "来源链接";
   return "文本证据";
 }
 
@@ -815,4 +867,28 @@ function textQuoteCandidates(value: string): string[] {
     .filter((item) => item.length >= 4);
   const sentences = withoutUrls.split(/[。.!?；;]\s*/).map((item) => item.trim()).filter((item) => item.length >= 4);
   return Array.from(new Set([...candidates, ...sentences]));
+}
+
+function normalizeHref(value: string, baseURI?: string): string {
+  try {
+    const parsed = new URL(value, baseURI || undefined);
+    parsed.hash = "";
+    for (const key of [...parsed.searchParams.keys()]) {
+      if (/^(spm_id_from|trackid|vd_source|xsec_token|xsec_source|from|share_from_user_hidden)$/i.test(key)) parsed.searchParams.delete(key);
+    }
+    return parsed.toString().replace(/\/$/, "");
+  } catch {
+    return value.replace(/#.*$/, "").replace(/[?&](?:spm_id_from|trackid|vd_source|xsec_token|xsec_source)=[^&#\s]+/gi, "").replace(/\/$/, "");
+  }
+}
+
+function hrefsMatch(left: string, right: string): boolean {
+  if (left === right) return true;
+  try {
+    const a = new URL(left);
+    const b = new URL(right);
+    return a.hostname.replace(/^www\./, "") === b.hostname.replace(/^www\./, "") && a.pathname.replace(/\/$/, "") === b.pathname.replace(/\/$/, "");
+  } catch {
+    return left.includes(right) || right.includes(left);
+  }
 }

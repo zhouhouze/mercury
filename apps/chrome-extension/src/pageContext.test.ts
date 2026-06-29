@@ -175,6 +175,28 @@ describe("extractPageContext", () => {
     expect(extracted).not.toContain("网上有害信息举报专区");
   });
 
+  it("extracts Xiaohongshu feed cards from aria labels and image alt text when card text is sparse", () => {
+    document.head.innerHTML = `<meta name="description" content="小红书首页公开笔记推荐">`;
+    document.body.innerHTML = `
+      <main id="exploreFeeds">
+        <section class="note-card">
+          <a href="/explore/feed003" aria-label="低代码 AI 工作台搭建复盘">
+            <img alt="低代码 AI 工作台搭建复盘，包含需求拆分和组件编排" src="fixture.jpg">
+          </a>
+          <button>赞</button>
+        </section>
+      </main>
+    `;
+    document.title = "小红书 - 你的生活兴趣社区";
+
+    const context = extractPageContext(document, "https://www.xiaohongshu.com/explore");
+    const block = context.dom_signals?.blocks.find((item) => item.role === "xhs_feed_card");
+
+    expect(block?.text).toContain("低代码 AI 工作台");
+    expect(block?.href).toBe("https://www.xiaohongshu.com/explore/feed003");
+    expect(context.cleaned_text).toContain("需求拆分");
+  });
+
   it("focuses Guancha detail extraction on article body without comments or recommendations", () => {
     document.head.innerHTML = `
       <meta property="og:title" content="观察者网文章核心标题">

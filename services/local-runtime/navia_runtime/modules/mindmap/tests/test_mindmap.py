@@ -164,7 +164,7 @@ def test_complex_site_shell_noise_is_removed_from_digest_mindmap() -> None:
         "sourceRefs": [
             {"sourceRefId": "src_nav", "paragraphId": "p1", "chunkId": "c1", "fallbackText": "首页 番剧 直播 游戏中心 会员购 漫画 赛事 下载客户端 登录 注册"},
             {"sourceRefId": "src_meta", "paragraphId": "p1", "chunkId": "c1", "fallbackText": "keywords: bilibili,哔哩哔哩,弹幕视频,会员购,游戏中心"},
-            {"sourceRefId": "src_video", "paragraphId": "p2", "chunkId": "c1", "fallbackText": "这条视频评论讨论了新专辑发布后的传播效果和观众反馈。"},
+            {"sourceRefId": "src_video", "paragraphId": "p2", "chunkId": "c1", "fallbackText": "这条视频评论讨论了新专辑发布后的传播效果和观众反馈。", "href": "https://www.bilibili.com/video/BV1"},
             {"sourceRefId": "src_author", "paragraphId": "p3", "chunkId": "c2", "fallbackText": "作者表示后续还会更新幕后内容，粉丝关注度继续上升。"},
         ]
     }
@@ -189,6 +189,7 @@ def test_complex_site_shell_noise_is_removed_from_digest_mindmap() -> None:
     assert root["sourceRefIds"]
     assert "src_nav" not in root["sourceRefIds"]
     assert "src_meta" not in root["sourceRefIds"]
+    assert any(node.get("jumpback", {}).get("href") == "https://www.bilibili.com/video/BV1" for node in result["metadata"]["nodeSourceMap"].values())
     assert "新专辑" in root["fallbackText"] or "幕后内容" in root["fallbackText"]
     labels = [node["nodeLabel"] for node in result["metadata"]["nodeSourceMap"].values()]
     assert any(label in {"核心事件", "视频与内容", "互动与传播", "互动数据", "UP主与发布", "人物与机构"} for label in labels)

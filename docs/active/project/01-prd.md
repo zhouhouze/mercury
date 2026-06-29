@@ -1043,7 +1043,7 @@ V1 的核心原则：
 - 真实 floating ball、hover strip、collapse handle、drag resize、overlay breakpoint。
 - RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
 
-本阶段允许声明：
+本阶段在自动化验收全部通过、PRD 复检和 false-green audit 无 fatal / major、复杂站点边界说明闭环、且人工产品体验核查完成后，才允许进入以下候选声明：
 
 ```text
 V1 Gemini style pass for current sidebar baseline complete.
@@ -1161,19 +1161,30 @@ Web Research / PPT / Deep Research ready。
 
 ### 14.11 V1-MC-SJ 复杂站点 Source Jumpback Hardening 目标
 
-`V1-MC-SJ` 是 V1 Mainline Closeout Candidate 内的阻塞修复子阶段。它不新增产品能力，不引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取；它只把当前真实复杂站点验收中暴露的 source jumpback、主内容抽取和 source card 选择问题补齐到可重新进入 V1-MC 自动化候选验收的水平。
+`V1-MC-SJ` 是 V1 Mainline Closeout Candidate 内的复杂站点质量硬化子阶段。它不新增产品能力，不引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取；它只把真实复杂站点验收中可能暴露的 source jumpback、主内容抽取和 source card 选择问题补齐到可稳定维持 V1-MC 自动化候选验收的水平。
 
-当前阻塞基线：
+当前自动化证据基线：
 
 ```text
 docs/active/project/evidence/v1_real_site_complex_pages/report.json
-passed = false
+passed = true
 samplesTotal = 6
-passedSamples = 4
-degradedSamples = 2
-fallbackSamples = 2
-blockingSamples = xiaohongshu-homepage, guancha-detail
+passedSamples = 6
+degradedSamples = 0
+blockedSamples = 0
+fallbackSamples = 0
+fatalIssues = []
+loginStatePolicy = temp-profile-with-injected-auth-cookies
+
+docs/active/project/evidence/v1_external_visual_acceptance/report.json
+passed = true
+
+docs/active/project/evidence/v1_mainline_closeout/report.json
+passed = true
+claim = V1 mainline closeout candidate passed automated acceptance.
 ```
+
+该基线证明 V1-MC-SJ 复杂站点质量硬化已完成一轮自动化复验：B站、小红书、观察者网首页与详情页 6 个真实样本均通过，且 6 个样本均为 DOM highlighted。真实站点复验使用临时 Chrome profile 注入授权 cookie；cookie 值未进入证据。由于当前 V1-MC 样本 `fallbackSamples = 0`，fallback 路径覆盖必须继续引用 V1.3 / V1.4 或其他 active 阶段证据，不能声称本轮真实站点矩阵已新鲜抽样覆盖 fallback。人工产品体验核查仍为 `pending`，因此该基线只能支持 `V1 mainline closeout candidate passed automated acceptance`，不能支持完整 V1 complete。
 
 本子阶段目标用户路径：
 
@@ -1203,7 +1214,7 @@ blockingSamples = xiaohongshu-homepage, guancha-detail
 - B Renderer 改善 source card 排序、展示和 E2E 可观测字段，但不得生成事实内容。
 - Content Script Source Jumpback 在用户触发时尝试多个 sourceRef、selector、domPath、textQuote、href/card 线索；失败时保留 fallback，不得伪装成功。
 
-本子阶段完成后仍只能支持：
+本子阶段完成且 real-site 6/6 pass、0 degraded、0 blocked，并重新聚合 V1-MC 总报告通过后，仍只能支持：
 
 ```text
 V1 mainline closeout candidate passed automated acceptance.

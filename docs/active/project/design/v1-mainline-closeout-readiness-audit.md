@@ -85,7 +85,7 @@ Status: Active documentation audit
 - 文档已明确：摘要和 Mindmap 主节点必须来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容；推荐、弹幕设置、活动广告、QQ群 / 微信、自动连播、订阅合集不得主导输出。
 - 文档已明确：Mindmap / Reading Map / 状态卡必须通过真实截图复核，不得出现文本虚影、节点重叠、输入框遮挡或状态卡截断。
 - 文档已明确：Chrome profile locked、extension not loaded、public no-login fallback 必须记录为 blocked / degraded，不得冒充登录态通过。
-- `03-development-plan.md` 已增加 Chrome 验收技术路线矩阵，默认执行顺序为 A 连接用户登录态 Chrome CDP -> B 专用测试 profile 登录 -> C public no-login 临时 profile -> D structured blocker + 人工截图补位。
+- `03-development-plan.md` 已增加 Chrome 验收技术路线矩阵，默认执行顺序为 B 专用测试 profile / cookie 注入 -> A 用户登录态 Chrome CDP -> C public no-login 临时 profile -> D structured blocker + 人工截图补位。
 
 当前文档水平可以支撑本阶段 V1 Mainline Closeout Candidate 的剩余开发计划、自动化验收和人工验收准备，但存在一个无法仅靠文档完全消除的外部环境风险：
 
@@ -114,4 +114,25 @@ V1-MC-QA-1 Chrome automation route verification
 ```text
 V1-MC-4 人工产品体验核查完成
 V1-MC-5 PRD review + false-green audit 无 fatal / major issue
+```
+
+## 7. 2026-06-29 Active Evidence Baseline Sync
+
+本轮文档基线同步以当前 active evidence 为事实来源：
+
+| Evidence | Current status | Documentation meaning |
+|---|---|---|
+| `docs/active/project/evidence/v1_real_site_complex_pages/report.json` | `passed=true`, 6 samples / 6 passed / 0 degraded / 0 blocked / 6 highlighted / 0 fallback | 当前复杂站点矩阵已通过自动化复验；本轮为 temporary Chrome profile + injected auth cookies |
+| `docs/active/project/evidence/v1_external_visual_acceptance/report.json` | `passed=true`, 5 commands passed / 6 visual samples passed | 支持自动化可视化验收通过；仍不替代人工产品体验核查 |
+| `docs/active/project/evidence/v1_mainline_closeout/report.json` | `passed=true`, claim 为 `V1 mainline closeout candidate passed automated acceptance.` | 当前支持进入人工产品体验核查准备；不能声明完整 V1 complete |
+
+本轮修订必须将 PRD、目标架构、开发计划、stage gate、gap companion 和 drawio 中的旧 no-completion / blocked 当前事实口径改为自动化候选通过，同时保留 `fallbackSamples = 0` 的上游 fallback 继承说明和人工产品体验核查 pending 边界。
+
+当前结论：
+
+```text
+Go for V1-MC-SJ documentation baseline after passed evidence sync.
+Go for V1-MC automated candidate acceptance verification.
+Conditional Go for full V1 complete candidate audit only after human product review.
+No-Go for full V1 complete from automated reports or drawio alone.
 ```

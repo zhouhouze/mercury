@@ -692,12 +692,15 @@ def source_refs_for(*, paragraph_ids: list[str], chunk_ids: list[str], source_re
 def jumpback_from_ref(ref: dict[str, Any], *, fallback_reason: str) -> dict[str, Any]:
     selector = str(ref.get("selector") or "").strip()
     dom_path = str(ref.get("domPath") or "").strip()
-    if selector or dom_path:
+    href = str(ref.get("href") or "").strip()
+    if selector or dom_path or href:
         payload: dict[str, Any] = {"mode": "dom"}
         if selector:
             payload["selector"] = selector
         if dom_path:
             payload["domPath"] = dom_path
+        if href:
+            payload["href"] = href
         if ref.get("startOffset") is not None:
             payload["startOffset"] = ref.get("startOffset")
         if ref.get("endOffset") is not None:

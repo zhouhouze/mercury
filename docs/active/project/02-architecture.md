@@ -1458,7 +1458,7 @@ Local Runtime 127.0.0.1
 | 已实现并需 fresh evidence | `services/local-runtime/navia_runtime/modules/mindmap/` | C digest-first Mindmap 与 `nodeSourceMap` 已存在 | Mindmap 主题归并、节点文本和 source 绑定在真实复杂站点上可读、可追踪 |
 | 已实现并需视觉复核 | `apps/chrome-extension/src/modules/chat_renderer/` 和 `mindmap_renderer/` | Evidence Card Mindmap、Reading Map、Source Evidence 已进入 Chat artifact | 截图证明无文本虚影、无卡片重叠、无输入框遮挡、状态卡不截断 |
 | 已实现并需行为复核 | `contentBridge.ts` 中 `navia.jumpToSource` | DOM highlight / fallback / blocked 语义存在 | 真实网页点击 source 后能清楚看到 located、fallback_shown 或 blocked |
-| 阻塞 / 需处理 | Chrome 自动化环境与 `e2e/chrome-real-site-diagnostics.mjs` | 已支持指定站点和详情 URL；真实登录态 profile 可能被锁定，临时 Chrome 可能未加载 unpacked extension | 报告必须把 login profile locked、extension not loaded、public no-login fallback 记录为 blocker / degraded，不得写成通过 |
+| 已实现并需持续复验 | Chrome 自动化环境与 `e2e/chrome-real-site-diagnostics.mjs` | 当前 active evidence 显示 real-site 6/6 pass、0 degraded、0 blocked、6 highlighted；V1 mainline closeout 已恢复自动化候选通过；本轮使用临时 Chrome profile 注入授权 cookie，未使用用户主 profile CDP | 后续 fresh validation 必须继续把 login profile locked、extension not loaded、public no-login fallback 记录为 blocked / degraded，不得写成 logged-in profile 通过；cookie-injected evidence 不得冒充完整登录态全站质量 |
 | 待人工确认 | `human-review-checklist.md` | `reviewStatus: pending` | 人工产品体验核查完成后才能进入完整 V1 complete 候选审计 |
 
 V1-MC-SJ Source Jumpback Hardening 目标链路：
@@ -1475,12 +1475,13 @@ Host Page DOM / Page Context
   -> report.json / acceptance-report.html / screenshots
 ```
 
-当前阻塞实体：
+复杂站点 fresh validation 风险实体：
 
-| 阻塞样本 | 当前失败点 | 目标架构修复点 | 不允许的捷径 |
+| 风险样本 | 可能失败点 | 目标架构修复点 | 不允许的捷径 |
 |---|---|---|---|
-| `xiaohongshu-homepage` | source card 主要来自信息流拼接文本，jumpback 只能 fallback | A 生成 feed card 级 sourceRef；B/C 优先展示可定位卡片；content script 用 card text / href / textQuote 多线索定位 | 把 fallback 写成 highlighted；把 public no-login 写成 logged-in |
-| `guancha-detail` | source card 可能指向评论、推荐、最新视频或头条侧栏；第 0 张卡不是稳定正文来源 | A/C 对 article 正文、标题、作者、发布时间、正文段落提权；B source card 排序把正文置前；E2E 记录选择原因 | 继续固定点击第 0 张卡；推荐/评论主导仍声明高质量 |
+| `xiaohongshu-homepage` | 当前自动化证据已恢复 `highlighted`；仍需防止信息流拼接文本、登录态 / public no-login / 虚拟列表导致 DOM 定位回归 | A 生成 feed card 级 sourceRef；B/C 优先展示可定位卡片；content script 用 card text / href / textQuote 多线索定位 | 把未来 blocked 或 fallback 写成 highlighted；把 cookie-injected 临时 profile 写成用户主 profile 全量登录验证 |
+| `xiaohongshu-detail` | 当前自动化证据已恢复 `highlighted`；详情页仍可能被登录态、风控、动态渲染或卡片 DOM 变化阻断 | A 绑定标题、作者、正文段落、图片说明和稳定链接；B/C 把详情正文 source card 前置；content script 多线索定位 | 用首页或外部 visual pass 覆盖详情页回归；把 blocked 冒充通过 |
+| `guancha-detail` | source card 可能指向评论、推荐、最新视频或头条侧栏；第 0 张卡可能不是稳定正文来源 | A/C 对 article 正文、标题、作者、发布时间、正文段落提权；B source card 排序把正文置前；E2E 记录选择原因 | 继续固定点击第 0 张卡；推荐/评论主导仍声明高质量 |
 
 责任边界：
 

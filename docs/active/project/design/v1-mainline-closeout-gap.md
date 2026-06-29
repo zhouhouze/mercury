@@ -14,8 +14,8 @@ Date: 2026-06-25
 - 当前架构与目标架构差异。
 - Content Script、iframe sidepanel、B Renderer、Runtime A/C/D、source jumpback 的责任边界。
 - `V1-MC-0` 到 `V1-MC-5` 的开发及验收计划。
-- `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的复杂站点 Source Jumpback Hardening 阻塞修复计划。
-- 已完成自动化候选态与仍需人工产品体验核查的边界。
+- `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的复杂站点 Source Jumpback Hardening 质量硬化计划。
+- 当前 V1-MC 自动化候选通过事实、cookie-injected 真实站点复验口径，以及仍需人工产品体验核查的边界。
 - 验收门槛、No-Go 和允许声明。
 - 固定验证命令 `testCommands`、上游 evidence 路径逐个校验、fallback coverage 来源和人工核查状态字段。
 
@@ -28,38 +28,39 @@ Date: 2026-06-25
 | `01 阶段目标与体验路径` | 展示从普通网页、默认贴边 launcher、hover / focus 弹出、点击展开右侧 sidebar、读取当前页、总结 / 问答 / Mindmap 到 source evidence 的目标体验路径。 |
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
 | `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
-| `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login 与 logged-in 验收分流，特别标注小红书首页和观察者详情页 fallback-only 阻塞、B站详情页主内容抽取和噪声过滤目标。 |
+| `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login、cookie-injected 与 logged-in 验收分流，特别标注 B站详情页主内容抽取、噪声过滤、source jumpback 和 fallback 路径复核目标。 |
 | `05 开发及验收计划` | 展示 `V1-MC-DOC-0` 到 `V1-MC-QA-5`，以及 `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的验收产物。 |
-| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成、未通过或候选完成内容，以及人工核查 / 登录态复验边界。 |
+| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成、候选完成或待人工核查内容，以及人工核查 / 登录态复验边界。 |
 | `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
 | `08 风险路线与备选技术` | 展示登录态 CDP、专用 profile / cookie 注入、public no-login headless、blocker + 人工截图补位四条路线，以及小红书 / 观察者 / B站 / E2E false-green 风险。 |
 
 ## 色块图例
 
-- 绿色：已实现并已有 active evidence，可作为候选态输入。
+- 绿色：已实现并已有 active evidence，可作为后续候选态输入；当前若被上游 blocked 阻断，必须在证据矩阵中单独标注。
 - 黄色：已实现或已修复，但仍需 fresh evidence 或截图复核。
 - 蓝色：待执行的文档、验收、报告或人工核查动作。
-- 红色：当前阻塞或 false-green 风险，不能被包装成通过。
+- 红色：false-green 风险、禁止声明或未来 fresh validation 失败时的打回路径，不能被包装成通过。
 - 灰色：保留入口、历史证据或非主完成声明。
 
 ## 当前证据边界
 
-当前 `v1_mainline_closeout` 总报告不得声明通过：
+当前 `v1_mainline_closeout` 总报告支持自动化候选通过：
 
 ```text
 docs/active/project/evidence/v1_mainline_closeout/report.json
-passed = false
-claim = No completion claim. V1 mainline closeout candidate has blocking issues.
+passed = true
+claim = V1 mainline closeout candidate passed automated acceptance.
 ```
 
-当前阻塞样本：
+当前 active evidence 基线：
 
-| 样本 | 状态 | 原因 | 文档目标 |
+| 证据 | 当前状态 | 边界 |
 |---|---|---|---|
-| `xiaohongshu-homepage` | degraded | source jumpback only showed fallback evidence | feed card sourceRef、source card 排序、content script 定位共同修复 |
-| `guancha-detail` | degraded | source jumpback only showed fallback evidence | article 正文优先，评论 / 推荐 / 最新视频不得默认主导 |
+| `v1_real_site_complex_pages/report.json` | 6 samples / 6 passed / 0 degraded / 0 blocked / 6 highlighted / 0 fallback | 使用临时 Chrome profile 注入授权 cookie；不能冒充用户主 profile logged-in 全站质量 |
+| `v1_external_visual_acceptance/report.json` | 5 commands passed / 6 visual samples passed | 自动化可视化链路为 pass；仍不能替代人工产品体验核查 |
+| `v1_mainline_closeout/report.json` | upstream 5/5 passed / candidate automated acceptance claim | 支持进入人工产品体验核查准备；不能替代人工核查或支持完整 V1 complete |
 
-本图中红色节点必须表示当前阻塞或 false-green 风险，不能被解释为已通过。
+本图中的红色节点必须表示 false-green 风险、禁止声明或 future fresh validation 失败时的打回路径，不能把自动化候选通过事实写成完整 V1 complete。
 
 ## 02 页阅读方式
 
@@ -86,16 +87,22 @@ claim = No completion claim. V1 mainline closeout candidate has blocking issues.
 
 ## 2026-06-26 Source Jumpback Hardening 修订
 
-本轮根据最新自动化验收失败结果修订 drawio 和 companion：
+本轮根据 Source Jumpback Hardening 风险和复杂站点复验要求修订 drawio 和 companion：
 
-- `01` 页增加当前 `No completion claim` 和 fallback-only 阻塞入口。
+- `01` 页增加当前自动化候选通过、完整 V1 complete No-Go 和人工 review pending 入口。
 - `02` 页把 `pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`sidepanel/main.tsx`、`contentBridge.ts` source jumpback、E2E/report 作为强关联实现实体展示。
-- `04` 页明确小红书首页和观察者详情页的失败原因、目标修复链路和 No-Go。
+- `04` 页明确 B站 / 小红书 / 观察者网复杂站点主内容提权、噪声过滤、source jumpback 和 No-Go。
 - `05` 页加入 `V1-MC-SJ-0` 到 `V1-MC-SJ-5`，并保留失败打回规则。
-- `06` 页把 real-site / external visual 标为未通过，V1.3 / V1.4 / launcher 标为已通过，V1 mainline 标为 no-completion。
-- `07` 页加入 6/6 real-site pass、headless-first、mute-audio、E2E source card 选择原因等出门条件。
+- `06` 页把 real-site 与 V1 mainline 标为自动化候选通过，把 external visual 标为旧可视化 pass，并保留人工核查和 cookie-injected / logged-in 复验边界。
+- `07` 页加入 6/6 real-site pass、headless-first、mute-audio、E2E source card 选择原因、fallback coverage 引用来源等出门条件。
 
-当前自动化报告如果通过，只允许进入人工产品体验核查：
+后续自动化报告如果恢复通过，只允许进入人工产品体验核查：
+
+```text
+V1 mainline closeout candidate passed automated acceptance.
+```
+
+当前 active 报告允许声明：
 
 ```text
 V1 mainline closeout candidate passed automated acceptance.
@@ -125,11 +132,11 @@ Web Research / PPT / Deep Research ready。
 
 本轮外部文档审查后的结论：
 
-- active 文档可以支撑 `V1-MC-SJ` 分阶段开发、自动化验收和 no-completion 边界。
-- 文档不能保证本阶段开发后一定顺利出门，因为小红书首页、观察者详情页和登录态复杂站点仍受真实 DOM、虚拟列表、cookie、风控和页面模板变化影响。
+- active 文档可以支撑 `V1-MC-SJ` 完成后的自动化候选通过、人工核查准备和 candidate-only 声明边界；当前不能声明完整 V1 complete。
+- 文档不能把自动化候选态升级为完整 V1 complete，因为人工产品体验核查、登录态复杂站点和视觉质量复核仍受真实 DOM、虚拟列表、cookie、风控和页面模板变化影响。
 - 风险已经转化为 drawio `08 风险路线与备选技术` 页和执行审计文档中的路线矩阵。
-- 默认技术路线为 A 登录态 Chrome CDP -> B 专用测试 profile / cookie 注入 -> C public no-login headless -> D blocker + 人工截图补位。
-- 任何低等级路线通过都不能覆盖高等级路线失败事实；fallback-only 仍不能作为复杂站点矩阵 pass。
+- 默认技术路线为 B 专用测试 profile / cookie 注入 -> A 登录态 Chrome CDP -> C public no-login headless -> D blocker + 人工截图补位；路线 B 出错时再走路线 A 进行登录态 CDP 复验。
+- 任何低等级路线通过都不能覆盖高等级路线失败事实；fresh validation 如果出现 fallback-only，仍不能作为复杂站点矩阵 pass。
 
 ## 关联 active 文档
 

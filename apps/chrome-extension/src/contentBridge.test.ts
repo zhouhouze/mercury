@@ -174,6 +174,39 @@ describe("content page context bridge", () => {
     }
   });
 
+  it("persists launcher side and top position when the launcher is dragged", () => {
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      runtime: {
+        getURL(path: string) {
+          return `chrome-extension://navia/${path}`;
+        }
+      }
+    } as typeof chrome;
+
+    try {
+      const host = ensureInPageSidebar(document);
+      const launcher = document.getElementById(IN_PAGE_LAUNCHER_ID);
+      expect(host).not.toBeNull();
+      expect(launcher).not.toBeNull();
+
+      launcher?.dispatchEvent(
+        new PointerEvent("pointerdown", { bubbles: true, pointerId: 1, clientX: window.innerWidth - 20, clientY: 500 })
+      );
+      window.dispatchEvent(new PointerEvent("pointermove", { bubbles: true, pointerId: 1, clientX: 80, clientY: 430 }));
+      window.dispatchEvent(new PointerEvent("pointerup", { bubbles: true, pointerId: 1, clientX: 80, clientY: 430 }));
+
+      const state = JSON.parse(window.localStorage.getItem("navia.inpageSidebarState") || "{}");
+      expect(state.launcherSide).toBe("left");
+      expect(state.launcherTopRatio).toBeGreaterThan(0.12);
+      expect(state.launcherTopRatio).toBeLessThan(0.9);
+      expect(launcher?.dataset.naviaSide).toBe("left");
+    } finally {
+      window.localStorage.removeItem("navia.inpageSidebarState");
+      globalThis.chrome = originalChrome;
+    }
+  });
+
   it("switches to overlay layout for wide resized sidebars without pushing the page", () => {
     const originalChrome = globalThis.chrome;
     globalThis.chrome = {
@@ -371,6 +404,31 @@ describe("content page context bridge", () => {
       matchedStrategy: "textQuote"
     });
     expect(document.querySelector("[data-navia-jumpback-highlight='true']")).not.toBeNull();
+  });
+
+  it("highlights the nearest content card by href when dynamic selectors are unstable", () => {
+    document.body.innerHTML = `
+      <main>
+        <section class="note-card">
+          <a href="https://www.xiaohongshu.com/explore/feed001?xsec_token=secret&xsec_source=pc_feed">AI 编程工作流：从需求拆解到代码审查</a>
+          <span>开发者小周 1.2万点赞</span>
+        </section>
+      </main>
+    `;
+
+    const result = performJumpback(document, {
+      selector: ".old-card-selector",
+      href: "https://www.xiaohongshu.com/explore/feed001?xsec_token=redacted",
+      textQuote: "AI 编程工作流：从需求拆解到代码审查",
+      fallbackText: "AI 编程工作流：从需求拆解到代码审查"
+    });
+
+    expect(result).toMatchObject({
+      status: "highlighted",
+      attemptedStrategies: ["selector", "href"],
+      matchedStrategy: "href"
+    });
+    expect(document.querySelector(".note-card")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
   });
 
   it("rejects oversized selector containers and highlights the precise source text", () => {

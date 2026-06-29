@@ -45,6 +45,7 @@ export type JumpbackRequest = {
   fallbackText: string;
   selector?: string;
   domPath?: string;
+  href?: string;
 };
 
 export type EvidenceCardNodeQualityState = "ready" | "degraded" | "missing_source";
@@ -416,6 +417,7 @@ function dedupeReadingMapItems(items: ReadingMapNavItem[]): ReadingMapNavItem[] 
 export function buildJumpbackRequest(card: SourceEvidenceCard): JumpbackRequest {
   const selector = typeof card.jumpback.selector === "string" && card.jumpback.selector.trim() ? card.jumpback.selector : undefined;
   const domPath = typeof card.jumpback.domPath === "string" && card.jumpback.domPath.trim() ? card.jumpback.domPath : undefined;
+  const href = typeof card.jumpback.href === "string" && card.jumpback.href.trim() ? card.jumpback.href : undefined;
   return {
     nodeId: card.nodeId,
     nodeSourceMapKey: card.nodeSourceMapKey,
@@ -425,7 +427,8 @@ export function buildJumpbackRequest(card: SourceEvidenceCard): JumpbackRequest 
     textQuote: card.textQuote,
     fallbackText: card.fallbackText,
     ...(selector ? { selector } : {}),
-    ...(domPath ? { domPath } : {})
+    ...(domPath ? { domPath } : {}),
+    ...(href ? { href } : {})
   };
 }
 

@@ -110,16 +110,16 @@ Local Runtime
 | `V1-MC-QA-3` 复杂站点 fresh evidence | B站 / 小红书 / 观察者网首页与详情页重新验收 | 每个样本明确 public no-login / logged-in / degraded；旧证据不能覆盖新代码质量结论 |
 | `V1-MC-QA-4` 可读性与反跳 | Mindmap、Reading Map、状态卡和 source jumpback 截图级复核 | 无文本虚影、重叠、遮挡；located / fallback_shown / blocked 三态一致 |
 
-当前阻塞修复专项：
+当前质量硬化专项：
 
 | 专项 | 目标 | 出门条件 |
 |---|---|---|
-| `V1-MC-SJ-0` 文档与审计冻结 | 将当前 fallback-only 阻塞、目标架构、开发计划、验收门槛和 drawio 同步 | active 文档无 fatal / major；当前 failed evidence 不得写成 pass |
+| `V1-MC-SJ-0` 文档与审计冻结 | 将当前 real-site 6/6 pass、0 degraded、0 blocked、`fallbackSamples = 0`、人工核查 pending、cookie-injected 复核边界、目标架构、开发计划、验收门槛和 drawio 同步 | active 文档无 fatal / major；自动化候选通过事实不得写成完整 V1 complete |
 | `V1-MC-SJ-1` A SourceRef 质量 | 小红书 feed card、观察者 article 正文、B站视频主内容的 sourceRef 更稳定 | `perception-summary.json` 和 sourceRefs 证明主内容进入 digest，不被评论 / 推荐 / 站点壳主导 |
 | `V1-MC-SJ-2` C/B source card 排序 | Mindmap 节点和 source card 优先主内容、可定位来源 | `source-cards.json` 前置卡片不默认指向评论、推荐、最新视频或侧栏 |
 | `V1-MC-SJ-3` Content Script jumpback | 用户触发后尝试多个 sourceRef / selector / domPath / textQuote / href-card 线索 | 成功时有 Navia source marker；失败时 fallback_shown；blocked 单独记录 |
 | `V1-MC-SJ-4` E2E 与报告语义 | 自动化选择主内容 source card，记录选择原因；真实站点 headless-first 和 mute-audio | `jumpback.json` / report 记录 selected source card、原因和状态；不抢焦点、不发声 |
-| `V1-MC-SJ-5` 真实站点复验 | B站、小红书、观察者网首页与详情页 6 样本重新验收 | 6/6 pass、0 degraded、0 blocked；否则 V1-MC 总报告保持 no-completion claim |
+| `V1-MC-SJ-5` 真实站点复验 | B站、小红书、观察者网首页与详情页 6 样本重新验收 | 当前已恢复 6/6 pass、0 degraded、0 blocked 和 V1-MC 自动化候选态；后续若任一样本 degraded / blocked，V1-MC 总报告必须恢复 no-completion claim |
 
 ## 5. 必需证据
 
@@ -207,4 +207,4 @@ node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
 
 ## 8. 当前证据状态口径
 
-如果 `docs/active/project/evidence/v1_mainline_closeout/report.json` 通过，只代表自动化候选态通过。它可以支持进入人工产品体验核查，但不能替代人工核查，也不能单独支持完整 V1 complete 声明。
+如果 `docs/active/project/evidence/v1_mainline_closeout/report.json` 通过，只代表自动化候选态通过。当前 active 总报告已通过，且 real-site complex page matrix 为 6/6 pass、0 degraded、0 blocked；这支持进入人工产品体验核查准备。自动化报告仍不能替代人工核查，也不能单独支持完整 V1 complete 声明。

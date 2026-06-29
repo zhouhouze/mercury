@@ -74,7 +74,7 @@ const baseArtifact = {
         textQuote: "Page capture creates structured page context.",
         fallbackText: "Page capture creates structured page context.",
         confidence: 0.86,
-        jumpback: { mode: "fallback", reason: "selector_missing" }
+        jumpback: { mode: "dom", href: "https://www.xiaohongshu.com/explore/feed001" }
       },
       capture2: {
         nodeLabel: "Page Capture",
@@ -239,6 +239,18 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
       jumpbackStatus: "fallback_shown"
     });
     expect(selected.nodes.find((node) => node.nodeId === "capture")?.uiState).toBe("fallback_shown");
+  });
+
+  it("carries href jumpback data from SourceRef-backed nodeSourceMap into B-local requests", () => {
+    const presentation = presentMindmapArtifact(baseArtifact);
+    const card = presentation.sourceCards.find((item) => item.nodeId === "capture");
+
+    expect(card).toBeTruthy();
+    expect(buildEvidenceCardJumpbackRequest(presentation.evidenceCardViewModel.nodes.find((node) => node.nodeId === "capture") as EvidenceCardNode, card)).toMatchObject({
+      nodeId: "capture",
+      href: "https://www.xiaohongshu.com/explore/feed001",
+      textQuote: "Page capture creates structured page context."
+    });
   });
 
   it("deduplicates repeated source evidence text for multi-source nodes", () => {

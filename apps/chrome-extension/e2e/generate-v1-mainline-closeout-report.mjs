@@ -207,7 +207,11 @@ function buildReport() {
   const realSiteNotes = [];
   if (realSite?.summary?.samplesTotal < 6) fatalIssues.push("Complex-site matrix has fewer than 6 samples.");
   if (realSite?.summary?.blockedSamples > 0) fatalIssues.push("Complex-site matrix contains blocked samples.");
-  realSiteNotes.push("Complex-site evidence is public/no-login automation unless a later logged-in report explicitly says otherwise.");
+  if (realSite?.loginStatePolicy === "temp-profile-with-injected-auth-cookies") {
+    realSiteNotes.push("Complex-site evidence used a temporary Chrome profile with injected auth cookies; cookie values are omitted from evidence.");
+  } else {
+    realSiteNotes.push("Complex-site evidence is public/no-login automation unless a later logged-in report explicitly says otherwise.");
+  }
 
   const fallbackCoverage = {
     currentMainlineFallbackSamples: fallbackCount(realSite) + fallbackCount(externalVisual),
@@ -418,7 +422,7 @@ function buildHtml(report) {
       </div>
     </section>
     <section>
-      <h2>当前阻塞与环境说明</h2>
+      <h2>${report.passed ? "环境说明与剩余边界" : "当前阻塞与环境说明"}</h2>
       <div class="arch">
         <div class="card"><h3>Fatal issues</h3><ul>${fatalItems}</ul></div>
         <div class="card"><h3>Major notes</h3><ul>${majorItems}</ul></div>
@@ -458,7 +462,7 @@ function buildHtml(report) {
       <h2>False-green 边界</h2>
       <ul>
         <li>不把 V1.3 / V1.4 单阶段证据声明为完整 V1 complete。</li>
-        <li>不把 public no-login 复杂站点样本声明为登录态高质量通过。</li>
+        <li>不把 public no-login 或 cookie-injected 临时 profile 复杂站点样本声明为用户主 profile 全量登录高质量通过。</li>
         <li>不把 fallback evidence 冒充 DOM highlight success。</li>
         <li>不忽略旧 failed closeout 证据；本报告将其标记为 superseded evidence，仍需人工核查前最终确认。</li>
         <li>完整 V1 complete 仍需人工产品体验核查。</li>
@@ -523,7 +527,7 @@ Checks:
 
 - V1.3 / V1.4 reports are upstream evidence only, not full V1 complete.
 - Launcher closeout requires behavior screenshots, not just visual comparison.
-- Complex-site evidence is public/no-login unless a separate logged-in report exists.
+- Complex-site evidence must state whether it used public/no-login automation, an attached logged-in profile, or a temporary profile with injected auth cookies.
 - Source fallback and DOM highlight are not mixed.
 - If V1-MC current samples contain no fallback sample, upstream V1.3 / V1.4 fallback evidence must be cited and visible.
 - Old failed closeout evidence is explicitly documented.
@@ -550,6 +554,7 @@ Open these reports first:
 - \`docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html\`
 - \`docs/active/project/evidence/v1_launcher_resize_closeout/acceptance-report.md\`
 - \`docs/active/project/evidence/v1_external_visual_acceptance/acceptance-report.html\`
+- \`docs/active/project/evidence/v1_real_site_complex_pages/acceptance-report.md\`
 
 Review tasks:
 
@@ -559,12 +564,12 @@ Review tasks:
 - [ ] Chat page actions remain discoverable.
 - [ ] Evidence Card Mindmap and Reading Map are readable.
 - [ ] Source evidence makes located / fallback / blocked clear.
-- [ ] B站 / 小红书 / 观察者网 behavior is acceptable for public no-login scope.
+- [ ] B站 / 小红书 / 观察者网 behavior is acceptable for the recorded route: public/no-login, attached logged-in profile, or temporary profile with injected auth cookies.
 - [ ] No report or UI claims full V1 complete before this review passes.
 
 Known boundaries:
 
-- Public no-login automation is not logged-in quality validation.
+- Public/no-login automation and cookie-injected temporary profile validation are not user-main-profile full logged-in quality validation.
 - Old V1.2 closeout report is superseded but still documented.
 - Full V1 complete is not claimed by automated acceptance alone.
 `;

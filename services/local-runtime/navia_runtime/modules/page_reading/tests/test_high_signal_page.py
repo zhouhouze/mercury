@@ -158,6 +158,7 @@ def test_dom_signals_create_source_backed_feed_digest_items() -> None:
     assert len(result["sourceMap"]["sourceRefs"]) >= 4
     assert len(result["perceptionDigest"]["items"]) >= 3
     assert any(ref.get("selector") == ".video-card:nth-of-type(1)" for ref in result["sourceMap"]["sourceRefs"])
+    assert any(ref.get("href") == "https://www.bilibili.com/video/BV1" for ref in result["sourceMap"]["sourceRefs"])
 
 
 def test_bilibili_video_detail_uses_main_dom_signals_without_page_shell_noise() -> None:
@@ -270,6 +271,7 @@ def test_xiaohongshu_home_feed_uses_card_dom_signals_without_shell_noise() -> No
     assert "推荐 穿搭 美食 彩妆" not in paragraph_text
     assert "沪ICP备" not in paragraph_text
     assert any(ref.get("selector") == "#exploreFeeds .note-card:nth-of-type(1)" for ref in result["sourceMap"]["sourceRefs"])
+    assert any(ref.get("href") == "https://www.xiaohongshu.com/explore/feed001" for ref in result["sourceMap"]["sourceRefs"])
 
 
 def test_guancha_article_detail_uses_article_dom_signals_without_comments_or_recommendations() -> None:

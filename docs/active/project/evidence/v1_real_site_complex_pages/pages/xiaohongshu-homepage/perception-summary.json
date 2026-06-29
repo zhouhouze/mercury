@@ -1,40 +1,40 @@
 {
   "activePage": {
-    "pageId": "page_4c515eaa3213edce",
-    "title": "小红书 - 2026世界杯",
-    "url": "https://www.xiaohongshu.com/worldcup26?pageFrom=nightRedirect&wcup_source=nightRedirect",
+    "pageId": "page_bf3c3c5f57994be0",
+    "title": "小红书 - 你的生活兴趣社区",
+    "url": "https://www.xiaohongshu.com/explore",
     "domain": "www.xiaohongshu.com"
   },
   "readiness": "pass",
-  "overallScore": 0.923,
+  "overallScore": 0.951,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 102,
+  "highSignalBlocks": 52,
   "digestItems": 18,
-  "sourceRefs": 104,
+  "sourceRefs": 52,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.019,
-      "numerator": 2,
-      "denominator": 104,
+      "value": 0,
+      "numerator": 0,
+      "denominator": 52,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.488,
-      "numerator": 3834,
-      "denominator": 7862,
+      "value": 1,
+      "numerator": 3764,
+      "denominator": 3764,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
-      "passed": false
+      "passed": true
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 102,
-      "denominator": 102,
+      "numerator": 52,
+      "denominator": 52,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -49,27 +49,27 @@
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 104,
-      "denominator": 104,
+      "numerator": 52,
+      "denominator": 52,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.125,
-      "numerator": 211,
-      "denominator": 1685,
+      "value": 0.265,
+      "numerator": 105,
+      "denominator": 396,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 1,
-      "numerator": 18,
+      "value": 0.389,
+      "numerator": 7,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,
-      "passed": true
+      "passed": false
     }
   }
 }

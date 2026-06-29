@@ -222,9 +222,11 @@ function startRuntime() {
   const pythonPath = [path.join(repoRoot, ".tmp/python-deps"), path.join(repoRoot, "services/local-runtime"), process.env.PYTHONPATH]
     .filter(Boolean)
     .join(path.delimiter);
+  const venvPython = path.join(repoRoot, ".venv/bin/python");
+  const runtimeCommand = fs.existsSync(venvPython) ? venvPython : "python3";
   const child = spawn(
-    "uvicorn",
-    ["navia_runtime.app:app", "--host", "127.0.0.1", "--port", "17861", "--app-dir", "services/local-runtime"],
+    runtimeCommand,
+    ["-m", "uvicorn", "navia_runtime.app:app", "--host", "127.0.0.1", "--port", "17861", "--app-dir", "services/local-runtime"],
     {
       cwd: repoRoot,
       env: { ...process.env, NAVIA_DB_PATH: dbPath, PYTHONPATH: pythonPath },
@@ -1084,7 +1086,11 @@ function buildReport(samples, browserMode, authCookies = []) {
   if (blockedSamples) fatalIssues.push(`${blockedSamples} sample(s) blocked.`);
   if (degradedSamples) majorIssues.push(`${degradedSamples} sample(s) degraded.`);
   if (browserMode === "launch-temp-public-profile") {
-    environmentNotes.push("Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.");
+    environmentNotes.push(
+      authCookies.length
+        ? "Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies."
+        : "Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state."
+    );
   }
   if (browserMode === "launch-playwright-chromium") {
     environmentNotes.push("Diagnostic used Playwright Chromium with a temporary public profile because local Chrome stable did not load the unpacked extension through command-line flags.");
@@ -1100,7 +1106,9 @@ function buildReport(samples, browserMode, authCookies = []) {
     authCookieSites: authCookies.map((item) => ({ siteId: item.siteId, count: item.count })),
     loginStatePolicy:
       browserMode === "launch-temp-public-profile"
-        ? "temp-public-profile-no-login"
+        ? authCookies.length
+          ? "temp-profile-with-injected-auth-cookies"
+          : "temp-public-profile-no-login"
         : browserMode === "launch-playwright-chromium"
           ? "playwright-chromium-temp-public-profile-no-login"
           : cdpUrl

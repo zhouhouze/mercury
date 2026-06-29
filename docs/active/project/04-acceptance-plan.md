@@ -1272,6 +1272,8 @@ npm --prefix apps/chrome-extension run build
 
 本阶段验收目标是证明当前 V1 主线体验已经具备进入人工产品核查和完整 V1 complete 候选审计的条件。它整合 V1.3、V1.4、复杂站点 hardening、Gemini 样式和 Launcher / Collapse / Resize，但不自动继承任何单阶段完成声明为完整 V1 complete。
 
+当前 active evidence 基线显示 `v1_real_site_complex_pages` 已为 `passed=true`，6 个真实复杂站点样本全部通过、0 degraded、0 blocked、6 highlighted；`v1_mainline_closeout` 当前也为 `passed=true`，claim 为 `V1 mainline closeout candidate passed automated acceptance.`。本轮真实站点复验使用临时 Chrome profile 注入授权 cookie，不能冒充用户主 profile logged-in 全站质量。人工产品体验核查、截图级视觉质量确认和 fallback coverage 说明仍是完整 V1 complete 之前的硬门槛。
+
 必须通过：
 
 - [ ] `docs/active/project/stage-gates/v1-mainline-closeout.md` 已完成文档门禁。
@@ -1347,6 +1349,13 @@ No-Go：
 - [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
 
 允许声明：
+
+```text
+仅当 real-site 6/6 pass、0 degraded、0 blocked，且总报告重新聚合通过后，才允许声明：
+V1 mainline closeout candidate passed automated acceptance.
+```
+
+当前允许声明：
 
 ```text
 V1 mainline closeout candidate passed automated acceptance.

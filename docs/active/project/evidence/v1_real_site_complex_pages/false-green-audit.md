@@ -19,5 +19,5 @@ Major issues:
 
 Environment notes:
 
-- Login profile was unavailable; diagnostic used a temporary public Chrome profile without login state.
+- Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies.
 - Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.
