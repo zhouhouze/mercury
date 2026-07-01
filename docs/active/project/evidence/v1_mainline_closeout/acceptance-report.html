@@ -37,7 +37,7 @@
     <p><span class="status">自动化验收通过</span></p>
     <p>V1 mainline closeout candidate passed automated acceptance.</p>
     <p>本 HTML 是本轮阶段性审计给人类查看的唯一入口；所有结论必须回到本页列出的命令、截图、JSON 报告和 No-Go 边界。</p>
-    <p>生成时间：2026-07-01T05:01:40.694Z</p>
+    <p>生成时间：2026-07-01T05:06:18.962Z</p>
   </header>
   <main>
     <section>
@@ -63,9 +63,10 @@
           <h3>仓库状态</h3>
           <p>远端仓库：<code>https://github.com/zhouhouze/mercury</code></p>
           <p>分支：<code>main</code></p>
-          <p>HEAD：<code>470d0a9</code></p>
-          <p>main...origin/main：<code>0	0</code></p>
-          <p>工作树：<strong>dirty</strong></p>
+          <p>被审计源码基线：<code>f404484</code></p>
+          <p>Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.</p>
+          <p>main...origin/main：<code>1	0</code></p>
+          <p>源码工作树：<strong>clean</strong></p>
         </div>
         <div class="card">
           <h3>报告生成</h3>
@@ -75,15 +76,16 @@
           <p>证据哈希：<code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></p>
         </div>
         <div class="card">
-          <h3>工作树差异</h3>
-          <ul><li><code>M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li></ul>
+          <h3>源码工作树差异</h3>
+          <p>Generated evidence changes are tracked separately from source changes so humans do not confuse report output with unreviewed implementation changes.</p>
+          <ul><li>工作树干净</li></ul>
         </div>
       </div>
     </section>
     <section>
       <h2>变更文件与证据文件索引</h2>
       <div class="arch">
-        <div class="card"><h3>相对 HEAD 的变更文件</h3><ul><li><code>apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li></ul></div>
+        <div class="card"><h3>相对 HEAD 的变更文件</h3><ul><li>无相对 HEAD 的文件差异</li></ul></div>
         <div class="card"><h3>本报告证据文件</h3><ul><li><code>docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/report.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/prd-review.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-collapsed-after-use.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-docked-default.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-expanded-after-click.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-drag-left.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-hover-peek.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-resized-overlay.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-before.png</code></li></ul></div>
         <div class="card"><h3>审计说明</h3><p>如果工作树为 dirty，审查者应把本节列出的变更纳入审计范围；提交后若要作为发布审计，应重新生成本报告或至少复核 HEAD 与工作树状态。证据文件大小和 SHA-256 见 <code>evidence-manifest.json</code>。</p></div>
       </div>

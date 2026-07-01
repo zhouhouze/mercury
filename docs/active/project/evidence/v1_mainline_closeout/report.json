@@ -1,6 +1,6 @@
 {
   "schemaVersion": "v1-mainline-closeout.1",
-  "generatedAt": "2026-07-01T05:01:40.694Z",
+  "generatedAt": "2026-07-01T05:06:18.962Z",
   "passed": true,
   "claim": "V1 mainline closeout candidate passed automated acceptance.",
   "summary": {
@@ -80,32 +80,19 @@
     "git": {
       "remote": "https://github.com/zhouhouze/mercury",
       "branch": "main",
-      "head": "470d0a9",
-      "aheadBehindOriginMain": "0\t0",
-      "workingTreeStatus": "dirty",
-      "statusLines": [
-        "M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs"
-      ],
+      "head": "f404484",
+      "sourceHead": "f404484",
+      "sourceHeadDescription": "Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.",
+      "aheadBehindOriginMain": "1\t0",
+      "workingTreeStatus": "clean",
+      "statusLines": [],
       "generatedEvidenceStatusLines": [
         "M docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
         "M docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json",
-        "M docs/active/project/evidence/v1_mainline_closeout/report.json",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-before.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-before.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-before.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-before.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-before.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-after.png",
-        "?? docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-before.png"
+        "M docs/active/project/evidence/v1_mainline_closeout/report.json"
       ],
-      "changedFiles": [
-        "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs"
-      ],
+      "changedFiles": [],
+      "generatedEvidenceStatusDescription": "Generated evidence changes are tracked separately from source changes so humans do not confuse report output with unreviewed implementation changes.",
       "reportGenerator": "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
       "evidenceRoot": "docs/active/project/evidence/v1_mainline_closeout"
     },
