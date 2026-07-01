@@ -139,6 +139,19 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function fileHref(repoRelativePath) {
+  const absolutePath = path.join(repoRoot, repoRelativePath);
+  return path.relative(evidenceRoot, absolutePath).replaceAll(path.sep, "/");
+}
+
+function fileLink(repoRelativePath, label = repoRelativePath) {
+  return `<a href="${escapeHtml(fileHref(repoRelativePath))}"><code>${escapeHtml(label)}</code></a>`;
+}
+
+function localFileLink(localRelativePath, label = localRelativePath) {
+  return `<a href="${escapeHtml(localRelativePath)}"><code>${escapeHtml(label)}</code></a>`;
+}
+
 function copyIfExists(sourceRelativePath, targetName) {
   const source = path.join(repoRoot, sourceRelativePath);
   if (!fs.existsSync(source)) return null;
@@ -700,7 +713,7 @@ function buildHtml(report) {
     .map(
       (item) => `<tr>
         <td>${escapeHtml(item.key)}</td>
-        <td><code>${escapeHtml(item.path)}</code></td>
+        <td>${fileLink(item.path)}</td>
         <td class="${item.passed ? "pass" : item.present ? "warn" : "fail"}">${item.present ? statusLabel(item.passed) : "缺失"}</td>
         <td>${escapeHtml(item.claim)}</td>
         <td><code>${escapeHtml(item.generatedAt ?? "")}</code></td>
@@ -729,7 +742,11 @@ function buildHtml(report) {
     .join("");
   const qualityHardeningRows = report.qualityHardeningSamples
     .map(
-      (item) => `<tr>
+      (item) => {
+        const detailedEvidenceLinks = item.detailedEvidence
+          .map((filePath) => fileLink(filePath))
+          .join("<br />");
+        return `<tr>
         <td>${escapeHtml(item.sampleId)}</td>
         <td>${escapeHtml(item.siteName)} / ${escapeHtml(item.pageKind)}</td>
         <td><code>${escapeHtml(item.finalUrl || item.url || "")}</code></td>
@@ -739,9 +756,10 @@ function buildHtml(report) {
         <td>${escapeHtml(`文本长度=${item.bodyTextLength ?? "n/a"}, sourceRefs=${item.sourceRefs ?? "n/a"}, digest=${item.digestItems ?? "n/a"}, 卡片=${item.evidenceCardCount ?? "n/a"}, sourceCards=${item.sourceCards ?? "n/a"}`)}</td>
         <td><pre>${escapeHtml(compactJson(item.mindmapQuality))}</pre></td>
         <td>${escapeHtml(item.selectedSourceCardReason ?? "")}</td>
-        <td><pre>${escapeHtml(item.detailedEvidence.join("\n"))}</pre></td>
+        <td>${detailedEvidenceLinks}</td>
         <td>${escapeHtml(`${item.fatalIssues.length} 个致命 / ${item.majorIssues.length} 个重大`)}</td>
-      </tr>`
+      </tr>`;
+      }
     )
     .join("");
   const qualityHardeningFigures = report.qualityHardeningSamples
@@ -804,7 +822,7 @@ function buildHtml(report) {
     ? report.auditProvenance.git.changedFiles.map((item) => `<li><code>${escapeHtml(item)}</code></li>`).join("")
     : "<li>无相对 HEAD 的文件差异</li>";
   const evidenceFileItems = report.auditProvenance.evidenceFiles
-    .map((item) => `<li><code>${escapeHtml(item)}</code></li>`)
+    .map((item) => `<li>${fileLink(item)}</li>`)
     .join("");
   const sampleRows = report.visualSamples
     .map(
@@ -816,7 +834,7 @@ function buildHtml(report) {
         <td class="${item.jumpbackStatus === "highlighted" ? "pass" : "warn"}">${escapeHtml(item.jumpbackStatus)}</td>
         <td>${escapeHtml(`文本长度=${item.textLength ?? "n/a"}, sourceRefs=${item.sourceRefs ?? "n/a"}, digest=${item.digestItems ?? "n/a"}, 卡片=${item.evidenceCardCount ?? "n/a"}, sourceCards=${item.sourceCards ?? "n/a"}`)}</td>
         <td><pre>${escapeHtml(compactJson(item.mindmapQuality))}</pre></td>
-        <td>${item.afterScreenshot ? `<code>${escapeHtml(item.afterScreenshot)}</code>` : "无截图"}</td>
+        <td>${item.afterScreenshot ? localFileLink(item.afterScreenshot) : "无截图"}</td>
         <td>${escapeHtml(item.issues.length ? item.issues.join("; ") : "无")}</td>
       </tr>`
     )
@@ -851,6 +869,17 @@ function buildHtml(report) {
   ]
     .map((item) => `<li>${escapeHtml(item)}</li>`)
     .join("");
+  const totalScreenshotEvidence =
+    report.summary.launcherScreenshots +
+    report.summary.externalVisualSamples +
+    report.qualityHardeningSamples.length * 2;
+  const humanAuditDashboard = `
+    <div class="card"><h3>1. 审计结论</h3><p><strong>${report.passed ? "自动化候选态通过" : "自动化候选态未通过"}</strong></p><p>${escapeHtml(report.claim)}</p></div>
+    <div class="card"><h3>2. 本阶段证据</h3><p>QH 样本：${report.summary.qualityHardeningSamples}；QH before/after 截图：${report.qualityHardeningSamples.length * 2}；可视截图总数：${totalScreenshotEvidence}。</p><p>${fileLink("docs/active/project/evidence/v1_mvp_quality_hardening/report.json", "打开 QH report.json")}</p></div>
+    <div class="card"><h3>3. 必看边界</h3><p>fallbackSamples = ${report.summary.fallbackSamples}；fresh 样本全部 DOM highlight，fallback 仅继承 V1.3 / V1.4 上游证据。</p><p>人工产品体验核查仍为 <strong>${escapeHtml(report.humanReview.reviewStatus)}</strong>。</p></div>
+    <div class="card"><h3>4. 禁止声明</h3><p>不得声明完整 V1 complete、最终 Monica-like UX complete、用户主 Profile 全量登录态质量、V2 Memory/RAG 或 Web Research/PPT/Deep Research。</p></div>
+    <div class="card"><h3>5. 证据索引</h3><p>${fileLink("docs/active/project/evidence/v1_mainline_closeout/report.json", "主报告 JSON")}</p><p>${fileLink("docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json", "证据 manifest")}</p></div>
+    <div class="card"><h3>6. 人工下一步</h3><p>自动化报告只能支持进入人工产品体验核查；完整 V1 complete 前必须由人类完成 checklist。</p><p>${fileLink("docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md", "人工核查 checklist")}</p></div>`;
 
   return `<!doctype html>
 <html lang="zh-CN">
@@ -867,6 +896,8 @@ function buildHtml(report) {
     section { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; margin-bottom:20px; box-shadow:0 18px 50px rgba(9,48,43,.06); }
     h1,h2,h3 { margin:0 0 12px; }
     p,li { line-height:1.7; }
+    a { color:var(--green); font-weight:800; text-decoration:none; }
+    a:hover { text-decoration:underline; }
     code { background:#ecf4f1; border-radius:5px; padding:2px 5px; }
     .status { display:inline-flex; border-radius:999px; padding:7px 12px; font-weight:800; background:${report.passed ? "#dcfce7" : "#fee2e2"}; color:${report.passed ? "#166534" : "#991b1b"}; }
     .summary { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; }
@@ -904,6 +935,11 @@ function buildHtml(report) {
         <div class="metric"><strong>${report.fatalIssues.length}</strong><span>致命问题</span></div>
         <div class="metric"><strong>${report.majorIssues.length}</strong><span>重大问题</span></div>
       </div>
+    </section>
+    <section>
+      <h2>一页式审计结论</h2>
+      <p>本节用于让人类先完成快速判断：本轮自动化证据证明了什么、不能证明什么、下一步需要人工确认什么。</p>
+      <div class="arch">${humanAuditDashboard}</div>
     </section>
     <section>
       <h2>审计者阅读顺序</h2>
