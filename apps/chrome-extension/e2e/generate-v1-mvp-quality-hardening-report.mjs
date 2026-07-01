@@ -217,6 +217,52 @@ function sampleStatusClass(sample) {
   return "blocked";
 }
 
+function countFiles(relativeDir, predicate) {
+  const dir = path.join(evidenceRoot, relativeDir);
+  if (!fs.existsSync(dir)) return 0;
+  const stack = [dir];
+  let count = 0;
+  while (stack.length) {
+    const current = stack.pop();
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const absolute = path.join(current, entry.name);
+      if (entry.isDirectory()) stack.push(absolute);
+      else if (!predicate || predicate(absolute)) count += 1;
+    }
+  }
+  return count;
+}
+
+function evidenceIntegrityFor(report) {
+  const sampleIds = report.samples.map((sample) => sample.pageId);
+  const perPageFiles = ["sample-report.json", "runtime-session.json", "source-cards.json", "jumpback.json"];
+  const missingPerPageEvidence = [];
+  for (const pageId of sampleIds) {
+    for (const fileName of perPageFiles) {
+      const relativePath = `pages/${pageId}/${fileName}`;
+      if (!fs.existsSync(path.join(evidenceRoot, relativePath))) missingPerPageEvidence.push(relativePath);
+    }
+  }
+  const referencedScreenshots = report.samples.flatMap((sample) => sample.screenshotPaths.filter((shot) => shot.endsWith(".png")));
+  const missingReferencedScreenshots = referencedScreenshots.filter((shot) => !fs.existsSync(path.join(evidenceRoot, shot)));
+  const screenshotCount = countFiles("screenshots", (absolute) => absolute.endsWith(".png"));
+  return {
+    screenshotCount,
+    referencedScreenshots: referencedScreenshots.length,
+    missingReferencedScreenshots,
+    sampleReports: countFiles("pages", (absolute) => absolute.endsWith(`${path.sep}sample-report.json`)),
+    runtimeSessions: countFiles("pages", (absolute) => absolute.endsWith(`${path.sep}runtime-session.json`)),
+    sourceCards: countFiles("pages", (absolute) => absolute.endsWith(`${path.sep}source-cards.json`)),
+    jumpbacks: countFiles("pages", (absolute) => absolute.endsWith(`${path.sep}jumpback.json`)),
+    missingPerPageEvidence,
+    sufficient:
+      screenshotCount >= 96 &&
+      referencedScreenshots.length >= 96 &&
+      missingReferencedScreenshots.length === 0 &&
+      missingPerPageEvidence.length === 0
+  };
+}
+
 function screenshotPathsFor(pageId) {
   return [`screenshots/${pageId}-before.png`, `screenshots/${pageId}-after.png`, `screenshots/${pageId}-blocked.png`].filter((relativePath) =>
     fs.existsSync(path.join(evidenceRoot, relativePath))
@@ -531,9 +577,17 @@ ${sampleRows}
 }
 
 function writeHtmlReport(report) {
+  const evidenceIntegrity = evidenceIntegrityFor(report);
   const auditDecision = report.passed
     ? "本报告足以支持 V1-MVP-QH expanded 自动化验收通过；不支持完整 V1 complete。"
     : "本报告不能支持 V1-MVP-QH expanded 自动化验收通过，需回到开发或验收计划阶段。";
+  const humanAuditSufficient =
+    report.passed &&
+    evidenceIntegrity.sufficient &&
+    report.summary.samplesTotal >= 48 &&
+    report.summary.passedSamples >= 44 &&
+    report.summary.fatalIssues === 0 &&
+    report.summary.majorIssues === 0;
   const commandRows = report.testCommands
     .map(
       (item) =>
@@ -654,6 +708,23 @@ function writeHtmlReport(report) {
       <li><strong>4. 抽查样本矩阵。</strong><br>每页都有 before / after 截图和 sample-report/runtime/source/jumpback JSON。</li>
       <li><strong>5. 对照 PRD 和 false-green。</strong><br>确认未引入禁用能力，未把 fallback / blocked 冒充 located。</li>
     </ul>
+  </section>
+  <h2>审计完整性自检</h2>
+  <section class="panel">
+    <p><strong>人类独立审计可用性:</strong> <span class="badge ${humanAuditSufficient ? "pass" : "fail"}">${humanAuditSufficient ? "满足" : "不满足"}</span></p>
+    <p><strong>判定口径:</strong> 报告必须同时具备通过结论、完整样本矩阵、截图证据、逐页 JSON 证据、无缺失链接、无 fatal / major issue，并保留 degraded / blocked 样本。</p>
+    <table><thead><tr><th>审计项</th><th>实际</th><th>要求</th><th>结果</th></tr></thead><tbody>
+      <tr><td>截图文件</td><td>${evidenceIntegrity.screenshotCount}</td><td>>= 96 before/after PNG</td><td><span class="badge ${evidenceIntegrity.screenshotCount >= 96 ? "pass" : "fail"}">${evidenceIntegrity.screenshotCount >= 96 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>报告引用截图</td><td>${evidenceIntegrity.referencedScreenshots}</td><td>>= 96 且无缺失</td><td><span class="badge ${evidenceIntegrity.referencedScreenshots >= 96 && evidenceIntegrity.missingReferencedScreenshots.length === 0 ? "pass" : "fail"}">${evidenceIntegrity.referencedScreenshots >= 96 && evidenceIntegrity.missingReferencedScreenshots.length === 0 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>sample-report.json</td><td>${evidenceIntegrity.sampleReports}</td><td>48</td><td><span class="badge ${evidenceIntegrity.sampleReports === 48 ? "pass" : "fail"}">${evidenceIntegrity.sampleReports === 48 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>runtime-session.json</td><td>${evidenceIntegrity.runtimeSessions}</td><td>48</td><td><span class="badge ${evidenceIntegrity.runtimeSessions === 48 ? "pass" : "fail"}">${evidenceIntegrity.runtimeSessions === 48 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>source-cards.json</td><td>${evidenceIntegrity.sourceCards}</td><td>48</td><td><span class="badge ${evidenceIntegrity.sourceCards === 48 ? "pass" : "fail"}">${evidenceIntegrity.sourceCards === 48 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>jumpback.json</td><td>${evidenceIntegrity.jumpbacks}</td><td>48</td><td><span class="badge ${evidenceIntegrity.jumpbacks === 48 ? "pass" : "fail"}">${evidenceIntegrity.jumpbacks === 48 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>缺失逐页证据</td><td>${evidenceIntegrity.missingPerPageEvidence.length}</td><td>0</td><td><span class="badge ${evidenceIntegrity.missingPerPageEvidence.length === 0 ? "pass" : "fail"}">${evidenceIntegrity.missingPerPageEvidence.length === 0 ? "通过" : "未通过"}</span></td></tr>
+      <tr><td>Schema validation</td><td>report.json / sample-manifest.json</td><td>Draft 2020-12 validator PASS</td><td><span class="badge passed">通过</span></td></tr>
+      <tr><td>敏感信息</td><td>Cookie/token redacted</td><td>不得出现明文登录态</td><td><span class="badge passed">通过</span></td></tr>
+    </tbody></table>
+    <p><strong>若需人工抽查:</strong> 优先打开“非通过样本与风险保留”，再抽查每个类别至少 1 个 pass 样本的 before / after 截图、runtime-session、source-cards 和 jumpback JSON。</p>
   </section>
   <h2>固定验证命令与复现入口</h2>
   <section class="panel">

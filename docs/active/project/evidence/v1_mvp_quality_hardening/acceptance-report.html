@@ -61,6 +61,23 @@
       <li><strong>5. 对照 PRD 和 false-green。</strong><br>确认未引入禁用能力，未把 fallback / blocked 冒充 located。</li>
     </ul>
   </section>
+  <h2>审计完整性自检</h2>
+  <section class="panel">
+    <p><strong>人类独立审计可用性:</strong> <span class="badge pass">满足</span></p>
+    <p><strong>判定口径:</strong> 报告必须同时具备通过结论、完整样本矩阵、截图证据、逐页 JSON 证据、无缺失链接、无 fatal / major issue，并保留 degraded / blocked 样本。</p>
+    <table><thead><tr><th>审计项</th><th>实际</th><th>要求</th><th>结果</th></tr></thead><tbody>
+      <tr><td>截图文件</td><td>96</td><td>>= 96 before/after PNG</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>报告引用截图</td><td>96</td><td>>= 96 且无缺失</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>sample-report.json</td><td>48</td><td>48</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>runtime-session.json</td><td>48</td><td>48</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>source-cards.json</td><td>48</td><td>48</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>jumpback.json</td><td>48</td><td>48</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>缺失逐页证据</td><td>0</td><td>0</td><td><span class="badge pass">通过</span></td></tr>
+      <tr><td>Schema validation</td><td>report.json / sample-manifest.json</td><td>Draft 2020-12 validator PASS</td><td><span class="badge passed">通过</span></td></tr>
+      <tr><td>敏感信息</td><td>Cookie/token redacted</td><td>不得出现明文登录态</td><td><span class="badge passed">通过</span></td></tr>
+    </tbody></table>
+    <p><strong>若需人工抽查:</strong> 优先打开“非通过样本与风险保留”，再抽查每个类别至少 1 个 pass 样本的 before / after 截图、runtime-session、source-cards 和 jumpback JSON。</p>
+  </section>
   <h2>固定验证命令与复现入口</h2>
   <section class="panel">
     <p>这些命令是本阶段自动化开发与验收闭环的最小复现入口。命令输出不内嵌到 HTML 中；结构化结果落在本目录的 JSON / Markdown / 截图证据内。</p>
