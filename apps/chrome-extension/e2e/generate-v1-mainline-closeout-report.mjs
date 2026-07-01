@@ -261,15 +261,21 @@ function collectGitProvenance() {
   const changedFiles = statusLines
     .map((line) => line.replace(/^(?:[ MADRCU?!]{1,2})\s+/, "").trim())
     .filter(Boolean);
+  const sourceHead = safeExec("git rev-parse --short HEAD");
   return {
     remote: safeExec("git remote get-url origin"),
     branch: safeExec("git rev-parse --abbrev-ref HEAD"),
-    head: safeExec("git rev-parse --short HEAD"),
+    head: sourceHead,
+    sourceHead,
+    sourceHeadDescription:
+      "Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.",
     aheadBehindOriginMain: safeExec("git rev-list --left-right --count main...origin/main"),
     workingTreeStatus: statusLines.length ? "dirty" : "clean",
     statusLines,
     generatedEvidenceStatusLines: rawStatusLines.filter((line) => isGeneratedEvidenceLine(line)),
     changedFiles,
+    generatedEvidenceStatusDescription:
+      "Generated evidence changes are tracked separately from source changes so humans do not confuse report output with unreviewed implementation changes.",
     reportGenerator: "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
     evidenceRoot: "docs/active/project/evidence/v1_mainline_closeout"
   };
@@ -911,9 +917,10 @@ function buildHtml(report) {
           <h3>仓库状态</h3>
           <p>远端仓库：<code>${escapeHtml(report.auditProvenance.git.remote)}</code></p>
           <p>分支：<code>${escapeHtml(report.auditProvenance.git.branch)}</code></p>
-          <p>HEAD：<code>${escapeHtml(report.auditProvenance.git.head)}</code></p>
+          <p>被审计源码基线：<code>${escapeHtml(report.auditProvenance.git.sourceHead ?? report.auditProvenance.git.head)}</code></p>
+          <p>${escapeHtml(report.auditProvenance.git.sourceHeadDescription ?? "")}</p>
           <p>main...origin/main：<code>${escapeHtml(report.auditProvenance.git.aheadBehindOriginMain)}</code></p>
-          <p>工作树：<strong>${escapeHtml(report.auditProvenance.git.workingTreeStatus)}</strong></p>
+          <p>源码工作树：<strong>${escapeHtml(report.auditProvenance.git.workingTreeStatus)}</strong></p>
         </div>
         <div class="card">
           <h3>报告生成</h3>
@@ -923,7 +930,8 @@ function buildHtml(report) {
           <p>证据哈希：<code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></p>
         </div>
         <div class="card">
-          <h3>工作树差异</h3>
+          <h3>源码工作树差异</h3>
+          <p>${escapeHtml(report.auditProvenance.git.generatedEvidenceStatusDescription ?? "")}</p>
           <ul>${gitStatusItems}</ul>
         </div>
       </div>
