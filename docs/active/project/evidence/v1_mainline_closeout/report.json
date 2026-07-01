@@ -1,6 +1,6 @@
 {
   "schemaVersion": "v1-mainline-closeout.1",
-  "generatedAt": "2026-07-01T17:00:21.453Z",
+  "generatedAt": "2026-07-01T17:27:56.342Z",
   "passed": true,
   "claim": "V1 mainline closeout candidate passed automated acceptance.",
   "summary": {
@@ -85,8 +85,8 @@
     "git": {
       "remote": "https://github.com/zhouhouze/mercury",
       "branch": "main",
-      "head": "60b18c6",
-      "sourceHead": "60b18c6",
+      "head": "a05f53d",
+      "sourceHead": "a05f53d",
       "sourceHeadDescription": "Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.",
       "aheadBehindOriginMain": "0\t0",
       "workingTreeStatus": "dirty",
@@ -94,6 +94,7 @@
         "M apps/chrome-extension/e2e/generate-v1-mvp-quality-hardening-report.mjs",
         "M docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html",
         "M docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json",
+        "M docs/active/project/evidence/v1_mvp_quality_hardening/false-green-audit.md",
         "M docs/active/project/evidence/v1_mvp_quality_hardening/report.json"
       ],
       "generatedEvidenceStatusLines": [
@@ -105,6 +106,7 @@
         "apps/chrome-extension/e2e/generate-v1-mvp-quality-hardening-report.mjs",
         "docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html",
         "docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json",
+        "docs/active/project/evidence/v1_mvp_quality_hardening/false-green-audit.md",
         "docs/active/project/evidence/v1_mvp_quality_hardening/report.json"
       ],
       "generatedEvidenceStatusDescription": "Generated evidence changes are tracked separately from source changes so humans do not confuse report output with unreviewed implementation changes.",
@@ -468,7 +470,7 @@
         "fatalIssues": 0,
         "majorIssues": 0
       },
-      "generatedAt": "2026-07-01T17:00:18.210Z",
+      "generatedAt": "2026-07-01T17:27:53.467Z",
       "fatalIssues": [],
       "majorIssues": []
     },

@@ -103,7 +103,7 @@
   <h2>非通过样本与风险保留</h2>
   <section class="panel">
     <p>以下样本不会被隐藏。它们用于说明当前技术路线的真实边界，也用于防止“44/48 pass”被误读为所有网页全量高质量通过。</p>
-    <table><thead><tr><th>样本</th><th>站点</th><th>类别</th><th>结论</th><th>反跳状态</th><th>原因</th><th>证据</th></tr></thead><tbody><tr><td>domestic-content-xhs-note</td><td>小红书</td><td>domestic_content_platform</td><td><span class="badge blocked">blocked</span></td><td>fallback_shown</td><td>theme-color rgb 255, 255, 255fallback_shownviewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</td><td><a href="pages/domestic-content-xhs-note/sample-report.json"><code>sample-report.json</code></a> <a href="pages/domestic-content-xhs-note/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/domestic-content-xhs-note/source-cards.json"><code>source-cards.json</code></a> <a href="pages/domestic-content-xhs-note/jumpback.json"><code>jumpback.json</code></a> <a href="pages/domestic-content-xhs-note/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/domestic-content-xhs-note/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-portal-reuters-home</td><td>Reuters</td><td>international_portal_homepage</td><td><span class="badge degraded">degraded</span></td><td>fallback_shown</td><td>reuters.comfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</td><td><a href="pages/international-portal-reuters-home/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-portal-reuters-home/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-portal-reuters-home/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-portal-reuters-home/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-portal-reuters-home/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-portal-reuters-home/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-article-reuters-world</td><td>Reuters</td><td>international_article_detail</td><td><span class="badge degraded">degraded</span></td><td>fallback_shown</td><td>var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hshfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</td><td><a href="pages/international-article-reuters-world/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-article-reuters-world/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-article-reuters-world/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-article-reuters-world/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-article-reuters-world/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-article-reuters-world/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-doc-openai-docs</td><td>OpenAI Docs</td><td>international_knowledge_blog_doc</td><td><span class="badge degraded">degraded</span></td><td>located</td><td>quality metric / source evidence degraded</td><td><a href="pages/international-doc-openai-docs/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-doc-openai-docs/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-doc-openai-docs/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-doc-openai-docs/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-doc-openai-docs/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-doc-openai-docs/perception-summary.json"><code>perception-summary.json</code></a></td></tr></tbody></table>
+    <table><thead><tr><th>样本</th><th>站点</th><th>类别</th><th>结论</th><th>反跳状态</th><th>原因</th><th>证据</th></tr></thead><tbody><tr><td>domestic-content-xhs-note</td><td>小红书</td><td>domestic_content_platform</td><td><span class="badge blocked">blocked</span></td><td>fallback_shown</td><td>Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</td><td><a href="pages/domestic-content-xhs-note/sample-report.json"><code>sample-report.json</code></a> <a href="pages/domestic-content-xhs-note/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/domestic-content-xhs-note/source-cards.json"><code>source-cards.json</code></a> <a href="pages/domestic-content-xhs-note/jumpback.json"><code>jumpback.json</code></a> <a href="pages/domestic-content-xhs-note/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/domestic-content-xhs-note/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-portal-reuters-home</td><td>Reuters</td><td>international_portal_homepage</td><td><span class="badge degraded">degraded</span></td><td>fallback_shown</td><td>Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</td><td><a href="pages/international-portal-reuters-home/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-portal-reuters-home/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-portal-reuters-home/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-portal-reuters-home/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-portal-reuters-home/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-portal-reuters-home/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-article-reuters-world</td><td>Reuters</td><td>international_article_detail</td><td><span class="badge degraded">degraded</span></td><td>fallback_shown</td><td>Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</td><td><a href="pages/international-article-reuters-world/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-article-reuters-world/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-article-reuters-world/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-article-reuters-world/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-article-reuters-world/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-article-reuters-world/perception-summary.json"><code>perception-summary.json</code></a></td></tr><tr><td>international-doc-openai-docs</td><td>OpenAI Docs</td><td>international_knowledge_blog_doc</td><td><span class="badge degraded">degraded</span></td><td>located</td><td>样本未达 pass 门槛；详见逐页 sample-report.json 与 jumpback.json。</td><td><a href="pages/international-doc-openai-docs/sample-report.json"><code>sample-report.json</code></a> <a href="pages/international-doc-openai-docs/runtime-session.json"><code>runtime-session.json</code></a> <a href="pages/international-doc-openai-docs/source-cards.json"><code>source-cards.json</code></a> <a href="pages/international-doc-openai-docs/jumpback.json"><code>jumpback.json</code></a> <a href="pages/international-doc-openai-docs/dom-snapshot.json"><code>dom-snapshot.json</code></a> <a href="pages/international-doc-openai-docs/perception-summary.json"><code>perception-summary.json</code></a></td></tr></tbody></table>
   </section>
   <h2>48 页样本矩阵索引</h2>
   <section class="panel">
@@ -120,7 +120,7 @@
         <p><strong>噪声发现:</strong> 推荐</p>
         <p><strong>导图节点:</strong> 核心要点 / 核心事件 / 拾光纪 时间不等人！历史不等人！ 总书记要求全党同志做到 三个务必 / 推荐世界黄金协会：下半年黄金将步入关键节点 / 澎湃读报丨央媒头版集中刊发社论社评：热烈庆祝中国共产党成立105周年 / 法国高温求生记：去酒店 避难</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 18 for ; label=核心事件</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-thepaper-home-before.png" alt="domestic-portal-thepaper-home"><figcaption>screenshots/domestic-portal-thepaper-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-thepaper-home-after.png" alt="domestic-portal-thepaper-home"><figcaption>screenshots/domestic-portal-thepaper-home-after.png</figcaption></figure></div>
       </section>
@@ -133,7 +133,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 观察者网 / 如果不直接切断乌克兰的无人机制造能力 / 回望十五年前的那场辩论：两种知识体系的碰撞 张维为 国家高端智库理 / 核心要点 / 人物与机构 / 解决台湾问题</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 44 for guancha; label=观察者网</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-guancha-home-before.png" alt="domestic-portal-guancha-home"><figcaption>screenshots/domestic-portal-guancha-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-guancha-home-after.png" alt="domestic-portal-guancha-home"><figcaption>screenshots/domestic-portal-guancha-home-after.png</figcaption></figure></div>
       </section>
@@ -146,7 +146,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / 受权发布丨中共中央关于表彰全国优秀共产党员、全国优秀党务工作者和全 / 人物与机构 / 核心要点 / 背景原因 / 核心事件</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-cctv-home-before.png" alt="domestic-portal-cctv-home"><figcaption>screenshots/domestic-portal-cctv-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-cctv-home-after.png" alt="domestic-portal-cctv-home"><figcaption>screenshots/domestic-portal-cctv-home-after.png</figcaption></figure></div>
       </section>
@@ -159,7 +159,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 核心事件 / 为啥飞机不让带超100mL的液体登机？背后竟有这样一个故事 这些不 / 编撰虚假信息、恶意 薅 流量 关注新型网络犯罪 铸牢中华民族共同体 / 21 25 跨越百年沧桑 在人类经济史上刻下中国坐标 21 24 / 这个城市有点潮 开封：走入 上河 画卷</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 18 for ; label=核心事件</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-chinanews-home-before.png" alt="domestic-portal-chinanews-home"><figcaption>screenshots/domestic-portal-chinanews-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-chinanews-home-after.png" alt="domestic-portal-chinanews-home"><figcaption>screenshots/domestic-portal-chinanews-home-after.png</figcaption></figure></div>
       </section>
@@ -172,7 +172,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / 其他要点 / 人物与机构 / 影响与结果 / 视频与内容 / 核心要点</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=article_title</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-xinhua-home-before.png" alt="domestic-portal-xinhua-home"><figcaption>screenshots/domestic-portal-xinhua-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-xinhua-home-after.png" alt="domestic-portal-xinhua-home"><figcaption>screenshots/domestic-portal-xinhua-home-after.png</figcaption></figure></div>
       </section>
@@ -185,7 +185,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> UP主与发布 / 其他要点 / 四连胜且零失球 墨西哥队晋级16强姆巴佩双响创纪录 法国胜瑞典 拾 / 国际能源署最新发布的 全球电动汽车展望2026 / 记者了解到，今年7月1日至10月8日，黑龙江省将依托夏季避暑旅游 / 制造业是立国之本、强国之基</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=UP主与发布</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-people-home-before.png" alt="domestic-portal-people-home"><figcaption>screenshots/domestic-portal-people-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-people-home-after.png" alt="domestic-portal-people-home"><figcaption>screenshots/domestic-portal-people-home-after.png</figcaption></figure></div>
       </section>
@@ -198,7 +198,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / article_body / 中国新闻周刊 27分钟前 热点精选 专题英格兰vs民主刚果： 凯恩 / 专题夜读 导演李少红女儿： 从小被问 何时超过你妈 / 人物与机构 / 精选视频 白俄罗斯总统卢卡申科出席北大毕业典礼</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=article_title</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-qq-news-home-before.png" alt="domestic-portal-qq-news-home"><figcaption>screenshots/domestic-portal-qq-news-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-qq-news-home-after.png" alt="domestic-portal-qq-news-home"><figcaption>screenshots/domestic-portal-qq-news-home-after.png</figcaption></figure></div>
       </section>
@@ -211,7 +211,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 核心事件 / 谈心社 段奕宏 / 西祠胡同停摆5年重启首日发帖为0 老版主 会上去看看 / 前往日本周边海域的中国军舰 在日本防卫省网站 刷屏 哈梅内伊6天国 / 六旬父亲背8个土鸡蛋接考后续： 儿子报考大学已确定 新闻 28分钟</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 20 for ; label=核心事件</p>
         <div class="shots"><figure><img src="screenshots/domestic-portal-163-news-home-before.png" alt="domestic-portal-163-news-home"><figcaption>screenshots/domestic-portal-163-news-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-portal-163-news-home-after.png" alt="domestic-portal-163-news-home"><figcaption>screenshots/domestic-portal-163-news-home-after.png</figcaption></figure></div>
       </section>
@@ -224,7 +224,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 人物与机构 / 金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市 / 视频与内容 / 学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技 / Copyright 2000 - 2026 / 全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 20 for ; label=人物与机构</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-xinhua-tech-before.png" alt="domestic-article-xinhua-tech"><figcaption>screenshots/domestic-article-xinhua-tech-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-xinhua-tech-after.png" alt="domestic-article-xinhua-tech"><figcaption>screenshots/domestic-article-xinhua-tech-after.png</figcaption></figure></div>
       </section>
@@ -237,7 +237,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> UP主与发布 / 核心要点 / 海阳核电二期全面进入安装调试阶段 记者今天从国家电投集团获悉 / 列表浏览 卡片浏览 记者探访海上 超级大冰箱 液化天然气船 今天 / 星河为幕，天宫作厨 神舟二十三号乘组解锁 太空出差 新体验 神舟二 / 记者探访海上 超级大冰箱 液化天然气船 今天 30日</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=UP主与发布</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-cctv-tech-before.png" alt="domestic-article-cctv-tech"><figcaption>screenshots/domestic-article-cctv-tech-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-cctv-tech-after.png" alt="domestic-article-cctv-tech"><figcaption>screenshots/domestic-article-cctv-tech-after.png</figcaption></figure></div>
       </section>
@@ -250,7 +250,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / article_title / 核心要点 / 人物与机构 / 何谋保已任甘肃省政府党组成员 、 省政府办公厅党组书记 人事风向 / 努力在推进中国式现代化中充分发挥龙头带动和示范引领作用！上海市 两</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 44 for ; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-thepaper-tech-before.png" alt="domestic-article-thepaper-tech"><figcaption>screenshots/domestic-article-thepaper-tech-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-thepaper-tech-after.png" alt="domestic-article-thepaper-tech"><figcaption>screenshots/domestic-article-thepaper-tech-after.png</figcaption></figure></div>
       </section>
@@ -263,7 +263,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 观察者网 / 核心要点 / 一旅客辱骂殴打工作人员？广州东站通报 被洋品牌捧热 / 如果不直接切断乌克兰的无人机制造能力 / 回望十五年前的那场辩论：两种知识体系的碰撞 张维为 国家高端智库理 / 人物与机构</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 44 for guancha; label=观察者网</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-guancha-detail-before.png" alt="domestic-article-guancha-detail"><figcaption>screenshots/domestic-article-guancha-detail-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-guancha-detail-after.png" alt="domestic-article-guancha-detail"><figcaption>screenshots/domestic-article-guancha-detail-after.png</figcaption></figure></div>
       </section>
@@ -276,7 +276,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / article_body / 核心要点 / 核心事件 / 错误的定位叙事 / 深水财经社 3小时前 硬氪首发 全尺寸全重量国内率先首飞</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 42 for 36; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-36kr-news-before.png" alt="domestic-article-36kr-news"><figcaption>screenshots/domestic-article-36kr-news-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-36kr-news-after.png" alt="domestic-article-36kr-news"><figcaption>screenshots/domestic-article-36kr-news-after.png</figcaption></figure></div>
       </section>
@@ -289,7 +289,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / 快速投票：被 数据化 的睡眠，真的让你睡得更好了吗？ 53 / article_meta / 关注 南山居氪 少数派作者 心理咨询在读 / 核心要点 / 互动与传播</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-sspai-before.png" alt="domestic-article-sspai"><figcaption>screenshots/domestic-article-sspai-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-sspai-after.png" alt="domestic-article-sspai"><figcaption>screenshots/domestic-article-sspai-after.png</figcaption></figure></div>
       </section>
@@ -302,7 +302,7 @@
         <p><strong>噪声发现:</strong> 推荐</p>
         <p><strong>导图节点:</strong> article_body / IT老彭 2026-07-01 23 25 0 0 4 AI / 视频与内容 / AI Agent 全日制30天速成 Day9 笔记 修订要点 / 核心要点 / 编辑推荐 在.NET 上构建超大托管数组 1/14/395</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-cnblogs-before.png" alt="domestic-article-cnblogs"><figcaption>screenshots/domestic-article-cnblogs-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-cnblogs-after.png" alt="domestic-article-cnblogs"><figcaption>screenshots/domestic-article-cnblogs-after.png</figcaption></figure></div>
       </section>
@@ -315,7 +315,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 人物与机构 / 牛奶 1.6k 11 AIGC AI编程 OpenAI / 为什么AI 时代来临 / 先放个结论：按星哥的步骤配置完 / 影响与结果</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 18 for ; label=人物与机构</p>
         <div class="shots"><figure><img src="screenshots/domestic-article-juejin-before.png" alt="domestic-article-juejin"><figcaption>screenshots/domestic-article-juejin-before.png</figcaption></figure><figure><img src="screenshots/domestic-article-juejin-after.png" alt="domestic-article-juejin"><figcaption>screenshots/domestic-article-juejin-after.png</figcaption></figure></div>
       </section>
@@ -328,7 +328,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / bili_feed_card / 哔哩哔哩 bilibili.com / 不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上 / 马德拉岛的超级天才如何成长为足坛巨星 / 不快乐就来看快乐女孩小卖部上班的快乐</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for bilibili; label=不快乐就来看快乐女孩小卖部上班的快乐</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-bilibili-home-before.png" alt="domestic-content-bilibili-home"><figcaption>screenshots/domestic-content-bilibili-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-bilibili-home-after.png" alt="domestic-content-bilibili-home"><figcaption>screenshots/domestic-content-bilibili-home-after.png</figcaption></figure></div>
       </section>
@@ -341,7 +341,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 视频与内容 / 当前 B站视频详情页 / og url / 其他要点 / bili_video_title / 瓜物志第121期_哔哩哔哩_bilibili</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (13/13)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 18 for bilibili; label=bili_video_title</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-bilibili-video-before.png" alt="domestic-content-bilibili-video"><figcaption>screenshots/domestic-content-bilibili-video-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-bilibili-video-after.png" alt="domestic-content-bilibili-video"><figcaption>screenshots/domestic-content-bilibili-video-after.png</figcaption></figure></div>
       </section>
@@ -354,7 +354,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / Superpowers不再是最佳实践：2026下半年你 / 德荷出局全给 C罗铺路？梅西赛程简直躺赢！ / codex的6个最强skill你装了吗？ / 在武汉夏天可以做的100件事哈哈哈 / 幺幺：爸爸，你真的是好烦挺哦！</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 58 for xiaohongshu; label=Superpowers不再是最佳实践：2026下半年你</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-xhs-home-before.png" alt="domestic-content-xhs-home"><figcaption>screenshots/domestic-content-xhs-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-xhs-home-after.png" alt="domestic-content-xhs-home"><figcaption>screenshots/domestic-content-xhs-home-after.png</figcaption></figure></div>
       </section>
@@ -367,7 +367,7 @@
         <p><strong>噪声发现:</strong> Source jumpback only showed fallback evidence.</p>
         <p><strong>导图节点:</strong> viewport width device-width,initial-scale 1,minimum-scale 1,max / format-detection telephone no,address no,email no / shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767 / 360-site-verification 86dcc68a445e2ed8034e85f0ba88a83a / google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32 / og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (9/9)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge fail">fail</span> <code>1 / 0.15 (6/6)</code></p>
-        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，reason=theme-color rgb 255, 255, 255fallback_shownviewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</p>
+        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，审计归因=Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</p>
         <p><strong>选择理由:</strong> candidate score -2 for xiaohongshu; label=shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-xhs-note-before.png" alt="domestic-content-xhs-note"><figcaption>screenshots/domestic-content-xhs-note-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-xhs-note-after.png" alt="domestic-content-xhs-note"><figcaption>screenshots/domestic-content-xhs-note-after.png</figcaption></figure></div>
       </section>
@@ -380,7 +380,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 影响与结果 / 端午习俗 小时候过端午 / 8 个回答 特立独行 小黄人 两部新片加入暑期档厮杀 / 互动与传播 / 2026 季中冠军赛落户韩国大田</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=8 个回答 特立独行 小黄人 两部新片加入暑期档厮杀</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-zhihu-home-before.png" alt="domestic-content-zhihu-home"><figcaption>screenshots/domestic-content-zhihu-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-zhihu-home-after.png" alt="domestic-content-zhihu-home"><figcaption>screenshots/domestic-content-zhihu-home-after.png</figcaption></figure></div>
       </section>
@@ -393,7 +393,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / 0人关注 五棵松 致敬Beyond 真的爱你 / 豆品 全部商品 豆瓣经典 家居生活 外出旅行 文具小物 / 原创数字作品 更多 / 豆瓣新碟榜 更多 / 当前页面</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for ; label=0人关注 五棵松 致敬Beyond 真的爱你</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-douban-home-before.png" alt="domestic-content-douban-home"><figcaption>screenshots/domestic-content-douban-home-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-douban-home-after.png" alt="domestic-content-douban-home"><figcaption>screenshots/domestic-content-douban-home-after.png</figcaption></figure></div>
       </section>
@@ -406,7 +406,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 内容简介 / 核心要点 / 生成式人工智能技术仍在快速发展的阶段 / 您在使用本服务时 / 在您使用本服务过程中 / 您使用本服务生成的内容</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (17/17)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for ; label=内容简介</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-weibo-hot-before.png" alt="domestic-content-weibo-hot"><figcaption>screenshots/domestic-content-weibo-hot-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-weibo-hot-after.png" alt="domestic-content-weibo-hot"><figcaption>screenshots/domestic-content-weibo-hot-after.png</figcaption></figure></div>
       </section>
@@ -419,7 +419,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 内容简介 / 百度内容创作经营平台 照见灵感 / Dresslena 音乐领域 / 科幻Fans 影视领域 / 郑博隆医生 健康领域 2024年百家榜年度影响力作者</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ; label=Dresslena 音乐领域</p>
         <div class="shots"><figure><img src="screenshots/domestic-content-baijiahao-before.png" alt="domestic-content-baijiahao"><figcaption>screenshots/domestic-content-baijiahao-before.png</figcaption></figure><figure><img src="screenshots/domestic-content-baijiahao-after.png" alt="domestic-content-baijiahao"><figcaption>screenshots/domestic-content-baijiahao-after.png</figcaption></figure></div>
       </section>
@@ -432,7 +432,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 1 hr ago Europe Anthropic says / MOST READ 1 Canada celebrates / US Supreme Court upholds / 22 hrs ago World MOST WATCHED 1 / ALSO IN NEWS US Supreme Court</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for bbc-news; label=1 hr ago Europe Anthropic says</p>
         <div class="shots"><figure><img src="screenshots/international-portal-bbc-home-before.png" alt="international-portal-bbc-home"><figcaption>screenshots/international-portal-bbc-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-bbc-home-after.png" alt="international-portal-bbc-home"><figcaption>screenshots/international-portal-bbc-home-after.png</figcaption></figure></div>
       </section>
@@ -445,7 +445,7 @@
         <p><strong>噪声发现:</strong> SourceRef count below diagnostic threshold: 2.、Digest item count below diagnostic threshold: 2.</p>
         <p><strong>导图节点:</strong> viewport width device-width, initial-scale 1.0 / var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh / reuters.com</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (2/2)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (3/3)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/3)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/3)</code> overlong=<span class="badge fail">fail</span> <code>0.667 / 0.15 (2/3)</code></p>
-        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，reason=reuters.comfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</p>
+        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，审计归因=Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</p>
         <p><strong>选择理由:</strong> candidate score 2 for reuters; label=reuters.com</p>
         <div class="shots"><figure><img src="screenshots/international-portal-reuters-home-before.png" alt="international-portal-reuters-home"><figcaption>screenshots/international-portal-reuters-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-reuters-home-after.png" alt="international-portal-reuters-home"><figcaption>screenshots/international-portal-reuters-home-after.png</figcaption></figure></div>
       </section>
@@ -458,7 +458,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / 核心要点 / wearing flower lei during Selma / Nissan Leaf, Edmunds 30,000 EV / Health TOP STORIES Democrats in / World Iran war Russia-Ukraine</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ap-news; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-portal-ap-home-before.png" alt="international-portal-ap-home"><figcaption>screenshots/international-portal-ap-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-ap-home-after.png" alt="international-portal-ap-home"><figcaption>screenshots/international-portal-ap-home-after.png</figcaption></figure></div>
       </section>
@@ -471,7 +471,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / features America at 250 I wish / Interview Fabián Ruiz It s not / World Cup 2026 Interview Fabián / Deeply read What readers are / IranFederation hits out at lies</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for the-guardian; label=features America at 250 I wish</p>
         <div class="shots"><figure><img src="screenshots/international-portal-guardian-home-before.png" alt="international-portal-guardian-home"><figcaption>screenshots/international-portal-guardian-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-guardian-home-after.png" alt="international-portal-guardian-home"><figcaption>screenshots/international-portal-guardian-home-after.png</figcaption></figure></div>
       </section>
@@ -484,7 +484,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / article_meta / 核心要点 / Live Updates Amirhosein / That could be problem for Trump / Now she s one step closer to</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for cnn; label=article_title</p>
         <div class="shots"><figure><img src="screenshots/international-portal-cnn-home-before.png" alt="international-portal-cnn-home"><figcaption>screenshots/international-portal-cnn-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-cnn-home-after.png" alt="international-portal-cnn-home"><figcaption>screenshots/international-portal-cnn-home-after.png</figcaption></figure></div>
       </section>
@@ -497,7 +497,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / 限制与风险 / Opponents worry about potential / article_meta / 核心要点 / Chaudary/AP ASIA Funerals held</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for npr; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-portal-npr-home-before.png" alt="international-portal-npr-home"><figcaption>screenshots/international-portal-npr-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-npr-home-after.png" alt="international-portal-npr-home"><figcaption>screenshots/international-portal-npr-home-after.png</figcaption></figure></div>
       </section>
@@ -510,7 +510,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / article_body / 核心要点 / After Afghanistan fires drones / Opinion by Leonid Ragozin Leonid / Take me to America Underdogs</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for al-jazeera; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-portal-aljazeera-home-before.png" alt="international-portal-aljazeera-home"><figcaption>screenshots/international-portal-aljazeera-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-aljazeera-home-after.png" alt="international-portal-aljazeera-home"><figcaption>screenshots/international-portal-aljazeera-home-after.png</figcaption></figure></div>
       </section>
@@ -523,7 +523,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / Michael Bennet loses Colorado / 核心要点 / NewsToday s / 4of 8Democratic socialist Melat / Democratic socialist Melat Kiros</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 42 for yahoo-news; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-portal-yahoo-home-before.png" alt="international-portal-yahoo-home"><figcaption>screenshots/international-portal-yahoo-home-before.png</figcaption></figure><figure><img src="screenshots/international-portal-yahoo-home-after.png" alt="international-portal-yahoo-home"><figcaption>screenshots/international-portal-yahoo-home-after.png</figcaption></figure></div>
       </section>
@@ -536,7 +536,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / article_title / LISTEN Interface Is tech ruining / 核心要点 / 流程与操作 / BBC reporter tests AI</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 42 for bbc-news; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-article-bbc-tech-before.png" alt="international-article-bbc-tech"><figcaption>screenshots/international-article-bbc-tech-before.png</figcaption></figure><figure><img src="screenshots/international-article-bbc-tech-after.png" alt="international-article-bbc-tech"><figcaption>screenshots/international-article-bbc-tech-after.png</figcaption></figure></div>
       </section>
@@ -549,7 +549,7 @@
         <p><strong>噪声发现:</strong> SourceRef count below diagnostic threshold: 2.、Digest item count below diagnostic threshold: 2.、Source jumpback only showed fallback evidence.</p>
         <p><strong>导图节点:</strong> viewport width device-width, initial-scale 1.0 / var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh / reuters.com</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (2/2)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (3/3)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/3)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/3)</code> overlong=<span class="badge fail">fail</span> <code>0.667 / 0.15 (2/3)</code></p>
-        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，reason=var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hshfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom</p>
+        <p><strong>反跳:</strong> fallback_shown，markerVisible=false，审计归因=Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。</p>
         <p><strong>选择理由:</strong> candidate score 2 for reuters; label=reuters.com</p>
         <div class="shots"><figure><img src="screenshots/international-article-reuters-world-before.png" alt="international-article-reuters-world"><figcaption>screenshots/international-article-reuters-world-before.png</figcaption></figure><figure><img src="screenshots/international-article-reuters-world-after.png" alt="international-article-reuters-world"><figcaption>screenshots/international-article-reuters-world-after.png</figcaption></figure></div>
       </section>
@@ -562,7 +562,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / 核心要点 / 流程与操作 / Health TOP STORIES Democrats in / World Iran war Russia-Ukraine / Oddities TOP STORIES Viral</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 42 for ap-news; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-article-ap-world-before.png" alt="international-article-ap-world"><figcaption>screenshots/international-article-ap-world-before.png</figcaption></figure><figure><img src="screenshots/international-article-ap-world-after.png" alt="international-article-ap-world"><figcaption>screenshots/international-article-ap-world-after.png</figcaption></figure></div>
       </section>
@@ -575,7 +575,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / 核心要点 / Europe At least 3.3m people were / Americas Venezuelan police / South and Central Asia Pakistan / Asia Pacific China is clear</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 38 for the-guardian; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-article-guardian-world-before.png" alt="international-article-guardian-world"><figcaption>screenshots/international-article-guardian-world-before.png</figcaption></figure><figure><img src="screenshots/international-article-guardian-world-after.png" alt="international-article-guardian-world"><figcaption>screenshots/international-article-guardian-world-after.png</figcaption></figure></div>
       </section>
@@ -588,7 +588,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / MIA SATO 5 26 AM GMT+8 Kalta? / 核心要点 / Gemini Spark updates macOS / Motorola may be first, with Edge / JESS WEATHERBED 7 43 PM GMT+8</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for the-verge; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-article-theverge-before.png" alt="international-article-theverge"><figcaption>screenshots/international-article-theverge-before.png</figcaption></figure><figure><img src="screenshots/international-article-theverge-after.png" alt="international-article-theverge"><figcaption>screenshots/international-article-theverge-after.png</figcaption></figure></div>
       </section>
@@ -601,7 +601,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / 限制与风险 / MAXWELL ZEFF Former Google and / 核心要点 / ZEYI YANG TRANSPORTATION Welcome / 流程与操作</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for wired; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-article-wired-before.png" alt="international-article-wired"><figcaption>screenshots/international-article-wired-before.png</figcaption></figure><figure><img src="screenshots/international-article-wired-after.png" alt="international-article-wired"><figcaption>screenshots/international-article-wired-after.png</figcaption></figure></div>
       </section>
@@ -614,7 +614,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / 核心要点 / Reddit will require you to log / DAN GOODIN 2026/6/30 48 South / JENNIFER OUELLETTE 2026/6/29 46 / Ars Technica homepage CLASSIC</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for ars-technica; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-article-arstechnica-before.png" alt="international-article-arstechnica"><figcaption>screenshots/international-article-arstechnica-before.png</figcaption></figure><figure><img src="screenshots/international-article-arstechnica-after.png" alt="international-article-arstechnica"><figcaption>screenshots/international-article-arstechnica-after.png</figcaption></figure></div>
       </section>
@@ -627,7 +627,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_title / 核心要点 / REGISTER NOW Most Popular / No sugarcoating. No hype. Just / AI Trump drops restrictions on / OpenAI just shared its plans to</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for techcrunch; label=article_title</p>
         <div class="shots"><figure><img src="screenshots/international-article-techcrunch-before.png" alt="international-article-techcrunch"><figcaption>screenshots/international-article-techcrunch-before.png</figcaption></figure><figure><img src="screenshots/international-article-techcrunch-after.png" alt="international-article-techcrunch"><figcaption>screenshots/international-article-techcrunch-after.png</figcaption></figure></div>
       </section>
@@ -640,7 +640,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / Artificial intelligence 177 / 核心要点 / Modern deep learning techniques / It is field of research in / These can be reduced with RLHF</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for wikipedia; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-doc-wikipedia-ai-before.png" alt="international-doc-wikipedia-ai"><figcaption>screenshots/international-doc-wikipedia-ai-before.png</figcaption></figure><figure><img src="screenshots/international-doc-wikipedia-ai-after.png" alt="international-doc-wikipedia-ai"><figcaption>screenshots/international-doc-wikipedia-ai-after.png</figcaption></figure></div>
       </section>
@@ -653,7 +653,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / article_body / 核心要点 / 流程与操作 / 其他要点 / 架构与接口</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for mdn; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-doc-mdn-fetch-before.png" alt="international-doc-mdn-fetch"><figcaption>screenshots/international-doc-mdn-fetch-before.png</figcaption></figure><figure><img src="screenshots/international-doc-mdn-fetch-after.png" alt="international-doc-mdn-fetch"><figcaption>screenshots/international-doc-mdn-fetch-after.png</figcaption></figure></div>
       </section>
@@ -666,7 +666,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / 核心要点 / It has efficient high-level data / Examples, recipes, and other / Python Tutorial Tip This / Python interpreter is easily</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for python-docs; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-doc-python-tutorial-before.png" alt="international-doc-python-tutorial"><figcaption>screenshots/international-doc-python-tutorial-before.png</figcaption></figure><figure><img src="screenshots/international-doc-python-tutorial-after.png" alt="international-doc-python-tutorial"><figcaption>screenshots/international-doc-python-tutorial-after.png</figcaption></figure></div>
       </section>
@@ -679,7 +679,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / Click each button separately / Have look at result App.js / React uses your keys to know / magenta darkgreen product.title / You can also write your own</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 16 for react-docs; label=Click each button separately</p>
         <div class="shots"><figure><img src="screenshots/international-doc-react-learn-before.png" alt="international-doc-react-learn"><figcaption>screenshots/international-doc-react-learn-before.png</figcaption></figure><figure><img src="screenshots/international-doc-react-learn-after.png" alt="international-doc-react-learn"><figcaption>screenshots/international-doc-react-learn-after.png</figcaption></figure></div>
       </section>
@@ -692,7 +692,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> 核心要点 / 验证成功。正在等待 platform.openai.com 响应 / ? location.search if / location.hash / 请稍候</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (4/4)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (5/5)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/5)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/5)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/5)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=样本未达 pass 门槛；详见逐页 sample-report.json 与 jumpback.json。</p>
         <p><strong>选择理由:</strong> candidate score 16 for openai-docs; label=验证成功。正在等待 platform.openai.com 响应</p>
         <div class="shots"><figure><img src="screenshots/international-doc-openai-docs-before.png" alt="international-doc-openai-docs"><figcaption>screenshots/international-doc-openai-docs-before.png</figcaption></figure><figure><img src="screenshots/international-doc-openai-docs-after.png" alt="international-doc-openai-docs"><figcaption>screenshots/international-doc-openai-docs-after.png</figcaption></figure></div>
       </section>
@@ -705,7 +705,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / article_meta / 核心要点 / 流程与操作 / Any agent can now run wrangler / Instead of one-size-fits-all</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for cloudflare-blog; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-doc-cloudflare-blog-before.png" alt="international-doc-cloudflare-blog"><figcaption>screenshots/international-doc-cloudflare-blog-before.png</figcaption></figure><figure><img src="screenshots/international-doc-cloudflare-blog-after.png" alt="international-doc-cloudflare-blog"><figcaption>screenshots/international-doc-cloudflare-blog-after.png</figcaption></figure></div>
       </section>
@@ -718,7 +718,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_body / article_meta / 核心要点 / 流程与操作 / 架构与接口 / 4 ways researchers are</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 40 for google-blog; label=article_body</p>
         <div class="shots"><figure><img src="screenshots/international-doc-google-ai-blog-before.png" alt="international-doc-google-ai-blog"><figcaption>screenshots/international-doc-google-ai-blog-before.png</figcaption></figure><figure><img src="screenshots/international-doc-google-ai-blog-after.png" alt="international-doc-google-ai-blog"><figcaption>screenshots/international-doc-google-ai-blog-after.png</figcaption></figure></div>
       </section>
@@ -731,7 +731,7 @@
         <p><strong>噪声发现:</strong> none</p>
         <p><strong>导图节点:</strong> article_meta / Arthur Searle June 26, 2026 AI / 来源与追踪 / Latest View all Open Source / 核心要点 / Skip to / Blog Changelog Docs</p>
         <p><strong>质量指标:</strong> grounded=<span class="badge pass">pass</span> <code>1 / 0.8 (18/18)</code> topNode=<span class="badge pass">pass</span> <code>1 / 0.9 (6/6)</code> noise=<span class="badge pass">pass</span> <code>0 / 0.1 (0/6)</code> duplicate=<span class="badge pass">pass</span> <code>0 / 0.05 (0/6)</code> overlong=<span class="badge pass">pass</span> <code>0 / 0.15 (0/6)</code></p>
-        <p><strong>反跳:</strong> located，markerVisible=true，reason=none</p>
+        <p><strong>反跳:</strong> located，markerVisible=true，审计归因=通过样本。</p>
         <p><strong>选择理由:</strong> candidate score 44 for github-blog; label=article_meta</p>
         <div class="shots"><figure><img src="screenshots/international-doc-github-blog-before.png" alt="international-doc-github-blog"><figcaption>screenshots/international-doc-github-blog-before.png</figcaption></figure><figure><img src="screenshots/international-doc-github-blog-after.png" alt="international-doc-github-blog"><figcaption>screenshots/international-doc-github-blog-after.png</figcaption></figure></div>
       </section>

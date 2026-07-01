@@ -217,6 +217,25 @@ function sampleStatusClass(sample) {
   return "blocked";
 }
 
+function humanReadableIssueReason(sample) {
+  if (!sample) return "样本证据缺失。";
+  const rawReason = normalizeText(sample.jumpbackResult?.failureReason);
+  if (sample.reportConclusion === "pass") return "通过样本。";
+  if (sample.jumpbackResult?.status === "fallback_shown" || /source_not_found_in_dom|未能定位到原文位置/.test(rawReason)) {
+    return "Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。";
+  }
+  const failedMetrics = Object.entries(sample.qualityMetrics ?? {})
+    .filter(([, value]) => value && typeof value === "object" && value.passed === false)
+    .map(([key]) => key);
+  if (failedMetrics.length) {
+    return `质量指标未达门槛：${failedMetrics.join(", ")}。`;
+  }
+  if (sample.jumpbackResult?.status === "blocked") {
+    return "页面登录墙、站点模板或 DOM 限制导致反跳 blocked；样本保留为风险证据。";
+  }
+  return "样本未达 pass 门槛；详见逐页 sample-report.json 与 jumpback.json。";
+}
+
 function countFiles(relativeDir, predicate) {
   const dir = path.join(evidenceRoot, relativeDir);
   if (!fs.existsSync(dir)) return 0;
@@ -428,7 +447,7 @@ function buildReport(manifest) {
   }
   const nonPassingSamples = samples
     .filter((sample) => sample.reportConclusion !== "pass")
-    .map((sample) => `${sample.pageId} ${sample.reportConclusion}: ${sample.jumpbackResult.failureReason ?? "quality metrics or source evidence did not pass"}`);
+    .map((sample) => `${sample.pageId} ${sample.reportConclusion}: ${humanReadableIssueReason(sample)}`);
   const fatalMessages = [...manifestIssues, ...thresholdMessages];
   const majorMessages = [];
   const thresholdPassed =
@@ -611,7 +630,7 @@ function writeHtmlReport(report) {
       .filter((sample) => sample.reportConclusion !== "pass")
       .map(
         (sample) =>
-          `<tr><td>${escapeHtml(sample.pageId)}</td><td>${escapeHtml(sample.site)}</td><td>${escapeHtml(sample.contentCategory)}</td><td><span class="badge ${escapeHtml(sample.reportConclusion)}">${escapeHtml(sample.reportConclusion)}</span></td><td>${escapeHtml(sample.jumpbackResult.status)}</td><td>${escapeHtml(sample.jumpbackResult.failureReason ?? "quality metric / source evidence degraded")}</td><td>${sampleEvidenceLinks(sample.pageId)}</td></tr>`
+          `<tr><td>${escapeHtml(sample.pageId)}</td><td>${escapeHtml(sample.site)}</td><td>${escapeHtml(sample.contentCategory)}</td><td><span class="badge ${escapeHtml(sample.reportConclusion)}">${escapeHtml(sample.reportConclusion)}</span></td><td>${escapeHtml(sample.jumpbackResult.status)}</td><td>${escapeHtml(humanReadableIssueReason(sample))}</td><td>${sampleEvidenceLinks(sample.pageId)}</td></tr>`
       )
       .join("") || `<tr><td colspan="7">无 retained non-pass sample。</td></tr>`;
   const categories = report.summary.categoryResults
@@ -640,7 +659,7 @@ function writeHtmlReport(report) {
         <p><strong>噪声发现:</strong> ${escapeHtml(sample.noiseFindings.join("、") || "none")}</p>
         <p><strong>导图节点:</strong> ${escapeHtml(sample.mindmapTopNodes.map((node) => node.label).join(" / "))}</p>
         <p><strong>质量指标:</strong> grounded=${metricHtml(sample.qualityMetrics.groundedClaimRate)} topNode=${metricHtml(sample.qualityMetrics.topNodeGroundingRate)} noise=${metricHtml(sample.qualityMetrics.noisyTopNodeRate)} duplicate=${metricHtml(sample.qualityMetrics.duplicateTopNodeRate)} overlong=${metricHtml(sample.qualityMetrics.overlongTopNodeRate)}</p>
-        <p><strong>反跳:</strong> ${escapeHtml(sample.jumpbackResult.status)}，markerVisible=${sample.jumpbackResult.markerVisible ? "true" : "false"}，reason=${escapeHtml(sample.jumpbackResult.failureReason ?? "none")}</p>
+        <p><strong>反跳:</strong> ${escapeHtml(sample.jumpbackResult.status)}，markerVisible=${sample.jumpbackResult.markerVisible ? "true" : "false"}，审计归因=${escapeHtml(humanReadableIssueReason(sample))}</p>
         <p><strong>选择理由:</strong> ${escapeHtml(sample.selectionReason ?? "none")}</p>
         <div class="shots">${figures || `<p>${escapeHtml(sample.screenshotPaths.join(", "))}</p>`}</div>
       </section>`;
