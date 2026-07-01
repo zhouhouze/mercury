@@ -1553,7 +1553,9 @@ Host Page DOM
 
 ## 17.1 V1-MVP-QH 质量硬化目标架构
 
-`V1-MVP-QH` 承接人工确认的基础 MVP 体验。目标不是重做交互壳，也不是新增 V2 能力，而是在现有架构内提升复杂站点的主内容抽取、Mindmap 可读性和 Source Jumpback 准确性。
+`V1-MVP-QH` 承接人工确认的基础 MVP 体验。目标不是重做交互壳，也不是新增 V2 能力，而是在现有架构内提升复杂站点、国内外主流图文网页和门户网站的主内容抽取、Mindmap 可读性和 Source Jumpback 准确性。
+
+`V1-MVP-QH-CU/MQ` 是本阶段内部子目标，含义是 content understanding and mindmap quality hardening。它不改变 V1 架构分层，不新增 Runtime public contract，也不引入 RAG、OCR/VLM/ASR、Web Research 或媒体流理解。当前 6 样本 QH evidence 只能作为复杂中文站点基础基线；目标架构的出门证据必须升级到 48 页国内外主流图文网页 / 门户网站矩阵。
 
 目标架构链路：
 
@@ -1561,9 +1563,11 @@ Host Page DOM
 Host Page DOM
   -> apps/chrome-extension/src/pageContext.ts
      -> main content signals / selection / metadata / site-specific hints
+     -> domestic / international article, portal, feed, blog, wiki signals
+     -> sample manifest classification: region / pageType / contentCategory / loginStatePolicy
   -> services/local-runtime/navia_runtime/modules/page_reading/
      -> PerceptionDigest / SourceRef / QualityReport
-     -> noise filtering: nav / recommendation / comment / ad / footer / repeated text
+     -> noise filtering: nav / recommendation / comment / ad / footer / repeated text / cookie banner / subscription wall
   -> services/local-runtime/navia_runtime/modules/mindmap/
      -> digest-first theme merge
      -> compact node labels
@@ -1583,12 +1587,16 @@ Host Page DOM
 
 | 状态 | 实体 | 当前实现 | V1-MVP-QH 目标 |
 |---|---|---|---|
-| 已实现需强化 | `apps/chrome-extension/src/pageContext.ts` | 能读取当前页并提供 DOM / metadata 信号 | 对 B站详情、小红书 feed/detail、观察者文章区提供更稳定的主内容信号，避免低价值站点壳主导 |
-| 已实现需强化 | `services/local-runtime/navia_runtime/modules/page_reading/` | 生成 `PerceptionDigest`、`SourceRef`、quality | 提升主内容权重，降低推荐、评论、弹幕设置、活动广告、版权提示、重复文本权重 |
+| 已实现需强化 | `apps/chrome-extension/src/pageContext.ts` | 能读取当前页并提供 DOM / metadata 信号 | 对国内外新闻门户首页、图文详情页、图文社区、百科 / 博客 / 文档页提供稳定主内容信号；避免低价值站点壳、cookie banner、订阅提示主导 |
+| 已实现需强化 | `services/local-runtime/navia_runtime/modules/page_reading/` | 生成 `PerceptionDigest`、`SourceRef`、quality | 提升正文、作者 / 来源、发布时间、简介、图片 caption / alt、可见评论 / 互动文本权重，降低推荐、评论噪声、弹幕设置、活动广告、版权提示、重复文本权重 |
 | 已实现需强化 | `services/local-runtime/navia_runtime/modules/mindmap/` | digest-first Mindmap 与 `nodeSourceMap` 已存在 | 主题归并更稳定，节点标签更短，主要节点必须绑定 sourceRef 或明确 fallback reason |
 | 已实现需强化 | `apps/chrome-extension/src/modules/mindmap_renderer/` | Evidence Card Mindmap / Reading Map 可见 | 窄屏可读，无文本虚影、节点重叠、卡片截断或输入框遮挡 |
 | 已实现需强化 | `apps/chrome-extension/src/modules/chat_renderer/` | Source Evidence 可展示 located / fallback / blocked | source card 排序优先主内容，并清晰呈现三态结果和失败原因 |
 | 已实现需强化 | `apps/chrome-extension/src/contentBridge.ts` | 用户触发 DOM highlight / fallback / blocked | 多 sourceRef、多 textQuote、href/card 线索定位；成功必须有明确 marker，失败不得伪装 success |
+| 待新增证据 | `docs/active/project/evidence/v1_mvp_quality_hardening/sample-manifest.json` | 当前仅有 6 样本复杂站点基础 evidence | 冻结 48 页 URL、类别、地区、登录态策略、替代样本规则和同站点计数 |
+| 待新增证据 | `docs/active/project/evidence/v1_mvp_quality_hardening/report.json` | 当前已有 6 样本 report | 扩展为 48 页样本矩阵，记录主内容信号、噪声发现、quality metrics、Mindmap top nodes、source card 顺序、jumpback 结果和截图 |
+| 待新增合同 | `docs/active/project/contracts/v1_mvp_quality_hardening_sample_manifest.schema.json` | 文字结构已在验收计划中定义 | QH-1 manifest 必须通过 schema validation，防止样本字段漂移 |
+| 待新增合同 | `docs/active/project/contracts/v1_mvp_quality_hardening_report.schema.json` | 文字结构已在验收计划中定义 | QH-6 独立 report 必须通过 schema validation，且 summary / fallbackCoverage / samples / testCommands 可机器审计 |
 | 不变 | `runtimeClient.ts`、background proxy、A/C/D public contract | 现有请求和 Artifact 流 | 不为质量硬化新增 Runtime public API 或 Artifact schema |
 
 责任边界：
@@ -1599,14 +1607,22 @@ Host Page DOM
 - Content Script 只响应用户触发的 jumpback，不做自动浏览器任务，不读取默认本地文件。
 - E2E 可以选择主内容 source card 进行验收，但必须记录选择原因，不能用测试选择策略掩盖 UI 排序错误。
 - `解释选中内容` 只能消费用户选区、当前页 page context、A 输出的 SourceRef / Digest 和页面已有媒体 metadata；不得新增 OCR/VLM、Web Research 或默认本地文件读取能力。
-- V1-MVP-QH scoped evidence 首选 `docs/active/project/evidence/v1_mvp_quality_hardening/`；`v1_mainline_closeout` 只做聚合报告和候选态引用。
+- 视频 / 直播 / 音频页面在本架构内只消费 DOM 可见文本、简介、字幕文本、评论、弹幕统计或 metadata；不接入 ASR、VLM、OCR 或媒体流分析，不得把标题级 DOM 抽取写成视频内容理解。
+- V1-MVP-QH expanded evidence 首选 `docs/active/project/evidence/v1_mvp_quality_hardening/`；当前 6 样本 report 只能作为基础基线，扩展验收必须重新生成 48 页证据；`v1_mainline_closeout` 只做聚合报告和候选态引用。
 
 架构出门条件：
 
-- B站 / 小红书 / 观察者网首页与详情页的真实样本能证明主内容进入摘要、Mindmap 和 source evidence。
+- 国内外主流图文网页 / 门户网站 48 页矩阵能证明主内容进入摘要、Mindmap 和 source evidence；B站 / 小红书 / 观察者网只作为其中的复杂中文样本，不再构成完整 V1 内容理解门槛。
+- 国内不少于 24 页，国外不少于 24 页；至少覆盖新闻 / 门户首页、新闻 / 图文详情页、图文社区 / 内容平台、百科 / 博客 / 文档型图文页。
+- 每个类别至少覆盖 4 个不同站点；同一站点在同一类别最多计入 2 页，避免验收样本集中在少数易通过站点。
+- 当前 6 样本复杂站点 QH 报告不得被解释为 48 页矩阵通过；报告必须显式标注 prior baseline / expanded matrix 两类证据的差异。
+- 若页面因登录、地区、付费墙、cookie wall 或反爬导致低信号，报告必须标记 degraded / blocked 并补同类别替代样本。
+- `sample-manifest.json` 是 QH-1 出门产物；没有冻结 manifest 时不得进入 A/C/B/Content Script 实质开发。
+- `report.json.passed=true` 时必须同时满足：`samplesTotal >= 48`、`domesticSamples >= 24`、`internationalSamples >= 24`、6 类各 `samples >= 8`、总 `passedSamples >= 44`、每类 `passedSamples >= 7`、`fatalIssues=[]`、`majorIssues=[]`。
+- 页面级 `qualityMetrics` 至少包含 `groundedClaimRate`、`topNodeGroundingRate`、`noisyTopNodeRate`、`duplicateTopNodeRate`、`overlongTopNodeRate`、`jumpbackSemanticConsistency`，并记录 numerator / denominator / threshold / passed。
 - `located`、`fallback_shown`、`blocked` 在 UI、JSON、HTML 报告和截图证据中一致。
-- 当前 `fallbackSamples = 0` 时，报告必须继续引用上游 fallback evidence，不得声称本轮 fresh fallback 已覆盖。
-- 通过本阶段后只能声明 scoped quality hardening passed，不能声明完整 V1 complete。
+- 当前 `freshFallbackSamples = 0` 时，报告必须继续引用上游 fallback evidence，并单独记录 `referencedFallbackSamples`、`blockedSamples`、`locatedSamples` 和 `referencedFallbackEvidencePaths`；不得声称本轮 fresh fallback 已覆盖。
+- 通过 48 页扩展矩阵后只能声明 expanded quality hardening passed，不能声明完整 V1 complete。
 
 ---
 

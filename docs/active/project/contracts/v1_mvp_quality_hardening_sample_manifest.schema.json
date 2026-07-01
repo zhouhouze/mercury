@@ -1,0 +1,188 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/schemas/v1_mvp_quality_hardening_sample_manifest.schema.json",
+  "title": "Navia V1 MVP Quality Hardening Sample Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "acceptanceMode",
+    "categories",
+    "samples"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-mvp-quality-hardening.sample-manifest.1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "acceptanceMode": {
+      "const": "v1_mvp_quality_hardening_expanded"
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/category"
+      }
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 48,
+      "items": {
+        "$ref": "#/$defs/sample"
+      }
+    }
+  },
+  "$defs": {
+    "category": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryId",
+        "displayName",
+        "minSamples",
+        "minPassed",
+        "minDistinctSites",
+        "maxSamplesPerSite"
+      ],
+      "properties": {
+        "categoryId": {
+          "enum": [
+            "domestic_portal_homepage",
+            "domestic_article_detail",
+            "domestic_content_platform",
+            "international_portal_homepage",
+            "international_article_detail",
+            "international_knowledge_blog_doc"
+          ]
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minSamples": {
+          "type": "integer",
+          "minimum": 8
+        },
+        "minPassed": {
+          "type": "integer",
+          "minimum": 7
+        },
+        "minDistinctSites": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "maxSamplesPerSite": {
+          "type": "integer",
+          "maximum": 2
+        }
+      }
+    },
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageId",
+        "url",
+        "site",
+        "countryRegion",
+        "contentCategory",
+        "pageType",
+        "loginStatePolicy",
+        "expectedMainContentSignals",
+        "prohibitedNoiseSignals",
+        "validationNotes"
+      ],
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1
+        },
+        "countryRegion": {
+          "enum": [
+            "domestic",
+            "international"
+          ]
+        },
+        "contentCategory": {
+          "enum": [
+            "domestic_portal_homepage",
+            "domestic_article_detail",
+            "domestic_content_platform",
+            "international_portal_homepage",
+            "international_article_detail",
+            "international_knowledge_blog_doc"
+          ]
+        },
+        "pageType": {
+          "enum": [
+            "homepage",
+            "channel",
+            "feed",
+            "article",
+            "detail",
+            "blog",
+            "wiki",
+            "docs"
+          ]
+        },
+        "loginStatePolicy": {
+          "enum": [
+            "public_no_login",
+            "temp_cookie_profile",
+            "user_profile_cdp",
+            "blocked_expected"
+          ]
+        },
+        "expectedMainContentSignals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prohibitedNoiseSignals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "replacementFor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "replacementReason": {
+          "enum": [
+            null,
+            "login_wall",
+            "region_limit",
+            "paywall",
+            "cookie_wall",
+            "anti_crawl",
+            "template_failure",
+            "site_unreachable"
+          ]
+        },
+        "validationNotes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

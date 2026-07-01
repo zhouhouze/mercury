@@ -1,0 +1,534 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/schemas/v1_mvp_quality_hardening_report.schema.json",
+  "title": "Navia V1 MVP Quality Hardening Expanded Acceptance Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "stage",
+    "claim",
+    "passed",
+    "generatedAt",
+    "summary",
+    "fallbackCoverage",
+    "samples",
+    "testCommands"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-mvp-quality-hardening.report.1"
+    },
+    "stage": {
+      "const": "v1-mvp-quality-hardening"
+    },
+    "claim": {
+      "const": "V1 MVP quality hardening passed expanded real-site acceptance."
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "samplesTotal",
+        "domesticSamples",
+        "internationalSamples",
+        "passedSamples",
+        "categoryResults",
+        "fatalIssues",
+        "majorIssues"
+      ],
+      "properties": {
+        "samplesTotal": {
+          "type": "integer",
+          "minimum": 48
+        },
+        "domesticSamples": {
+          "type": "integer",
+          "minimum": 24
+        },
+        "internationalSamples": {
+          "type": "integer",
+          "minimum": 24
+        },
+        "passedSamples": {
+          "type": "integer",
+          "minimum": 44
+        },
+        "categoryResults": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "$ref": "#/$defs/categoryResult"
+          }
+        },
+        "fatalIssues": {
+          "type": "integer",
+          "const": 0
+        },
+        "majorIssues": {
+          "type": "integer",
+          "const": 0
+        }
+      }
+    },
+    "fallbackCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locatedSamples",
+        "freshFallbackSamples",
+        "referencedFallbackSamples",
+        "blockedSamples",
+        "coverageConclusion"
+      ],
+      "properties": {
+        "locatedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "freshFallbackSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "referencedFallbackSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blockedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "referencedFallbackEvidencePaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "coverageConclusion": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 48,
+      "items": {
+        "$ref": "#/$defs/sampleResult"
+      }
+    },
+    "testCommands": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/testCommand"
+      }
+    },
+    "auditDetails": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "categoryResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryId",
+        "samples",
+        "passedSamples",
+        "distinctSites",
+        "passed"
+      ],
+      "properties": {
+        "categoryId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "samples": {
+          "type": "integer",
+          "minimum": 8
+        },
+        "passedSamples": {
+          "type": "integer",
+          "minimum": 7
+        },
+        "distinctSites": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "passed": {
+          "const": true
+        }
+      }
+    },
+    "sampleResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageId",
+        "url",
+        "site",
+        "countryRegion",
+        "pageType",
+        "contentCategory",
+        "loginStatePolicy",
+        "mainContentSignals",
+        "noiseFindings",
+        "summaryGrounding",
+        "mindmapTopNodes",
+        "qualityMetrics",
+        "sourceCardOrder",
+        "selectedSourceCardIndex",
+        "selectionReason",
+        "jumpbackResult",
+        "screenshotPaths",
+        "reportConclusion"
+      ],
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1
+        },
+        "countryRegion": {
+          "enum": [
+            "domestic",
+            "international"
+          ]
+        },
+        "pageType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentCategory": {
+          "type": "string",
+          "minLength": 1
+        },
+        "loginStatePolicy": {
+          "enum": [
+            "public_no_login",
+            "temp_cookie_profile",
+            "user_profile_cdp",
+            "blocked_expected"
+          ]
+        },
+        "mainContentSignals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "noiseFindings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "summaryGrounding": {
+          "$ref": "#/$defs/summaryGrounding"
+        },
+        "mindmapTopNodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/mindmapTopNode"
+          }
+        },
+        "qualityMetrics": {
+          "$ref": "#/$defs/qualityMetrics"
+        },
+        "sourceCardOrder": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selectedSourceCardIndex": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "selectionReason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "jumpbackResult": {
+          "$ref": "#/$defs/jumpbackResult"
+        },
+        "screenshotPaths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "selectionExplainResult": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "optionalImageEvidenceSource": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "reportConclusion": {
+          "enum": [
+            "pass",
+            "degraded",
+            "blocked",
+            "fail"
+          ]
+        }
+      }
+    },
+    "summaryGrounding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "groundedClaimRate",
+        "ungroundedClaims"
+      ],
+      "properties": {
+        "groundedClaimRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "ungroundedClaims": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "mindmapTopNode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodeId",
+        "label",
+        "sourceRefIds",
+        "qualityState"
+      ],
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceRefIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fallbackReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qualityState": {
+          "enum": [
+            "ready",
+            "degraded",
+            "missing_source"
+          ]
+        }
+      }
+    },
+    "qualityMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "groundedClaimRate",
+        "topNodeGroundingRate",
+        "noisyTopNodeRate",
+        "duplicateTopNodeRate",
+        "overlongTopNodeRate",
+        "jumpbackSemanticConsistency"
+      ],
+      "properties": {
+        "groundedClaimRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "topNodeGroundingRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "noisyTopNodeRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "duplicateTopNodeRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "overlongTopNodeRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "jumpbackSemanticConsistency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value",
+            "threshold",
+            "passed"
+          ],
+          "properties": {
+            "value": {
+              "type": "boolean"
+            },
+            "threshold": {
+              "const": true
+            },
+            "passed": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "numerator",
+        "denominator",
+        "threshold",
+        "passed"
+      ],
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "numerator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "passed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "jumpbackResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "uiStatus",
+        "jsonStatus",
+        "htmlReportStatus",
+        "screenshotMetadataStatus"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "uiStatus": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "jsonStatus": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "htmlReportStatus": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "screenshotMetadataStatus": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "markerVisible": {
+          "type": "boolean"
+        },
+        "failureReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "testCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command",
+        "status",
+        "evidencePath"
+      ],
+      "properties": {
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed",
+            "blocked"
+          ]
+        },
+        "evidencePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

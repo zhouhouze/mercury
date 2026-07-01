@@ -1,0 +1,896 @@
+{
+  "sampleId": "international-portal-bbc-home",
+  "siteId": "bbc-news",
+  "siteName": "BBC News",
+  "manifest": {
+    "pageId": "international-portal-bbc-home",
+    "contentCategory": "international_portal_homepage",
+    "countryRegion": "international",
+    "pageType": "homepage",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "headline",
+      "story list",
+      "section news"
+    ],
+    "prohibitedNoiseSignals": [
+      "cookie",
+      "advertisement",
+      "subscribe",
+      "newsletter",
+      "navigation"
+    ]
+  },
+  "pageKind": "homepage",
+  "url": "https://www.bbc.com/news",
+  "startedAt": "2026-07-01T15:51:29.348Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.bbc.com/news",
+  "dom": {
+    "title": "BBC News - Breaking news, video and the latest top stories from the U.S. and around the world",
+    "url": "https://www.bbc.com/news",
+    "bodyTextLength": 8521,
+    "bodyTextSample": "Skip to content Watch Live Subscribe Sign In Home News Football 2026 Sport Business Technology Health Culture Arts Travel Earth Audio Video Live Documentaries US & Canada UK Africa Asia Australia Europe Latin America Middle East In Pictures BBC InDepth BBC Verify ADVERTISEMENT ‘When I turned around, nothing was left’: One father's search for family after Venezuela quakes Nelson Torrebella said a quick goodbye to his wife and two sons before jumping in his car. Then the earth shook violently beneath him. Fire at Antwerp apartment block kills at least six A man is seen clambering through a windo",
+    "anchorCount": 171,
+    "anchors": [
+      {
+        "text": "Skip to content",
+        "href": "https://www.bbc.com/news#bbc-main"
+      },
+      {
+        "text": "Watch Live",
+        "href": "https://www.bbc.com/watch-live-news/"
+      },
+      {
+        "text": "British Broadcasting Corporation",
+        "href": "https://www.bbc.com/"
+      },
+      {
+        "text": "Sign In",
+        "href": "https://session.bbc.com/session?userOrigin=BBCS_BBC&ptrt=https%3A%2F%2Fwww.bbc.com%2Fnews"
+      },
+      {
+        "text": "Home",
+        "href": "https://www.bbc.com/"
+      },
+      {
+        "text": "News",
+        "href": "https://www.bbc.com/news"
+      },
+      {
+        "text": "Football 2026",
+        "href": "https://www.bbc.com/sport/football/world-cup"
+      },
+      {
+        "text": "Sport",
+        "href": "https://www.bbc.com/sport"
+      },
+      {
+        "text": "Business",
+        "href": "https://www.bbc.com/business"
+      },
+      {
+        "text": "Technology",
+        "href": "https://www.bbc.com/technology"
+      },
+      {
+        "text": "Health",
+        "href": "https://www.bbc.com/health"
+      },
+      {
+        "text": "Culture",
+        "href": "https://www.bbc.com/culture"
+      },
+      {
+        "text": "Arts",
+        "href": "https://www.bbc.com/arts"
+      },
+      {
+        "text": "Travel",
+        "href": "https://www.bbc.com/travel"
+      },
+      {
+        "text": "Earth",
+        "href": "https://www.bbc.com/future-planet"
+      },
+      {
+        "text": "Audio",
+        "href": "https://www.bbc.com/audio"
+      },
+      {
+        "text": "Video",
+        "href": "https://www.bbc.com/video"
+      },
+      {
+        "text": "Live",
+        "href": "https://www.bbc.com/live"
+      },
+      {
+        "text": "Documentaries",
+        "href": "https://www.bbc.com/video/docs"
+      },
+      {
+        "text": "US & Canada",
+        "href": "https://www.bbc.com/news/us-canada"
+      },
+      {
+        "text": "UK",
+        "href": "https://www.bbc.com/news/uk"
+      },
+      {
+        "text": "Africa",
+        "href": "https://www.bbc.com/news/world/africa"
+      },
+      {
+        "text": "Asia",
+        "href": "https://www.bbc.com/news/world/asia"
+      },
+      {
+        "text": "Australia",
+        "href": "https://www.bbc.com/news/world/australia"
+      },
+      {
+        "text": "Europe",
+        "href": "https://www.bbc.com/news/world/europe"
+      },
+      {
+        "text": "Latin America",
+        "href": "https://www.bbc.com/news/world/latin_america"
+      },
+      {
+        "text": "Middle East",
+        "href": "https://www.bbc.com/news/world/middle_east"
+      },
+      {
+        "text": "In Pictures",
+        "href": "https://www.bbc.com/news/in_pictures"
+      },
+      {
+        "text": "BBC InDepth",
+        "href": "https://www.bbc.com/news/bbcindepth"
+      },
+      {
+        "text": "BBC Verify",
+        "href": "https://www.bbc.com/news/bbcverify"
+      },
+      {
+        "text": "Home",
+        "href": "https://www.bbc.com/"
+      },
+      {
+        "text": "Sport",
+        "href": "https://www.bbc.com/sport"
+      },
+      {
+        "text": "Football 2026",
+        "href": "https://www.bbc.com/sport/football/world-cup"
+      },
+      {
+        "text": "Health",
+        "href": "https://www.bbc.com/health"
+      },
+      {
+        "text": "Weather",
+        "href": "https://www.bbc.com/weather"
+      },
+      {
+        "text": "Newsletters",
+        "href": "https://www.bbc.com/newsletters"
+      },
+      {
+        "text": "Watch Live",
+        "href": "https://www.bbc.com/watch-live-news/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bbc.co.uk/news/resources/idt-c6adf476-c5f8-49e1-9b6f-27a7eb74086c"
+      },
+      {
+        "text": "‘When I turned around, nothing was left’: One father's search for family after Venezuela quakesNelso",
+        "href": "https://www.bbc.co.uk/news/resources/idt-c6adf476-c5f8-49e1-9b6f-27a7eb74086c"
+      },
+      {
+        "text": "Fire at Antwerp apartment block kills at least sixA man is seen clambering through a window to escap",
+        "href": "https://www.bbc.com/news/articles/c621dx0vl7xo"
+      },
+      {
+        "text": "Village People frontman Victor Willis dies aged 74Victor Willis was the band's frontman and co-wrote",
+        "href": "https://www.bbc.com/news/articles/cddlnqy8zmqo"
+      },
+      {
+        "text": "LIVEMadueke replaces Saka in England XI to face DR Congo in World CupWatch live as fans filter into ",
+        "href": "https://www.bbc.com/sport/football/live/c4gyvx6xvevt"
+      },
+      {
+        "text": "Trump made more than $1bn from crypto in first year back in officeThe president's crypto income far ",
+        "href": "https://www.bbc.com/news/articles/cvgmv98ez3zo"
+      },
+      {
+        "text": "Canada celebrates its birthday as Mark Carney battles to keep it intactAs Canadians celebrate their ",
+        "href": "https://www.bbc.com/news/articles/cwykxwd43pwo"
+      },
+      {
+        "text": "Three die in Mexico City World Cup celebrationsMore than one million people took to the streets of M",
+        "href": "https://www.bbc.com/news/articles/cx2xjwj8p39o"
+      },
+      {
+        "text": "'We're still standing': Americans on the state of the nation in its 250th yearThe BBC spoke to US ci",
+        "href": "https://www.bbc.com/news/videos/c05yv6d9yq4o"
+      },
+      {
+        "text": "Canada to make Eurovision Song Contest debut in 2027",
+        "href": "https://www.bbc.com/news/articles/c8x2y2vwqn1o"
+      },
+      {
+        "text": "Watch: Man comes face-to-face with bear inside truck",
+        "href": "https://www.bbc.com/news/videos/cewqzryz12zo"
+      },
+      {
+        "text": "Chris Brown ordered to pay $13m to housekeeper injured in dog attack",
+        "href": "https://www.bbc.com/news/articles/c0myggx4y23o"
+      },
+      {
+        "text": "Williams' knee injury leaves Wimbledon doubles in doubt",
+        "href": "https://www.bbc.com/sport/tennis/articles/cx2kr12ggv9o"
+      },
+      {
+        "text": "Two UK police officers face misconduct investigation in case of murdered student Henry Nowak",
+        "href": "https://www.bbc.com/news/articles/cd6ezln069vo"
+      },
+      {
+        "text": "Has football fever taken hold in the US?With the World Cup now three weeks old, BBC Sport's reporter",
+        "href": "https://www.bbc.com/sport/football/articles/c4gyr0y37ndo"
+      },
+      {
+        "text": "World Cup fans sweat through US 'heat dome'As scorching heat left the US east coast baking in the mi",
+        "href": "https://www.bbc.com/news/videos/cq5177z8velo"
+      },
+      {
+        "text": "United, free and brilliant - can anyone stop France masterclass?France boss Didier Deschamps urges c",
+        "href": "https://www.bbc.com/sport/football/articles/cp8r1zdj9k5o"
+      },
+      {
+        "text": "Can the World Cup's viral stars turn social media fame into fortunes?They’re not Ronaldo or Messi, b",
+        "href": "https://www.bbc.com/news/articles/cy04k0vzqrdo"
+      },
+      {
+        "text": "",
+        "href": "https://www.bbc.com/news/articles/c70yj1749j0o"
+      },
+      {
+        "text": "What we know about Taylor Swift's rumoured NYC wedding celebrationsThe couple has been mum about the",
+        "href": "https://www.bbc.com/news/articles/c70yj1749j0o"
+      },
+      {
+        "text": "Canada celebrates its birthday as Mark Carney battles to keep it intactAs Canadians celebrate their ",
+        "href": "https://www.bbc.com/news/articles/cwykxwd43pwo"
+      },
+      {
+        "text": "US Supreme Court has dealt heavy defeats to Trump, while expanding his powerThe birthright ruling br",
+        "href": "https://www.bbc.com/news/articles/c4gyqeqe8xyo"
+      },
+      {
+        "text": "A plane crashed into a tower in Beijing but China is not saying what happenedThe collision left hole",
+        "href": "https://www.bbc.com/news/articles/crlwe28dz44o"
+      },
+      {
+        "text": "Watch: Mount Etna eruption creates trail of bright orange lavaA stream of thick orange lava was seen",
+        "href": "https://www.bbc.com/news/videos/cy4ew7dyv7go"
+      },
+      {
+        "text": "What to know about the looming deadline on North American free trade The US, Canada and Mexico were ",
+        "href": "https://www.bbc.com/news/articles/czdejmqmrdgo"
+      },
+      {
+        "text": "1Watch: Man comes face-to-face with bear inside truck",
+        "href": "https://www.bbc.com/news/videos/cewqzryz12zo"
+      },
+      {
+        "text": "2'We're still standing': Americans on the state of the nation in its 250th year",
+        "href": "https://www.bbc.com/news/videos/c05yv6d9yq4o"
+      },
+      {
+        "text": "3Trump's $1.4bn crypto earnings revealed",
+        "href": "https://www.bbc.com/news/videos/c39ywez8r1ko"
+      },
+      {
+        "text": "4Watch: Mount Etna eruption creates trail of bright orange lava",
+        "href": "https://www.bbc.com/news/videos/cy4ew7dyv7go"
+      },
+      {
+        "text": "5Americans react to Supreme Court upholding birthright citizenship",
+        "href": "https://www.bbc.com/news/videos/c621d53wqw0o"
+      },
+      {
+        "text": "",
+        "href": "https://www.bbc.com/news/articles/cgmepnx1wzzo"
+      },
+      {
+        "text": "US Supreme Court upholds birthright citizenship in blow to TrumpThe ruling is a major setback for Do",
+        "href": "https://www.bbc.com/news/articles/cgmepnx1wzzo"
+      },
+      {
+        "text": "Dangerous heatwave to hit US ahead of holiday weekendNorth America will bake in extreme temperatures",
+        "href": "https://www.bbc.com/news/articles/cm2j8kd0dk4o"
+      },
+      {
+        "text": "Afghan Taliban launch strikes on border with Pakistan as tensions escalatePakistan's military says i",
+        "href": "https://www.bbc.com/news/articles/c621g086ek4o"
+      },
+      {
+        "text": "Zelensky in Dublin as Ireland begins EU presidency termThe presidency will last until December 2026 ",
+        "href": "https://www.bbc.com/news/articles/cj3g26jm56ko"
+      },
+      {
+        "text": "Anthropic says US lifts export ban on its advanced AI toolsFable and Mythos were abruptly suspended ",
+        "href": "https://www.bbc.com/news/articles/cdr42623e1do"
+      },
+      {
+        "text": "Three-year-old rescued and taken to hospital six days after Venezuela quakeVideo footage shows rescu",
+        "href": "https://www.bbc.com/news/articles/c1jykwk8n18o"
+      },
+      {
+        "text": "Woman raped by Superdry co-founder tells BBC she was working for him at the timeShe described feelin",
+        "href": "https://www.bbc.com/news/articles/cd95jzy4zyeo"
+      },
+      {
+        "text": "1Canada celebrates its birthday as Mark Carney battles to keep it intact",
+        "href": "https://www.bbc.com/news/articles/cwykxwd43pwo"
+      },
+      {
+        "text": "2Three die in Mexico City World Cup celebrations",
+        "href": "https://www.bbc.com/news/articles/cx2xjwj8p39o"
+      },
+      {
+        "text": "3Trump made more than $1bn from crypto in first year back in office",
+        "href": "https://www.bbc.com/news/articles/cvgmv98ez3zo"
+      },
+      {
+        "text": "4A trip to India left me with 38 parasites in my brain",
+        "href": "https://www.bbc.com/news/articles/ce8jrzemdyko"
+      },
+      {
+        "text": "5Village People frontman Victor Willis dies aged 74",
+        "href": "https://www.bbc.com/news/articles/cddlnqy8zmqo"
+      },
+      {
+        "text": "6Chris Brown ordered to pay housekeeper $13m after dog attack",
+        "href": "https://www.bbc.com/news/articles/c0myggx4y23o"
+      },
+      {
+        "text": "7Canada to make Eurovision Song Contest debut in 2027",
+        "href": "https://www.bbc.com/news/articles/c8x2y2vwqn1o"
+      },
+      {
+        "text": "8Fire at Antwerp apartment block kills at least six",
+        "href": "https://www.bbc.com/news/articles/c621dx0vl7xo"
+      },
+      {
+        "text": "9A plane crashed into a tower in Beijing but China is not saying what happened",
+        "href": "https://www.bbc.com/news/articles/crlwe28dz44o"
+      },
+      {
+        "text": "10Chinese tycoon sentenced to 30 years in US jail",
+        "href": "https://www.bbc.com/news/articles/cjeg15vw3z9o"
+      },
+      {
+        "text": "",
+        "href": "https://www.bbc.com/sport/tennis/live/c208d0x285xt"
+      },
+      {
+        "text": "LIVEWimbledon day three - follow liveWatch coverage, listen to radio commentary and follow text upda",
+        "href": "https://www.bbc.com/sport/tennis/live/c208d0x285xt"
+      },
+      {
+        "text": "Williams' knee injury leaves Wimbledon doubles in doubtSerena Williams' hopes of playing alongside h",
+        "href": "https://www.bbc.com/sport/tennis/articles/cx2kr12ggv9o"
+      },
+      {
+        "text": "Chelsea sign Italy defender Palestra for £47mRight-back Marco Palestra, 21, becomes Xabi Alonso's fi",
+        "href": "https://www.bbc.com/sport/football/articles/crkvlv6myreo"
+      },
+      {
+        "text": "Mexico rampant at fortress Azteca - and England could be nextMexico have won all four games and not ",
+        "href": "https://www.bbc.com/sport/football/articles/cy9rg5n3380o"
+      },
+      {
+        "text": "LeBron's Last Dance - what next for James after Lakers exit?LeBron James is entering free agency in ",
+        "href": "https://www.bbc.com/sport/basketball/articles/ce8kwp30jejo"
+      },
+      {
+        "text": "No signings, no sales - what is happening at Manchester United?Manchester United have missed out on ",
+        "href": "https://www.bbc.com/sport/football/articles/cx2d4drnr70o"
+      },
+      {
+        "text": "Concern over rise in online racist abuse at World CupThe Word Cup has suffered a 'significant increa",
+        "href": "https://www.bbc.com/sport/football/articles/c1dy61921kko"
+      },
+      {
+        "text": "British Broadcasting Corporation",
+        "href": "https://www.bbc.com/"
+      },
+      {
+        "text": "Home",
+        "href": "https://www.bbc.com/"
+      },
+      {
+        "text": "News",
+        "href": "https://www.bbc.com/news"
+      },
+      {
+        "text": "Football 2026",
+        "href": "https://www.bbc.com/sport/football/world-cup"
+      },
+      {
+        "text": "Business",
+        "href": "https://www.bbc.com/business"
+      },
+      {
+        "text": "Technology",
+        "href": "https://www.bbc.com/technology"
+      },
+      {
+        "text": "Health",
+        "href": "https://www.bbc.com/health"
+      },
+      {
+        "text": "Culture",
+        "href": "https://www.bbc.com/culture"
+      },
+      {
+        "text": "Arts",
+        "href": "https://www.bbc.com/arts"
+      },
+      {
+        "text": "Travel",
+        "href": "https://www.bbc.com/travel"
+      },
+      {
+        "text": "Earth",
+        "href": "https://www.bbc.com/future-planet"
+      },
+      {
+        "text": "Sport",
+        "href": "https://www.bbc.com/sport"
+      },
+      {
+        "text": "Audio",
+        "href": "https://www.bbc.com/audio"
+      },
+      {
+        "text": "Video",
+        "href": "https://www.bbc.com/video"
+      },
+      {
+        "text": "Live",
+        "href": "https://www.bbc.com/live"
+      },
+      {
+        "text": "Documentaries",
+        "href": "https://www.bbc.com/video/docs"
+      },
+      {
+        "text": "Weather",
+        "href": "https://www.bbc.com/weather"
+      },
+      {
+        "text": "BBC Shop",
+        "href": "https://shop.bbc.com/"
+      },
+      {
+        "text": "BritBox",
+        "href": "https://www.britbox.com/?utm_source=bbc.com&utm_medium=referral&utm_campaign=footer"
+      },
+      {
+        "text": "BBC News Brasil",
+        "href": "https://www.bbc.com/portuguese"
+      },
+      {
+        "text": "BBC News Mundo (Spanish)",
+        "href": "https://www.bbc.com/mundo"
+      },
+      {
+        "text": "BBC News မြန်မာ (Burmese)",
+        "href": "https://www.bbc.com/burmese"
+      },
+      {
+        "text": "BBC News 中文 (Chinese)",
+        "href": "https://www.bbc.com/zhongwen/simp"
+      },
+      {
+        "text": "BBC News Indonesia",
+        "href": "https://www.bbc.com/indonesia"
+      },
+      {
+        "text": "BBC News 코리아 (Korean)",
+        "href": "https://www.bbc.com/korean"
+      },
+      {
+        "text": "BBC News ไทย (Thai)",
+        "href": "https://www.bbc.com/thai"
+      },
+      {
+        "text": "BBC News Tiếng Việt (Vietnamese)",
+        "href": "https://www.bbc.com/vietnamese"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000003046",
+    "pageTitle": "BBC News - Breaking news, video and the latest top stories from the U.S. and around the world",
+    "submitStatus": "已提交：page_a8ae4d2db8790d11",
+    "domSignalBlockCount": 90,
+    "domSignalLinkCount": 144,
+    "pageStateHints": [
+      "media_dom_limited"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_a8ae4d2db8790d11",
+      "title": "BBC News - Breaking news, video and the latest top stories from the U.S. and around the world",
+      "url": "https://www.bbc.com/news",
+      "domain": "www.bbc.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.974,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 108,
+    "digestItems": 18,
+    "sourceRefs": 114,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.053,
+        "numerator": 6,
+        "denominator": 114,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.856,
+        "numerator": 18819,
+        "denominator": 21985,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 108,
+        "denominator": 108,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 114,
+        "denominator": 114,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.069,
+        "numerator": 265,
+        "denominator": 3813,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.944,
+        "numerator": 17,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0110",
+          "src_page_a8ae4d2db8790d11_0065",
+          "src_page_a8ae4d2db8790d11_0050",
+          "src_page_a8ae4d2db8790d11_0108",
+          "src_page_a8ae4d2db8790d11_0049",
+          "src_page_a8ae4d2db8790d11_0109",
+          "src_page_a8ae4d2db8790d11_0002",
+          "src_page_a8ae4d2db8790d11_0001",
+          "src_page_a8ae4d2db8790d11_0105",
+          "src_page_a8ae4d2db8790d11_0106",
+          "src_page_a8ae4d2db8790d11_0035",
+          "src_page_a8ae4d2db8790d11_0113",
+          "src_page_a8ae4d2db8790d11_0034",
+          "src_page_a8ae4d2db8790d11_0102",
+          "src_page_a8ae4d2db8790d11_0112",
+          "src_page_a8ae4d2db8790d11_0107",
+          "src_page_a8ae4d2db8790d11_0103"
+        ],
+        "label": "核心要点",
+        "excerpt": "1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0110"
+        ],
+        "label": "1 hr ago Europe Anthropic says",
+        "excerpt": "1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0065"
+        ],
+        "label": "MOST READ 1 Canada celebrates",
+        "excerpt": "MOST READ 1 Canada celebrates its birthday as Mark Carney battles to keep it intact 2 Three die in Mexico City World Cup celebrations 3 Trump made more than $1bn from crypto in first year back in office 4 A trip to India left me with 38 par"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0050"
+        ],
+        "label": "US Supreme Court upholds",
+        "excerpt": "US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hit US ahead of"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0108"
+        ],
+        "label": "22 hrs ago World MOST WATCHED 1",
+        "excerpt": "22 hrs ago World MOST WATCHED 1 Watch: Man comes face-to-face with bear inside truck 2 'We're still standing': Americans on the state of the nation in its 250th year 3 Trump's $1.4bn crypto earnings revealed 4 Watch: Mount Etna eruption cre"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0049"
+        ],
+        "label": "ALSO IN NEWS US Supreme Court",
+        "excerpt": "ALSO IN NEWS US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hi"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0104"
+        ],
+        "label": "流程与操作",
+        "excerpt": "11 hrs ago US & Canada Canada to make Eurovision Song Contest debut in 2027 Watch: Man comes face-to-face with bear inside truck Chris Brown ordered to pay $13m to housekeeper injured in dog attack Williams' knee injury leaves Wimbledon dou"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0104"
+        ],
+        "label": "11 hrs ago US Canada Canada to",
+        "excerpt": "11 hrs ago US & Canada Canada to make Eurovision Song Contest debut in 2027 Watch: Man comes face-to-face with bear inside truck Chris Brown ordered to pay $13m to housekeeper injured in dog attack Williams' knee injury leaves Wimbledon dou"
+      }
+    ],
+    "evidenceCardCount": 6,
+    "evidenceCardLabels": [
+      "核心要点",
+      "1 hr ago Europe Anthropic says",
+      "MOST READ 1 Canada celebrates",
+      "US Supreme Court upholds",
+      "流程与操作",
+      "11 hrs ago US Canada Canada to"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 7,
+    "readingMapDetailText": "BBC News - Breaking news, video and latest top stories from…ready‘When I turned around, nothing was left’: One father's search for family after Venezuela quakes4 sourcedetail4 sources‘When I turned around, nothing was left’: One father's search for family after Venezuela quakes",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 1,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0110",
+          "src_page_a8ae4d2db8790d11_0065",
+          "src_page_a8ae4d2db8790d11_0050",
+          "src_page_a8ae4d2db8790d11_0108",
+          "src_page_a8ae4d2db8790d11_0049",
+          "src_page_a8ae4d2db8790d11_0109",
+          "src_page_a8ae4d2db8790d11_0002",
+          "src_page_a8ae4d2db8790d11_0001",
+          "src_page_a8ae4d2db8790d11_0105",
+          "src_page_a8ae4d2db8790d11_0106",
+          "src_page_a8ae4d2db8790d11_0035",
+          "src_page_a8ae4d2db8790d11_0113",
+          "src_page_a8ae4d2db8790d11_0034",
+          "src_page_a8ae4d2db8790d11_0102",
+          "src_page_a8ae4d2db8790d11_0112",
+          "src_page_a8ae4d2db8790d11_0107",
+          "src_page_a8ae4d2db8790d11_0103"
+        ],
+        "label": "核心要点",
+        "excerpt": "1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0110"
+        ],
+        "label": "1 hr ago Europe Anthropic says",
+        "excerpt": "1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0065"
+        ],
+        "label": "MOST READ 1 Canada celebrates",
+        "excerpt": "MOST READ 1 Canada celebrates its birthday as Mark Carney battles to keep it intact 2 Three die in Mexico City World Cup celebrations 3 Trump made more than $1bn from crypto in first year back in office 4 A trip to India left me with 38 par"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0050"
+        ],
+        "label": "US Supreme Court upholds",
+        "excerpt": "US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hit US ahead of"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0108"
+        ],
+        "label": "22 hrs ago World MOST WATCHED 1",
+        "excerpt": "22 hrs ago World MOST WATCHED 1 Watch: Man comes face-to-face with bear inside truck 2 'We're still standing': Americans on the state of the nation in its 250th year 3 Trump's $1.4bn crypto earnings revealed 4 Watch: Mount Etna eruption cre"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0049"
+        ],
+        "label": "ALSO IN NEWS US Supreme Court",
+        "excerpt": "ALSO IN NEWS US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hi"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0104"
+        ],
+        "label": "流程与操作",
+        "excerpt": "11 hrs ago US & Canada Canada to make Eurovision Song Contest debut in 2027 Watch: Man comes face-to-face with bear inside truck Chris Brown ordered to pay $13m to housekeeper injured in dog attack Williams' knee injury leaves Wimbledon dou"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a8ae4d2db8790d11_0104"
+        ],
+        "label": "11 hrs ago US Canada Canada to",
+        "excerpt": "11 hrs ago US & Canada Canada to make Eurovision Song Contest debut in 2027 Watch: Man comes face-to-face with bear inside truck Chris Brown ordered to pay $13m to housekeeper injured in dog attack Williams' knee injury leaves Wimbledon dou"
+      }
+    ],
+    "evidenceText": "1 hr ago Europe Anthropic sayslocated1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 1,
+    "selectedSourceCardReason": "candidate score 16 for bbc-news; label=1 hr ago Europe Anthropic says",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 1,
+        "status": "highlighted",
+        "reason": "candidate score 16 for bbc-news; label=1 hr ago Europe Anthropic says",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 1,
+        "label": "1 hr ago Europe Anthropic says",
+        "excerpt": "1 hr ago Europe Anthropic says US lifts export ban on its advanced AI tools Fable and Mythos were abruptly suspended in June over concerns that they could be used by hackers. 12 hrs ago Business Three-year-old rescued and taken to hospital",
+        "score": 16
+      },
+      {
+        "index": 2,
+        "label": "MOST READ 1 Canada celebrates",
+        "excerpt": "MOST READ 1 Canada celebrates its birthday as Mark Carney battles to keep it intact 2 Three die in Mexico City World Cup celebrations 3 Trump made more than $1bn from crypto in first year back in office 4 A trip to India left me with 38 par",
+        "score": 16
+      },
+      {
+        "index": 3,
+        "label": "US Supreme Court upholds",
+        "excerpt": "US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hit US ahead of",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "22 hrs ago World MOST WATCHED 1",
+        "excerpt": "22 hrs ago World MOST WATCHED 1 Watch: Man comes face-to-face with bear inside truck 2 'We're still standing': Americans on the state of the nation in its 250th year 3 Trump's $1.4bn crypto earnings revealed 4 Watch: Mount Etna eruption cre",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "ALSO IN NEWS US Supreme Court",
+        "excerpt": "ALSO IN NEWS US Supreme Court upholds birthright citizenship in blow to Trump The ruling is a major setback for Donald Trump's immigration agenda, and has been welcomed by civil rights groups. 10 hrs ago US & Canada Dangerous heatwave to hi",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "流程与操作",
+        "excerpt": "11 hrs ago US & Canada Canada to make Eurovision Song Contest debut in 2027 Watch: Man comes face-to-face with bear inside truck Chris Brown ordered to pay $13m to housekeeper injured in dog attack Williams' knee injury leaves Wimbledon dou",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 6,
+    "evidenceCardLabelCount": 6,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 20.333333333333332,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:52:04.310Z"
+}

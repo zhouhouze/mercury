@@ -1,0 +1,492 @@
+{
+  "title": "Fetch API - Web APIs | MDN",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+  "bodyTextLength": 3670,
+  "bodyTextSample": "Skip to main content Skip to search HTML CSS JavaScript Web APIs All Learn Tools About Blog Web Web APIs Fetch API Fetch API The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest. In this article Concepts and usage Interfaces HTTP headers Specifications Browser compatibility See also Concepts and usage The Fetch API uses Request and Response objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics. For making a re",
+  "anchorCount": 187,
+  "anchors": [
+    {
+      "text": "Skip to main content",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#content"
+    },
+    {
+      "text": "Skip to search",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#search"
+    },
+    {
+      "text": "MDN",
+      "href": "https://developer.mozilla.org/en-US/"
+    },
+    {
+      "text": "HTML: Markup language",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+    },
+    {
+      "text": "Elements",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+    },
+    {
+      "text": "Global attributes",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes"
+    },
+    {
+      "text": "Attributes",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference"
+    },
+    {
+      "text": "Responsive images",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images"
+    },
+    {
+      "text": "HTML cheatsheet",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet"
+    },
+    {
+      "text": "Date & time formats",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Date_and_time_formats"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides"
+    },
+    {
+      "text": "SVG",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/SVG"
+    },
+    {
+      "text": "MathML",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/MathML"
+    },
+    {
+      "text": "XML",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/XML"
+    },
+    {
+      "text": "CSS: Styling language",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+    },
+    {
+      "text": "Properties",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties"
+    },
+    {
+      "text": "Selectors",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors"
+    },
+    {
+      "text": "At-rules",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules"
+    },
+    {
+      "text": "Values",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
+    },
+    {
+      "text": "Box model",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/Introduction"
+    },
+    {
+      "text": "Animations",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using"
+    },
+    {
+      "text": "Flexbox",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts"
+    },
+    {
+      "text": "Colors",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Applying_color"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides"
+    },
+    {
+      "text": "Column layouts",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Column_layouts"
+    },
+    {
+      "text": "Centering an element",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Center_an_element"
+    },
+    {
+      "text": "Card component",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Card"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook"
+    },
+    {
+      "text": "JavaScript: Scripting language",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+    },
+    {
+      "text": "Standard built-in objects",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects"
+    },
+    {
+      "text": "Expressions & operators",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators"
+    },
+    {
+      "text": "Statements & declarations",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements"
+    },
+    {
+      "text": "Functions",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference"
+    },
+    {
+      "text": "Control flow & error handing",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+    },
+    {
+      "text": "Loops and iteration",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+    },
+    {
+      "text": "Working with objects",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+    },
+    {
+      "text": "Using classes",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_classes"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+    },
+    {
+      "text": "Web APIs: Programming interfaces",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+    },
+    {
+      "text": "File system API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/File_System_API"
+    },
+    {
+      "text": "Fetch API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+    },
+    {
+      "text": "Geolocation API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
+    },
+    {
+      "text": "HTML DOM API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API"
+    },
+    {
+      "text": "Push API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Push_API"
+    },
+    {
+      "text": "Service worker API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+    },
+    {
+      "text": "Using the Web animation API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API"
+    },
+    {
+      "text": "Using the Fetch API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    },
+    {
+      "text": "Working with the History API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API"
+    },
+    {
+      "text": "Using the Web speech API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API"
+    },
+    {
+      "text": "Using web workers",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+    },
+    {
+      "text": "All web technology",
+      "href": "https://developer.mozilla.org/en-US/docs/Web"
+    },
+    {
+      "text": "Accessibility",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Accessibility"
+    },
+    {
+      "text": "HTTP",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+    },
+    {
+      "text": "URI",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/URI"
+    },
+    {
+      "text": "Web extensions",
+      "href": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions"
+    },
+    {
+      "text": "WebAssembly",
+      "href": "https://developer.mozilla.org/en-US/docs/WebAssembly"
+    },
+    {
+      "text": "WebDriver",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/WebDriver"
+    },
+    {
+      "text": "See all…",
+      "href": "https://developer.mozilla.org/en-US/docs/Web"
+    },
+    {
+      "text": "Media",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Media"
+    },
+    {
+      "text": "Performance",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+    },
+    {
+      "text": "Privacy",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Privacy"
+    },
+    {
+      "text": "Security",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Security"
+    },
+    {
+      "text": "Progressive web apps",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+    },
+    {
+      "text": "Learn web development",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+    },
+    {
+      "text": "Getting started modules",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started"
+    },
+    {
+      "text": "Core modules",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core"
+    },
+    {
+      "text": "MDN Curriculum",
+      "href": "https://developer.mozilla.org/en-US/curriculum/"
+    },
+    {
+      "text": "Check out the video course from Scrimba, our partner",
+      "href": "https://scrimba.com/frontend-path-c0j?via=mdn-learn-navbar"
+    },
+    {
+      "text": "Structuring content with HTML module",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content"
+    },
+    {
+      "text": "CSS styling basics module",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics"
+    },
+    {
+      "text": "CSS layout module",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout"
+    },
+    {
+      "text": "Dynamic scripting with JavaScript module",
+      "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting"
+    },
+    {
+      "text": "Playground",
+      "href": "https://developer.mozilla.org/en-US/play"
+    },
+    {
+      "text": "HTTP Observatory",
+      "href": "https://developer.mozilla.org/en-US/observatory"
+    },
+    {
+      "text": "Border-image generator",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator"
+    },
+    {
+      "text": "Border-radius generator",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator"
+    },
+    {
+      "text": "Box-shadow generator",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator"
+    },
+    {
+      "text": "Color format converter",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_format_converter"
+    },
+    {
+      "text": "Color mixer",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_mixer"
+    },
+    {
+      "text": "Shape generator",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Shapes/Shape_generator"
+    },
+    {
+      "text": "About MDN",
+      "href": "https://developer.mozilla.org/en-US/about"
+    },
+    {
+      "text": "Advertise with us",
+      "href": "https://developer.mozilla.org/en-US/advertising"
+    },
+    {
+      "text": "Community",
+      "href": "https://developer.mozilla.org/en-US/community"
+    },
+    {
+      "text": "MDN on GitHub",
+      "href": "https://github.com/mdn"
+    },
+    {
+      "text": "Blog",
+      "href": "https://developer.mozilla.org/en-US/blog/"
+    },
+    {
+      "text": "Web",
+      "href": "https://developer.mozilla.org/en-US/docs/Web"
+    },
+    {
+      "text": "Web APIs",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+    },
+    {
+      "text": "Fetch API",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+    },
+    {
+      "text": "XMLHttpRequest",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest"
+    },
+    {
+      "text": "Concepts and usage",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#concepts_and_usage"
+    },
+    {
+      "text": "Interfaces",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#interfaces"
+    },
+    {
+      "text": "HTTP headers",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#http_headers"
+    },
+    {
+      "text": "Specifications",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#specifications"
+    },
+    {
+      "text": "Browser compatibility",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#browser_compatibility"
+    },
+    {
+      "text": "See also",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#see_also"
+    },
+    {
+      "text": "Concepts and usage",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#concepts_and_usage"
+    },
+    {
+      "text": "Request",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request"
+    },
+    {
+      "text": "Response",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+    },
+    {
+      "text": "fetch()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"
+    },
+    {
+      "text": "Window",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window"
+    },
+    {
+      "text": "Worker",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope"
+    },
+    {
+      "text": "Promise",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+    },
+    {
+      "text": "Response",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+    },
+    {
+      "text": "Request",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request"
+    },
+    {
+      "text": "Response",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+    },
+    {
+      "text": "Request()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request/Request"
+    },
+    {
+      "text": "Response()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response/Response"
+    },
+    {
+      "text": "FetchEvent.respondWith()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith"
+    },
+    {
+      "text": "Using Fetch",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    },
+    {
+      "text": "Deferred Fetch",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#deferred_fetch"
+    },
+    {
+      "text": "fetchLater()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetchLater"
+    },
+    {
+      "text": "Using Deferred Fetch",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Deferred_Fetch"
+    },
+    {
+      "text": "Interfaces",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#interfaces"
+    },
+    {
+      "text": "Window.fetch()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"
+    },
+    {
+      "text": "WorkerGlobalScope.fetch()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/fetch"
+    },
+    {
+      "text": "Window.fetchLater()",
+      "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetchLater"
+    }
+  ],
+  "loginHints": [],
+  "hasNaviaSidebar": true,
+  "hasNaviaLauncher": true
+}

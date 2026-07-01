@@ -1,0 +1,894 @@
+{
+  "sampleId": "international-doc-wikipedia-ai",
+  "siteId": "wikipedia",
+  "siteName": "Wikipedia",
+  "manifest": {
+    "pageId": "international-doc-wikipedia-ai",
+    "contentCategory": "international_knowledge_blog_doc",
+    "countryRegion": "international",
+    "pageType": "wiki",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "definition",
+      "history",
+      "applications"
+    ],
+    "prohibitedNoiseSignals": [
+      "navigation",
+      "references only",
+      "sidebar"
+    ]
+  },
+  "pageKind": "wiki",
+  "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+  "startedAt": "2026-07-01T16:01:50.384Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+  "dom": {
+    "title": "Artificial intelligence - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+    "bodyTextLength": 187514,
+    "bodyTextSample": "Jump to content Main menu Search Donate Create account Log in Contents hide (Top) Goals Toggle Goals subsection Techniques Toggle Techniques subsection Applications Toggle Applications subsection Ethics Toggle Ethics subsection History Philosophy Toggle Philosophy subsection Future Toggle Future subsection In fiction See also Explanatory notes References Toggle References subsection External links Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the fre",
+    "anchorCount": 5575,
+    "anchors": [
+      {
+        "text": "Jump to content",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#bodyContent"
+      },
+      {
+        "text": "Main page",
+        "href": "https://en.wikipedia.org/wiki/Main_Page"
+      },
+      {
+        "text": "Contents",
+        "href": "https://en.wikipedia.org/wiki/Wikipedia:Contents"
+      },
+      {
+        "text": "Current events",
+        "href": "https://en.wikipedia.org/wiki/Portal:Current_events"
+      },
+      {
+        "text": "Random article",
+        "href": "https://en.wikipedia.org/wiki/Special:Random"
+      },
+      {
+        "text": "About Wikipedia",
+        "href": "https://en.wikipedia.org/wiki/Wikipedia:About"
+      },
+      {
+        "text": "Contact us",
+        "href": "https://en.wikipedia.org/wiki/Wikipedia:Contact_us"
+      },
+      {
+        "text": "Help",
+        "href": "https://en.wikipedia.org/wiki/Help:Contents"
+      },
+      {
+        "text": "Learn to edit",
+        "href": "https://en.wikipedia.org/wiki/Help:Introduction"
+      },
+      {
+        "text": "Community portal",
+        "href": "https://en.wikipedia.org/wiki/Wikipedia:Community_portal"
+      },
+      {
+        "text": "Recent changes",
+        "href": "https://en.wikipedia.org/wiki/Special:RecentChanges"
+      },
+      {
+        "text": "Upload file",
+        "href": "https://en.wikipedia.org/wiki/Wikipedia:File_upload_wizard"
+      },
+      {
+        "text": "Special pages",
+        "href": "https://en.wikipedia.org/wiki/Special:SpecialPages"
+      },
+      {
+        "text": "",
+        "href": "https://en.wikipedia.org/wiki/Main_Page"
+      },
+      {
+        "text": "Search",
+        "href": "https://en.wikipedia.org/wiki/Special:Search"
+      },
+      {
+        "text": "Donate",
+        "href": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en"
+      },
+      {
+        "text": "Create account",
+        "href": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Artificial+intelligence"
+      },
+      {
+        "text": "Log in",
+        "href": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Artificial+intelligence"
+      },
+      {
+        "text": "Donate",
+        "href": "https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en"
+      },
+      {
+        "text": "Create account",
+        "href": "https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&returnto=Artificial+intelligence"
+      },
+      {
+        "text": "Log in",
+        "href": "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Artificial+intelligence"
+      },
+      {
+        "text": "(Top)",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#"
+      },
+      {
+        "text": "1 Goals",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Goals"
+      },
+      {
+        "text": "1.1 Reasoning and problem-solving",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Reasoning_and_problem-solving"
+      },
+      {
+        "text": "1.2 Knowledge representation",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Knowledge_representation"
+      },
+      {
+        "text": "1.3 Planning and decision-making",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Planning_and_decision-making"
+      },
+      {
+        "text": "1.4 Learning",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Learning"
+      },
+      {
+        "text": "1.5 Natural language processing",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Natural_language_processing"
+      },
+      {
+        "text": "1.6 Perception",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Perception"
+      },
+      {
+        "text": "1.7 Social intelligence",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Social_intelligence"
+      },
+      {
+        "text": "1.8 General intelligence",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#General_intelligence"
+      },
+      {
+        "text": "2 Techniques",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Techniques"
+      },
+      {
+        "text": "2.1 Search and optimization",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Search_and_optimization"
+      },
+      {
+        "text": "2.1.1 State space search",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#State_space_search"
+      },
+      {
+        "text": "2.1.2 Local search",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Local_search"
+      },
+      {
+        "text": "2.2 Logic",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Logic"
+      },
+      {
+        "text": "2.3 Probabilistic methods for uncertain reasoning",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Probabilistic_methods_for_uncertain_reasoning"
+      },
+      {
+        "text": "2.4 Classifiers and statistical learning methods",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Classifiers_and_statistical_learning_methods"
+      },
+      {
+        "text": "2.5 Artificial neural networks",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Artificial_neural_networks"
+      },
+      {
+        "text": "2.6 Deep learning",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Deep_learning"
+      },
+      {
+        "text": "2.7 GPT",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#GPT"
+      },
+      {
+        "text": "2.8 Hardware and software",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Hardware_and_software"
+      },
+      {
+        "text": "3 Applications",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Applications"
+      },
+      {
+        "text": "3.1 AI-assisted software development",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#AI-assisted_software_development"
+      },
+      {
+        "text": "3.2 Chatbots",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Chatbots"
+      },
+      {
+        "text": "3.3 Health and medicine",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Health_and_medicine"
+      },
+      {
+        "text": "3.4 Gaming",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Gaming"
+      },
+      {
+        "text": "3.5 Mathematics",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Mathematics"
+      },
+      {
+        "text": "3.6 Finance",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Finance"
+      },
+      {
+        "text": "3.7 Military",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Military"
+      },
+      {
+        "text": "3.8 Generative AI",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Generative_AI"
+      },
+      {
+        "text": "3.9 Agents",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Agents"
+      },
+      {
+        "text": "3.10 Web search",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Web_search"
+      },
+      {
+        "text": "3.11 Sexuality",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Sexuality"
+      },
+      {
+        "text": "3.12 Other industry-specific tasks",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Other_industry-specific_tasks"
+      },
+      {
+        "text": "4 Ethics",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Ethics"
+      },
+      {
+        "text": "4.1 Risks and harm",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Risks_and_harm"
+      },
+      {
+        "text": "4.1.1 Privacy and copyright",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Privacy_and_copyright"
+      },
+      {
+        "text": "4.1.2 Dominance by tech giants",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Dominance_by_tech_giants"
+      },
+      {
+        "text": "4.1.3 Power needs and environmental impacts",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Power_needs_and_environmental_impacts"
+      },
+      {
+        "text": "4.1.4 Misinformation",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Misinformation"
+      },
+      {
+        "text": "4.1.5 Algorithmic bias and fairness",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Algorithmic_bias_and_fairness"
+      },
+      {
+        "text": "4.1.6 Lack of transparency",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Lack_of_transparency"
+      },
+      {
+        "text": "4.1.7 Bad actors and weaponized AI",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Bad_actors_and_weaponized_AI"
+      },
+      {
+        "text": "4.1.8 Technological unemployment",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Technological_unemployment"
+      },
+      {
+        "text": "4.1.9 Substitution for human–human interaction",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Substitution_for_human%E2%80%93human_interaction"
+      },
+      {
+        "text": "4.1.10 Existential risk",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Existential_risk"
+      },
+      {
+        "text": "4.2 Ethical machines and alignment",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Ethical_machines_and_alignment"
+      },
+      {
+        "text": "4.3 Open source",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Open_source"
+      },
+      {
+        "text": "4.4 Frameworks",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Frameworks"
+      },
+      {
+        "text": "4.5 Regulation",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Regulation"
+      },
+      {
+        "text": "5 History",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#History"
+      },
+      {
+        "text": "6 Philosophy",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Philosophy"
+      },
+      {
+        "text": "6.1 Defining artificial intelligence",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Defining_artificial_intelligence"
+      },
+      {
+        "text": "6.1.1 Legal definitions",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Legal_definitions"
+      },
+      {
+        "text": "6.2 Evaluating approaches to AI",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Evaluating_approaches_to_AI"
+      },
+      {
+        "text": "6.2.1 Symbolic AI and its limits",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Symbolic_AI_and_its_limits"
+      },
+      {
+        "text": "6.2.2 Neat vs. scruffy",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Neat_vs._scruffy"
+      },
+      {
+        "text": "6.2.3 Soft vs. hard computing",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Soft_vs._hard_computing"
+      },
+      {
+        "text": "6.2.4 Narrow vs. general AI",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Narrow_vs._general_AI"
+      },
+      {
+        "text": "6.3 Machine consciousness, sentience, and mind",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Machine_consciousness,_sentience,_and_mind"
+      },
+      {
+        "text": "6.3.1 Consciousness",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Consciousness"
+      },
+      {
+        "text": "6.3.2 Computationalism and functionalism",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Computationalism_and_functionalism"
+      },
+      {
+        "text": "6.3.3 AI welfare and rights",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#AI_welfare_and_rights"
+      },
+      {
+        "text": "7 Future",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Future"
+      },
+      {
+        "text": "7.1 Superintelligence and the singularity",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Superintelligence_and_the_singularity"
+      },
+      {
+        "text": "7.2 Transhumanism",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Transhumanism"
+      },
+      {
+        "text": "8 In fiction",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#In_fiction"
+      },
+      {
+        "text": "9 See also",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#See_also"
+      },
+      {
+        "text": "10 Explanatory notes",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Explanatory_notes"
+      },
+      {
+        "text": "11 References",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#References"
+      },
+      {
+        "text": "11.1 Textbooks",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Textbooks"
+      },
+      {
+        "text": "11.2 History of AI",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#History_of_AI"
+      },
+      {
+        "text": "11.3 Other sources",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#Other_sources"
+      },
+      {
+        "text": "12 External links",
+        "href": "https://en.wikipedia.org/wiki/Artificial_intelligence#External_links"
+      },
+      {
+        "text": "Afrikaans",
+        "href": "https://af.wikipedia.org/wiki/Kunsmatige_intelligensie"
+      },
+      {
+        "text": "Alemannisch",
+        "href": "https://als.wikipedia.org/wiki/K%C3%BCnstliche_Intelligenz"
+      },
+      {
+        "text": "አማርኛ",
+        "href": "https://am.wikipedia.org/wiki/%E1%88%B0%E1%8B%8D_%E1%88%A0%E1%88%AB%E1%88%BD_%E1%8B%A8%E1%88%9B%E1%88%B0%E1%89%A5_%E1%89%BD%E1%88%8E%E1%89%B3"
+      },
+      {
+        "text": "Aragonés",
+        "href": "https://an.wikipedia.org/wiki/Intelichencia_artificial"
+      },
+      {
+        "text": "अंगिका",
+        "href": "https://anp.wikipedia.org/wiki/%E0%A4%95%E0%A5%83%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BF%E0%A4%AE_%E0%A4%AC%E0%A5%81%E0%A4%A6%E0%A5%8D%E0%A4%A7%E0%A4%BF"
+      },
+      {
+        "text": "العربية",
+        "href": "https://ar.wikipedia.org/wiki/%D8%B0%D9%83%D8%A7%D8%A1_%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A"
+      },
+      {
+        "text": "الدارجة",
+        "href": "https://ary.wikipedia.org/wiki/%D8%AF%D9%83%D8%A7_%D8%B5%D8%B7%D9%8A%D9%86%D8%A7%D8%B9%D9%8A"
+      },
+      {
+        "text": "مصرى",
+        "href": "https://arz.wikipedia.org/wiki/%D8%B0%D9%83%D8%A7%D8%A1_%D8%B5%D9%86%D8%A7%D8%B9%D9%89"
+      },
+      {
+        "text": "অসমীয়া",
+        "href": "https://as.wikipedia.org/wiki/%E0%A6%95%E0%A7%83%E0%A6%A4%E0%A7%8D%E0%A7%B0%E0%A6%BF%E0%A6%AE_%E0%A6%AC%E0%A7%81%E0%A6%A6%E0%A7%8D%E0%A6%A7%E0%A6%BF%E0%A6%AE%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%BE"
+      },
+      {
+        "text": "Asturianu",
+        "href": "https://ast.wikipedia.org/wiki/Intelixencia_artificial"
+      },
+      {
+        "text": "Azərbaycanca",
+        "href": "https://az.wikipedia.org/wiki/S%C3%BCni_intellekt"
+      },
+      {
+        "text": "تۆرکجه",
+        "href": "https://azb.wikipedia.org/wiki/%D9%85%D8%B5%D9%86%D9%88%D8%B9%DB%8C_%D8%B0%DA%A9%D8%A7"
+      },
+      {
+        "text": "Башҡортса",
+        "href": "https://ba.wikipedia.org/wiki/%D0%AF%D2%BB%D0%B0%D0%BB%D0%BC%D0%B0_%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%BB%D0%B5%D0%BA%D1%82"
+      },
+      {
+        "text": "Boarisch",
+        "href": "https://bar.wikipedia.org/wiki/Kinschtlicha_Intelligenz"
+      },
+      {
+        "text": "Žemaitėška",
+        "href": "https://bat-smg.wikipedia.org/wiki/D%C4%97rbt%C4%97ns_intelekts"
+      },
+      {
+        "text": "Bikol Central",
+        "href": "https://bcl.wikipedia.org/wiki/Artipisyal_na_intelihensya"
+      },
+      {
+        "text": "Беларуская (тарашкевіца)",
+        "href": "https://be-tarask.wikipedia.org/wiki/%D0%A8%D1%82%D1%83%D1%87%D0%BD%D1%8B_%D1%96%D0%BD%D1%82%D1%8D%D0%BB%D0%B5%D0%BA%D1%82"
+      },
+      {
+        "text": "Беларуская",
+        "href": "https://be.wikipedia.org/wiki/%D0%A8%D1%82%D1%83%D1%87%D0%BD%D1%8B_%D1%96%D0%BD%D1%82%D1%8D%D0%BB%D0%B5%D0%BA%D1%82"
+      },
+      {
+        "text": "Betawi",
+        "href": "https://bew.wikipedia.org/wiki/Calakan_bikinan"
+      },
+      {
+        "text": "Български",
+        "href": "https://bg.wikipedia.org/wiki/%D0%98%D0%B7%D0%BA%D1%83%D1%81%D1%82%D0%B2%D0%B5%D0%BD_%D0%B8%D0%BD%D1%82%D0%B5%D0%BB%D0%B5%D0%BA%D1%82"
+      },
+      {
+        "text": "भोजपुरी",
+        "href": "https://bh.wikipedia.org/wiki/%E0%A4%86%E0%A4%B0%E0%A5%8D%E0%A4%9F%E0%A4%BF%E0%A4%AB%E0%A4%BF%E0%A4%B6%E0%A4%BF%E0%A4%AF%E0%A4%B2_%E0%A4%87%E0%A4%82%E0%A4%9F%E0%A5%87%E0%A4%B2%E0%A4%BF%E0%A4%9C%E0%A5%87%E0%A4%82%E0%A4%B8"
+      },
+      {
+        "text": "ပအိုဝ်ႏဘာႏသာႏ",
+        "href": "https://blk.wikipedia.org/wiki/%E1%80%89%E1%80%AC%E1%80%8F%E1%80%BA%E1%82%8F%E1%80%90%E1%80%AF%EA%A9%BB"
+      },
+      {
+        "text": "বাংলা",
+        "href": "https://bn.wikipedia.org/wiki/%E0%A6%95%E0%A7%83%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AE_%E0%A6%AC%E0%A7%81%E0%A6%A6%E0%A7%8D%E0%A6%A7%E0%A6%BF%E0%A6%AE%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%BE"
+      },
+      {
+        "text": "བོད་ཡིག",
+        "href": "https://bo.wikipedia.org/wiki/%E0%BD%98%E0%BD%B2%E0%BC%8B%E0%BD%96%E0%BD%9F%E0%BD%BC%E0%BD%A6%E0%BC%8B%E0%BD%A2%E0%BD%B2%E0%BD%82%E0%BC%8B%E0%BD%93%E0%BD%B4%E0%BD%A6%E0%BC%8D"
+      },
+      {
+        "text": "Brezhoneg",
+        "href": "https://br.wikipedia.org/wiki/Naouegezh_artifisiel"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000003626",
+    "pageTitle": "Artificial intelligence - Wikipedia",
+    "submitStatus": "已提交：page_5b15d732a6e8655a",
+    "domSignalBlockCount": 120,
+    "domSignalLinkCount": 160,
+    "pageStateHints": [
+      "media_dom_limited"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_5b15d732a6e8655a",
+      "title": "Artificial intelligence - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+      "domain": "en.wikipedia.org"
+    },
+    "readiness": "pass",
+    "overallScore": 0.986,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 136,
+    "digestItems": 18,
+    "sourceRefs": 138,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.014,
+        "numerator": 2,
+        "denominator": 138,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.937,
+        "numerator": 26534,
+        "denominator": 28331,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 136,
+        "denominator": 136,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 138,
+        "denominator": 138,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.058,
+        "numerator": 253,
+        "denominator": 4387,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.944,
+        "numerator": 17,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0056"
+        ],
+        "label": "article_body",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0056"
+        ],
+        "label": "Artificial intelligence 177",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0119",
+          "src_page_5b15d732a6e8655a_0103",
+          "src_page_5b15d732a6e8655a_0138",
+          "src_page_5b15d732a6e8655a_0126",
+          "src_page_5b15d732a6e8655a_0107",
+          "src_page_5b15d732a6e8655a_0117",
+          "src_page_5b15d732a6e8655a_0135",
+          "src_page_5b15d732a6e8655a_0129",
+          "src_page_5b15d732a6e8655a_0122",
+          "src_page_5b15d732a6e8655a_0136",
+          "src_page_5b15d732a6e8655a_0120",
+          "src_page_5b15d732a6e8655a_0113",
+          "src_page_5b15d732a6e8655a_0132",
+          "src_page_5b15d732a6e8655a_0134",
+          "src_page_5b15d732a6e8655a_0104",
+          "src_page_5b15d732a6e8655a_0123"
+        ],
+        "label": "核心要点",
+        "excerpt": "Modern deep learning techniques for NLP include word embedding (representing words, typically as vectors encoding their meaning),[52] transformers (a deep learning architecture using an attention mechanism),[53] and others.[54] In 2019, gen"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0119"
+        ],
+        "label": "Modern deep learning techniques",
+        "excerpt": "Modern deep learning techniques for NLP include word embedding (representing words, typically as vectors encoding their meaning),[52] transformers (a deep learning architecture using an attention mechanism),[53] and others.[54] In 2019, gen"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0103"
+        ],
+        "label": "It is field of research in",
+        "excerpt": "It is a field of research in engineering, mathematics and computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize the"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0138"
+        ],
+        "label": "These can be reduced with RLHF",
+        "excerpt": "These can be reduced with RLHF and quality data, but the problem has been getting worse for reasoning systems.[123] Such systems are used in chatbots, which allow people to ask a question or request a task in simple text.[124][125] Current"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0126"
+        ],
+        "label": "However, backward reasoning with",
+        "excerpt": "However, backward reasoning with Horn clauses, which underpins computation in the logic programming language Prolog, is Turing complete. Moreover, its efficiency is competitive with computation in other symbolic programming languages.[84] F"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0107"
+        ],
+        "label": "Humans solve most of their",
+        "excerpt": "Humans solve most of their problems using fast, intuitive judgments.[14] Reasoning models, a type of large language model trained to generate intermediate chains-of-thought, emerged in 2024 and allowed improved performance on complex proble"
+      }
+    ],
+    "evidenceCardCount": 8,
+    "evidenceCardLabels": [
+      "核心要点",
+      "Modern deep learning techniques",
+      "It is field of research in",
+      "These can be reduced with RLHF",
+      "article_body",
+      "Artificial intelligence 177",
+      "架构与接口",
+      "Unsupervised learning analyzes"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 9,
+    "readingMapDetailText": "Artificial intelligence - WikipediareadyPersonal tools Donate Create account Log in4 sourcedetail4 sourcesPersonal tools Donate Create account Log in",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0056"
+        ],
+        "label": "article_body",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0056"
+        ],
+        "label": "Artificial intelligence 177",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0119",
+          "src_page_5b15d732a6e8655a_0103",
+          "src_page_5b15d732a6e8655a_0138",
+          "src_page_5b15d732a6e8655a_0126",
+          "src_page_5b15d732a6e8655a_0107",
+          "src_page_5b15d732a6e8655a_0117",
+          "src_page_5b15d732a6e8655a_0135",
+          "src_page_5b15d732a6e8655a_0129",
+          "src_page_5b15d732a6e8655a_0122",
+          "src_page_5b15d732a6e8655a_0136",
+          "src_page_5b15d732a6e8655a_0120",
+          "src_page_5b15d732a6e8655a_0113",
+          "src_page_5b15d732a6e8655a_0132",
+          "src_page_5b15d732a6e8655a_0134",
+          "src_page_5b15d732a6e8655a_0104",
+          "src_page_5b15d732a6e8655a_0123"
+        ],
+        "label": "核心要点",
+        "excerpt": "Modern deep learning techniques for NLP include word embedding (representing words, typically as vectors encoding their meaning),[52] transformers (a deep learning architecture using an attention mechanism),[53] and others.[54] In 2019, gen"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0119"
+        ],
+        "label": "Modern deep learning techniques",
+        "excerpt": "Modern deep learning techniques for NLP include word embedding (representing words, typically as vectors encoding their meaning),[52] transformers (a deep learning architecture using an attention mechanism),[53] and others.[54] In 2019, gen"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0103"
+        ],
+        "label": "It is field of research in",
+        "excerpt": "It is a field of research in engineering, mathematics and computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize the"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0138"
+        ],
+        "label": "These can be reduced with RLHF",
+        "excerpt": "These can be reduced with RLHF and quality data, but the problem has been getting worse for reasoning systems.[123] Such systems are used in chatbots, which allow people to ask a question or request a task in simple text.[124][125] Current"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0126"
+        ],
+        "label": "However, backward reasoning with",
+        "excerpt": "However, backward reasoning with Horn clauses, which underpins computation in the logic programming language Prolog, is Turing complete. Moreover, its efficiency is competitive with computation in other symbolic programming languages.[84] F"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_5b15d732a6e8655a_0107"
+        ],
+        "label": "Humans solve most of their",
+        "excerpt": "Humans solve most of their problems using fast, intuitive judgments.[14] Reasoning models, a type of large language model trained to generate intermediate chains-of-thought, emerged in 2024 and allowed improved performance on complex proble"
+      }
+    ],
+    "evidenceText": "article_bodylocatedArtificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 40 for wikipedia; label=article_body",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 40 for wikipedia; label=article_body",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "article_body",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o",
+        "score": 40
+      },
+      {
+        "index": 1,
+        "label": "Artificial intelligence 177",
+        "excerpt": "Artificial intelligence 177 languages Article Talk Read View source View history Tools Appearance hide Text Small Standard Large Width Standard Wide Color Automatic Light Dark From Wikipedia, the free encyclopedia \"AI\" redirects here. For o",
+        "score": 40
+      },
+      {
+        "index": 3,
+        "label": "Modern deep learning techniques",
+        "excerpt": "Modern deep learning techniques for NLP include word embedding (representing words, typically as vectors encoding their meaning),[52] transformers (a deep learning architecture using an attention mechanism),[53] and others.[54] In 2019, gen",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "It is field of research in",
+        "excerpt": "It is a field of research in engineering, mathematics and computer science that develops and studies methods and software that enable machines to perceive their environment and use learning and intelligence to take actions that maximize the",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "These can be reduced with RLHF",
+        "excerpt": "These can be reduced with RLHF and quality data, but the problem has been getting worse for reasoning systems.[123] Such systems are used in chatbots, which allow people to ask a question or request a task in simple text.[124][125] Current",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "However, backward reasoning with",
+        "excerpt": "However, backward reasoning with Horn clauses, which underpins computation in the logic programming language Prolog, is Turing complete. Moreover, its efficiency is competitive with computation in other symbolic programming languages.[84] F",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 8,
+    "evidenceCardLabelCount": 8,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 20.625,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T16:02:15.813Z"
+}

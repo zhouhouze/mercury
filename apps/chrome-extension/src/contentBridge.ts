@@ -53,6 +53,7 @@ type JumpbackResult = {
   attemptedStrategies: JumpbackStrategy[];
   matchedStrategy?: JumpbackStrategy;
   highlightedText?: string;
+  markerVisible?: boolean;
   fallbackText?: string;
   failureReason?: string;
 };
@@ -828,8 +829,16 @@ function highlightElement(
     status: "highlighted",
     attemptedStrategies: input.attemptedStrategies,
     matchedStrategy: input.matchedStrategy,
+    markerVisible: isJumpbackMarkerVisible(element.ownerDocument),
     highlightedText: normalizeText(element.textContent || "").slice(0, 240)
   };
+}
+
+function isJumpbackMarkerVisible(documentRef: Document): boolean {
+  const marker = documentRef.getElementById(JUMPBACK_MARKER_ID);
+  if (!(marker instanceof HTMLElement)) return false;
+  const rect = marker.getBoundingClientRect();
+  return rect.width > 0 && rect.height > 0 && rect.bottom >= 0 && rect.right >= 0;
 }
 
 function placeJumpbackMarker(element: HTMLElement, strategy: JumpbackStrategy): void {

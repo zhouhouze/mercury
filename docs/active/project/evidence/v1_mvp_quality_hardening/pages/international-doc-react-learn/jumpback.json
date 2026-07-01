@@ -1,0 +1,148 @@
+{
+  "action": "jumpback_source_card",
+  "index": 1,
+  "sourceCards": [
+    {
+      "index": 0,
+      "testId": "mindmap-source-card-node_1",
+      "nodeId": "node_1",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0114",
+        "src_page_64eeccbe7b3d9b42_0103",
+        "src_page_64eeccbe7b3d9b42_0110",
+        "src_page_64eeccbe7b3d9b42_0111",
+        "src_page_64eeccbe7b3d9b42_0115",
+        "src_page_64eeccbe7b3d9b42_0105",
+        "src_page_64eeccbe7b3d9b42_0101",
+        "src_page_64eeccbe7b3d9b42_0104",
+        "src_page_64eeccbe7b3d9b42_0118",
+        "src_page_64eeccbe7b3d9b42_0102",
+        "src_page_64eeccbe7b3d9b42_0109",
+        "src_page_64eeccbe7b3d9b42_0117",
+        "src_page_64eeccbe7b3d9b42_0119",
+        "src_page_64eeccbe7b3d9b42_0106",
+        "src_page_64eeccbe7b3d9b42_0113",
+        "src_page_64eeccbe7b3d9b42_0116",
+        "src_page_64eeccbe7b3d9b42_0112",
+        "src_page_64eeccbe7b3d9b42_0095"
+      ],
+      "label": "核心要点",
+      "excerpt": "Click each button separately: App.js Download Reload Clear Fork import { useState } from 'react'; export default function MyApp() { return ( <div> <h1>Counters that update separately</h1> <MyButton /> <MyButton /> </div> ); } function MyBut"
+    },
+    {
+      "index": 1,
+      "testId": "mindmap-source-card-node_2",
+      "nodeId": "node_2",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0114"
+      ],
+      "label": "Click each button separately",
+      "excerpt": "Click each button separately: App.js Download Reload Clear Fork import { useState } from 'react'; export default function MyApp() { return ( <div> <h1>Counters that update separately</h1> <MyButton /> <MyButton /> </div> ); } function MyBut"
+    },
+    {
+      "index": 2,
+      "testId": "mindmap-source-card-node_3",
+      "nodeId": "node_3",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0103"
+      ],
+      "label": "Have look at result App.js",
+      "excerpt": "Have a look at the result: App.js Download Reload Clear Fork function MyButton() { return ( <button> I'm a button </button> ); } export default function MyApp() { return ( <div> <h1>Welcome to my app</h1> <MyButton /> </div> ); } Show more"
+    },
+    {
+      "index": 3,
+      "testId": "mindmap-source-card-node_4",
+      "nodeId": "node_4",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0110"
+      ],
+      "label": "React uses your keys to know",
+      "excerpt": "React uses your keys to know what happened if you later insert, delete, or reorder the items. App.js Download Reload Clear Fork const products = [ { title: 'Cabbage', isFruit: false, id: 1 }, { title: 'Garlic', isFruit: false, id: 2 }, { ti"
+    },
+    {
+      "index": 4,
+      "testId": "mindmap-source-card-node_5",
+      "nodeId": "node_5",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0111"
+      ],
+      "label": "magenta darkgreen product.title",
+      "excerpt": "'magenta' : 'darkgreen' }} > {product.title} </li> ); return ( <ul>{listItems}</ul> ); } Show more Responding to events You can respond to events by declaring event handler functions inside your components: function MyButton() { function ha"
+    },
+    {
+      "index": 5,
+      "testId": "mindmap-source-card-node_6",
+      "nodeId": "node_6",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0115"
+      ],
+      "label": "You can also write your own",
+      "excerpt": "You can also write your own Hooks by combining the existing ones. Hooks are more restrictive than other functions. You can only call Hooks at the top of your components (or other Hooks). If you want to use useState in a condition or a loop,"
+    },
+    {
+      "index": 6,
+      "testId": "mindmap-source-card-root",
+      "nodeId": "root",
+      "sourceRefIds": [
+        "src_page_64eeccbe7b3d9b42_0001",
+        "src_page_64eeccbe7b3d9b42_0002",
+        "src_page_64eeccbe7b3d9b42_0003",
+        "src_page_64eeccbe7b3d9b42_0004"
+      ],
+      "label": "Quick Start React",
+      "excerpt": "React v19.2 Search Ctrl K Learn Reference Community Blog"
+    }
+  ],
+  "evidenceText": "Click each button separatelylocatedClick each button separately: App.js Download Reload Clear Fork import { useState } from 'react'; export default function MyApp() { return ( <div> <h1>Counters that update separately</h1> <MyButton /> <MyButton /> </div> ); } function MyBut已定位并高亮来源。",
+  "sourceEvidenceVisible": true,
+  "status": "highlighted",
+  "selectedSourceCardIndex": 1,
+  "selectedSourceCardReason": "candidate score 16 for react-docs; label=Click each button separately",
+  "sourceCardAttemptCount": 1,
+  "sourceCardAttempts": [
+    {
+      "index": 1,
+      "status": "highlighted",
+      "reason": "candidate score 16 for react-docs; label=Click each button separately",
+      "failureReason": null
+    }
+  ],
+  "sourceCardCandidates": [
+    {
+      "index": 1,
+      "label": "Click each button separately",
+      "excerpt": "Click each button separately: App.js Download Reload Clear Fork import { useState } from 'react'; export default function MyApp() { return ( <div> <h1>Counters that update separately</h1> <MyButton /> <MyButton /> </div> ); } function MyBut",
+      "score": 16
+    },
+    {
+      "index": 2,
+      "label": "Have look at result App.js",
+      "excerpt": "Have a look at the result: App.js Download Reload Clear Fork function MyButton() { return ( <button> I'm a button </button> ); } export default function MyApp() { return ( <div> <h1>Welcome to my app</h1> <MyButton /> </div> ); } Show more",
+      "score": 16
+    },
+    {
+      "index": 3,
+      "label": "React uses your keys to know",
+      "excerpt": "React uses your keys to know what happened if you later insert, delete, or reorder the items. App.js Download Reload Clear Fork const products = [ { title: 'Cabbage', isFruit: false, id: 1 }, { title: 'Garlic', isFruit: false, id: 2 }, { ti",
+      "score": 16
+    },
+    {
+      "index": 4,
+      "label": "magenta darkgreen product.title",
+      "excerpt": "'magenta' : 'darkgreen' }} > {product.title} </li> ); return ( <ul>{listItems}</ul> ); } Show more Responding to events You can respond to events by declaring event handler functions inside your components: function MyButton() { function ha",
+      "score": 16
+    },
+    {
+      "index": 5,
+      "label": "You can also write your own",
+      "excerpt": "You can also write your own Hooks by combining the existing ones. Hooks are more restrictive than other functions. You can only call Hooks at the top of your components (or other Hooks). If you want to use useState in a condition or a loop,",
+      "score": 16
+    },
+    {
+      "index": 0,
+      "label": "核心要点",
+      "excerpt": "Click each button separately: App.js Download Reload Clear Fork import { useState } from 'react'; export default function MyApp() { return ( <div> <h1>Counters that update separately</h1> <MyButton /> <MyButton /> </div> ); } function MyBut",
+      "score": -2
+    }
+  ]
+}

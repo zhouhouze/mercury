@@ -1,0 +1,73 @@
+{
+  "activePage": {
+    "pageId": "page_e0416cba31232a7f",
+    "title": "新华科技_新华网",
+    "url": "https://www.news.cn/tech/",
+    "domain": "www.news.cn"
+  },
+  "readiness": "pass",
+  "overallScore": 0.927,
+  "warnings": [],
+  "fatalIssues": [],
+  "highSignalBlocks": 38,
+  "digestItems": 18,
+  "sourceRefs": 40,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.05,
+      "numerator": 2,
+      "denominator": 40,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.544,
+      "numerator": 1598,
+      "denominator": 2938,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 38,
+      "denominator": 38,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 40,
+      "denominator": 40,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.271,
+      "numerator": 106,
+      "denominator": 391,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.944,
+      "numerator": 17,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

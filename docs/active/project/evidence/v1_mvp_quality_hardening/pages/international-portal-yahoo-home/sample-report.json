@@ -1,0 +1,893 @@
+{
+  "sampleId": "international-portal-yahoo-home",
+  "siteId": "yahoo-news",
+  "siteName": "Yahoo News",
+  "manifest": {
+    "pageId": "international-portal-yahoo-home",
+    "contentCategory": "international_portal_homepage",
+    "countryRegion": "international",
+    "pageType": "homepage",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "headline",
+      "story list",
+      "article cards"
+    ],
+    "prohibitedNoiseSignals": [
+      "cookie",
+      "advertisement",
+      "subscribe",
+      "newsletter",
+      "navigation"
+    ]
+  },
+  "pageKind": "homepage",
+  "url": "https://news.yahoo.com/",
+  "startedAt": "2026-07-01T15:56:12.813Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.yahoo.com/news/",
+  "dom": {
+    "title": "Yahoo News: Latest and Breaking News, Headlines, Live Updates, and More",
+    "url": "https://www.yahoo.com/news/",
+    "bodyTextLength": 3704,
+    "bodyTextSample": "Search query News Finance Sports More Mail Sign in News US Politics Science World Weather News Originals Democratic socialist Melat Kiros defeats 15-term congresswoman in Colorado Melat Kiros toppled Rep. Diana DeGette in the latest primary victory for a progressive challenger over a House incumbent. Yahoo News 23K Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act' Associated Press 257 High earners rush to use 'big beautiful bill' vacation rental tax break Business Insider 137 Sen. Michael Bennet loses Colorado governor primary in race shaped by Trump NBC News 1.3",
+    "anchorCount": 373,
+    "anchors": [
+      {
+        "text": "News",
+        "href": "https://www.yahoo.com/"
+      },
+      {
+        "text": "Today's news",
+        "href": "https://www.yahoo.com/news/"
+      },
+      {
+        "text": "US",
+        "href": "https://www.yahoo.com/news/us/"
+      },
+      {
+        "text": "Politics",
+        "href": "https://www.yahoo.com/news/politics/"
+      },
+      {
+        "text": "World",
+        "href": "https://www.yahoo.com/news/world/"
+      },
+      {
+        "text": "Weather",
+        "href": "https://weather.yahoo.com/"
+      },
+      {
+        "text": "Climate change",
+        "href": "https://www.yahoo.com/issues/climate-change/"
+      },
+      {
+        "text": "Science",
+        "href": "https://www.yahoo.com/news/science/"
+      },
+      {
+        "text": "Originals",
+        "href": "https://www.yahoo.com/guides/originals/"
+      },
+      {
+        "text": "Newsletters",
+        "href": "https://www.yahoo.com/newsletters/"
+      },
+      {
+        "text": "Games",
+        "href": "https://www.yahoo.com/games"
+      },
+      {
+        "text": "Life",
+        "href": "https://www.yahoo.com/lifestyle/"
+      },
+      {
+        "text": "Health",
+        "href": "https://health.yahoo.com/"
+      },
+      {
+        "text": "Parenting",
+        "href": "https://www.yahoo.com/lifestyle/family-relationships/"
+      },
+      {
+        "text": "Horoscopes",
+        "href": "https://www.yahoo.com/lifestyle/horoscope/"
+      },
+      {
+        "text": "Shopping",
+        "href": "https://shopping.yahoo.com/"
+      },
+      {
+        "text": "Food",
+        "href": "https://www.yahoo.com/lifestyle/food-drink/"
+      },
+      {
+        "text": "Travel",
+        "href": "https://travel.yahoo.com/"
+      },
+      {
+        "text": "Autos",
+        "href": "https://autos.yahoo.com/"
+      },
+      {
+        "text": "Gift ideas",
+        "href": "https://shopping.yahoo.com/gift-ideas/"
+      },
+      {
+        "text": "Buying guides",
+        "href": "https://shopping.yahoo.com/guides/"
+      },
+      {
+        "text": "Entertainment",
+        "href": "https://www.yahoo.com/entertainment/"
+      },
+      {
+        "text": "Celebrity",
+        "href": "https://www.yahoo.com/entertainment/celebrity/"
+      },
+      {
+        "text": "TV",
+        "href": "https://www.yahoo.com/entertainment/tv/"
+      },
+      {
+        "text": "Movies",
+        "href": "https://www.yahoo.com/entertainment/movies/"
+      },
+      {
+        "text": "Music",
+        "href": "https://www.yahoo.com/entertainment/music/"
+      },
+      {
+        "text": "How to Watch",
+        "href": "https://www.yahoo.com/guides/how-to-watch/"
+      },
+      {
+        "text": "Interviews",
+        "href": "https://www.yahoo.com/guides/interviews/"
+      },
+      {
+        "text": "Videos",
+        "href": "https://www.yahoo.com/guides/videos/"
+      },
+      {
+        "text": "Finance",
+        "href": "https://finance.yahoo.com/"
+      },
+      {
+        "text": "My portfolio",
+        "href": "https://finance.yahoo.com/portfolios/"
+      },
+      {
+        "text": "News",
+        "href": "https://finance.yahoo.com/news/"
+      },
+      {
+        "text": "Markets",
+        "href": "https://finance.yahoo.com/markets/"
+      },
+      {
+        "text": "Research",
+        "href": "https://finance.yahoo.com/research-hub/screener/"
+      },
+      {
+        "text": "Community",
+        "href": "https://finance.yahoo.com/community/"
+      },
+      {
+        "text": "Personal finance",
+        "href": "https://finance.yahoo.com/personal-finance/"
+      },
+      {
+        "text": "Videos",
+        "href": "https://finance.yahoo.com/videos/"
+      },
+      {
+        "text": "AlphaSpace",
+        "href": "https://finance.yahoo.com/about/promos/gold/alphaspace/"
+      },
+      {
+        "text": "Sports",
+        "href": "https://sports.yahoo.com/"
+      },
+      {
+        "text": "Fantasy",
+        "href": "https://sports.yahoo.com/fantasy/"
+      },
+      {
+        "text": "NFL",
+        "href": "https://sports.yahoo.com/nfl/"
+      },
+      {
+        "text": "NBA",
+        "href": "https://sports.yahoo.com/nba/"
+      },
+      {
+        "text": "MLB",
+        "href": "https://sports.yahoo.com/mlb/"
+      },
+      {
+        "text": "NHL",
+        "href": "https://sports.yahoo.com/nhl/"
+      },
+      {
+        "text": "College football",
+        "href": "https://sports.yahoo.com/college-football/"
+      },
+      {
+        "text": "College basketball",
+        "href": "https://sports.yahoo.com/college-basketball/"
+      },
+      {
+        "text": "Soccer",
+        "href": "https://sports.yahoo.com/soccer/"
+      },
+      {
+        "text": "Betting",
+        "href": "https://sports.yahoo.com/betting/"
+      },
+      {
+        "text": "Yahoo Sports AM",
+        "href": "https://sports.yahoo.com/newsletters/yahoo-sports-am/"
+      },
+      {
+        "text": "Show all",
+        "href": "https://sports.yahoo.com/"
+      },
+      {
+        "text": "Yahoo Scout",
+        "href": "https://scout.yahoo.com/?fr=fp-more-sct&fr2=p:fp,m:more-sct"
+      },
+      {
+        "text": "Creators",
+        "href": "https://creators.yahoo.com/"
+      },
+      {
+        "text": "Tech",
+        "href": "https://tech.yahoo.com/"
+      },
+      {
+        "text": "Local",
+        "href": "https://local.yahoo.com/"
+      },
+      {
+        "text": "USEnglish",
+        "href": "https://www.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "US y LATAMEspañol",
+        "href": "https://espanol.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "AustraliaEnglish",
+        "href": "https://au.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "CanadaEnglish",
+        "href": "https://ca.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "CanadaFrançais",
+        "href": "https://qc.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "DeutschlandDeutsch",
+        "href": "https://de.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "FranceFrançais",
+        "href": "https://fr.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "香港繁中",
+        "href": "https://hk.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "MalaysiaEnglish",
+        "href": "https://malaysia.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "New ZealandEnglish",
+        "href": "https://nz.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "SingaporeEnglish",
+        "href": "https://sg.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "台灣繁中",
+        "href": "https://tw.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "UKEnglish",
+        "href": "https://uk.yahoo.com/?p=dnr"
+      },
+      {
+        "text": "",
+        "href": "https://www.yahoo.com/news/"
+      },
+      {
+        "text": "News",
+        "href": "https://www.yahoo.com/"
+      },
+      {
+        "text": "Finance",
+        "href": "https://finance.yahoo.com/"
+      },
+      {
+        "text": "Sports",
+        "href": "https://sports.yahoo.com/"
+      },
+      {
+        "text": "News",
+        "href": "https://www.yahoo.com/"
+      },
+      {
+        "text": "Today's news",
+        "href": "https://www.yahoo.com/news/"
+      },
+      {
+        "text": "US",
+        "href": "https://www.yahoo.com/news/us/"
+      },
+      {
+        "text": "Politics",
+        "href": "https://www.yahoo.com/news/politics/"
+      },
+      {
+        "text": "World",
+        "href": "https://www.yahoo.com/news/world/"
+      },
+      {
+        "text": "Weather",
+        "href": "https://weather.yahoo.com/"
+      },
+      {
+        "text": "Climate change",
+        "href": "https://www.yahoo.com/issues/climate-change/"
+      },
+      {
+        "text": "Science",
+        "href": "https://www.yahoo.com/news/science/"
+      },
+      {
+        "text": "Originals",
+        "href": "https://www.yahoo.com/guides/originals/"
+      },
+      {
+        "text": "Newsletters",
+        "href": "https://www.yahoo.com/newsletters/"
+      },
+      {
+        "text": "Games",
+        "href": "https://www.yahoo.com/games"
+      },
+      {
+        "text": "Life",
+        "href": "https://www.yahoo.com/lifestyle/"
+      },
+      {
+        "text": "Health",
+        "href": "https://health.yahoo.com/"
+      },
+      {
+        "text": "Parenting",
+        "href": "https://www.yahoo.com/lifestyle/family-relationships/"
+      },
+      {
+        "text": "Horoscopes",
+        "href": "https://www.yahoo.com/lifestyle/horoscope/"
+      },
+      {
+        "text": "Shopping",
+        "href": "https://shopping.yahoo.com/"
+      },
+      {
+        "text": "Food",
+        "href": "https://www.yahoo.com/lifestyle/food-drink/"
+      },
+      {
+        "text": "Travel",
+        "href": "https://travel.yahoo.com/"
+      },
+      {
+        "text": "Autos",
+        "href": "https://autos.yahoo.com/"
+      },
+      {
+        "text": "Gift ideas",
+        "href": "https://shopping.yahoo.com/gift-ideas/"
+      },
+      {
+        "text": "Buying guides",
+        "href": "https://shopping.yahoo.com/guides/"
+      },
+      {
+        "text": "Entertainment",
+        "href": "https://www.yahoo.com/entertainment/"
+      },
+      {
+        "text": "Celebrity",
+        "href": "https://www.yahoo.com/entertainment/celebrity/"
+      },
+      {
+        "text": "TV",
+        "href": "https://www.yahoo.com/entertainment/tv/"
+      },
+      {
+        "text": "Movies",
+        "href": "https://www.yahoo.com/entertainment/movies/"
+      },
+      {
+        "text": "Music",
+        "href": "https://www.yahoo.com/entertainment/music/"
+      },
+      {
+        "text": "How to Watch",
+        "href": "https://www.yahoo.com/guides/how-to-watch/"
+      },
+      {
+        "text": "Interviews",
+        "href": "https://www.yahoo.com/guides/interviews/"
+      },
+      {
+        "text": "Videos",
+        "href": "https://www.yahoo.com/guides/videos/"
+      },
+      {
+        "text": "Finance",
+        "href": "https://finance.yahoo.com/"
+      },
+      {
+        "text": "My portfolio",
+        "href": "https://finance.yahoo.com/portfolios/"
+      },
+      {
+        "text": "News",
+        "href": "https://finance.yahoo.com/news/"
+      },
+      {
+        "text": "Markets",
+        "href": "https://finance.yahoo.com/markets/"
+      },
+      {
+        "text": "Research",
+        "href": "https://finance.yahoo.com/research-hub/screener/"
+      },
+      {
+        "text": "Community",
+        "href": "https://finance.yahoo.com/community/"
+      },
+      {
+        "text": "Personal finance",
+        "href": "https://finance.yahoo.com/personal-finance/"
+      },
+      {
+        "text": "Videos",
+        "href": "https://finance.yahoo.com/videos/"
+      },
+      {
+        "text": "AlphaSpace",
+        "href": "https://finance.yahoo.com/about/promos/gold/alphaspace/"
+      },
+      {
+        "text": "Sports",
+        "href": "https://sports.yahoo.com/"
+      },
+      {
+        "text": "Fantasy",
+        "href": "https://sports.yahoo.com/fantasy/"
+      },
+      {
+        "text": "NFL",
+        "href": "https://sports.yahoo.com/nfl/"
+      },
+      {
+        "text": "NBA",
+        "href": "https://sports.yahoo.com/nba/"
+      },
+      {
+        "text": "MLB",
+        "href": "https://sports.yahoo.com/mlb/"
+      },
+      {
+        "text": "NHL",
+        "href": "https://sports.yahoo.com/nhl/"
+      },
+      {
+        "text": "College football",
+        "href": "https://sports.yahoo.com/college-football/"
+      },
+      {
+        "text": "College basketball",
+        "href": "https://sports.yahoo.com/college-basketball/"
+      },
+      {
+        "text": "Soccer",
+        "href": "https://sports.yahoo.com/soccer/"
+      },
+      {
+        "text": "Betting",
+        "href": "https://sports.yahoo.com/betting/"
+      },
+      {
+        "text": "Yahoo Sports AM",
+        "href": "https://sports.yahoo.com/newsletters/yahoo-sports-am/"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000003298",
+    "pageTitle": "Yahoo News: Latest and Breaking News, Headlines, Live Updates, and More",
+    "submitStatus": "已提交：page_965572356c1c93e8",
+    "domSignalBlockCount": 120,
+    "domSignalLinkCount": 160,
+    "pageStateHints": []
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_965572356c1c93e8",
+      "title": "Yahoo News: Latest and Breaking News, Headlines, Live Updates, and More",
+      "url": "https://www.yahoo.com/news/",
+      "domain": "www.yahoo.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.916,
+    "warnings": [],
+    "fatalIssues": [],
+    "highSignalBlocks": 91,
+    "digestItems": 18,
+    "sourceRefs": 106,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.142,
+        "numerator": 15,
+        "denominator": 106,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.735,
+        "numerator": 11706,
+        "denominator": 15925,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": false
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 91,
+        "denominator": 91,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 106,
+        "denominator": 106,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.1,
+        "numerator": 227,
+        "denominator": 2279,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.444,
+        "numerator": 8,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": false
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0047",
+          "src_page_965572356c1c93e8_0049"
+        ],
+        "label": "article_body",
+        "excerpt": "Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0102"
+        ],
+        "label": "Michael Bennet loses Colorado",
+        "excerpt": "Michael Bennet loses Colorado governor primary in race shaped by Trump NBC News 1.3K FBI deems Nancy Guthrie kidnapping notes to be fake, source says Yahoo News 22.4K Dangerous heat dome set to bring record temps to 175 million Americans Th"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0003",
+          "src_page_965572356c1c93e8_0045",
+          "src_page_965572356c1c93e8_0102",
+          "src_page_965572356c1c93e8_0032",
+          "src_page_965572356c1c93e8_0103",
+          "src_page_965572356c1c93e8_0085",
+          "src_page_965572356c1c93e8_0078",
+          "src_page_965572356c1c93e8_0028",
+          "src_page_965572356c1c93e8_0081",
+          "src_page_965572356c1c93e8_0082",
+          "src_page_965572356c1c93e8_0007",
+          "src_page_965572356c1c93e8_0030",
+          "src_page_965572356c1c93e8_0068",
+          "src_page_965572356c1c93e8_0090",
+          "src_page_965572356c1c93e8_0061",
+          "src_page_965572356c1c93e8_0105"
+        ],
+        "label": "核心要点",
+        "excerpt": "NewsToday's newsUSPoliticsWorldWeatherClimate changeScienceOriginalsNewslettersGamesLifeHealthParentingHoroscopesShoppingFoodTravelAutosGift ideasBuying guidesEntertainmentCelebrityTVMoviesMusicHow to WatchInterviewsVideosFinanceMy portfoli"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0003"
+        ],
+        "label": "NewsToday s",
+        "excerpt": "NewsToday's newsUSPoliticsWorldWeatherClimate changeScienceOriginalsNewslettersGamesLifeHealthParentingHoroscopesShoppingFoodTravelAutosGift ideasBuying guidesEntertainmentCelebrityTVMoviesMusicHow to WatchInterviewsVideosFinanceMy portfoli"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0045"
+        ],
+        "label": "4of 8Democratic socialist Melat",
+        "excerpt": "4of 8Democratic socialist Melat Kiros defeats 15-term congresswoman in ColoradoYahoo News23K1of 8Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8High earners rush to use 'big beautiful"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0032"
+        ],
+        "label": "Democratic socialist Melat Kiros",
+        "excerpt": "Democratic socialist Melat Kiros defeats 15-term congresswoman in Colorado Melat Kiros toppled Rep. Diana DeGette in the latest primary victory for a progressive challenger over a House incumbent. Yahoo News 23K Traditionalist Catholic bish"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0103"
+        ],
+        "label": "Michael Bennet Weiser NBC News",
+        "excerpt": "Michael Bennet Weiser NBC News projects that Colorado Attorney General Phil Weiser will move on to the general election after he defeated Michael Bennet, who has been in the Senate for 17 years. NBC News 1.3K Business & finance JCPenney is"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0047"
+        ],
+        "label": "Traditionalist Catholic bishops",
+        "excerpt": "Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8"
+      }
+    ],
+    "evidenceCardCount": 7,
+    "evidenceCardLabels": [
+      "核心要点",
+      "NewsToday s",
+      "4of 8Democratic socialist Melat",
+      "Michael Bennet loses Colorado",
+      "article_body",
+      "Traditionalist Catholic bishops",
+      "High earners rush to use big"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 8,
+    "readingMapDetailText": "Yahoo News Latest and Breaking News, Headlines, Live Updates…readySearch query News Finance Sports More Mail Sign in News US Politics Science World Weather News Originals4 sourcedetail4 sourcesSearch query News Finance Sports More Mail Sign in News US Politics Science World Weather News Originals",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0047",
+          "src_page_965572356c1c93e8_0049"
+        ],
+        "label": "article_body",
+        "excerpt": "Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0102"
+        ],
+        "label": "Michael Bennet loses Colorado",
+        "excerpt": "Michael Bennet loses Colorado governor primary in race shaped by Trump NBC News 1.3K FBI deems Nancy Guthrie kidnapping notes to be fake, source says Yahoo News 22.4K Dangerous heat dome set to bring record temps to 175 million Americans Th"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0003",
+          "src_page_965572356c1c93e8_0045",
+          "src_page_965572356c1c93e8_0102",
+          "src_page_965572356c1c93e8_0032",
+          "src_page_965572356c1c93e8_0103",
+          "src_page_965572356c1c93e8_0085",
+          "src_page_965572356c1c93e8_0078",
+          "src_page_965572356c1c93e8_0028",
+          "src_page_965572356c1c93e8_0081",
+          "src_page_965572356c1c93e8_0082",
+          "src_page_965572356c1c93e8_0007",
+          "src_page_965572356c1c93e8_0030",
+          "src_page_965572356c1c93e8_0068",
+          "src_page_965572356c1c93e8_0090",
+          "src_page_965572356c1c93e8_0061",
+          "src_page_965572356c1c93e8_0105"
+        ],
+        "label": "核心要点",
+        "excerpt": "NewsToday's newsUSPoliticsWorldWeatherClimate changeScienceOriginalsNewslettersGamesLifeHealthParentingHoroscopesShoppingFoodTravelAutosGift ideasBuying guidesEntertainmentCelebrityTVMoviesMusicHow to WatchInterviewsVideosFinanceMy portfoli"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0003"
+        ],
+        "label": "NewsToday s",
+        "excerpt": "NewsToday's newsUSPoliticsWorldWeatherClimate changeScienceOriginalsNewslettersGamesLifeHealthParentingHoroscopesShoppingFoodTravelAutosGift ideasBuying guidesEntertainmentCelebrityTVMoviesMusicHow to WatchInterviewsVideosFinanceMy portfoli"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0045"
+        ],
+        "label": "4of 8Democratic socialist Melat",
+        "excerpt": "4of 8Democratic socialist Melat Kiros defeats 15-term congresswoman in ColoradoYahoo News23K1of 8Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8High earners rush to use 'big beautiful"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0032"
+        ],
+        "label": "Democratic socialist Melat Kiros",
+        "excerpt": "Democratic socialist Melat Kiros defeats 15-term congresswoman in Colorado Melat Kiros toppled Rep. Diana DeGette in the latest primary victory for a progressive challenger over a House incumbent. Yahoo News 23K Traditionalist Catholic bish"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0103"
+        ],
+        "label": "Michael Bennet Weiser NBC News",
+        "excerpt": "Michael Bennet Weiser NBC News projects that Colorado Attorney General Phil Weiser will move on to the general election after he defeated Michael Bennet, who has been in the Senate for 17 years. NBC News 1.3K Business & finance JCPenney is"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_965572356c1c93e8_0047"
+        ],
+        "label": "Traditionalist Catholic bishops",
+        "excerpt": "Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8"
+      }
+    ],
+    "evidenceText": "article_bodylocatedTraditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 42 for yahoo-news; label=article_body",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 42 for yahoo-news; label=article_body",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "article_body",
+        "excerpt": "Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8",
+        "score": 42
+      },
+      {
+        "index": 1,
+        "label": "Michael Bennet loses Colorado",
+        "excerpt": "Michael Bennet loses Colorado governor primary in race shaped by Trump NBC News 1.3K FBI deems Nancy Guthrie kidnapping notes to be fake, source says Yahoo News 22.4K Dangerous heat dome set to bring record temps to 175 million Americans Th",
+        "score": 40
+      },
+      {
+        "index": 3,
+        "label": "NewsToday s",
+        "excerpt": "NewsToday's newsUSPoliticsWorldWeatherClimate changeScienceOriginalsNewslettersGamesLifeHealthParentingHoroscopesShoppingFoodTravelAutosGift ideasBuying guidesEntertainmentCelebrityTVMoviesMusicHow to WatchInterviewsVideosFinanceMy portfoli",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "4of 8Democratic socialist Melat",
+        "excerpt": "4of 8Democratic socialist Melat Kiros defeats 15-term congresswoman in ColoradoYahoo News23K1of 8Traditionalist Catholic bishops rebel against Pope Leo XIV with 'schismatic act'Associated Press2572of 8High earners rush to use 'big beautiful",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "Democratic socialist Melat Kiros",
+        "excerpt": "Democratic socialist Melat Kiros defeats 15-term congresswoman in Colorado Melat Kiros toppled Rep. Diana DeGette in the latest primary victory for a progressive challenger over a House incumbent. Yahoo News 23K Traditionalist Catholic bish",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "Michael Bennet Weiser NBC News",
+        "excerpt": "Michael Bennet Weiser NBC News projects that Colorado Attorney General Phil Weiser will move on to the general election after he defeated Michael Bennet, who has been in the Senate for 17 years. NBC News 1.3K Business & finance JCPenney is",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 7,
+    "evidenceCardLabelCount": 7,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 20.857142857142858,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:56:51.508Z"
+}

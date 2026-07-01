@@ -10,13 +10,22 @@ from .structured_page import build_structured_page_context, density_score
 SCHEMA_VERSION = "a-v1.1-high-signal-2026-06-05"
 NOISE_KEYWORDS = {
     "nav": ["home", "pricing", "sign in", "login", "menu", "subscribe", "登录", "导航", "首页", "频道", "专栏", "直播", "社区中心"],
-    "footer": ["copyright", "privacy", "terms", "©", "备案", "隐私", "条款"],
-    "recommendation": ["related", "recommended", "you may also", "更多推荐", "相关阅读", "相关推荐", "最新视频", "自动连播", "订阅合集", "不感兴趣将减少此类内容推荐", "添加至稍后再看"],
-    "ad_like": ["advertisement", "sponsored", "推广", "广告"],
-    "comment": ["comment", "reply", "评论", "留言"],
+    "footer": ["copyright", "privacy", "terms", "©", "备案", "隐私", "条款", "all rights reserved"],
+    "recommendation": ["related", "recommended", "you may also", "more stories", "trending", "更多推荐", "相关阅读", "相关推荐", "最新视频", "自动连播", "订阅合集", "不感兴趣将减少此类内容推荐", "添加至稍后再看"],
+    "ad_like": ["advertisement", "sponsored", "promotion", "推广", "广告"],
+    "comment": ["comment", "reply", "评论", "留言", "热评"],
 }
 BOILERPLATE_PATTERNS = [
     r"^keywords[:：]",
+    r"^description[:：]",
+    r"^canonical[:：]",
+    r"^og[:：]",
+    r"cookie policy",
+    r"privacy policy",
+    r"subscribe to",
+    r"sign in",
+    r"advertisement",
+    r"newsletter",
     r"未经作者授权",
     r"禁止转载",
     r"下载客户端",
@@ -76,6 +85,7 @@ XHS_MAIN_ROLES = {"xhs_note_title", "xhs_note_body", "xhs_note_author", "xhs_not
 XHS_NOISE_ROLES = {"xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "profile_link"}
 GUANCHA_MAIN_ROLES = {"guancha_article_title", "guancha_article_meta", "guancha_article_body"}
 GUANCHA_NOISE_ROLES = {"guancha_comment", "guancha_recommendation", "guancha_video", "guancha_sidebar"}
+GENERIC_MAIN_ROLES = {"article_title", "article_body", "article_meta", "content_block"}
 DIGEST_KINDS = [
     "key_fact",
     "entity",
@@ -405,8 +415,12 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
     lowered = text.lower()
     source_type = str(paragraph.get("sourceBlockType") or "paragraph")
     dom_role = str(paragraph.get("domSignalRole") or "")
+    for region, keywords in NOISE_KEYWORDS.items():
+        if any(keyword in lowered for keyword in keywords):
+            reason = "navigation" if region == "nav" else region
+            return region, reason, 0.9
     if is_boilerplate_text(text):
-        return "nav", "boilerplate", 0.94
+        return "nav", "navigation", 0.94
     if dom_role in BILI_NOISE_ROLES:
         region = {
             "bili_comment": "comment",
@@ -436,16 +450,16 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
     if dom_role in GUANCHA_MAIN_ROLES:
         reason = "guancha_article_main"
         return "main", reason, 0.04 if dom_role in {"guancha_article_title", "guancha_article_body"} else 0.08
+    if dom_role in GENERIC_MAIN_ROLES:
+        if dom_role == "article_meta":
+            return "metadata", "article_meta", 0.16
+        return "main", "article_main", 0.05 if dom_role in {"article_title", "article_body"} else 0.12
     if dom_role in {"feed_card", "media_link", "content_link", "media_block", "content_block", "metadata"}:
         return "section", "unknown", 0.12 if dom_role != "metadata" else 0.18
     if dom_role in {"auth_block", "not_found_block", "auth_link"}:
         return "unknown", dom_role, 0.82
     if source_type == "image_metadata":
         return "metadata", "unknown", 0.18
-    for region, keywords in NOISE_KEYWORDS.items():
-        if any(keyword in lowered for keyword in keywords):
-            reason = "ad_like" if region == "ad_like" else region
-            return region, reason, 0.9
     if len(text) < 36 and not paragraph.get("headingPath"):
         return "unknown", "low_signal", 0.72
     if source_type in {"table_cell", "table_header", "code", "list_item", "quote"}:

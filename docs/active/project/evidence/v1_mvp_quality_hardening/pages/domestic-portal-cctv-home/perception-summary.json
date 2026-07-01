@@ -1,0 +1,73 @@
+{
+  "activePage": {
+    "pageId": "page_c0dd0240765caed1",
+    "title": "新闻频道_央视网(cctv.com)",
+    "url": "https://news.cctv.com/",
+    "domain": "news.cctv.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.965,
+  "warnings": [],
+  "fatalIssues": [],
+  "highSignalBlocks": 87,
+  "digestItems": 18,
+  "sourceRefs": 91,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.044,
+      "numerator": 4,
+      "denominator": 91,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.823,
+      "numerator": 7640,
+      "denominator": 9287,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": true
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 87,
+      "denominator": 87,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 91,
+      "denominator": 91,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.135,
+      "numerator": 149,
+      "denominator": 1102,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.889,
+      "numerator": 16,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

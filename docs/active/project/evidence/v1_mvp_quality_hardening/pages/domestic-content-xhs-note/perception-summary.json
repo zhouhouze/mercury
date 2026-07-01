@@ -1,0 +1,76 @@
+{
+  "activePage": {
+    "pageId": "page_a77c0c50e5a4f0d6",
+    "title": "小红书 - 你访问的页面不见了",
+    "url": "https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=",
+    "domain": "www.xiaohongshu.com"
+  },
+  "readiness": "degraded",
+  "overallScore": 0.772,
+  "warnings": [
+    "NOT_FOUND_PAGE_FAILED",
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 9,
+  "digestItems": 9,
+  "sourceRefs": 23,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.609,
+      "numerator": 14,
+      "denominator": 23,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": false
+    },
+    "contentCoverage": {
+      "value": 0.207,
+      "numerator": 543,
+      "denominator": 2626,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 9,
+      "denominator": 9,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 9,
+      "denominator": 9,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 23,
+      "denominator": 23,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.158,
+      "numerator": 49,
+      "denominator": 310,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.778,
+      "numerator": 7,
+      "denominator": 9,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

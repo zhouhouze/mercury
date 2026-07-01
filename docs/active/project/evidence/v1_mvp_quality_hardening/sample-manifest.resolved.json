@@ -1,0 +1,1192 @@
+{
+  "schemaVersion": "v1-mvp-quality-hardening.sample-manifest.1",
+  "generatedAt": "2026-07-01T00:00:00.000Z",
+  "acceptanceMode": "v1_mvp_quality_hardening_expanded",
+  "categories": [
+    {
+      "categoryId": "domestic_portal_homepage",
+      "displayName": "国内新闻 / 门户首页",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    },
+    {
+      "categoryId": "domestic_article_detail",
+      "displayName": "国内新闻 / 图文详情页",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    },
+    {
+      "categoryId": "domestic_content_platform",
+      "displayName": "国内图文社区 / 内容平台",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    },
+    {
+      "categoryId": "international_portal_homepage",
+      "displayName": "国外新闻 / 门户首页",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    },
+    {
+      "categoryId": "international_article_detail",
+      "displayName": "国外新闻 / 图文详情页",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    },
+    {
+      "categoryId": "international_knowledge_blog_doc",
+      "displayName": "国外百科 / 博客 / 文档型图文页",
+      "minSamples": 8,
+      "minPassed": 7,
+      "minDistinctSites": 4,
+      "maxSamplesPerSite": 2
+    }
+  ],
+  "samples": [
+    {
+      "pageId": "domestic-portal-thepaper-home",
+      "url": "https://www.thepaper.cn/",
+      "site": "澎湃新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "新闻标题",
+        "频道要闻",
+        "正文入口"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "门户首页，允许多主题摘要，但不能只输出导航。"
+    },
+    {
+      "pageId": "domestic-portal-guancha-home",
+      "url": "https://www.guancha.cn/",
+      "site": "观察者网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "要闻标题",
+        "栏目卡片",
+        "新闻列表"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "已有中文复杂站点基线，继续计入扩展矩阵。"
+    },
+    {
+      "pageId": "domestic-portal-cctv-home",
+      "url": "https://news.cctv.com/",
+      "site": "央视网新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "头条新闻",
+        "新闻列表",
+        "频道内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内主流门户首页。"
+    },
+    {
+      "pageId": "domestic-portal-chinanews-home",
+      "url": "https://www.chinanews.com.cn/",
+      "site": "中国新闻网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "新闻标题",
+        "频道内容",
+        "专题入口"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内门户首页。"
+    },
+    {
+      "pageId": "domestic-portal-xinhua-home",
+      "url": "https://www.news.cn/",
+      "site": "新华网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "头条",
+        "新闻列表",
+        "栏目内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内门户首页。"
+    },
+    {
+      "pageId": "domestic-portal-people-home",
+      "url": "http://www.people.com.cn/",
+      "site": "人民网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "要闻",
+        "新闻列表",
+        "频道内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内门户首页。"
+    },
+    {
+      "pageId": "domestic-portal-qq-news-home",
+      "url": "https://news.qq.com/",
+      "site": "腾讯新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "新闻标题",
+        "推荐新闻",
+        "频道列表"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "动态渲染时按真实结果记录。"
+    },
+    {
+      "pageId": "domestic-portal-163-news-home",
+      "url": "https://news.163.com/",
+      "site": "网易新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "新闻标题",
+        "新闻列表",
+        "频道内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内门户首页。"
+    },
+    {
+      "pageId": "domestic-article-xinhua-tech",
+      "url": "https://www.news.cn/tech/",
+      "site": "新华网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "科技新闻标题",
+        "新闻摘要",
+        "正文入口"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "稳定科技频道页。"
+    },
+    {
+      "pageId": "domestic-article-cctv-tech",
+      "url": "https://news.cctv.com/tech/",
+      "site": "央视网新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "科技新闻",
+        "标题",
+        "摘要"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "频道页作为稳定图文入口。"
+    },
+    {
+      "pageId": "domestic-article-thepaper-tech",
+      "url": "https://www.thepaper.cn/channel_25950",
+      "site": "澎湃新闻",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "文章标题",
+        "摘要",
+        "栏目内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "栏目页要求识别文章主题。"
+    },
+    {
+      "pageId": "domestic-article-guancha-detail",
+      "url": "https://www.guancha.cn/",
+      "site": "观察者网",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "新闻标题",
+        "正文入口",
+        "栏目内容"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "自动诊断可从首页发现详情；manifest 固定首页入口。"
+    },
+    {
+      "pageId": "domestic-article-36kr-news",
+      "url": "https://36kr.com/information/technology/",
+      "site": "36氪",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "科技文章",
+        "标题",
+        "摘要"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "商业科技图文页。"
+    },
+    {
+      "pageId": "domestic-article-sspai",
+      "url": "https://sspai.com/",
+      "site": "少数派",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "文章标题",
+        "作者",
+        "摘要"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "科技博客式图文内容。"
+    },
+    {
+      "pageId": "domestic-article-cnblogs",
+      "url": "https://www.cnblogs.com/",
+      "site": "博客园",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "文章标题",
+        "摘要",
+        "作者"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "国内图文博客首页。"
+    },
+    {
+      "pageId": "domestic-article-juejin",
+      "url": "https://juejin.cn/",
+      "site": "稀土掘金",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_article_detail",
+      "pageType": "feed",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "技术文章",
+        "标题",
+        "摘要"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "技术内容平台 feed。"
+    },
+    {
+      "pageId": "domestic-content-bilibili-home",
+      "url": "https://www.bilibili.com/",
+      "site": "B站",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "feed",
+      "loginStatePolicy": "temp_cookie_profile",
+      "expectedMainContentSignals": [
+        "视频卡片",
+        "标题",
+        "UP主"
+      ],
+      "prohibitedNoiseSignals": [
+        "弹幕设置",
+        "广告活动",
+        "版权提示"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "可使用临时 Cookie；不得冒充 public no-login。"
+    },
+    {
+      "pageId": "domestic-content-bilibili-video",
+      "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+      "site": "B站",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "detail",
+      "loginStatePolicy": "temp_cookie_profile",
+      "expectedMainContentSignals": [
+        "视频标题",
+        "简介",
+        "UP主",
+        "互动数据"
+      ],
+      "prohibitedNoiseSignals": [
+        "弹幕列表",
+        "相关推荐",
+        "活动广告"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "用户指定 B站详情样本。"
+    },
+    {
+      "pageId": "domestic-content-xhs-home",
+      "url": "https://www.xiaohongshu.com/explore",
+      "site": "小红书",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "feed",
+      "loginStatePolicy": "temp_cookie_profile",
+      "expectedMainContentSignals": [
+        "笔记卡片",
+        "标题",
+        "作者"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "验证码",
+        "推荐壳"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "可使用临时 Cookie；需要区分登录态。"
+    },
+    {
+      "pageId": "domestic-content-xhs-note",
+      "url": "https://www.xiaohongshu.com/explore/6a3283ce000000001602715a",
+      "site": "小红书",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "detail",
+      "loginStatePolicy": "temp_cookie_profile",
+      "expectedMainContentSignals": [
+        "笔记标题",
+        "正文",
+        "图片说明",
+        "作者"
+      ],
+      "prohibitedNoiseSignals": [
+        "图1",
+        "登录",
+        "验证码",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "用户指定小红书详情样本；查询 token 不写入 manifest。"
+    },
+    {
+      "pageId": "domestic-content-zhihu-home",
+      "url": "https://www.zhihu.com/explore",
+      "site": "知乎",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "feed",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "问题标题",
+        "回答摘要",
+        "话题"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "如登录墙触发则记录 degraded。"
+    },
+    {
+      "pageId": "domestic-content-douban-home",
+      "url": "https://www.douban.com/",
+      "site": "豆瓣",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "内容入口",
+        "标题",
+        "话题"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "公共首页内容质量可能降级。"
+    },
+    {
+      "pageId": "domestic-content-weibo-hot",
+      "url": "https://s.weibo.com/top/summary",
+      "site": "微博热搜",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "feed",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "热搜标题",
+        "热度",
+        "话题列表"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "公共热榜，若反爬则 blocked。"
+    },
+    {
+      "pageId": "domestic-content-baijiahao",
+      "url": "https://baijiahao.baidu.com/",
+      "site": "百家号",
+      "countryRegion": "domestic",
+      "contentCategory": "domestic_content_platform",
+      "pageType": "feed",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "文章标题",
+        "摘要",
+        "作者"
+      ],
+      "prohibitedNoiseSignals": [
+        "登录",
+        "广告",
+        "版权",
+        "导航",
+        "推荐"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "内容平台公共入口。"
+    },
+    {
+      "pageId": "international-portal-bbc-home",
+      "url": "https://www.bbc.com/news",
+      "site": "BBC News",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "story list",
+        "section news"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International portal homepage."
+    },
+    {
+      "pageId": "international-portal-reuters-home",
+      "url": "https://www.reuters.com/",
+      "site": "Reuters",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "top stories",
+        "article cards"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Cookie wall may degrade; record honestly."
+    },
+    {
+      "pageId": "international-portal-ap-home",
+      "url": "https://apnews.com/",
+      "site": "AP News",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "top stories",
+        "article cards"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International portal homepage."
+    },
+    {
+      "pageId": "international-portal-guardian-home",
+      "url": "https://www.theguardian.com/international",
+      "site": "The Guardian",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "story list",
+        "section news"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International portal homepage."
+    },
+    {
+      "pageId": "international-portal-cnn-home",
+      "url": "https://edition.cnn.com/world",
+      "site": "CNN",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "world news",
+        "article cards"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International channel page."
+    },
+    {
+      "pageId": "international-portal-npr-home",
+      "url": "https://www.npr.org/sections/news/",
+      "site": "NPR",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "story list",
+        "summary"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International news channel."
+    },
+    {
+      "pageId": "international-portal-aljazeera-home",
+      "url": "https://www.aljazeera.com/",
+      "site": "Al Jazeera",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "top stories",
+        "article cards"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International portal homepage."
+    },
+    {
+      "pageId": "international-portal-yahoo-home",
+      "url": "https://news.yahoo.com/",
+      "site": "Yahoo News",
+      "countryRegion": "international",
+      "contentCategory": "international_portal_homepage",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "headline",
+        "story list",
+        "article cards"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International portal homepage."
+    },
+    {
+      "pageId": "international-article-bbc-tech",
+      "url": "https://www.bbc.com/news/technology",
+      "site": "BBC News",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "technology headline",
+        "story summary",
+        "article list"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Stable channel page if detail URLs rotate."
+    },
+    {
+      "pageId": "international-article-reuters-world",
+      "url": "https://www.reuters.com/world/",
+      "site": "Reuters",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "world headline",
+        "story summary",
+        "article list"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Stable channel page if detail URLs rotate."
+    },
+    {
+      "pageId": "international-article-ap-world",
+      "url": "https://apnews.com/world-news",
+      "site": "AP News",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "world news headline",
+        "story list",
+        "summary"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Article channel with stable public access."
+    },
+    {
+      "pageId": "international-article-guardian-world",
+      "url": "https://www.theguardian.com/world",
+      "site": "The Guardian",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "world headline",
+        "story list",
+        "summary"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "International article channel."
+    },
+    {
+      "pageId": "international-article-theverge",
+      "url": "https://www.theverge.com/tech",
+      "site": "The Verge",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "tech headline",
+        "article cards",
+        "summary"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technology article channel."
+    },
+    {
+      "pageId": "international-article-wired",
+      "url": "https://www.wired.com/category/business/",
+      "site": "Wired",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "channel",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "article headline",
+        "summary",
+        "author"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "May have paywall; record degraded if blocked."
+    },
+    {
+      "pageId": "international-article-arstechnica",
+      "url": "https://arstechnica.com/",
+      "site": "Ars Technica",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "article headline",
+        "summary",
+        "section"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technology news homepage."
+    },
+    {
+      "pageId": "international-article-techcrunch",
+      "url": "https://techcrunch.com/",
+      "site": "TechCrunch",
+      "countryRegion": "international",
+      "contentCategory": "international_article_detail",
+      "pageType": "homepage",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "startup headline",
+        "summary",
+        "author"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technology article homepage."
+    },
+    {
+      "pageId": "international-doc-wikipedia-ai",
+      "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+      "site": "Wikipedia",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "wiki",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "definition",
+        "history",
+        "applications"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "references only",
+        "sidebar"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Knowledge page with stable body content."
+    },
+    {
+      "pageId": "international-doc-mdn-fetch",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+      "site": "MDN",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "docs",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "definition",
+        "concept",
+        "usage"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "language selector",
+        "footer"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Documentation page."
+    },
+    {
+      "pageId": "international-doc-python-tutorial",
+      "url": "https://docs.python.org/3/tutorial/",
+      "site": "Python Docs",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "docs",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "tutorial",
+        "concept",
+        "examples"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "index",
+        "footer"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Documentation page."
+    },
+    {
+      "pageId": "international-doc-react-learn",
+      "url": "https://react.dev/learn",
+      "site": "React Docs",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "docs",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "learning path",
+        "concept",
+        "examples"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "footer",
+        "version"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Documentation page."
+    },
+    {
+      "pageId": "international-doc-openai-docs",
+      "url": "https://platform.openai.com/docs/overview",
+      "site": "OpenAI Docs",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "docs",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "overview",
+        "concept",
+        "guide"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "footer",
+        "login"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Documentation page; if gated, mark degraded."
+    },
+    {
+      "pageId": "international-doc-cloudflare-blog",
+      "url": "https://blog.cloudflare.com/",
+      "site": "Cloudflare Blog",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "blog",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "blog post title",
+        "summary",
+        "topic"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technical blog homepage."
+    },
+    {
+      "pageId": "international-doc-google-ai-blog",
+      "url": "https://blog.google/technology/ai/",
+      "site": "Google Blog",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "blog",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "AI post title",
+        "summary",
+        "topic"
+      ],
+      "prohibitedNoiseSignals": [
+        "cookie",
+        "advertisement",
+        "subscribe",
+        "newsletter",
+        "navigation"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technology blog channel."
+    },
+    {
+      "pageId": "international-doc-github-blog",
+      "url": "https://github.blog/",
+      "site": "GitHub Blog",
+      "countryRegion": "international",
+      "contentCategory": "international_knowledge_blog_doc",
+      "pageType": "blog",
+      "loginStatePolicy": "public_no_login",
+      "expectedMainContentSignals": [
+        "blog post title",
+        "summary",
+        "topic"
+      ],
+      "prohibitedNoiseSignals": [
+        "navigation",
+        "newsletter",
+        "footer"
+      ],
+      "replacementFor": null,
+      "replacementReason": null,
+      "validationNotes": "Technology blog homepage."
+    }
+  ]
+}

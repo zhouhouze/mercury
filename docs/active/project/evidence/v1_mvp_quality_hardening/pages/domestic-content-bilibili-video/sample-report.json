@@ -1,0 +1,800 @@
+{
+  "sampleId": "domestic-content-bilibili-video",
+  "siteId": "bilibili",
+  "siteName": "B站",
+  "manifest": {
+    "pageId": "domestic-content-bilibili-video",
+    "contentCategory": "domestic_content_platform",
+    "countryRegion": "domestic",
+    "pageType": "detail",
+    "loginStatePolicy": "temp_cookie_profile",
+    "expectedMainContentSignals": [
+      "视频标题",
+      "简介",
+      "UP主",
+      "互动数据"
+    ],
+    "prohibitedNoiseSignals": [
+      "弹幕列表",
+      "相关推荐",
+      "活动广告"
+    ]
+  },
+  "pageKind": "detail",
+  "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+  "startedAt": "2026-07-01T15:47:29.383Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+  "dom": {
+    "title": "瓜物志第121期_哔哩哔哩_bilibili",
+    "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+    "bodyTextLength": 2707,
+    "bodyTextSample": "首页 番剧 直播 游戏中心 会员购 漫画 赛事 登录 瓜物志第121期 15.2万 19 2026-06-25 18:00:00 要的就是生瓜蛋子！ 登录 免费享高清视频 试看30秒 00:12 / 01:33 480P 标清 倍速 字幕 6人正在看 请先登录或注册 弹幕礼仪 发送 2871 216 3139 115 稿件举报 记笔记 哇嘎嘎~大哥们记得给我三连哦~ 娱乐 真爱 可爱 萌妹子 学妹 美女 吐槽 切片 人物志 爱播 dake时光机 发消息 带你穿越时空的时光机，部分素材来自网络，如有侵权私信秒删！ 充电 关注 15.1万 弹幕列表 瓜物志 （109/115） 自动连播 1313.2万播放 简介 订阅合集 瓜物志第X期 01:22 瓜物志番外篇 00:52 瓜志第9期咯~ 00:27 11期咯 00:35 瓜物志 白月光篇 00:32 瓜物志16期 00:34 瓜物志17期咯 00:33 瓜物志第18期咯 00:36 瓜物志第19期咯 01:01 瓜物志第21期咯兄弟们 00:42 瓜物志27期咯 00:58 瓜物志29期咯 00:46 瓜物志第四期补档 00:42 瓜物志读评论特别篇之比丑大赛 01:42 瓜物志第30期咯！ 00:50 瓜物志第31期 00:47 瓜物志第32期 00:51 瓜物志33期咯 00:48 瓜物志34期，压箱底！ 01:10 瓜物志35期",
+    "anchorCount": 95,
+    "anchors": [
+      {
+        "text": "首页",
+        "href": "https://www.bilibili.com/"
+      },
+      {
+        "text": "番剧",
+        "href": "https://www.bilibili.com/anime/"
+      },
+      {
+        "text": "直播",
+        "href": "https://live.bilibili.com/"
+      },
+      {
+        "text": "游戏中心",
+        "href": "https://game.bilibili.com/platform"
+      },
+      {
+        "text": "会员购",
+        "href": "https://show.bilibili.com/platform/home.html?msource=pc_web"
+      },
+      {
+        "text": "漫画",
+        "href": "https://manga.bilibili.com/?from=bill_top_mnav"
+      },
+      {
+        "text": "赛事",
+        "href": "https://www.bilibili.com/match/home/"
+      },
+      {
+        "text": "毕业季毕业季",
+        "href": "https://www.bilibili.com/blackboard/era/3wUPe5dWpy89nDCB.html"
+      },
+      {
+        "text": "下载客户端",
+        "href": "https://app.bilibili.com/"
+      },
+      {
+        "text": "大会员",
+        "href": "https://account.bilibili.com/big"
+      },
+      {
+        "text": "登录",
+        "href": "javascript:void(0);"
+      },
+      {
+        "text": "注册",
+        "href": "https://passport.bilibili.com/login?register_page=1"
+      },
+      {
+        "text": "弹幕礼仪",
+        "href": "https://www.bilibili.com/blackboard/help.html#/?qid=359&pid=357"
+      },
+      {
+        "text": "娱乐",
+        "href": "https://search.bilibili.com/all?keyword=%E5%A8%B1%E4%B9%90&from_source=video_tag"
+      },
+      {
+        "text": "真爱",
+        "href": "https://search.bilibili.com/all?keyword=%E7%9C%9F%E7%88%B1&from_source=video_tag"
+      },
+      {
+        "text": "可爱",
+        "href": "https://search.bilibili.com/all?keyword=%E5%8F%AF%E7%88%B1&from_source=video_tag"
+      },
+      {
+        "text": "萌妹子",
+        "href": "https://search.bilibili.com/all?keyword=%E8%90%8C%E5%A6%B9%E5%AD%90&from_source=video_tag"
+      },
+      {
+        "text": "学妹",
+        "href": "https://search.bilibili.com/all?keyword=%E5%AD%A6%E5%A6%B9&from_source=video_tag"
+      },
+      {
+        "text": "美女",
+        "href": "https://search.bilibili.com/all?keyword=%E7%BE%8E%E5%A5%B3&from_source=video_tag"
+      },
+      {
+        "text": "吐槽",
+        "href": "https://search.bilibili.com/all?keyword=%E5%90%90%E6%A7%BD&from_source=video_tag"
+      },
+      {
+        "text": "切片",
+        "href": "https://search.bilibili.com/all?keyword=%E5%88%87%E7%89%87&from_source=video_tag"
+      },
+      {
+        "text": "人物志",
+        "href": "https://search.bilibili.com/all?keyword=%E4%BA%BA%E7%89%A9%E5%BF%97&from_source=video_tag"
+      },
+      {
+        "text": "爱播",
+        "href": "https://search.bilibili.com/all?keyword=%E7%88%B1%E6%92%AD&from_source=video_tag"
+      },
+      {
+        "text": "",
+        "href": "https://space.bilibili.com/252658939/?spm_id_from=333.788.upinfo.head.click"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/?spm_id_from=333.788.upinfo.detail.click"
+      },
+      {
+        "text": "发消息",
+        "href": "https://message.bilibili.com/?spm_id_from=333.788.upinfo.detail.click#whisper/mid252658939"
+      },
+      {
+        "text": "",
+        "href": "https://cm.bilibili.com/cm/api/fees/pc/sync/v2?msg=a%7C2628%2Cb%7Cbilibili%2Cc%7C0%2Cd%7C1%2Ce%7CCAAQABiA4JSnis3iphAgACgAMPtmOMQUQh8xNzgyOTIwODQ5NTA4cTEwYTg4YTEwOGE4N3E3OTgzSOTQ9PLxM1IBKloG5rmW5YyXYgbkuK3lm71oZHAAeICAgICgGIABAIgB7aMFkgEOMTAzLjk1LjIxNi4xNDaaAQCgAQCyASB1IEJLOTg%2B37nn7E5dI1XqFWyAemS%2FoywMCvj0i5ifbboBjAFodHRwczovL2xpdmUuYmlsaWJpbGkuY29tL2FjdGl2aXR5L2xpdmUtYWN0aXZpdHktZnVsbC9mdWxsLW5leHQvaW5kZXguaHRtbD9pc19saXZlX2Z1bGxfd2Vidmlldz0xJmFwcF9uYW1lPWhhbGxfb2ZfZmFtZSYmcGNfdWk9Mzc1LDYzMywwLDEjL8IBANIBANgBwgHgAQDoAQDwAaqPhODFxxqAAgKIAgC4AgDAAgDQAgDYAgDqAgDwAoKALPgCyASIAwCSAwCoAwCwAwC4AwDCAwxCVjE4Vzd0NkdFbWPIA5%2BNBtIDrQF7IjEiOiIxMTc0NzQ3MjU5ODYxMjgyODE2IiwiMiI6IjEzMTc5IiwiMyI6IjEzMTc5IiwiNiI6IjExMDhfNTg0IiwiMTIiOiIyNjI4IiwiMTMiOiI5MTM1IiwiMTQiOiIwIiwiMTUiOiIwIiwiMTYiOiI5MTM1XzU4NCIsIjE3IjoiMjYyNCIsIjE5IjoiODY1MDkiLCIyNSI6IjEyOTAiLCIyNiI6IjEyOTEifeADAOgDAPADAPoDA3VnY4IEQGF2X2lkOjExNjgwNzQ3NDE1MzM4NixjX2lkOjAsdXBfbWlkOjI1MjY1ODkzOSxidl9pZDpCVjE4Vzd0NkdFbWOYBACgBACqBAQIABAEsAQA4gSNAjU2LnsicHNJZCI6MTM2MDI2LCJ2MiI6IkFQUFl3Mk1GRHNxY1Q4NHB4VFNSZEhSTFZoZzM0QVQtbjVPUi1iM290MG1OZnAzd1ZVSGVpNlVJQ0tXdll2OFc1RnpaRExlamItVW5Zd0hUendRVnVKakVnZnBBSmo1WFdZUXdyNkRkaC1DMVVKVHlteHpnVnp0akpMZTJiUnhtUFpjc3JHaTNpUHFqYWRwa25RS2ZrQXZvQWNvbmVacGhMLWtuc0lGeC1nUm4tN3FSTFM0THlEbEEifTs2My57InBzSWQiOjEzNTkyOSwidjIiOiJIY0EifTs3MC57InBzSWQiOjExNDc4MCwidjIiOiJBQSJ9%2BgQCe32QBYAEkAWABpAFgQaQBYEIkAWCBpAFhAGQBQWQBYUCkAWGAZAFhgOQBYgBkAWJAZAFjQOQBY4CkAWPBpAFkgOQBZMHkAWUA5AFmAKQBZgDkAWYEZAFGZAFmQOQBZoCkAWaA5AFmwOQBZwDkAWdApAFoQOQBaIDkAWkA5AFJZAFpgaQBacDkAWrBJAFrAGQBawDkAWvBJAFsAOQBbAEkAWxAZAFsQOQBbEEkAWyBJAFM5AFswGQBbMCkAW0AZAFtASQBbcCkAW3CJAFuASQBTuQBcADkAXBApAFwQOQBcYFkAVIkAXIAZAFyAiQBcsQkAXMApAFzQOQBc4CkAXQAZAF0wKQBdMDkAXWApAF1wKQBdcDkAXYAZAF2AKQBdoCkAXcApAF3wKQBWKQBeUDkAXlBJAF6AGQBegDkAXqA5AF6wOQBfACkAXxAZAF8gOQBfMDkAX1A5AF9wOQBfgDkAX7ApAFf5AF%2FwKQBf8DoAUAyAUD0gUA4AUD%2Cf%7Cclick_sync_3%2Cg%7C1%2Ch%7C3%2Ci%7C20981647%2Cj%7C%2Ck%7C1782920849691%2Cl%7C2624%2Cm%7C1782920849115%2Cn%7C1%2Co%7C0%2Cp%7Cad_card&ts=1782920849691&spm_id_from=333.788.right_bottom.adfloor-2624.click"
+      },
+      {
+        "text": "瓜物志",
+        "href": "https://space.bilibili.com/252658939/channel/collectiondetail?sid=7365897&spm_id_from=333.788.0.0"
+      },
+      {
+        "text": "",
+        "href": "https://bw.bilibili.com/2026?msource=tuijian&spm_id_from=333.788.specialRecommendByOp.0"
+      },
+      {
+        "text": "传送官网解锁更多信息！",
+        "href": "https://bw.bilibili.com/2026?msource=tuijian&spm_id_from=333.788.specialRecommendByOp.0"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV12zE765EDN/?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志第108期",
+        "href": "https://www.bilibili.com/video/BV12zE765EDN/?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1uVjm6oEdK/?spm_id_from=333.788.recommend_more_video.1&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "每天帮粉丝找一位博主",
+        "href": "https://www.bilibili.com/video/BV1uVjm6oEdK/?spm_id_from=333.788.recommend_more_video.1&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "_C478",
+        "href": "https://space.bilibili.com/3707011982166452/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1uc9YBgEH9/?spm_id_from=333.788.recommend_more_video.2&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "颜值天花板",
+        "href": "https://www.bilibili.com/video/BV1uc9YBgEH9/?spm_id_from=333.788.recommend_more_video.2&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "开心欧皇1290",
+        "href": "https://space.bilibili.com/3690984758053095/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV18i7p6ZEf6/?spm_id_from=333.788.recommend_more_video.3&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "女演员排名萝莉篇大盘点",
+        "href": "https://www.bilibili.com/video/BV18i7p6ZEf6/?spm_id_from=333.788.recommend_more_video.3&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "_O6表-G",
+        "href": "https://space.bilibili.com/3707011969583961/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1vtEQ6DEFn/?spm_id_from=333.788.recommend_more_video.4&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "素人颜值从夯到拉_1",
+        "href": "https://www.bilibili.com/video/BV1vtEQ6DEFn/?spm_id_from=333.788.recommend_more_video.4&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "IP罗独台-流B",
+        "href": "https://space.bilibili.com/3706997104970480/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1jvTg6yEH6/?spm_id_from=333.788.recommend_more_video.5&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志低124期",
+        "href": "https://www.bilibili.com/video/BV1jvTg6yEH6/?spm_id_from=333.788.recommend_more_video.5&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1Ke4y1K7iS/?spm_id_from=333.788.recommend_more_video.6&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "“这健身就离大谱！！”",
+        "href": "https://www.bilibili.com/video/BV1Ke4y1K7iS/?spm_id_from=333.788.recommend_more_video.6&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "旺仔小面筋儿",
+        "href": "https://space.bilibili.com/1004869717/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1y57P6cEHF/?spm_id_from=333.788.recommend_more_video.7&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "【未成年禁入】情趣内衣测评！何为耗材？",
+        "href": "https://www.bilibili.com/video/BV1y57P6cEHF/?spm_id_from=333.788.recommend_more_video.7&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "妖幺别打幺幺灵",
+        "href": "https://space.bilibili.com/2120969983/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1qzr6BVE3H/?spm_id_from=333.788.recommend_more_video.8&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "真实良家，牛哥严选！究极反差｜真无敌！",
+        "href": "https://www.bilibili.com/video/BV1qzr6BVE3H/?spm_id_from=333.788.recommend_more_video.8&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "bili_没承认的错",
+        "href": "https://space.bilibili.com/3690998167243682/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1EzcezmEU9/?spm_id_from=333.788.recommend_more_video.9&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志12期",
+        "href": "https://www.bilibili.com/video/BV1EzcezmEU9/?spm_id_from=333.788.recommend_more_video.9&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1SR7H6dEoa/?spm_id_from=333.788.recommend_more_video.10&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "第三十四期",
+        "href": "https://www.bilibili.com/video/BV1SR7H6dEoa/?spm_id_from=333.788.recommend_more_video.10&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜瓜情报站",
+        "href": "https://space.bilibili.com/3546819126627192/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1ugDCBAEyw/?spm_id_from=333.788.recommend_more_video.11&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志第61期",
+        "href": "https://www.bilibili.com/video/BV1ugDCBAEyw/?spm_id_from=333.788.recommend_more_video.11&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1S6TL61EWr/?spm_id_from=333.788.recommend_more_video.12&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "第五十四期",
+        "href": "https://www.bilibili.com/video/BV1S6TL61EWr/?spm_id_from=333.788.recommend_more_video.12&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜瓜情报站",
+        "href": "https://space.bilibili.com/3546819126627192/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1o1756SE1W/?spm_id_from=333.788.recommend_more_video.13&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志第122期",
+        "href": "https://www.bilibili.com/video/BV1o1756SE1W/?spm_id_from=333.788.recommend_more_video.13&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV16zvrB6E19/?spm_id_from=333.788.recommend_more_video.14&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "职高学妹倩倩小耐太可爱 (8)",
+        "href": "https://www.bilibili.com/video/BV16zvrB6E19/?spm_id_from=333.788.recommend_more_video.14&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "tieba20080401",
+        "href": "https://space.bilibili.com/3493283873425938/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1jEZcBGEWa/?spm_id_from=333.788.recommend_more_video.15&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志第73期",
+        "href": "https://www.bilibili.com/video/BV1jEZcBGEWa/?spm_id_from=333.788.recommend_more_video.15&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1amPNz8EAu/?spm_id_from=333.788.recommend_more_video.16&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志29期咯",
+        "href": "https://www.bilibili.com/video/BV1amPNz8EAu/?spm_id_from=333.788.recommend_more_video.16&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1yr786iEwy/?spm_id_from=333.788.recommend_more_video.17&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "第四期",
+        "href": "https://www.bilibili.com/video/BV1yr786iEwy/?spm_id_from=333.788.recommend_more_video.17&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜瓜情报站",
+        "href": "https://space.bilibili.com/3546819126627192/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV13XR4BPEj7/?spm_id_from=333.788.recommend_more_video.18&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "瓜物志第81期",
+        "href": "https://www.bilibili.com/video/BV13XR4BPEj7/?spm_id_from=333.788.recommend_more_video.18&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "dake时光机",
+        "href": "https://space.bilibili.com/252658939/"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1c3EQ6aEEa/?spm_id_from=333.788.recommend_more_video.19&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "教室认真学习",
+        "href": "https://www.bilibili.com/video/BV1c3EQ6aEEa/?spm_id_from=333.788.recommend_more_video.19&trackid=web_related_0.router-related-2479604-97qjn.1782920849497.608"
+      },
+      {
+        "text": "-桃桃乌龙冻",
+        "href": "https://space.bilibili.com/1516827318/"
+      },
+      {
+        "text": "【独家】BLGViper个人专题片：还在路上",
+        "href": "https://www.bilibili.com/video/BV1XmTv6kErF?spm_id_from=333.788.right_bottom.adfloor-3038.click"
+      },
+      {
+        "text": "客服",
+        "href": "https://www.bilibili.com/blackboard/help.html#%E5%B8%B8%E8%A7%81%E6%92%AD%E6%94%BE%E9%97%AE%E9%A2%98%E8%87%AA%E6%95%91%E6%96%B9%E6%B3%95"
+      },
+      {
+        "text": "赛事库",
+        "href": "https://www.bilibili.com/v/game/match/"
+      },
+      {
+        "text": "课堂",
+        "href": "https://www.bilibili.com/cheese/"
+      },
+      {
+        "text": "2021拜年纪",
+        "href": "https://www.bilibili.com/festival/2021bnj"
+      }
+    ],
+    "loginHints": [
+      "登录",
+      "请先登录"
+    ],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000002791",
+    "pageTitle": "瓜物志第121期_哔哩哔哩_bilibili",
+    "submitStatus": "已提交：page_333f7c1e3087030a",
+    "domSignalBlockCount": 6,
+    "domSignalLinkCount": 1,
+    "pageStateHints": [
+      "auth_gated",
+      "media_dom_limited",
+      "bili_video_detail"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_333f7c1e3087030a",
+      "title": "瓜物志第121期_哔哩哔哩_bilibili",
+      "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+      "domain": "www.bilibili.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.912,
+    "warnings": [
+      "AUTH_GATED_DEGRADED",
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 13,
+    "digestItems": 13,
+    "sourceRefs": 15,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.133,
+        "numerator": 2,
+        "denominator": 15,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.926,
+        "numerator": 941,
+        "denominator": 1016,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 13,
+        "denominator": 13,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 13,
+        "denominator": 13,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 15,
+        "denominator": 15,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.465,
+        "numerator": 67,
+        "denominator": 144,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": false
+      },
+      "candidateFactDensity": {
+        "value": 0.615,
+        "numerator": 8,
+        "denominator": 13,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0006"
+        ],
+        "label": "视频与内容",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0006"
+        ],
+        "label": "当前 B站视频详情页",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_15",
+        "nodeId": "node_15",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0014"
+        ],
+        "label": "og url",
+        "excerpt": "og:url: https://www.bilibili.com/video/BV18W7t6GEmc/"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_12",
+        "nodeId": "node_12",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0013",
+          "src_page_333f7c1e3087030a_0015",
+          "src_page_333f7c1e3087030a_0014",
+          "src_page_333f7c1e3087030a_0012",
+          "src_page_333f7c1e3087030a_0011",
+          "src_page_333f7c1e3087030a_0007",
+          "src_page_333f7c1e3087030a_0008"
+        ],
+        "label": "其他要点",
+        "excerpt": "og:image: //i2.hdslb.com/bfs/archive/b62c729c4b5ea4a2ebc92df3b8cf702e2be20fbd.jpg@100w_100h_1c.png"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0004",
+          "src_page_333f7c1e3087030a_0001"
+        ],
+        "label": "bili_video_title",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0004"
+        ],
+        "label": "瓜物志第121期_哔哩哔哩_bilibili",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0001"
+        ],
+        "label": "瓜物志第121期",
+        "excerpt": "瓜物志第121期"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0002"
+        ],
+        "label": "bili_video_author",
+        "excerpt": "dake时光机"
+      }
+    ],
+    "evidenceCardCount": 11,
+    "evidenceCardLabels": [
+      "bili_video_descri",
+      "哇嘎嘎 大哥们记得给我三连哦, 视频播放量 151618、弹幕量",
+      "互动数据",
+      "description 哇嘎嘎 大哥们记得给我三连哦",
+      "bili_video_title",
+      "瓜物志第121期_哔哩哔哩_bilibili",
+      "瓜物志第121期",
+      "视频与内容",
+      "当前 B站视频详情页",
+      "bili_video_author",
+      "dake时光机"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 12,
+    "readingMapDetailText": "B站页面ready瓜物志第121期_哔哩哔哩_bilibili4 sourcedetail4 sources瓜物志第121期_哔哩哔哩_bilibili",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 4,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0006"
+        ],
+        "label": "视频与内容",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0006"
+        ],
+        "label": "当前 B站视频详情页",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_15",
+        "nodeId": "node_15",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0014"
+        ],
+        "label": "og url",
+        "excerpt": "og:url: https://www.bilibili.com/video/BV18W7t6GEmc/"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_12",
+        "nodeId": "node_12",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0013",
+          "src_page_333f7c1e3087030a_0015",
+          "src_page_333f7c1e3087030a_0014",
+          "src_page_333f7c1e3087030a_0012",
+          "src_page_333f7c1e3087030a_0011",
+          "src_page_333f7c1e3087030a_0007",
+          "src_page_333f7c1e3087030a_0008"
+        ],
+        "label": "其他要点",
+        "excerpt": "og:image: //i2.hdslb.com/bfs/archive/b62c729c4b5ea4a2ebc92df3b8cf702e2be20fbd.jpg@100w_100h_1c.png"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0004",
+          "src_page_333f7c1e3087030a_0001"
+        ],
+        "label": "bili_video_title",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0004"
+        ],
+        "label": "瓜物志第121期_哔哩哔哩_bilibili",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0001"
+        ],
+        "label": "瓜物志第121期",
+        "excerpt": "瓜物志第121期"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_333f7c1e3087030a_0002"
+        ],
+        "label": "bili_video_author",
+        "excerpt": "dake时光机"
+      }
+    ],
+    "evidenceText": "bili_video_titlelocated瓜物志第121期_哔哩哔哩_bilibili已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 4,
+    "selectedSourceCardReason": "candidate score 18 for bilibili; label=bili_video_title",
+    "sourceCardAttemptCount": 3,
+    "sourceCardAttempts": [
+      {
+        "index": 1,
+        "status": "fallback_shown",
+        "reason": "candidate score 40 for bilibili; label=当前 B站视频详情页",
+        "failureReason": null
+      },
+      {
+        "index": 0,
+        "status": "fallback_shown",
+        "reason": "candidate score 22 for bilibili; label=视频与内容",
+        "failureReason": null
+      },
+      {
+        "index": 4,
+        "status": "highlighted",
+        "reason": "candidate score 18 for bilibili; label=bili_video_title",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 1,
+        "label": "当前 B站视频详情页",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)",
+        "score": 40
+      },
+      {
+        "index": 0,
+        "label": "视频与内容",
+        "excerpt": "当前 B站视频详情页 (https://www.bilibili.com/video/BV18W7t6GEmc/)",
+        "score": 22
+      },
+      {
+        "index": 4,
+        "label": "bili_video_title",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili",
+        "score": 18
+      },
+      {
+        "index": 5,
+        "label": "瓜物志第121期_哔哩哔哩_bilibili",
+        "excerpt": "瓜物志第121期_哔哩哔哩_bilibili",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "瓜物志第121期",
+        "excerpt": "瓜物志第121期",
+        "score": 8
+      },
+      {
+        "index": 7,
+        "label": "bili_video_author",
+        "excerpt": "dake时光机",
+        "score": 8
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 11,
+    "evidenceCardLabelCount": 11,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 14.909090909090908,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:47:59.570Z"
+}

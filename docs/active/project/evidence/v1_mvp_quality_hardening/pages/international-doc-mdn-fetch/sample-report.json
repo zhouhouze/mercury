@@ -1,0 +1,886 @@
+{
+  "sampleId": "international-doc-mdn-fetch",
+  "siteId": "mdn",
+  "siteName": "MDN",
+  "manifest": {
+    "pageId": "international-doc-mdn-fetch",
+    "contentCategory": "international_knowledge_blog_doc",
+    "countryRegion": "international",
+    "pageType": "docs",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "definition",
+      "concept",
+      "usage"
+    ],
+    "prohibitedNoiseSignals": [
+      "navigation",
+      "language selector",
+      "footer"
+    ]
+  },
+  "pageKind": "docs",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+  "startedAt": "2026-07-01T16:02:15.822Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+  "dom": {
+    "title": "Fetch API - Web APIs | MDN",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+    "bodyTextLength": 3670,
+    "bodyTextSample": "Skip to main content Skip to search HTML CSS JavaScript Web APIs All Learn Tools About Blog Web Web APIs Fetch API Fetch API The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest. In this article Concepts and usage Interfaces HTTP headers Specifications Browser compatibility See also Concepts and usage The Fetch API uses Request and Response objects (and other things involved with network requests), as well as related concepts such as CORS and the HTTP Origin header semantics. For making a re",
+    "anchorCount": 187,
+    "anchors": [
+      {
+        "text": "Skip to main content",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#content"
+      },
+      {
+        "text": "Skip to search",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#search"
+      },
+      {
+        "text": "MDN",
+        "href": "https://developer.mozilla.org/en-US/"
+      },
+      {
+        "text": "HTML: Markup language",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML"
+      },
+      {
+        "text": "Elements",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements"
+      },
+      {
+        "text": "Global attributes",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes"
+      },
+      {
+        "text": "Attributes",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference"
+      },
+      {
+        "text": "Responsive images",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images"
+      },
+      {
+        "text": "HTML cheatsheet",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Cheatsheet"
+      },
+      {
+        "text": "Date & time formats",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Date_and_time_formats"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTML/Guides"
+      },
+      {
+        "text": "SVG",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/SVG"
+      },
+      {
+        "text": "MathML",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/MathML"
+      },
+      {
+        "text": "XML",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/XML"
+      },
+      {
+        "text": "CSS: Styling language",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS"
+      },
+      {
+        "text": "Properties",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties"
+      },
+      {
+        "text": "Selectors",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors"
+      },
+      {
+        "text": "At-rules",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules"
+      },
+      {
+        "text": "Values",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
+      },
+      {
+        "text": "Box model",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Box_model/Introduction"
+      },
+      {
+        "text": "Animations",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using"
+      },
+      {
+        "text": "Flexbox",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts"
+      },
+      {
+        "text": "Colors",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Applying_color"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides"
+      },
+      {
+        "text": "Column layouts",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Column_layouts"
+      },
+      {
+        "text": "Centering an element",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Center_an_element"
+      },
+      {
+        "text": "Card component",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Card"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook"
+      },
+      {
+        "text": "JavaScript: Scripting language",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+      },
+      {
+        "text": "Standard built-in objects",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects"
+      },
+      {
+        "text": "Expressions & operators",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators"
+      },
+      {
+        "text": "Statements & declarations",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements"
+      },
+      {
+        "text": "Functions",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference"
+      },
+      {
+        "text": "Control flow & error handing",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+      },
+      {
+        "text": "Loops and iteration",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration"
+      },
+      {
+        "text": "Working with objects",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects"
+      },
+      {
+        "text": "Using classes",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_classes"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+      },
+      {
+        "text": "Web APIs: Programming interfaces",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+      },
+      {
+        "text": "File system API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/File_System_API"
+      },
+      {
+        "text": "Fetch API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+      },
+      {
+        "text": "Geolocation API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API"
+      },
+      {
+        "text": "HTML DOM API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API"
+      },
+      {
+        "text": "Push API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Push_API"
+      },
+      {
+        "text": "Service worker API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+      },
+      {
+        "text": "Using the Web animation API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API"
+      },
+      {
+        "text": "Using the Fetch API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+      },
+      {
+        "text": "Working with the History API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API"
+      },
+      {
+        "text": "Using the Web speech API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API"
+      },
+      {
+        "text": "Using web workers",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers"
+      },
+      {
+        "text": "All web technology",
+        "href": "https://developer.mozilla.org/en-US/docs/Web"
+      },
+      {
+        "text": "Accessibility",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Accessibility"
+      },
+      {
+        "text": "HTTP",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+      },
+      {
+        "text": "URI",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/URI"
+      },
+      {
+        "text": "Web extensions",
+        "href": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions"
+      },
+      {
+        "text": "WebAssembly",
+        "href": "https://developer.mozilla.org/en-US/docs/WebAssembly"
+      },
+      {
+        "text": "WebDriver",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/WebDriver"
+      },
+      {
+        "text": "See all…",
+        "href": "https://developer.mozilla.org/en-US/docs/Web"
+      },
+      {
+        "text": "Media",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Media"
+      },
+      {
+        "text": "Performance",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Performance"
+      },
+      {
+        "text": "Privacy",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Privacy"
+      },
+      {
+        "text": "Security",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Security"
+      },
+      {
+        "text": "Progressive web apps",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+      },
+      {
+        "text": "Learn web development",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development"
+      },
+      {
+        "text": "Getting started modules",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started"
+      },
+      {
+        "text": "Core modules",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core"
+      },
+      {
+        "text": "MDN Curriculum",
+        "href": "https://developer.mozilla.org/en-US/curriculum/"
+      },
+      {
+        "text": "Check out the video course from Scrimba, our partner",
+        "href": "https://scrimba.com/frontend-path-c0j?via=mdn-learn-navbar"
+      },
+      {
+        "text": "Structuring content with HTML module",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content"
+      },
+      {
+        "text": "CSS styling basics module",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics"
+      },
+      {
+        "text": "CSS layout module",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout"
+      },
+      {
+        "text": "Dynamic scripting with JavaScript module",
+        "href": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting"
+      },
+      {
+        "text": "Playground",
+        "href": "https://developer.mozilla.org/en-US/play"
+      },
+      {
+        "text": "HTTP Observatory",
+        "href": "https://developer.mozilla.org/en-US/observatory"
+      },
+      {
+        "text": "Border-image generator",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-image_generator"
+      },
+      {
+        "text": "Border-radius generator",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Border-radius_generator"
+      },
+      {
+        "text": "Box-shadow generator",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Backgrounds_and_borders/Box-shadow_generator"
+      },
+      {
+        "text": "Color format converter",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_format_converter"
+      },
+      {
+        "text": "Color mixer",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Colors/Color_mixer"
+      },
+      {
+        "text": "Shape generator",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Shapes/Shape_generator"
+      },
+      {
+        "text": "About MDN",
+        "href": "https://developer.mozilla.org/en-US/about"
+      },
+      {
+        "text": "Advertise with us",
+        "href": "https://developer.mozilla.org/en-US/advertising"
+      },
+      {
+        "text": "Community",
+        "href": "https://developer.mozilla.org/en-US/community"
+      },
+      {
+        "text": "MDN on GitHub",
+        "href": "https://github.com/mdn"
+      },
+      {
+        "text": "Blog",
+        "href": "https://developer.mozilla.org/en-US/blog/"
+      },
+      {
+        "text": "Web",
+        "href": "https://developer.mozilla.org/en-US/docs/Web"
+      },
+      {
+        "text": "Web APIs",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API"
+      },
+      {
+        "text": "Fetch API",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"
+      },
+      {
+        "text": "XMLHttpRequest",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest"
+      },
+      {
+        "text": "Concepts and usage",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#concepts_and_usage"
+      },
+      {
+        "text": "Interfaces",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#interfaces"
+      },
+      {
+        "text": "HTTP headers",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#http_headers"
+      },
+      {
+        "text": "Specifications",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#specifications"
+      },
+      {
+        "text": "Browser compatibility",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#browser_compatibility"
+      },
+      {
+        "text": "See also",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#see_also"
+      },
+      {
+        "text": "Concepts and usage",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#concepts_and_usage"
+      },
+      {
+        "text": "Request",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request"
+      },
+      {
+        "text": "Response",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      },
+      {
+        "text": "fetch()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"
+      },
+      {
+        "text": "Window",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window"
+      },
+      {
+        "text": "Worker",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope"
+      },
+      {
+        "text": "Promise",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise"
+      },
+      {
+        "text": "Response",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      },
+      {
+        "text": "Request",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request"
+      },
+      {
+        "text": "Response",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response"
+      },
+      {
+        "text": "Request()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Request/Request"
+      },
+      {
+        "text": "Response()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Response/Response"
+      },
+      {
+        "text": "FetchEvent.respondWith()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/FetchEvent/respondWith"
+      },
+      {
+        "text": "Using Fetch",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+      },
+      {
+        "text": "Deferred Fetch",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#deferred_fetch"
+      },
+      {
+        "text": "fetchLater()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetchLater"
+      },
+      {
+        "text": "Using Deferred Fetch",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Deferred_Fetch"
+      },
+      {
+        "text": "Interfaces",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API#interfaces"
+      },
+      {
+        "text": "Window.fetch()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch"
+      },
+      {
+        "text": "WorkerGlobalScope.fetch()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/fetch"
+      },
+      {
+        "text": "Window.fetchLater()",
+        "href": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetchLater"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000003662",
+    "pageTitle": "Fetch API - Web APIs | MDN",
+    "submitStatus": "已提交：page_33defb3ddfb84546",
+    "domSignalBlockCount": 89,
+    "domSignalLinkCount": 158,
+    "pageStateHints": []
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_33defb3ddfb84546",
+      "title": "Fetch API - Web APIs | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+      "domain": "developer.mozilla.org"
+    },
+    "readiness": "pass",
+    "overallScore": 0.954,
+    "warnings": [],
+    "fatalIssues": [],
+    "highSignalBlocks": 100,
+    "digestItems": 18,
+    "sourceRefs": 105,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.048,
+        "numerator": 5,
+        "denominator": 105,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.78,
+        "numerator": 8247,
+        "denominator": 10578,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 100,
+        "denominator": 100,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 105,
+        "denominator": 105,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.117,
+        "numerator": 194,
+        "denominator": 1657,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.833,
+        "numerator": 15,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0040",
+          "src_page_33defb3ddfb84546_0046",
+          "src_page_33defb3ddfb84546_0052",
+          "src_page_33defb3ddfb84546_0051",
+          "src_page_33defb3ddfb84546_0058",
+          "src_page_33defb3ddfb84546_0045"
+        ],
+        "label": "article_meta",
+        "excerpt": "The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest."
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_12",
+        "nodeId": "node_12",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0072"
+        ],
+        "label": "article_body",
+        "excerpt": "This page was last modified on Jun 8, 2026 by MDN contributors."
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0101",
+          "src_page_33defb3ddfb84546_0057",
+          "src_page_33defb3ddfb84546_0103",
+          "src_page_33defb3ddfb84546_0055",
+          "src_page_33defb3ddfb84546_0076",
+          "src_page_33defb3ddfb84546_0089"
+        ],
+        "label": "核心要点",
+        "excerpt": "It is a global method in both Window and Worker contexts. This makes it available in pretty much any context you might want to fetch resources in. The fetch() method takes one mandatory argument, the path to the resource you want to fetch."
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0102",
+          "src_page_33defb3ddfb84546_0048"
+        ],
+        "label": "流程与操作",
+        "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_18",
+        "nodeId": "node_18",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0015",
+          "src_page_33defb3ddfb84546_0008"
+        ],
+        "label": "其他要点",
+        "excerpt": "Web APIs: Programming interfaces"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0104"
+        ],
+        "label": "架构与接口",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0104"
+        ],
+        "label": "Specifications Specification",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0102"
+        ],
+        "label": "You can create request and",
+        "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+      }
+    ],
+    "evidenceCardCount": 10,
+    "evidenceCardLabels": [
+      "架构与接口",
+      "Specifications Specification",
+      "流程与操作",
+      "You can create request and",
+      "核心要点",
+      "It is global method in both",
+      "Represents response/request",
+      "article_meta",
+      "Fetch API provides interface for",
+      "fetch method takes one mandatory"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 11,
+    "readingMapDetailText": "Fetch API - Web APIs MDNreadyHTML: Markup language4 sourcedetail4 sourcesHTML: Markup language",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0040",
+          "src_page_33defb3ddfb84546_0046",
+          "src_page_33defb3ddfb84546_0052",
+          "src_page_33defb3ddfb84546_0051",
+          "src_page_33defb3ddfb84546_0058",
+          "src_page_33defb3ddfb84546_0045"
+        ],
+        "label": "article_meta",
+        "excerpt": "The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest."
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_12",
+        "nodeId": "node_12",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0072"
+        ],
+        "label": "article_body",
+        "excerpt": "This page was last modified on Jun 8, 2026 by MDN contributors."
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0101",
+          "src_page_33defb3ddfb84546_0057",
+          "src_page_33defb3ddfb84546_0103",
+          "src_page_33defb3ddfb84546_0055",
+          "src_page_33defb3ddfb84546_0076",
+          "src_page_33defb3ddfb84546_0089"
+        ],
+        "label": "核心要点",
+        "excerpt": "It is a global method in both Window and Worker contexts. This makes it available in pretty much any context you might want to fetch resources in. The fetch() method takes one mandatory argument, the path to the resource you want to fetch."
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0102",
+          "src_page_33defb3ddfb84546_0048"
+        ],
+        "label": "流程与操作",
+        "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_18",
+        "nodeId": "node_18",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0015",
+          "src_page_33defb3ddfb84546_0008"
+        ],
+        "label": "其他要点",
+        "excerpt": "Web APIs: Programming interfaces"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0104"
+        ],
+        "label": "架构与接口",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0104"
+        ],
+        "label": "Specifications Specification",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_33defb3ddfb84546_0102"
+        ],
+        "label": "You can create request and",
+        "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+      }
+    ],
+    "evidenceText": "article_metalocatedThe Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest.已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 40 for mdn; label=article_meta",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 40 for mdn; label=article_meta",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "article_meta",
+        "excerpt": "The Fetch API provides an interface for fetching resources (including across the network). It is a more powerful and flexible replacement for XMLHttpRequest.",
+        "score": 40
+      },
+      {
+        "index": 1,
+        "label": "article_body",
+        "excerpt": "This page was last modified on Jun 8, 2026 by MDN contributors.",
+        "score": 40
+      },
+      {
+        "index": 3,
+        "label": "流程与操作",
+        "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res",
+        "score": 18
+      },
+      {
+        "index": 4,
+        "label": "其他要点",
+        "excerpt": "Web APIs: Programming interfaces",
+        "score": 18
+      },
+      {
+        "index": 5,
+        "label": "架构与接口",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "Specifications Specification",
+        "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 10,
+    "evidenceCardLabelCount": 10,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 19.8,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T16:02:41.769Z"
+}

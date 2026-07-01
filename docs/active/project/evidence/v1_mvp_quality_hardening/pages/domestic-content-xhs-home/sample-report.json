@@ -1,0 +1,898 @@
+{
+  "sampleId": "domestic-content-xhs-home",
+  "siteId": "xiaohongshu",
+  "siteName": "小红书",
+  "manifest": {
+    "pageId": "domestic-content-xhs-home",
+    "contentCategory": "domestic_content_platform",
+    "countryRegion": "domestic",
+    "pageType": "feed",
+    "loginStatePolicy": "temp_cookie_profile",
+    "expectedMainContentSignals": [
+      "笔记卡片",
+      "标题",
+      "作者"
+    ],
+    "prohibitedNoiseSignals": [
+      "登录",
+      "验证码",
+      "推荐壳"
+    ]
+  },
+  "pageKind": "feed",
+  "url": "https://www.xiaohongshu.com/explore",
+  "startedAt": "2026-07-01T15:47:59.585Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.xiaohongshu.com/explore",
+  "dom": {
+    "title": "小红书 - 你的生活兴趣社区",
+    "url": "https://www.xiaohongshu.com/explore",
+    "bodyTextLength": 1529,
+    "bodyTextSample": "首页 点点 ai RED 直播 发布 1 通知 20 消息 我 沪ICP备13030189号 | 营业执照 | 2026沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文[2021]1545-113号 | 个性化推荐算法 网信算备310101216601302230019号 © 2014-2026 行吟信息科技（上海）有限公司 地址：上海市黄浦区马当路388号C座 电话：9501-3888 更多 关于我们 沪ICP备13030189号 | 营业执照 | 2026沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经",
+    "anchorCount": 154,
+    "anchors": [
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore"
+      },
+      {
+        "text": "首页",
+        "href": "https://www.xiaohongshu.com/explore?channel_id=homefeed_recommend"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/worldcup26?wcup_source=web_sidebar_entry"
+      },
+      {
+        "text": "点点ai",
+        "href": "https://www.xiaohongshu.com/ai_chat?from=sidebar"
+      },
+      {
+        "text": "RED",
+        "href": "https://www.xiaohongshu.com/red_video"
+      },
+      {
+        "text": "直播",
+        "href": "https://www.xiaohongshu.com/livelist?channel_id=&channel_type=explore_feed"
+      },
+      {
+        "text": "发布",
+        "href": "https://creator.xiaohongshu.com/publish/publish?source=official"
+      },
+      {
+        "text": "1通知",
+        "href": "https://www.xiaohongshu.com/notification"
+      },
+      {
+        "text": "20消息",
+        "href": "https://www.xiaohongshu.com/chat?channel_id=&channel_type=explore_feed"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      },
+      {
+        "text": "沪ICP备13030189号",
+        "href": "https://beian.miit.gov.cn/"
+      },
+      {
+        "text": "营业执照",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/1315dcf7990709473005051f944bafcc641a879b.pdf"
+      },
+      {
+        "text": "2026沪公网安备31010102002533号",
+        "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002533"
+      },
+      {
+        "text": "增值电信业务经营许可证：沪B2-20150021",
+        "href": "https://fe-video-qc.xhscdn.com/picasso-editor/c081c205c927d605c959e3d6e1b22975c8a4b64f.pdf"
+      },
+      {
+        "text": "医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/410dce57bc12a6d7e5808060e47644fbe46f68ff.pdf"
+      },
+      {
+        "text": "互联网药品信息服务资格证书：(沪)-经营性-2023-0144",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/f37a08cacc088061beb38329c387c32fc48fc6fe.pdf"
+      },
+      {
+        "text": "违法不良信息举报电话：4006676810",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "上海市互联网举报中心",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "网上有害信息举报专区",
+        "href": "https://www.12377.cn/"
+      },
+      {
+        "text": "自营经营者信息",
+        "href": "https://dc.xhscdn.com/06c2adb0-b353-11e9-9d0c-7be9ff8961c1/%E8%87%AA%E8%90%A5%E7%BB%8F%E8%90%A5%E8%80%85%E4%BF%A1%E6%81%AF%E5%85%AC%E7%A4%BA.pdf"
+      },
+      {
+        "text": "网络文化经营许可证：沪网文[2021]1545-113号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/10428eb6a94cd23bd63446b9991cfa3a5ff6f151.pdf"
+      },
+      {
+        "text": "沪ICP备13030189号",
+        "href": "https://beian.miit.gov.cn/"
+      },
+      {
+        "text": "营业执照",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/1315dcf7990709473005051f944bafcc641a879b.pdf"
+      },
+      {
+        "text": "2026沪公网安备31010102002533号",
+        "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002533"
+      },
+      {
+        "text": "增值电信业务经营许可证：沪B2-20150021",
+        "href": "https://fe-video-qc.xhscdn.com/picasso-editor/c081c205c927d605c959e3d6e1b22975c8a4b64f.pdf"
+      },
+      {
+        "text": "医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/410dce57bc12a6d7e5808060e47644fbe46f68ff.pdf"
+      },
+      {
+        "text": "互联网药品信息服务资格证书：(沪)-经营性-2023-0144",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/f37a08cacc088061beb38329c387c32fc48fc6fe.pdf"
+      },
+      {
+        "text": "违法不良信息举报电话：4006676810",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "上海市互联网举报中心",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "网上有害信息举报专区",
+        "href": "https://www.12377.cn/"
+      },
+      {
+        "text": "自营经营者信息",
+        "href": "https://dc.xhscdn.com/06c2adb0-b353-11e9-9d0c-7be9ff8961c1/%E8%87%AA%E8%90%A5%E7%BB%8F%E8%90%A5%E8%80%85%E4%BF%A1%E6%81%AF%E5%85%AC%E7%A4%BA.pdf"
+      },
+      {
+        "text": "网络文化经营许可证：沪网文[2021]1545-113号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/10428eb6a94cd23bd63446b9991cfa3a5ff6f151.pdf"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "Superpowers不再是最佳实践：2026下半年你",
+        "href": "https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "Agent 实战日记",
+        "href": "https://www.xiaohongshu.com/user/profile/66e1d63a000000001d0321c5?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a411bb2000000001702b01f"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a411bb2000000001702b01f?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "“出发本身就是答案”",
+        "href": "https://www.xiaohongshu.com/explore/6a411bb2000000001702b01f?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "Niyiiiii",
+        "href": "https://www.xiaohongshu.com/user/profile/5b1be28af7e8b92446d7455c?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a425a42000000001101c37a"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a425a42000000001101c37a?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "这个姜珮瑶怎么这么美！",
+        "href": "https://www.xiaohongshu.com/explore/6a425a42000000001101c37a?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "agua",
+        "href": "https://www.xiaohongshu.com/user/profile/60e49fa3000000000100a8c5?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a444912000000001702da48"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a444912000000001702da48?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "中国有钱人分布城市",
+        "href": "https://www.xiaohongshu.com/explore/6a444912000000001702da48?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "铜锣湾揸fit人",
+        "href": "https://www.xiaohongshu.com/user/profile/6189041a000000001000a44c?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4506530000000017008703"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4506530000000017008703?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "第一次这么真实地感觉到地震！",
+        "href": "https://www.xiaohongshu.com/explore/6a4506530000000017008703?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "苏su",
+        "href": "https://www.xiaohongshu.com/user/profile/5b90cc9330b355000161318f?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4209e20000000008000984"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4209e20000000008000984?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "在武汉夏天可以做的100件事哈哈哈",
+        "href": "https://www.xiaohongshu.com/explore/6a4209e20000000008000984?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "77沐有吃",
+        "href": "https://www.xiaohongshu.com/user/profile/5976c7d76a6a691a09bde014?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a434686000000001c025218"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a434686000000001c025218?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+        "href": "https://www.xiaohongshu.com/explore/6a434686000000001c025218?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "衡山云端",
+        "href": "https://www.xiaohongshu.com/user/profile/5f7e92c7000000000101e2c9?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "「幺幺：爸爸，你真的是好烦挺哦！😠」",
+        "href": "https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "妖妹儿」日常",
+        "href": "https://www.xiaohongshu.com/user/profile/624c5358000000001000bc8d?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "codex的6个最强skill你装了吗？",
+        "href": "https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "AI产品经理Charles-途灵",
+        "href": "https://www.xiaohongshu.com/user/profile/60ae72f800000000010062e1?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a37c967000000000f02885d"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a37c967000000000f02885d?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "香港机场跑道边上的飞机",
+        "href": "https://www.xiaohongshu.com/explore/6a37c967000000000f02885d?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "CatchingStars",
+        "href": "https://www.xiaohongshu.com/user/profile/5d8501f8000000000100b03c?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a3771460000000006037d2a"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a3771460000000006037d2a?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "字节Agent开发一面面经",
+        "href": "https://www.xiaohongshu.com/explore/6a3771460000000006037d2a?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "Offer面试官",
+        "href": "https://www.xiaohongshu.com/user/profile/64d8e1be000000000100f962?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43c5d4000000000f0309c3"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43c5d4000000000f0309c3?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "这是空间裂缝？谁把天撕开了？那是ai💔",
+        "href": "https://www.xiaohongshu.com/explore/6a43c5d4000000000f0309c3?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "洋洋日记",
+        "href": "https://www.xiaohongshu.com/user/profile/633d4a87000000001901c38b?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4243d3000000002101aeb6"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a4243d3000000002101aeb6?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "开源A股数据Skill正在刨券商数据Skill引流",
+        "href": "https://www.xiaohongshu.com/explore/6a4243d3000000002101aeb6?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "sunshine",
+        "href": "https://www.xiaohongshu.com/user/profile/5b100b04f7e8b9336a1de356?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a44a13e0000000020038972"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a44a13e0000000020038972?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "日系世界杯漫画风: 姆巴佩 vs 哈兰德",
+        "href": "https://www.xiaohongshu.com/explore/6a44a13e0000000020038972?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "ABC",
+        "href": "https://www.xiaohongshu.com/user/profile/61615a1200000000020226d0?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a34978a000000000702b5de"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a34978a000000000702b5de?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "素颜和全妆的区别",
+        "href": "https://www.xiaohongshu.com/explore/6a34978a000000000702b5de?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "可露丽",
+        "href": "https://www.xiaohongshu.com/user/profile/59b7e6006a6a692db2706af7?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a437c6a000000002003a32f"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a437c6a000000002003a32f?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "在职三个月转型Agent，我的个人总结",
+        "href": "https://www.xiaohongshu.com/explore/6a437c6a000000002003a32f?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "独白",
+        "href": "https://www.xiaohongshu.com/user/profile/6976c2bf000000002100a88d?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a40b586000000001102c096"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a40b586000000001102c096?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "我的猫会立正啊！！！",
+        "href": "https://www.xiaohongshu.com/explore/6a40b586000000001102c096?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "焦糖炒蘑菇",
+        "href": "https://www.xiaohongshu.com/user/profile/593fefd45e87e765717366a1?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43bdfc0000000016024bc4"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43bdfc0000000016024bc4?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "人的一辈子 是真快啊……",
+        "href": "https://www.xiaohongshu.com/explore/6a43bdfc0000000016024bc4?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "199Z",
+        "href": "https://www.xiaohongshu.com/user/profile/5789b884a9b2ed3551a8d56a?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43626900000000220083fa"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a43626900000000220083fa?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "是一进门就觉得主人很有品的程度",
+        "href": "https://www.xiaohongshu.com/explore/6a43626900000000220083fa?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "形影家居",
+        "href": "https://www.xiaohongshu.com/user/profile/65d46c7e000000000503023c?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a33ba2f0000000006037282"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a33ba2f0000000006037282?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "Codex别裸装！12个skill从写作到开发全覆盖",
+        "href": "https://www.xiaohongshu.com/explore/6a33ba2f0000000006037282?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "心晴九天",
+        "href": "https://www.xiaohongshu.com/user/profile/618bf17f000000001000f0f6?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a452e7f00000000070254a6"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a452e7f00000000070254a6?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "谁说字节和心脏只有一个能跳动的",
+        "href": "https://www.xiaohongshu.com/explore/6a452e7f00000000070254a6?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "someway",
+        "href": "https://www.xiaohongshu.com/user/profile/5fc3c40a0000000001009810?channel_type=explore_feed&parent_page_channel_type=web_profile_board&xsec_token=%5Bredacted%5D&xsec_source=pc_feed"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a435cf3000000002201b511"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore/6a435cf3000000002201b511?xsec_token=%5Bredacted%5D&xsec_source="
+      },
+      {
+        "text": "多啦A梦86单开关盒，闭眼关灯，睁眼开灯。",
+        "href": "https://www.xiaohongshu.com/explore/6a435cf3000000002201b511?xsec_token=%5Bredacted%5D&xsec_source="
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000002827",
+    "pageTitle": "小红书 - 你的生活兴趣社区",
+    "submitStatus": "已提交：page_77aa1c483356fbcd",
+    "domSignalBlockCount": 24,
+    "domSignalLinkCount": 24,
+    "pageStateHints": [
+      "media_dom_limited",
+      "xhs_note_detail",
+      "xhs_home_feed"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_77aa1c483356fbcd",
+      "title": "小红书 - 你的生活兴趣社区",
+      "url": "https://www.xiaohongshu.com/explore",
+      "domain": "www.xiaohongshu.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.938,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 52,
+    "digestItems": 18,
+    "sourceRefs": 52,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0,
+        "numerator": 0,
+        "denominator": 52,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 1,
+        "numerator": 3934,
+        "denominator": 3934,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 52,
+        "denominator": 52,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 52,
+        "denominator": 52,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.296,
+        "numerator": 114,
+        "denominator": 385,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.222,
+        "numerator": 4,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": false
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0020",
+          "src_page_77aa1c483356fbcd_0032",
+          "src_page_77aa1c483356fbcd_0036",
+          "src_page_77aa1c483356fbcd_0030",
+          "src_page_77aa1c483356fbcd_0034",
+          "src_page_77aa1c483356fbcd_0042",
+          "src_page_77aa1c483356fbcd_0028",
+          "src_page_77aa1c483356fbcd_0024",
+          "src_page_77aa1c483356fbcd_0038",
+          "src_page_77aa1c483356fbcd_0040",
+          "src_page_77aa1c483356fbcd_0022",
+          "src_page_77aa1c483356fbcd_0026",
+          "src_page_77aa1c483356fbcd_0019",
+          "src_page_77aa1c483356fbcd_0035"
+        ],
+        "label": "核心要点",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0020"
+        ],
+        "label": "Superpowers不再是最佳实践：2026下半年你",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0032"
+        ],
+        "label": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+        "excerpt": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！ (https://www.xiaohongshu.com/explore/6a434686000000001c025218?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0036"
+        ],
+        "label": "codex的6个最强skill你装了吗？",
+        "excerpt": "codex的6个最强skill你装了吗？ (https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0030"
+        ],
+        "label": "在武汉夏天可以做的100件事哈哈哈",
+        "excerpt": "在武汉夏天可以做的100件事哈哈哈 (https://www.xiaohongshu.com/explore/6a4209e20000000008000984?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0034"
+        ],
+        "label": "幺幺：爸爸，你真的是好烦挺哦！",
+        "excerpt": "「幺幺：爸爸，你真的是好烦挺哦！😠」 (https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0001",
+          "src_page_77aa1c483356fbcd_0013",
+          "src_page_77aa1c483356fbcd_0009",
+          "src_page_77aa1c483356fbcd_0002"
+        ],
+        "label": "xhs_feed_card",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 Agent 实战日记 121"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0001"
+        ],
+        "label": "Superpowers不再是最佳实践：2026下半年你 Agent",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 Agent 实战日记 121"
+      }
+    ],
+    "evidenceCardCount": 8,
+    "evidenceCardLabels": [
+      "核心要点",
+      "Superpowers不再是最佳实践：2026下半年你",
+      "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+      "codex的6个最强skill你装了吗？",
+      "xhs_feed_card",
+      "Superpowers不再是最佳实践：2026下半年你 Agent",
+      "codex的6个最强skill你装了吗？ AI产品经理Charle",
+      "德荷出局全给 C罗铺路？梅西赛程简直躺赢！ 衡山云端 297"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 9,
+    "readingMapDetailText": "小红书 - 你的生活兴趣社区readySuperpowers不再是最佳实践：2026下半年你 Agent 实战日记 1214 sourcedetail4 sourcesSuperpowers不再是最佳实践：2026下半年你 Agent 实战日记 121",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 1,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0020",
+          "src_page_77aa1c483356fbcd_0032",
+          "src_page_77aa1c483356fbcd_0036",
+          "src_page_77aa1c483356fbcd_0030",
+          "src_page_77aa1c483356fbcd_0034",
+          "src_page_77aa1c483356fbcd_0042",
+          "src_page_77aa1c483356fbcd_0028",
+          "src_page_77aa1c483356fbcd_0024",
+          "src_page_77aa1c483356fbcd_0038",
+          "src_page_77aa1c483356fbcd_0040",
+          "src_page_77aa1c483356fbcd_0022",
+          "src_page_77aa1c483356fbcd_0026",
+          "src_page_77aa1c483356fbcd_0019",
+          "src_page_77aa1c483356fbcd_0035"
+        ],
+        "label": "核心要点",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0020"
+        ],
+        "label": "Superpowers不再是最佳实践：2026下半年你",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0032"
+        ],
+        "label": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+        "excerpt": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！ (https://www.xiaohongshu.com/explore/6a434686000000001c025218?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0036"
+        ],
+        "label": "codex的6个最强skill你装了吗？",
+        "excerpt": "codex的6个最强skill你装了吗？ (https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0030"
+        ],
+        "label": "在武汉夏天可以做的100件事哈哈哈",
+        "excerpt": "在武汉夏天可以做的100件事哈哈哈 (https://www.xiaohongshu.com/explore/6a4209e20000000008000984?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0034"
+        ],
+        "label": "幺幺：爸爸，你真的是好烦挺哦！",
+        "excerpt": "「幺幺：爸爸，你真的是好烦挺哦！😠」 (https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b?xsec_token=[redacted]&xsec_source=)"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0001",
+          "src_page_77aa1c483356fbcd_0013",
+          "src_page_77aa1c483356fbcd_0009",
+          "src_page_77aa1c483356fbcd_0002"
+        ],
+        "label": "xhs_feed_card",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 Agent 实战日记 121"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_77aa1c483356fbcd_0001"
+        ],
+        "label": "Superpowers不再是最佳实践：2026下半年你 Agent",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 Agent 实战日记 121"
+      }
+    ],
+    "evidenceText": "Superpowers不再是最佳实践：2026下半年你locatedSuperpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 1,
+    "selectedSourceCardReason": "candidate score 58 for xiaohongshu; label=Superpowers不再是最佳实践：2026下半年你",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 1,
+        "status": "highlighted",
+        "reason": "candidate score 58 for xiaohongshu; label=Superpowers不再是最佳实践：2026下半年你",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 1,
+        "label": "Superpowers不再是最佳实践：2026下半年你",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)",
+        "score": 58
+      },
+      {
+        "index": 2,
+        "label": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+        "excerpt": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！ (https://www.xiaohongshu.com/explore/6a434686000000001c025218?xsec_token=[redacted]&xsec_source=)",
+        "score": 58
+      },
+      {
+        "index": 3,
+        "label": "codex的6个最强skill你装了吗？",
+        "excerpt": "codex的6个最强skill你装了吗？ (https://www.xiaohongshu.com/explore/6a348cde000000000f01dc42?xsec_token=[redacted]&xsec_source=)",
+        "score": 58
+      },
+      {
+        "index": 4,
+        "label": "在武汉夏天可以做的100件事哈哈哈",
+        "excerpt": "在武汉夏天可以做的100件事哈哈哈 (https://www.xiaohongshu.com/explore/6a4209e20000000008000984?xsec_token=[redacted]&xsec_source=)",
+        "score": 58
+      },
+      {
+        "index": 5,
+        "label": "幺幺：爸爸，你真的是好烦挺哦！",
+        "excerpt": "「幺幺：爸爸，你真的是好烦挺哦！😠」 (https://www.xiaohongshu.com/explore/6a395d0b0000000008033d1b?xsec_token=[redacted]&xsec_source=)",
+        "score": 58
+      },
+      {
+        "index": 0,
+        "label": "核心要点",
+        "excerpt": "Superpowers不再是最佳实践：2026下半年你 (https://www.xiaohongshu.com/explore/6a43d48d0000000017028dea?xsec_token=[redacted]&xsec_source=)",
+        "score": 40
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 8,
+    "evidenceCardLabelCount": 8,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 22.625,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:48:38.382Z"
+}

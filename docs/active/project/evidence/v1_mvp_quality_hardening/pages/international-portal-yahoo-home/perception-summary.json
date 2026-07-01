@@ -1,0 +1,73 @@
+{
+  "activePage": {
+    "pageId": "page_965572356c1c93e8",
+    "title": "Yahoo News: Latest and Breaking News, Headlines, Live Updates, and More",
+    "url": "https://www.yahoo.com/news/",
+    "domain": "www.yahoo.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.916,
+  "warnings": [],
+  "fatalIssues": [],
+  "highSignalBlocks": 91,
+  "digestItems": 18,
+  "sourceRefs": 106,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.142,
+      "numerator": 15,
+      "denominator": 106,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.735,
+      "numerator": 11706,
+      "denominator": 15925,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 91,
+      "denominator": 91,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 106,
+      "denominator": 106,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.1,
+      "numerator": 227,
+      "denominator": 2279,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.444,
+      "numerator": 8,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": false
+    }
+  }
+}

@@ -1587,17 +1587,18 @@ docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
 
 ### 14.2 V1-MVP-QH 基础 MVP 确认后的质量硬化开发计划
 
-基础 MVP 体验已被人工确认可用。本阶段不扩展产品范围，不新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。开发目标限定为：提升复杂站点主内容抽取、Mindmap 可读性和 Source Jumpback 准确性。
+基础 MVP 体验已被人工确认可用。本阶段不扩展产品能力，不新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。开发目标限定为：提升复杂站点、国内外主流图文网页和门户网站的主内容抽取、Mindmap 可读性和 Source Jumpback 准确性。
 
 阶段拆分：
 
 ```text
 V1-MVP-QH-0：文档与审计冻结，确认 PRD / 架构 / 计划 / 验收 / stage gate / drawio 一致。
-V1-MVP-QH-1：A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量硬化。
-V1-MVP-QH-2：C Mindmap 主题归并、节点文本压缩和 nodeSourceMap 绑定质量硬化。
-V1-MVP-QH-3：B Renderer 导图可读性、source card 排序和三态 evidence 展示硬化。
-V1-MVP-QH-4：Content Script Source Jumpback 多线索定位、fallback 和 blocked 语义硬化。
-V1-MVP-QH-5：真实站点复验、PRD review、false-green audit、可视化验收报告。
+V1-MVP-QH-1：48 页样本 manifest、当前 6 样本基础 evidence 与扩展验收基线诊断计划冻结。
+V1-MVP-QH-2：A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量硬化。
+V1-MVP-QH-3：C Mindmap 主题归并、节点文本压缩和 nodeSourceMap 绑定质量硬化。
+V1-MVP-QH-4：B Renderer 导图可读性、source card 排序和三态 evidence 展示硬化。
+V1-MVP-QH-5：Content Script Source Jumpback 多线索定位、fallback 和 blocked 语义硬化。
+V1-MVP-QH-6：国内外 48 页主流图文网页 / 门户网站矩阵复验、PRD review、false-green audit、可视化验收报告。
 ```
 
 开发及验收计划：
@@ -1605,47 +1606,70 @@ V1-MVP-QH-5：真实站点复验、PRD review、false-green audit、可视化验
 | 子阶段 | 开发重点 | 验收重点 |
 |---|---|---|
 | `V1-MVP-QH-0` | 同步 active PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio；记录基础 MVP 人工确认和剩余质量问题 | 文档无 fatal / major；drawio 不超过 8 页；不得把基础 MVP 确认写成完整 V1 complete |
-| `V1-MVP-QH-1` | A Page Reading 提升复杂站点主内容识别，降低站点壳、推荐、评论、弹幕设置、活动广告、版权提示、重复文本权重 | B站 / 小红书 / 观察者网样本的 digest 和 sourceRefs 能说明主内容优先；低价值文本不得主导摘要 |
-| `V1-MVP-QH-2` | C Mindmap 做主题归并、标签压缩、节点层级控制和 `nodeSourceMap` 绑定复核 | 高层节点来自主内容；节点短标签可读；主要节点绑定 sourceRef 或明确 fallback reason |
-| `V1-MVP-QH-3` | B Renderer 优化 Evidence Card Mindmap、Reading Map、source card 排序、三态状态样式和窄屏布局 | 截图无文本虚影、节点重叠、卡片截断、输入框遮挡；source card 前置主内容 |
-| `V1-MVP-QH-4` | Content Script jumpback 在用户触发后按 selector、domPath、textQuote、href/card 多线索定位；失败时保留 fallback / blocked | located 必须有 Navia source marker；fallback_shown 和 blocked 不得合并为 success |
-| `V1-MVP-QH-5` | 复验 B站、小红书、观察者网首页与详情页；重新生成独立 QH JSON / HTML / screenshot 证据、PRD review 和 false-green audit，并再聚合到 V1 mainline closeout | 真实数据验收通过才允许 scoped quality hardening passed；任一 major false-green 风险打回对应子阶段 |
+| `V1-MVP-QH-1` | 冻结 48 页 `sample-manifest.json`、页面分类、登录态策略、替代样本规则、质量阈值和当前 6 样本基础 evidence 边界 | 当前 6 样本只写成 prior baseline；manifest 必须通过 `v1_mvp_quality_hardening_sample_manifest.schema.json`；manifest 缺失或扩展矩阵未跑通前不得声明 expanded acceptance passed |
+| `V1-MVP-QH-2` | A Page Reading 提升复杂站点主内容识别，降低站点壳、推荐、评论、弹幕设置、活动广告、版权提示、重复文本权重 | B站 / 小红书 / 观察者网样本及扩展图文网页 digest 和 sourceRefs 能说明主内容优先；低价值文本不得主导摘要 |
+| `V1-MVP-QH-3` | C Mindmap 做主题归并、标签压缩、节点层级控制和 `nodeSourceMap` 绑定复核 | 高层节点来自主内容；节点短标签可读；主要节点绑定 sourceRef 或明确 fallback reason |
+| `V1-MVP-QH-4` | B Renderer 优化 Evidence Card Mindmap、Reading Map、source card 排序、三态状态样式和窄屏布局 | 截图无文本虚影、节点重叠、卡片截断、输入框遮挡；source card 前置主内容 |
+| `V1-MVP-QH-5` | Content Script jumpback 在用户触发后按 selector、domPath、textQuote、href/card 多线索定位；失败时保留 fallback / blocked | located 必须有 Navia source marker；fallback_shown 和 blocked 不得合并为 success |
+| `V1-MVP-QH-6` | 复验国内外 48 页主流图文网页 / 门户网站矩阵；重新生成独立 QH JSON / HTML / screenshot 证据、PRD review 和 false-green audit，并再聚合到 V1 mainline closeout | 真实数据验收通过才允许 expanded quality hardening passed；任一类别低于门槛或出现 major false-green 风险，打回对应子阶段 |
 
 真实数据样本要求：
 
 - B站详情页：摘要和 Mindmap 高层节点必须来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容。
 - 小红书首页 / 详情页：source evidence 优先 feed card、标题、作者、正文或可定位链接；风控或虚拟列表阻断时必须 degraded / blocked。
 - 观察者网首页 / 详情页：正文标题、作者、发布时间、正文段落优先；评论、推荐、最新视频、头条侧栏不得作为默认主 source。
-- 每个样本必须记录 URL、loginStatePolicy、selectedSourceCardIndex、selectionReason、jumpbackResult、screenshotPath、noiseFindings 和 conclusion。
+- 国内新闻 / 门户首页不少于 8 页，国内新闻 / 图文详情页不少于 8 页，国内图文社区 / 内容平台不少于 8 页。
+- 国外新闻 / 门户首页不少于 8 页，国外新闻 / 图文详情页不少于 8 页，国外百科 / 博客 / 文档型图文页不少于 8 页。
+- 总样本不少于 48 页，国内不少于 24 页，国外不少于 24 页；至少 44/48 页 pass，每个类别至少 7/8 页 pass。
+- 每个类别至少覆盖 4 个不同站点；同一站点在同一类别最多计入 2 页，避免用少数网站堆样本数。
+- 每个样本必须记录 URL、countryRegion、contentCategory、loginStatePolicy、mainContentSignals、summaryGrounding、mindmapTopNodes、selectedSourceCardIndex、selectionReason、jumpbackResult、screenshotPath、noiseFindings 和 conclusion。
+- 每个样本必须记录 qualityMetrics：`groundedClaimRate >= 0.8`、`topNodeGroundingRate >= 0.9`、`noisyTopNodeRate <= 0.1`、`duplicateTopNodeRate <= 0.05`、`overlongTopNodeRate <= 0.15`、`jumpbackSemanticConsistency = true`。
 - 每个样本必须覆盖至少一个 `解释选中内容` 检查点：选区解释不能被网站壳、图片序号、时间戳、重复文本、推荐列表或评论区主导。
 - 如果 Mindmap 或 source evidence 展示图片证据，只能使用当前页已有图片 URL、alt、caption 或媒体 metadata；不得新增 OCR/VLM 或外部搜索。
+- 视频 / 直播 / 音频页面只验收 DOM 可见文本、简介、字幕文本、评论、弹幕统计或 metadata；不得声称理解画面、音频或未出现在页面文本中的视频内容。
 
 证据路径：
 
 ```text
 docs/active/project/evidence/v1_mvp_quality_hardening/report.json
 docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html
+docs/active/project/evidence/v1_mvp_quality_hardening/sample-manifest.json
 docs/active/project/evidence/v1_mvp_quality_hardening/prd-review.md
 docs/active/project/evidence/v1_mvp_quality_hardening/false-green-audit.md
 docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json
 docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/
+docs/active/project/contracts/v1_mvp_quality_hardening_sample_manifest.schema.json
+docs/active/project/contracts/v1_mvp_quality_hardening_report.schema.json
 ```
 
-`v1_mainline_closeout` 只能在 QH scoped evidence 通过后重新聚合，不得直接替代 QH 出门证据。
+`v1_mainline_closeout` 只能在 QH expanded evidence 通过后重新聚合，不得直接替代 QH 出门证据。
+
+QH-6 必须先生成独立 QH report，再聚合 mainline closeout。目标命令顺序为：
+
+```bash
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:v1-mvp-quality-hardening
+node apps/chrome-extension/e2e/generate-v1-mvp-quality-hardening-report.mjs
+node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
+```
+
+其中 `generate-v1-mvp-quality-hardening-report.mjs` 必须验证 manifest / report schema，并输出 `freshFallbackSamples`、`referencedFallbackSamples`、`blockedSamples`、`locatedSamples` 与 `referencedFallbackEvidencePaths`。
+
+该 reporter 命令是 QH-6 必须提供的目标验收命令；如果实现阶段脚本不存在、不能生成独立 QH `report.json`，或只生成 `v1_mainline_closeout` 聚合报告，则 QH-6 不得通过。
 
 打回规则：
 
-- `V1-MVP-QH-0` 如文档把 scoped quality hardening 写成完整 V1 complete，打回文档门禁。
-- `V1-MVP-QH-1` 如摘要仍由首页、导航、评论、推荐、广告或版权提示主导，打回 A Page Reading。
-- `V1-MVP-QH-2` 如 Mindmap 高层节点重复、过长、无来源或由低价值文本主导，打回 C Mindmap。
-- `V1-MVP-QH-3` 如真实截图仍有文本虚影、重叠、截断或遮挡，打回 B Renderer。
-- `V1-MVP-QH-4` 如 fallback / blocked 被标成 highlighted，或 marker 不可见，打回 Content Script。
-- `V1-MVP-QH-5` 如 report、PRD review、false-green audit、截图证据结论不一致，或 QH scoped evidence 被 mainline closeout 聚合报告替代，打回报告生成和对应开发阶段。
+- `V1-MVP-QH-0` 如文档把 expanded quality hardening 写成完整 V1 complete，打回文档门禁。
+- `V1-MVP-QH-1` 如 48 页 `sample-manifest.json`、替代样本规则、质量阈值或当前 6 样本 baseline 边界不清，打回样本计划。
+- `V1-MVP-QH-2` 如摘要仍由首页、导航、评论、推荐、广告或版权提示主导，打回 A Page Reading。
+- `V1-MVP-QH-3` 如 Mindmap 高层节点重复、过长、无来源或由低价值文本主导，打回 C Mindmap。
+- `V1-MVP-QH-4` 如真实截图仍有文本虚影、重叠、截断或遮挡，打回 B Renderer。
+- `V1-MVP-QH-5` 如 fallback / blocked 被标成 highlighted，或 marker 不可见，打回 Content Script。
+- `V1-MVP-QH-6` 如 48 页矩阵不足、国内 / 国外类别缺失、任一类别低于 7/8 pass、manifest / report schema validation 失败、report / PRD review / false-green audit / 截图证据结论不一致、fallback fresh/reference/blocked 口径缺失，或 QH expanded evidence 被 mainline closeout 聚合报告替代，打回报告生成和对应开发阶段。
 
 允许声明：
 
 ```text
-V1 MVP quality hardening passed scoped real-site acceptance.
+V1 MVP quality hardening passed expanded real-site acceptance.
 ```
 
 不得声明：
@@ -1654,5 +1678,7 @@ V1 MVP quality hardening passed scoped real-site acceptance.
 完整 V1 complete。
 最终 Monica-like UX complete。
 复杂站点全量高质量通过。
+国内外主流网站全量高质量通过。
 用户主 Profile 登录态全站高质量通过。
+只凭标题、导航或首页卡片标题生成摘要 / Mindmap，却声明完成网页内容理解。
 ```

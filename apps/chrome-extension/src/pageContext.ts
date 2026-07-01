@@ -153,9 +153,24 @@ function extractDomSignals(documentRef: Document, url = documentRef.location?.hr
   ).slice(0, 160);
 
   const candidateSelector = [
+    "main",
+    "article",
     "article",
     "[role='article']",
+    "[role='main']",
+    ".article",
+    ".article-content",
+    ".article-body",
+    ".post-content",
+    ".entry-content",
+    ".content",
+    "[class*='article']",
+    "[class*='post-content']",
+    "[class*='entry-content']",
     "main section",
+    "h1",
+    "h2",
+    "p",
     "li",
     "[class*='card']",
     "[class*='item']",
@@ -509,6 +524,9 @@ function classifyLink(href: string, text: string): string {
 
 function classifyBlock(node: HTMLElement, text: string): string {
   const marker = `${node.tagName} ${node.id || ""} ${node.className || ""} ${node.getAttribute("role") || ""} ${text.slice(0, 160)}`.toLowerCase();
+  if (/^(h1|h2)\b/.test(marker) || /headline|title|article-title|post-title/.test(marker)) return "article_title";
+  if (/article|post-content|entry-content|article-content|article-body|story-body|main-content|正文|content__article/.test(marker)) return "article_body";
+  if (/author|byline|date|time|source|来源|作者|发布时间/.test(marker)) return "article_meta";
   if (/channel-container|side-bar|app-info|sidebar|footer/.test(marker)) return "xhs_sidebar";
   if (/(mfcontainer|explorefeeds)/.test(marker) && text.length > 360) return "xhs_feed_container";
   if (/comment|评论|热评/.test(marker) && /xiaohongshu|note|red|小红书/.test(marker)) return "xhs_comment";
@@ -642,7 +660,7 @@ function isUsefulBilibiliFeedText(text: string): boolean {
 
 function focusedCleanedText(title: string, domSignals: DomSignals, fallback: string): string {
   const mainBlocks = domSignals.blocks
-    .filter((block) => /^(bili_video_|bili_feed_card|xhs_note_|xhs_feed_card|guancha_article_)/.test(block.role || ""))
+    .filter((block) => /^(bili_video_|bili_feed_card|xhs_note_|xhs_feed_card|guancha_article_|article_)/.test(block.role || ""))
     .map((block) => block.text)
     .filter(Boolean);
   const text = [title, ...mainBlocks].join("\n");

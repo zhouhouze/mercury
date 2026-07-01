@@ -15,7 +15,7 @@ Date: 2026-06-25
 - Content Script、iframe sidepanel、B Renderer、Runtime A/C/D、source jumpback 的责任边界。
 - `V1-MC-0` 到 `V1-MC-5` 的历史 closeout candidate 开发及验收计划。
 - `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的复杂站点 Source Jumpback Hardening 质量硬化计划。
-- `V1-MVP-QH-0` 到 `V1-MVP-QH-5` 的基础 MVP 确认后质量硬化计划。
+- `V1-MVP-QH-0` 到 `V1-MVP-QH-6` 的基础 MVP 确认后扩展质量硬化计划。
 - 当前 V1-MC 自动化候选通过事实、cookie-injected 真实站点复验口径，以及仍需人工产品体验核查的边界。
 - 验收门槛、No-Go 和允许声明。
 - 固定验证命令 `testCommands`、上游 evidence 路径逐个校验、fallback coverage 来源和人工核查状态字段。
@@ -30,7 +30,7 @@ Date: 2026-06-25
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
 | `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
 | `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login、cookie-injected 与 logged-in 验收分流，特别标注 B站详情页主内容抽取、噪声过滤、source jumpback 和 fallback 路径复核目标。 |
-| `05 开发及验收计划` | 展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-5` 的文档冻结、A 主内容抽取、C 导图归并、B 可读性、Content Script 反跳和真实站点复验闭环。 |
+| `05 开发及验收计划` | 展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-6` 的文档冻结、48 页 manifest、A 主内容抽取、C 导图归并、B 可读性、Content Script 反跳和扩展真实站点复验闭环。 |
 | `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、基础 MVP accepted、V1-MVP-QH 待开发和人工核查 / 登录态复验边界。 |
 | `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
 | `08 风险路线与备选技术` | 展示登录态 CDP、专用 profile / cookie 注入、public no-login headless、blocker + 人工截图补位四条路线，以及小红书 / 观察者 / B站 / E2E false-green 风险。 |
@@ -182,11 +182,11 @@ Web Research / PPT / Deep Research ready。
 - 在 `02` 页继续展示具体实现实体，并把需强化实体标为黄色：`pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`contentBridge.ts` source jumpback、E2E/report。
 - 在 `03` 页保持目标架构交互链路，明确 A/C/B/Content Script 各自可以修改的边界和不得修改的 Runtime public contract。
 - 在 `04` 页强化复杂站点质量链路：B站、小红书、观察者网首页与详情页都必须说明主内容、噪声、source evidence 和 jumpback 状态。
-- 在 `05` 页展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-5`，并保留失败打回规则。
+- 在 `05` 页展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-6`，并保留失败打回规则。
 - 在 `06` 页把基础 MVP accepted、V1-MC automated candidate、quality hardening 待开发、人工核查 / complete candidate 仍受限串成里程碑。
 - 在 `07` 页增加用户能体验到的质量门槛：导图可读、节点不被低价值文本主导、source marker 明确、fallback / blocked 不伪 success。
 - 在 `08` 页保留登录态、cookie-injected、public no-login、blocker 路线，并说明低等级路线通过不能覆盖高等级路线失败。
-- QH scoped evidence 必须优先落到 `docs/active/project/evidence/v1_mvp_quality_hardening/`，再聚合到 `v1_mainline_closeout`；聚合报告不能替代独立 QH 证据。
+- QH expanded evidence 必须优先落到 `docs/active/project/evidence/v1_mvp_quality_hardening/`，再聚合到 `v1_mainline_closeout`；聚合报告不能替代独立 QH 证据。
 - `解释选中内容` 必须进入质量硬化验收，证明输出不被网站壳、图片序号、时间戳、重复文本、推荐或评论主导。
 
 本轮允许声明：
@@ -198,7 +198,7 @@ V1 MVP baseline accepted; Source Jumpback and Mindmap quality hardening ready fo
 质量硬化完成后最多允许声明：
 
 ```text
-V1 MVP quality hardening passed scoped real-site acceptance.
+V1 MVP quality hardening passed expanded real-site acceptance.
 ```
 
 本轮 drawio 仍不得支持：
@@ -218,6 +218,53 @@ Web Research / PPT / Deep Research ready。
 - 小红书 source evidence 只能 fallback 或 blocked，却被写成 complex-site pass。
 - 观察者网详情页默认反跳到评论、推荐、最新视频、头条侧栏或站点壳。
 - Mindmap / Reading Map 截图仍有文本虚影、节点重叠、卡片截断或输入框遮挡。
+
+## 2026-07-01 V1-MVP-QH-CU/MQ 扩展矩阵修订
+
+本轮根据“当前 V1 识别与 Mindmap 质量仍需优化，并要求更多网页验收”的反馈，将 `V1-MVP-QH` 的出门门槛从 6 个复杂中文站点样本升级为国内外 48 页扩展矩阵。`V1-MVP-QH-CU/MQ` 只是本阶段内部子目标，表示 content understanding and mindmap quality hardening；它不另开新的产品阶段，不新增 Runtime public API，也不引入 RAG、Memory、Web Research、OCR/VLM/ASR、PPT、Deep Research、多 Agent 或默认本地文件读取。
+
+本轮 drawio 要求：
+
+- `01` 页把当前事实写清楚：基础 MVP accepted，旧 6 样本 QH evidence 是 prior baseline，下一步是 48 页扩展真实网页矩阵。
+- `02` 页继续使用具体实现实体，必须展示 `pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`contentBridge.ts`、E2E reporter 和 evidence reports 的当前/目标差异。
+- `03` 页强调主内容识别链路：DOM signals、页面类别、主内容 block、噪声 black list、SourceRef、QualityReport。
+- `04` 页强调 Mindmap Quality 与 Source Evidence 链路：主题归并、短标签、nodeSourceMap、source card 排序、located / fallback_shown / blocked。
+- `05` 页展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-6`，新增 `QH-1` 样本 manifest / 基线诊断门禁。
+- `06` 页展示 48 页矩阵和里程碑：国内 24+、国外 24+、6 类各 8+、总通过 44/48+、每类 7/8+，并明确 `sample-manifest.json` 是 QH-1 出门产物。
+- `07` 页列出用户能体验到的门槛：正文进入摘要、高层节点不被低价值文本主导、source marker 明确、窄屏无虚影 / 截断。
+- `07` 页必须包含可机器判定的质量阈值：`groundedClaimRate >= 0.8`、`topNodeGroundingRate >= 0.9`、`noisyTopNodeRate <= 0.1`、`duplicateTopNodeRate <= 0.05`、`overlongTopNodeRate <= 0.15`、`jumpbackSemanticConsistency = true`。
+- `07` 页必须体现 schema validation 和 fallback 计数口径：manifest / report schema 必须通过；`freshFallbackSamples`、`referencedFallbackSamples`、`blockedSamples`、`locatedSamples` 必须分开记录。
+- `08` 页保留风险路线与打回规则，明确旧 6 样本不能冒充 48 页扩展通过。
+
+本阶段新增两个文档合同，供 QH-1 / QH-6 使用：
+
+```text
+docs/active/project/contracts/v1_mvp_quality_hardening_sample_manifest.schema.json
+docs/active/project/contracts/v1_mvp_quality_hardening_report.schema.json
+```
+
+本轮允许声明：
+
+```text
+V1 MVP baseline accepted; content understanding and mindmap quality hardening ready for staged implementation.
+```
+
+扩展矩阵完成后最多允许声明：
+
+```text
+V1 MVP quality hardening passed expanded real-site acceptance.
+```
+
+仍不得支持：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+国内外主流网站全量高质量通过。
+复杂站点全量高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
 - `fallback_shown` 或 `blocked` 被标记为 `located` / `highlighted`。
 - QH 只产出 mainline closeout 聚合报告，没有独立 `v1_mvp_quality_hardening` evidence。
 - `解释选中内容` 仍由网站壳、图片序号、时间戳、重复文本、推荐或评论主导。

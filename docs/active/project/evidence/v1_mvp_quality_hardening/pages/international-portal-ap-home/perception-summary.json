@@ -1,0 +1,75 @@
+{
+  "activePage": {
+    "pageId": "page_72f8724c821be79b",
+    "title": "Associated Press News: Breaking News, Latest Headlines and Videos | AP News",
+    "url": "https://apnews.com/",
+    "domain": "apnews.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.94,
+  "warnings": [
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 114,
+  "digestItems": 18,
+  "sourceRefs": 121,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.058,
+      "numerator": 7,
+      "denominator": 121,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.745,
+      "numerator": 20153,
+      "denominator": 27034,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 114,
+      "denominator": 114,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 121,
+      "denominator": 121,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.059,
+      "numerator": 264,
+      "denominator": 4495,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.722,
+      "numerator": 13,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "activePage": {
+    "pageId": "page_a4785f397ea08961",
+    "title": "观察者网",
+    "url": "https://www.guancha.cn/",
+    "domain": "www.guancha.cn"
+  },
+  "readiness": "pass",
+  "overallScore": 0.801,
+  "warnings": [],
+  "fatalIssues": [],
+  "highSignalBlocks": 70,
+  "digestItems": 18,
+  "sourceRefs": 122,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.426,
+      "numerator": 52,
+      "denominator": 122,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": false
+    },
+    "contentCoverage": {
+      "value": 0.247,
+      "numerator": 6885,
+      "denominator": 27919,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 70,
+      "denominator": 70,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 122,
+      "denominator": 122,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.044,
+      "numerator": 169,
+      "denominator": 3828,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.722,
+      "numerator": 13,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

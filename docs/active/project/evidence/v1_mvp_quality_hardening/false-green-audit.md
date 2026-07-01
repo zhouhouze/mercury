@@ -1,25 +1,26 @@
-# V1-MVP-QH False-Green Audit
+# V1-MVP-QH Expanded False-Green Audit
 
 Result: PASS
 
-Checks:
+## 防误判检查
 
-- 6 个样本必须全部 pass 才能声明真实复杂站点诊断通过。
-- fallback 不被记录为 DOM highlight success。
-- blocked 不被记录为 fallback 或 DOM highlight success。
-- V1-MVP-QH 允许动态首页 feed 出现少量 fallback evidence，但必须在 report.json 中保留 fallbackPolicy；详情页 fallback 仍为 major。
-- 登录墙、验证码、反爬、空壳 DOM 和低信号信息流不被伪装为高质量提取。
-- B站 / 小红书媒体内容不通过 OCR、ASR、VLM 或 Web Research 补齐。
+- 旧 6 样本 evidence 未被当作 48 页 expanded acceptance。
+- 每个样本有独立 reportConclusion，blocked / degraded 不会被统计为 pass。
+- Jumpback 统一为 located / fallback_shown / blocked，fallback 和 blocked 不冒充 located。
+- fresh fallback、referenced fallback、blocked、located 分开计数。
+- report passed 仅在 44/48、每类 7/8、类别站点数和 fatal / major 口径均通过时成立。
 
-Fatal issues:
-
-- none
-
-Major issues:
+## Fatal
 
 - none
 
-Environment notes:
+## Major
 
-- Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies.
-- Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.
+- none
+
+## Non-pass Samples Retained In Evidence
+
+- domestic-content-xhs-note blocked: theme-color rgb 255, 255, 255fallback_shownviewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
+- international-portal-reuters-home degraded: reuters.comfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
+- international-article-reuters-world degraded: var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hshfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
+- international-doc-openai-docs degraded: quality metrics or source evidence did not pass

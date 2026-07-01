@@ -15,6 +15,18 @@ const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const dataRoot = path.join(evidenceRoot, "pages");
 const runtimeUrl = "http://127.0.0.1:17861";
 const acceptanceMode = process.env.NAVIA_REAL_SITE_ACCEPTANCE_MODE || (evidenceRootRelative.includes("v1_mvp_quality_hardening") ? "v1_mvp_quality_hardening" : "real_site_complex_pages");
+const sampleManifestRelative =
+  process.env.NAVIA_REAL_SITE_SAMPLE_MANIFEST ||
+  (acceptanceMode === "v1_mvp_quality_hardening" ? `${evidenceRootRelative}/sample-manifest.json` : "");
+const sampleManifestPath = sampleManifestRelative ? path.join(repoRoot, sampleManifestRelative) : "";
+const sampleLimit = Math.max(0, Number.parseInt(process.env.NAVIA_REAL_SITE_SAMPLE_LIMIT || "0", 10) || 0);
+const sampleIdsFilter = new Set(
+  String(process.env.NAVIA_REAL_SITE_SAMPLE_IDS || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+);
+const appendEvidence = process.env.NAVIA_REAL_SITE_APPEND === "1";
 
 const browserExecutable = process.env.NAVIA_BROWSER_EXECUTABLE || detectWindowsChromeExecutable();
 const browserModeOverride = process.env.NAVIA_BROWSER_MODE || "";
@@ -161,6 +173,14 @@ function writeText(filePath, value) {
   fs.writeFileSync(filePath, sanitizeEvidenceString(value));
 }
 
+function readJsonFile(filePath, fallback = null) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  } catch {
+    return fallback;
+  }
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -172,6 +192,65 @@ function escapeHtml(value) {
 
 function shouldRedactQueryKey(key) {
   return /(?:token|session|cookie|auth|secret|password|sessdata|bili_jct|dedeuserid|vd_source)/i.test(String(key));
+}
+
+function slug(value) {
+  return String(value ?? "")
+    .normalize("NFKD")
+    .replace(/[^\w.-]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase()
+    .slice(0, 80);
+}
+
+function siteIdFromSample(sample) {
+  const host = hostFromUrl(sample?.url);
+  if (/bilibili\.com$/.test(host)) return "bilibili";
+  if (/xiaohongshu\.com$/.test(host)) return "xiaohongshu";
+  if (/guancha\.cn$/.test(host)) return "guancha";
+  return slug(sample?.site || host || sample?.pageId || "sample");
+}
+
+function siteSpecFromManifestSample(sample) {
+  const siteId = siteIdFromSample(sample);
+  const host = hostFromUrl(sample.url);
+  return {
+    siteId,
+    siteName: sample.site || siteId,
+    homeUrl: sample.url,
+    detailLabel: sample.pageType || "page",
+    detailPatterns: ["/"],
+    detailSelectors: [
+      "article a[href]",
+      "main a[href]",
+      "[role='main'] a[href]",
+      "a[href*='/news/']",
+      "a[href*='/article/']",
+      "a[href*='/world/']",
+      "a[href*='/technology/']",
+      "a[href*='/video/']",
+      "a[href*='/explore/']",
+      "a[href$='.shtml']"
+    ],
+    expectedHost: host,
+    manifestSample: sample
+  };
+}
+
+function loadSampleManifest({ applyLimit = true } = {}) {
+  if (!sampleManifestPath || !fs.existsSync(sampleManifestPath)) return null;
+  const manifest = readJsonFile(sampleManifestPath);
+  if (!manifest || !Array.isArray(manifest.samples)) {
+    throw new Error(`Sample manifest is invalid or missing samples: ${sampleManifestRelative}`);
+  }
+  let samples = manifest.samples;
+  if (applyLimit && sampleIdsFilter.size) {
+    samples = samples.filter((sample) => sampleIdsFilter.has(sample.pageId));
+  }
+  if (applyLimit && sampleLimit) {
+    samples = samples.slice(0, sampleLimit);
+  }
+  return { ...manifest, samples };
 }
 
 function sanitizeEvidenceString(value) {
@@ -677,7 +756,13 @@ function routeValidationIssues(site, pageKind, originalUrl, finalUrl) {
   }
   const host = parsed.hostname.replace(/^www\./, "").toLowerCase();
   const pathName = parsed.pathname.toLowerCase();
-  const detailKind = pageKind !== "homepage";
+  const detailKind = !["homepage", "channel", "feed", "blog", "docs", "wiki"].includes(String(pageKind));
+  if (site.expectedHost) {
+    const expectedHost = String(site.expectedHost).replace(/^www\./, "").toLowerCase();
+    if (expectedHost && host !== expectedHost && !host.endsWith(`.${expectedHost}`) && !expectedHost.endsWith(`.${host}`)) {
+      issues.push(`Manifest sample reached unexpected host: expected=${expectedHost}, actual=${parsed.hostname}.`);
+    }
+  }
   if (site.siteId === "bilibili") {
     if (!host.endsWith("bilibili.com")) issues.push(`Bilibili sample reached unexpected host: ${parsed.hostname}.`);
     if (/^member\.bilibili\.com$/i.test(parsed.hostname) || /\/platform\/upload|creator|studio/.test(pathName)) {
@@ -972,14 +1057,25 @@ function classifySample({ site, pageKind, routeValidation, dom, sidepanel, perce
   };
 }
 
-async function diagnosePage({ page, serviceWorker, site, pageKind, url, label }) {
-  const sampleId = `${site.siteId}-${label}`;
+async function diagnosePage({ page, serviceWorker, site, pageKind, url, label, manifestSample = null }) {
+  const sampleId = manifestSample?.pageId || `${site.siteId}-${label}`;
   const sampleDir = path.join(dataRoot, sampleId);
   fs.mkdirSync(sampleDir, { recursive: true });
   const sample = {
     sampleId,
     siteId: site.siteId,
     siteName: site.siteName,
+    manifest: manifestSample
+      ? {
+          pageId: manifestSample.pageId,
+          contentCategory: manifestSample.contentCategory,
+          countryRegion: manifestSample.countryRegion,
+          pageType: manifestSample.pageType,
+          loginStatePolicy: manifestSample.loginStatePolicy,
+          expectedMainContentSignals: manifestSample.expectedMainContentSignals ?? [],
+          prohibitedNoiseSignals: manifestSample.prohibitedNoiseSignals ?? []
+        }
+      : null,
     pageKind,
     url,
     startedAt: new Date().toISOString(),
@@ -1107,9 +1203,41 @@ function buildReport(samples, browserMode, authCookies = []) {
   const fatalIssues = [];
   const majorIssues = [];
   const environmentNotes = [];
-  if (samples.length < 6) fatalIssues.push(`Expected 6 samples, collected ${samples.length}.`);
-  if (blockedSamples) fatalIssues.push(`${blockedSamples} sample(s) blocked.`);
-  if (degradedSamples) majorIssues.push(`${degradedSamples} sample(s) degraded.`);
+  const expandedSamples = samples.filter((sample) => sample.manifest?.contentCategory);
+  const expandedMode = acceptanceMode === "v1_mvp_quality_hardening" && expandedSamples.length > 0;
+  const categoryResults = expandedMode
+    ? [...new Set(expandedSamples.map((sample) => sample.manifest.contentCategory))]
+        .sort()
+        .map((categoryId) => {
+          const categorySamples = expandedSamples.filter((sample) => sample.manifest.contentCategory === categoryId);
+          return {
+            categoryId,
+            samples: categorySamples.length,
+            passedSamples: categorySamples.filter((sample) => sample.result === "pass").length,
+            distinctSites: new Set(categorySamples.map((sample) => sample.siteName)).size
+          };
+        })
+    : [];
+  if (expandedMode) {
+    const domesticSamples = expandedSamples.filter((sample) => sample.manifest.countryRegion === "domestic").length;
+    const internationalSamples = expandedSamples.filter((sample) => sample.manifest.countryRegion === "international").length;
+    if (expandedSamples.length < 48) fatalIssues.push(`Expected at least 48 expanded samples, collected ${expandedSamples.length}.`);
+    if (domesticSamples < 24) fatalIssues.push(`Expected at least 24 domestic samples, collected ${domesticSamples}.`);
+    if (internationalSamples < 24) fatalIssues.push(`Expected at least 24 international samples, collected ${internationalSamples}.`);
+    if (passedSamples < 44) fatalIssues.push(`Expected at least 44 passed samples, collected ${passedSamples}.`);
+    for (const result of categoryResults) {
+      if (result.samples < 8) fatalIssues.push(`Category ${result.categoryId} has fewer than 8 samples.`);
+      if (result.passedSamples < 7) fatalIssues.push(`Category ${result.categoryId} has fewer than 7 passed samples.`);
+      if (result.distinctSites < 4) fatalIssues.push(`Category ${result.categoryId} has fewer than 4 distinct sites.`);
+    }
+    if (degradedSamples || blockedSamples) {
+      environmentNotes.push(`${degradedSamples} sample(s) degraded and ${blockedSamples} sample(s) blocked were retained as honest evidence.`);
+    }
+  } else {
+    if (samples.length < 6) fatalIssues.push(`Expected 6 samples, collected ${samples.length}.`);
+    if (blockedSamples) fatalIssues.push(`${blockedSamples} sample(s) blocked.`);
+    if (degradedSamples) majorIssues.push(`${degradedSamples} sample(s) degraded.`);
+  }
   if (browserMode === "launch-temp-public-profile") {
     environmentNotes.push(
       authCookies.length
@@ -1123,9 +1251,15 @@ function buildReport(samples, browserMode, authCookies = []) {
   if (authCookies.length) {
     environmentNotes.push(`Auth cookies were injected for: ${authCookies.map((item) => `${item.siteId}(${item.count})`).join(", ")}. Cookie values are intentionally omitted from evidence.`);
   }
-  const passed = fatalIssues.length === 0 && majorIssues.length === 0 && samples.length === 6;
+  const passed = expandedMode
+    ? fatalIssues.length === 0 && expandedSamples.length >= 48 && passedSamples >= 44
+    : fatalIssues.length === 0 && majorIssues.length === 0 && samples.length === 6;
   return {
-    schemaVersion: acceptanceMode === "v1_mvp_quality_hardening" ? "v1-mvp-quality-hardening.1" : "v1-real-site-complex-pages-diagnostic.1",
+    schemaVersion: expandedMode
+      ? "v1-mvp-quality-hardening.raw-diagnostic.1"
+      : acceptanceMode === "v1_mvp_quality_hardening"
+        ? "v1-mvp-quality-hardening.1"
+        : "v1-real-site-complex-pages-diagnostic.1",
     generatedAt: new Date().toISOString(),
     acceptanceMode,
     evidenceRoot: evidenceRootRelative,
@@ -1150,7 +1284,9 @@ function buildReport(samples, browserMode, authCookies = []) {
       degradedSamples,
       blockedSamples,
       highlightedSamples: samples.filter((sample) => sample.jumpback?.status === "highlighted").length,
-      fallbackSamples: samples.filter((sample) => sample.jumpback?.status === "fallback_shown").length
+      fallbackSamples: samples.filter((sample) => sample.jumpback?.status === "fallback_shown").length,
+      expandedMode,
+      categoryResults
     },
     samples: samples.map((sample) => ({
       sampleId: sample.sampleId,
@@ -1158,6 +1294,9 @@ function buildReport(samples, browserMode, authCookies = []) {
       pageKind: sample.pageKind,
       url: sample.url,
       finalUrl: sample.finalUrl ?? null,
+      countryRegion: sample.manifest?.countryRegion ?? null,
+      contentCategory: sample.manifest?.contentCategory ?? null,
+      loginStatePolicy: sample.manifest?.loginStatePolicy ?? null,
       result: sample.result,
       readiness: sample.perception?.readiness ?? "unknown",
       bodyTextLength: sample.dom?.bodyTextLength ?? 0,
@@ -1179,7 +1318,9 @@ function buildReport(samples, browserMode, authCookies = []) {
     environmentNotes,
     claim: passed
       ? acceptanceMode === "v1_mvp_quality_hardening"
-        ? "V1 MVP quality hardening passed scoped real-site acceptance."
+        ? expandedMode
+          ? "V1 MVP quality hardening diagnostic collected expanded real-site evidence. Run generate-v1-mvp-quality-hardening-report.mjs for the final schema report."
+          : "V1 MVP quality hardening passed scoped real-site acceptance."
         : "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples."
       : acceptanceMode === "v1_mvp_quality_hardening"
         ? "No completion claim. V1 MVP quality hardening remains degraded or blocked."
@@ -1369,9 +1510,19 @@ function writeHtmlReport(report) {
 }
 
 async function main() {
-  fs.rmSync(evidenceRoot, { recursive: true, force: true });
+  const manifestBeforeCleanup = loadSampleManifest({ applyLimit: false });
+  const runtimeManifest =
+    manifestBeforeCleanup
+      ? loadSampleManifest({ applyLimit: true })
+      : null;
+  if (!appendEvidence) {
+    fs.rmSync(evidenceRoot, { recursive: true, force: true });
+  }
   fs.mkdirSync(screenshotRoot, { recursive: true });
   fs.mkdirSync(dataRoot, { recursive: true });
+  if (manifestBeforeCleanup) {
+    writeJson(path.join(evidenceRoot, "sample-manifest.json"), manifestBeforeCleanup);
+  }
 
   const runtime = (await isRuntimeOnline()) ? null : startRuntime();
   let browserHandle = null;
@@ -1389,7 +1540,11 @@ async function main() {
       browserHandle = await launchWindowsTempPublicProfile(error);
     }
     const page = await browserHandle.context.newPage();
-    const targetSites = realSiteOnly ? sites.filter((site) => site.siteId === realSiteOnly) : sites;
+    const manifest = runtimeManifest;
+    const manifestSites = manifest
+      ? manifest.samples.map((sample) => siteSpecFromManifestSample(sample))
+      : null;
+    const targetSites = manifestSites ?? (realSiteOnly ? sites.filter((site) => site.siteId === realSiteOnly) : sites);
     authCookies = await applyAuthCookies(browserHandle.context, targetSites);
     wakeFixture = await startWakeFixtureServer();
     const wakeUrl = wakeFixture.url;
@@ -1398,56 +1553,73 @@ async function main() {
     const serviceWorker = await wakeExtensionAndWaitForServiceWorker(page, browserHandle.context, 25000);
     if (!serviceWorker) throw new Error("Extension service worker not exposed. Run NAVIA_E2E_BRIDGE=1 npm --prefix apps/chrome-extension run build:e2e first.");
 
-    for (const site of targetSites) {
-      const homeUrl = homeUrlOverrides[site.siteId] || site.homeUrl;
-      const homeSample = await diagnosePage({ page, serviceWorker, site, pageKind: "homepage", url: homeUrl, label: "homepage" });
-      samples.push(homeSample);
-      const overrideUrl = detailUrlOverrides[site.siteId] || "";
-      const detailCandidates = overrideUrl
-        ? [{ href: overrideUrl, text: "explicit detail URL from NAVIA_REAL_SITE_*_DETAIL_URL" }]
-        : await discoverDetailCandidates(page, site).catch(() => []);
-      if (detailCandidates.length) {
-        let selectedDetailSample = null;
-        const attemptedDetails = [];
-        const limitedDetailCandidates = detailCandidates.slice(0, maxDetailAttempts);
-        for (let index = 0; index < limitedDetailCandidates.length; index += 1) {
-          const detail = limitedDetailCandidates[index];
-          const detailSample = await diagnosePage({ page, serviceWorker, site, pageKind: site.detailLabel, url: detail.href, label: "detail" });
-          detailSample.discoveredFromHome = detail;
-          detailSample.detailCandidateIndex = index;
-          attemptedDetails.push({
-            index,
-            href: detail.href,
-            text: detail.text,
-            result: detailSample.result,
-            finalUrl: detailSample.finalUrl,
-            unavailable: isUnavailableDetailSample(detailSample)
-          });
-          selectedDetailSample = detailSample;
-          if (!isUnavailableDetailSample(detailSample)) break;
-          await page.goto(homeUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => undefined);
-          await page.waitForLoadState("networkidle", { timeout: 12000 }).catch(() => undefined);
-          await wait(2500);
+    if (manifest) {
+      writeJson(path.join(evidenceRoot, "sample-manifest.resolved.json"), manifest);
+      for (const sampleSpec of manifest.samples) {
+        const site = siteSpecFromManifestSample(sampleSpec);
+        const sample = await diagnosePage({
+          page,
+          serviceWorker,
+          site,
+          pageKind: sampleSpec.pageType || "page",
+          url: sampleSpec.url,
+          label: sampleSpec.pageId,
+          manifestSample: sampleSpec
+        });
+        samples.push(sample);
+      }
+    } else {
+      for (const site of targetSites) {
+        const homeUrl = homeUrlOverrides[site.siteId] || site.homeUrl;
+        const homeSample = await diagnosePage({ page, serviceWorker, site, pageKind: "homepage", url: homeUrl, label: "homepage" });
+        samples.push(homeSample);
+        const overrideUrl = detailUrlOverrides[site.siteId] || "";
+        const detailCandidates = overrideUrl
+          ? [{ href: overrideUrl, text: "explicit detail URL from NAVIA_REAL_SITE_*_DETAIL_URL" }]
+          : await discoverDetailCandidates(page, site).catch(() => []);
+        if (detailCandidates.length) {
+          let selectedDetailSample = null;
+          const attemptedDetails = [];
+          const limitedDetailCandidates = detailCandidates.slice(0, maxDetailAttempts);
+          for (let index = 0; index < limitedDetailCandidates.length; index += 1) {
+            const detail = limitedDetailCandidates[index];
+            const detailSample = await diagnosePage({ page, serviceWorker, site, pageKind: site.detailLabel, url: detail.href, label: "detail" });
+            detailSample.discoveredFromHome = detail;
+            detailSample.detailCandidateIndex = index;
+            attemptedDetails.push({
+              index,
+              href: detail.href,
+              text: detail.text,
+              result: detailSample.result,
+              finalUrl: detailSample.finalUrl,
+              unavailable: isUnavailableDetailSample(detailSample)
+            });
+            selectedDetailSample = detailSample;
+            if (!isUnavailableDetailSample(detailSample)) break;
+            await page.goto(homeUrl, { waitUntil: "domcontentloaded", timeout: 60000 }).catch(() => undefined);
+            await page.waitForLoadState("networkidle", { timeout: 12000 }).catch(() => undefined);
+            await wait(2500);
+          }
+          selectedDetailSample.attemptedDetails = attemptedDetails;
+          writeJson(path.join(dataRoot, selectedDetailSample.sampleId, "sample-report.json"), selectedDetailSample);
+          samples.push(selectedDetailSample);
+        } else {
+          const blocked = {
+            sampleId: `${site.siteId}-detail`,
+            siteId: site.siteId,
+            siteName: site.siteName,
+            pageKind: site.detailLabel,
+            url: "",
+            result: "blocked",
+            fatalIssues: ["No detail URL could be discovered from the homepage DOM."],
+            majorIssues: [],
+            dom: homeSample.dom ?? null,
+            startedAt: new Date().toISOString(),
+            completedAt: new Date().toISOString()
+          };
+          writeJson(path.join(dataRoot, blocked.sampleId, "sample-report.json"), blocked);
+          samples.push(blocked);
         }
-        selectedDetailSample.attemptedDetails = attemptedDetails;
-        writeJson(path.join(dataRoot, selectedDetailSample.sampleId, "sample-report.json"), selectedDetailSample);
-        samples.push(selectedDetailSample);
-      } else {
-        const blocked = {
-          sampleId: `${site.siteId}-detail`,
-          siteId: site.siteId,
-          siteName: site.siteName,
-          pageKind: site.detailLabel,
-          url: "",
-          result: "blocked",
-          fatalIssues: ["No detail URL could be discovered from the homepage DOM."],
-          majorIssues: [],
-          dom: homeSample.dom ?? null,
-          startedAt: new Date().toISOString(),
-          completedAt: new Date().toISOString()
-        };
-        writeJson(path.join(dataRoot, blocked.sampleId, "sample-report.json"), blocked);
-        samples.push(blocked);
       }
     }
   } catch (error) {
@@ -1470,7 +1642,13 @@ async function main() {
     if (runtime) runtime.kill("SIGTERM");
   }
 
-  const report = buildReport(samples, browserHandle?.mode ?? "not-launched", authCookies);
+  const reportSamples =
+    appendEvidence && manifestBeforeCleanup
+      ? manifestBeforeCleanup.samples
+          .map((sample) => readJsonFile(path.join(dataRoot, sample.pageId, "sample-report.json")))
+          .filter(Boolean)
+      : samples;
+  const report = buildReport(reportSamples, browserHandle?.mode ?? "not-launched", authCookies);
   writeJson(path.join(evidenceRoot, "report.json"), report);
   writeMarkdownReports(report);
   console.log(JSON.stringify(report, null, 2));

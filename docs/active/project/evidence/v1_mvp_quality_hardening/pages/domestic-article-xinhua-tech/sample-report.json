@@ -1,0 +1,870 @@
+{
+  "sampleId": "domestic-article-xinhua-tech",
+  "siteId": "",
+  "siteName": "新华网",
+  "manifest": {
+    "pageId": "domestic-article-xinhua-tech",
+    "contentCategory": "domestic_article_detail",
+    "countryRegion": "domestic",
+    "pageType": "channel",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "科技新闻标题",
+      "新闻摘要",
+      "正文入口"
+    ],
+    "prohibitedNoiseSignals": [
+      "登录",
+      "广告",
+      "版权",
+      "导航",
+      "推荐"
+    ]
+  },
+  "pageKind": "channel",
+  "url": "https://www.news.cn/tech/",
+  "startedAt": "2026-07-01T15:42:27.058Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.news.cn/tech/",
+  "dom": {
+    "title": "新华科技_新华网",
+    "url": "https://www.news.cn/tech/",
+    "bodyTextLength": 1341,
+    "bodyTextSample": "ENGLISH新华报刊地方频道承建网站网站无障碍客户端手机版站内搜索 新华通讯社主办 公司官网 股票代码：603888 学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件 金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业 大国科技 数智经济 智库研报 图片 专题 视频 直播 科技快讯 低空经济 进取——5.30全国科技工作者日特别报道 “链接世界，共创未来”——从链博会看数智科技链发展新趋势（组图） 2026上海世界移动通信大会在沪开幕（组图） ISC.AI 2026开幕式与未来峰会 链博会人工智能专区里都有啥？ 链接世界 共创未来 第四届链博会在京开幕 科技自立自强之院士说｜傅向东——稻田里的基因“解码者” 平凡不等于平庸，奔波亦可自成星河 智舱智驾驶入AI新赛道 高通与中国汽车产业共建智能网联新生态 “一”见中国｜一颗“鲜”荔枝如何跑赢时间？ 进取——5.30全国科技工作者日特别报道 “链接世界，共创未来”——从链博会看数智科技链发展新趋势（组图） 3 / 10 赛迪顾问：工业大县再出发－夯实制造强国根基的四大路径与五大抓手 2026-07-01 前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2",
+    "anchorCount": 345,
+    "anchors": [
+      {
+        "text": "网站无障碍",
+        "href": "javascript:void(0)"
+      },
+      {
+        "text": "PC版本",
+        "href": "https://www.news.cn/?f=pad"
+      },
+      {
+        "text": "",
+        "href": "https://so.news.cn/"
+      },
+      {
+        "text": "首页",
+        "href": "https://m.news.cn/"
+      },
+      {
+        "text": "学习进行时",
+        "href": "https://www.news.cn/politics/xxjxs/index.htm"
+      },
+      {
+        "text": "高层",
+        "href": "https://www.news.cn/politics/leaders/index.htm"
+      },
+      {
+        "text": "时政",
+        "href": "https://www.news.cn/politicspro/mobile/index.html"
+      },
+      {
+        "text": "人事",
+        "href": "https://www.news.cn/politics/xhrs/index.html"
+      },
+      {
+        "text": "国际",
+        "href": "https://www.news.cn/worldpro/mobile/index.html"
+      },
+      {
+        "text": "财经",
+        "href": "https://www.news.cn/fortunepro/mobile/index.html"
+      },
+      {
+        "text": "网评",
+        "href": "https://www.news.cn/comments/index.html"
+      },
+      {
+        "text": "港澳",
+        "href": "https://www.news.cn/gangao/index.html"
+      },
+      {
+        "text": "台湾",
+        "href": "https://www.news.cn/tw/index.html"
+      },
+      {
+        "text": "思客智库",
+        "href": "https://www.news.cn/sikepro/"
+      },
+      {
+        "text": "全球连线",
+        "href": "https://www.news.cn/world/globalink/index.html"
+      },
+      {
+        "text": "教育",
+        "href": "https://education.news.cn/index.htm"
+      },
+      {
+        "text": "科技",
+        "href": "https://www.news.cn/tech/"
+      },
+      {
+        "text": "科创",
+        "href": "https://www.news.cn/sci-tech/index.html"
+      },
+      {
+        "text": "量子",
+        "href": "https://www.news.cn/liangzi/index.html"
+      },
+      {
+        "text": "体育",
+        "href": "https://www.news.cn/sports"
+      },
+      {
+        "text": "文化",
+        "href": "https://www.news.cn/culture/"
+      },
+      {
+        "text": "健康",
+        "href": "https://www.news.cn/health/"
+      },
+      {
+        "text": "军事",
+        "href": "https://www.news.cn/milpro/"
+      },
+      {
+        "text": "访谈",
+        "href": "https://www.news.cn/talking/index.html"
+      },
+      {
+        "text": "视频",
+        "href": "https://www.news.cn/video/"
+      },
+      {
+        "text": "图片",
+        "href": "https://www.news.cn/photo/index.htm"
+      },
+      {
+        "text": "政务",
+        "href": "https://www.news.cn/government/index.html"
+      },
+      {
+        "text": "法律",
+        "href": "https://www.news.cn/law/index.html"
+      },
+      {
+        "text": "中央文件",
+        "href": "https://www.news.cn/politics/zywj/index.htm"
+      },
+      {
+        "text": "学习进行时",
+        "href": "https://www.news.cn/politics/xxjxs/index.htm"
+      },
+      {
+        "text": "高层",
+        "href": "https://www.news.cn/politics/leaders/index.htm"
+      },
+      {
+        "text": "时政",
+        "href": "https://www.news.cn/politicspro/mobile/index.html"
+      },
+      {
+        "text": "人事",
+        "href": "https://www.news.cn/politics/xhrs/index.html"
+      },
+      {
+        "text": "国际",
+        "href": "https://www.news.cn/worldpro/mobile/index.html"
+      },
+      {
+        "text": "财经",
+        "href": "https://www.news.cn/fortunepro/mobile/index.html"
+      },
+      {
+        "text": "网评",
+        "href": "https://www.news.cn/comments/index.html"
+      },
+      {
+        "text": "港澳",
+        "href": "https://www.news.cn/gangao/index.html"
+      },
+      {
+        "text": "台湾",
+        "href": "https://www.news.cn/tw/index.html"
+      },
+      {
+        "text": "思客智库",
+        "href": "https://www.news.cn/sikepro/"
+      },
+      {
+        "text": "全球连线",
+        "href": "https://www.news.cn/world/globalink/index.html"
+      },
+      {
+        "text": "教育",
+        "href": "http://education.news.cn/index.htm"
+      },
+      {
+        "text": "科技",
+        "href": "https://www.news.cn/tech/"
+      },
+      {
+        "text": "科创",
+        "href": "https://www.news.cn/sci-tech/index.html"
+      },
+      {
+        "text": "量子",
+        "href": "https://www.news.cn/liangzi/index.html"
+      },
+      {
+        "text": "体育",
+        "href": "http://sports.news.cn/index.htm"
+      },
+      {
+        "text": "文化",
+        "href": "https://www.news.cn/culture/"
+      },
+      {
+        "text": "书画",
+        "href": "https://www.news.cn/shuhua/index.html"
+      },
+      {
+        "text": "健康",
+        "href": "https://www.news.cn/health/"
+      },
+      {
+        "text": "军事",
+        "href": "https://www.news.cn/milpro/"
+      },
+      {
+        "text": "访谈",
+        "href": "https://www.news.cn/talking/index.html"
+      },
+      {
+        "text": "视频",
+        "href": "https://www.news.cn/video/"
+      },
+      {
+        "text": "图片",
+        "href": "https://www.news.cn/photo/index.htm"
+      },
+      {
+        "text": "政务",
+        "href": "https://www.news.cn/government/index.html"
+      },
+      {
+        "text": "法律",
+        "href": "https://www.news.cn/law/index.html"
+      },
+      {
+        "text": "中央文件",
+        "href": "https://www.news.cn/politics/zywj/index.htm"
+      },
+      {
+        "text": "金融",
+        "href": "https://www.news.cn/money/index.html"
+      },
+      {
+        "text": "汽车",
+        "href": "https://www.news.cn/auto/index.html"
+      },
+      {
+        "text": "食品",
+        "href": "https://www.news.cn/food/index.html"
+      },
+      {
+        "text": "人居",
+        "href": "http://www.xinhuanet.com/house/index.html"
+      },
+      {
+        "text": "信息化",
+        "href": "https://www.news.cn/info/index.html"
+      },
+      {
+        "text": "数字经济",
+        "href": "https://www.news.cn/digital/index.html"
+      },
+      {
+        "text": "学术中国",
+        "href": "https://xszg-pc.app.xinhuanet.com/home"
+      },
+      {
+        "text": "乡村振兴",
+        "href": "https://xczx.news.cn/"
+      },
+      {
+        "text": "银龄",
+        "href": "https://www.news.cn/yinling/index.html"
+      },
+      {
+        "text": "溯源中国",
+        "href": "https://xczx.news.cn/xbsyzg/index.html"
+      },
+      {
+        "text": "城市",
+        "href": "http://city.news.cn/"
+      },
+      {
+        "text": "旅游",
+        "href": "https://www.news.cn/travel/index.html"
+      },
+      {
+        "text": "能源",
+        "href": "https://www.news.cn/energy/index.html"
+      },
+      {
+        "text": "会展",
+        "href": "https://www.news.cn/expo/index.html"
+      },
+      {
+        "text": "彩票",
+        "href": "https://www.news.cn/caipiao/index.html"
+      },
+      {
+        "text": "娱乐",
+        "href": "https://www.news.cn/ent/index.html"
+      },
+      {
+        "text": "时尚",
+        "href": "https://www.news.cn/fashion/index.html"
+      },
+      {
+        "text": "悦读",
+        "href": "https://www.news.cn/book/index.html"
+      },
+      {
+        "text": "公益",
+        "href": "https://www.news.cn/gongyi/index.html"
+      },
+      {
+        "text": "一带一路",
+        "href": "https://www.news.cn/silkroad/index.html"
+      },
+      {
+        "text": "亚太网",
+        "href": "https://www.news.cn/asia/chinese/index.html"
+      },
+      {
+        "text": "上市公司",
+        "href": "https://www.news.cn/finance/"
+      },
+      {
+        "text": "文化产业",
+        "href": "https://www.news.cn/ci/"
+      },
+      {
+        "text": "北京",
+        "href": "http://bj.news.cn/mobile/"
+      },
+      {
+        "text": "天津",
+        "href": "http://tj.news.cn/mobile/"
+      },
+      {
+        "text": "河北",
+        "href": "http://hb.news.cn/mobile/"
+      },
+      {
+        "text": "山西",
+        "href": "http://sx.news.cn/mobile/"
+      },
+      {
+        "text": "辽宁",
+        "href": "http://ln.news.cn/mobile/"
+      },
+      {
+        "text": "吉林",
+        "href": "http://jl.news.cn/mobile/"
+      },
+      {
+        "text": "上海",
+        "href": "http://sh.news.cn/mobile/"
+      },
+      {
+        "text": "江苏",
+        "href": "http://js.news.cn/mobile/"
+      },
+      {
+        "text": "浙江",
+        "href": "http://zj.news.cn/mobile/"
+      },
+      {
+        "text": "安徽",
+        "href": "http://ah.news.cn/mobile/"
+      },
+      {
+        "text": "福建",
+        "href": "http://fj.news.cn/mobile/"
+      },
+      {
+        "text": "江西",
+        "href": "http://jx.news.cn/mobile/"
+      },
+      {
+        "text": "山东",
+        "href": "http://sd.news.cn/mobile/"
+      },
+      {
+        "text": "河南",
+        "href": "http://ha.news.cn/mobile/"
+      },
+      {
+        "text": "湖北",
+        "href": "http://hb.news.cn/mobile/"
+      },
+      {
+        "text": "湖南",
+        "href": "http://hn.news.cn/mobile/"
+      },
+      {
+        "text": "广东",
+        "href": "http://gd.news.cn/mobile/"
+      },
+      {
+        "text": "广西",
+        "href": "http://gx.news.cn/mobile/"
+      },
+      {
+        "text": "海南",
+        "href": "http://hq.news.cn/mobile/"
+      },
+      {
+        "text": "重庆",
+        "href": "http://cq.news.cn/mobile/"
+      },
+      {
+        "text": "四川",
+        "href": "http://sc.news.cn/mobile/"
+      },
+      {
+        "text": "贵州",
+        "href": "http://gz.news.cn/mobile/"
+      },
+      {
+        "text": "云南",
+        "href": "http://yn.news.cn/mobile/"
+      },
+      {
+        "text": "西藏",
+        "href": "http://tibet.news.cn/mobile"
+      },
+      {
+        "text": "陕西",
+        "href": "http://sn.news.cn/mobile/"
+      },
+      {
+        "text": "甘肃",
+        "href": "http://gs.news.cn/mobile/"
+      },
+      {
+        "text": "青海",
+        "href": "http://qh.news.cn/mobile/"
+      },
+      {
+        "text": "宁夏",
+        "href": "http://nx.news.cn/mobile/"
+      },
+      {
+        "text": "新疆",
+        "href": "http://xj.news.cn/mobile/"
+      },
+      {
+        "text": "内蒙古",
+        "href": "http://nmg.news.cn/mobile/"
+      },
+      {
+        "text": "黑龙江",
+        "href": "http://hlj.news.cn/mobile/"
+      },
+      {
+        "text": "English",
+        "href": "https://english.news.cn/home.htm"
+      },
+      {
+        "text": "Español",
+        "href": "https://spanish.news.cn/index.htm"
+      },
+      {
+        "text": "Français",
+        "href": "https://french.news.cn/index.htm"
+      },
+      {
+        "text": "عربى",
+        "href": "https://arabic.news.cn/index.htm"
+      },
+      {
+        "text": "Русский язык",
+        "href": "https://russian.news.cn/index.htm"
+      },
+      {
+        "text": "日本語",
+        "href": "https://jp.news.cn/index.htm"
+      },
+      {
+        "text": "한국어",
+        "href": "https://kr.news.cn/index.htm"
+      },
+      {
+        "text": "Deutsch",
+        "href": "https://german.news.cn/index.htm"
+      },
+      {
+        "text": "Português",
+        "href": "https://portuguese.news.cn/index.htm"
+      },
+      {
+        "text": "",
+        "href": "javascript:void(0)"
+      },
+      {
+        "text": "English",
+        "href": "https://english.news.cn/home.htm"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000002463",
+    "pageTitle": "新华科技_新华网",
+    "submitStatus": "已提交：page_e0416cba31232a7f",
+    "domSignalBlockCount": 29,
+    "domSignalLinkCount": 160,
+    "pageStateHints": []
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_e0416cba31232a7f",
+      "title": "新华科技_新华网",
+      "url": "https://www.news.cn/tech/",
+      "domain": "www.news.cn"
+    },
+    "readiness": "pass",
+    "overallScore": 0.927,
+    "warnings": [],
+    "fatalIssues": [],
+    "highSignalBlocks": 38,
+    "digestItems": 18,
+    "sourceRefs": 40,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.05,
+        "numerator": 2,
+        "denominator": 40,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.544,
+        "numerator": 1598,
+        "denominator": 2938,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": false
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 38,
+        "denominator": 38,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 40,
+        "denominator": 40,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.271,
+        "numerator": 106,
+        "denominator": 391,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.944,
+        "numerator": 17,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0002",
+          "src_page_e0416cba31232a7f_0006",
+          "src_page_e0416cba31232a7f_0010"
+        ],
+        "label": "人物与机构",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0002"
+        ],
+        "label": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0001"
+        ],
+        "label": "视频与内容",
+        "excerpt": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0001"
+        ],
+        "label": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技",
+        "excerpt": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0028"
+        ],
+        "label": "Copyright 2000 - 2026",
+        "excerpt": "Copyright © 2000 - 2026 XINHUANET.com All Rights Reserved."
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0023"
+        ],
+        "label": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消",
+        "excerpt": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消费电子博览会 2024年中国家电及消费电子博览会"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0004"
+        ],
+        "label": "影响与结果",
+        "excerpt": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2026-07-01"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0004"
+        ],
+        "label": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领",
+        "excerpt": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2026-07-01"
+      }
+    ],
+    "evidenceCardCount": 12,
+    "evidenceCardLabels": [
+      "核心要点",
+      "大国科技 高水平科技自立自强院士说 中国空间站动态 神舟二十三号乘",
+      "人物与机构",
+      "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市",
+      "视频与内容",
+      "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技",
+      "Copyright 2000 - 2026",
+      "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消",
+      "影响与结果",
+      "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领",
+      "Русский язык",
+      "Português"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 13,
+    "readingMapDetailText": "新华科技_新华网ready学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件4 sourcedetail4 sources学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0002",
+          "src_page_e0416cba31232a7f_0006",
+          "src_page_e0416cba31232a7f_0010"
+        ],
+        "label": "人物与机构",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0002"
+        ],
+        "label": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0001"
+        ],
+        "label": "视频与内容",
+        "excerpt": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0001"
+        ],
+        "label": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技",
+        "excerpt": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0028"
+        ],
+        "label": "Copyright 2000 - 2026",
+        "excerpt": "Copyright © 2000 - 2026 XINHUANET.com All Rights Reserved."
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0023"
+        ],
+        "label": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消",
+        "excerpt": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消费电子博览会 2024年中国家电及消费电子博览会"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0004"
+        ],
+        "label": "影响与结果",
+        "excerpt": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2026-07-01"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_e0416cba31232a7f_0004"
+        ],
+        "label": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领",
+        "excerpt": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2026-07-01"
+      }
+    ],
+    "evidenceText": "人物与机构located金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 20 for ; label=人物与机构",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 20 for ; label=人物与机构",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "人物与机构",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业",
+        "score": 20
+      },
+      {
+        "index": 1,
+        "label": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市",
+        "excerpt": "金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票娱乐时尚悦读公益一带一路亚太网上市公司文化产业",
+        "score": 16
+      },
+      {
+        "index": 3,
+        "label": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技",
+        "excerpt": "学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "Copyright 2000 - 2026",
+        "excerpt": "Copyright © 2000 - 2026 XINHUANET.com All Rights Reserved.",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消",
+        "excerpt": "全屋智能 2026中国家电及消费电子博览会 2025年中国家电及消费电子博览会 2024年中国家电及消费电子博览会",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "影响与结果",
+        "excerpt": "前5月具身智能企业销售收入增长22.4% 整机制造、算法与软件等领域均快速增长 2026-07-01",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 12,
+    "evidenceCardLabelCount": 12,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0.08333333333333333,
+    "averageLabelLength": 18.833333333333332,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:43:00.088Z"
+}

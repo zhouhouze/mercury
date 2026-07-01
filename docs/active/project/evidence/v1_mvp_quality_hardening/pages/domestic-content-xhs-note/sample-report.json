@@ -1,0 +1,749 @@
+{
+  "sampleId": "domestic-content-xhs-note",
+  "siteId": "xiaohongshu",
+  "siteName": "小红书",
+  "manifest": {
+    "pageId": "domestic-content-xhs-note",
+    "contentCategory": "domestic_content_platform",
+    "countryRegion": "domestic",
+    "pageType": "detail",
+    "loginStatePolicy": "temp_cookie_profile",
+    "expectedMainContentSignals": [
+      "笔记标题",
+      "正文",
+      "图片说明",
+      "作者"
+    ],
+    "prohibitedNoiseSignals": [
+      "图1",
+      "登录",
+      "验证码",
+      "推荐"
+    ]
+  },
+  "pageKind": "detail",
+  "url": "https://www.xiaohongshu.com/explore/6a3283ce000000001602715a",
+  "startedAt": "2026-07-01T15:48:38.396Z",
+  "result": "blocked",
+  "fatalIssues": [
+    "Xiaohongshu detail sample did not reach /explore/ or /discovery/item/: https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=."
+  ],
+  "majorIssues": [
+    "Page perception readiness is degraded.",
+    "Source jumpback only showed fallback evidence.",
+    "Mindmap labels are too long for side panel reading: avgLength=51.8."
+  ],
+  "finalUrl": "https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=",
+  "dom": {
+    "title": "小红书 - 你访问的页面不见了",
+    "url": "https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=",
+    "bodyTextLength": 765,
+    "bodyTextSample": "首页 点点 ai RED 直播 发布 1 通知 20 消息 我 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经营许可证：沪网文(2024)1344-086号 | 个性化推荐算法 网信算备310101216601302230019号 © 2014-2026 行吟信息科技（上海）有限公司 地址：上海市黄浦区马当路388号C座 电话：9501-3888 更多 关于我们 沪ICP备13030189号 | 营业执照 | 2024沪公网安备31010102002533号 | 增值电信业务经营许可证：沪B2-20150021 | 医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号 | 互联网药品信息服务资格证书：(沪)-经营性-2023-0144 | 违法不良信息举报电话：4006676810 | 上海市互联网举报中心 | 网上有害信息举报专区 | 自营经营者信息 | 网络文化经",
+    "anchorCount": 44,
+    "anchors": [
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/explore?channel_type=web_error_page"
+      },
+      {
+        "text": "首页",
+        "href": "https://www.xiaohongshu.com/explore?channel_id=homefeed_recommend"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/worldcup26?wcup_source=web_sidebar_entry"
+      },
+      {
+        "text": "点点ai",
+        "href": "https://www.xiaohongshu.com/ai_chat?from=sidebar"
+      },
+      {
+        "text": "RED",
+        "href": "https://www.xiaohongshu.com/red_video"
+      },
+      {
+        "text": "直播",
+        "href": "https://www.xiaohongshu.com/livelist?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "发布",
+        "href": "https://creator.xiaohongshu.com/publish/publish?source=official"
+      },
+      {
+        "text": "1通知",
+        "href": "https://www.xiaohongshu.com/notification"
+      },
+      {
+        "text": "20消息",
+        "href": "https://www.xiaohongshu.com/chat?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      },
+      {
+        "text": "沪ICP备13030189号",
+        "href": "https://beian.miit.gov.cn/"
+      },
+      {
+        "text": "营业执照",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/5581076bd6b6af2e0e943abb024ad0e16f2ebff6.pdf"
+      },
+      {
+        "text": "2024沪公网安备31010102002533号",
+        "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002533"
+      },
+      {
+        "text": "增值电信业务经营许可证：沪B2-20150021",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform-file/104101b831hhkkll23u0678gtks7tu70004en2n231udpe"
+      },
+      {
+        "text": "医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/410dce57bc12a6d7e5808060e47644fbe46f68ff.pdf"
+      },
+      {
+        "text": "互联网药品信息服务资格证书：(沪)-经营性-2023-0144",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/f37a08cacc088061beb38329c387c32fc48fc6fe.pdf"
+      },
+      {
+        "text": "违法不良信息举报电话：4006676810",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "上海市互联网举报中心",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "网上有害信息举报专区",
+        "href": "https://www.12377.cn/"
+      },
+      {
+        "text": "自营经营者信息",
+        "href": "https://dc.xhscdn.com/06c2adb0-b353-11e9-9d0c-7be9ff8961c1/%E8%87%AA%E8%90%A5%E7%BB%8F%E8%90%A5%E8%80%85%E4%BF%A1%E6%81%AF%E5%85%AC%E7%A4%BA.pdf"
+      },
+      {
+        "text": "网络文化经营许可证：沪网文(2024)1344-086号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/7970f6e8b70aedc995ba273d04b6b6751abcd63c.pdf"
+      },
+      {
+        "text": "个性化推荐算法 网信算备310101216601302230019号",
+        "href": "https://beian.cac.gov.cn/api/static/fileUpload/principalOrithm/additional/user_c015445c-80ac-45f7-94d7-3871e961b1fe_d4425f3b-7f35-45af-b8d4-badd4424d6d5.pdf"
+      },
+      {
+        "text": "沪ICP备13030189号",
+        "href": "https://beian.miit.gov.cn/"
+      },
+      {
+        "text": "营业执照",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/5581076bd6b6af2e0e943abb024ad0e16f2ebff6.pdf"
+      },
+      {
+        "text": "2024沪公网安备31010102002533号",
+        "href": "https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002533"
+      },
+      {
+        "text": "增值电信业务经营许可证：沪B2-20150021",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform-file/104101b831hhkkll23u0678gtks7tu70004en2n231udpe"
+      },
+      {
+        "text": "医疗器械网络交易服务第三方平台备案：(沪)网械平台备字[2019]第00006号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/410dce57bc12a6d7e5808060e47644fbe46f68ff.pdf"
+      },
+      {
+        "text": "互联网药品信息服务资格证书：(沪)-经营性-2023-0144",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/f37a08cacc088061beb38329c387c32fc48fc6fe.pdf"
+      },
+      {
+        "text": "违法不良信息举报电话：4006676810",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "上海市互联网举报中心",
+        "href": "https://www.shjbzx.cn/"
+      },
+      {
+        "text": "网上有害信息举报专区",
+        "href": "https://www.12377.cn/"
+      },
+      {
+        "text": "自营经营者信息",
+        "href": "https://dc.xhscdn.com/06c2adb0-b353-11e9-9d0c-7be9ff8961c1/%E8%87%AA%E8%90%A5%E7%BB%8F%E8%90%A5%E8%80%85%E4%BF%A1%E6%81%AF%E5%85%AC%E7%A4%BA.pdf"
+      },
+      {
+        "text": "网络文化经营许可证：沪网文(2024)1344-086号",
+        "href": "https://fe-video-qc.xhscdn.com/fe-platform/7970f6e8b70aedc995ba273d04b6b6751abcd63c.pdf"
+      },
+      {
+        "text": "个性化推荐算法 网信算备310101216601302230019号",
+        "href": "https://beian.cac.gov.cn/api/static/fileUpload/principalOrithm/additional/user_c015445c-80ac-45f7-94d7-3871e961b1fe_d4425f3b-7f35-45af-b8d4-badd4424d6d5.pdf"
+      },
+      {
+        "text": "首页",
+        "href": "https://www.xiaohongshu.com/explore?channel_id=homefeed_recommend"
+      },
+      {
+        "text": "",
+        "href": "https://www.xiaohongshu.com/worldcup26?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "点点",
+        "href": "https://www.xiaohongshu.com/ai_chat?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "直播",
+        "href": "https://www.xiaohongshu.com/livelist?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "发布",
+        "href": "https://creator.xiaohongshu.com/publish/publish?source=official"
+      },
+      {
+        "text": "1通知",
+        "href": "https://www.xiaohongshu.com/notification"
+      },
+      {
+        "text": "20消息",
+        "href": "https://www.xiaohongshu.com/chat?channel_id=&channel_type=web_error_page"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      },
+      {
+        "text": "我",
+        "href": "https://www.xiaohongshu.com/user/profile/5fb109c200000000010036a4"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": [
+      "Xiaohongshu detail sample did not reach /explore/ or /discovery/item/: https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=."
+    ]
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000002863",
+    "pageTitle": "小红书 - 你访问的页面不见了",
+    "submitStatus": "已提交：page_a77c0c50e5a4f0d6",
+    "domSignalBlockCount": 2,
+    "domSignalLinkCount": 20,
+    "pageStateHints": [
+      "not_found",
+      "media_dom_limited"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_a77c0c50e5a4f0d6",
+      "title": "小红书 - 你访问的页面不见了",
+      "url": "https://www.xiaohongshu.com/404?source=/404/sec_WYTzbCFL?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=d3e3dce6-1293-4744-bfae-525b72345d55&verifyMsg=",
+      "domain": "www.xiaohongshu.com"
+    },
+    "readiness": "degraded",
+    "overallScore": 0.772,
+    "warnings": [
+      "NOT_FOUND_PAGE_FAILED",
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 9,
+    "digestItems": 9,
+    "sourceRefs": 23,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.609,
+        "numerator": 14,
+        "denominator": 23,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": false
+      },
+      "contentCoverage": {
+        "value": 0.207,
+        "numerator": 543,
+        "denominator": 2626,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": false
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 9,
+        "denominator": 9,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 9,
+        "denominator": 9,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 23,
+        "denominator": 23,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.158,
+        "numerator": 49,
+        "denominator": 310,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.778,
+        "numerator": 7,
+        "denominator": 9,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "viewport width device-width,initial-scale 1,minimum-scale 1,max",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "format-detection telephone no,address no,email no",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "360-site-verification 86dcc68a445e2ed8034e85f0ba88a83a",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "theme-color rgb 255, 255, 255",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "388号C座 电话：9501-3888 当前笔记暂时无法浏览 请打开小红书App扫码查看 小红书如何扫码 问题反馈 返回首页 活",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      }
+    ],
+    "evidenceCardCount": 9,
+    "evidenceCardLabels": [
+      "地址：上海市黄浦区马当路388号C座",
+      "360-site-verification 86dcc68a445e2ed8034e85f0ba88a83a",
+      "theme-color rgb 255, 255, 255",
+      "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32",
+      "viewport width device-width,initial-scale 1,minimum-scale 1,max",
+      "og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb",
+      "format-detection telephone no,address no,email no",
+      "388号C座 电话：9501-3888 当前笔记暂时无法浏览 请打开小红书App扫码查看 小红书如何扫码 问题反馈 返回首页 活",
+      "shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 10,
+    "readingMapDetailText": "小红书 - 你访问的页面不见了ready地址：上海市黄浦区马当路388号C座4 sourcedetail4 sources地址：上海市黄浦区马当路388号C座",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 2,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "viewport width device-width,initial-scale 1,minimum-scale 1,max",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "format-detection telephone no,address no,email no",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "360-site-verification 86dcc68a445e2ed8034e85f0ba88a83a",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "theme-color rgb 255, 255, 255",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_9",
+        "nodeId": "node_9",
+        "sourceRefIds": [
+          "src_page_a77c0c50e5a4f0d6_0014",
+          "src_page_a77c0c50e5a4f0d6_0015",
+          "src_page_a77c0c50e5a4f0d6_0016",
+          "src_page_a77c0c50e5a4f0d6_0017",
+          "src_page_a77c0c50e5a4f0d6_0018",
+          "src_page_a77c0c50e5a4f0d6_0019",
+          "src_page_a77c0c50e5a4f0d6_0020",
+          "src_page_a77c0c50e5a4f0d6_0021",
+          "src_page_a77c0c50e5a4f0d6_0022",
+          "src_page_a77c0c50e5a4f0d6_0023"
+        ],
+        "label": "388号C座 电话：9501-3888 当前笔记暂时无法浏览 请打开小红书App扫码查看 小红书如何扫码 问题反馈 返回首页 活",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+      }
+    ],
+    "evidenceText": "theme-color rgb 255, 255, 255fallback_shownviewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom",
+    "sourceEvidenceVisible": true,
+    "status": "fallback_shown",
+    "selectedSourceCardIndex": 2,
+    "selectedSourceCardReason": "candidate score -2 for xiaohongshu; label=shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767",
+    "sourceCardAttemptCount": 6,
+    "sourceCardAttempts": [
+      {
+        "index": 7,
+        "status": "fallback_shown",
+        "reason": "candidate score 28 for xiaohongshu; label=388号C座 电话：9501-3888 当前笔记暂时无法浏览 请打开小红书App扫码查看 小红书如何扫码 问题反馈 返回首页 活",
+        "failureReason": null
+      },
+      {
+        "index": 0,
+        "status": "fallback_shown",
+        "reason": "candidate score 16 for xiaohongshu; label=viewport width device-width,initial-scale 1,minimum-scale 1,max",
+        "failureReason": null
+      },
+      {
+        "index": 1,
+        "status": "fallback_shown",
+        "reason": "candidate score 16 for xiaohongshu; label=format-detection telephone no,address no,email no",
+        "failureReason": null
+      },
+      {
+        "index": 5,
+        "status": "fallback_shown",
+        "reason": "candidate score 16 for xiaohongshu; label=og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb",
+        "failureReason": null
+      },
+      {
+        "index": 6,
+        "status": "fallback_shown",
+        "reason": "candidate score 16 for xiaohongshu; label=theme-color rgb 255, 255, 255",
+        "failureReason": null
+      },
+      {
+        "index": 2,
+        "status": "fallback_shown",
+        "reason": "candidate score -2 for xiaohongshu; label=shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 7,
+        "label": "388号C座 电话：9501-3888 当前笔记暂时无法浏览 请打开小红书App扫码查看 小红书如何扫码 问题反馈 返回首页 活",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": 28
+      },
+      {
+        "index": 0,
+        "label": "viewport width device-width,initial-scale 1,minimum-scale 1,max",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": 16
+      },
+      {
+        "index": 1,
+        "label": "format-detection telephone no,address no,email no",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "og image //picasso-static.xiaohongshu.com/fe-platform/e6214e4fb",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "theme-color rgb 255, 255, 255",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": 16
+      },
+      {
+        "index": 2,
+        "label": "shenma-site-verification 3abbfaac4345ca4daaa5ad2282115298_14767",
+        "excerpt": "viewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover",
+        "score": -2
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 9,
+    "evidenceCardLabelCount": 9,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 51.77777777777778,
+    "fatalIssues": [],
+    "majorIssues": [
+      "Mindmap labels are too long for side panel reading: avgLength=51.8."
+    ]
+  },
+  "fallbackPolicy": "degraded_fallback_only",
+  "completedAt": "2026-07-01T15:49:08.343Z"
+}

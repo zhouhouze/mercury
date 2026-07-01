@@ -1,0 +1,327 @@
+{
+  "sampleId": "international-doc-openai-docs",
+  "siteId": "openai-docs",
+  "siteName": "OpenAI Docs",
+  "manifest": {
+    "pageId": "international-doc-openai-docs",
+    "contentCategory": "international_knowledge_blog_doc",
+    "countryRegion": "international",
+    "pageType": "docs",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [
+      "overview",
+      "concept",
+      "guide"
+    ],
+    "prohibitedNoiseSignals": [
+      "navigation",
+      "footer",
+      "login"
+    ]
+  },
+  "pageKind": "docs",
+  "url": "https://platform.openai.com/docs/overview",
+  "startedAt": "2026-07-01T16:03:43.190Z",
+  "result": "degraded",
+  "fatalIssues": [],
+  "majorIssues": [
+    "Visible page body text is very short; page may be login-gated, JS-empty, media-heavy, or anti-bot limited."
+  ],
+  "finalUrl": "https://platform.openai.com/",
+  "dom": {
+    "title": "请稍候…",
+    "url": "https://platform.openai.com/",
+    "bodyTextLength": 0,
+    "bodyTextSample": "",
+    "anchorCount": 0,
+    "anchors": [],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000003774",
+    "pageTitle": "请稍候…",
+    "submitStatus": "已提交：page_bf95bdb0a6ad0305",
+    "domSignalBlockCount": 1,
+    "domSignalLinkCount": 0,
+    "pageStateHints": [
+      "media_dom_limited"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_bf95bdb0a6ad0305",
+      "title": "请稍候…",
+      "url": "https://platform.openai.com/?__cf_chl_rt_tk=FPYISHBGQBtRremqU92oLQ9_ZLi_VhcVr.t2eGcdcRo-1782921825-1.0.1.1-8DECdMWy8woPh2mfAfedJRDoiCJIrHFlrkyK3CEDuiI",
+      "domain": "platform.openai.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.98,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 4,
+    "digestItems": 4,
+    "sourceRefs": 4,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0,
+        "numerator": 0,
+        "denominator": 4,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 1,
+        "numerator": 4466,
+        "denominator": 4466,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 4,
+        "denominator": 4,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 4,
+        "denominator": 4,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 4,
+        "denominator": 4,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.081,
+        "numerator": 30,
+        "denominator": 369,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.75,
+        "numerator": 3,
+        "denominator": 4,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0002",
+          "src_page_bf95bdb0a6ad0305_0001",
+          "src_page_bf95bdb0a6ad0305_0004",
+          "src_page_bf95bdb0a6ad0305_0003"
+        ],
+        "label": "核心要点",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0002"
+        ],
+        "label": "验证成功。正在等待 platform.openai.com 响应",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0004"
+        ],
+        "label": "? location.search if",
+        "excerpt": "'?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\"/?__cf_chl_rt_tk=FPYISHBGQBtRremqU92oLQ9_ZLi"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0003"
+        ],
+        "label": "location.hash",
+        "excerpt": "'#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ?"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-root",
+        "nodeId": "root",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0001",
+          "src_page_bf95bdb0a6ad0305_0003",
+          "src_page_bf95bdb0a6ad0305_0002",
+          "src_page_bf95bdb0a6ad0305_0004"
+        ],
+        "label": "请稍候",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>"
+      }
+    ],
+    "evidenceCardCount": 4,
+    "evidenceCardLabels": [
+      "核心要点",
+      "验证成功。正在等待 platform.openai.com 响应",
+      "? location.search if",
+      "location.hash"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 5,
+    "readingMapDetailText": "请稍候ready验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>4 sourcedetail4 sources验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 1,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0002",
+          "src_page_bf95bdb0a6ad0305_0001",
+          "src_page_bf95bdb0a6ad0305_0004",
+          "src_page_bf95bdb0a6ad0305_0003"
+        ],
+        "label": "核心要点",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0002"
+        ],
+        "label": "验证成功。正在等待 platform.openai.com 响应",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0004"
+        ],
+        "label": "? location.search if",
+        "excerpt": "'?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\"/?__cf_chl_rt_tk=FPYISHBGQBtRremqU92oLQ9_ZLi"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0003"
+        ],
+        "label": "location.hash",
+        "excerpt": "'#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ?"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-root",
+        "nodeId": "root",
+        "sourceRefIds": [
+          "src_page_bf95bdb0a6ad0305_0001",
+          "src_page_bf95bdb0a6ad0305_0003",
+          "src_page_bf95bdb0a6ad0305_0002",
+          "src_page_bf95bdb0a6ad0305_0004"
+        ],
+        "label": "请稍候",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>"
+      }
+    ],
+    "evidenceText": "验证成功。正在等待 platform.openai.com 响应located验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 1,
+    "selectedSourceCardReason": "candidate score 16 for openai-docs; label=验证成功。正在等待 platform.openai.com 响应",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 1,
+        "status": "highlighted",
+        "reason": "candidate score 16 for openai-docs; label=验证成功。正在等待 platform.openai.com 响应",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 1,
+        "label": "验证成功。正在等待 platform.openai.com 响应",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1",
+        "score": 16
+      },
+      {
+        "index": 2,
+        "label": "? location.search if",
+        "excerpt": "'?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,\"/?__cf_chl_rt_tk=FPYISHBGQBtRremqU92oLQ9_ZLi",
+        "score": 16
+      },
+      {
+        "index": 3,
+        "label": "location.hash",
+        "excerpt": "'#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ?",
+        "score": 16
+      },
+      {
+        "index": 0,
+        "label": "核心要点",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'FgBwq4rSZ6uEHr5J2J.heMamkDROsN.5DV1h_5dCq.A-1782921825-1",
+        "score": -4
+      },
+      {
+        "index": 4,
+        "label": "请稍候",
+        "excerpt": "验证成功。正在等待 platform.openai.com 响应<div class=\"h2\"><span id=\"challenge-error-text\">Enable JavaScript and cookies to continue</span></div>",
+        "score": -8
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 4,
+    "evidenceCardLabelCount": 4,
+    "sourceCardLabelCount": 5,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 17.25,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T16:04:23.816Z"
+}

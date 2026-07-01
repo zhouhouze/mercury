@@ -51,7 +51,11 @@ const testCommands = [
   },
   {
     command: "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:v1-mvp-quality-hardening",
-    evidence: "由最新 V1-MVP-QH scoped quality hardening 报告证明；覆盖 B站、小红书、观察者网真实站点质量硬化。"
+    evidence: "由最新 V1-MVP-QH expanded quality hardening 报告证明；覆盖 48 页国内外主流图文网页 / 门户网站矩阵。"
+  },
+  {
+    command: "node apps/chrome-extension/e2e/generate-v1-mvp-quality-hardening-report.mjs",
+    evidence: "本轮执行，用于从 sample-manifest 和逐页 evidence 生成独立 QH expanded schema 报告。"
   },
   {
     command: "node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
@@ -450,42 +454,46 @@ function buildReport() {
 
   const qualityHardeningSamples = Array.isArray(qualityHardening?.samples)
     ? qualityHardening.samples.map((sample) => ({
-        sampleId: sample.sampleId,
-        siteName: sample.siteName,
-        pageKind: sample.pageKind,
+        sampleId: sample.sampleId ?? sample.pageId,
+        siteName: sample.siteName ?? sample.site,
+        pageKind: sample.pageKind ?? sample.pageType,
         url: sample.url,
-        finalUrl: sample.finalUrl,
-        result: sample.result,
-        readiness: sample.readiness,
-        jumpbackStatus: sample.jumpbackStatus,
-        fallbackPolicy: sample.fallbackPolicy,
-        selectedSourceCardReason: sample.selectedSourceCardReason,
-        bodyTextLength: sample.bodyTextLength,
-        sourceRefs: sample.sourceRefs,
-        digestItems: sample.digestItems,
-        evidenceCardCount: sample.evidenceCardCount,
-        sourceCards: sample.sourceCards,
-        mindmapQuality: sample.mindmapQuality ?? null,
-        fatalIssues: Array.isArray(sample.fatalIssues) ? sample.fatalIssues : [],
-        majorIssues: Array.isArray(sample.majorIssues) ? sample.majorIssues : [],
+        finalUrl: sample.finalUrl ?? sample.url,
+        result: sample.result ?? sample.reportConclusion,
+        readiness: sample.readiness ?? sample.reportConclusion,
+        jumpbackStatus: sample.jumpbackStatus ?? sample.jumpbackResult?.status,
+        fallbackPolicy: sample.fallbackPolicy ?? sample.jumpbackResult?.status ?? "not_fallback",
+        selectedSourceCardReason: sample.selectedSourceCardReason ?? sample.selectionReason,
+        bodyTextLength: sample.bodyTextLength ?? null,
+        sourceRefs: sample.sourceRefs ?? null,
+        digestItems: sample.digestItems ?? null,
+        evidenceCardCount: sample.evidenceCardCount ?? sample.mindmapTopNodes?.length ?? null,
+        sourceCards: sample.sourceCards ?? sample.sourceCardOrder?.length ?? null,
+        mindmapQuality: sample.mindmapQuality ?? sample.qualityMetrics ?? null,
+        fatalIssues: Array.isArray(sample.fatalIssues) ? sample.fatalIssues : sample.reportConclusion === "blocked" ? [sample.jumpbackResult?.failureReason ?? "blocked"] : [],
+        majorIssues: Array.isArray(sample.majorIssues) ? sample.majorIssues : sample.reportConclusion === "degraded" ? ["degraded quality metrics or screenshot evidence"] : [],
         beforeScreenshot: copyIfExists(
-          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId}-before.png`,
-          `qh-${sample.sampleId}-before.png`
+          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId ?? sample.pageId}-before.png`,
+          `qh-${sample.sampleId ?? sample.pageId}-before.png`
         ),
         afterScreenshot: copyIfExists(
-          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId}-after.png`,
-          `qh-${sample.sampleId}-after.png`
+          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId ?? sample.pageId}-after.png`,
+          `qh-${sample.sampleId ?? sample.pageId}-after.png`
         ),
         detailedEvidence: [
-          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/dom-snapshot.json`,
-          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/perception-summary.json`,
-          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/source-cards.json`,
-          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/jumpback.json`,
-          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/sample-report.json`
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId ?? sample.pageId}/dom-snapshot.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId ?? sample.pageId}/perception-summary.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId ?? sample.pageId}/source-cards.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId ?? sample.pageId}/jumpback.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId ?? sample.pageId}/sample-report.json`
         ]
       }))
     : [];
-  if (qualityHardeningSamples.length < 6) fatalIssues.push("V1-MVP-QH quality hardening has fewer than 6 samples.");
+  if (qualityHardening?.schemaVersion !== "v1-mvp-quality-hardening.report.1") {
+    fatalIssues.push("V1-MVP-QH quality hardening is not the expanded report schema.");
+  }
+  if (qualityHardeningSamples.length < 48) fatalIssues.push("V1-MVP-QH quality hardening has fewer than 48 expanded samples.");
+  if ((qualityHardening?.summary?.passedSamples ?? 0) < 44) fatalIssues.push("V1-MVP-QH quality hardening has fewer than 44 passed samples.");
 
   const passed = fatalIssues.length === 0;
   const testCommandResults = testCommands.map((item) => {
@@ -493,6 +501,7 @@ function buildReport() {
     if (item.command.includes("e2e:chrome:launcher-resize-closeout")) commandPassed = Boolean(launcherCloseout?.passed);
     else if (item.command.includes("e2e:chrome:external-visual-acceptance")) commandPassed = Boolean(externalVisual?.passed);
     else if (item.command.includes("e2e:chrome:v1-mvp-quality-hardening")) commandPassed = Boolean(qualityHardening?.passed);
+    else if (item.command.includes("generate-v1-mvp-quality-hardening-report")) commandPassed = Boolean(qualityHardening?.passed);
     else if (item.command.includes("e2e:chrome:real-site-diagnostics")) commandPassed = Boolean(realSite?.passed);
     else if (item.command.includes("generate-v1-mainline-closeout-report")) commandPassed = passed;
     return {
@@ -632,10 +641,10 @@ function buildReport() {
         evidence: "Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、V1-MVP-QH before / after 截图和截图证明点。"
       },
       {
-        item: "V1-MVP-QH scoped evidence",
-        status: qualityHardeningSamples.length >= 6 ? "covered" : "pending",
+        item: "V1-MVP-QH expanded evidence",
+        status: qualityHardeningSamples.length >= 48 && qualityHardening?.passed ? "covered" : "pending",
         evidence:
-          "主报告内包含 QH 6 个真实站点样本、before / after 截图、source card 选择理由、Mindmap 质量指标和逐样本 JSON 证据路径。"
+          "主报告内包含 QH 48 页真实网页矩阵、before / after 截图、source card 选择理由、Mindmap 质量指标和逐样本 JSON 证据路径。"
       },
       {
         item: "复杂站点边界",
@@ -864,7 +873,7 @@ function buildHtml(report) {
   const auditGuideItems = [
     "先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。",
     "再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。",
-    "然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图证据：Launcher / Sidebar、真实网页路径、QH before / after，确认复杂站点、launcher、source evidence 有可见证据。",
+    "然后看“真实网页样本明细”“V1-MVP-QH expanded 样本明细”和三组截图证据：Launcher / Sidebar、真实网页路径、QH before / after，确认复杂站点、launcher、source evidence 有可见证据。",
     "最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。"
   ]
     .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -1047,7 +1056,7 @@ function buildHtml(report) {
       <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>抽取指标</th><th>Mindmap 质量</th><th>截图</th><th>问题</th></tr></thead><tbody>${sampleRows}</tbody></table>
     </section>
     <section>
-      <h2>V1-MVP-QH scoped 样本明细</h2>
+      <h2>V1-MVP-QH expanded 样本明细</h2>
       <p>本节是本阶段质量硬化的核心审计入口，直接来自 <code>docs/active/project/evidence/v1_mvp_quality_hardening/report.json</code>。审查者可用这里的逐样本 JSON 路径复核 DOM、perception、source card、jumpback 和 sample-report。</p>
       <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>运行口径</th><th>抽取指标</th><th>Mindmap 质量</th><th>source card 选择</th><th>逐样本证据</th><th>问题数</th></tr></thead><tbody>${qualityHardeningRows}</tbody></table>
     </section>
@@ -1063,7 +1072,7 @@ function buildHtml(report) {
     </section>
     <section>
       <h2>V1-MVP-QH before / after 截图证据</h2>
-      <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 B站、小红书、观察者网首页和详情页。before 展示反跳前状态，after 展示 source evidence 触发后的高亮结果。</p>
+      <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 48 页国内外主流图文网页 / 门户网站矩阵。before 展示反跳前状态，after 展示 source evidence 触发后的定位、fallback 或 blocked 结果。</p>
       <div class="grid">${qualityHardeningFigures}</div>
     </section>
     <section>

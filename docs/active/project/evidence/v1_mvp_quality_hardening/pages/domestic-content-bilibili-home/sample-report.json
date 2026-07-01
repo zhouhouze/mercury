@@ -1,0 +1,907 @@
+{
+  "sampleId": "domestic-content-bilibili-home",
+  "siteId": "bilibili",
+  "siteName": "B站",
+  "manifest": {
+    "pageId": "domestic-content-bilibili-home",
+    "contentCategory": "domestic_content_platform",
+    "countryRegion": "domestic",
+    "pageType": "feed",
+    "loginStatePolicy": "temp_cookie_profile",
+    "expectedMainContentSignals": [
+      "视频卡片",
+      "标题",
+      "UP主"
+    ],
+    "prohibitedNoiseSignals": [
+      "弹幕设置",
+      "广告活动",
+      "版权提示"
+    ]
+  },
+  "pageKind": "feed",
+  "url": "https://www.bilibili.com/",
+  "startedAt": "2026-07-01T15:46:57.228Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.bilibili.com/",
+  "dom": {
+    "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+    "url": "https://www.bilibili.com/",
+    "bodyTextLength": 608,
+    "bodyTextSample": "首页 番剧 直播 游戏中心 会员购 漫画 赛事 毕业季 毕业季 下载客户端 登录 登录后你可以： 免费看高清视频 多端同步播放记录 发表弹幕/评论 热门番剧影视看不停 立即登录 首次使用？ 点我注册 动态 热门 番剧 电影 国创 电视剧 综艺 纪录片 动画 游戏 鬼畜 音乐 舞蹈 影视 娱乐 知识 科技数码 资讯 美食 更多 专栏 直播 活动 课堂 社区中心 新歌热榜 合约大舞台，有种你就来 257.3万 1192 04:55 不快乐就来看快乐女孩小卖部上班的快乐 2万点赞 狂野大公牛本人 · 06-10 328.0万 5370 02:52 【Reaction】穷人永远接触不到的场景 沙雕网友咸叽叽 · 06-21 48.0万 76 01:30 欢迎来到加帕里动物园 小熊糯叽叽 · 05-11 1.5万 29 大一醒悟！我竟然靠建模在宿舍实现经济独立！ (附资料) 秋叶原の建模师 · 06-15 542.8万 736 01:28 自 在 极 意 豪 圆球鼠STG · 06-20 259.3万 617 03:10 你是我藏不住的秘密 是不写完的诗#暗恋 #校园 #毕业季#情侣日常#毕业季情感答案之书 一腔诗意喂了丑 · 06-07 218.3万 700 03:47 你打不到我你信吗 10万点赞 佐悠-Leisurely · 06-26 直播 489 颜值 直播中 单纯 羞涩 大方 小",
+    "anchorCount": 153,
+    "anchors": [
+      {
+        "text": "",
+        "href": "https://cm.bilibili.com/"
+      },
+      {
+        "text": "首页",
+        "href": "https://www.bilibili.com/"
+      },
+      {
+        "text": "番剧",
+        "href": "https://www.bilibili.com/anime/"
+      },
+      {
+        "text": "直播",
+        "href": "https://live.bilibili.com/"
+      },
+      {
+        "text": "游戏中心",
+        "href": "https://game.bilibili.com/platform"
+      },
+      {
+        "text": "会员购",
+        "href": "https://show.bilibili.com/platform/home.html?msource=pc_web"
+      },
+      {
+        "text": "漫画",
+        "href": "https://manga.bilibili.com/?from=bill_top_mnav"
+      },
+      {
+        "text": "赛事",
+        "href": "https://www.bilibili.com/match/home/"
+      },
+      {
+        "text": "毕业季毕业季",
+        "href": "https://www.bilibili.com/blackboard/era/3wUPe5dWpy89nDCB.html"
+      },
+      {
+        "text": "下载客户端",
+        "href": "https://app.bilibili.com/"
+      },
+      {
+        "text": "大会员",
+        "href": "https://account.bilibili.com/big"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/"
+      },
+      {
+        "text": "动态",
+        "href": "https://t.bilibili.com/"
+      },
+      {
+        "text": "热门",
+        "href": "https://www.bilibili.com/v/popular/all"
+      },
+      {
+        "text": "番剧",
+        "href": "https://www.bilibili.com/anime/"
+      },
+      {
+        "text": "电影",
+        "href": "https://www.bilibili.com/movie/"
+      },
+      {
+        "text": "国创",
+        "href": "https://www.bilibili.com/guochuang/"
+      },
+      {
+        "text": "电视剧",
+        "href": "https://www.bilibili.com/tv/"
+      },
+      {
+        "text": "综艺",
+        "href": "https://www.bilibili.com/variety/"
+      },
+      {
+        "text": "纪录片",
+        "href": "https://www.bilibili.com/documentary/"
+      },
+      {
+        "text": "动画",
+        "href": "https://www.bilibili.com/c/douga/"
+      },
+      {
+        "text": "游戏",
+        "href": "https://www.bilibili.com/c/game/"
+      },
+      {
+        "text": "鬼畜",
+        "href": "https://www.bilibili.com/c/kichiku/"
+      },
+      {
+        "text": "音乐",
+        "href": "https://www.bilibili.com/c/music/"
+      },
+      {
+        "text": "舞蹈",
+        "href": "https://www.bilibili.com/c/dance/"
+      },
+      {
+        "text": "影视",
+        "href": "https://www.bilibili.com/c/cinephile/"
+      },
+      {
+        "text": "娱乐",
+        "href": "https://www.bilibili.com/c/ent/"
+      },
+      {
+        "text": "知识",
+        "href": "https://www.bilibili.com/c/knowledge/"
+      },
+      {
+        "text": "科技数码",
+        "href": "https://www.bilibili.com/c/tech/"
+      },
+      {
+        "text": "资讯",
+        "href": "https://www.bilibili.com/c/information/"
+      },
+      {
+        "text": "美食",
+        "href": "https://www.bilibili.com/c/food/"
+      },
+      {
+        "text": "小剧场",
+        "href": "https://www.bilibili.com/c/shortplay/"
+      },
+      {
+        "text": "汽车",
+        "href": "https://www.bilibili.com/c/car"
+      },
+      {
+        "text": "时尚美妆",
+        "href": "https://www.bilibili.com/c/fashion/"
+      },
+      {
+        "text": "体育运动",
+        "href": "https://www.bilibili.com/c/sports/"
+      },
+      {
+        "text": "动物",
+        "href": "https://www.bilibili.com/c/animal/"
+      },
+      {
+        "text": "vlog",
+        "href": "https://www.bilibili.com/c/vlog/"
+      },
+      {
+        "text": "绘画",
+        "href": "https://www.bilibili.com/c/painting/"
+      },
+      {
+        "text": "人工智能",
+        "href": "https://www.bilibili.com/c/ai/"
+      },
+      {
+        "text": "家装房产",
+        "href": "https://www.bilibili.com/c/home/"
+      },
+      {
+        "text": "户外潮流",
+        "href": "https://www.bilibili.com/c/outdoors/"
+      },
+      {
+        "text": "健身",
+        "href": "https://www.bilibili.com/c/gym/"
+      },
+      {
+        "text": "手工",
+        "href": "https://www.bilibili.com/c/handmake/"
+      },
+      {
+        "text": "旅游出行",
+        "href": "https://www.bilibili.com/c/travel/"
+      },
+      {
+        "text": "三农",
+        "href": "https://www.bilibili.com/c/rural/"
+      },
+      {
+        "text": "亲子",
+        "href": "https://www.bilibili.com/c/parenting/"
+      },
+      {
+        "text": "健康",
+        "href": "https://www.bilibili.com/c/health/"
+      },
+      {
+        "text": "情感",
+        "href": "https://www.bilibili.com/c/emotion/"
+      },
+      {
+        "text": "生活兴趣",
+        "href": "https://www.bilibili.com/c/life_joy/"
+      },
+      {
+        "text": "生活经验",
+        "href": "https://www.bilibili.com/c/life_experience/"
+      },
+      {
+        "text": "公益",
+        "href": "https://love.bilibili.com/"
+      },
+      {
+        "text": "超高清",
+        "href": "https://www.bilibili.com/blackboard/era/Vp41b8bsU9Wkog3X.html"
+      },
+      {
+        "text": "视频播客",
+        "href": "https://www.bilibili.com/blackboard/era/jpyPhRRrMn3fmZ2B.html"
+      },
+      {
+        "text": "专栏",
+        "href": "https://www.bilibili.com/read/home/"
+      },
+      {
+        "text": "直播",
+        "href": "https://live.bilibili.com/"
+      },
+      {
+        "text": "活动",
+        "href": "https://www.bilibili.com/blackboard/era/reward-activity-list-page.html#/list"
+      },
+      {
+        "text": "课堂",
+        "href": "https://www.bilibili.com/cheese/?csource=common_hp_channelclass_icon"
+      },
+      {
+        "text": "社区中心",
+        "href": "https://www.bilibili.com/blackboard/activity-5zJxM3spoS.html"
+      },
+      {
+        "text": "新歌热榜",
+        "href": "https://music.bilibili.com/pc/music-center/"
+      },
+      {
+        "text": "动态",
+        "href": "https://t.bilibili.com/"
+      },
+      {
+        "text": "热门",
+        "href": "https://www.bilibili.com/v/popular/all"
+      },
+      {
+        "text": "番剧",
+        "href": "https://www.bilibili.com/anime/"
+      },
+      {
+        "text": "电影",
+        "href": "https://www.bilibili.com/movie/"
+      },
+      {
+        "text": "国创",
+        "href": "https://www.bilibili.com/guochuang/"
+      },
+      {
+        "text": "电视剧",
+        "href": "https://www.bilibili.com/tv/"
+      },
+      {
+        "text": "综艺",
+        "href": "https://www.bilibili.com/variety/"
+      },
+      {
+        "text": "纪录片",
+        "href": "https://www.bilibili.com/documentary/"
+      },
+      {
+        "text": "动画",
+        "href": "https://www.bilibili.com/c/douga/"
+      },
+      {
+        "text": "游戏",
+        "href": "https://www.bilibili.com/c/game/"
+      },
+      {
+        "text": "鬼畜",
+        "href": "https://www.bilibili.com/c/kichiku/"
+      },
+      {
+        "text": "音乐",
+        "href": "https://www.bilibili.com/c/music/"
+      },
+      {
+        "text": "舞蹈",
+        "href": "https://www.bilibili.com/c/dance/"
+      },
+      {
+        "text": "影视",
+        "href": "https://www.bilibili.com/c/cinephile/"
+      },
+      {
+        "text": "娱乐",
+        "href": "https://www.bilibili.com/c/ent/"
+      },
+      {
+        "text": "知识",
+        "href": "https://www.bilibili.com/c/knowledge/"
+      },
+      {
+        "text": "科技数码",
+        "href": "https://www.bilibili.com/c/tech/"
+      },
+      {
+        "text": "资讯",
+        "href": "https://www.bilibili.com/c/information/"
+      },
+      {
+        "text": "美食",
+        "href": "https://www.bilibili.com/c/food/"
+      },
+      {
+        "text": "小剧场",
+        "href": "https://www.bilibili.com/c/shortplay/"
+      },
+      {
+        "text": "专栏",
+        "href": "https://www.bilibili.com/read/home/"
+      },
+      {
+        "text": "直播",
+        "href": "https://live.bilibili.com/"
+      },
+      {
+        "text": "活动",
+        "href": "https://www.bilibili.com/blackboard/era/reward-activity-list-page.html#/list"
+      },
+      {
+        "text": "课堂",
+        "href": "https://www.bilibili.com/cheese/"
+      },
+      {
+        "text": "社区中心",
+        "href": "https://www.bilibili.com/blackboard/activity-5zJxM3spoS.html"
+      },
+      {
+        "text": "新歌热榜",
+        "href": "https://music.bilibili.com/pc/music-center/"
+      },
+      {
+        "text": "汽车",
+        "href": "https://www.bilibili.com/c/car"
+      },
+      {
+        "text": "时尚美妆",
+        "href": "https://www.bilibili.com/c/fashion/"
+      },
+      {
+        "text": "体育运动",
+        "href": "https://www.bilibili.com/c/sports/"
+      },
+      {
+        "text": "动物",
+        "href": "https://www.bilibili.com/c/animal/"
+      },
+      {
+        "text": "vlog",
+        "href": "https://www.bilibili.com/c/vlog/"
+      },
+      {
+        "text": "绘画",
+        "href": "https://www.bilibili.com/c/painting/"
+      },
+      {
+        "text": "人工智能",
+        "href": "https://www.bilibili.com/c/ai/"
+      },
+      {
+        "text": "家装房产",
+        "href": "https://www.bilibili.com/c/home/"
+      },
+      {
+        "text": "户外潮流",
+        "href": "https://www.bilibili.com/c/outdoors/"
+      },
+      {
+        "text": "健身",
+        "href": "https://www.bilibili.com/c/gym/"
+      },
+      {
+        "text": "手工",
+        "href": "https://www.bilibili.com/c/handmake/"
+      },
+      {
+        "text": "旅游出行",
+        "href": "https://www.bilibili.com/c/travel/"
+      },
+      {
+        "text": "三农",
+        "href": "https://www.bilibili.com/c/rural/"
+      },
+      {
+        "text": "亲子",
+        "href": "https://www.bilibili.com/c/parenting/"
+      },
+      {
+        "text": "健康",
+        "href": "https://www.bilibili.com/c/health/"
+      },
+      {
+        "text": "情感",
+        "href": "https://www.bilibili.com/c/emotion/"
+      },
+      {
+        "text": "生活兴趣",
+        "href": "https://www.bilibili.com/c/life_joy/"
+      },
+      {
+        "text": "生活经验",
+        "href": "https://www.bilibili.com/c/life_experience/"
+      },
+      {
+        "text": "公益",
+        "href": "https://love.bilibili.com/"
+      },
+      {
+        "text": "超高清",
+        "href": "https://www.bilibili.com/blackboard/era/Vp41b8bsU9Wkog3X.html"
+      },
+      {
+        "text": "视频播客",
+        "href": "https://www.bilibili.com/blackboard/era/jpyPhRRrMn3fmZ2B.html"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/blackboard/era/V5VKfUPXoNtf5UtB.html"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1EEL969EgE?track_id="
+      },
+      {
+        "text": "",
+        "href": "https://cm.bilibili.com/cm/api/fees/pc/sync/v2?msg=a%7C4696%2Cb%7Cbilibili%2Cc%7C1%2Cd%7C1%2Ce%7CCAAQABiAoKS7ivKKphAgACgAMB042CRCHzE3ODI5MjA4MTc1MzRxMTBhODdhMzZhMTM2cTkwMTNI%2Ftby8vEzUgEqWgbmuZbljJdiBuS4reWbvWhkcAB4gICAgMAhgAEAiAGUnwWSAQ4xMDMuOTUuMjE2LjE0NpoBAKABALIBIOmMSat%2FxuNh86FnkMNgFo%2Bvu5QWPkByXU9Ps%2FaEbWPtugEraHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMXZVVDU2SEUxaMIBANIBANgBjALgAQDoAQDwAQCAAgKIAgC4AgDAAgDQAgDYAgDqAgDwAo76K%2FgCAIgDAJIDAKgDALADALgDAMIDAMgDn40G0gOlAXsiMSI6IjExNzQzNjE1MDMxMjA4MjIyNzIiLCIyIjoiMjkiLCIzIjoiMjkiLCI2IjoiMTU0NF8wIiwiMTIiOiI0Njk2IiwiMTMiOiI1NTk2MjAiLCIxNCI6IjAiLCIxNSI6IjAiLCIxNiI6IjU1OTYyMF8wIiwiMTciOiI0Njk0IiwiMTkiOiI4NTkwOCIsIjI1IjoiNjIxIiwiMjYiOiI2MjYifeADAOgDAPADAPoDBW90aGVyggQJbnVsbDpudWxsmAQAoAQAqgQECAAQBLAEAOIEjQI1Ni57InBzSWQiOjEzNjAyNiwidjIiOiJBZnY2dGFaME1XeGd6NlduYU0zZnJfaFJ0U2pzekpzY0tkWHdSbFZON19UMmZ4akNnamRRWXNxNlk0WGk5eDZmQ3J0ZDM5S0c0TGtIeGQ4NHJPNm5KS0I1MGwta3N4OEtOT1lPa1JEdTVKQXNaY2RERXB1clhOOVNQcFVWdHJKN3NIWVVmU0xuYUd6Zmhmc29mRE9zS0hWc3JDUVJHSi1FV2lpaVF2WmRMMFdBVDJFRmktMTV5RGxBIn07NjMueyJwc0lkIjoxMzU5MjksInYyIjoiSzBBIn07NzAueyJwc0lkIjoxMTQ3ODAsInYyIjoiQUEiffoEAnt9kAWABJAFgQSQBYEIkAWFApAFigiQBQ%2BQBY8GkAWTApAFmRKQBZoCkAWcCJAFoAiQBaMIkAWlCJAFJpAFpgaQBaoIkAWrBJAFrwSQBbAEkAWxBJAFMpAFsgSQBTOQBbMCkAW0BJAFNZAFtwKQBbcIkAW4BJAFuwKQBb0QkAW%2FCJAFwAKQBcICkAVDkAXDApAFxQiQBUiQBcgIkAXLEJAFzAKQBc4CkAXOEJAF0wKQBdYCkAXXApAF2AKQBdoCkAXcApAF3wKQBWKQBeUEkAXqApAF7wKQBfACkAVykAX1ApAF%2FAKQBf0CkAX%2BApAF%2FwKQBYIDkAWEAZAFhgGQBYYDkAWIAZAFiQGQBYoDkAWNB5AFkgOQBZMHkAWUA5AFoRGQBaIDkAWkA5AFpQOQBacDkAWoA5AFrAGQBbADkAWxAZAFsQOQBbQBkAXCB5AFxgWQBcgBkAXIBZAFzQOQBdABkAXRAZAF0hGQBdMDkAXTB5AF1AeQBdcDkAXYAZAF4geQBeUDkAXoAZAF6AOQBeoDkAXrA5AF8QGQBfIDkAXyB5AF9QOQBfcDkAX4A5AF%2FwOgBQDIBQnSBQDgBQM%3D%2Cf%7Cclick_sync_3%2Cg%7C1%2Ch%7C2%2Ci%7C20981647%2Cj%7C%2Ck%7C1782920817033%2Cl%7C4694%2Cm%7C1782920816945%2Cn%7C1%2Co%7C0%2Cp%7Cad_card&ts=1782920817033"
+      },
+      {
+        "text": "",
+        "href": "https://live.bilibili.com/blackboard/era/ag2XnwTEwiqDp0Vg.html?live_from=81001"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/bangumi/play/ep4214852"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/blackboard/era/uQ9W1PhPNGfpY7II.html"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/blackboard/era/c1w4o3FSU94Xx9N0.html?spm_id_from=333.337.0.0"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/bangumi/play/ep3537935"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/bangumi/play/ep4391898"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/blackboard/era/V5VKfUPXoNtf5UtB.html"
+      },
+      {
+        "text": "",
+        "href": "https://www.bilibili.com/video/BV1EEL969EgE?track_id="
+      },
+      {
+        "text": "合约大舞台，有种你就来",
+        "href": "https://live.bilibili.com/blackboard/era/ag2XnwTEwiqDp0Vg.html?live_from=81001"
+      },
+      {
+        "text": "添加至稍后再看257.3万119204:55",
+        "href": "https://www.bilibili.com/video/BV1U1Ed69EwD"
+      },
+      {
+        "text": "不快乐就来看快乐女孩小卖部上班的快乐",
+        "href": "https://www.bilibili.com/video/BV1U1Ed69EwD"
+      }
+    ],
+    "loginHints": [
+      "登录"
+    ],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000002755",
+    "pageTitle": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+    "submitStatus": "已提交：page_4d1d8daf2d2545b5",
+    "domSignalBlockCount": 14,
+    "domSignalLinkCount": 6,
+    "pageStateHints": [
+      "media_dom_limited",
+      "bili_home_feed"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_4d1d8daf2d2545b5",
+      "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+      "url": "https://www.bilibili.com/",
+      "domain": "www.bilibili.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.901,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 21,
+    "digestItems": 18,
+    "sourceRefs": 22,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.045,
+        "numerator": 1,
+        "denominator": 22,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.802,
+        "numerator": 1314,
+        "denominator": 1639,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 21,
+        "denominator": 21,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 22,
+        "denominator": 22,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.467,
+        "numerator": 106,
+        "denominator": 227,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": false
+      },
+      "candidateFactDensity": {
+        "value": 0.722,
+        "numerator": 13,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0012",
+          "src_page_4d1d8daf2d2545b5_0015",
+          "src_page_4d1d8daf2d2545b5_0016",
+          "src_page_4d1d8daf2d2545b5_0022",
+          "src_page_4d1d8daf2d2545b5_0021"
+        ],
+        "label": "核心要点",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星 (https://www.bilibili.com/video/BV1EEL969EgE?track_id=)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0001",
+          "src_page_4d1d8daf2d2545b5_0006",
+          "src_page_4d1d8daf2d2545b5_0009",
+          "src_page_4d1d8daf2d2545b5_0007"
+        ],
+        "label": "bili_feed_card",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_11",
+        "nodeId": "node_11",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0011"
+        ],
+        "label": "哔哩哔哩 bilibili.com",
+        "excerpt": "哔哩哔哩（bilibili.com)是国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。大家可以在这里找到许多欢乐。"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0014"
+        ],
+        "label": "不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上",
+        "excerpt": "不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上班的快乐 2万点赞 狂野大公牛本人 · 06-10 (https://www.bilibili.com/video/BV1U1Ed69EwD)"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0001"
+        ],
+        "label": "马德拉岛的超级天才如何成长为足坛巨星",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0006"
+        ],
+        "label": "不快乐就来看快乐女孩小卖部上班的快乐",
+        "excerpt": "不快乐就来看快乐女孩小卖部上班的快乐"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0007"
+        ],
+        "label": "257.3万 1192 04 55",
+        "excerpt": "257.3万 1192"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0016"
+        ],
+        "label": "狂野大公牛本人 06-10",
+        "excerpt": "狂野大公牛本人· 06-10 (https://space.bilibili.com/646038430)"
+      }
+    ],
+    "evidenceCardCount": 10,
+    "evidenceCardLabels": [
+      "bili_feed_card",
+      "马德拉岛的超级天才如何成长为足坛巨星",
+      "不快乐就来看快乐女孩小卖部上班的快乐",
+      "2万点赞 狂野大公牛本人 06-10",
+      "核心要点",
+      "狂野大公牛本人 06-10",
+      "互动数据",
+      "description 哔哩哔哩 bilibili.com",
+      "不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上",
+      "哔哩哔哩 bilibili.com"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 11,
+    "readingMapDetailText": "B站页面ready马德拉岛的超级天才如何成长为足坛巨星4 sourcedetail4 sources马德拉岛的超级天才如何成长为足坛巨星",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 5,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0012",
+          "src_page_4d1d8daf2d2545b5_0015",
+          "src_page_4d1d8daf2d2545b5_0016",
+          "src_page_4d1d8daf2d2545b5_0022",
+          "src_page_4d1d8daf2d2545b5_0021"
+        ],
+        "label": "核心要点",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星 (https://www.bilibili.com/video/BV1EEL969EgE?track_id=)"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0001",
+          "src_page_4d1d8daf2d2545b5_0006",
+          "src_page_4d1d8daf2d2545b5_0009",
+          "src_page_4d1d8daf2d2545b5_0007"
+        ],
+        "label": "bili_feed_card",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_11",
+        "nodeId": "node_11",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0011"
+        ],
+        "label": "哔哩哔哩 bilibili.com",
+        "excerpt": "哔哩哔哩（bilibili.com)是国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。大家可以在这里找到许多欢乐。"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_10",
+        "nodeId": "node_10",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0014"
+        ],
+        "label": "不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上",
+        "excerpt": "不快乐就来看快乐女孩小卖部上班的快乐 不快乐就来看快乐女孩小卖部上班的快乐 2万点赞 狂野大公牛本人 · 06-10 (https://www.bilibili.com/video/BV1U1Ed69EwD)"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0001"
+        ],
+        "label": "马德拉岛的超级天才如何成长为足坛巨星",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0006"
+        ],
+        "label": "不快乐就来看快乐女孩小卖部上班的快乐",
+        "excerpt": "不快乐就来看快乐女孩小卖部上班的快乐"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0007"
+        ],
+        "label": "257.3万 1192 04 55",
+        "excerpt": "257.3万 1192"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_4d1d8daf2d2545b5_0016"
+        ],
+        "label": "狂野大公牛本人 06-10",
+        "excerpt": "狂野大公牛本人· 06-10 (https://space.bilibili.com/646038430)"
+      }
+    ],
+    "evidenceText": "不快乐就来看快乐女孩小卖部上班的快乐located不快乐就来看快乐女孩小卖部上班的快乐已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 5,
+    "selectedSourceCardReason": "candidate score 16 for bilibili; label=不快乐就来看快乐女孩小卖部上班的快乐",
+    "sourceCardAttemptCount": 5,
+    "sourceCardAttempts": [
+      {
+        "index": 2,
+        "status": "fallback_shown",
+        "reason": "candidate score 64 for bilibili; label=哔哩哔哩 bilibili.com",
+        "failureReason": null
+      },
+      {
+        "index": 1,
+        "status": "fallback_shown",
+        "reason": "candidate score 38 for bilibili; label=bili_feed_card",
+        "failureReason": null
+      },
+      {
+        "index": 0,
+        "status": "fallback_shown",
+        "reason": "candidate score 22 for bilibili; label=核心要点",
+        "failureReason": null
+      },
+      {
+        "index": 4,
+        "status": "fallback_shown",
+        "reason": "candidate score 16 for bilibili; label=马德拉岛的超级天才如何成长为足坛巨星",
+        "failureReason": null
+      },
+      {
+        "index": 5,
+        "status": "highlighted",
+        "reason": "candidate score 16 for bilibili; label=不快乐就来看快乐女孩小卖部上班的快乐",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 2,
+        "label": "哔哩哔哩 bilibili.com",
+        "excerpt": "哔哩哔哩（bilibili.com)是国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。大家可以在这里找到许多欢乐。",
+        "score": 64
+      },
+      {
+        "index": 1,
+        "label": "bili_feed_card",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星",
+        "score": 38
+      },
+      {
+        "index": 0,
+        "label": "核心要点",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星 (https://www.bilibili.com/video/BV1EEL969EgE?track_id=)",
+        "score": 22
+      },
+      {
+        "index": 4,
+        "label": "马德拉岛的超级天才如何成长为足坛巨星",
+        "excerpt": "马德拉岛的超级天才如何成长为足坛巨星",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "不快乐就来看快乐女孩小卖部上班的快乐",
+        "excerpt": "不快乐就来看快乐女孩小卖部上班的快乐",
+        "score": 16
+      },
+      {
+        "index": 7,
+        "label": "狂野大公牛本人 06-10",
+        "excerpt": "狂野大公牛本人· 06-10 (https://space.bilibili.com/646038430)",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 10,
+    "evidenceCardLabelCount": 10,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 16.8,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-01T15:47:29.372Z"
+}

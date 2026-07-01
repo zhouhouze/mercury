@@ -251,7 +251,7 @@ docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
 
 ## 11. 2026-06-30 V1-MVP-QH Documentation Sufficiency Review
 
-本轮审计对象是基础 MVP 体验确认后的质量硬化阶段：`V1-MVP-QH`。该阶段只支撑 Source Jumpback 和 Mindmap Quality 的 scoped hardening，不支撑完整 V1 complete。
+本轮审计对象是基础 MVP 体验确认后的质量硬化阶段：`V1-MVP-QH`。该阶段只支撑 Source Jumpback、内容理解和 Mindmap Quality 的 expanded hardening，不支撑完整 V1 complete。
 
 当前事实：
 
@@ -274,7 +274,7 @@ No-Go for full V1 complete, final Monica-like UX complete, or complex-site full 
 |---|---|---|
 | PRD 目标 | Pass | `01-prd.md` 已明确基础 MVP accepted、剩余质量问题、允许声明和 No-Go |
 | 目标架构 | Pass | `02-architecture.md` 已列出 `pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`contentBridge.ts`、evidence report 的目标链路和边界 |
-| 开发计划 | Pass | `03-development-plan.md` 已拆分 `V1-MVP-QH-0` 到 `V1-MVP-QH-5`，并给出每阶段打回规则 |
+| 开发计划 | Pass | `03-development-plan.md` 已拆分 `V1-MVP-QH-0` 到 `V1-MVP-QH-6`，并给出每阶段打回规则 |
 | 验收计划 | Pass | `04-acceptance-plan.md` 已要求 B站、小红书、观察者网首页 / 详情页真实数据、截图证据、source 三态、解释选中内容、独立 QH evidence 和 false-green audit |
 | Stage gate | Pass | `stage-gates/v1-mainline-closeout.md` 已新增 V1-MVP-QH 门禁和固定验证命令 |
 | Drawio | Pass | `v1-mainline-closeout-gap.drawio` 固定 8 页，05 页已切换为 V1-MVP-QH 质量硬化闭环，07 / 08 页保留 No-Go 与风险路线 |
@@ -289,12 +289,12 @@ No-Go for full V1 complete, final Monica-like UX complete, or complex-site full 
 - B站、小红书、观察者网首页与详情页真实数据复验。
 - 解释选中内容的噪声过滤和 source grounding 复验。
 - 可选图片证据展示，但仅限当前页已有图片 URL、alt、caption 或媒体 metadata，不引入 OCR/VLM。
-- 独立 QH scoped evidence、PRD review、false-green audit、HTML / JSON / screenshot 证据闭环，再聚合到 mainline closeout。
+- 独立 QH expanded evidence、PRD review、false-green audit、HTML / JSON / screenshot 证据闭环，再聚合到 mainline closeout。
 
 本阶段完成后可以达成的目标：
 
 ```text
-V1 MVP quality hardening passed scoped real-site acceptance.
+V1 MVP quality hardening passed expanded real-site acceptance.
 ```
 
 本阶段完成后仍不能达成的目标：
@@ -338,7 +338,7 @@ Technical Writer 结论：
 第三轮一致性修订结论：
 
 ```text
-P1 gap closed: QH scoped evidence now has an independent evidence package.
+P1 gap closed: QH expanded evidence now has an independent evidence package.
 P1 gap closed: explain-selection quality is now explicitly covered by PRD, architecture, development plan, acceptance plan, and stage gate.
 No new fatal / major documentation gap remains.
 ```
@@ -362,4 +362,73 @@ docs/active/project/design/v1-mainline-closeout-gap.md
 docs/active/project/design/v1-mainline-closeout-gap.drawio
 docs/active/project/design/v1-mainline-closeout-readiness-audit.md
 docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+```
+
+## 12. 2026-07-01 V1-MVP-QH-CU/MQ Expanded Matrix Documentation Audit
+
+本轮审计对象是 `V1-MVP-QH` 内部的内容理解与 Mindmap 质量硬化子目标。它承接基础 MVP 人工确认和旧 6 样本 QH evidence，但把下一阶段出门门槛升级为国内外 48 页主流图文网页 / 门户网站扩展矩阵。
+
+结论：
+
+```text
+Go for V1-MVP-QH-CU/MQ documentation baseline.
+Conditional Go for staged implementation only after QH-0 document audit closes with no fatal / major issue.
+No-Go for full V1 complete, final Monica-like UX complete, or all-mainstream-sites high-quality claim.
+```
+
+文档支撑性评估：
+
+| 维度 | 结论 | 依据 |
+|---|---|---|
+| 阶段目标 | Pass | PRD 将目标限定为主内容识别、Mindmap 质量和 Source Jumpback 质量硬化 |
+| 架构边界 | Pass | 目标架构保持 `pageContext.ts -> A -> C -> B -> contentBridge.ts -> evidence`，不新增 Runtime public API |
+| 样本门槛 | Pass | 验收计划要求 48 页、国内 24+、国外 24+、6 类各 8+、总 44/48+、每类 7/8+ |
+| 样本清单 | Pass | `sample-manifest.json` 已作为 QH-1 出门产物，冻结 URL、类别、地区、登录态策略、替代样本和同站点限制 |
+| Schema 确定性 | Pass | 已新增 `v1_mvp_quality_hardening_sample_manifest.schema.json` 与 `v1_mvp_quality_hardening_report.schema.json`，分别约束 QH-1 manifest 与 QH-6 独立 report |
+| 质量阈值 | Pass | 页面级 `qualityMetrics` 已要求 grounding、top node source、噪声、重复、长标签和 jumpback 语义一致性阈值 |
+| 旧证据边界 | Pass | 旧 6 样本 QH evidence 只作为 prior baseline，不能替代 expanded acceptance |
+| drawio 要求 | Pass | gap companion 固定 8 页结构，并要求 02 页使用具体实现实体 |
+| No-Go | Pass | 完整 V1 complete、全量高质量、RAG / Web Research / OCR/VLM/ASR 等均保持禁止 |
+
+当前文档可以指导的后续开发：
+
+- `QH-1` 冻结 48 页 `sample-manifest.json`、页面类别、登录态策略、替代样本规则、质量阈值和 prior baseline 边界。
+- `QH-2` 改进 A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量。
+- `QH-3` 改进 C Mindmap 主题归并、节点压缩和 nodeSourceMap 绑定。
+- `QH-4` 改进 B Renderer 导图可读性、source card 排序和三态 evidence 展示。
+- `QH-5` 改进 Content Script 多线索 Source Jumpback。
+- `QH-6` 生成 48 页 expanded evidence、PRD review、false-green audit 和可视化 HTML 报告。
+
+仍无法仅靠文档消除的执行风险：
+
+| 风险 | 等级 | 文档处理 |
+|---|---|---|
+| 真实网页模板、登录态、cookie wall 和地区限制变化 | Major | 要求 degraded / blocked 和同类别替代样本 |
+| 首页 / 门户信息流被误判为正文理解 | Major | 要求主新闻卡片和频道主题，不允许导航-only pass |
+| 视频页被误写成视频内容理解 | Major | 只验收 DOM 可见文本、简介、字幕文本、评论、弹幕统计或 metadata |
+| 旧 6 样本报告被误读为 48 页通过 | Major | PRD、架构、验收、stage gate 和 drawio 均标注 prior baseline |
+
+审计意见：
+
+```text
+当前文档可支撑下一阶段自动化开发计划。
+下一步执行前必须先完成 QH-0 文档门禁和 drawio 人工方向审核。
+扩展矩阵未通过前，不能声明 V1 MVP quality hardening passed expanded real-site acceptance.
+```
+
+P1 补强闭环：
+
+- 已补齐 `sample-manifest.json` 的最小结构、样本替代规则和不可删除 blocked / degraded 原样本的要求。
+- 已补齐页面级 `qualityMetrics` 的硬阈值和 numerator / denominator / threshold / passed 记录要求。
+- 已补齐 `report.json.passed=true` 的语义前提，避免只靠聚合摘要或旧 6 样本 evidence false-green。
+- 已补齐 manifest / report JSON Schema 路径，避免后续自动化报告字段漂移。
+- 已补齐独立 QH report 生成命令口径：先生成 `v1_mvp_quality_hardening` report，再由 `v1_mainline_closeout` 聚合。
+- 已补齐 fallback 计数口径：`freshFallbackSamples`、`referencedFallbackSamples`、`blockedSamples`、`locatedSamples` 和 `referencedFallbackEvidencePaths` 必须分开记录。
+
+补强后结论：
+
+```text
+No fatal / major documentation gap remains for V1-MVP-QH-CU/MQ staged implementation planning.
+Residual risk is execution risk from real websites, not current documentation insufficiency.
+Implementation remains Conditional Go until QH-0 closes with no fatal / major issue.
 ```

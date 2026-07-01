@@ -7,11 +7,11 @@ from navia_runtime.contracts import ErrorCode
 
 
 MAX_NODES = 32
-MAX_LABEL_CHARS = 64
+MAX_LABEL_CHARS = 52
 MAX_THEME_CHILDREN = 5
 MAX_THEMES = 5
-MAX_CHILD_LABEL_CHARS = 34
-MAX_THEME_LABEL_CHARS = 18
+MAX_CHILD_LABEL_CHARS = 28
+MAX_THEME_LABEL_CHARS = 16
 
 SITE_SHELL_TITLES = {
     "bilibili.com": "B站页面",
@@ -45,6 +45,15 @@ NOISE_TEXT_PATTERNS = [
     r"添加至稍后再看",
     r"^(dom signals|metadata|keywords|feed_card|media_link|content_link|media_block|content_block|nav_block|link)$",
     r"^keywords[:：]",
+    r"^description[:：]",
+    r"^canonical[:：]",
+    r"^og[:：]",
+    r"cookie policy",
+    r"privacy policy",
+    r"subscribe to",
+    r"sign in",
+    r"advertisement",
+    r"newsletter",
     r"问点点\s+ai\s+推荐\s+穿搭",
     r"大报版\s+要闻\s+时评\s+朋友圈\s+风闻\s+知识\s+视频\s+滚动",
     r"关于我们",
@@ -94,6 +103,8 @@ NOISE_TEXT_PATTERNS = [
     r"^\d{1,2}[:：]\d{2}(?::\d{2})?$",
     r"^\d+(?:\.\d+)?万?$",
     r"^图\s*\d+$",
+    r"^image\s*\d+$",
+    r"^\d{4}[-/]\d{1,2}[-/]\d{1,2}$",
     r"小红书\s+发布",
     r"当前小红书笔记详情页",
     r"user\s*/\s*profile",
@@ -577,6 +588,8 @@ def normalize_label_text(value: str) -> str:
     normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
     normalized = re.sub(r"\b(media|nav|header|footer|content|main)\b[_-]?\d*", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"(自动连播|订阅合集|相关推荐|按类型过滤|防挡字幕|智能防挡弹幕|弹幕随屏幕缩放|稿件投诉).*$", "", normalized)
+    normalized = re.sub(r"\b(cookie policy|privacy policy|advertisement|sponsored|subscribe to|sign in|newsletter)\b.*$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^(图|image)\s*\d+[：:\s-]*", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\bhttps?\b", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\s+", " ", normalized).strip(" ，。；：、,.")
     return normalized

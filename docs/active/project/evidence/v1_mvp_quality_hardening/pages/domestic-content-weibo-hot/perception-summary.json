@@ -1,0 +1,73 @@
+{
+  "activePage": {
+    "pageId": "page_c35237236fd1089e",
+    "title": "微博搜索-热搜榜",
+    "url": "https://s.weibo.com/top/summary",
+    "domain": "s.weibo.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.921,
+  "warnings": [],
+  "fatalIssues": [],
+  "highSignalBlocks": 17,
+  "digestItems": 17,
+  "sourceRefs": 18,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.056,
+      "numerator": 1,
+      "denominator": 18,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.906,
+      "numerator": 1579,
+      "denominator": 1743,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": true
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 17,
+      "denominator": 17,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 17,
+      "denominator": 17,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.599,
+      "numerator": 100,
+      "denominator": 167,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": false
+    },
+    "candidateFactDensity": {
+      "value": 0.941,
+      "numerator": 16,
+      "denominator": 17,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

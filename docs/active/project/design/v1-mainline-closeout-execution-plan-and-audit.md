@@ -207,3 +207,56 @@ User-main-profile logged-in full-site quality validation.
 V2 Memory / RAG ready.
 Web Research / PPT / Deep Research ready.
 ```
+
+## 11. V1-MVP-QH-CU/MQ Documentation Execution Plan
+
+This documentation-only loop updates the active V1-MVP-QH baseline after manual feedback that current content understanding and Mindmap quality remain insufficient.
+
+Allowed documentation claim:
+
+```text
+V1 MVP baseline accepted; content understanding and mindmap quality hardening ready for staged implementation.
+```
+
+Allowed future scoped claim after expanded evidence passes:
+
+```text
+V1 MVP quality hardening passed expanded real-site acceptance.
+```
+
+Execution steps:
+
+| Step | Action | Evidence |
+|---|---|---|
+| QH-DOC-0 | Update PRD, architecture, development plan, acceptance plan and stage gate | All documents distinguish prior 6-sample QH evidence from the 48-page expanded matrix |
+| QH-DOC-1 | Update gap companion and drawio | Drawio has at most 8 Chinese pages, uses concrete implementation entities, and shows manifest / metrics / semantic validator gates |
+| QH-DOC-2 | Recheck claim boundaries | No full V1 complete, all-sites high-quality, or V2+ capability claim |
+| QH-DOC-3 | Recheck acceptance completeness | 48-page matrix, `sample-manifest.json`, manifest/report schema validation, page-level `qualityMetrics`, PRD review, false-green audit and screenshots are required |
+| QH-DOC-4 | Recheck fallback and report generation semantics | Independent QH report generation precedes mainline aggregation; `freshFallbackSamples`, `referencedFallbackSamples`, `blockedSamples`, `locatedSamples` are separated |
+| QH-DOC-5 | Prepare handoff for staged implementation | QH-1 manifest -> QH-2 A -> QH-3 C -> QH-4 B -> QH-5 jumpback -> QH-6 expanded report |
+
+Stop conditions:
+
+- Any active document treats the existing 6-sample `v1_mvp_quality_hardening` report as expanded 48-page acceptance.
+- Any active document claims full V1 complete or final Monica-like UX complete.
+- Any active document adds RAG, Memory, Web Research, OCR/VLM/ASR, PPT, Deep Research, multi-agent, product browser automation or default local file reading.
+- Any active document lets `v1_mainline_closeout` aggregation replace independent QH report generation.
+- Any active document lets `freshFallbackSamples = 0` be interpreted as fresh fallback coverage.
+- Drawio exceeds 8 pages or hides concrete code / DOM / Runtime / evidence entities behind generic module names.
+
+Validation commands for this documentation loop:
+
+```bash
+git diff --check
+python3 - <<'PY'
+import xml.etree.ElementTree as ET
+p='docs/active/project/design/v1-mainline-closeout-gap.drawio'
+root=ET.parse(p).getroot()
+pages=root.findall('diagram')
+print('drawio_pages', len(pages))
+for i,d in enumerate(pages,1):
+    print(i, d.get('name'))
+PY
+rg -n "48 页|44/48|7/8|prior baseline|expanded real-site acceptance|完整 V1 complete|RAG ready|Web Research|OCR/VLM|ASR" docs/active/project/01-prd.md docs/active/project/02-architecture.md docs/active/project/03-development-plan.md docs/active/project/04-acceptance-plan.md docs/active/project/stage-gates/v1-mainline-closeout.md docs/active/project/design/v1-mainline-closeout-gap.md docs/active/project/design/v1-mainline-closeout-readiness-audit.md docs/active/project/design/v1-mainline-closeout-execution-plan-and-audit.md
+rg -n "v1_mvp_quality_hardening_sample_manifest.schema.json|v1_mvp_quality_hardening_report.schema.json|generate-v1-mvp-quality-hardening-report|freshFallbackSamples|referencedFallbackSamples|blockedSamples|locatedSamples" docs/active/project
+```
