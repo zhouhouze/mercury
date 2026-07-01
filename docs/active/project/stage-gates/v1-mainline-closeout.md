@@ -251,3 +251,77 @@ No-Go：
 - 文档把 temporary cookie profile 证据写成用户主 Profile 登录态全站高质量通过。
 - 文档把当前 `fallbackSamples = 0` 写成当前 fresh fallback 抽样已覆盖。
 - 文档新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
+
+## 10. V1-MVP-QH 基础 MVP 确认后的质量硬化门禁
+
+本门禁承接人工确认的基础 MVP 体验。基础 MVP OK 只说明当前体验可进入质量硬化，不代表完整 V1 complete。
+
+阶段目标：
+
+```text
+V1 MVP baseline accepted; Source Jumpback and Mindmap quality hardening ready for staged implementation.
+```
+
+子阶段：
+
+| 子阶段 | 目标 | 出门条件 |
+|---|---|---|
+| `V1-MVP-QH-0` | PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 同步 | active 文档无 fatal / major；drawio <= 8 页；不得升级为完整 V1 complete |
+| `V1-MVP-QH-1` | A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量硬化 | digest / sourceRef 证明 B站、小红书、观察者网主内容优先 |
+| `V1-MVP-QH-2` | C Mindmap 主题归并、节点压缩和 nodeSourceMap 绑定硬化 | 高层节点短标签可读，主要节点绑定 sourceRef 或 fallback reason |
+| `V1-MVP-QH-3` | B Renderer 导图可读性、source card 排序和三态 evidence 展示硬化 | 截图无虚影、重叠、截断、遮挡；source card 前置主内容 |
+| `V1-MVP-QH-4` | Content Script Source Jumpback 多线索定位硬化 | located 有 marker；fallback_shown / blocked 不伪装 success |
+| `V1-MVP-QH-5` | 真实站点复验和审计报告 | B站 / 小红书 / 观察者网首页与详情页通过独立 QH scoped acceptance；PRD review / false-green audit 无 fatal / major；再聚合到 V1 mainline closeout |
+
+必需验收场景：
+
+- B站详情页：视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容进入摘要和 Mindmap。
+- 小红书首页 / 详情页：feed card、标题、作者、正文或稳定链接优先成为 source evidence。
+- 观察者网首页 / 详情页：正文标题、作者、发布时间和正文段落优先于评论、推荐、最新视频或站点壳。
+- 窄 sidebar：Evidence Card Mindmap、Reading Map、Source Evidence 无文本虚影、重叠、截断或输入框遮挡。
+- Source Jumpback：`located`、`fallback_shown`、`blocked` 在 UI、JSON、HTML 报告和截图中一致。
+- 解释选中内容：B站、小红书、观察者网至少各 1 个样本证明解释内容不被网站壳、图片序号、时间戳、重复文本、推荐列表或评论区主导。
+- 可选图片证据：只能来自当前页已有图片 URL、alt、caption 或媒体 metadata；不得新增 OCR/VLM、Web Research 或默认本地文件读取。
+
+独立 QH 证据包：
+
+```text
+docs/active/project/evidence/v1_mvp_quality_hardening/report.json
+docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html
+docs/active/project/evidence/v1_mvp_quality_hardening/prd-review.md
+docs/active/project/evidence/v1_mvp_quality_hardening/false-green-audit.md
+docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json
+docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/
+```
+
+`docs/active/project/evidence/v1_mainline_closeout/` 只能在 QH scoped evidence 通过后重新聚合，不得替代 QH 出门证据。
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
+```
+
+允许声明：
+
+```text
+V1 MVP quality hardening passed scoped real-site acceptance.
+```
+
+No-Go：
+
+- 完整 V1 complete。
+- 最终 Monica-like UX complete。
+- 复杂站点全量高质量通过。
+- 用户主 Profile 登录态全站高质量通过。
+- 把 fallback / blocked 写成 located / highlighted。
+- 用测试 source card 选择策略掩盖产品 UI source card 排序错误。
+- 用单元测试或 build 结果替代真实截图级 Mindmap / Source Jumpback 验收。
+- 用 mainline closeout 聚合报告替代独立 QH scoped evidence。
+- `解释选中内容` 仍被图片序号、时间戳、站点壳、重复文本或评论 / 推荐主导。
+- 引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。

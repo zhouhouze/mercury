@@ -224,6 +224,7 @@ def build_structured_page_context(input_data: dict[str, Any]) -> dict[str, Any]:
     signal_paragraphs = dom_signal_paragraphs(dom_signals)
     if signal_paragraphs and (
         dom_signal_has_hint(dom_signals, "bili_video_detail")
+        or dom_signal_has_hint(dom_signals, "bili_home_feed")
         or dom_signal_has_hint(dom_signals, "xhs_note_detail")
         or dom_signal_has_hint(dom_signals, "xhs_home_feed")
         or dom_signal_has_hint(dom_signals, "guancha_article_detail")
@@ -311,6 +312,7 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
     paragraphs: list[ParsedParagraph] = []
     seen: set[str] = set()
     bili_video_detail = dom_signal_has_hint(value, "bili_video_detail")
+    bili_home_feed = dom_signal_has_hint(value, "bili_home_feed")
     xhs_note_detail = dom_signal_has_hint(value, "xhs_note_detail")
     xhs_home_feed = dom_signal_has_hint(value, "xhs_home_feed")
     guancha_article_detail = dom_signal_has_hint(value, "guancha_article_detail")
@@ -319,6 +321,8 @@ def dom_signal_paragraphs(value: Any) -> list[ParsedParagraph]:
         if not isinstance(item, dict):
             continue
         role = read_optional_str(item.get("role"))
+        if bili_home_feed and role in {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo", "auth_block"}:
+            continue
         if bili_video_detail and role in {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo"}:
             continue
         if xhs_note_detail and role in {"bili_comment", "xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "auth_block"}:

@@ -71,6 +71,12 @@ NOISE_TEXT_PATTERNS = [
     r"微信",
     r"弹幕列表",
     r"弹幕设置",
+    r"高级弹幕",
+    r"弹幕随屏幕缩放",
+    r"稿件投诉",
+    r"倍速",
+    r"小窗播放",
+    r"网页全屏",
     r"自动连播",
     r"订阅合集",
     r"防挡字幕",
@@ -85,6 +91,9 @@ NOISE_TEXT_PATTERNS = [
     r"展开\s*\d+\s*条回复",
     r"说点什么",
     r"^\d+\s*(通知|消息)$",
+    r"^\d{1,2}[:：]\d{2}(?::\d{2})?$",
+    r"^\d+(?:\.\d+)?万?$",
+    r"^图\s*\d+$",
     r"小红书\s+发布",
     r"当前小红书笔记详情页",
     r"user\s*/\s*profile",
@@ -382,6 +391,14 @@ def source_ref_signal_score(ref: dict[str, Any]) -> float:
         score -= 0.8
     if ref.get("selector") or ref.get("domPath"):
         score += 1.2
+    heading_path = " ".join(str(item) for item in ref.get("headingPath", []) if str(item).strip()).lower()
+    href = str(ref.get("href") or "").lower()
+    if any(token in heading_path for token in ["bili_video_title", "bili_video_description", "bili_feed_card", "xhs_note_title", "xhs_note_body", "xhs_feed_card", "guancha_article_title", "guancha_article_body"]):
+        score += 3.0
+    if any(token in heading_path for token in ["comment", "recommendation", "danmaku", "promo", "sidebar", "footer"]):
+        score -= 5.0
+    if any(token in href for token in ["bilibili.com/video/", "xiaohongshu.com/explore/", "guancha.cn/"]):
+        score += 1.0
     confidence = ref.get("confidence")
     if isinstance(confidence, (int, float)):
         score += min(1.0, max(0.0, float(confidence)))
@@ -528,6 +545,7 @@ def compact_digest_label(text: str, first_ref: dict[str, Any]) -> str:
 def compact_node_label(value: str, *, max_chars: int = MAX_LABEL_CHARS) -> str:
     normalized = normalize_label_text(value)
     normalized = strip_leading_noise(normalized)
+    normalized = strip_metric_noise(normalized)
     normalized = strip_sentence_tail(normalized)
     if len(normalized) <= max_chars:
         return normalized or "未命名节点"
@@ -558,6 +576,7 @@ def normalize_label_text(value: str) -> str:
     normalized = re.sub(r"\b(the|a|an)\s+", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
     normalized = re.sub(r"\b(media|nav|header|footer|content|main)\b[_-]?\d*", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"(自动连播|订阅合集|相关推荐|按类型过滤|防挡字幕|智能防挡弹幕|弹幕随屏幕缩放|稿件投诉).*$", "", normalized)
     normalized = re.sub(r"\bhttps?\b", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\s+", " ", normalized).strip(" ，。；：、,.")
     return normalized
@@ -567,6 +586,14 @@ def strip_leading_noise(value: str) -> str:
     normalized = re.sub(r"^(首页|推荐|热门|更多|登录|注册|打开|点击|进入|分享|评论|研究)[：:、\s]+", "", value)
     normalized = re.sub(r"^(Home|Recommended|Popular|More|Login|Sign in)[:\s]+", "", normalized, flags=re.IGNORECASE)
     return normalized.strip() or value
+
+
+def strip_metric_noise(value: str) -> str:
+    normalized = re.sub(r"\b\d{1,2}:\d{2}(?::\d{2})?\b", " ", value)
+    normalized = re.sub(r"\s+\d+(?:\.\d+)?万(?:播放|弹幕|点赞|收藏|粉丝)?", " ", normalized)
+    normalized = re.sub(r"(播放|弹幕|点赞|投币|收藏|转发)\s*\d+(?:\.\d+)?万?", " ", normalized)
+    normalized = re.sub(r"\s+", " ", normalized).strip(" ，。；：、,.")
+    return normalized or value
 
 
 def strip_sentence_tail(value: str) -> str:
@@ -594,6 +621,8 @@ def semantic_theme_label(text: str) -> str | None:
 
 def is_noise_text(value: str) -> bool:
     raw = re.sub(r"\s+", " ", value).strip()
+    if looks_like_bili_mixed_media_listing(raw) or looks_like_comment_thread(raw):
+        return True
     if re.search(r"https?\s*:\s*/\s*/(?:\s*[\w.-]+)+(?:\s*/\s*[\w%.-]+)*", raw, flags=re.IGNORECASE) and re.search(
         r"user\s*/\s*profile", raw, flags=re.IGNORECASE
     ):
@@ -618,10 +647,14 @@ def looks_like_bili_mixed_media_listing(value: str) -> bool:
     count_metrics = len(re.findall(r"\d+(?:\.\d+)?万", value))
     count_timecodes = len(re.findall(r"\b\d{1,2}:\d{2}\b", value))
     dense_media_terms = sum(1 for token in ["播放", "弹幕", "简介", "订阅合集", "自动连播", "相关推荐"] if token in value)
-    noisy_ui_terms = sum(1 for token in ["按类型过滤", "滚动", "固定", "彩色", "防挡字幕", "智能防挡弹幕", "充电", "关注"] if token in value)
+    noisy_ui_terms = sum(1 for token in ["自动连播", "订阅合集", "相关推荐", "按类型过滤", "滚动", "固定", "彩色", "防挡字幕", "智能防挡弹幕", "充电", "关注"] if token in value)
     if len(value) > 90 and count_metrics >= 3 and dense_media_terms >= 2:
         return True
     if len(value) > 60 and count_timecodes >= 3 and dense_media_terms >= 1:
+        return True
+    if len(value) > 55 and count_metrics >= 2 and noisy_ui_terms >= 1:
+        return True
+    if len(value) > 45 and dense_media_terms >= 2 and noisy_ui_terms >= 2:
         return True
     return noisy_ui_terms >= 2
 

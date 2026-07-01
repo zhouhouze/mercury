@@ -11,7 +11,7 @@ SCHEMA_VERSION = "a-v1.1-high-signal-2026-06-05"
 NOISE_KEYWORDS = {
     "nav": ["home", "pricing", "sign in", "login", "menu", "subscribe", "登录", "导航", "首页", "频道", "专栏", "直播", "社区中心"],
     "footer": ["copyright", "privacy", "terms", "©", "备案", "隐私", "条款"],
-    "recommendation": ["related", "recommended", "you may also", "更多推荐", "相关阅读", "不感兴趣将减少此类内容推荐", "添加至稍后再看"],
+    "recommendation": ["related", "recommended", "you may also", "更多推荐", "相关阅读", "相关推荐", "最新视频", "自动连播", "订阅合集", "不感兴趣将减少此类内容推荐", "添加至稍后再看"],
     "ad_like": ["advertisement", "sponsored", "推广", "广告"],
     "comment": ["comment", "reply", "评论", "留言"],
 }
@@ -60,8 +60,17 @@ BOILERPLATE_PATTERNS = [
     r"共\s*\d+\s*条评论",
     r"展开\s*\d+\s*条回复",
     r"说点什么",
+    r"稿件投诉",
+    r"高级弹幕",
+    r"弹幕随屏幕缩放",
+    r"倍速",
+    r"小窗播放",
+    r"网页全屏",
+    r"^图\s*\d+$",
+    r"^\d{1,2}[:：]\d{2}(?::\d{2})?$",
+    r"^\d+(?:\.\d+)?万?$",
 ]
-BILI_MAIN_ROLES = {"bili_video_title", "bili_video_description", "bili_video_author", "bili_video_stats"}
+BILI_MAIN_ROLES = {"bili_video_title", "bili_video_description", "bili_video_author", "bili_video_stats", "bili_feed_card"}
 BILI_NOISE_ROLES = {"bili_comment", "bili_recommendation", "bili_danmaku", "bili_promo"}
 XHS_MAIN_ROLES = {"xhs_note_title", "xhs_note_body", "xhs_note_author", "xhs_note_stats", "xhs_feed_card"}
 XHS_NOISE_ROLES = {"xhs_comment", "xhs_footer", "xhs_sidebar", "xhs_feed_container", "profile_link"}
@@ -419,8 +428,8 @@ def classify_region_and_noise(paragraph: dict[str, Any]) -> tuple[str, str, floa
         region = "comment" if dom_role == "guancha_comment" else "recommendation"
         return region, dom_role, 0.96
     if dom_role in BILI_MAIN_ROLES:
-        reason = "bili_video_main"
-        return "main", reason, 0.04 if dom_role in {"bili_video_title", "bili_video_description"} else 0.08
+        reason = "bili_feed_main" if dom_role == "bili_feed_card" else "bili_video_main"
+        return "main", reason, 0.04 if dom_role in {"bili_video_title", "bili_video_description", "bili_feed_card"} else 0.08
     if dom_role in XHS_MAIN_ROLES:
         reason = "xhs_note_main" if dom_role != "xhs_feed_card" else "xhs_feed_card"
         return "main", reason, 0.04 if dom_role in {"xhs_note_title", "xhs_note_body", "xhs_feed_card"} else 0.08
@@ -450,8 +459,46 @@ def is_boilerplate_text(text: str) -> bool:
         return True
     if any(re.search(pattern, normalized, flags=re.IGNORECASE) for pattern in BOILERPLATE_PATTERNS):
         return True
+    if looks_like_complex_site_noise(normalized):
+        return True
     nav_tokens = ["首页", "动态", "热门", "频道", "专栏", "直播", "课堂", "社区", "登录", "注册", "下载"]
     return sum(1 for token in nav_tokens if token in normalized) >= 5 and len(normalized) < 180
+
+
+def looks_like_complex_site_noise(text: str) -> bool:
+    if not text:
+        return True
+    media_metric_count = len(re.findall(r"\d+(?:\.\d+)?万", text))
+    timecode_count = len(re.findall(r"\b\d{1,2}:\d{2}\b", text))
+    low_value_terms = sum(
+        1
+        for token in [
+            "自动连播",
+            "订阅合集",
+            "相关推荐",
+            "按类型过滤",
+            "滚动",
+            "固定",
+            "彩色",
+            "防挡字幕",
+            "智能防挡弹幕",
+            "稿件投诉",
+            "充电",
+            "关注",
+            "评论",
+        ]
+        if token in text
+    )
+    legal_terms = sum(1 for token in ["ICP备", "公网安备", "营业执照", "增值电信业务", "网络文化经营许可证", "违法不良信息举报"] if token in text)
+    if len(text) > 70 and media_metric_count >= 3 and low_value_terms >= 2:
+        return True
+    if len(text) > 55 and timecode_count >= 3 and low_value_terms >= 1:
+        return True
+    if low_value_terms >= 3:
+        return True
+    if legal_terms >= 2:
+        return True
+    return False
 
 
 def should_filter(paragraph: dict[str, Any], region_type: str, noise: float, density: float) -> bool:

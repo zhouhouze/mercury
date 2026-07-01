@@ -248,3 +248,118 @@ docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
 - 是否同意完整 V1 complete 仍需要人工产品体验核查通过、PRD review 和 false-green audit clean。
 - 是否同意 drawio 已恢复旧版细粒度架构和风险路线表达，且没有过度承诺产品能力。
 - 是否同意当前文档不需要进入产品代码实现即可完成本阶段目标。
+
+## 11. 2026-06-30 V1-MVP-QH Documentation Sufficiency Review
+
+本轮审计对象是基础 MVP 体验确认后的质量硬化阶段：`V1-MVP-QH`。该阶段只支撑 Source Jumpback 和 Mindmap Quality 的 scoped hardening，不支撑完整 V1 complete。
+
+当前事实：
+
+```text
+基础 MVP 体验已由人工确认 OK。
+已知缺陷仍包括：Source Jumpback 识别失败 / 定位不准、Mindmap 不准确、复杂站点噪声、窄屏可读性问题。
+```
+
+结论：
+
+```text
+Go for V1-MVP-QH documentation baseline.
+Conditional Go for V1-MVP-QH staged implementation only after QH-0 audit closure.
+No-Go for full V1 complete, final Monica-like UX complete, or complex-site full high-quality claim.
+```
+
+文档支撑性评估：
+
+| 维度 | 结论 | 依据 |
+|---|---|---|
+| PRD 目标 | Pass | `01-prd.md` 已明确基础 MVP accepted、剩余质量问题、允许声明和 No-Go |
+| 目标架构 | Pass | `02-architecture.md` 已列出 `pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`contentBridge.ts`、evidence report 的目标链路和边界 |
+| 开发计划 | Pass | `03-development-plan.md` 已拆分 `V1-MVP-QH-0` 到 `V1-MVP-QH-5`，并给出每阶段打回规则 |
+| 验收计划 | Pass | `04-acceptance-plan.md` 已要求 B站、小红书、观察者网首页 / 详情页真实数据、截图证据、source 三态、解释选中内容、独立 QH evidence 和 false-green audit |
+| Stage gate | Pass | `stage-gates/v1-mainline-closeout.md` 已新增 V1-MVP-QH 门禁和固定验证命令 |
+| Drawio | Pass | `v1-mainline-closeout-gap.drawio` 固定 8 页，05 页已切换为 V1-MVP-QH 质量硬化闭环，07 / 08 页保留 No-Go 与风险路线 |
+| Human checklist | Pass with boundary | `human-review-checklist.md` 记录基础 MVP accepted，但 `reviewStatus` 仍为 pending，不支持完整 V1 complete |
+
+本阶段文档可以完整指导的开发内容：
+
+- A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量硬化。
+- C Mindmap 主题归并、节点文本压缩和 nodeSourceMap 绑定硬化。
+- B Renderer 导图可读性、source card 排序和三态 source evidence 展示硬化。
+- Content Script Source Jumpback 多 sourceRef / selector / domPath / textQuote / href-card 线索定位。
+- B站、小红书、观察者网首页与详情页真实数据复验。
+- 解释选中内容的噪声过滤和 source grounding 复验。
+- 可选图片证据展示，但仅限当前页已有图片 URL、alt、caption 或媒体 metadata，不引入 OCR/VLM。
+- 独立 QH scoped evidence、PRD review、false-green audit、HTML / JSON / screenshot 证据闭环，再聚合到 mainline closeout。
+
+本阶段完成后可以达成的目标：
+
+```text
+V1 MVP quality hardening passed scoped real-site acceptance.
+```
+
+本阶段完成后仍不能达成的目标：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+仍无法仅靠文档消除的执行风险：
+
+| 风险 | 等级 | 可选路线 | 优点 | 缺点 | 当前建议 |
+|---|---|---|---|---|---|
+| 复杂站点 DOM / 登录态 / 风控变化导致 source jumpback 失败 | Major | B 专用测试 profile / cookie 注入 | 可重复，不接管用户主 profile | cookie 会过期，不能代表全站登录态 | 默认路线 |
+| 专用 profile 或 cookie 失效 | Major | A 用户登录态 Chrome CDP | 最接近真实体验 | 需要人工配合，可能抢焦点 | B 失败后使用 |
+| 登录态不可用 | Major | C public no-login headless | 自动化程度高、低打扰 | 不能证明登录态质量 | 只能作为 degraded/public 证据 |
+| 浏览器或扩展加载失败 | Major | D structured blocker + 人工截图补位 | 不做虚假验收 | 不能自动化通过 | 只作为阻塞记录 |
+| Mindmap 可读性仍需人工判断 | Major | 真实截图 + Reality Checker 审计 | 能看到虚影、截断、遮挡 | 无法完全量化 | 必须执行 |
+| QH evidence 与 mainline closeout 聚合报告混淆 | Major | 独立 `v1_mvp_quality_hardening` 证据包，再聚合到 `v1_mainline_closeout` | 防止 false-green 和路径复用误读 | 需要新增 reporter / manifest 输出 | 必须执行 |
+
+Reality Checker 结论：
+
+```text
+当前文档足够支撑 V1-MVP-QH 自动化开发和出门验收准备。
+风险没有被消除，但已被转换为明确技术路线、打回规则和 No-Go。
+不需要继续做文档开发才能进入 QH-0 审计闭环。
+如果执行阶段出现 degraded / blocked，必须打回对应子阶段，不能靠文档声明通过。
+```
+
+Technical Writer 结论：
+
+```text
+当前 active 文档已经形成 PRD -> Architecture -> Development Plan -> Acceptance Plan -> Stage Gate -> Gap Drawio -> Checklist 的闭环。
+文档粒度足够让后续实现者知道改哪些实体、不能改哪些合同、用哪些真实数据验收、证据落到哪里、什么情况下打回。
+```
+
+第三轮一致性修订结论：
+
+```text
+P1 gap closed: QH scoped evidence now has an independent evidence package.
+P1 gap closed: explain-selection quality is now explicitly covered by PRD, architecture, development plan, acceptance plan, and stage gate.
+No new fatal / major documentation gap remains.
+```
+
+外部 ChatGPT 审计判断：
+
+```text
+Not mandatory before V1-MVP-QH implementation.
+Optional if human reviewer wants another over-commitment check.
+```
+
+如需外部审计，建议审计包控制在以下 9 个 active 文档内：
+
+```text
+docs/active/project/01-prd.md
+docs/active/project/02-architecture.md
+docs/active/project/03-development-plan.md
+docs/active/project/04-acceptance-plan.md
+docs/active/project/stage-gates/v1-mainline-closeout.md
+docs/active/project/design/v1-mainline-closeout-gap.md
+docs/active/project/design/v1-mainline-closeout-gap.drawio
+docs/active/project/design/v1-mainline-closeout-readiness-audit.md
+docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md
+```

@@ -9,10 +9,12 @@ import { chromium } from "playwright";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "../../..");
 const extensionRoot = path.resolve(__dirname, "../chrome-mv3-unpacked");
-const evidenceRoot = path.join(repoRoot, "docs/active/project/evidence/v1_real_site_complex_pages");
+const evidenceRootRelative = process.env.NAVIA_REAL_SITE_EVIDENCE_ROOT || "docs/active/project/evidence/v1_real_site_complex_pages";
+const evidenceRoot = path.join(repoRoot, evidenceRootRelative);
 const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const dataRoot = path.join(evidenceRoot, "pages");
 const runtimeUrl = "http://127.0.0.1:17861";
+const acceptanceMode = process.env.NAVIA_REAL_SITE_ACCEPTANCE_MODE || (evidenceRootRelative.includes("v1_mvp_quality_hardening") ? "v1_mvp_quality_hardening" : "real_site_complex_pages");
 
 const browserExecutable = process.env.NAVIA_BROWSER_EXECUTABLE || detectWindowsChromeExecutable();
 const browserModeOverride = process.env.NAVIA_BROWSER_MODE || "";
@@ -157,6 +159,15 @@ function writeJson(filePath, value) {
 function writeText(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, sanitizeEvidenceString(value));
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function shouldRedactQueryKey(key) {
@@ -808,8 +819,9 @@ function sourceCardSelectionScore(card, siteId) {
   if (/正文|标题|作者|发布时间|来源|文\/|视频简介|up主|播放|弹幕|笔记|note|explore|article/.test(text)) score += 24;
   if (siteId === "xiaohongshu" && /xiaohongshu\.com\/explore|笔记|note|feed|card|小红书/.test(text)) score += 18;
   if (siteId === "guancha" && /观察者网|guancha\.cn\/.+\.shtml|来源：|文\/|article|正文/.test(text)) score += 22;
-  if (siteId === "bilibili" && /bilibili|视频|up主|播放|弹幕|简介/.test(text)) score += 14;
+  if (siteId === "bilibili" && /bili_feed_card|bilibili\.com\/video|视频|up主|简介/.test(text)) score += 24;
   if (/首页|频道|动态|热门|投稿|消息|推荐\s+穿搭\s+美食\s+彩妆/.test(text)) score -= 30;
+  if (/^description\b|^keywords\b|^canonical\b|^referrer\b|^server_render\b|description:|keywords:|canonical:|referrer:|server_render:/.test(text)) score -= 44;
   if (/评论|回复|热评|举报|分享|踩\d*|赞\d*|收藏|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置/.test(text)) score -= 40;
   if (/https?:\/\/cm\.bilibili\.com|\/cm\/api\/fees/.test(text)) score -= 18;
   if (/blackboard\/era|sourceType=adPut|广告|活动抽|抽测试资格/.test(text)) score -= 28;
@@ -933,7 +945,19 @@ function classifySample({ site, pageKind, routeValidation, dom, sidepanel, perce
   if (!cards?.containsReadingMap) majorIssues.push("Reading Map is not visible.");
   if (!Array.isArray(cards?.sourceCards) || cards.sourceCards.length === 0) pushMissingEvidence("No source cards are available for jumpback.");
   if (!jumpback || jumpback.status === "blocked") pushMissingEvidence("Source jumpback is blocked.");
-  if (jumpback?.status === "fallback_shown") majorIssues.push("Source jumpback only showed fallback evidence.");
+  const fallbackEvidenceVisible =
+    jumpback?.status === "fallback_shown" &&
+    Boolean(jumpback?.sourceEvidenceVisible) &&
+    normalizeText(jumpback?.evidenceText ?? "").includes("fallback_shown");
+  const scopedHomepageFallbackAllowed =
+    acceptanceMode === "v1_mvp_quality_hardening" &&
+    pageKind === "homepage" &&
+    fallbackEvidenceVisible &&
+    Array.isArray(cards?.sourceCards) &&
+    cards.sourceCards.length >= 3;
+  if (jumpback?.status === "fallback_shown" && !scopedHomepageFallbackAllowed) {
+    majorIssues.push("Source jumpback only showed fallback evidence.");
+  }
   const mindmapQuality = mindmapQualityDiagnostics({ site, dom, perception, sidepanel, cards });
   fatalIssues.push(...mindmapQuality.fatalIssues);
   majorIssues.push(...mindmapQuality.majorIssues);
@@ -942,6 +966,7 @@ function classifySample({ site, pageKind, routeValidation, dom, sidepanel, perce
     pageKind,
     result,
     mindmapQuality,
+    fallbackPolicy: jumpback?.status === "fallback_shown" ? (scopedHomepageFallbackAllowed ? "accepted_homepage_dynamic_feed_fallback" : "degraded_fallback_only") : "not_fallback",
     fatalIssues,
     majorIssues
   };
@@ -1100,8 +1125,10 @@ function buildReport(samples, browserMode, authCookies = []) {
   }
   const passed = fatalIssues.length === 0 && majorIssues.length === 0 && samples.length === 6;
   return {
-    schemaVersion: "v1-real-site-complex-pages-diagnostic.1",
+    schemaVersion: acceptanceMode === "v1_mvp_quality_hardening" ? "v1-mvp-quality-hardening.1" : "v1-real-site-complex-pages-diagnostic.1",
     generatedAt: new Date().toISOString(),
+    acceptanceMode,
+    evidenceRoot: evidenceRootRelative,
     browserMode,
     authCookieSites: authCookies.map((item) => ({ siteId: item.siteId, count: item.count })),
     loginStatePolicy:
@@ -1143,6 +1170,7 @@ function buildReport(samples, browserMode, authCookies = []) {
       selectedSourceCardIndex: sample.jumpback?.selectedSourceCardIndex ?? null,
       selectedSourceCardReason: sample.jumpback?.selectedSourceCardReason ?? null,
       mindmapQuality: sample.mindmapQuality ?? null,
+      fallbackPolicy: sample.fallbackPolicy ?? "not_fallback",
       fatalIssues: sample.fatalIssues ?? [],
       majorIssues: sample.majorIssues ?? []
     })),
@@ -1150,8 +1178,12 @@ function buildReport(samples, browserMode, authCookies = []) {
     majorIssues,
     environmentNotes,
     claim: passed
-      ? "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples."
-      : "No completion claim. Real-site complex page diagnostic found degraded or blocked samples."
+      ? acceptanceMode === "v1_mvp_quality_hardening"
+        ? "V1 MVP quality hardening passed scoped real-site acceptance."
+        : "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples."
+      : acceptanceMode === "v1_mvp_quality_hardening"
+        ? "No completion claim. V1 MVP quality hardening remains degraded or blocked."
+        : "No completion claim. Real-site complex page diagnostic found degraded or blocked samples."
   };
 }
 
@@ -1162,9 +1194,13 @@ function writeMarkdownReports(report) {
         `| ${sample.siteName} | ${sample.pageKind} | ${sample.result} | ${sample.readiness} | ${sample.bodyTextLength} | ${sample.sourceRefs} | ${sample.digestItems} | ${sample.jumpbackStatus} | ${sample.selectedSourceCardIndex ?? "n/a"} | ${sample.mindmapQuality ? `${sample.mindmapQuality.labelCount} labels / noise ${Number(sample.mindmapQuality.noisyRatio ?? 0).toFixed(2)} / unique ${Number(sample.mindmapQuality.uniqueRatio ?? 0).toFixed(2)}` : "n/a"} | ${[...sample.fatalIssues, ...sample.majorIssues].join("; ") || "none"} |`
     )
     .join("\n");
+  const reportTitle =
+    report.acceptanceMode === "v1_mvp_quality_hardening"
+      ? "V1-MVP-QH 质量硬化真实站点验收报告"
+      : "V1 Real-Site Complex Pages Diagnostic Acceptance Report";
   writeText(
     path.join(evidenceRoot, "acceptance-report.md"),
-    `# V1 Real-Site Complex Pages Diagnostic Acceptance Report
+    `# ${reportTitle}
 
 Date: ${report.generatedAt}
 Result: ${report.passed ? "PASS" : "FAIL"}
@@ -1192,7 +1228,7 @@ ${rows}
   );
   writeText(
     path.join(evidenceRoot, "prd-review.md"),
-    `# V1 Real-Site Complex Pages PRD Review
+    `# ${report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH PRD 规格检视" : "V1 Real-Site Complex Pages PRD Review"}
 
 Result: ${report.passed ? "PASS" : "FAIL"}
 
@@ -1200,6 +1236,7 @@ Covered:
 
 - B站、小红书、观察者网首页和详情页真实 Chrome 诊断。
 - 当前页读取、Debug / runtime perception、Mindmap、Reading Map、source evidence、jumpback / fallback。
+- V1-MVP-QH 重点：主内容抽取、Mindmap 去噪、source jumpback 三态和可视化证据。
 - 登录墙、反爬、JS 空壳、媒体主内容和低信号页面按 degraded / blocked 记录。
 
 Not claimed:
@@ -1211,7 +1248,7 @@ Not claimed:
   );
   writeText(
     path.join(evidenceRoot, "false-green-audit.md"),
-    `# V1 Real-Site Complex Pages False-Green Audit
+    `# ${report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH False-Green Audit" : "V1 Real-Site Complex Pages False-Green Audit"}
 
 Result: ${report.passed ? "PASS" : "FAIL"}
 
@@ -1219,6 +1256,8 @@ Checks:
 
 - 6 个样本必须全部 pass 才能声明真实复杂站点诊断通过。
 - fallback 不被记录为 DOM highlight success。
+- blocked 不被记录为 fallback 或 DOM highlight success。
+- V1-MVP-QH 允许动态首页 feed 出现少量 fallback evidence，但必须在 report.json 中保留 fallbackPolicy；详情页 fallback 仍为 major。
 - 登录墙、验证码、反爬、空壳 DOM 和低信号信息流不被伪装为高质量提取。
 - B站 / 小红书媒体内容不通过 OCR、ASR、VLM 或 Web Research 补齐。
 
@@ -1235,6 +1274,98 @@ Environment notes:
 ${report.environmentNotes.length ? report.environmentNotes.map((issue) => `- ${issue}`).join("\n") : "- none"}
 `
   );
+  writeHtmlReport(report);
+  writeJson(path.join(evidenceRoot, "evidence-manifest.json"), {
+    schemaVersion: `${report.schemaVersion}.manifest`,
+    generatedAt: report.generatedAt,
+    evidenceRoot: report.evidenceRoot,
+    reportJson: `${report.evidenceRoot}/report.json`,
+    acceptanceHtml: `${report.evidenceRoot}/acceptance-report.html`,
+    prdReview: `${report.evidenceRoot}/prd-review.md`,
+    falseGreenAudit: `${report.evidenceRoot}/false-green-audit.md`,
+    screenshots: report.samples.flatMap((sample) => [
+      `${report.evidenceRoot}/screenshots/${sample.sampleId}-before.png`,
+      `${report.evidenceRoot}/screenshots/${sample.sampleId}-after.png`,
+      `${report.evidenceRoot}/screenshots/${sample.sampleId}-blocked.png`
+    ]).filter((relativePath) => fs.existsSync(path.join(repoRoot, relativePath))),
+    claim: report.claim,
+    passed: report.passed
+  });
+}
+
+function writeHtmlReport(report) {
+  const cards = report.samples
+    .map((sample) => {
+      const beforePath = `screenshots/${sample.sampleId}-before.png`;
+      const afterPath = `screenshots/${sample.sampleId}-after.png`;
+      const blockedPath = `screenshots/${sample.sampleId}-blocked.png`;
+      const visibleShots = [beforePath, afterPath, blockedPath].filter((relativePath) => fs.existsSync(path.join(evidenceRoot, relativePath)));
+      return `<section class="sample ${escapeHtml(sample.result)}">
+        <h3>${escapeHtml(sample.siteName)} / ${escapeHtml(sample.pageKind)} / ${escapeHtml(sample.result)}</h3>
+        <p><strong>URL:</strong> ${escapeHtml(sample.finalUrl || sample.url)}</p>
+        <p><strong>读取:</strong> readiness=${escapeHtml(sample.readiness)} sourceRefs=${escapeHtml(sample.sourceRefs)} digest=${escapeHtml(sample.digestItems)} sourceCards=${escapeHtml(sample.sourceCards)}</p>
+        <p><strong>反跳:</strong> ${escapeHtml(sample.jumpbackStatus)}，source card=${escapeHtml(sample.selectedSourceCardIndex ?? "n/a")}</p>
+        <p><strong>Fallback 口径:</strong> ${escapeHtml(sample.fallbackPolicy ?? "not_fallback")}</p>
+        <p><strong>导图质量:</strong> ${sample.mindmapQuality ? `labels=${escapeHtml(sample.mindmapQuality.labelCount)} noise=${escapeHtml(Number(sample.mindmapQuality.noisyRatio ?? 0).toFixed(2))} unique=${escapeHtml(Number(sample.mindmapQuality.uniqueRatio ?? 0).toFixed(2))}` : "n/a"}</p>
+        <p><strong>问题:</strong> ${escapeHtml([...sample.fatalIssues, ...sample.majorIssues].join("; ") || "none")}</p>
+        <div class="shots">${visibleShots.map((shot) => `<figure><img src="${escapeHtml(shot)}" alt="${escapeHtml(sample.sampleId)} screenshot"><figcaption>${escapeHtml(shot)}</figcaption></figure>`).join("")}</div>
+      </section>`;
+    })
+    .join("\n");
+  const html = `<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>${escapeHtml(report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 验收报告" : "真实站点验收报告")}</title>
+  <style>
+    body { margin: 0; background: #f6f8f6; color: #14201e; font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px; }
+    h1 { margin: 0 0 10px; color: #064c45; font-size: 28px; }
+    h2 { margin-top: 28px; color: #064c45; font-size: 20px; }
+    .summary, .sample { border: 1px solid #cfe0dc; border-radius: 14px; background: #fff; box-shadow: 0 18px 44px rgba(6, 76, 69, 0.08); padding: 18px; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
+    .metric { border-radius: 10px; background: #eff7f4; padding: 10px 12px; }
+    .metric strong { display: block; color: #064c45; font-size: 22px; }
+    .sample { margin-top: 16px; }
+    .sample h3 { margin: 0 0 8px; font-size: 17px; }
+    .pass { border-left: 6px solid #05735f; }
+    .degraded { border-left: 6px solid #bf7b17; }
+    .blocked { border-left: 6px solid #a23b3b; }
+    .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+    figure { margin: 0; }
+    img { width: 100%; border: 1px solid #d8e5e1; border-radius: 10px; background: #f8faf9; }
+    figcaption { color: #51625f; font-size: 12px; word-break: break-all; }
+    code, pre { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>${escapeHtml(report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 质量硬化真实站点验收报告" : "V1 真实站点诊断验收报告")}</h1>
+  <section class="summary">
+    <p><strong>结论:</strong> ${escapeHtml(report.passed ? "PASS" : "FAIL")}</p>
+    <p><strong>声明:</strong> <code>${escapeHtml(report.claim)}</code></p>
+    <p><strong>证据路径:</strong> ${escapeHtml(report.evidenceRoot)}</p>
+    <p><strong>运行方式:</strong> ${escapeHtml(report.browserMode)} / ${escapeHtml(report.loginStatePolicy)}</p>
+    <div class="summary-grid">
+      <div class="metric"><strong>${escapeHtml(report.summary.samplesTotal)}</strong>样本</div>
+      <div class="metric"><strong>${escapeHtml(report.summary.passedSamples)}</strong>通过</div>
+      <div class="metric"><strong>${escapeHtml(report.summary.degradedSamples)}</strong>降级</div>
+      <div class="metric"><strong>${escapeHtml(report.summary.blockedSamples)}</strong>阻塞</div>
+      <div class="metric"><strong>${escapeHtml(report.summary.highlightedSamples)}</strong>DOM 高亮</div>
+      <div class="metric"><strong>${escapeHtml(report.summary.fallbackSamples)}</strong>Fallback</div>
+    </div>
+  </section>
+  <h2>目标架构与当前实现</h2>
+  <section class="summary">
+    <p>当前实现链路：contentBridge.ts 注入 launcher/sidebar 并读取当前页 DOM signals，sidepanel React App 调用 Runtime，A Page Reading 产出 PerceptionDigest / SourceRef，C Mindmap 产出 nodeSourceMap，B Renderer 展示 Evidence Card Mindmap 和 Source Evidence，用户触发 source jumpback 后 contentBridge 执行定位、高亮、fallback 或 blocked。</p>
+    <p>本报告只验收 V1-MVP-QH scoped quality hardening：主内容抽取、Mindmap 去噪、source jumpback 三态和真实站点截图证据。</p>
+  </section>
+  <h2>用户场景截图证据</h2>
+  ${cards}
+</main>
+</body>
+</html>`;
+  writeText(path.join(evidenceRoot, "acceptance-report.html"), html);
 }
 
 async function main() {

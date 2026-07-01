@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>V1-MVP-QH 验收报告</title>
+  <style>
+    body { margin: 0; background: #f6f8f6; color: #14201e; font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { max-width: 1180px; margin: 0 auto; padding: 28px; }
+    h1 { margin: 0 0 10px; color: #064c45; font-size: 28px; }
+    h2 { margin-top: 28px; color: #064c45; font-size: 20px; }
+    .summary, .sample { border: 1px solid #cfe0dc; border-radius: 14px; background: #fff; box-shadow: 0 18px 44px rgba(6, 76, 69, 0.08); padding: 18px; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-top: 12px; }
+    .metric { border-radius: 10px; background: #eff7f4; padding: 10px 12px; }
+    .metric strong { display: block; color: #064c45; font-size: 22px; }
+    .sample { margin-top: 16px; }
+    .sample h3 { margin: 0 0 8px; font-size: 17px; }
+    .pass { border-left: 6px solid #05735f; }
+    .degraded { border-left: 6px solid #bf7b17; }
+    .blocked { border-left: 6px solid #a23b3b; }
+    .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+    figure { margin: 0; }
+    img { width: 100%; border: 1px solid #d8e5e1; border-radius: 10px; background: #f8faf9; }
+    figcaption { color: #51625f; font-size: 12px; word-break: break-all; }
+    code, pre { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>V1-MVP-QH 质量硬化真实站点验收报告</h1>
+  <section class="summary">
+    <p><strong>结论:</strong> PASS</p>
+    <p><strong>声明:</strong> <code>V1 MVP quality hardening passed scoped real-site acceptance.</code></p>
+    <p><strong>证据路径:</strong> docs/active/project/evidence/v1_mvp_quality_hardening</p>
+    <p><strong>运行方式:</strong> launch-temp-public-profile / temp-profile-with-injected-auth-cookies</p>
+    <div class="summary-grid">
+      <div class="metric"><strong>6</strong>样本</div>
+      <div class="metric"><strong>6</strong>通过</div>
+      <div class="metric"><strong>0</strong>降级</div>
+      <div class="metric"><strong>0</strong>阻塞</div>
+      <div class="metric"><strong>6</strong>DOM 高亮</div>
+      <div class="metric"><strong>0</strong>Fallback</div>
+    </div>
+  </section>
+  <h2>目标架构与当前实现</h2>
+  <section class="summary">
+    <p>当前实现链路：contentBridge.ts 注入 launcher/sidebar 并读取当前页 DOM signals，sidepanel React App 调用 Runtime，A Page Reading 产出 PerceptionDigest / SourceRef，C Mindmap 产出 nodeSourceMap，B Renderer 展示 Evidence Card Mindmap 和 Source Evidence，用户触发 source jumpback 后 contentBridge 执行定位、高亮、fallback 或 blocked。</p>
+    <p>本报告只验收 V1-MVP-QH scoped quality hardening：主内容抽取、Mindmap 去噪、source jumpback 三态和真实站点截图证据。</p>
+  </section>
+  <h2>用户场景截图证据</h2>
+  <section class="sample pass">
+        <h3>B站 / homepage / pass</h3>
+        <p><strong>URL:</strong> https://www.bilibili.com/</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=19 digest=18 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=2</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=10 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/bilibili-homepage-before.png" alt="bilibili-homepage screenshot"><figcaption>screenshots/bilibili-homepage-before.png</figcaption></figure><figure><img src="screenshots/bilibili-homepage-after.png" alt="bilibili-homepage screenshot"><figcaption>screenshots/bilibili-homepage-after.png</figcaption></figure></div>
+      </section>
+<section class="sample pass">
+        <h3>B站 / video-detail / pass</h3>
+        <p><strong>URL:</strong> https://www.bilibili.com/video/BV1H2KU6oEjn/</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=16 digest=14 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=4</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=9 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/bilibili-detail-before.png" alt="bilibili-detail screenshot"><figcaption>screenshots/bilibili-detail-before.png</figcaption></figure><figure><img src="screenshots/bilibili-detail-after.png" alt="bilibili-detail screenshot"><figcaption>screenshots/bilibili-detail-after.png</figcaption></figure></div>
+      </section>
+<section class="sample pass">
+        <h3>小红书 / homepage / pass</h3>
+        <p><strong>URL:</strong> https://www.xiaohongshu.com/explore</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=53 digest=18 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=1</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=10 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/xiaohongshu-homepage-before.png" alt="xiaohongshu-homepage screenshot"><figcaption>screenshots/xiaohongshu-homepage-before.png</figcaption></figure><figure><img src="screenshots/xiaohongshu-homepage-after.png" alt="xiaohongshu-homepage screenshot"><figcaption>screenshots/xiaohongshu-homepage-after.png</figcaption></figure></div>
+      </section>
+<section class="sample pass">
+        <h3>小红书 / note-detail / pass</h3>
+        <p><strong>URL:</strong> https://www.xiaohongshu.com/explore/6a433617000000000f02af1e?xsec_token=[redacted]&amp;xsec_source=</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=21 digest=18 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=1</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=14 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/xiaohongshu-detail-before.png" alt="xiaohongshu-detail screenshot"><figcaption>screenshots/xiaohongshu-detail-before.png</figcaption></figure><figure><img src="screenshots/xiaohongshu-detail-after.png" alt="xiaohongshu-detail screenshot"><figcaption>screenshots/xiaohongshu-detail-after.png</figcaption></figure></div>
+      </section>
+<section class="sample pass">
+        <h3>观察者网 / homepage / pass</h3>
+        <p><strong>URL:</strong> https://www.guancha.cn/</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=124 digest=16 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=0</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=14 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/guancha-homepage-before.png" alt="guancha-homepage screenshot"><figcaption>screenshots/guancha-homepage-before.png</figcaption></figure><figure><img src="screenshots/guancha-homepage-after.png" alt="guancha-homepage screenshot"><figcaption>screenshots/guancha-homepage-after.png</figcaption></figure></div>
+      </section>
+<section class="sample pass">
+        <h3>观察者网 / article-detail / pass</h3>
+        <p><strong>URL:</strong> https://www.guancha.cn/dengfei/2026_07_01_822185.shtml</p>
+        <p><strong>读取:</strong> readiness=pass sourceRefs=7 digest=7 sourceCards=8</p>
+        <p><strong>反跳:</strong> highlighted，source card=4</p>
+        <p><strong>Fallback 口径:</strong> not_fallback</p>
+        <p><strong>导图质量:</strong> labels=12 noise=0.00 unique=1.00</p>
+        <p><strong>问题:</strong> none</p>
+        <div class="shots"><figure><img src="screenshots/guancha-detail-before.png" alt="guancha-detail screenshot"><figcaption>screenshots/guancha-detail-before.png</figcaption></figure><figure><img src="screenshots/guancha-detail-after.png" alt="guancha-detail screenshot"><figcaption>screenshots/guancha-detail-after.png</figcaption></figure></div>
+      </section>
+</main>
+</body>
+</html>

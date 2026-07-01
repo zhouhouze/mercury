@@ -379,6 +379,44 @@ describe("V1.3 Evidence Card Mindmap presentation", () => {
     expect(presentation.sourceCards[0].textQuote || presentation.sourceCards[0].fallbackText).toContain("观察者网文章正文");
   });
 
+  it("cleans Bilibili shell controls from source card evidence text", () => {
+    const noisyArtifact = {
+      ...baseArtifact,
+      artifactId: "art_bili_source_cleaning",
+      content: "mindmap\n  root((B站页面))\n    topic((视频简介))",
+      metadata: {
+        ...baseArtifact.metadata,
+        nodeBindings: [
+          {
+            nodeId: "topic",
+            nodeSourceMapKey: "topic",
+            nodeLabel: "视频简介",
+            mermaidLineIndex: 2,
+            sourceRefIds: ["src_topic"],
+            paragraphIds: ["pg_topic"],
+            chunkIds: ["ck_topic"]
+          }
+        ],
+        nodeSourceMap: {
+          topic: {
+            nodeLabel: "视频简介",
+            sourceRefIds: ["src_topic"],
+            paragraphIds: ["pg_topic"],
+            chunkIds: ["ck_topic"],
+            textQuote: "视频简介：围绕一个具体议题展开分析，解释背景、过程和结论。 自动连播 订阅合集 相关推荐 防挡字幕 智能防挡弹幕",
+            fallbackText: "视频简介：围绕一个具体议题展开分析，解释背景、过程和结论。 自动连播 订阅合集 相关推荐 防挡字幕 智能防挡弹幕"
+          }
+        }
+      }
+    };
+
+    const presentation = presentMindmapArtifact(noisyArtifact);
+
+    expect(presentation.sourceCards[0].fallbackText).toContain("视频简介");
+    expect(presentation.sourceCards[0].fallbackText).not.toContain("自动连播");
+    expect(presentation.sourceCards[0].fallbackText).not.toContain("防挡字幕");
+  });
+
   it("derives a V1.4 ReadingMapViewModel from EvidenceCardViewModel", () => {
     const viewModel = toEvidenceCardViewModel(baseArtifact);
     const selected = selectEvidenceCardNode(viewModel, "capture");

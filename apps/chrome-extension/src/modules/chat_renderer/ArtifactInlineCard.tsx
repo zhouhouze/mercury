@@ -96,6 +96,10 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
         if (result?.status === "highlighted") {
           setSelectedStatus("located");
           setJumpbackStatus("已定位并高亮来源。");
+        } else if (result?.status === "blocked") {
+          setSelectedStatus("blocked");
+          setSelectedFailureReason(result?.failureReason ?? "source_jumpback_blocked");
+          setJumpbackStatus(`当前页面阻止来源定位，已保留来源证据。${result?.failureReason ? `原因：${result.failureReason}` : ""}`);
         } else {
           setSelectedStatus("fallback_shown");
           setSelectedFailureReason(result?.failureReason ?? "dom_jumpback_unavailable");
@@ -103,15 +107,15 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
         }
       } else {
         const errorMessage = response && typeof response === "object" && typeof (response as { error?: unknown }).error === "string" ? (response as { error: string }).error : "当前页面未返回定位结果。";
-        setSelectedStatus("fallback_shown");
+        setSelectedStatus("blocked");
         setSelectedFailureReason(errorMessage);
-        setJumpbackStatus(`未能定位到原文位置，已显示来源证据。原因：${errorMessage}`);
+        setJumpbackStatus(`当前页面阻止来源定位，已保留来源证据。原因：${errorMessage}`);
       }
     } catch (jumpbackError) {
       const message = jumpbackError instanceof Error ? jumpbackError.message : "当前页面暂不支持定位。";
-      setSelectedStatus("fallback_shown");
+      setSelectedStatus("blocked");
       setSelectedFailureReason(message);
-      setJumpbackStatus(`未能定位到原文位置，已显示来源证据。原因：${message}`);
+      setJumpbackStatus(`当前页面阻止来源定位，已保留来源证据。原因：${message}`);
     }
   }
 
@@ -309,6 +313,9 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
           {evidenceView.sourcePanel.selectedNodeId ? (
             <div className={`mindmap-source-evidence mindmap-source-evidence-${evidenceView.sourcePanel.status}`} data-testid="mindmap-source-evidence">
               <strong>{evidenceView.nodes.find((node) => node.nodeId === evidenceView.sourcePanel.selectedNodeId)?.label ?? "来源证据"}</strong>
+              <span className={`mindmap-source-status mindmap-source-status-${evidenceView.sourcePanel.status}`}>
+                {sourcePanelStatusLabel(evidenceView.sourcePanel.status)}
+              </span>
               {evidenceView.sourcePanel.items.map((item) => (
                 <p data-jumpback-status={item.jumpbackStatus} key={item.sourceRefId}>
                   {item.displayText}
@@ -329,6 +336,15 @@ function MermaidInline({ artifact }: { artifact: ArtifactPreview }) {
       ) : null}
     </>
   );
+}
+
+function sourcePanelStatusLabel(status: EvidenceCardSourcePanelStatus): string {
+  if (status === "located") return "located";
+  if (status === "fallback_shown") return "fallback_shown";
+  if (status === "blocked") return "blocked";
+  if (status === "locating") return "locating";
+  if (status === "ready") return "ready";
+  return "empty";
 }
 
 function artifactTitle(artifact: ArtifactPreview): string {

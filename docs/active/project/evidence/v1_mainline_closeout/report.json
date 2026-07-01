@@ -1,11 +1,11 @@
 {
   "schemaVersion": "v1-mainline-closeout.1",
-  "generatedAt": "2026-06-29T18:05:32.987Z",
+  "generatedAt": "2026-07-01T04:51:21.113Z",
   "passed": true,
   "claim": "V1 mainline closeout candidate passed automated acceptance.",
   "summary": {
-    "upstreamReports": 5,
-    "upstreamPassed": 5,
+    "upstreamReports": 6,
+    "upstreamPassed": 6,
     "launcherScreenshots": 6,
     "externalVisualSamples": 6,
     "complexSiteSamples": 6,
@@ -18,42 +18,47 @@
     {
       "command": "npm --prefix apps/chrome-extension run typecheck",
       "passed": true,
-      "evidence": "Executed in the V1-MC remaining closeout loop before report aggregation; rerun required if source files change."
+      "evidence": "已在 V1-MC 收口验收中执行；用于确认前端 TypeScript 类型完整。源代码变化后必须重跑。"
     },
     {
       "command": "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard pageContext",
       "passed": true,
-      "evidence": "Executed in the V1-MC remaining closeout loop; covers content shell, renderer, artifact card, and page-context extraction."
+      "evidence": "已在 V1-MC 收口验收中执行；覆盖 content shell、导图渲染、Artifact 卡片和页面上下文抽取。"
     },
     {
       "command": "PYTHONPATH=services/local-runtime .venv/bin/pytest services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py services/local-runtime/navia_runtime/modules/mindmap/tests/test_mindmap.py services/local-runtime/tests/test_adapter_summary_quality.py -q",
       "passed": true,
-      "evidence": "Executed in the V1-MC remaining closeout loop; covers A/C/Adapter regression for complex-site extraction and mindmap quality."
+      "evidence": "已在 V1-MC 收口验收中执行；覆盖 A Page Reading、C Mindmap 和 Adapter 的复杂站点抽取与导图质量回归。"
     },
     {
       "command": "npm --prefix apps/chrome-extension run build",
       "passed": true,
-      "evidence": "Executed in the V1-MC remaining closeout loop; produced current chrome-mv3-unpacked build."
+      "evidence": "已在 V1-MC 收口验收中执行；产出当前 Chrome MV3 unpacked 扩展构建。"
     },
     {
       "command": "npm --prefix apps/chrome-extension run e2e:chrome:launcher-resize-closeout",
       "passed": true,
-      "evidence": "Validated by upstream launcher report referenced by this aggregate report."
+      "evidence": "由本报告引用的 launcher closeout 上游报告证明；覆盖贴边、hover、展开、折叠、resize、拖拽。"
     },
     {
       "command": "npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance",
       "passed": true,
-      "evidence": "Validated by upstream external visual report referenced by this aggregate report."
+      "evidence": "由本报告引用的 external visual acceptance 上游报告证明；覆盖真实网页伴读路径截图。"
     },
     {
       "command": "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics",
       "passed": true,
-      "evidence": "Validated by latest real-site complex pages report referenced by this aggregate report; cookie values are intentionally omitted."
+      "evidence": "由最新 real-site complex pages 报告证明；使用 headless 路线，cookie 值不进入证据。"
+    },
+    {
+      "command": "NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:v1-mvp-quality-hardening",
+      "passed": true,
+      "evidence": "由最新 V1-MVP-QH scoped quality hardening 报告证明；覆盖 B站、小红书、观察者网真实站点质量硬化。"
     },
     {
       "command": "node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
       "passed": true,
-      "evidence": "Executed in this loop to aggregate latest upstream reports and regenerate V1-MC evidence."
+      "evidence": "本轮执行，用于聚合最新上游报告并重新生成 V1-MC 总验收证据。"
     }
   ],
   "sourceEvidenceCoverage": {
@@ -67,10 +72,246 @@
     ],
     "status": "covered_by_upstream_evidence"
   },
+  "auditProvenance": {
+    "generatedBy": "node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+    "generatedAtTimezone": "UTC timestamp in generatedAt; repository environment is Asia/Shanghai for this session.",
+    "commandLogPolicy": "本报告不内嵌原始 stdout 全量日志；审计依据为固定命令清单、上游 report.json 机器结果、截图证据和可复跑命令。若需要逐行 stdout，应在下一轮验收中用 tee 方式单独保存 logs。",
+    "git": {
+      "remote": "https://github.com/zhouhouze/mercury",
+      "branch": "main",
+      "head": "fb99df6",
+      "aheadBehindOriginMain": "0\t0",
+      "workingTreeStatus": "dirty",
+      "statusLines": [
+        "M apps/chrome-extension/chrome-mv3-unpacked/content-scripts/content.js",
+        "M apps/chrome-extension/chrome-mv3-unpacked/sidepanel.html",
+        "M apps/chrome-extension/e2e/chrome-real-site-diagnostics.mjs",
+        "M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+        "M apps/chrome-extension/entrypoints/sidepanel/style.css",
+        "M apps/chrome-extension/package.json",
+        "M apps/chrome-extension/src/contentBridge.test.ts",
+        "M apps/chrome-extension/src/contentBridge.ts",
+        "M apps/chrome-extension/src/modules/chat_renderer/ArtifactInlineCard.tsx",
+        "M apps/chrome-extension/src/modules/chat_renderer/tests/ArtifactInlineCard.test.tsx",
+        "M apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts",
+        "M apps/chrome-extension/src/modules/mindmap_renderer/tests/mindmapPresentation.test.ts",
+        "M apps/chrome-extension/src/pageContext.test.ts",
+        "M apps/chrome-extension/src/pageContext.ts",
+        "M docs/active/project/01-prd.md",
+        "M docs/active/project/02-architecture.md",
+        "M docs/active/project/03-development-plan.md",
+        "M docs/active/project/04-acceptance-plan.md",
+        "M docs/active/project/design/v1-mainline-closeout-gap.drawio",
+        "M docs/active/project/design/v1-mainline-closeout-gap.md",
+        "M docs/active/project/design/v1-mainline-closeout-readiness-audit.md",
+        "M docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
+        "M docs/active/project/evidence/v1_mainline_closeout/report.json",
+        "M docs/active/project/stage-gates/v1-mainline-closeout.md",
+        "M services/local-runtime/navia_runtime/modules/mindmap/runtime/generator.py",
+        "M services/local-runtime/navia_runtime/modules/page_reading/runtime/high_signal.py",
+        "M services/local-runtime/navia_runtime/modules/page_reading/runtime/structured_page.py",
+        "M services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py",
+        "?? docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json",
+        "?? docs/active/project/evidence/v1_mvp_quality_hardening/"
+      ],
+      "changedFiles": [
+        "apps/chrome-extension/chrome-mv3-unpacked/content-scripts/content.js",
+        "apps/chrome-extension/chrome-mv3-unpacked/sidepanel.html",
+        "apps/chrome-extension/e2e/chrome-real-site-diagnostics.mjs",
+        "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+        "apps/chrome-extension/entrypoints/sidepanel/style.css",
+        "apps/chrome-extension/package.json",
+        "apps/chrome-extension/src/contentBridge.test.ts",
+        "apps/chrome-extension/src/contentBridge.ts",
+        "apps/chrome-extension/src/modules/chat_renderer/ArtifactInlineCard.tsx",
+        "apps/chrome-extension/src/modules/chat_renderer/tests/ArtifactInlineCard.test.tsx",
+        "apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts",
+        "apps/chrome-extension/src/modules/mindmap_renderer/tests/mindmapPresentation.test.ts",
+        "apps/chrome-extension/src/pageContext.test.ts",
+        "apps/chrome-extension/src/pageContext.ts",
+        "docs/active/project/01-prd.md",
+        "docs/active/project/02-architecture.md",
+        "docs/active/project/03-development-plan.md",
+        "docs/active/project/04-acceptance-plan.md",
+        "docs/active/project/design/v1-mainline-closeout-gap.drawio",
+        "docs/active/project/design/v1-mainline-closeout-gap.md",
+        "docs/active/project/design/v1-mainline-closeout-readiness-audit.md",
+        "docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
+        "docs/active/project/evidence/v1_mainline_closeout/report.json",
+        "docs/active/project/stage-gates/v1-mainline-closeout.md",
+        "services/local-runtime/navia_runtime/modules/mindmap/runtime/generator.py",
+        "services/local-runtime/navia_runtime/modules/page_reading/runtime/high_signal.py",
+        "services/local-runtime/navia_runtime/modules/page_reading/runtime/structured_page.py",
+        "services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py",
+        "docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json",
+        "docs/active/project/evidence/v1_mvp_quality_hardening/"
+      ],
+      "reportGenerator": "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
+      "evidenceRoot": "docs/active/project/evidence/v1_mainline_closeout"
+    },
+    "evidenceFiles": [
+      "docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
+      "docs/active/project/evidence/v1_mainline_closeout/report.json",
+      "docs/active/project/evidence/v1_mainline_closeout/prd-review.md",
+      "docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md",
+      "docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md",
+      "docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-detail-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-homepage-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-detail-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-homepage-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-detail-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-homepage-after.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-collapsed-after-use.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-docked-default.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-expanded-after-click.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-drag-left.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-hover-peek.png",
+      "docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-resized-overlay.png"
+    ]
+  },
+  "auditDecision": {
+    "humanAuditEntry": "docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
+    "machineAuditJson": "docs/active/project/evidence/v1_mainline_closeout/report.json",
+    "allowedClaim": "V1 mainline closeout candidate passed automated acceptance.",
+    "fullV1CompleteStatus": "No-Go：必须完成人工产品体验核查并重新执行 V1 complete candidate 审计后，才允许进入完整 V1 complete 候选。",
+    "humanReviewStatus": "pending",
+    "readinessForHumanReview": "可进入人工产品体验核查"
+  },
+  "prdCoverage": [
+    {
+      "requirement": "普通网页中默认以贴边 floating launcher 低打扰出现，hover / focus 后弹出完整入口。",
+      "evidence": "见 v1_launcher_resize_closeout/report.json，以及本 HTML 内复制的 launcher 行为截图。",
+      "status": "pass"
+    },
+    {
+      "requirement": "点击 launcher 后展开右侧 sidebar；可折叠、resize，并说明 push / overlay 行为。",
+      "evidence": "见展开、折叠、resize 截图，以及 launcher closeout 的状态摘要。",
+      "status": "pass"
+    },
+    {
+      "requirement": "Chat / Agent / Debug / Settings、读取当前页、总结、问答、Mindmap、Reading Map 不被收口工作破坏。",
+      "evidence": "见 V1.3、V1.4、external visual acceptance 上游报告，以及本报告列出的前端 / Python 回归命令。",
+      "status": "pass"
+    },
+    {
+      "requirement": "Source evidence 必须区分 DOM located、fallback shown、blocked，不得混成 success。",
+      "evidence": "real-site 和 external visual 报告显示当前 6 个样本均为 highlighted；fallback 覆盖从 V1.3 / V1.4 继承，并在本报告单独计数。",
+      "status": "pass_with_boundary"
+    },
+    {
+      "requirement": "B站 / 小红书 / 观察者网复杂中文站点必须区分 public/no-login、logged-in 或临时 cookie 注入路径。",
+      "evidence": "见 real-site report 的 loginStatePolicy 和环境说明。",
+      "status": "pass_with_boundary"
+    },
+    {
+      "requirement": "自动化报告不能替代人工产品体验核查，不能声明完整 V1 complete。",
+      "evidence": "见本 HTML 的审计结论、人工核查清单和 False-green / No-Go 边界。",
+      "status": "pass_with_boundary"
+    }
+  ],
+  "humanReview": {
+    "reviewStatus": "pending",
+    "requiredBeforeFullV1Complete": true,
+    "checklistPath": "docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md",
+    "tasks": [
+      "确认 launcher 视觉质量、focus / hover 反馈和低打扰程度可接受。",
+      "确认展开、折叠、拖拽、resize 不阻碍正常阅读网页。",
+      "确认 Chat 操作、Debug 和 Settings 入口仍然可发现。",
+      "确认 Evidence Card Mindmap 和 Reading Map 在窄侧栏宽度下可读。",
+      "确认 Source evidence 的 located / fallback / blocked 状态容易理解。",
+      "确认复杂站点体验只按报告记录的路线评价，不把临时 cookie profile 误读成用户主 Profile 全量登录态质量。"
+    ]
+  },
+  "specReferences": [
+    {
+      "source": "docs/active/project/01-prd.md:1114-1117",
+      "quote": "V1 mainline closeout candidate passed automated acceptance. 只有在自动化验收、PRD 复检、false-green audit、复杂站点边界说明和人工产品体验核查全部通过后，才允许进入完整 V1 complete 候选审计。",
+      "auditUse": "限定本报告只能支持自动化候选通过，不能支持完整 V1 complete。"
+    },
+    {
+      "source": "docs/active/project/01-prd.md:1125-1126",
+      "quote": "source evidence 必须给用户明确反馈：能定位时高亮网页正文，不能定位时展示 fallback evidence，被页面或策略阻止时说明 blocked。B站 / 小红书 / 观察者网等复杂中文站点的验收结果必须让人类能看出是 public no-login 还是 logged-in。",
+      "auditUse": "用于审查 source evidence 三态和复杂站点登录边界是否被保留。"
+    },
+    {
+      "source": "docs/active/project/01-prd.md:1140-1149",
+      "quote": "真实 Chrome 截图必须覆盖普通网页中的 launcher、展开、折叠、resize、overlay 或 push、Chat、Debug、Settings、Evidence Card、Reading Map、source evidence。当前自动化证据如果通过，只能进入人工产品体验核查；人工核查未完成时，项目状态仍是 V1 mainline closeout candidate。",
+      "auditUse": "用于审查截图覆盖范围和人工核查 pending 的声明边界。"
+    },
+    {
+      "source": "docs/active/project/01-prd.md:1187",
+      "quote": "真实站点复验使用临时 Chrome profile 注入授权 cookie；cookie 值未进入证据。由于当前 V1-MC 样本 fallbackSamples = 0，fallback 路径覆盖必须继续引用 V1.3 / V1.4 或其他 active 阶段证据。",
+      "auditUse": "用于审查 cookie-injected 和 fallback 继承口径是否没有被过度声明。"
+    },
+    {
+      "source": "docs/active/project/stage-gates/v1-mainline-closeout.md:100-102",
+      "quote": "HTML / JSON 报告覆盖读取、Debug、总结、问答、Evidence Card、Reading Map、source evidence；human checklist 和证据路径已生成；PRD review 和 false-green audit 无 fatal / major issue。",
+      "auditUse": "用于审查本阶段自动化总验收和人工核查准备是否满足门禁。"
+    }
+  ],
+  "auditCompleteness": [
+    {
+      "item": "阶段声明边界",
+      "status": "covered",
+      "evidence": "审计结论与人工核查状态、False-green 边界、specReferences 第 1 条。"
+    },
+    {
+      "item": "PRD / 门禁规格覆盖",
+      "status": "covered",
+      "evidence": "PRD 规格覆盖矩阵、规格原文依据。"
+    },
+    {
+      "item": "自动化命令与机器结果",
+      "status": "covered",
+      "evidence": "固定验证命令、report.json、上游证据表。"
+    },
+    {
+      "item": "截图级用户路径证据",
+      "status": "covered",
+      "evidence": "Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、截图证明点。"
+    },
+    {
+      "item": "复杂站点边界",
+      "status": "covered_with_boundary",
+      "evidence": "真实网页样本明细、临时 Chrome profile / cookie-injected 环境说明。"
+    },
+    {
+      "item": "Source evidence 三态",
+      "status": "covered_with_boundary",
+      "evidence": "当前 6 个 fresh 样本均为 highlighted；fallback 由 V1.3 / V1.4 上游证据继承。"
+    },
+    {
+      "item": "人工产品体验核查",
+      "status": "pending",
+      "evidence": "人工产品体验核查清单仍为 pending；完整 V1 complete 前必须由人类完成。"
+    },
+    {
+      "item": "敏感信息与旧失败证据",
+      "status": "covered",
+      "evidence": "cookie/token 脱敏、旧 v1_2_closeout failed evidence 已解释为 superseded。"
+    },
+    {
+      "item": "源码版本与证据索引",
+      "status": "covered_with_boundary",
+      "evidence": "报告记录了远端仓库、分支、HEAD、工作树状态和证据文件索引；若工作树为 dirty，审查者应把报告列出的变更纳入审计范围。"
+    },
+    {
+      "item": "证据文件完整性",
+      "status": "covered_with_boundary",
+      "evidence": "evidence-manifest.json 在最终 HTML / JSON 写入后生成，记录证据文件大小和 SHA-256；manifest 自身不记录自身哈希以避免自引用。"
+    }
+  ],
+  "knownBoundaries": [
+    "本轮真实站点验收在用户主 Chrome profile 不可用时，使用临时 Chrome profile 并注入 B站 / 小红书授权 cookie。",
+    "当前 V1-MC fresh real-site 矩阵的 fallbackSamples = 0；fallback 路径覆盖继承自 V1.3 / V1.4 上游证据。",
+    "Launcher fixture 证据只验证外层交互壳行为与截图；若 fixture 截图中出现 Runtime offline，不得解释为生产 Runtime 可用性证明。",
+    "本报告是自动化验收与人工审计入口，不是完整 V1 complete 认证。"
+  ],
   "architecture": {
-    "target": "Chrome Web Page -> Content Script Interaction Shell -> Floating Launcher / SidebarInteractionState / Resize Handle / iframe sidepanel.html -> Chat / Agent / Debug / Settings -> Evidence Card Mindmap / Reading Map / Source Evidence -> Local Runtime A/C/D/B.",
-    "current": "Current implementation uses a WXT/React Chrome extension, content-script in-page sidebar/launcher shell, sidepanel.html React app, and Python Local Runtime. V1.3, V1.4, complex-site diagnostics, external visual acceptance, and launcher closeout are treated as upstream evidence.",
-    "notClaimed": "This report does not claim full V1 complete, final Monica-like UX complete, logged-in high-quality Bilibili/Xiaohongshu pass, V2 Memory/RAG, Web Research, PPT, Deep Research, multi-agent, voice, desktop pet, browser automation product features, or default local file access."
+    "target": "Chrome 网页 -> Content Script 网页内交互壳 -> 贴边 Launcher / SidebarInteractionState / Resize Handle / iframe sidepanel.html -> Chat / Agent / Debug / Settings -> Evidence Card Mindmap / Reading Map / Source Evidence -> 本地 Runtime A/C/D/B。",
+    "current": "当前实现由 WXT/React Chrome 扩展、content script 网页内 sidebar / launcher 壳、sidepanel.html React app 和 Python Local Runtime 组成。V1.3、V1.4、复杂站点诊断、external visual acceptance 和 launcher closeout 作为上游证据进入总报告。",
+    "notClaimed": "本报告不声明完整 V1 complete、最终 Monica-like UX complete、B站 / 小红书用户主 Profile 登录态全站高质量通过、V2 Memory / RAG、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件访问。"
   },
   "upstreamReports": {
     "v13": {
@@ -103,6 +344,24 @@
         "fallbackSamples": 2
       },
       "generatedAt": "2026-06-24T07:46:05.647Z",
+      "fatalIssues": [],
+      "majorIssues": []
+    },
+    "qualityHardening": {
+      "key": "qualityHardening",
+      "path": "docs/active/project/evidence/v1_mvp_quality_hardening/report.json",
+      "present": true,
+      "passed": true,
+      "claim": "V1 MVP quality hardening passed scoped real-site acceptance.",
+      "summary": {
+        "samplesTotal": 6,
+        "passedSamples": 6,
+        "degradedSamples": 0,
+        "blockedSamples": 0,
+        "highlightedSamples": 6,
+        "fallbackSamples": 0
+      },
+      "generatedAt": "2026-07-01T04:51:16.202Z",
       "fatalIssues": [],
       "majorIssues": []
     },
@@ -230,6 +489,8 @@
       "sampleId": "bilibili-homepage",
       "siteName": "B站",
       "pageKind": "homepage",
+      "url": "https://www.bilibili.com/",
+      "finalUrl": "https://www.bilibili.com/",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -242,12 +503,20 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 609,
+      "sourceRefs": 82,
+      "digestItems": 18,
+      "evidenceCardCount": 10,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-bilibili-homepage-after.png"
     },
     {
       "sampleId": "bilibili-detail",
       "siteName": "B站",
       "pageKind": "video-detail",
+      "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+      "finalUrl": "https://www.bilibili.com/video/BV18W7t6GEmc/",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -260,12 +529,20 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 2690,
+      "sourceRefs": 15,
+      "digestItems": 14,
+      "evidenceCardCount": 11,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-bilibili-detail-after.png"
     },
     {
       "sampleId": "xiaohongshu-homepage",
       "siteName": "小红书",
       "pageKind": "homepage",
+      "url": "https://www.xiaohongshu.com/explore",
+      "finalUrl": "https://www.xiaohongshu.com/worldcup26?pageFrom=nightRedirect&wcup_source=nightRedirect",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -278,12 +555,20 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 8994,
+      "sourceRefs": 105,
+      "digestItems": 18,
+      "evidenceCardCount": 6,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-xiaohongshu-homepage-after.png"
     },
     {
       "sampleId": "xiaohongshu-detail",
       "siteName": "小红书",
       "pageKind": "note-detail",
+      "url": "https://www.xiaohongshu.com/explore/6a2aa1e9000000002202f747?xsec_token=%5Bredacted%5D&xsec_source=pc_sfeed",
+      "finalUrl": "https://www.xiaohongshu.com/explore/6a2aa1e9000000002202f747?xsec_token=%5Bredacted%5D&xsec_source=pc_sfeed",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -296,12 +581,20 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 1499,
+      "sourceRefs": 20,
+      "digestItems": 18,
+      "evidenceCardCount": 11,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-xiaohongshu-detail-after.png"
     },
     {
       "sampleId": "guancha-homepage",
       "siteName": "观察者网",
       "pageKind": "homepage",
+      "url": "https://www.guancha.cn/",
+      "finalUrl": "https://www.guancha.cn/",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -314,12 +607,20 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 17754,
+      "sourceRefs": 125,
+      "digestItems": 16,
+      "evidenceCardCount": 12,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-guancha-homepage-after.png"
     },
     {
       "sampleId": "guancha-detail",
       "siteName": "观察者网",
       "pageKind": "article-detail",
+      "url": "https://www.guancha.cn/internation/2026_06_29_822013.shtml",
+      "finalUrl": "https://www.guancha.cn/internation/2026_06_29_822013.shtml",
       "result": "pass",
       "jumpbackStatus": "highlighted",
       "mindmapQuality": {
@@ -332,16 +633,22 @@
         "fatalIssues": [],
         "majorIssues": []
       },
+      "textLength": 4519,
+      "sourceRefs": 8,
+      "digestItems": 8,
+      "evidenceCardCount": 13,
+      "sourceCards": 8,
+      "issues": [],
       "afterScreenshot": "screenshots/external-guancha-detail-after.png"
     }
   ],
   "environmentNotes": [
-    "Complex-site evidence used a temporary Chrome profile with injected auth cookies; cookie values are omitted from evidence.",
-    "Legacy v1_2_closeout/report.json is failed and must not be used as a current completion claim; this V1-MC report supersedes it only after passing.",
-    "Current V1-MC real-site/external samples all highlighted successfully; fallback path coverage is inherited from V1.3/V1.4 upstream evidence and must remain visible in the report.",
+    "复杂站点证据使用临时 Chrome profile 并注入授权 cookie；cookie 值不会进入证据。",
+    "旧 v1_2_closeout/report.json 为失败证据，不得作为当前完成声明；只有本 V1-MC 报告通过后才能把旧失败证据标记为已解释 / 已被替代。",
+    "当前 V1-MC real-site / external 样本均为 DOM highlight 成功；fallback 路径覆盖继承自 V1.3 / V1.4 上游证据，必须在报告中保持可见。",
     "Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies.",
     "Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.",
-    "Human product review is still required before any full V1 complete candidate claim."
+    "任何完整 V1 complete 候选声明前，仍必须完成人工产品体验核查。"
   ],
   "fatalIssues": [],
   "majorIssues": []

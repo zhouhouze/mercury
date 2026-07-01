@@ -2491,6 +2491,19 @@ body {
   padding: 9px;
 }
 
+.mindmap-source-status {
+  display: inline-flex;
+  width: fit-content;
+  margin: 4px 0 2px;
+  border-radius: 999px;
+  padding: 2px 7px;
+  background: rgba(5, 84, 75, 0.08);
+  color: var(--navia-brand-dark);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
 .artifact-inline-markdown {
   display: grid;
   gap: 8px;
@@ -2542,12 +2555,12 @@ body {
 .reading-map-detail,
 .evidence-mindmap-canvas,
 .mindmap-source-list {
-  max-height: none;
+  scrollbar-width: thin;
 }
 
 .evidence-mindmap-canvas,
 .mindmap-source-list {
-  overflow: visible;
+  overflow: auto;
 }
 
 .reading-map-nav-label,
@@ -2565,9 +2578,9 @@ body {
 }
 
 .evidence-card-node-note {
-  display: block;
-  overflow: visible;
-  -webkit-line-clamp: initial;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
 }
 
 .mindmap-source-list {
@@ -2589,6 +2602,12 @@ body {
   border-color: rgba(140, 87, 15, 0.26);
   background: linear-gradient(180deg, rgba(255, 248, 229, 0.92), rgba(255, 255, 255, 0.88));
   box-shadow: inset 3px 0 0 var(--navia-amber);
+}
+
+.mindmap-source-evidence-blocked {
+  border-color: rgba(143, 39, 39, 0.24);
+  background: linear-gradient(180deg, rgba(255, 241, 241, 0.92), rgba(255, 255, 255, 0.9));
+  box-shadow: inset 3px 0 0 rgba(143, 39, 39, 0.76);
 }
 
 @media (max-width: 460px) {

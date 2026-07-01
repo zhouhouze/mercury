@@ -163,6 +163,41 @@ describe("ArtifactInlineCard jumpback", () => {
     }
   });
 
+  it("keeps blocked jumpback status distinct from fallback evidence", async () => {
+    const sendMessage = vi.fn(async () => ({ ok: true, result: { status: "blocked", failureReason: "no_traceable_source_evidence" } }));
+    const originalChrome = globalThis.chrome;
+    globalThis.chrome = {
+      tabs: {
+        query: vi.fn(async () => [{ id: 7 }]),
+        sendMessage
+      }
+    } as unknown as typeof chrome;
+
+    const container = document.createElement("div");
+    document.body.append(container);
+    const root = createRoot(container);
+
+    try {
+      await act(async () => {
+        root.render(<ArtifactInlineCard artifact={artifact} />);
+      });
+      await act(async () => {
+        await Promise.resolve();
+      });
+
+      await act(async () => {
+        container.querySelector("[data-testid='mindmap-source-card-root']")?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      });
+
+      expect(container.querySelector("[data-testid='mindmap-source-panel']")?.textContent).toContain("blocked");
+      expect(container.querySelector("[data-testid='mindmap-source-panel']")?.textContent).toContain("no_traceable_source_evidence");
+      expect(container.querySelector(".mindmap-source-evidence-blocked")).toBeTruthy();
+    } finally {
+      root.unmount();
+      globalThis.chrome = originalChrome;
+    }
+  });
+
   it("renders Evidence Card Mindmap as the primary mindmap view", async () => {
     const originalChrome = globalThis.chrome;
     globalThis.chrome = {

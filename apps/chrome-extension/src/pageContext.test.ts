@@ -63,6 +63,36 @@ describe("extractPageContext", () => {
     expect(context.dom_signals?.pageStateHints).not.toContain("not_found");
   });
 
+  it("focuses Bilibili homepage extraction on feed cards without navigation shell", () => {
+    document.head.innerHTML = `<meta name="description" content="B站首页热门视频推荐">`;
+    document.body.innerHTML = `
+      <nav>首页 番剧 直播 游戏中心 会员购 漫画 赛事 下载客户端 登录 注册</nav>
+      <main>
+        <div class="bili-video-card">
+          <a href="/video/BV1001" title="全国清理戒网瘾学校？持续十年的战斗要结束了吗！">全国清理戒网瘾学校？持续十年的战斗要结束了吗！</a>
+          <span>温柔JUNZ 昨天 31.5万 400</span>
+        </div>
+        <div class="bili-video-card">
+          <a href="/video/BV1002">他们这样为牛肉注入灵魂</a>
+          <span>美食创作者 19.7万 580</span>
+        </div>
+      </main>
+      <aside>自动连播 订阅合集 相关推荐 按类型过滤 滚动 固定 彩色</aside>
+    `;
+    document.title = "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili";
+
+    const context = extractPageContext(document, "https://www.bilibili.com/");
+    const roles = context.dom_signals?.blocks.map((block) => block.role) ?? [];
+    const extracted = JSON.stringify(context.dom_signals?.blocks ?? []);
+
+    expect(context.dom_signals?.pageStateHints).toContain("bili_home_feed");
+    expect(roles).toEqual(expect.arrayContaining(["bili_feed_card"]));
+    expect(context.cleaned_text).toContain("全国清理戒网瘾学校");
+    expect(context.cleaned_text).toContain("他们这样为牛肉注入灵魂");
+    expect(context.cleaned_text).not.toContain("游戏中心 会员购");
+    expect(extracted).not.toContain("自动连播");
+  });
+
   it("focuses Bilibili video detail extraction on title, description, author and stats", () => {
     document.head.innerHTML = `
       <meta property="og:title" content="这期视频真正讨论的核心主题 - 哔哩哔哩">

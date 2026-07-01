@@ -1551,6 +1551,65 @@ Host Page DOM
 
 ---
 
+## 17.1 V1-MVP-QH 质量硬化目标架构
+
+`V1-MVP-QH` 承接人工确认的基础 MVP 体验。目标不是重做交互壳，也不是新增 V2 能力，而是在现有架构内提升复杂站点的主内容抽取、Mindmap 可读性和 Source Jumpback 准确性。
+
+目标架构链路：
+
+```text
+Host Page DOM
+  -> apps/chrome-extension/src/pageContext.ts
+     -> main content signals / selection / metadata / site-specific hints
+  -> services/local-runtime/navia_runtime/modules/page_reading/
+     -> PerceptionDigest / SourceRef / QualityReport
+     -> noise filtering: nav / recommendation / comment / ad / footer / repeated text
+  -> services/local-runtime/navia_runtime/modules/mindmap/
+     -> digest-first theme merge
+     -> compact node labels
+     -> nodeSourceMap bound to SourceRef or fallback reason
+  -> apps/chrome-extension/src/modules/chat_renderer/
+     -> summary / Q&A / explain selection / source evidence cards
+  -> apps/chrome-extension/src/modules/mindmap_renderer/
+     -> Evidence Card Mindmap / Reading Map readable in narrow sidebar
+  -> apps/chrome-extension/src/contentBridge.ts
+     -> user-triggered jumpback using selector / domPath / textQuote / href-card hints
+     -> located | fallback_shown | blocked
+  -> evidence reports
+     -> screenshots / report.json / prd-review.md / false-green-audit.md
+```
+
+当前实现与目标差异：
+
+| 状态 | 实体 | 当前实现 | V1-MVP-QH 目标 |
+|---|---|---|---|
+| 已实现需强化 | `apps/chrome-extension/src/pageContext.ts` | 能读取当前页并提供 DOM / metadata 信号 | 对 B站详情、小红书 feed/detail、观察者文章区提供更稳定的主内容信号，避免低价值站点壳主导 |
+| 已实现需强化 | `services/local-runtime/navia_runtime/modules/page_reading/` | 生成 `PerceptionDigest`、`SourceRef`、quality | 提升主内容权重，降低推荐、评论、弹幕设置、活动广告、版权提示、重复文本权重 |
+| 已实现需强化 | `services/local-runtime/navia_runtime/modules/mindmap/` | digest-first Mindmap 与 `nodeSourceMap` 已存在 | 主题归并更稳定，节点标签更短，主要节点必须绑定 sourceRef 或明确 fallback reason |
+| 已实现需强化 | `apps/chrome-extension/src/modules/mindmap_renderer/` | Evidence Card Mindmap / Reading Map 可见 | 窄屏可读，无文本虚影、节点重叠、卡片截断或输入框遮挡 |
+| 已实现需强化 | `apps/chrome-extension/src/modules/chat_renderer/` | Source Evidence 可展示 located / fallback / blocked | source card 排序优先主内容，并清晰呈现三态结果和失败原因 |
+| 已实现需强化 | `apps/chrome-extension/src/contentBridge.ts` | 用户触发 DOM highlight / fallback / blocked | 多 sourceRef、多 textQuote、href/card 线索定位；成功必须有明确 marker，失败不得伪装 success |
+| 不变 | `runtimeClient.ts`、background proxy、A/C/D public contract | 现有请求和 Artifact 流 | 不为质量硬化新增 Runtime public API 或 Artifact schema |
+
+责任边界：
+
+- A Page Reading 可以改善主内容识别、噪声降权、SourceRef selector / textQuote / fallbackText 质量。
+- C Mindmap 可以改善主题归并、节点压缩和 source binding，但不得输出 React / SVG / CSS 前端组件结构。
+- B Renderer 可以派生 view model、排序 source card、优化导图与 evidence 展示，但不得生成网页事实内容。
+- Content Script 只响应用户触发的 jumpback，不做自动浏览器任务，不读取默认本地文件。
+- E2E 可以选择主内容 source card 进行验收，但必须记录选择原因，不能用测试选择策略掩盖 UI 排序错误。
+- `解释选中内容` 只能消费用户选区、当前页 page context、A 输出的 SourceRef / Digest 和页面已有媒体 metadata；不得新增 OCR/VLM、Web Research 或默认本地文件读取能力。
+- V1-MVP-QH scoped evidence 首选 `docs/active/project/evidence/v1_mvp_quality_hardening/`；`v1_mainline_closeout` 只做聚合报告和候选态引用。
+
+架构出门条件：
+
+- B站 / 小红书 / 观察者网首页与详情页的真实样本能证明主内容进入摘要、Mindmap 和 source evidence。
+- `located`、`fallback_shown`、`blocked` 在 UI、JSON、HTML 报告和截图证据中一致。
+- 当前 `fallbackSamples = 0` 时，报告必须继续引用上游 fallback evidence，不得声称本轮 fresh fallback 已覆盖。
+- 通过本阶段后只能声明 scoped quality hardening passed，不能声明完整 V1 complete。
+
+---
+
 ## 18. V1 架构结论
 
 Navia V1 的架构不是“插件 + 模型调用”，而是：

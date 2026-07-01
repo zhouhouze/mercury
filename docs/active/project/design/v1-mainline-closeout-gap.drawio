@@ -4,7 +4,7 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="v1mc-01-title" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="V1-HR/CC 阶段目标与体验路径" vertex="1">
+        <mxCell id="v1mc-01-title" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="V1-MVP-QH 阶段目标与体验路径" vertex="1">
           <mxGeometry x="40" y="20" width="1420" height="42" as="geometry" />
         </mxCell>
         <mxCell id="c1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#d5f5e3;strokeColor=#2e7d32;" value="绿色 已实现 普通网页 Host Page 用户仍阅读原网页，不进入营销页" vertex="1">
@@ -28,10 +28,10 @@
         <mxCell id="c7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#f8fafc;strokeColor=#94a3b8;" value="目标体验：点击来源后，能定位则显示 Navia source marker 和高亮；不能定位则显示 fallback evidence；blocked 要说明环境或页面阻塞。" vertex="1">
           <mxGeometry x="80" y="260" width="640" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="c8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="当前声明：V1 mainline closeout candidate passed automated acceptance。下一步：人工产品核查与 complete-candidate 审计准备。边界：review pending，不能声明完整 V1 complete。" vertex="1">
+        <mxCell id="c8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="当前声明：基础 MVP 体验人工确认 OK；V1 mainline closeout candidate 仍是自动化候选态。下一步：Source Jumpback 与 Mindmap Quality hardening。不能声明完整 V1 complete。" vertex="1">
           <mxGeometry x="760" y="260" width="640" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="c9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="蓝色 待人工核查 真实站点 6/6 pass HTML / JSON / 截图一致；人工产品体验核查仍 pending" vertex="1">
+        <mxCell id="c9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="蓝色 待质量硬化 B站 / 小红书 / 观察者网真实页复验；导图可读、反跳准确、fallback 与 blocked 不伪成功" vertex="1">
           <mxGeometry x="540" y="410" width="420" height="110" as="geometry" />
         </mxCell>
         <mxCell id="e10" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;strokeWidth=2;strokeColor=#475569;" value="" edge="1" source="c1" target="c2">
@@ -93,7 +93,7 @@
         <mxCell id="c25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="蓝色 待验收 E2E + evidence reports v1_real_site_complex_pages / external_visual / mainline_closeout" vertex="1">
           <mxGeometry x="70" y="670" width="390" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="c26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="目标差异 当前 real-site 6/6 pass，V1-MC 自动化候选通过；人工 review 前不得声明完整 V1 complete" vertex="1">
+        <mxCell id="c26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="目标差异 基础 MVP 已确认；反跳识别失败、Mindmap 不准确、复杂站点噪声仍需 V1-MVP-QH 硬化；不得声明完整 V1 complete" vertex="1">
           <mxGeometry x="520" y="670" width="420" height="82" as="geometry" />
         </mxCell>
         <mxCell id="c27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3cd;strokeColor=#b26a00;" value="黄色 回归风险 小红书首页 / 详情当前已恢复 highlighted；若未来 blocked 或 fallback 必须打回质量硬化并撤回候选通过" vertex="1">
@@ -219,28 +219,28 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="v1mc-05-title" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="开发及验收计划：V1-HR/CC 人工核查准备闭环" vertex="1">
+        <mxCell id="v1mc-05-title" parent="1" style="text;html=1;fontSize=26;fontStyle=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;" value="开发及验收计划：V1-MVP-QH 质量硬化闭环" vertex="1">
           <mxGeometry x="40" y="20" width="1420" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="c58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="V1-HR-0 文档基线同步 PRD/架构/计划/验收/stage gate/drawio 同步" vertex="1">
+        <mxCell id="c58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="V1-MVP-QH-0 文档与审计冻结 PRD/架构/计划/验收/stage gate/drawio 同步" vertex="1">
           <mxGeometry x="70" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-HR-1 人工核查材料 总报告 / 截图 / JSON / 审计入口" vertex="1">
+        <mxCell id="c59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-MVP-QH-1 A Page Reading 主内容抽取、噪声过滤、SourceRef 质量" vertex="1">
           <mxGeometry x="305" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-HR-2 体验场景清单 launcher / sidebar / Chat / 导图 / source" vertex="1">
+        <mxCell id="c60" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-MVP-QH-2 C Mindmap 主题归并、节点压缩、nodeSourceMap 绑定" vertex="1">
           <mxGeometry x="540" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-HR-3 证据一致性 Cookie / public / logged-in / fallback 边界" vertex="1">
+        <mxCell id="c61" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-MVP-QH-3 B Renderer 导图可读性、source card 排序、三态 evidence" vertex="1">
           <mxGeometry x="775" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-HR-4 候选审计准备 人工 passed 后复跑验证" vertex="1">
+        <mxCell id="c62" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;" value="V1-MVP-QH-4 Content Script 多线索 jumpback、fallback、blocked 语义" vertex="1">
           <mxGeometry x="1010" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="V1-HR-5 人工结论落盘 reviewStatus 等字段完整" vertex="1">
+        <mxCell id="c63" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="V1-MVP-QH-5 真实站点复验 PRD review / false-green audit / 可视化报告" vertex="1">
           <mxGeometry x="1245" y="130" width="200" height="125" as="geometry" />
         </mxCell>
-        <mxCell id="c64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#ffd6d6;strokeColor=#c62828;" value="失败打回规则 candidate 写成完整 V1 -&gt; V1-HR-0；drawio 看不到实体 -&gt; 架构页；cookie/fallback 口径错误 -&gt; 证据一致性" vertex="1">
+        <mxCell id="c64" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#ffd6d6;strokeColor=#c62828;" value="失败打回规则 完整 V1 误声明 -&gt; QH-0；噪声主导摘要 -&gt; QH-1；导图虚影/截断 -&gt; QH-3；fallback/blocked 伪成功 -&gt; QH-4" vertex="1">
           <mxGeometry x="130" y="350" width="560" height="130" as="geometry" />
         </mxCell>
         <mxCell id="c65" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="验收产物 active PRD/架构/计划/验收/stage gate/gap drawio/readiness audit/human-review-checklist pending" vertex="1">
@@ -293,13 +293,13 @@
         <mxCell id="c77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="绿色 当前候选通过 V1 mainline closeout upstream 5/5 passed" vertex="1">
           <mxGeometry x="610" y="290" width="330" height="95" as="geometry" />
         </mxCell>
-        <mxCell id="c78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="蓝色 待人工核查 V1-HR/CC 阶段只准备人工体验 review；不进入产品代码实现" vertex="1">
+        <mxCell id="c78" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="蓝色 待质量硬化 V1-MVP-QH 处理反跳失败、Mindmap 不准确、复杂站点噪声和窄屏可读性" vertex="1">
           <mxGeometry x="970" y="290" width="330" height="95" as="geometry" />
         </mxCell>
         <mxCell id="c79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#eeeeee;strokeColor=#666666;" value="灰色 待人工 human-review-checklist reviewStatus: pending 自动化不能替代人工体验核查" vertex="1">
           <mxGeometry x="420" y="480" width="660" height="110" as="geometry" />
         </mxCell>
-        <mxCell id="c80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#f8fafc;strokeColor=#94a3b8;" value="出门顺序：V1.3/V1.4/launcher 作为上游输入 -&gt; real-site 6/6 pass -&gt; external visual pass -&gt; mainline report pass -&gt; V1-HR/CC 文档基线 -&gt; 人工产品体验核查 -&gt; 才能进入完整 V1 complete 候选审计。" vertex="1">
+        <mxCell id="c80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#f8fafc;strokeColor=#94a3b8;" value="出门顺序：基础 MVP accepted -&gt; V1-MVP-QH 文档门禁 -&gt; A/C/B/Content Script 质量硬化 -&gt; 真实站点复验 -&gt; scoped quality hardening passed -&gt; 再进入后续完整 V1 候选审计。" vertex="1">
           <mxGeometry x="180" y="680" width="1140" height="80" as="geometry" />
         </mxCell>
       </root>
@@ -331,10 +331,10 @@
         <mxCell id="c86" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#ffd6d6;strokeColor=#c62828;" value="No-Go 不能声明完整 V1 complete 不能把 public no-login 写成 logged-in 不能把 fallback 写成 highlighted 不能引入禁用 V2+ 能力" vertex="1">
           <mxGeometry x="1030" y="315" width="390" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="c87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="本阶段允许声明 Ready for V1 human product review and complete-candidate audit preparation；仍不得声明完整 V1 complete" vertex="1">
+        <mxCell id="c87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#dbeafe;strokeColor=#1d4ed8;" value="本阶段允许声明 V1 MVP baseline accepted；质量硬化完成后最多声明 scoped real-site acceptance passed；仍不得声明完整 V1 complete" vertex="1">
           <mxGeometry x="230" y="560" width="1040" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="c88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="当前状态 V1-MC automated candidate passed；V1-HR/CC 文档基线可支撑人工核查准备。人工 review 仍 pending，完整 V1 complete 仍 No-Go。" vertex="1">
+        <mxCell id="c88" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#d5f5dc;strokeColor=#2e7d32;" value="当前状态 基础 MVP 人工确认 OK；仍存在反跳识别失败和 Mindmap 不准确。V1-MVP-QH 文档基线支撑下一阶段自动化开发。" vertex="1">
           <mxGeometry x="410" y="735" width="680" height="75" as="geometry" />
         </mxCell>
       </root>
@@ -384,10 +384,10 @@
         <mxCell id="risk5" value="Mindmap / Reading Map 视觉风险&#xa;窄屏下文本虚影、节点重叠、卡片截断、输入框遮挡&#xa;要求：真实截图证明可读性&#xa;No-Go：只用 build / unit test 替代视觉验收" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#fff3bf;strokeColor=#b7791f;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="540" y="500" width="390" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="risk6" value="出门判断&#xa;当前 real-site 6/6 pass、0 degraded、0 blocked，mainline closeout 为 automated candidate pass&#xa;V1-HR/CC 只支撑人工核查准备，不支撑完整 V1 complete&#xa;cookie-injected 证据不得冒充完整 logged-in 全站质量&#xa;人工 review 仍 pending" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#fff2cc;strokeColor=#b38f00;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="risk6" value="出门判断&#xa;基础 MVP 已人工确认 OK，但反跳识别失败和 Mindmap 不准确仍是已知问题&#xa;V1-MVP-QH 只支撑 scoped quality hardening，不支撑完整 V1 complete&#xa;cookie-injected 证据不得冒充完整 logged-in 全站质量&#xa;fallback / blocked 不得伪装 highlighted" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;spacing=8;arcSize=8;fillColor=#fff2cc;strokeColor=#b38f00;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="1000" y="500" width="390" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="risk7" value="文档审查结论&#xa;当前文档足以指导 V1-HR/CC 人工产品核查准备阶段。&#xa;本阶段不进入产品代码实现。&#xa;后续人工体验或 fresh validation 若失败，必须保留 degraded / blocked，不得过度承诺。" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="risk7" value="文档审查结论&#xa;当前文档足以指导 V1-MVP-QH 质量硬化阶段。&#xa;开发前必须先闭环 QH-0 文档审计。&#xa;后续 fresh validation 若失败，必须保留 degraded / blocked，不得过度承诺。" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;spacing=8;arcSize=8;fillColor=#f8fafc;strokeColor=#64748b;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="700" width="960" height="95" as="geometry" />
         </mxCell>
       </root>

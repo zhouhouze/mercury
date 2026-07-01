@@ -1413,3 +1413,91 @@ git diff --check
 rg -n "完整 V1 complete|Final Monica-like|logged-in high-quality|RAG ready|Memory ready" docs/active/project
 node -e "const fs=require('fs'); const s=fs.readFileSync('docs/active/project/design/v1-mainline-closeout-gap.drawio','utf8'); const n=(s.match(/<diagram\\b/g)||[]).length; if(n>8) process.exit(1); console.log(n)"
 ```
+
+### 8.15 V1-MVP-QH 质量硬化验收
+
+本阶段验收目标是证明基础 MVP 体验确认后，复杂站点的主内容抽取、Mindmap 可读性和 Source Jumpback 准确性完成 scoped hardening。通过后只能声明 scoped real-site acceptance passed，不能声明完整 V1 complete。
+
+必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 均使用同一阶段目标：`V1-MVP-QH 基础 MVP 确认后的质量硬化`。
+- [ ] drawio 不超过 8 页，中文书写，且包含当前架构与目标架构差异、Source Jumpback 链路、Mindmap Quality 链路、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- [ ] 基础 MVP 人工确认只被写成 `baseline accepted`，不得写成完整 V1 complete。
+- [ ] B站详情页摘要和 Mindmap 高层节点来自视频标题、简介、UP主 / 发布信息、播放 / 弹幕等主内容。
+- [ ] B站详情页推荐列表、弹幕设置、活动横幅、QQ群 / 微信、自动连播、订阅合集、版权提示不得主导摘要或 Mindmap。
+- [ ] 小红书首页 / 详情页 source evidence 优先可定位 feed card、标题、作者、正文或稳定链接；如果只能 fallback 或 blocked，必须保留 degraded / blocked。
+- [ ] 观察者网首页 / 详情页 source evidence 优先正文标题、作者、发布时间和正文段落；不得默认反跳到评论、推荐、最新视频、头条侧栏或站点壳。
+- [ ] Mindmap / Reading Map 真实截图无文本虚影、节点重叠、卡片截断、输入框遮挡或目录浮层遮挡主要内容。
+- [ ] Mindmap 高层节点短标签可读，主题归并稳定，主要节点绑定 `sourceRefIds` 或明确 fallback reason。
+- [ ] Source Evidence 必须严格区分 `located`、`fallback_shown`、`blocked`，UI、JSON、HTML 报告和截图 metadata 结论一致。
+- [ ] located 成功时网页必须有明确 Navia source marker 或等价高亮样式；反跳不准不得计为 pass。
+- [ ] E2E source card 选择必须记录 `selectedSourceCardIndex`、`selectionReason` 和 `jumpbackResult`，不能用测试选择策略掩盖产品 UI 排序错误。
+- [ ] `解释选中内容` 必须在 B站、小红书、观察者网样本中至少各覆盖 1 次；解释内容不得被网站壳、图片序号、时间戳、重复文本、推荐列表或评论区主导。
+- [ ] 如 Mindmap 或 Source Evidence 展示图片证据，只能使用当前页已有图片 URL、alt、caption 或媒体 metadata；不得引入 OCR/VLM、Web Research 或默认本地文件读取。
+- [ ] 自动化优先 headless，并使用 `--mute-audio`；需要可见 Chrome 截图时必须提前告知并关闭实例。
+- [ ] `fallbackSamples = 0` 时，报告必须引用 V1.3 / V1.4 或其他 active fallback evidence，不得声称本轮 fresh fallback 已覆盖。
+- [ ] PRD review 和 false-green audit 无 fatal / major。
+
+真实数据矩阵最小字段：
+
+```text
+pageId
+url
+site
+pageType
+loginStatePolicy
+mainContentSignals
+noiseFindings
+mindmapTopNodes
+sourceCardOrder
+selectedSourceCardIndex
+selectionReason
+jumpbackResult
+screenshotPaths
+reportConclusion
+selectionExplainResult
+optionalImageEvidenceSource
+```
+
+固定验证命令：
+
+```bash
+npm --prefix apps/chrome-extension run typecheck
+npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard
+npm --prefix apps/chrome-extension run build
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:real-site-diagnostics
+NAVIA_REAL_SITE_HEADLESS=1 npm --prefix apps/chrome-extension run e2e:chrome:external-visual-acceptance
+node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
+```
+
+独立 QH 出门证据：
+
+```text
+docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html
+docs/active/project/evidence/v1_mvp_quality_hardening/report.json
+docs/active/project/evidence/v1_mvp_quality_hardening/prd-review.md
+docs/active/project/evidence/v1_mvp_quality_hardening/false-green-audit.md
+docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json
+docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/
+```
+
+`docs/active/project/evidence/v1_mainline_closeout/` 只能作为重新聚合后的总报告路径；不得替代上述独立 QH scoped evidence。
+
+允许声明：
+
+```text
+V1 MVP quality hardening passed scoped real-site acceptance.
+```
+
+No-Go：
+
+- [ ] 完整 V1 complete。
+- [ ] 最终 Monica-like UX complete。
+- [ ] 复杂站点全量高质量通过。
+- [ ] 用户主 Profile 登录态全站高质量通过。
+- [ ] fallback 或 blocked 被写成 located / highlighted。
+- [ ] Mindmap 仍被站点壳、推荐、评论、活动广告或低价值重复文本主导。
+- [ ] `解释选中内容` 仍被图片序号、时间戳、站点壳、重复文本或评论 / 推荐主导。
+- [ ] 只用单元测试 / build 结果替代真实截图级视觉验收。
+- [ ] 用 mainline closeout 聚合报告替代独立 QH scoped evidence。
+- [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。

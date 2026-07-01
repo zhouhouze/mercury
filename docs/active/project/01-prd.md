@@ -1287,3 +1287,79 @@ Web Research / PPT / Deep Research ready。
 - 最新自动化报告、截图证据和人工核查结论一致。
 - 旧 failed / superseded evidence 已解释、废止或重新生成。
 - `fallbackSamples = 0` 时，总报告继续引用 V1.3 / V1.4 或其他 active fallback evidence，不能写成本轮 fresh fallback 已覆盖。
+
+### 14.13 V1-MVP-QH 基础 MVP 确认后的质量硬化目标
+
+人工产品体验核查已确认基础 MVP 体验可以成立：launcher / sidebar / Chat / Debug / Settings / 当前页读取 / 总结 / Mindmap / Source Evidence 已达到 MVP 层面的可体验状态。该确认只代表基础体验 OK，不代表完整 V1 complete，也不代表复杂站点反跳和 Mindmap 质量已经完成。
+
+当前仍需进入质量硬化的明确问题：
+
+- Source Jumpback 在 B站、小红书、观察者网等复杂站点仍可能识别失败、定位不准或 fallback 语义不清。
+- Mindmap / Reading Map 仍可能被推荐、评论、弹幕设置、活动广告、站点壳、版权提示、低价值导航文本或重复文本主导。
+- 窄屏或长文本场景仍可能出现节点截断、文本虚影、卡片遮挡或 source evidence 层级不清。
+- `解释选中内容` 和 source evidence 仍可能混入网站壳、图片序号、时间戳、重复文本等低信息密度内容。
+
+本阶段目标用户路径：
+
+```text
+用户在真实复杂中文网页打开 Navia
+-> launcher 默认低打扰贴边，点击展开 sidebar
+-> 读取当前页
+-> 生成总结 / 问答 / Evidence Card Mindmap / Reading Map
+-> 高层节点优先表达主内容，而不是站点壳或推荐区
+-> 用户点击节点或 source evidence
+-> 成功时网页明确高亮并显示 Navia source marker
+-> 无法定位时显示 fallback evidence 和失败原因
+-> 被页面、登录态或测试环境阻断时显示 blocked
+```
+
+本阶段允许声明：
+
+```text
+V1 MVP baseline accepted; Source Jumpback and Mindmap quality hardening ready for staged implementation.
+```
+
+本阶段完成后最多允许声明：
+
+```text
+V1 MVP quality hardening passed scoped real-site acceptance.
+```
+
+本阶段仍不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+本阶段固定开发顺序：
+
+```text
+1. V1-MVP-QH-0：PRD、目标架构、开发计划、验收计划、stage gate、gap drawio 同步。
+2. V1-MVP-QH-1：A Page Reading 主内容抽取、噪声过滤和 SourceRef 质量硬化。
+3. V1-MVP-QH-2：C Mindmap 主题归并、节点文本压缩和 nodeSourceMap 绑定质量硬化。
+4. V1-MVP-QH-3：B Renderer 导图可读性、source card 排序和三态 source evidence 视觉硬化。
+5. V1-MVP-QH-4：Content Script Source Jumpback 多线索定位、fallback 和 blocked 语义硬化。
+6. V1-MVP-QH-5：B站 / 小红书 / 观察者网首页与详情页真实数据复验、PRD review、false-green audit 和可视化报告。
+```
+
+本阶段证据必须优先落入独立质量硬化证据包，再汇总进入 V1 mainline closeout：
+
+```text
+docs/active/project/evidence/v1_mvp_quality_hardening/
+  report.json
+  acceptance-report.html
+  prd-review.md
+  false-green-audit.md
+  evidence-manifest.json
+  screenshots/
+
+docs/active/project/evidence/v1_mainline_closeout/
+  仅作为上游聚合和候选态总报告，不得替代 V1-MVP-QH scoped evidence。
+```
+
+`解释选中内容` 属于本阶段质量硬化范围，但只能基于当前页已读取文本、用户选区和已有 SourceRef。允许展示页面内已有图片 URL、alt、caption 或媒体 metadata 作为辅助证据；不得引入 OCR/VLM、Web Research 或默认本地文件读取。

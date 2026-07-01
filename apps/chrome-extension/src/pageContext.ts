@@ -33,6 +33,7 @@ export function extractPageContext(documentRef: Document, url: string): Extracte
   const rawVisibleText = body ? body.innerText || body.textContent || "" : "";
   const visibleText = normalizeText(rawVisibleText);
   const cleanedText = domSignals.pageStateHints.includes("bili_video_detail") ||
+    domSignals.pageStateHints.includes("bili_home_feed") ||
     domSignals.pageStateHints.includes("xhs_note_detail") ||
     domSignals.pageStateHints.includes("xhs_home_feed") ||
     domSignals.pageStateHints.includes("guancha_article_detail")
@@ -127,6 +128,9 @@ function extractDomSignals(documentRef: Document, url = documentRef.location?.hr
   if (isBilibiliVideoPage(url)) {
     return extractBilibiliVideoSignals(documentRef, meta, bodyText, url);
   }
+  if (isBilibiliHomePage(url)) {
+    return extractBilibiliFeedSignals(documentRef, meta, bodyText, url);
+  }
   if (isXiaohongshuNotePage(url)) {
     return extractXiaohongshuNoteSignals(documentRef, meta, bodyText, url);
   }
@@ -179,6 +183,52 @@ function extractDomSignals(documentRef: Document, url = documentRef.location?.hr
     links,
     blocks,
     pageStateHints: detectPageStateHints(bodyText, documentRef.title, documentRef.location?.href || "")
+  };
+}
+
+function extractBilibiliFeedSignals(documentRef: Document, meta: DomSignals["meta"], bodyText: string, url: string): DomSignals {
+  const blocks: DomSignals["blocks"] = [];
+  const links: DomSignals["links"] = [];
+  const cardSelector = [
+    ".bili-video-card",
+    "[class*='video-card']",
+    "[class*='feed-card']",
+    "[class*='recommend-card']",
+    "a[href*='/video/']"
+  ].join(",");
+  for (const node of Array.from(documentRef.querySelectorAll<HTMLElement>(cardSelector))) {
+    const element = node instanceof HTMLAnchorElement ? node : node.closest<HTMLElement>("article, li, section, [class*='card'], [class*='item']") ?? node;
+    const firstLink = element instanceof HTMLAnchorElement ? element : element.querySelector<HTMLAnchorElement>("a[href*='/video/'],a[href*='/read/']");
+    const text = bilibiliCardText(element, firstLink);
+    if (!isUsefulBilibiliFeedText(text)) continue;
+    const href = firstLink ? resolveHref(firstLink.getAttribute("href") || firstLink.href, url) : undefined;
+    blocks.push({
+      text: text.slice(0, 420),
+      selector: cssPath(element),
+      href,
+      role: "bili_feed_card"
+    });
+    if (href) {
+      links.push({
+        text: text.slice(0, 140),
+        href,
+        selector: firstLink ? cssPath(firstLink) : undefined,
+        role: "media_link"
+      });
+    }
+    if (blocks.length >= 24) break;
+  }
+  const descriptionMeta = firstMetaContent(meta, ["description", "og:description"]);
+  if (isUsefulBilibiliFeedText(descriptionMeta)) {
+    blocks.push({ text: descriptionMeta.slice(0, 240), role: "metadata" });
+  }
+  const hints = detectPageStateHints(bodyText, documentRef.title, url);
+  hints.push("bili_home_feed");
+  return {
+    meta,
+    links: uniqueByTextAndHref(links).slice(0, 40),
+    blocks: uniqueByText(blocks).slice(0, 24),
+    pageStateHints: Array.from(new Set(hints))
   };
 }
 
@@ -441,6 +491,7 @@ function detectPageStateHints(text: string, title: string, href: string): string
   if (/(^|[^\d])404([^\d]|$)|not found|页面不见了|无法浏览|isn'?t available/.test(haystack)) hints.push("not_found");
   if (/弹幕|倍速|字幕|播放|video|bilibili|小红书|red/.test(haystack)) hints.push("media_dom_limited");
   if (/bilibili\.com\/video\//.test(haystack)) hints.push("bili_video_detail");
+  if (/bilibili\.com(?:\/)?(?:\s|$)/.test(haystack)) hints.push("bili_home_feed");
   if (/xiaohongshu\.com\/explore/.test(haystack)) hints.push("xhs_note_detail");
   if (/xiaohongshu\.com(?:\/explore)?(?:\s|$)/.test(haystack)) hints.push("xhs_home_feed");
   if (/guancha\.cn\/.+\.shtml/.test(haystack)) hints.push("guancha_article_detail");
@@ -483,6 +534,15 @@ function isBilibiliVideoPage(url: string): boolean {
   }
 }
 
+function isBilibiliHomePage(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return /(^|\.)bilibili\.com$/.test(parsed.hostname) && (parsed.pathname === "/" || parsed.pathname === "");
+  } catch {
+    return /bilibili\.com\/?(?:[?#]|$)/i.test(url);
+  }
+}
+
 function isXiaohongshuNotePage(url: string): boolean {
   try {
     const parsed = new URL(url);
@@ -518,6 +578,31 @@ function normalizeBilibiliText(text: string): string {
     .trim();
 }
 
+function bilibiliCardText(element: HTMLElement, firstLink?: HTMLAnchorElement | null): string {
+  const candidates = [
+    firstLink?.textContent,
+    firstLink?.getAttribute("aria-label"),
+    firstLink?.getAttribute("title"),
+    element.getAttribute("aria-label"),
+    element.getAttribute("title"),
+    element.innerText,
+    element.textContent,
+    ...Array.from(element.querySelectorAll<HTMLImageElement>("img[alt]")).map((image) => image.getAttribute("alt") || "")
+  ]
+    .map((value) => normalizeBilibiliText(value || ""))
+    .filter(Boolean)
+    .filter((value) => !/^(图片|图像|avatar|头像|封面|bilibili)$/i.test(value));
+  const deduped: string[] = [];
+  const seen = new Set<string>();
+  for (const candidate of candidates) {
+    const key = candidate.replace(/[^\p{L}\p{N}#]+/gu, "").slice(0, 80).toLowerCase();
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(candidate);
+  }
+  return normalizeBilibiliText(deduped.join(" "));
+}
+
 function firstMetaContent(meta: DomSignals["meta"], names: string[]): string {
   const wanted = new Set(names.map((item) => item.toLowerCase()));
   const found = meta.find((item) => wanted.has(item.name.toLowerCase()));
@@ -543,9 +628,21 @@ function isUsefulBilibiliMainText(text: string, options: { minLength?: number; m
   return true;
 }
 
+function isUsefulBilibiliFeedText(text: string): boolean {
+  const normalized = normalizeBilibiliText(text);
+  if (normalized.length < 8 || normalized.length > 520) return false;
+  if (/首页\s+番剧\s+直播|动态\s+热门\s+频道|专栏\s+直播\s+活动\s+课堂|会员购\s+漫画\s+赛事/.test(normalized)) return false;
+  if (/未经作者授权|禁止转载|下载客户端|扫码登录|登录后推荐|免费看高清视频/.test(normalized)) return false;
+  if (/弹幕列表|按类型过滤|滚动\s*固定\s*彩色|防挡字幕|智能防挡弹幕|自动连播|订阅合集/.test(normalized)) return false;
+  if (/本视频参加过|活动已结束|QQ群|群号|微信|商务请私信|充电\s*关注/.test(normalized)) return false;
+  if (/^(赞|收藏|分享|评论|关注|投稿|消息|\d+|图\s*\d+)$/i.test(normalized)) return false;
+  if ((normalized.match(/\d+(?:\.\d+)?万/g) || []).length >= 4 && normalized.length > 80) return false;
+  return true;
+}
+
 function focusedCleanedText(title: string, domSignals: DomSignals, fallback: string): string {
   const mainBlocks = domSignals.blocks
-    .filter((block) => /^(bili_video_|xhs_note_|xhs_feed_card|guancha_article_)/.test(block.role || ""))
+    .filter((block) => /^(bili_video_|bili_feed_card|xhs_note_|xhs_feed_card|guancha_article_)/.test(block.role || ""))
     .map((block) => block.text)
     .filter(Boolean);
   const text = [title, ...mainBlocks].join("\n");

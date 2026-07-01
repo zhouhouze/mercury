@@ -161,6 +161,44 @@ def test_dom_signals_create_source_backed_feed_digest_items() -> None:
     assert any(ref.get("href") == "https://www.bilibili.com/video/BV1" for ref in result["sourceMap"]["sourceRefs"])
 
 
+def test_bilibili_home_feed_uses_card_dom_signals_without_shell_noise() -> None:
+    result = build_high_signal_page_perception(
+        {
+            "sessionId": "sess_bili_home_qh",
+            "url": "https://www.bilibili.com/",
+            "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
+            "domain": "www.bilibili.com",
+            "capturedAt": "2026-06-30T00:00:00Z",
+            "cleaned_text": "全国清理戒网瘾学校？持续十年的战斗要结束了吗！\n他们这样为牛肉注入灵魂",
+            "visible_text": "首页 番剧 直播 游戏中心 会员购 漫画 赛事 下载客户端 登录 注册 全国清理戒网瘾学校？持续十年的战斗要结束了吗！ 31.5万 自动连播 订阅合集 相关推荐 按类型过滤 滚动 固定 彩色",
+            "dom_signals": {
+                "pageStateHints": ["bili_home_feed"],
+                "links": [
+                    {"text": "全国清理戒网瘾学校？持续十年的战斗要结束了吗！", "href": "https://www.bilibili.com/video/BV1", "selector": ".bili-video-card:nth-of-type(1) a", "role": "media_link"},
+                    {"text": "他们这样为牛肉注入灵魂", "href": "https://www.bilibili.com/video/BV2", "selector": ".bili-video-card:nth-of-type(2) a", "role": "media_link"},
+                ],
+                "blocks": [
+                    {"text": "全国清理戒网瘾学校？持续十年的战斗要结束了吗！ 温柔JUNZ 昨天 31.5万 400", "selector": ".bili-video-card:nth-of-type(1)", "href": "https://www.bilibili.com/video/BV1", "role": "bili_feed_card"},
+                    {"text": "他们这样为牛肉注入灵魂 美食创作者 19.7万 580", "selector": ".bili-video-card:nth-of-type(2)", "href": "https://www.bilibili.com/video/BV2", "role": "bili_feed_card"},
+                    {"text": "首页 番剧 直播 游戏中心 会员购 漫画 赛事 下载客户端 登录 注册", "selector": "nav", "role": "bili_promo"},
+                    {"text": "自动连播 订阅合集 相关推荐 按类型过滤 滚动 固定 彩色", "selector": "aside", "role": "bili_recommendation"},
+                ],
+                "meta": [{"name": "description", "content": "B站首页热门视频推荐"}],
+            },
+        }
+    )
+
+    assert result["ok"] is True
+    digest_text = " ".join(item["text"] for item in result["perceptionDigest"]["items"])
+    paragraph_text = " ".join(paragraph["text"] for paragraph in result["structuredPage"]["paragraphs"])
+
+    assert "全国清理戒网瘾学校" in digest_text
+    assert "他们这样为牛肉注入灵魂" in digest_text
+    assert "游戏中心 会员购" not in paragraph_text
+    assert "自动连播" not in paragraph_text
+    assert any(ref.get("href") == "https://www.bilibili.com/video/BV1" for ref in result["sourceMap"]["sourceRefs"])
+
+
 def test_bilibili_video_detail_uses_main_dom_signals_without_page_shell_noise() -> None:
     result = build_high_signal_page_perception(
         {

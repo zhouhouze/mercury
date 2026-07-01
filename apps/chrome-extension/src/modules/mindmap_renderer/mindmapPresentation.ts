@@ -487,8 +487,8 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
     .map((binding) => {
       const source = nodeSourceMap[binding.nodeSourceMapKey];
       if (!isRecord(source)) return null;
-      const fallbackText = firstString(source.fallbackText, source.textQuote, source.excerpt);
-      const textQuote = firstString(source.textQuote, source.excerpt, source.fallbackText);
+      const fallbackText = compactSourcePanelText(firstString(source.fallbackText, source.textQuote, source.excerpt));
+      const textQuote = compactSourcePanelText(firstString(source.textQuote, source.excerpt, source.fallbackText));
       return {
         nodeId: binding.nodeId,
         nodeSourceMapKey: binding.nodeSourceMapKey,
@@ -516,8 +516,13 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
 function compactSourcePanelText(value: string): string {
   const normalized = value
     .replace(/\s+/g, " ")
-    .replace(/(?:首页|动态|热门|频道|消息|投稿)\s+/g, "")
+    .replace(/(?:首页|动态|热门|频道|消息|投稿|直播|课堂|社区中心)\s+/g, "")
     .replace(/(?:图\s*\d+\s*)+/g, "")
+    .replace(/\b\d{1,2}:\d{2}(?::\d{2})?\b/g, " ")
+    .replace(/(?:自动连播|订阅合集|相关推荐|按类型过滤|防挡字幕|智能防挡弹幕|弹幕随屏幕缩放|稿件投诉).*$/g, "")
+    .replace(/(?:未经作者授权|禁止转载|下载客户端|扫码登录|登录后推荐).*$/g, "")
+    .replace(/(?:沪ICP备|沪公网安备|营业执照|增值电信业务|网络文化经营许可证).*$/g, "")
+    .replace(/\s+/g, " ")
     .trim();
   if (normalized.length <= 260) return normalized;
   return `${normalized.slice(0, 259).trim()}…`;
@@ -525,14 +530,19 @@ function compactSourcePanelText(value: string): string {
 
 function sourceEvidenceCardScore(card: SourceEvidenceCard): number {
   const text = `${card.nodeLabel} ${card.textQuote} ${card.fallbackText}`.toLowerCase();
+  const normalized = normalizeSourceEvidenceText(card.fallbackText || card.textQuote);
   let score = 0;
   if (card.sourceRefIds.length > 0) score += Math.min(12, card.sourceRefIds.length * 2);
   if (card.textQuote) score += 10;
   if (card.fallbackText) score += 4;
-  if (/article|正文|标题|作者|发布时间|来源：|文\/|观察者网|视频简介|up主|播放|弹幕|笔记|note|feed|card|explore|xiaohongshu\.com\/explore|guancha\.cn\/.+\.shtml/.test(text)) score += 22;
+  if (/article|正文|标题|作者|发布时间|来源：|文\/|观察者网|视频简介|up主|笔记|note|feed|card|explore|bilibili\.com\/video|xiaohongshu\.com\/explore|guancha\.cn\/.+\.shtml/.test(text)) score += 24;
+  if (/bili_feed_card|bilibili\.com\/video|xiaohongshu\.com\/explore|guancha\.cn\/.+\.shtml/.test(text)) score += 14;
   if (/^root$|首页|推荐\s+穿搭\s+美食\s+彩妆|频道|动态|热门|消息|投稿/.test(text)) score -= 28;
-  if (/评论|回复|热评|踩\d*|赞\d*|收藏|举报|分享|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置/.test(text)) score -= 34;
-  if (normalizeSourceEvidenceText(card.fallbackText || card.textQuote).length > 520) score -= 10;
+  if (/^description\b|^keywords\b|^canonical\b|^referrer\b|^server_render\b|description:|keywords:|canonical:|referrer:|server_render:/.test(text)) score -= 38;
+  if (/评论|回复|热评|踩\d*|赞\d*|收藏|举报|分享|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置|高级弹幕|稿件投诉/.test(text)) score -= 36;
+  if ((normalized.match(/\d+(?:\.\d+)?万/g) || []).length >= 3) score -= 14;
+  if ((normalized.match(/\b\d{1,2}:\d{2}\b/g) || []).length >= 2) score -= 14;
+  if (normalized.length > 520) score -= 10;
   if (card.nodeId === "root") score -= 16;
   return score;
 }

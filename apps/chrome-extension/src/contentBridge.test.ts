@@ -481,6 +481,30 @@ describe("content page context bridge", () => {
     expect(document.querySelector("article p")?.getAttribute("data-navia-jumpback-highlight")).toBe("true");
   });
 
+  it("allows Bilibili homepage video cards inside recommendation containers to be highlighted", () => {
+    document.body.innerHTML = `
+      <main>
+        <section class="recommended-container">
+          <div class="feed-card">
+            <a class="bili-video-card__info--tit" href="https://www.bilibili.com/video/BV1Fixture">真正有价值的视频标题</a>
+          </div>
+        </section>
+      </main>
+    `;
+
+    const result = performJumpback(document, {
+      href: "https://www.bilibili.com/video/BV1Fixture",
+      textQuote: "真正有价值的视频标题",
+      fallbackText: "真正有价值的视频标题"
+    });
+
+    expect(result).toMatchObject({
+      status: "highlighted",
+      matchedStrategy: "href"
+    });
+    expect(document.querySelector("[data-navia-jumpback-highlight='true']")?.textContent).toContain("真正有价值的视频标题");
+  });
+
   it("matches textQuote against enclosing element text when the quote spans nested text nodes", () => {
     document.body.innerHTML = `<article><section><p>Navia <strong>keeps source evidence</strong> traceable across rendering layers.</p></section></article>`;
 
@@ -509,6 +533,19 @@ describe("content page context bridge", () => {
       status: "fallback_shown",
       fallbackText: "Fallback evidence from SourceRef.",
       failureReason: "source_not_found_in_dom"
+    });
+    expect(document.querySelector("[data-navia-jumpback-highlight='true']")).toBeNull();
+  });
+
+  it("returns blocked when the request has no traceable strategy or fallback evidence", () => {
+    document.body.innerHTML = `<article><p>Visible page content.</p></article>`;
+
+    const result = performJumpback(document, {});
+
+    expect(result).toMatchObject({
+      status: "blocked",
+      attemptedStrategies: [],
+      failureReason: "no_traceable_source_evidence"
     });
     expect(document.querySelector("[data-navia-jumpback-highlight='true']")).toBeNull();
   });

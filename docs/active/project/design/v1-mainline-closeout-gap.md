@@ -4,7 +4,7 @@ Date: 2026-06-25
 
 ## 目的
 
-`v1-mainline-closeout-gap.drawio` 是当前 V1 主线收口候选阶段的 active gap 图。它是人类快速审查目标体验、目标架构、开发计划、验收门槛和出门条件的入口。
+`v1-mainline-closeout-gap.drawio` 是当前 V1 主线收口与 V1-MVP-QH 质量硬化阶段的 active gap 图。它是人类快速审查目标体验、目标架构、开发计划、验收门槛和出门条件的入口。
 
 本图替代较早的 V1 baseline / V1.2 automation 图作为当前阶段审查入口。旧图仍可作为历史理解材料，但不能覆盖本阶段的完成声明。
 
@@ -13,8 +13,9 @@ Date: 2026-06-25
 - 目标用户体验。
 - 当前架构与目标架构差异。
 - Content Script、iframe sidepanel、B Renderer、Runtime A/C/D、source jumpback 的责任边界。
-- `V1-MC-0` 到 `V1-MC-5` 的开发及验收计划。
+- `V1-MC-0` 到 `V1-MC-5` 的历史 closeout candidate 开发及验收计划。
 - `V1-MC-SJ-0` 到 `V1-MC-SJ-5` 的复杂站点 Source Jumpback Hardening 质量硬化计划。
+- `V1-MVP-QH-0` 到 `V1-MVP-QH-5` 的基础 MVP 确认后质量硬化计划。
 - 当前 V1-MC 自动化候选通过事实、cookie-injected 真实站点复验口径，以及仍需人工产品体验核查的边界。
 - 验收门槛、No-Go 和允许声明。
 - 固定验证命令 `testCommands`、上游 evidence 路径逐个校验、fallback coverage 来源和人工核查状态字段。
@@ -29,8 +30,8 @@ Date: 2026-06-25
 | `02 当前架构与目标架构差异` | 展示当前真实实现实体与目标差异：网页 DOM、`contentBridge.ts`、注入的 `aside / iframe / launcher / resize handle`、`sidepanel/main.tsx`、B Renderer、`runtimeClient.ts`、background proxy、Local Runtime A/C/D/C Mindmap、source jumpback 的分层和交互方向。 |
 | `03 目标架构交互链路` | 展示 Content Script、Floating Launcher、SidebarInteractionState、Resize Handle、iframe sidepanel、B Renderer、Runtime A/C/D、Source Jumpback 的端到端关系。 |
 | `04 复杂站点质量链路` | 展示 B站 / 小红书 / 观察者网 public no-login、cookie-injected 与 logged-in 验收分流，特别标注 B站详情页主内容抽取、噪声过滤、source jumpback 和 fallback 路径复核目标。 |
-| `05 开发及验收计划` | 在旧版闭环布局上展示 `V1-HR-0` 到 `V1-HR-5` 的文档基线、人工核查材料、场景清单、证据一致性、complete candidate 准备和人工结论落盘产物。 |
-| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、UX hardening 等已完成、候选完成或待人工核查内容，以及人工核查 / 登录态复验边界。 |
+| `05 开发及验收计划` | 展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-5` 的文档冻结、A 主内容抽取、C 导图归并、B 可读性、Content Script 反跳和真实站点复验闭环。 |
+| `06 项目里程碑与证据矩阵` | 区分 V1.3、V1.4、complex-site、Gemini style、docked launcher closeout、基础 MVP accepted、V1-MVP-QH 待开发和人工核查 / 登录态复验边界。 |
 | `07 验收门槛与出门条件` | 列出用户可体验到的功能、证据要求、No-Go 和允许声明。 |
 | `08 风险路线与备选技术` | 展示登录态 CDP、专用 profile / cookie 注入、public no-login headless、blocker + 人工截图补位四条路线，以及小红书 / 观察者 / B站 / E2E false-green 风险。 |
 
@@ -170,6 +171,56 @@ Web Research / PPT / Deep Research ready。
 ```
 
 如果人工核查清单仍是 `reviewStatus: pending`，drawio 和任何 active 文档都不能把项目状态升级为完整 V1 complete。
+
+## 2026-06-30 V1-MVP-QH 质量硬化修订
+
+人工已确认基础 MVP 体验 OK。该确认只代表当前 launcher、sidebar、Chat、Debug、Settings、读取当前页、总结、Mindmap 和 Source Evidence 具备 MVP 层面的可体验性；它不代表反跳识别和 Mindmap 质量已完成，也不能支持完整 V1 complete。
+
+本轮 drawio 和 companion 的目标更新为：
+
+- 在 `01` 页明确当前状态：基础 MVP accepted，下一步进入 Source Jumpback 与 Mindmap Quality hardening。
+- 在 `02` 页继续展示具体实现实体，并把需强化实体标为黄色：`pageContext.ts`、A Page Reading、C Mindmap、B Renderer、`contentBridge.ts` source jumpback、E2E/report。
+- 在 `03` 页保持目标架构交互链路，明确 A/C/B/Content Script 各自可以修改的边界和不得修改的 Runtime public contract。
+- 在 `04` 页强化复杂站点质量链路：B站、小红书、观察者网首页与详情页都必须说明主内容、噪声、source evidence 和 jumpback 状态。
+- 在 `05` 页展示 `V1-MVP-QH-0` 到 `V1-MVP-QH-5`，并保留失败打回规则。
+- 在 `06` 页把基础 MVP accepted、V1-MC automated candidate、quality hardening 待开发、人工核查 / complete candidate 仍受限串成里程碑。
+- 在 `07` 页增加用户能体验到的质量门槛：导图可读、节点不被低价值文本主导、source marker 明确、fallback / blocked 不伪 success。
+- 在 `08` 页保留登录态、cookie-injected、public no-login、blocker 路线，并说明低等级路线通过不能覆盖高等级路线失败。
+- QH scoped evidence 必须优先落到 `docs/active/project/evidence/v1_mvp_quality_hardening/`，再聚合到 `v1_mainline_closeout`；聚合报告不能替代独立 QH 证据。
+- `解释选中内容` 必须进入质量硬化验收，证明输出不被网站壳、图片序号、时间戳、重复文本、推荐或评论主导。
+
+本轮允许声明：
+
+```text
+V1 MVP baseline accepted; Source Jumpback and Mindmap quality hardening ready for staged implementation.
+```
+
+质量硬化完成后最多允许声明：
+
+```text
+V1 MVP quality hardening passed scoped real-site acceptance.
+```
+
+本轮 drawio 仍不得支持：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+用户主 Profile 登录态全站高质量通过。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+如果 fresh evidence 中出现以下情况，必须打回对应子阶段：
+
+- B站详情页摘要或 Mindmap 被推荐、弹幕设置、活动广告、QQ群 / 微信、自动连播、订阅合集或版权提示主导。
+- 小红书 source evidence 只能 fallback 或 blocked，却被写成 complex-site pass。
+- 观察者网详情页默认反跳到评论、推荐、最新视频、头条侧栏或站点壳。
+- Mindmap / Reading Map 截图仍有文本虚影、节点重叠、卡片截断或输入框遮挡。
+- `fallback_shown` 或 `blocked` 被标记为 `located` / `highlighted`。
+- QH 只产出 mainline closeout 聚合报告，没有独立 `v1_mvp_quality_hardening` evidence。
+- `解释选中内容` 仍由网站壳、图片序号、时间戳、重复文本、推荐或评论主导。
 
 ## 关联 active 文档
 

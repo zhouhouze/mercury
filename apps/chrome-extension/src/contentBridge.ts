@@ -49,7 +49,7 @@ type JumpbackRequest = {
 };
 
 type JumpbackResult = {
-  status: "highlighted" | "fallback_shown";
+  status: "highlighted" | "fallback_shown" | "blocked";
   attemptedStrategies: JumpbackStrategy[];
   matchedStrategy?: JumpbackStrategy;
   highlightedText?: string;
@@ -530,7 +530,16 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
   const domPath = cleanString(request.domPath);
   const href = cleanString(request.href);
   const textQuote = cleanString(request.textQuote);
+  const fallbackText = cleanString(request.fallbackText) || textQuote;
   clearJumpbackHighlights(documentRef);
+  if (!documentRef.body) {
+    return {
+      status: "blocked",
+      attemptedStrategies,
+      fallbackText,
+      failureReason: "document_body_unavailable"
+    };
+  }
 
   if (selector) {
     attemptedStrategies.push("selector");
@@ -557,10 +566,10 @@ export function performJumpback(documentRef: Document, request: JumpbackRequest)
   }
 
   return {
-    status: "fallback_shown",
+    status: fallbackText ? "fallback_shown" : "blocked",
     attemptedStrategies,
-    fallbackText: cleanString(request.fallbackText) || textQuote,
-    failureReason: attemptedStrategies.length ? "source_not_found_in_dom" : "no_jumpback_strategy_available"
+    fallbackText,
+    failureReason: attemptedStrategies.length ? "source_not_found_in_dom" : "no_traceable_source_evidence"
   };
 }
 
@@ -760,8 +769,18 @@ function hasPreciseTextOverlap(text: string, quote: string): boolean {
 function isIgnoredJumpbackElement(element: HTMLElement): boolean {
   if (["SCRIPT", "STYLE", "NOSCRIPT", "NAV", "FOOTER", "HEADER", "ASIDE"].includes(element.tagName)) return true;
   const marker = `${element.tagName} ${element.id || ""} ${element.className || ""} ${element.getAttribute("role") || ""}`.toLowerCase();
+  if (/(bili-video-card|video-card|feed-card|carousel-item)/.test(marker) && hasAllowedMediaHref(element)) return false;
   if (/nav|footer|header|sidebar|side-bar|comment|reply|recommend|related|rec-list|danmaku|弹幕|广告|ad-|banner|activity|promo|login|passport|toolbar|control|player|playlist/.test(marker)) return true;
+  if (hasAllowedMediaHref(element) && element.closest("[class*='feed'], [class*='video'], [class*='carousel']")) return false;
   return Boolean(element.closest("nav, footer, header, aside, [class*='comment'], [class*='reply'], [class*='recommend'], [class*='related'], [class*='danmaku'], [class*='toolbar'], [class*='login']"));
+}
+
+function hasAllowedMediaHref(element: HTMLElement): boolean {
+  const hrefs = [
+    element instanceof HTMLAnchorElement ? element.href || element.getAttribute("href") || "" : "",
+    ...Array.from(element.querySelectorAll<HTMLAnchorElement>("a[href]")).map((anchor) => anchor.href || anchor.getAttribute("href") || "")
+  ];
+  return hrefs.some((href) => /bilibili\.com\/video\/|\/video\/BV/i.test(href));
 }
 
 function textMatchScore(text: string, candidates: string[]): number {
