@@ -20,7 +20,7 @@ Result: PASS
 
 ## Non-pass Samples Retained In Evidence
 
-- domestic-content-xhs-note blocked: theme-color rgb 255, 255, 255fallback_shownviewport: width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
-- international-portal-reuters-home degraded: reuters.comfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
-- international-article-reuters-world degraded: var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hshfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom
-- international-doc-openai-docs degraded: quality metrics or source evidence did not pass
+- domestic-content-xhs-note blocked: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
+- international-portal-reuters-home degraded: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
+- international-article-reuters-world degraded: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
+- international-doc-openai-docs degraded: 样本未达 pass 门槛；详见逐页 sample-report.json 与 jumpback.json。
