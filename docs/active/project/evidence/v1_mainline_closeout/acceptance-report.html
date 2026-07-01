@@ -39,7 +39,7 @@
     <p><span class="status">自动化验收通过</span></p>
     <p>V1 mainline closeout candidate passed automated acceptance.</p>
     <p>本 HTML 是本轮阶段性审计给人类查看的唯一入口；所有结论必须回到本页列出的命令、截图、JSON 报告和 No-Go 边界。</p>
-    <p>生成时间：2026-07-01T05:13:16.067Z</p>
+    <p>生成时间：2026-07-01T06:00:59.028Z</p>
   </header>
   <main>
     <section>
@@ -67,7 +67,7 @@
     <section>
       <h2>审计者阅读顺序</h2>
       <p>本报告被设计为本轮人类审查的单一入口。审查者可以按以下顺序完成判断，不需要先跳转到其他文档。</p>
-      <ol><li>先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。</li><li>再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。</li><li>然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图：确认复杂站点、launcher、source evidence 有可见证据。</li><li>最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。</li></ol>
+      <ol><li>先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。</li><li>再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。</li><li>然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图证据：Launcher / Sidebar、真实网页路径、QH before / after，确认复杂站点、launcher、source evidence 有可见证据。</li><li>最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。</li></ol>
     </section>
     <section>
       <h2>源码版本与报告生成环境</h2>
@@ -76,7 +76,7 @@
           <h3>仓库状态</h3>
           <p>远端仓库：<code>https://github.com/zhouhouze/mercury</code></p>
           <p>分支：<code>main</code></p>
-          <p>被审计源码基线：<code>e71651a</code></p>
+          <p>被审计源码基线：<code>be51047</code></p>
           <p>Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.</p>
           <p>main...origin/main：<code>1	0</code></p>
           <p>源码工作树：<strong>clean</strong></p>
@@ -495,7 +495,8 @@
       </tr></tbody></table>
     </section>
     <section>
-      <h2>Launcher / Collapse / Resize 行为截图</h2>
+      <h2>Launcher / Sidebar 截图证据</h2>
+      <p>这些截图证明贴边 launcher、hover / focus、点击展开 sidebar、resize / overlay、折叠恢复和拖拽贴边等外层交互壳行为。</p>
       <div class="grid"><figure>
         <img src="screenshots/launcher-docked-default.png" alt="docked-default" />
         <figcaption><strong>docked-default</strong><br />证明默认状态为贴边低打扰入口，页面主体仍可阅读。</figcaption>
@@ -517,7 +518,8 @@
       </figure></div>
     </section>
     <section>
-      <h2>真实网页伴读路径截图</h2>
+      <h2>真实网页截图证据</h2>
+      <p>这些截图证明 B站、小红书、观察者网首页与详情页的真实网页伴读路径；它们不声明用户主 Chrome Profile 全站登录态质量。</p>
       <div class="grid"><figure>
         <img src="screenshots/external-bilibili-homepage-after.png" alt="bilibili-homepage" />
         <figcaption><strong>B站 / homepage / highlighted</strong><br />证明 B站 homepage 样本完成真实网页伴读路径，source evidence 状态为 已定位并高亮。</figcaption>
@@ -539,7 +541,7 @@
       </figure></div>
     </section>
     <section>
-      <h2>V1-MVP-QH before / after 截图</h2>
+      <h2>V1-MVP-QH before / after 截图证据</h2>
       <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 B站、小红书、观察者网首页和详情页。before 展示反跳前状态，after 展示 source evidence 触发后的高亮结果。</p>
       <div class="grid"><figure>
         <img src="screenshots/qh-bilibili-homepage-before.png" alt="bilibili-homepage before" />
