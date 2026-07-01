@@ -183,6 +183,40 @@ function normalizeJumpbackStatus(status) {
   return "blocked";
 }
 
+function htmlEvidenceLink(relativePath, label = relativePath) {
+  return `<a href="${escapeHtml(relativePath)}"><code>${escapeHtml(label)}</code></a>`;
+}
+
+function sampleEvidenceLinks(pageId) {
+  const files = [
+    `pages/${pageId}/sample-report.json`,
+    `pages/${pageId}/runtime-session.json`,
+    `pages/${pageId}/source-cards.json`,
+    `pages/${pageId}/jumpback.json`,
+    `pages/${pageId}/dom-snapshot.json`,
+    `pages/${pageId}/perception-summary.json`
+  ].filter((relativePath) => fs.existsSync(path.join(evidenceRoot, relativePath)));
+  return files.map((relativePath) => htmlEvidenceLink(relativePath, path.basename(relativePath))).join(" ");
+}
+
+function metricHtml(metricValue) {
+  if (!metricValue || typeof metricValue !== "object") return "<code>missing</code>";
+  const value = metricValue.value;
+  const threshold = metricValue.threshold;
+  const count =
+    Number.isFinite(metricValue.numerator) && Number.isFinite(metricValue.denominator)
+      ? ` (${metricValue.numerator}/${metricValue.denominator})`
+      : "";
+  const status = metricValue.passed ? "pass" : "fail";
+  return `<span class="badge ${status}">${escapeHtml(status)}</span> <code>${escapeHtml(value)} / ${escapeHtml(threshold)}${escapeHtml(count)}</code>`;
+}
+
+function sampleStatusClass(sample) {
+  if (sample.reportConclusion === "pass") return "pass";
+  if (sample.reportConclusion === "degraded") return "degraded";
+  return "blocked";
+}
+
 function screenshotPathsFor(pageId) {
   return [`screenshots/${pageId}-before.png`, `screenshots/${pageId}-after.png`, `screenshots/${pageId}-blocked.png`].filter((relativePath) =>
     fs.existsSync(path.join(evidenceRoot, relativePath))
@@ -497,9 +531,44 @@ ${sampleRows}
 }
 
 function writeHtmlReport(report) {
+  const auditDecision = report.passed
+    ? "本报告足以支持 V1-MVP-QH expanded 自动化验收通过；不支持完整 V1 complete。"
+    : "本报告不能支持 V1-MVP-QH expanded 自动化验收通过，需回到开发或验收计划阶段。";
+  const commandRows = report.testCommands
+    .map(
+      (item) =>
+        `<tr><td><code>${escapeHtml(item.command)}</code></td><td><span class="badge ${escapeHtml(item.status)}">${escapeHtml(item.status)}</span></td><td>${escapeHtml(item.evidencePath)}</td></tr>`
+    )
+    .join("");
+  const thresholdRows = [
+    ["总样本不少于 48 页", report.summary.samplesTotal, ">= 48", report.summary.samplesTotal >= 48],
+    ["国内样本不少于 24 页", report.summary.domesticSamples, ">= 24", report.summary.domesticSamples >= 24],
+    ["国外样本不少于 24 页", report.summary.internationalSamples, ">= 24", report.summary.internationalSamples >= 24],
+    ["整体通过不少于 44 页", report.summary.passedSamples, ">= 44", report.summary.passedSamples >= 44],
+    ["每类至少 8 页样本", report.summary.categoryResults.every((item) => item.samples >= 8) ? "全部满足" : "存在不足", "每类 >= 8", report.summary.categoryResults.every((item) => item.samples >= 8)],
+    ["每类至少 7 页通过", report.summary.categoryResults.every((item) => item.passedSamples >= 7) ? "全部满足" : "存在不足", "每类 >= 7", report.summary.categoryResults.every((item) => item.passedSamples >= 7)],
+    ["每类至少 4 个站点", report.summary.categoryResults.every((item) => item.distinctSites >= 4) ? "全部满足" : "存在不足", "每类 >= 4", report.summary.categoryResults.every((item) => item.distinctSites >= 4)],
+    ["fatal / major issue", `${report.summary.fatalIssues} / ${report.summary.majorIssues}`, "0 / 0", report.summary.fatalIssues === 0 && report.summary.majorIssues === 0]
+  ]
+    .map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td><td>${escapeHtml(row[2])}</td><td><span class="badge ${row[3] ? "pass" : "fail"}">${row[3] ? "通过" : "未通过"}</span></td></tr>`)
+    .join("");
+  const nonPassingRows =
+    report.samples
+      .filter((sample) => sample.reportConclusion !== "pass")
+      .map(
+        (sample) =>
+          `<tr><td>${escapeHtml(sample.pageId)}</td><td>${escapeHtml(sample.site)}</td><td>${escapeHtml(sample.contentCategory)}</td><td><span class="badge ${escapeHtml(sample.reportConclusion)}">${escapeHtml(sample.reportConclusion)}</span></td><td>${escapeHtml(sample.jumpbackResult.status)}</td><td>${escapeHtml(sample.jumpbackResult.failureReason ?? "quality metric / source evidence degraded")}</td><td>${sampleEvidenceLinks(sample.pageId)}</td></tr>`
+      )
+      .join("") || `<tr><td colspan="7">无 retained non-pass sample。</td></tr>`;
   const categories = report.summary.categoryResults
     .map(
       (item) => `<tr><td>${escapeHtml(item.categoryId)}</td><td>${item.samples}</td><td>${item.passedSamples}</td><td>${item.distinctSites}</td><td>${item.passed ? "通过" : "未通过"}</td></tr>`
+    )
+    .join("");
+  const sampleMatrixRows = report.samples
+    .map(
+      (sample) =>
+        `<tr><td>${escapeHtml(sample.pageId)}</td><td>${escapeHtml(sample.site)}</td><td>${escapeHtml(sample.countryRegion)}</td><td>${escapeHtml(sample.contentCategory)}</td><td>${escapeHtml(sample.loginStatePolicy)}</td><td><span class="badge ${sampleStatusClass(sample)}">${escapeHtml(sample.reportConclusion)}</span></td><td>${escapeHtml(sample.jumpbackResult.status)}</td><td>${sample.screenshotPaths.map((shot) => htmlEvidenceLink(shot, path.basename(shot))).join(" ")}</td><td>${sampleEvidenceLinks(sample.pageId)}</td></tr>`
     )
     .join("");
   const samples = report.samples
@@ -508,14 +577,17 @@ function writeHtmlReport(report) {
         .filter((shot) => shot.endsWith(".png"))
         .map((shot) => `<figure><img src="${escapeHtml(shot)}" alt="${escapeHtml(sample.pageId)}"><figcaption>${escapeHtml(shot)}</figcaption></figure>`)
         .join("");
-      return `<section class="sample ${escapeHtml(sample.reportConclusion)}">
+      return `<section class="sample ${sampleStatusClass(sample)}">
         <h3>${escapeHtml(sample.site)} / ${escapeHtml(sample.pageId)} / ${escapeHtml(sample.reportConclusion)}</h3>
         <p><strong>URL:</strong> ${escapeHtml(sample.url)}</p>
         <p><strong>类别:</strong> ${escapeHtml(sample.contentCategory)} / ${escapeHtml(sample.countryRegion)} / ${escapeHtml(sample.loginStatePolicy)}</p>
+        <p><strong>逐页 JSON 证据:</strong> ${sampleEvidenceLinks(sample.pageId)}</p>
         <p><strong>主内容信号:</strong> ${escapeHtml(sample.mainContentSignals.join("、"))}</p>
+        <p><strong>噪声发现:</strong> ${escapeHtml(sample.noiseFindings.join("、") || "none")}</p>
         <p><strong>导图节点:</strong> ${escapeHtml(sample.mindmapTopNodes.map((node) => node.label).join(" / "))}</p>
-        <p><strong>质量指标:</strong> grounded=${sample.qualityMetrics.groundedClaimRate.value}, topNode=${sample.qualityMetrics.topNodeGroundingRate.value}, noise=${sample.qualityMetrics.noisyTopNodeRate.value}, duplicate=${sample.qualityMetrics.duplicateTopNodeRate.value}, overlong=${sample.qualityMetrics.overlongTopNodeRate.value}</p>
+        <p><strong>质量指标:</strong> grounded=${metricHtml(sample.qualityMetrics.groundedClaimRate)} topNode=${metricHtml(sample.qualityMetrics.topNodeGroundingRate)} noise=${metricHtml(sample.qualityMetrics.noisyTopNodeRate)} duplicate=${metricHtml(sample.qualityMetrics.duplicateTopNodeRate)} overlong=${metricHtml(sample.qualityMetrics.overlongTopNodeRate)}</p>
         <p><strong>反跳:</strong> ${escapeHtml(sample.jumpbackResult.status)}，markerVisible=${sample.jumpbackResult.markerVisible ? "true" : "false"}，reason=${escapeHtml(sample.jumpbackResult.failureReason ?? "none")}</p>
+        <p><strong>选择理由:</strong> ${escapeHtml(sample.selectionReason ?? "none")}</p>
         <div class="shots">${figures || `<p>${escapeHtml(sample.screenshotPaths.join(", "))}</p>`}</div>
       </section>`;
     })
@@ -530,13 +602,20 @@ function writeHtmlReport(report) {
     main { max-width: 1220px; margin: 0 auto; padding: 28px; }
     h1 { color: #064c45; margin: 0 0 8px; font-size: 28px; }
     h2 { color: #064c45; margin-top: 28px; }
+    h3 { color: #173b36; }
     .panel, .sample { background: #fff; border: 1px solid #cfe0dc; border-radius: 14px; box-shadow: 0 18px 44px rgba(6, 76, 69, 0.08); padding: 18px; margin-top: 14px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
     .metric { background: #eff7f4; border-radius: 10px; padding: 10px; }
     .metric strong { display: block; color: #064c45; font-size: 22px; }
+    .toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; padding-left: 0; list-style: none; }
+    .toc li { border: 1px solid #d9e6e2; border-radius: 10px; padding: 10px; background: #fbfdfc; }
     table { border-collapse: collapse; width: 100%; background: #fff; }
     th, td { border: 1px solid #d9e6e2; padding: 8px; text-align: left; vertical-align: top; }
     th { background: #eff7f4; color: #064c45; }
+    .badge { display: inline-block; border-radius: 999px; padding: 2px 8px; border: 1px solid #cfe0dc; background: #eef5f2; color: #37514d; font-weight: 700; }
+    .badge.pass, .badge.passed { background: #e8f6ef; border-color: #9bd0b5; color: #05735f; }
+    .badge.degraded { background: #fff5df; border-color: #e0b36b; color: #9a620d; }
+    .badge.blocked, .badge.fail, .badge.failed { background: #fff0f0; border-color: #e0a5a5; color: #9b2d2d; }
     .pass { border-left: 6px solid #05735f; }
     .degraded { border-left: 6px solid #bf7b17; }
     .blocked, .fail { border-left: 6px solid #a23b3b; }
@@ -552,6 +631,7 @@ function writeHtmlReport(report) {
   <h1>V1-MVP-QH Expanded 自动化验收报告</h1>
   <section class="panel">
     <p><strong>结论:</strong> ${report.passed ? "PASS" : "FAIL"}</p>
+    <p><strong>审计判断:</strong> ${escapeHtml(auditDecision)}</p>
     <p><strong>声明边界:</strong> <code>${escapeHtml(report.passed ? report.claim : "No completion claim. V1-MVP-QH expanded acceptance remains blocked or degraded.")}</code></p>
     <p><strong>证据路径:</strong> ${escapeHtml(evidenceRootRelative)}</p>
     <div class="grid">
@@ -565,14 +645,49 @@ function writeHtmlReport(report) {
       <div class="metric"><strong>${report.auditDetails.nonPassingSamples.length}</strong>保留未通过样本</div>
     </div>
   </section>
+  <h2>审计者阅读顺序</h2>
+  <section class="panel">
+    <ul class="toc">
+      <li><strong>1. 先看结论和门槛。</strong><br>确认本报告只支持 QH expanded 自动化验收，不支持完整 V1 complete。</li>
+      <li><strong>2. 看固定验证命令。</strong><br>确认 typecheck、单测、生产构建、headless 48 页 E2E、schema validation 均有记录。</li>
+      <li><strong>3. 看非通过样本。</strong><br>确认 degraded / blocked 样本被保留并解释，没有被误算为 pass。</li>
+      <li><strong>4. 抽查样本矩阵。</strong><br>每页都有 before / after 截图和 sample-report/runtime/source/jumpback JSON。</li>
+      <li><strong>5. 对照 PRD 和 false-green。</strong><br>确认未引入禁用能力，未把 fallback / blocked 冒充 located。</li>
+    </ul>
+  </section>
+  <h2>固定验证命令与复现入口</h2>
+  <section class="panel">
+    <p>这些命令是本阶段自动化开发与验收闭环的最小复现入口。命令输出不内嵌到 HTML 中；结构化结果落在本目录的 JSON / Markdown / 截图证据内。</p>
+    <table><thead><tr><th>命令</th><th>状态</th><th>证据路径</th></tr></thead><tbody>${commandRows}</tbody></table>
+  </section>
+  <h2>PRD 规格与 false-green 边界</h2>
+  <section class="panel">
+    <p><strong>PRD 覆盖:</strong> 48 页国内外主流图文网页 / 门户 / 内容平台 / 文档博客矩阵；覆盖当前页读取、总结 grounding、Evidence Card Mindmap / Reading Map、Source Evidence、Jumpback 三态。</p>
+    <p><strong>禁止声明:</strong> 不声明完整 V1 complete，不声明最终 Monica-like UX complete，不声明复杂站点全量高质量通过，不声明 RAG / Memory / Web Research / PPT / Deep Research ready。</p>
+    <p><strong>禁止误判:</strong> 旧 6 样本 evidence 不替代 48 页 expanded acceptance；degraded / blocked 不统计为 pass；fallback_shown / blocked 不冒充 located；public_no_login 与 logged-in validation 保持区分。</p>
+    <p><strong>配套文档:</strong> ${htmlEvidenceLink("prd-review.md")} ${htmlEvidenceLink("false-green-audit.md")} ${htmlEvidenceLink("sample-manifest.json")} ${htmlEvidenceLink("report.json")} ${htmlEvidenceLink("evidence-manifest.json")}</p>
+  </section>
   <h2>目标架构与当前实现</h2>
   <section class="panel">
-    <p>目标链路：Host Page DOM -> contentBridge/pageContext -> A Page Reading -> C Mindmap -> D Artifact/Event/Trace -> B Evidence Card Mindmap / Reading Map -> 用户触发 Source Jumpback。</p>
-    <p>当前实现仍保持该分层；本报告只验证主内容识别、Mindmap 质量、Renderer 可读性和 Jumpback 三态，不扩展 Runtime 公共合同。</p>
+    <p><strong>目标链路:</strong> Host Page DOM -> contentBridge/pageContext -> A Page Reading -> C Mindmap -> D Artifact/Event/Trace -> B Evidence Card Mindmap / Reading Map -> 用户触发 Source Jumpback。</p>
+    <p><strong>当前实现实体:</strong> <code>apps/chrome-extension/src/pageContext.ts</code> 提取页面上下文；<code>services/local-runtime/navia_runtime/modules/page_reading/runtime/high_signal.py</code> 做主内容和噪声筛选；<code>services/local-runtime/navia_runtime/modules/mindmap/runtime/generator.py</code> 做节点压缩和导图生成；<code>apps/chrome-extension/src/contentBridge.ts</code> 做用户触发反跳和 marker；B Renderer 只展示 Evidence Card / Reading Map，不生成事实内容。</p>
+    <p><strong>架构边界:</strong> 本报告只验证主内容识别、Mindmap 质量、Renderer 可读性和 Jumpback 三态；不扩展 Runtime 公共合同，不要求 C 输出前端组件结构，不让 B 直接调用 A/C/D 服务。</p>
   </section>
+  <h2>出门门槛自检</h2>
+  <table><thead><tr><th>门槛</th><th>实际</th><th>要求</th><th>结果</th></tr></thead><tbody>${thresholdRows}</tbody></table>
   <h2>类别门槛</h2>
   <table><thead><tr><th>类别</th><th>样本</th><th>通过</th><th>站点数</th><th>结果</th></tr></thead><tbody>${categories}</tbody></table>
-  <h2>样本证据</h2>
+  <h2>非通过样本与风险保留</h2>
+  <section class="panel">
+    <p>以下样本不会被隐藏。它们用于说明当前技术路线的真实边界，也用于防止“44/48 pass”被误读为所有网页全量高质量通过。</p>
+    <table><thead><tr><th>样本</th><th>站点</th><th>类别</th><th>结论</th><th>反跳状态</th><th>原因</th><th>证据</th></tr></thead><tbody>${nonPassingRows}</tbody></table>
+  </section>
+  <h2>48 页样本矩阵索引</h2>
+  <section class="panel">
+    <p>矩阵索引给审计者快速定位每页截图与 JSON 证据；详细截图在下一节逐页展开。</p>
+    <table><thead><tr><th>样本</th><th>站点</th><th>区域</th><th>类别</th><th>登录口径</th><th>结论</th><th>反跳</th><th>截图</th><th>JSON 证据</th></tr></thead><tbody>${sampleMatrixRows}</tbody></table>
+  </section>
+  <h2>逐页截图证据</h2>
   ${samples}
 </main>
 </body>
