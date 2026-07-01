@@ -201,6 +201,12 @@ function sampleProofText(sample) {
   return `证明 ${sample.siteName} ${sample.pageKind} 样本完成真实网页伴读路径，source evidence 状态为 ${status}。`;
 }
 
+function qualityHardeningProofText(sample, phase) {
+  const status = sample.jumpbackStatus === "highlighted" ? "已定位并高亮" : sample.jumpbackStatus;
+  const phaseText = phase === "before" ? "反跳前" : "反跳后";
+  return `V1-MVP-QH ${sample.siteName} ${sample.pageKind} ${phaseText}截图；结果=${sample.result}，source evidence=${status}。`;
+}
+
 function collectEvidenceFiles() {
   if (!fs.existsSync(evidenceRoot)) return [];
   const files = [];
@@ -243,10 +249,15 @@ function writeEvidenceManifest(report) {
 }
 
 function collectGitProvenance() {
-  const statusLines = safeExec("git status --short")
+  const rawStatusLines = safeExec("git status --short")
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean);
+  const isGeneratedEvidenceLine = (line) => {
+    const filePath = line.replace(/^(?:[ MADRCU?!]{1,2})\s+/, "").trim();
+    return filePath.startsWith("docs/active/project/evidence/v1_mainline_closeout/");
+  };
+  const statusLines = rawStatusLines.filter((line) => !isGeneratedEvidenceLine(line));
   const changedFiles = statusLines
     .map((line) => line.replace(/^(?:[ MADRCU?!]{1,2})\s+/, "").trim())
     .filter(Boolean);
@@ -257,6 +268,7 @@ function collectGitProvenance() {
     aheadBehindOriginMain: safeExec("git rev-list --left-right --count main...origin/main"),
     workingTreeStatus: statusLines.length ? "dirty" : "clean",
     statusLines,
+    generatedEvidenceStatusLines: rawStatusLines.filter((line) => isGeneratedEvidenceLine(line)),
     changedFiles,
     reportGenerator: "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
     evidenceRoot: "docs/active/project/evidence/v1_mainline_closeout"
@@ -417,6 +429,45 @@ function buildReport() {
     : [];
   if (externalSamples.length < 6) fatalIssues.push("External visual acceptance has fewer than 6 visual samples.");
 
+  const qualityHardeningSamples = Array.isArray(qualityHardening?.samples)
+    ? qualityHardening.samples.map((sample) => ({
+        sampleId: sample.sampleId,
+        siteName: sample.siteName,
+        pageKind: sample.pageKind,
+        url: sample.url,
+        finalUrl: sample.finalUrl,
+        result: sample.result,
+        readiness: sample.readiness,
+        jumpbackStatus: sample.jumpbackStatus,
+        fallbackPolicy: sample.fallbackPolicy,
+        selectedSourceCardReason: sample.selectedSourceCardReason,
+        bodyTextLength: sample.bodyTextLength,
+        sourceRefs: sample.sourceRefs,
+        digestItems: sample.digestItems,
+        evidenceCardCount: sample.evidenceCardCount,
+        sourceCards: sample.sourceCards,
+        mindmapQuality: sample.mindmapQuality ?? null,
+        fatalIssues: Array.isArray(sample.fatalIssues) ? sample.fatalIssues : [],
+        majorIssues: Array.isArray(sample.majorIssues) ? sample.majorIssues : [],
+        beforeScreenshot: copyIfExists(
+          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId}-before.png`,
+          `qh-${sample.sampleId}-before.png`
+        ),
+        afterScreenshot: copyIfExists(
+          `docs/active/project/evidence/v1_mvp_quality_hardening/screenshots/${sample.sampleId}-after.png`,
+          `qh-${sample.sampleId}-after.png`
+        ),
+        detailedEvidence: [
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/dom-snapshot.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/perception-summary.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/source-cards.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/jumpback.json`,
+          `docs/active/project/evidence/v1_mvp_quality_hardening/pages/${sample.sampleId}/sample-report.json`
+        ]
+      }))
+    : [];
+  if (qualityHardeningSamples.length < 6) fatalIssues.push("V1-MVP-QH quality hardening has fewer than 6 samples.");
+
   const passed = fatalIssues.length === 0;
   const testCommandResults = testCommands.map((item) => {
     let commandPassed = true;
@@ -443,6 +494,7 @@ function buildReport() {
       upstreamPassed: requiredReports.filter(([, , report]) => Boolean(report?.passed)).length,
       launcherScreenshots: launcherScreenshots.length,
       externalVisualSamples: externalSamples.length,
+      qualityHardeningSamples: qualityHardeningSamples.length,
       complexSiteSamples: realSite?.summary?.samplesTotal ?? 0,
       complexSitePassed: realSite?.summary?.passedSamples ?? 0,
       highlightedSamples: realSite?.summary?.highlightedSamples ?? 0,
@@ -558,7 +610,13 @@ function buildReport() {
       {
         item: "截图级用户路径证据",
         status: "covered",
-        evidence: "Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、截图证明点。"
+        evidence: "Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、V1-MVP-QH before / after 截图和截图证明点。"
+      },
+      {
+        item: "V1-MVP-QH scoped evidence",
+        status: qualityHardeningSamples.length >= 6 ? "covered" : "pending",
+        evidence:
+          "主报告内包含 QH 6 个真实站点样本、before / after 截图、source card 选择理由、Mindmap 质量指标和逐样本 JSON 证据路径。"
       },
       {
         item: "复杂站点边界",
@@ -619,6 +677,7 @@ function buildReport() {
     },
     launcherEvidence: launcherScreenshots,
     visualSamples: externalSamples,
+    qualityHardeningSamples,
     environmentNotes: [
       ...realSiteNotes,
       ...auditNotes,
@@ -661,6 +720,40 @@ function buildHtml(report) {
         <figcaption><strong>${escapeHtml(item.siteName)} / ${escapeHtml(item.pageKind)} / ${escapeHtml(item.jumpbackStatus)}</strong><br />${escapeHtml(sampleProofText(item))}</figcaption>
       </figure>`
     )
+    .join("");
+  const qualityHardeningRows = report.qualityHardeningSamples
+    .map(
+      (item) => `<tr>
+        <td>${escapeHtml(item.sampleId)}</td>
+        <td>${escapeHtml(item.siteName)} / ${escapeHtml(item.pageKind)}</td>
+        <td><code>${escapeHtml(item.finalUrl || item.url || "")}</code></td>
+        <td class="${item.result === "pass" ? "pass" : "fail"}">${escapeHtml(statusLabel(item.result))}</td>
+        <td class="${item.jumpbackStatus === "highlighted" ? "pass" : "warn"}">${escapeHtml(item.jumpbackStatus)}</td>
+        <td>${escapeHtml(`readiness=${item.readiness ?? "n/a"}, fallbackPolicy=${item.fallbackPolicy ?? "n/a"}`)}</td>
+        <td>${escapeHtml(`文本长度=${item.bodyTextLength ?? "n/a"}, sourceRefs=${item.sourceRefs ?? "n/a"}, digest=${item.digestItems ?? "n/a"}, 卡片=${item.evidenceCardCount ?? "n/a"}, sourceCards=${item.sourceCards ?? "n/a"}`)}</td>
+        <td><pre>${escapeHtml(compactJson(item.mindmapQuality))}</pre></td>
+        <td>${escapeHtml(item.selectedSourceCardReason ?? "")}</td>
+        <td><pre>${escapeHtml(item.detailedEvidence.join("\n"))}</pre></td>
+        <td>${escapeHtml(`${item.fatalIssues.length} 个致命 / ${item.majorIssues.length} 个重大`)}</td>
+      </tr>`
+    )
+    .join("");
+  const qualityHardeningFigures = report.qualityHardeningSamples
+    .flatMap((item) => [
+      item.beforeScreenshot
+        ? `<figure>
+        <img src="${escapeHtml(item.beforeScreenshot)}" alt="${escapeHtml(`${item.sampleId} before`)}" />
+        <figcaption><strong>${escapeHtml(item.siteName)} / ${escapeHtml(item.pageKind)} / before</strong><br />${escapeHtml(qualityHardeningProofText(item, "before"))}</figcaption>
+      </figure>`
+        : "",
+      item.afterScreenshot
+        ? `<figure>
+        <img src="${escapeHtml(item.afterScreenshot)}" alt="${escapeHtml(`${item.sampleId} after`)}" />
+        <figcaption><strong>${escapeHtml(item.siteName)} / ${escapeHtml(item.pageKind)} / after</strong><br />${escapeHtml(qualityHardeningProofText(item, "after"))}</figcaption>
+      </figure>`
+        : ""
+    ])
+    .filter(Boolean)
     .join("");
   const commandRows = report.testCommands
     .map(
@@ -747,7 +840,7 @@ function buildHtml(report) {
   const auditGuideItems = [
     "先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。",
     "再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。",
-    "然后看“真实网页样本明细”和两组截图：确认复杂站点、launcher、source evidence 有可见证据。",
+    "然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图：确认复杂站点、launcher、source evidence 有可见证据。",
     "最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。"
   ]
     .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -800,7 +893,7 @@ function buildHtml(report) {
       <div class="summary">
         <div class="metric"><strong>${report.summary.upstreamPassed}/${report.summary.upstreamReports}</strong><span>上游报告通过</span></div>
         <div class="metric"><strong>${report.summary.launcherScreenshots}</strong><span>launcher 截图</span></div>
-        <div class="metric"><strong>${report.summary.externalVisualSamples}</strong><span>真实网页样本</span></div>
+        <div class="metric"><strong>${report.summary.qualityHardeningSamples}</strong><span>QH 真实样本</span></div>
         <div class="metric"><strong>${report.summary.highlightedSamples}</strong><span>DOM highlight</span></div>
         <div class="metric"><strong>${report.fatalIssues.length}</strong><span>致命问题</span></div>
         <div class="metric"><strong>${report.majorIssues.length}</strong><span>重大问题</span></div>
@@ -910,12 +1003,22 @@ function buildHtml(report) {
       <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>抽取指标</th><th>Mindmap 质量</th><th>截图</th><th>问题</th></tr></thead><tbody>${sampleRows}</tbody></table>
     </section>
     <section>
+      <h2>V1-MVP-QH scoped 样本明细</h2>
+      <p>本节是本阶段质量硬化的核心审计入口，直接来自 <code>docs/active/project/evidence/v1_mvp_quality_hardening/report.json</code>。审查者可用这里的逐样本 JSON 路径复核 DOM、perception、source card、jumpback 和 sample-report。</p>
+      <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>运行口径</th><th>抽取指标</th><th>Mindmap 质量</th><th>source card 选择</th><th>逐样本证据</th><th>问题数</th></tr></thead><tbody>${qualityHardeningRows}</tbody></table>
+    </section>
+    <section>
       <h2>Launcher / Collapse / Resize 行为截图</h2>
       <div class="grid">${launcherFigures}</div>
     </section>
     <section>
       <h2>真实网页伴读路径截图</h2>
       <div class="grid">${sampleFigures}</div>
+    </section>
+    <section>
+      <h2>V1-MVP-QH before / after 截图</h2>
+      <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 B站、小红书、观察者网首页和详情页。before 展示反跳前状态，after 展示 source evidence 触发后的高亮结果。</p>
+      <div class="grid">${qualityHardeningFigures}</div>
     </section>
     <section>
       <h2>False-green 边界</h2>

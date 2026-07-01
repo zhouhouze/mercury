@@ -37,7 +37,7 @@
     <p><span class="status">自动化验收通过</span></p>
     <p>V1 mainline closeout candidate passed automated acceptance.</p>
     <p>本 HTML 是本轮阶段性审计给人类查看的唯一入口；所有结论必须回到本页列出的命令、截图、JSON 报告和 No-Go 边界。</p>
-    <p>生成时间：2026-07-01T04:51:21.113Z</p>
+    <p>生成时间：2026-07-01T05:01:40.694Z</p>
   </header>
   <main>
     <section>
@@ -45,7 +45,7 @@
       <div class="summary">
         <div class="metric"><strong>6/6</strong><span>上游报告通过</span></div>
         <div class="metric"><strong>6</strong><span>launcher 截图</span></div>
-        <div class="metric"><strong>6</strong><span>真实网页样本</span></div>
+        <div class="metric"><strong>6</strong><span>QH 真实样本</span></div>
         <div class="metric"><strong>6</strong><span>DOM highlight</span></div>
         <div class="metric"><strong>0</strong><span>致命问题</span></div>
         <div class="metric"><strong>0</strong><span>重大问题</span></div>
@@ -54,7 +54,7 @@
     <section>
       <h2>审计者阅读顺序</h2>
       <p>本报告被设计为本轮人类审查的单一入口。审查者可以按以下顺序完成判断，不需要先跳转到其他文档。</p>
-      <ol><li>先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。</li><li>再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。</li><li>然后看“真实网页样本明细”和两组截图：确认复杂站点、launcher、source evidence 有可见证据。</li><li>最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。</li></ol>
+      <ol><li>先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。</li><li>再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。</li><li>然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图：确认复杂站点、launcher、source evidence 有可见证据。</li><li>最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。</li></ol>
     </section>
     <section>
       <h2>源码版本与报告生成环境</h2>
@@ -63,7 +63,7 @@
           <h3>仓库状态</h3>
           <p>远端仓库：<code>https://github.com/zhouhouze/mercury</code></p>
           <p>分支：<code>main</code></p>
-          <p>HEAD：<code>fb99df6</code></p>
+          <p>HEAD：<code>470d0a9</code></p>
           <p>main...origin/main：<code>0	0</code></p>
           <p>工作树：<strong>dirty</strong></p>
         </div>
@@ -76,15 +76,15 @@
         </div>
         <div class="card">
           <h3>工作树差异</h3>
-          <ul><li><code>M apps/chrome-extension/chrome-mv3-unpacked/content-scripts/content.js</code></li><li><code>M apps/chrome-extension/chrome-mv3-unpacked/sidepanel.html</code></li><li><code>M apps/chrome-extension/e2e/chrome-real-site-diagnostics.mjs</code></li><li><code>M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li><li><code>M apps/chrome-extension/entrypoints/sidepanel/style.css</code></li><li><code>M apps/chrome-extension/package.json</code></li><li><code>M apps/chrome-extension/src/contentBridge.test.ts</code></li><li><code>M apps/chrome-extension/src/contentBridge.ts</code></li><li><code>M apps/chrome-extension/src/modules/chat_renderer/ArtifactInlineCard.tsx</code></li><li><code>M apps/chrome-extension/src/modules/chat_renderer/tests/ArtifactInlineCard.test.tsx</code></li><li><code>M apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts</code></li><li><code>M apps/chrome-extension/src/modules/mindmap_renderer/tests/mindmapPresentation.test.ts</code></li><li><code>M apps/chrome-extension/src/pageContext.test.ts</code></li><li><code>M apps/chrome-extension/src/pageContext.ts</code></li><li><code>M docs/active/project/01-prd.md</code></li><li><code>M docs/active/project/02-architecture.md</code></li><li><code>M docs/active/project/03-development-plan.md</code></li><li><code>M docs/active/project/04-acceptance-plan.md</code></li><li><code>M docs/active/project/design/v1-mainline-closeout-gap.drawio</code></li><li><code>M docs/active/project/design/v1-mainline-closeout-gap.md</code></li><li><code>M docs/active/project/design/v1-mainline-closeout-readiness-audit.md</code></li><li><code>M docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html</code></li><li><code>M docs/active/project/evidence/v1_mainline_closeout/report.json</code></li><li><code>M docs/active/project/stage-gates/v1-mainline-closeout.md</code></li><li><code>M services/local-runtime/navia_runtime/modules/mindmap/runtime/generator.py</code></li><li><code>M services/local-runtime/navia_runtime/modules/page_reading/runtime/high_signal.py</code></li><li><code>M services/local-runtime/navia_runtime/modules/page_reading/runtime/structured_page.py</code></li><li><code>M services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py</code></li><li><code>?? docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></li><li><code>?? docs/active/project/evidence/v1_mvp_quality_hardening/</code></li></ul>
+          <ul><li><code>M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li></ul>
         </div>
       </div>
     </section>
     <section>
       <h2>变更文件与证据文件索引</h2>
       <div class="arch">
-        <div class="card"><h3>相对 HEAD 的变更文件</h3><ul><li><code>apps/chrome-extension/chrome-mv3-unpacked/content-scripts/content.js</code></li><li><code>apps/chrome-extension/chrome-mv3-unpacked/sidepanel.html</code></li><li><code>apps/chrome-extension/e2e/chrome-real-site-diagnostics.mjs</code></li><li><code>apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li><li><code>apps/chrome-extension/entrypoints/sidepanel/style.css</code></li><li><code>apps/chrome-extension/package.json</code></li><li><code>apps/chrome-extension/src/contentBridge.test.ts</code></li><li><code>apps/chrome-extension/src/contentBridge.ts</code></li><li><code>apps/chrome-extension/src/modules/chat_renderer/ArtifactInlineCard.tsx</code></li><li><code>apps/chrome-extension/src/modules/chat_renderer/tests/ArtifactInlineCard.test.tsx</code></li><li><code>apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts</code></li><li><code>apps/chrome-extension/src/modules/mindmap_renderer/tests/mindmapPresentation.test.ts</code></li><li><code>apps/chrome-extension/src/pageContext.test.ts</code></li><li><code>apps/chrome-extension/src/pageContext.ts</code></li><li><code>docs/active/project/01-prd.md</code></li><li><code>docs/active/project/02-architecture.md</code></li><li><code>docs/active/project/03-development-plan.md</code></li><li><code>docs/active/project/04-acceptance-plan.md</code></li><li><code>docs/active/project/design/v1-mainline-closeout-gap.drawio</code></li><li><code>docs/active/project/design/v1-mainline-closeout-gap.md</code></li><li><code>docs/active/project/design/v1-mainline-closeout-readiness-audit.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/report.json</code></li><li><code>docs/active/project/stage-gates/v1-mainline-closeout.md</code></li><li><code>services/local-runtime/navia_runtime/modules/mindmap/runtime/generator.py</code></li><li><code>services/local-runtime/navia_runtime/modules/page_reading/runtime/high_signal.py</code></li><li><code>services/local-runtime/navia_runtime/modules/page_reading/runtime/structured_page.py</code></li><li><code>services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></li><li><code>docs/active/project/evidence/v1_mvp_quality_hardening/</code></li></ul></div>
-        <div class="card"><h3>本报告证据文件</h3><ul><li><code>docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/report.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/prd-review.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-collapsed-after-use.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-docked-default.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-expanded-after-click.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-drag-left.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-hover-peek.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-resized-overlay.png</code></li></ul></div>
+        <div class="card"><h3>相对 HEAD 的变更文件</h3><ul><li><code>apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs</code></li></ul></div>
+        <div class="card"><h3>本报告证据文件</h3><ul><li><code>docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/report.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/prd-review.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/false-green-audit.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/evidence-manifest.json</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-bilibili-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-guancha-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/external-xiaohongshu-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-collapsed-after-use.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-docked-default.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-expanded-after-click.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-drag-left.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-launcher-hover-peek.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/launcher-resized-overlay.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-bilibili-homepage-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-guancha-homepage-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-detail-before.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-after.png</code></li><li><code>docs/active/project/evidence/v1_mainline_closeout/screenshots/qh-xiaohongshu-homepage-before.png</code></li></ul></div>
         <div class="card"><h3>审计说明</h3><p>如果工作树为 dirty，审查者应把本节列出的变更纳入审计范围；提交后若要作为发布审计，应重新生成本报告或至少复核 HEAD 与工作树状态。证据文件大小和 SHA-256 见 <code>evidence-manifest.json</code>。</p></div>
       </div>
     </section>
@@ -173,7 +173,11 @@
       </tr><tr>
         <td>截图级用户路径证据</td>
         <td class="pass">已覆盖</td>
-        <td>Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、截图证明点。</td>
+        <td>Launcher / Collapse / Resize 行为截图、真实网页伴读路径截图、V1-MVP-QH before / after 截图和截图证明点。</td>
+      </tr><tr>
+        <td>V1-MVP-QH scoped evidence</td>
+        <td class="pass">已覆盖</td>
+        <td>主报告内包含 QH 6 个真实站点样本、before / after 截图、source card 选择理由、Mindmap 质量指标和逐样本 JSON 证据路径。</td>
       </tr><tr>
         <td>复杂站点边界</td>
         <td class="warn">有边界覆盖</td>
@@ -399,6 +403,107 @@
       </tr></tbody></table>
     </section>
     <section>
+      <h2>V1-MVP-QH scoped 样本明细</h2>
+      <p>本节是本阶段质量硬化的核心审计入口，直接来自 <code>docs/active/project/evidence/v1_mvp_quality_hardening/report.json</code>。审查者可用这里的逐样本 JSON 路径复核 DOM、perception、source card、jumpback 和 sample-report。</p>
+      <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>运行口径</th><th>抽取指标</th><th>Mindmap 质量</th><th>source card 选择</th><th>逐样本证据</th><th>问题数</th></tr></thead><tbody><tr>
+        <td>bilibili-homepage</td>
+        <td>B站 / homepage</td>
+        <td><code>https://www.bilibili.com/</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=570, sourceRefs=19, digest=18, 卡片=10, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:10,&quot;evidenceCardLabelCount&quot;:10,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:15.4,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 40 for bilibili; label=父亲节陪老爸吃点喝点</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-homepage/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-homepage/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-homepage/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-homepage/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-homepage/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr><tr>
+        <td>bilibili-detail</td>
+        <td>B站 / video-detail</td>
+        <td><code>https://www.bilibili.com/video/BV1H2KU6oEjn/</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=1203, sourceRefs=16, digest=14, 卡片=9, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:9,&quot;evidenceCardLabelCount&quot;:9,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:17.22222222222222,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 18 for bilibili; label=bili_video_title</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-detail/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-detail/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-detail/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-detail/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/bilibili-detail/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr><tr>
+        <td>xiaohongshu-homepage</td>
+        <td>小红书 / homepage</td>
+        <td><code>https://www.xiaohongshu.com/explore</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=1575, sourceRefs=53, digest=18, 卡片=10, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:10,&quot;evidenceCardLabelCount&quot;:10,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:19.3,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 58 for xiaohongshu; label=背景原因</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-homepage/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-homepage/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-homepage/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-homepage/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-homepage/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr><tr>
+        <td>xiaohongshu-detail</td>
+        <td>小红书 / note-detail</td>
+        <td><code>https://www.xiaohongshu.com/explore/6a433617000000000f02af1e?xsec_token=[redacted]&amp;xsec_source=</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=1103, sourceRefs=21, digest=18, 卡片=14, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:14,&quot;evidenceCardLabelCount&quot;:14,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:12.071428571428571,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 60 for xiaohongshu; label=xhs_note_title</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-detail/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-detail/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-detail/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-detail/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/xiaohongshu-detail/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr><tr>
+        <td>guancha-homepage</td>
+        <td>观察者网 / homepage</td>
+        <td><code>https://www.guancha.cn/</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=17239, sourceRefs=124, digest=16, 卡片=14, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:14,&quot;evidenceCardLabelCount&quot;:14,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:18.071428571428573,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 40 for guancha; label=UP主与发布</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-homepage/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-homepage/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-homepage/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-homepage/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-homepage/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr><tr>
+        <td>guancha-detail</td>
+        <td>观察者网 / article-detail</td>
+        <td><code>https://www.guancha.cn/dengfei/2026_07_01_822185.shtml</code></td>
+        <td class="pass">通过</td>
+        <td class="pass">highlighted</td>
+        <td>readiness=pass, fallbackPolicy=not_fallback</td>
+        <td>文本长度=8698, sourceRefs=7, digest=7, 卡片=12, sourceCards=8</td>
+        <td><pre>{&quot;labelCount&quot;:12,&quot;evidenceCardLabelCount&quot;:12,&quot;sourceCardLabelCount&quot;:8,&quot;uniqueRatio&quot;:1,&quot;noisyRatio&quot;:0,&quot;averageLabelLength&quot;:17.666666666666668,&quot;fatalIssues&quot;:[],&quot;majorIssues&quot;:[]}</pre></td>
+        <td>candidate score 62 for guancha; label=guancha_article_b</td>
+        <td><pre>docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-detail/dom-snapshot.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-detail/perception-summary.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-detail/source-cards.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-detail/jumpback.json
+docs/active/project/evidence/v1_mvp_quality_hardening/pages/guancha-detail/sample-report.json</pre></td>
+        <td>0 个致命 / 0 个重大</td>
+      </tr></tbody></table>
+    </section>
+    <section>
       <h2>Launcher / Collapse / Resize 行为截图</h2>
       <div class="grid"><figure>
         <img src="screenshots/launcher-docked-default.png" alt="docked-default" />
@@ -440,6 +545,47 @@
       </figure><figure>
         <img src="screenshots/external-guancha-detail-after.png" alt="guancha-detail" />
         <figcaption><strong>观察者网 / article-detail / highlighted</strong><br />证明 观察者网 article-detail 样本完成真实网页伴读路径，source evidence 状态为 已定位并高亮。</figcaption>
+      </figure></div>
+    </section>
+    <section>
+      <h2>V1-MVP-QH before / after 截图</h2>
+      <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 B站、小红书、观察者网首页和详情页。before 展示反跳前状态，after 展示 source evidence 触发后的高亮结果。</p>
+      <div class="grid"><figure>
+        <img src="screenshots/qh-bilibili-homepage-before.png" alt="bilibili-homepage before" />
+        <figcaption><strong>B站 / homepage / before</strong><br />V1-MVP-QH B站 homepage 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-bilibili-homepage-after.png" alt="bilibili-homepage after" />
+        <figcaption><strong>B站 / homepage / after</strong><br />V1-MVP-QH B站 homepage 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-bilibili-detail-before.png" alt="bilibili-detail before" />
+        <figcaption><strong>B站 / video-detail / before</strong><br />V1-MVP-QH B站 video-detail 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-bilibili-detail-after.png" alt="bilibili-detail after" />
+        <figcaption><strong>B站 / video-detail / after</strong><br />V1-MVP-QH B站 video-detail 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-xiaohongshu-homepage-before.png" alt="xiaohongshu-homepage before" />
+        <figcaption><strong>小红书 / homepage / before</strong><br />V1-MVP-QH 小红书 homepage 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-xiaohongshu-homepage-after.png" alt="xiaohongshu-homepage after" />
+        <figcaption><strong>小红书 / homepage / after</strong><br />V1-MVP-QH 小红书 homepage 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-xiaohongshu-detail-before.png" alt="xiaohongshu-detail before" />
+        <figcaption><strong>小红书 / note-detail / before</strong><br />V1-MVP-QH 小红书 note-detail 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-xiaohongshu-detail-after.png" alt="xiaohongshu-detail after" />
+        <figcaption><strong>小红书 / note-detail / after</strong><br />V1-MVP-QH 小红书 note-detail 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-guancha-homepage-before.png" alt="guancha-homepage before" />
+        <figcaption><strong>观察者网 / homepage / before</strong><br />V1-MVP-QH 观察者网 homepage 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-guancha-homepage-after.png" alt="guancha-homepage after" />
+        <figcaption><strong>观察者网 / homepage / after</strong><br />V1-MVP-QH 观察者网 homepage 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-guancha-detail-before.png" alt="guancha-detail before" />
+        <figcaption><strong>观察者网 / article-detail / before</strong><br />V1-MVP-QH 观察者网 article-detail 反跳前截图；结果=pass，source evidence=已定位并高亮。</figcaption>
+      </figure><figure>
+        <img src="screenshots/qh-guancha-detail-after.png" alt="guancha-detail after" />
+        <figcaption><strong>观察者网 / article-detail / after</strong><br />V1-MVP-QH 观察者网 article-detail 反跳后截图；结果=pass，source evidence=已定位并高亮。</figcaption>
       </figure></div>
     </section>
     <section>
