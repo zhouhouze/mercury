@@ -864,7 +864,7 @@ function buildHtml(report) {
   const auditGuideItems = [
     "先看“审计结论与人工核查状态”：确认本报告只允许自动化候选通过，不允许完整 V1 complete。",
     "再看“PRD 规格覆盖矩阵”：逐条确认每项 PRD / 门禁要求都有对应证据和状态。",
-    "然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图：确认复杂站点、launcher、source evidence 有可见证据。",
+    "然后看“真实网页样本明细”“V1-MVP-QH scoped 样本明细”和三组截图证据：Launcher / Sidebar、真实网页路径、QH before / after，确认复杂站点、launcher、source evidence 有可见证据。",
     "最后看“False-green 边界”和“人工产品体验核查清单”：确认哪些结论仍需人工判断，哪些声明被禁止。"
   ]
     .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -1052,15 +1052,17 @@ function buildHtml(report) {
       <table><thead><tr><th>样本</th><th>站点 / 类型</th><th>最终 URL</th><th>结果</th><th>反跳状态</th><th>运行口径</th><th>抽取指标</th><th>Mindmap 质量</th><th>source card 选择</th><th>逐样本证据</th><th>问题数</th></tr></thead><tbody>${qualityHardeningRows}</tbody></table>
     </section>
     <section>
-      <h2>Launcher / Collapse / Resize 行为截图</h2>
+      <h2>Launcher / Sidebar 截图证据</h2>
+      <p>这些截图证明贴边 launcher、hover / focus、点击展开 sidebar、resize / overlay、折叠恢复和拖拽贴边等外层交互壳行为。</p>
       <div class="grid">${launcherFigures}</div>
     </section>
     <section>
-      <h2>真实网页伴读路径截图</h2>
+      <h2>真实网页截图证据</h2>
+      <p>这些截图证明 B站、小红书、观察者网首页与详情页的真实网页伴读路径；它们不声明用户主 Chrome Profile 全站登录态质量。</p>
       <div class="grid">${sampleFigures}</div>
     </section>
     <section>
-      <h2>V1-MVP-QH before / after 截图</h2>
+      <h2>V1-MVP-QH before / after 截图证据</h2>
       <p>这些截图来自本轮 QH headless 真实站点复验，覆盖 B站、小红书、观察者网首页和详情页。before 展示反跳前状态，after 展示 source evidence 触发后的高亮结果。</p>
       <div class="grid">${qualityHardeningFigures}</div>
     </section>
