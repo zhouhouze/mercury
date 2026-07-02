@@ -14,6 +14,7 @@ blockingIssues: []
 Open these reports first:
 
 - `docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html`
+- `docs/active/project/evidence/v1_mainline_closeout/hr-cc-acceptance-2026-07-02.md`
 - `docs/active/project/evidence/v1_launcher_resize_closeout/acceptance-report.md`
 - `docs/active/project/evidence/v1_external_visual_acceptance/acceptance-report.html`
 - `docs/active/project/evidence/v1_real_site_complex_pages/acceptance-report.md`

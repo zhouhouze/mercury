@@ -1,6 +1,6 @@
 {
   "schemaVersion": "v1-mainline-closeout.1",
-  "generatedAt": "2026-07-02T08:05:47.254Z",
+  "generatedAt": "2026-07-02T09:25:45.616Z",
   "passed": true,
   "claim": "V1 mainline closeout candidate passed automated acceptance.",
   "summary": {
@@ -85,13 +85,14 @@
     "git": {
       "remote": "https://github.com/zhouhouze/mercury",
       "branch": "main",
-      "head": "e1e9690",
-      "sourceHead": "e1e9690",
+      "head": "f781e8d",
+      "sourceHead": "f781e8d",
       "sourceHeadDescription": "Report-generation source baseline. The final commit containing generated report files may be newer than this value because evidence files are committed after generation.",
       "aheadBehindOriginMain": "0\t0",
       "workingTreeStatus": "dirty",
       "statusLines": [
-        "M apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs"
+        "M docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json",
+        "M docs/active/project/evidence/v1_mvp_quality_hardening/report.json"
       ],
       "generatedEvidenceStatusLines": [
         "M docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
@@ -99,7 +100,8 @@
         "M docs/active/project/evidence/v1_mainline_closeout/report.json"
       ],
       "changedFiles": [
-        "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs"
+        "docs/active/project/evidence/v1_mvp_quality_hardening/evidence-manifest.json",
+        "docs/active/project/evidence/v1_mvp_quality_hardening/report.json"
       ],
       "generatedEvidenceStatusDescription": "Generated evidence changes are tracked separately from source changes so humans do not confuse report output with unreviewed implementation changes.",
       "reportGenerator": "apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs",
@@ -462,7 +464,7 @@
         "fatalIssues": 0,
         "majorIssues": 0
       },
-      "generatedAt": "2026-07-01T17:27:53.467Z",
+      "generatedAt": "2026-07-02T09:25:42.372Z",
       "fatalIssues": [],
       "majorIssues": []
     },
