@@ -1682,3 +1682,73 @@ V1 MVP quality hardening passed expanded real-site acceptance.
 用户主 Profile 登录态全站高质量通过。
 只凭标题、导航或首页卡片标题生成摘要 / Mindmap，却声明完成网页内容理解。
 ```
+
+### 14.3 V1-MVP-CQ 内容理解质量增强开发计划
+
+`V1-MVP-CQ` 在 QH passed 之后执行。它承认 QH 48 页矩阵已经通过，但不把 QH 通过解释为内容理解已达用户满意。新阶段以 strict gold notes、内容角色识别、grounded summary / QA / explain-selection、语义 Mindmap 和可解释 source evidence 为主线。
+
+阶段拆分：
+
+```text
+V1-MVP-CQ-0：文档与审计冻结，确认 QH passed 但内容质量仍不足，CQ 不声明完整 V1 complete。
+V1-MVP-CQ-1：36+ strict 样本 manifest、gold notes 模板、质量阈值和报告 schema 冻结。
+V1-MVP-CQ-2：A Page Reading 内容角色识别、正文密度评分、噪声惩罚、互动补充分层。
+V1-MVP-CQ-3：总结 / 问答 / 解释选区 grounding 质量硬化。
+V1-MVP-CQ-4：C Mindmap 语义主题归并、节点类型、短标签和证据绑定硬化。
+V1-MVP-CQ-5：B Renderer 证据关系说明、source card 解释、degraded 展示和窄侧栏可读性硬化。
+V1-MVP-CQ-6：Content Script jumpback 语义一致性、marker 说明、fallback / blocked 复验。
+V1-MVP-CQ-7：严格真实网页验收、人工 gold 对照、HTML 报告、PRD review 和 false-green audit。
+```
+
+开发及验收计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1-MVP-CQ-0` | 更新 PRD、架构、开发计划、验收计划、stage gate、gap companion；明确 QH passed 不是完整内容理解完成 | active 文档无 fatal / major；不得把 CQ 写成完整 V1 complete 或视频 / 图片 / 音频理解完成 |
+| `V1-MVP-CQ-1` | 冻结 36+ strict 样本、gold notes、schema、报告字段和人工复核口径 | 每页有 expectedMainClaims / expectedMindmapThemes / prohibitedNoiseThemes / requiredEvidenceTargets |
+| `V1-MVP-CQ-2` | A 侧为 DOM block 增加内容角色、正文密度、噪声惩罚、互动补充分层 | 主内容 signals 必须覆盖正文、简介、caption、作者 / 时间、可见互动补充；噪声不能主导 digest |
+| `V1-MVP-CQ-3` | 总结、问答、解释选区必须从 SourceRef / fallbackText grounding | summaryGroundingRate、qaGroundingRate 达标；解释选区不被图片序号、时间戳、站点壳和重复文本主导 |
+| `V1-MVP-CQ-4` | Mindmap 高层节点从主题 / 论点 / 事实 / 步骤 / 结论生成，压缩重复和长文本 | mindmapSemanticCoverageRate 达标；节点绑定 sourceRef 或 degraded reason |
+| `V1-MVP-CQ-5` | B 侧展示证据为何支撑节点 / 答案，修复窄侧栏可读性和 degraded 状态 | 截图证明无虚影、重叠、截断；source card 解释清楚 |
+| `V1-MVP-CQ-6` | jumpback marker 显示证据关系；fallback / blocked 理由具体 | jumpbackSemanticMatch 为 true，或正确 degraded / blocked |
+| `V1-MVP-CQ-7` | 运行 36+ strict real-site acceptance，生成独立 CQ report 和 HTML | 至少 34/36 strict pass；PRD review / false-green audit 无 fatal / major |
+
+证据路径：
+
+```text
+docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json
+docs/active/project/evidence/v1_mvp_content_quality/gold-notes/
+docs/active/project/evidence/v1_mvp_content_quality/report.json
+docs/active/project/evidence/v1_mvp_content_quality/acceptance-report.html
+docs/active/project/evidence/v1_mvp_content_quality/prd-review.md
+docs/active/project/evidence/v1_mvp_content_quality/false-green-audit.md
+docs/active/project/evidence/v1_mvp_content_quality/evidence-manifest.json
+docs/active/project/evidence/v1_mvp_content_quality/screenshots/
+```
+
+打回规则：
+
+- CQ-1 若没有 gold notes，不得进入实现。
+- CQ-2 若主内容 signals 仍由导航、推荐、广告、cookie wall、版权提示或低价值重复文本主导，打回 A。
+- CQ-3 若总结 / 问答 / 解释选区不能追溯到 SourceRef 或 fallbackText，打回 grounding。
+- CQ-4 若 Mindmap 仍是标题堆叠、重复节点或无证据节点，打回 C。
+- CQ-5 若真实截图仍有导图虚影、重叠、截断或 source explanation 不可理解，打回 B。
+- CQ-6 若 located marker 不说明证据关系，或 fallback / blocked 被伪装成 success，打回 Content Script。
+- CQ-7 若 strict pass 低于 34/36、任一类别低于 5/6、PRD review / false-green audit 有 fatal / major，打回对应阶段。
+
+允许声明：
+
+```text
+V1 MVP content quality prove-out passed strict real-site acceptance.
+```
+
+不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```

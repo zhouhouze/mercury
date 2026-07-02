@@ -219,6 +219,45 @@ Web Research / PPT / Deep Research ready。
 - 观察者网详情页默认反跳到评论、推荐、最新视频、头条侧栏或站点壳。
 - Mindmap / Reading Map 截图仍有文本虚影、节点重叠、卡片截断或输入框遮挡。
 
+## 2026-07-02 V1-MVP-CQ 内容理解质量增强修订
+
+人工确认基础 MVP 可体验后，仍认为内容理解质量不足。本轮开启 `V1-MVP-CQ`，承接 QH passed，但不把 QH passed 写成完整内容理解完成。
+
+现有 8 页 drawio 不新增分页，语义更新如下：
+
+- `01` 页必须写明当前状态：V1-MC 自动化候选通过、QH 48 页矩阵通过、人工仍认为内容理解不足，下一阶段为 CQ strict prove-out。
+- `02` 页必须继续展示具体实现实体，并把 CQ 需强化实体标为黄色：`pageContext.ts`、A Page Reading、D Adapter / Agent Loop grounding、C Mindmap、B Renderer、`contentBridge.ts` jumpback、CQ evidence report。
+- `03` 页从“主内容识别链路”升级为“内容角色识别与 grounding 链路”，展示 DOM block -> content role -> SourceRef -> summary / QA / explain selection -> Mindmap -> Evidence。
+- `04` 页保留 Mindmap Quality 与 Source Evidence，同时补充证据解释：source card 必须说明为什么支撑节点 / 答案。
+- `05` 页展示 `V1-MVP-CQ-0` 到 `V1-MVP-CQ-7` 的开发及验收闭环。
+- `06` 页在 QH 48 页矩阵之后增加 CQ 36+ strict 样本、gold notes、34/36 pass 门槛和高风险页覆盖。
+- `07` 页增加用户可感知门槛：总结 / 问答 / 解释选区 / Mindmap 不得只复述标题、导航或站点壳。
+- `08` 页补充 CQ false-green 风险：QH passed 被冒充 CQ strict passed、视频 / 图片 / 音频理解被误声明、low-signal 被计入 pass。
+- CQ 独立证据必须落到 `docs/active/project/evidence/v1_mvp_content_quality/`；`v1_mainline_closeout` 只能在 CQ 通过后聚合，不能替代 CQ 出门证据。
+
+本轮允许声明：
+
+```text
+V1 MVP content quality prove-out ready for staged implementation.
+```
+
+CQ 完成后最多允许声明：
+
+```text
+V1 MVP content quality prove-out passed strict real-site acceptance.
+```
+
+仍不得支持：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
 ## 2026-07-01 V1-MVP-QH-CU/MQ 扩展矩阵修订
 
 本轮根据“当前 V1 识别与 Mindmap 质量仍需优化，并要求更多网页验收”的反馈，将 `V1-MVP-QH` 的出门门槛从 6 个复杂中文站点样本升级为国内外 48 页扩展矩阵。`V1-MVP-QH-CU/MQ` 只是本阶段内部子目标，表示 content understanding and mindmap quality hardening；它不另开新的产品阶段，不新增 Runtime public API，也不引入 RAG、Memory、Web Research、OCR/VLM/ASR、PPT、Deep Research、多 Agent 或默认本地文件读取。

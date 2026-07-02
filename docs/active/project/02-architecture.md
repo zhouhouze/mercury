@@ -1626,6 +1626,68 @@ Host Page DOM
 
 ---
 
+## 17.2 V1-MVP-CQ 内容理解质量增强目标架构
+
+`V1-MVP-CQ` 承接 `V1-MVP-QH` passed 的自动化事实，但目标更严格：不是证明矩阵数量达标，而是证明摘要、问答、解释选区、Mindmap 和 Source Evidence 对主内容有用户可感知的理解质量。它不改变 V1 架构分层，不新增 Runtime public API，不把验收自动化中的浏览器控制升级为产品浏览器自动操作能力。
+
+目标架构链路：
+
+```text
+Host Page DOM / metadata / selection / visible media metadata
+  -> apps/chrome-extension/src/pageContext.ts
+     -> ContentRoleSignals: title / lead / body / caption / author / time / comment / recommendation / nav / ad / cookie wall
+     -> SelectionContext / visibleTextBlocks / mediaAltCaption
+  -> services/local-runtime/navia_runtime/modules/page_reading/
+     -> PerceptionDigest / SourceRef / QualityReport
+     -> content-density scoring / noise penalty / interaction-as-supplement / low-signal degraded
+  -> services/local-runtime/navia_runtime/modules/agent_loop/ and adapters/
+     -> summary / qa / explain-selection grounding through existing ToolResult / Artifact boundary
+  -> services/local-runtime/navia_runtime/modules/mindmap/
+     -> semantic theme merge: topic / claim / fact / step / conclusion / evidence
+     -> compact labels / nodeSourceMap / degraded reason
+  -> apps/chrome-extension/src/modules/chat_renderer/
+     -> grounded summary / answer / explain-selection / source card explanation
+  -> apps/chrome-extension/src/modules/mindmap_renderer/
+     -> readable Evidence Card Mindmap / Reading Map / evidence relationship
+  -> apps/chrome-extension/src/contentBridge.ts
+     -> user-triggered jumpback with selector / domPath / textQuote / nearby heading / href-card hints
+     -> located marker | fallback_shown | blocked
+  -> docs/active/project/evidence/v1_mvp_content_quality/
+     -> gold notes / report.json / acceptance-report.html / screenshots / false-green audit
+```
+
+当前实现与目标差异：
+
+| 状态 | 实体 | 当前实现 | V1-MVP-CQ 目标 |
+|---|---|---|---|
+| 已实现需强化 | `apps/chrome-extension/src/pageContext.ts` | 可读取 DOM、metadata 和页面文本 | 输出更稳定的内容角色信号，区分正文、简介、图文说明、互动补充、推荐、导航、广告、cookie wall |
+| 已实现需强化 | A Page Reading `services/local-runtime/navia_runtime/modules/page_reading/` | 已有 digest、SourceRef、quality | 增加正文密度、角色权重、噪声惩罚和 low-signal degraded 语义，防止标题级理解冒充正文理解 |
+| 已实现需强化 | D Adapter / Agent Loop | 已通过既有 ToolResult / Artifact 边界承载总结 / 问答 | 不新增 public contract；要求总结、问答、解释选区输出能被 SourceRef / fallbackText 支撑 |
+| 已实现需强化 | C Mindmap `services/local-runtime/navia_runtime/modules/mindmap/` | 已有主题归并和 nodeSourceMap | 高层节点表达主题、论点、事实、步骤、结论；重复、过长、噪声节点被压缩或降级 |
+| 已实现需强化 | B Renderer `apps/chrome-extension/src/modules/chat_renderer/` / `mindmap_renderer/` | 可展示总结、问答、Evidence Card、Reading Map、Source Evidence | 展示证据为何支撑节点 / 答案；窄侧栏无虚影、重叠、截断；degraded 理由清晰 |
+| 已实现需强化 | `apps/chrome-extension/src/contentBridge.ts` | 支持用户触发 located / fallback / blocked | jumpback 结果必须语义匹配被点击节点或 source card；marker 文案说明证据关系 |
+| 待新增证据 | `docs/active/project/evidence/v1_mvp_content_quality/` | 当前不存在独立 CQ 证据包 | 保存 36+ strict 样本、gold notes、截图、HTML 报告、PRD review、false-green audit |
+| 待新增合同 | `docs/active/project/contracts/v1_mvp_content_quality_*.schema.json` | 当前无 CQ schema | 约束 sample manifest、gold notes 和 report 字段，防止 strict 验收报告漂移 |
+
+责任边界：
+
+- A 可以改进主内容角色识别、正文密度评分、噪声降权、SourceRef / fallbackText 质量。
+- D / Adapter 只能复用现有 ToolResult / Artifact / Event / Trace 边界，不新增完整 AgentCore 或新的 Runtime public contract。
+- C 可以改进主题归并、节点压缩、语义节点类型和 nodeSourceMap 绑定，不输出前端组件结构。
+- B 可以优化展示、source card 解释和 degraded 体验，不生成网页事实内容。
+- Content Script 只响应用户触发的 jumpback，不自动浏览网页、不读取默认本地文件。
+- 视频 / 音频 / 图片内容理解仍不进入 V1-MVP-CQ；只能使用页面可见文本、alt、caption、metadata、字幕文本或评论。
+
+架构出门条件：
+
+- CQ 独立证据包不少于 36 页 strict 样本，包含 24 页 QH 核心回归和 12 页高风险真实样本。
+- 每页都有 gold notes：`expectedMainClaims`、`expectedMindmapThemes`、`prohibitedNoiseThemes`、`requiredEvidenceTargets`。
+- summary / qa / explain-selection / Mindmap / evidence 的质量指标均达到 PRD CQ 阈值。
+- located / fallback_shown / blocked 在 UI、JSON、HTML 和截图中语义一致；located marker 必须说明证据支撑关系。
+- CQ 通过后只能声明 content quality prove-out passed，不能声明完整 V1 complete 或视频 / 图片 / 音频理解完成。
+
+---
+
 ## 18. V1 架构结论
 
 Navia V1 的架构不是“插件 + 模型调用”，而是：

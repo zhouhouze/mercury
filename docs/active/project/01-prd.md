@@ -1415,3 +1415,98 @@ docs/active/project/evidence/v1_mainline_closeout/
 `解释选中内容` 属于本阶段质量硬化范围，但只能基于当前页已读取文本、用户选区和已有 SourceRef。允许展示页面内已有图片 URL、alt、caption 或媒体 metadata 作为辅助证据；不得引入 OCR/VLM、Web Research 或默认本地文件读取。
 
 `V1-MVP-QH-1` 必须使用 `v1_mvp_quality_hardening_sample_manifest.schema.json` 验证 `sample-manifest.json`。`V1-MVP-QH-6` 必须使用 `v1_mvp_quality_hardening_report.schema.json` 验证独立 QH `report.json`，再由 `v1_mainline_closeout` 做聚合引用。若本轮 expanded matrix 的 fresh fallback 为 0，报告必须分别记录 `freshFallbackSamples`、`referencedFallbackSamples`、`blockedSamples` 和 `locatedSamples`，并列出引用的 active fallback evidence；不得把“全部 located”写成 fallback 路径已新鲜覆盖。
+
+### 14.14 V1-MVP-CQ 内容理解质量增强目标
+
+人工已确认基础 MVP 体验可以成立，但同时确认当前内容理解质量仍不足：部分页面仍偏向提取标题、导航、首页卡片或站点壳，不能稳定归纳正文、简介、图文说明、可见评论 / 互动文本或长文结构。`V1-MVP-QH` 的 48 页矩阵已经支持 expanded real-site acceptance passed，但该结论仍允许少量 degraded / blocked 样本，不能直接支持“用户感到 Navia 真的理解了网页”的产品质量判断。
+
+`V1-MVP-CQ` 是 QH 之后的新阶段，目标是把内容理解质量从“自动化矩阵达标”提升为“用户可感知的主内容理解达标”。本阶段仍只基于当前页面 DOM、metadata、用户选区、页面已有图片 URL / alt / caption / media metadata 和已生成 SourceRef；不引入 RAG、Memory、Web Research、OCR/VLM/ASR、视频 / 音频流理解、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
+
+本阶段核心问题：
+
+- 摘要、问答和 `解释选中内容` 仍可能被站点壳、导航、推荐、评论、版权提示、时间戳、图片序号或重复文本污染。
+- Mindmap / Reading Map 高层节点仍可能只表达标题级信息，而不是正文主张、论据、步骤、结论或互动补充信息。
+- Source Evidence / Jumpback 虽能达到自动化 pass，但用户仍可能看不出“为什么跳到这里”或“该证据支撑哪个节点”。
+- 视频 / 直播 / 音频页面只能理解页面可见文本；如果页面没有简介、字幕文本、评论、弹幕统计或 metadata，就必须 low-signal degraded，不得声称理解视频内容。
+
+目标用户路径：
+
+```text
+用户在新闻详情页、门户首页、B站视频详情页、小红书图文页、技术文档或博客打开 Navia
+-> 读取当前页
+-> 总结优先表达正文 / 简介 / 分节 / 结论 / 图文说明 / 可见互动补充
+-> 问答能引用主内容 source evidence
+-> Mindmap 高层节点表达“主题、论点、事实、步骤、结论”，而不是导航或标题堆叠
+-> 点击节点或 source card 后能看到明确证据关系、located marker 或 fallback reason
+-> 对低信号页面明确 degraded / blocked，不伪装为内容理解成功
+```
+
+本阶段允许声明：
+
+```text
+V1 MVP content quality prove-out ready for staged implementation.
+```
+
+本阶段完成后最多允许声明：
+
+```text
+V1 MVP content quality prove-out passed strict real-site acceptance.
+```
+
+本阶段仍不得声明：
+
+```text
+完整 V1 complete。
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+本阶段固定开发顺序：
+
+```text
+1. V1-MVP-CQ-0：PRD、目标架构、开发计划、验收计划、stage gate、gap 图同步；确认 QH passed 但内容质量仍需增强。
+2. V1-MVP-CQ-1：严格样本矩阵和人工 gold review 口径冻结；从 QH 48 页中选核心样本并补充高风险真实页。
+3. V1-MVP-CQ-2：A Page Reading 内容角色识别、正文密度评分、噪声惩罚、互动补充文本分层。
+4. V1-MVP-CQ-3：总结 / 问答 / 解释选区 grounding 质量硬化，避免标题级和站点壳回答。
+5. V1-MVP-CQ-4：C Mindmap 语义主题归并、论点 / 事实 / 步骤 / 结论节点生成和节点证据绑定。
+6. V1-MVP-CQ-5：B Renderer 证据关系可视化、source card 解释、窄侧栏导图可读性和 degraded 体验表达。
+7. V1-MVP-CQ-6：Content Script jumpback 语义一致性复验，located / fallback / blocked 和 marker 说明一致。
+8. V1-MVP-CQ-7：严格真实网页验收、人工 gold 对照、PRD review、false-green audit 和可视化报告。
+```
+
+最低验收矩阵：
+
+- 从 QH 48 页中至少选取 24 页核心回归样本，覆盖 6 类页面，每类至少 4 页。
+- 新增至少 12 页高风险真实样本，必须包含 B站视频详情页、小红书图文详情页、观察者网 / 新闻详情页、门户首页、技术文档 / 博客长文、低信号页。
+- 总样本不少于 36 页；至少 34/36 页 strict pass；任一类别不得低于 5/6 strict pass。
+- 每页必须有人工或半自动 gold notes，记录 `expectedMainClaims`、`expectedMindmapThemes`、`prohibitedNoiseThemes`、`requiredEvidenceTargets`。
+- 每页必须记录 `contentUnderstandingScore`、`summaryGroundingRate`、`qaGroundingRate`、`mindmapSemanticCoverageRate`、`noiseLeakageRate`、`evidenceExplainabilityScore`、`jumpbackSemanticMatch`。
+
+Strict pass 最低阈值：
+
+- `contentUnderstandingScore >= 0.82`。
+- `summaryGroundingRate >= 0.88`。
+- `qaGroundingRate >= 0.85`。
+- `mindmapSemanticCoverageRate >= 0.85`。
+- `noiseLeakageRate <= 0.08`。
+- `evidenceExplainabilityScore >= 0.8`。
+- `jumpbackSemanticMatch = true`，除非该页明确 degraded / blocked 且理由正确。
+
+本阶段证据必须落入独立证据包：
+
+```text
+docs/active/project/evidence/v1_mvp_content_quality/
+  sample-manifest.json
+  gold-notes/
+  report.json
+  acceptance-report.html
+  prd-review.md
+  false-green-audit.md
+  evidence-manifest.json
+  screenshots/
+```
+
+`v1_mainline_closeout` 只能在 CQ strict evidence 通过后重新聚合；不得用 QH passed 或 mainline candidate passed 替代 CQ 出门证据。

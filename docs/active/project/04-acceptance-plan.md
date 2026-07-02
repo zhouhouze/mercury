@@ -1350,6 +1350,59 @@ No-Go：
 - [ ] 旧 failed closeout 证据未处理，却输出新的完整 V1 complete 声明。
 - [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力或默认本地文件读取。
 
+### 8.16 V1-MVP-CQ 内容理解质量增强验收
+
+本阶段验收目标是证明 Navia 不只完成基础交互和 QH 矩阵达标，而是在严格样本上体现用户可感知的主内容理解质量。通过后只能声明 strict content quality prove-out passed，不能声明完整 V1 complete。
+
+必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion 使用同一阶段名：`V1-MVP-CQ 内容理解质量增强`。
+- [ ] 明确当前事实：QH 48 页 expanded acceptance 已通过，但内容理解质量仍不足；CQ 是新阶段，不覆盖或篡改 QH 证据。
+- [ ] `docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json` 至少包含 36 页 strict 样本，其中 24 页来自 QH 核心回归，12 页为高风险真实样本。
+- [ ] 每个类别至少 6 页，至少 5/6 strict pass；总计至少 34/36 strict pass。
+- [ ] 每个样本必须有 gold notes，至少包含 `expectedMainClaims`、`expectedMindmapThemes`、`prohibitedNoiseThemes`、`requiredEvidenceTargets`。
+- [ ] 每页必须记录 `contentUnderstandingScore >= 0.82`、`summaryGroundingRate >= 0.88`、`qaGroundingRate >= 0.85`、`mindmapSemanticCoverageRate >= 0.85`、`noiseLeakageRate <= 0.08`、`evidenceExplainabilityScore >= 0.8`、`jumpbackSemanticMatch = true`。
+- [ ] 总结必须表达正文 / 简介 / 分节 / 结论 / 图文说明 / 可见互动补充；不得只复述标题、导航、首页卡片或站点壳。
+- [ ] 问答必须引用当前页 SourceRef / fallbackText；无法回答时必须承认页面低信号或证据不足。
+- [ ] `解释选中内容` 不得被网站壳、图片序号、时间戳、重复文本、推荐列表或评论区主导。
+- [ ] Mindmap 高层节点必须表达主题、论点、事实、步骤或结论；不得是导航词、推荐标题堆叠或重复卡片标题。
+- [ ] Source Evidence 必须说明证据如何支撑节点 / 答案；located marker 必须可见且语义匹配。
+- [ ] `located`、`fallback_shown`、`blocked` 在 UI、JSON、HTML 报告和截图 metadata 中一致。
+- [ ] 低信号页、登录墙、cookie wall、地区限制、付费墙、反爬或无正文页面必须 degraded / blocked，不得伪装 pass。
+- [ ] 视频 / 直播 / 音频页面只验收 DOM 可见文本、简介、字幕文本、评论、弹幕统计或 metadata；不得声明理解画面或声音。
+- [ ] 图片证据只能使用当前页已有图片 URL、alt、caption 或媒体 metadata；不得引入 OCR/VLM。
+- [ ] 自动化优先 headless 和 `--mute-audio`；如必须打开可见 Chrome，需提前告知并测试后关闭实例。
+- [ ] 独立 CQ `report.json`、HTML 报告、PRD review、false-green audit 和截图证据结论一致，无 fatal / major。
+
+独立 CQ 出门证据：
+
+```text
+docs/active/project/evidence/v1_mvp_content_quality/acceptance-report.html
+docs/active/project/evidence/v1_mvp_content_quality/report.json
+docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json
+docs/active/project/evidence/v1_mvp_content_quality/gold-notes/
+docs/active/project/evidence/v1_mvp_content_quality/prd-review.md
+docs/active/project/evidence/v1_mvp_content_quality/false-green-audit.md
+docs/active/project/evidence/v1_mvp_content_quality/evidence-manifest.json
+docs/active/project/evidence/v1_mvp_content_quality/screenshots/
+```
+
+允许声明：
+
+```text
+V1 MVP content quality prove-out passed strict real-site acceptance.
+```
+
+No-Go：
+
+- [ ] 完整 V1 complete。
+- [ ] 最终 Monica-like UX complete。
+- [ ] QH passed 被写成 CQ strict passed。
+- [ ] 只提取标题、导航、首页卡片或站点壳，却声明内容理解通过。
+- [ ] 视频 / 音频 / 图片内容被声明为已理解。
+- [ ] 用 mainline closeout 聚合报告替代独立 CQ evidence。
+- [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。
+
 允许声明：
 
 ```text
