@@ -58,5 +58,7 @@ Web Research / PPT / Deep Research ready。
 - 图中必须标注实体状态：已实现、已实现需修改、待新增、保持边界、禁止声明。
 - QH passed 必须作为输入事实，不得被画成 CQ strict passed。
 - CQ 证据必须是独立包：`docs/active/project/evidence/v1_mvp_content_quality/`。
+- CQ manifest、gold notes 和 report 必须分别受 `v1_mvp_content_quality_sample_manifest.schema.json`、`v1_mvp_content_quality_gold_notes.schema.json`、`v1_mvp_content_quality_report.schema.json` 约束；不得只靠 HTML 报告或 mainline 聚合报告出门。
+- CQ report 必须记录 metric `operator`、每类 `categoryResults`，且只有 `finalStrictEligible=true` 的 gold notes 可以计入 final strict pass。
 - `located`、`fallback_shown`、`blocked` 必须保留三态，不得合并为成功。
 - 视频 / 图片 / 音频理解仍是 No-Go；只允许页面可见文本和页面已有 metadata。

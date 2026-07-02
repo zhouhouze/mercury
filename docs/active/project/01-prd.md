@@ -1484,6 +1484,8 @@ Web Research / PPT / Deep Research ready。
 - 总样本不少于 36 页；至少 34/36 页 strict pass；任一类别不得低于 5/6 strict pass。
 - 每页必须有人工或半自动 gold notes，记录 `expectedMainClaims`、`expectedMindmapThemes`、`prohibitedNoiseThemes`、`requiredEvidenceTargets`。
 - 每页必须记录 `contentUnderstandingScore`、`summaryGroundingRate`、`qaGroundingRate`、`mindmapSemanticCoverageRate`、`noiseLeakageRate`、`evidenceExplainabilityScore`、`jumpbackSemanticMatch`。
+- 每个 metric 必须记录 `value`、`threshold`、`operator = gte | lte | eq`、`passed`、`numerator`、`denominator`；`noiseLeakageRate` 必须使用 `lte`，其他分数型通过率默认使用 `gte`，布尔一致性使用 `eq`。
+- 每个类别必须在独立 CQ report 的 `summary.categoryResults[]` 中记录 `samples >= 6`、`strictPassedSamples >= 5`、`passed=true`。
 
 Strict pass 最低阈值：
 
@@ -1507,9 +1509,16 @@ docs/active/project/evidence/v1_mvp_content_quality/
   false-green-audit.md
   evidence-manifest.json
   screenshots/
+
+docs/active/project/contracts/
+  v1_mvp_content_quality_sample_manifest.schema.json
+  v1_mvp_content_quality_gold_notes.schema.json
+  v1_mvp_content_quality_report.schema.json
 ```
 
 `v1_mainline_closeout` 只能在 CQ strict evidence 通过后重新聚合；不得用 QH passed 或 mainline candidate passed 替代 CQ 出门证据。
+
+`V1-MVP-CQ-1` 必须用 `v1_mvp_content_quality_sample_manifest.schema.json` 验证 `sample-manifest.json`，并用 `v1_mvp_content_quality_gold_notes.schema.json` 验证每个 `gold-notes/*.json`。只有 `finalStrictEligible=true` 的 gold notes 可以计入最终 strict pass。`V1-MVP-CQ-7` 必须用 `v1_mvp_content_quality_report.schema.json` 验证独立 CQ `report.json`。schema validation 只通过在 `v1_mainline_closeout` 聚合报告上无效；聚合只能引用已经通过的独立 CQ evidence。
 
 本阶段 drawio 门禁：
 

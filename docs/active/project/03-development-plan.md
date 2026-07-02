@@ -1705,7 +1705,7 @@ V1-MVP-CQ-7：严格真实网页验收、人工 gold 对照、HTML 报告、PRD 
 | 子阶段 | 开发重点 | 验收重点 |
 |---|---|---|
 | `V1-MVP-CQ-0` | 更新 PRD、架构、开发计划、验收计划、stage gate、gap companion；明确 QH passed 不是完整内容理解完成 | active 文档无 fatal / major；不得把 CQ 写成完整 V1 complete 或视频 / 图片 / 音频理解完成 |
-| `V1-MVP-CQ-1` | 冻结 36+ strict 样本、gold notes、schema、报告字段和人工复核口径 | 每页有 expectedMainClaims / expectedMindmapThemes / prohibitedNoiseThemes / requiredEvidenceTargets |
+| `V1-MVP-CQ-1` | 冻结 36+ strict 样本、gold notes、schema、报告字段和人工复核口径 | `sample-manifest.json` 与每个 `gold-notes/*.json` 通过 CQ schema；每页有 expectedMainClaims / expectedMindmapThemes / prohibitedNoiseThemes / requiredEvidenceTargets，且 `finalStrictEligible=true` |
 | `V1-MVP-CQ-2` | A 侧为 DOM block 增加内容角色、正文密度、噪声惩罚、互动补充分层 | 主内容 signals 必须覆盖正文、简介、caption、作者 / 时间、可见互动补充；噪声不能主导 digest |
 | `V1-MVP-CQ-3` | 总结、问答、解释选区必须从 SourceRef / fallbackText grounding | summaryGroundingRate、qaGroundingRate 达标；解释选区不被图片序号、时间戳、站点壳和重复文本主导 |
 | `V1-MVP-CQ-4` | Mindmap 高层节点从主题 / 论点 / 事实 / 步骤 / 结论生成，压缩重复和长文本 | mindmapSemanticCoverageRate 达标；节点绑定 sourceRef 或 degraded reason |
@@ -1726,7 +1726,14 @@ docs/active/project/evidence/v1_mvp_content_quality/prd-review.md
 docs/active/project/evidence/v1_mvp_content_quality/false-green-audit.md
 docs/active/project/evidence/v1_mvp_content_quality/evidence-manifest.json
 docs/active/project/evidence/v1_mvp_content_quality/screenshots/
+docs/active/project/contracts/v1_mvp_content_quality_sample_manifest.schema.json
+docs/active/project/contracts/v1_mvp_content_quality_gold_notes.schema.json
+docs/active/project/contracts/v1_mvp_content_quality_report.schema.json
 ```
+
+`V1-MVP-CQ-7` 的 report generator 必须先验证 manifest、gold notes 和独立 CQ report，再允许 `v1_mainline_closeout` 聚合。若只生成 HTML 报告、只生成 mainline 聚合报告或缺少 schema validation，本阶段验收必须失败。
+
+`V1-MVP-CQ-7` 的每个 metric 必须记录 `operator`：分数型最低门槛使用 `gte`，`noiseLeakageRate` 使用 `lte`，布尔一致性使用 `eq`。独立 CQ report 必须记录 `summary.categoryResults[]`，每类至少 6 页、至少 5 页 strict pass。
 
 打回规则：
 

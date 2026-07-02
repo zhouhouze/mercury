@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/schemas/v1_mvp_content_quality_report.schema.json",
+  "title": "Navia V1 MVP Content Quality Strict Acceptance Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "stage",
+    "claim",
+    "passed",
+    "generatedAt",
+    "summary",
+    "samples",
+    "testCommands"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-mvp-content-quality.report.1"
+    },
+    "stage": {
+      "const": "v1-mvp-content-quality"
+    },
+    "claim": {
+      "const": "V1 MVP content quality prove-out passed strict real-site acceptance."
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "samplesTotal",
+        "qhCoreRegressionSamples",
+        "highRiskSamples",
+        "strictPassedSamples",
+        "degradedSamples",
+        "blockedSamples",
+        "categoryResults",
+        "fatalIssues",
+        "majorIssues"
+      ],
+      "properties": {
+        "samplesTotal": {
+          "type": "integer",
+          "minimum": 36
+        },
+        "qhCoreRegressionSamples": {
+          "type": "integer",
+          "minimum": 24
+        },
+        "highRiskSamples": {
+          "type": "integer",
+          "minimum": 12
+        },
+        "strictPassedSamples": {
+          "type": "integer",
+          "minimum": 34
+        },
+        "degradedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blockedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "categoryResults": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "$ref": "#/$defs/categoryResult"
+          }
+        },
+        "fatalIssues": {
+          "type": "integer",
+          "const": 0
+        },
+        "majorIssues": {
+          "type": "integer",
+          "const": 0
+        }
+      }
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 36,
+      "items": {
+        "$ref": "#/$defs/sampleResult"
+      }
+    },
+    "testCommands": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "$ref": "#/$defs/testCommand"
+      }
+    },
+    "auditDetails": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "threshold",
+        "operator",
+        "passed",
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "operator": {
+          "enum": [
+            "gte",
+            "lte",
+            "eq"
+          ]
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "numerator": {
+          "type": "number",
+          "minimum": 0
+        },
+        "denominator": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "categoryResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "categoryId",
+        "samples",
+        "strictPassedSamples",
+        "passed"
+      ],
+      "properties": {
+        "categoryId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "samples": {
+          "type": "integer",
+          "minimum": 6
+        },
+        "strictPassedSamples": {
+          "type": "integer",
+          "minimum": 5
+        },
+        "passed": {
+          "const": true
+        }
+      }
+    },
+    "jumpbackResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "semanticMatch",
+        "markerShown",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked"
+          ]
+        },
+        "semanticMatch": {
+          "type": "boolean"
+        },
+        "markerShown": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "sampleResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageId",
+        "url",
+        "site",
+        "sourceStage",
+        "goldNotePath",
+        "contentUnderstandingScore",
+        "summaryGroundingRate",
+        "qaGroundingRate",
+        "mindmapSemanticCoverageRate",
+        "noiseLeakageRate",
+        "evidenceExplainabilityScore",
+        "jumpbackSemanticMatch",
+        "summaryGrounding",
+        "qaGrounding",
+        "selectionExplainResult",
+        "mindmapTopNodes",
+        "sourceCardOrder",
+        "jumpbackResult",
+        "screenshotPaths",
+        "reportConclusion"
+      ],
+      "properties": {
+        "pageId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceStage": {
+          "enum": [
+            "qh_core_regression",
+            "high_risk_new"
+          ]
+        },
+        "goldNotePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentUnderstandingScore": {
+          "$ref": "#/$defs/metric"
+        },
+        "summaryGroundingRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "qaGroundingRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "mindmapSemanticCoverageRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "noiseLeakageRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "evidenceExplainabilityScore": {
+          "$ref": "#/$defs/metric"
+        },
+        "jumpbackSemanticMatch": {
+          "type": "boolean"
+        },
+        "summaryGrounding": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "qaGrounding": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "selectionExplainResult": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "mindmapTopNodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "sourceCardOrder": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "jumpbackResult": {
+          "$ref": "#/$defs/jumpbackResult"
+        },
+        "screenshotPaths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reportConclusion": {
+          "enum": [
+            "strict_pass",
+            "degraded",
+            "blocked",
+            "fail"
+          ]
+        }
+      }
+    },
+    "testCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command",
+        "passed"
+      ],
+      "properties": {
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "logPath": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

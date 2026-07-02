@@ -1667,7 +1667,9 @@ Host Page DOM / metadata / selection / visible media metadata
 | 已实现需强化 | B Renderer `apps/chrome-extension/src/modules/chat_renderer/` / `mindmap_renderer/` | 可展示总结、问答、Evidence Card、Reading Map、Source Evidence | 展示证据为何支撑节点 / 答案；窄侧栏无虚影、重叠、截断；degraded 理由清晰 |
 | 已实现需强化 | `apps/chrome-extension/src/contentBridge.ts` | 支持用户触发 located / fallback / blocked | jumpback 结果必须语义匹配被点击节点或 source card；marker 文案说明证据关系 |
 | 待新增证据 | `docs/active/project/evidence/v1_mvp_content_quality/` | 当前不存在独立 CQ 证据包 | 保存 36+ strict 样本、gold notes、截图、HTML 报告、PRD review、false-green audit |
-| 待新增合同 | `docs/active/project/contracts/v1_mvp_content_quality_*.schema.json` | 当前无 CQ schema | 约束 sample manifest、gold notes 和 report 字段，防止 strict 验收报告漂移 |
+| 已新增合同 | `docs/active/project/contracts/v1_mvp_content_quality_sample_manifest.schema.json` | CQ manifest schema 已落盘 | 约束 36+ strict 样本、QH 回归 / 高风险来源、gold note 路径、主内容信号和禁止噪声 |
+| 已新增合同 | `docs/active/project/contracts/v1_mvp_content_quality_gold_notes.schema.json` | CQ gold notes schema 已落盘 | 约束人工 / 半自动 gold notes 中的 expected claims、Mindmap themes、禁止噪声和证据目标 |
+| 已新增合同 | `docs/active/project/contracts/v1_mvp_content_quality_report.schema.json` | CQ report schema 已落盘 | 约束 strict report summary、categoryResults、metric operator、页面级指标、jumpback 三态、截图路径和 testCommands |
 
 责任边界：
 
@@ -1682,6 +1684,8 @@ Host Page DOM / metadata / selection / visible media metadata
 
 - CQ 独立证据包不少于 36 页 strict 样本，包含 24 页 QH 核心回归和 12 页高风险真实样本。
 - 每页都有 gold notes：`expectedMainClaims`、`expectedMindmapThemes`、`prohibitedNoiseThemes`、`requiredEvidenceTargets`。
+- `sample-manifest.json`、每个 `gold-notes/*.json` 和独立 `report.json` 必须分别通过 CQ 三个 schema；没有 schema validation 不能进入 CQ-7 出门验收。
+- 独立 CQ report 必须记录每类 `categoryResults`、每个 metric 的 `operator`，且只有 `finalStrictEligible=true` 的 gold notes 可以计入最终 strict pass。
 - summary / qa / explain-selection / Mindmap / evidence 的质量指标均达到 PRD CQ 阈值。
 - located / fallback_shown / blocked 在 UI、JSON、HTML 和截图中语义一致；located marker 必须说明证据支撑关系。
 - CQ 通过后只能声明 content quality prove-out passed，不能声明完整 V1 complete 或视频 / 图片 / 音频理解完成。

@@ -111,6 +111,8 @@ reportConclusion
 - `evidenceExplainabilityScore >= 0.8`
 - `jumpbackSemanticMatch = true`, unless correctly degraded / blocked
 
+Every metric in `report.json` must record `value`, `threshold`, `operator`, `passed`, `numerator`, and `denominator`. Use `operator=gte` for minimum score / rate thresholds, `operator=lte` for `noiseLeakageRate`, and `operator=eq` for boolean semantic consistency checks.
+
 ## 8. Evidence Package
 
 ```text
@@ -124,9 +126,14 @@ docs/active/project/evidence/v1_mvp_content_quality/prd-review.md
 docs/active/project/evidence/v1_mvp_content_quality/false-green-audit.md
 docs/active/project/evidence/v1_mvp_content_quality/evidence-manifest.json
 docs/active/project/evidence/v1_mvp_content_quality/screenshots/
+docs/active/project/contracts/v1_mvp_content_quality_sample_manifest.schema.json
+docs/active/project/contracts/v1_mvp_content_quality_gold_notes.schema.json
+docs/active/project/contracts/v1_mvp_content_quality_report.schema.json
 ```
 
 `v1_mainline_closeout` may aggregate CQ only after independent CQ evidence passes. It must not replace CQ evidence.
+
+`V1-MVP-CQ-1` must validate `sample-manifest.json` and every `gold-notes/*.json` against the CQ schemas. Only gold notes with `finalStrictEligible=true` may count toward final strict pass. `V1-MVP-CQ-7` must validate the independent CQ `report.json` against `v1_mvp_content_quality_report.schema.json` before mainline aggregation, including `summary.categoryResults[]` with at least 6 samples and 5 strict passes per category.
 
 ## 8.1 Drawio Requirements
 
@@ -152,7 +159,7 @@ node apps/chrome-extension/e2e/generate-v1-mvp-content-quality-report.mjs
 node apps/chrome-extension/e2e/generate-v1-mainline-closeout-report.mjs
 ```
 
-If the CQ e2e or report generator does not exist during implementation, `V1-MVP-CQ-7` must fail until it is implemented.
+If the CQ e2e, report generator, or manifest / gold-notes / report schema validation does not exist during implementation, `V1-MVP-CQ-7` must fail until it is implemented.
 
 ## 10. False-Green Blockers
 

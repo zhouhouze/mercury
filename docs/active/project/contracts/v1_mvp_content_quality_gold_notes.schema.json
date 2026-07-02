@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/schemas/v1_mvp_content_quality_gold_notes.schema.json",
+  "title": "Navia V1 MVP Content Quality Gold Notes",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "pageId",
+    "url",
+    "reviewStatus",
+    "reviewedAt",
+    "expectedMainClaims",
+    "expectedMindmapThemes",
+    "prohibitedNoiseThemes",
+    "requiredEvidenceTargets",
+    "lowSignalPolicy",
+    "finalStrictEligible",
+    "notes"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-mvp-content-quality.gold-notes.1"
+    },
+    "pageId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewStatus": {
+      "enum": [
+        "human_reviewed",
+        "semi_auto_accepted"
+      ]
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expectedMainClaims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/expectation"
+      }
+    },
+    "expectedMindmapThemes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/expectation"
+      }
+    },
+    "prohibitedNoiseThemes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/expectation"
+      }
+    },
+    "requiredEvidenceTargets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidenceTarget"
+      }
+    },
+    "lowSignalPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mayPassWhenOnlyTitleAvailable",
+        "degradedReasonRequired"
+      ],
+      "properties": {
+        "mayPassWhenOnlyTitleAvailable": {
+          "const": false
+        },
+        "degradedReasonRequired": {
+          "const": true
+        }
+      }
+    },
+    "finalStrictEligible": {
+      "const": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "expectation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text",
+        "mustAppear"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mustAppear": {
+          "type": "boolean"
+        }
+      }
+    },
+    "evidenceTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "targetId",
+        "description",
+        "acceptableEvidenceTypes"
+      ],
+      "properties": {
+        "targetId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "acceptableEvidenceTypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "body_text",
+              "lead",
+              "caption",
+              "alt",
+              "author_time",
+              "visible_comment",
+              "metadata",
+              "fallback_text"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
