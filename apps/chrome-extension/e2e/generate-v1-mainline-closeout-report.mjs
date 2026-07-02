@@ -186,6 +186,33 @@ function auditCompletenessStatusLabel(value) {
   return String(value ?? "未知");
 }
 
+function countFilesRecursive(root, predicate) {
+  if (!fs.existsSync(root)) return 0;
+  const stack = [root];
+  let count = 0;
+  while (stack.length) {
+    const current = stack.pop();
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const absolute = path.join(current, entry.name);
+      if (entry.isDirectory()) stack.push(absolute);
+      else if (!predicate || predicate(absolute)) count += 1;
+    }
+  }
+  return count;
+}
+
+function htmlReferenceIntegrity(htmlRelativePath) {
+  const htmlPath = path.join(repoRoot, htmlRelativePath);
+  if (!fs.existsSync(htmlPath)) return { references: 0, missing: 1 };
+  const html = fs.readFileSync(htmlPath, "utf-8");
+  const refs = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map((match) => match[1]);
+  const missing = refs.filter((ref) => {
+    if (/^(?:https?:|mailto:|#)/i.test(ref)) return false;
+    return !fs.existsSync(path.resolve(path.dirname(htmlPath), ref));
+  });
+  return { references: refs.length, missing: missing.length };
+}
+
 function localizeAuditText(value) {
   const text = String(value ?? "");
   const dictionary = new Map([
@@ -824,6 +851,30 @@ function buildHtml(report) {
       </tr>`
     )
     .join("");
+  const qhRootRelative = "docs/active/project/evidence/v1_mvp_quality_hardening";
+  const qhRoot = path.join(repoRoot, qhRootRelative);
+  const qhHtmlIntegrity = htmlReferenceIntegrity(`${qhRootRelative}/acceptance-report.html`);
+  const qhAuditRows = [
+    ["QH 独立 HTML 审计报告", fs.existsSync(path.join(qhRoot, "acceptance-report.html")) ? "存在" : "缺失", "必须存在", fs.existsSync(path.join(qhRoot, "acceptance-report.html"))],
+    ["QH report.json", fs.existsSync(path.join(qhRoot, "report.json")) ? "存在" : "缺失", "必须存在", fs.existsSync(path.join(qhRoot, "report.json"))],
+    ["QH sample-manifest.json", fs.existsSync(path.join(qhRoot, "sample-manifest.json")) ? "存在" : "缺失", "必须存在", fs.existsSync(path.join(qhRoot, "sample-manifest.json"))],
+    ["QH HTML 本地引用", `${qhHtmlIntegrity.references} 个引用，缺失 ${qhHtmlIntegrity.missing}`, "缺失 0", qhHtmlIntegrity.missing === 0],
+    ["QH before / after 截图", countFilesRecursive(path.join(qhRoot, "screenshots"), (file) => file.endsWith(".png")), ">= 96", countFilesRecursive(path.join(qhRoot, "screenshots"), (file) => file.endsWith(".png")) >= 96],
+    ["逐页 sample-report.json", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}sample-report.json`)), "48", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}sample-report.json`)) === 48],
+    ["逐页 runtime-session.json", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}runtime-session.json`)), "48", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}runtime-session.json`)) === 48],
+    ["逐页 source-cards.json", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}source-cards.json`)), "48", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}source-cards.json`)) === 48],
+    ["逐页 jumpback.json", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}jumpback.json`)), "48", countFilesRecursive(path.join(qhRoot, "pages"), (file) => file.endsWith(`${path.sep}jumpback.json`)) === 48]
+  ];
+  const qhAuditCompletenessRows = qhAuditRows
+    .map(
+      ([item, actual, expected, passed]) => `<tr>
+        <td>${escapeHtml(item)}</td>
+        <td>${escapeHtml(actual)}</td>
+        <td>${escapeHtml(expected)}</td>
+        <td class="${passed ? "pass" : "fail"}">${passed ? "通过" : "未通过"}</td>
+      </tr>`
+    )
+    .join("");
   const gitStatusItems = report.auditProvenance.git.statusLines.length
     ? report.auditProvenance.git.statusLines.map((item) => `<li><code>${escapeHtml(item)}</code></li>`).join("")
     : "<li>工作树干净</li>";
@@ -1016,6 +1067,11 @@ function buildHtml(report) {
       <h2>审计完整性清单</h2>
       <p>本清单用于判断这份 HTML 是否足以作为本阶段自动化开发的人类审查入口。待人工项不代表自动化失败，但会阻止完整 V1 complete 声明。</p>
       <table><thead><tr><th>审计维度</th><th>状态</th><th>证据</th></tr></thead><tbody>${completenessRows}</tbody></table>
+    </section>
+    <section>
+      <h2>QH 审计完整性摘要</h2>
+      <p>本节把 V1-MVP-QH 独立报告的完整性摘要拉入主线报告，避免审查者误把聚合报告当作“只有结论没有证据”的摘要页。详细逐页证据仍以 ${fileLink("docs/active/project/evidence/v1_mvp_quality_hardening/acceptance-report.html", "QH 扩展验收报告")} 为准。</p>
+      <table><thead><tr><th>审计项</th><th>实际</th><th>要求</th><th>结果</th></tr></thead><tbody>${qhAuditCompletenessRows}</tbody></table>
     </section>
     <section>
       <h2>${report.passed ? "环境说明与剩余边界" : "当前阻塞与环境说明"}</h2>
