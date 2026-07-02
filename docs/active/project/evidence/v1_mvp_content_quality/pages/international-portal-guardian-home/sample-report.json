@@ -1,0 +1,882 @@
+{
+  "sampleId": "international-portal-guardian-home",
+  "siteId": "the-guardian",
+  "siteName": "The Guardian",
+  "manifest": {
+    "pageId": "international-portal-guardian-home",
+    "contentCategory": "international_portal_homepage",
+    "countryRegion": "international",
+    "pageType": "homepage",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [],
+    "prohibitedNoiseSignals": [
+      "首页",
+      "登录",
+      "广告",
+      "推荐",
+      "评论",
+      "版权",
+      "导航",
+      "图1"
+    ]
+  },
+  "pageKind": "homepage",
+  "url": "https://www.theguardian.com/international",
+  "startedAt": "2026-07-02T20:45:40.916Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://www.theguardian.com/international",
+  "dom": {
+    "title": "Latest news, sport and opinion from the Guardian",
+    "url": "https://www.theguardian.com/international",
+    "bodyTextLength": 19393,
+    "bodyTextSample": "Skip to main content Skip to navigation Print subscriptions Search jobs Sign in World Cup live Spain v Austria Robert Reich Conflicts of interest? Trump has one interest: himself ‘A massacre’ Gangs carry out mass killings across Haiti What do I do? My job provides financial stability but my passion has gone Health and race My epidural failed and no one believed me – I could feel it all Ranked Robyn’s 20 greatest songs Edition The Guardian - Back to home The Guardian News Opinion Sport Culture Lifestyle Show more World World Cup 2026 UK Climate crisis Ukraine Environment Science Global developm",
+    "anchorCount": 359,
+    "anchors": [
+      {
+        "text": "Skip to main content",
+        "href": "https://www.theguardian.com/international#maincontent"
+      },
+      {
+        "text": "Skip to navigation",
+        "href": "https://www.theguardian.com/international#navigation"
+      },
+      {
+        "text": "Print subscriptions",
+        "href": "https://support.theguardian.com/subscribe/weekly?REFPVID=mr3z4s4ek5h50mtmyn75&INTCMP=undefined&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22PrintSubscriptionsHeaderLink%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22referrerPageviewId%22%3A%22mr3z4s4ek5h50mtmyn75%22%2C%22referrerUrl%22%3A%22https%3A%2F%2Fwww.theguardian.com%2Finternational%22%7D"
+      },
+      {
+        "text": "Search jobs",
+        "href": "https://jobs.theguardian.com/"
+      },
+      {
+        "text": "Sign in",
+        "href": "https://profile.theguardian.com/signin?INTCMP=DOTCOM_NEWHEADER_SIGNIN&ABCMP=ab-sign-in&componentEventParams=componentType%3Didentityauthentication%26componentId%3Dguardian_signin_header"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/football/live/2026/jul/02/spain-v-austria-world-cup-2026-last-32-live"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/commentisfree/2026/jul/02/trump-crypto-conflict-of-interest"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/global-development/2026/jul/02/it-was-a-massacre-haiti-gangs-carry-out-mass-killings-across-the-country"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/lifeandstyle/2026/jul/03/my-job-provides-financial-stability-but-my-passion-has-gone"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/world/2026/jul/02/maternity-neonatal-care-childbirth-womens-health-minority-groups"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/music/2026/jul/02/robyn-greatest-songs-ranked"
+      },
+      {
+        "text": "Europe edition",
+        "href": "https://www.theguardian.com/preference/edition/eur"
+      },
+      {
+        "text": "UK edition",
+        "href": "https://www.theguardian.com/preference/edition/uk"
+      },
+      {
+        "text": "US edition",
+        "href": "https://www.theguardian.com/preference/edition/us"
+      },
+      {
+        "text": "Australia edition",
+        "href": "https://www.theguardian.com/preference/edition/au"
+      },
+      {
+        "text": "International edition",
+        "href": "https://www.theguardian.com/preference/edition/int"
+      },
+      {
+        "text": "The Guardian - Back to homeThe Guardian",
+        "href": "https://www.theguardian.com/"
+      },
+      {
+        "text": "News",
+        "href": "https://www.theguardian.com/"
+      },
+      {
+        "text": "Opinion",
+        "href": "https://www.theguardian.com/commentisfree"
+      },
+      {
+        "text": "Sport",
+        "href": "https://www.theguardian.com/sport"
+      },
+      {
+        "text": "Culture",
+        "href": "https://www.theguardian.com/culture"
+      },
+      {
+        "text": "Lifestyle",
+        "href": "https://www.theguardian.com/lifeandstyle"
+      },
+      {
+        "text": "View all News",
+        "href": "https://www.theguardian.com/"
+      },
+      {
+        "text": "World news",
+        "href": "https://www.theguardian.com/world"
+      },
+      {
+        "text": "World Cup 2026",
+        "href": "https://www.theguardian.com/football/world-cup-2026"
+      },
+      {
+        "text": "UK news",
+        "href": "https://www.theguardian.com/uk-news"
+      },
+      {
+        "text": "Climate crisis",
+        "href": "https://www.theguardian.com/environment/climate-crisis"
+      },
+      {
+        "text": "Ukraine",
+        "href": "https://www.theguardian.com/world/ukraine"
+      },
+      {
+        "text": "Environment",
+        "href": "https://www.theguardian.com/environment"
+      },
+      {
+        "text": "Science",
+        "href": "https://www.theguardian.com/science"
+      },
+      {
+        "text": "Global development",
+        "href": "https://www.theguardian.com/global-development"
+      },
+      {
+        "text": "Football",
+        "href": "https://www.theguardian.com/football"
+      },
+      {
+        "text": "Tech",
+        "href": "https://www.theguardian.com/technology"
+      },
+      {
+        "text": "Business",
+        "href": "https://www.theguardian.com/business"
+      },
+      {
+        "text": "Obituaries",
+        "href": "https://www.theguardian.com/obituaries"
+      },
+      {
+        "text": "View all Opinion",
+        "href": "https://www.theguardian.com/commentisfree"
+      },
+      {
+        "text": "The Guardian view",
+        "href": "https://www.theguardian.com/profile/editorial"
+      },
+      {
+        "text": "Columnists",
+        "href": "https://www.theguardian.com/uk/columnists"
+      },
+      {
+        "text": "Cartoons",
+        "href": "https://www.theguardian.com/tone/cartoons"
+      },
+      {
+        "text": "Opinion videos",
+        "href": "https://www.theguardian.com/type/video+tone/comment"
+      },
+      {
+        "text": "Letters",
+        "href": "https://www.theguardian.com/tone/letters"
+      },
+      {
+        "text": "View all Sport",
+        "href": "https://www.theguardian.com/sport"
+      },
+      {
+        "text": "World Cup 2026",
+        "href": "https://www.theguardian.com/football/world-cup-2026"
+      },
+      {
+        "text": "Football",
+        "href": "https://www.theguardian.com/football"
+      },
+      {
+        "text": "Cricket",
+        "href": "https://www.theguardian.com/sport/cricket"
+      },
+      {
+        "text": "Rugby union",
+        "href": "https://www.theguardian.com/sport/rugby-union"
+      },
+      {
+        "text": "Tennis",
+        "href": "https://www.theguardian.com/sport/tennis"
+      },
+      {
+        "text": "Cycling",
+        "href": "https://www.theguardian.com/sport/cycling"
+      },
+      {
+        "text": "F1",
+        "href": "https://www.theguardian.com/sport/formulaone"
+      },
+      {
+        "text": "Golf",
+        "href": "https://www.theguardian.com/sport/golf"
+      },
+      {
+        "text": "US sports",
+        "href": "https://www.theguardian.com/sport/us-sport"
+      },
+      {
+        "text": "View all Culture",
+        "href": "https://www.theguardian.com/culture"
+      },
+      {
+        "text": "Books",
+        "href": "https://www.theguardian.com/books"
+      },
+      {
+        "text": "Music",
+        "href": "https://www.theguardian.com/music"
+      },
+      {
+        "text": "TV & radio",
+        "href": "https://www.theguardian.com/tv-and-radio"
+      },
+      {
+        "text": "Art & design",
+        "href": "https://www.theguardian.com/artanddesign"
+      },
+      {
+        "text": "Film",
+        "href": "https://www.theguardian.com/film"
+      },
+      {
+        "text": "Games",
+        "href": "https://www.theguardian.com/games"
+      },
+      {
+        "text": "Classical",
+        "href": "https://www.theguardian.com/music/classicalmusicandopera"
+      },
+      {
+        "text": "Stage",
+        "href": "https://www.theguardian.com/stage"
+      },
+      {
+        "text": "View all Lifestyle",
+        "href": "https://www.theguardian.com/lifeandstyle"
+      },
+      {
+        "text": "Fashion",
+        "href": "https://www.theguardian.com/fashion"
+      },
+      {
+        "text": "Food",
+        "href": "https://www.theguardian.com/food"
+      },
+      {
+        "text": "Recipes",
+        "href": "https://www.theguardian.com/tone/recipes"
+      },
+      {
+        "text": "Love & sex",
+        "href": "https://www.theguardian.com/lifeandstyle/love-and-sex"
+      },
+      {
+        "text": "Health & fitness",
+        "href": "https://www.theguardian.com/lifeandstyle/health-and-wellbeing"
+      },
+      {
+        "text": "Home & garden",
+        "href": "https://www.theguardian.com/lifeandstyle/home-and-garden"
+      },
+      {
+        "text": "Women",
+        "href": "https://www.theguardian.com/lifeandstyle/women"
+      },
+      {
+        "text": "Men",
+        "href": "https://www.theguardian.com/lifeandstyle/men"
+      },
+      {
+        "text": "Family",
+        "href": "https://www.theguardian.com/lifeandstyle/family"
+      },
+      {
+        "text": "Travel",
+        "href": "https://www.theguardian.com/travel"
+      },
+      {
+        "text": "Money",
+        "href": "https://www.theguardian.com/money"
+      },
+      {
+        "text": "Support us",
+        "href": "https://support.theguardian.com/?INTCMP=side_menu_support&acquisitionData=%7B%22source%22:%22GUARDIAN_WEB%22,%22componentType%22:%22ACQUISITIONS_HEADER%22,%22componentId%22:%22side_menu_support%22%7D"
+      },
+      {
+        "text": "Print subscriptions",
+        "href": "https://support.theguardian.com/subscribe/weekly?REFPVID=mr3z4s4ek5h50mtmyn75&INTCMP=undefined&acquisitionData=%7B%22source%22%3A%22GUARDIAN_WEB%22%2C%22componentId%22%3A%22PrintSubscriptionsHeaderLink%22%2C%22componentType%22%3A%22ACQUISITIONS_HEADER%22%2C%22referrerPageviewId%22%3A%22mr3z4s4ek5h50mtmyn75%22%2C%22referrerUrl%22%3A%22https%3A%2F%2Fwww.theguardian.com%2Finternational%22%7D"
+      },
+      {
+        "text": "Search jobs",
+        "href": "https://jobs.theguardian.com/"
+      },
+      {
+        "text": "Holidays",
+        "href": "https://holidays.theguardian.com/?INTCMP=holidays_int_web_newheader"
+      },
+      {
+        "text": "Digital Archive",
+        "href": "https://theguardian.newspapers.com/"
+      },
+      {
+        "text": "Guardian Licensing",
+        "href": "https://licensing.theguardian.com/"
+      },
+      {
+        "text": "Live events",
+        "href": "https://www.theguardian.com/guardian-live-events?INTCMP=live_eur_header_dropdown"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.theguardian.com/about"
+      },
+      {
+        "text": "The Guardian app",
+        "href": "https://app.adjust.com/16xt6hai"
+      },
+      {
+        "text": "Video",
+        "href": "https://www.theguardian.com/video"
+      },
+      {
+        "text": "Podcasts",
+        "href": "https://www.theguardian.com/podcasts"
+      },
+      {
+        "text": "Pictures",
+        "href": "https://www.theguardian.com/inpictures"
+      },
+      {
+        "text": "Newsletters",
+        "href": "https://www.theguardian.com/email-newsletters"
+      },
+      {
+        "text": "Today's paper",
+        "href": "https://www.theguardian.com/theguardian"
+      },
+      {
+        "text": "Inside the Guardian",
+        "href": "https://www.theguardian.com/insidetheguardian"
+      },
+      {
+        "text": "Guardian Weekly",
+        "href": "https://www.theguardian.com/weekly?INTCMP=gdnwb_mawns_editorial_gweekly_GW_TopNav_Int"
+      },
+      {
+        "text": "Crosswords",
+        "href": "https://www.theguardian.com/crosswords"
+      },
+      {
+        "text": "Wordiply",
+        "href": "https://www.wordiply.com/"
+      },
+      {
+        "text": "Corrections",
+        "href": "https://www.theguardian.com/theguardian/series/corrections-and-clarifications"
+      },
+      {
+        "text": "Tips",
+        "href": "https://www.theguardian.com/tips"
+      },
+      {
+        "text": "Search jobs",
+        "href": "https://jobs.theguardian.com/"
+      },
+      {
+        "text": "Holidays",
+        "href": "https://holidays.theguardian.com/?INTCMP=holidays_int_web_newheader"
+      },
+      {
+        "text": "Digital Archive",
+        "href": "https://theguardian.newspapers.com/"
+      },
+      {
+        "text": "Guardian Licensing",
+        "href": "https://licensing.theguardian.com/"
+      },
+      {
+        "text": "Live events",
+        "href": "https://www.theguardian.com/guardian-live-events?INTCMP=live_eur_header_dropdown"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.theguardian.com/about"
+      },
+      {
+        "text": "World",
+        "href": "https://www.theguardian.com/world"
+      },
+      {
+        "text": "World Cup 2026",
+        "href": "https://www.theguardian.com/football/world-cup-2026"
+      },
+      {
+        "text": "UK",
+        "href": "https://www.theguardian.com/uk-news"
+      },
+      {
+        "text": "Climate crisis",
+        "href": "https://www.theguardian.com/environment/climate-crisis"
+      },
+      {
+        "text": "Ukraine",
+        "href": "https://www.theguardian.com/world/ukraine"
+      },
+      {
+        "text": "Environment",
+        "href": "https://www.theguardian.com/environment"
+      },
+      {
+        "text": "Science",
+        "href": "https://www.theguardian.com/science"
+      },
+      {
+        "text": "Global development",
+        "href": "https://www.theguardian.com/global-development"
+      },
+      {
+        "text": "Football",
+        "href": "https://www.theguardian.com/football"
+      },
+      {
+        "text": "Tech",
+        "href": "https://www.theguardian.com/technology"
+      },
+      {
+        "text": "Business",
+        "href": "https://www.theguardian.com/business"
+      },
+      {
+        "text": "Obituaries",
+        "href": "https://www.theguardian.com/obituaries"
+      },
+      {
+        "text": "View the Europe homepage",
+        "href": "https://www.theguardian.com/europe"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/world/2026/jul/02/russia-attacks-kyiv-missiles-drones-ukraine"
+      },
+      {
+        "text": "RussiaRussia ‘mounted drone surveillance of European nuclear sites over 18 months’",
+        "href": "https://www.theguardian.com/world/2026/jul/02/russia-mounted-drone-surveillance-of-european-nuclear-sites-over-18-months"
+      },
+      {
+        "text": "Nord StreamGerman prosecutors accuse Kyiv of ordering 2022 Nord Stream sabotage",
+        "href": "https://www.theguardian.com/world/2026/jul/02/german-prosecutors-accuse-kyiv-of-ordering-2022-nord-stream-sabotage"
+      },
+      {
+        "text": "RussiaRussia ‘mounted drone surveillance of European nuclear sites over 18 months’",
+        "href": "https://www.theguardian.com/world/2026/jul/02/russia-mounted-drone-surveillance-of-european-nuclear-sites-over-18-months"
+      },
+      {
+        "text": "Nord StreamGerman prosecutors accuse Kyiv of ordering 2022 Nord Stream sabotage",
+        "href": "https://www.theguardian.com/world/2026/jul/02/german-prosecutors-accuse-kyiv-of-ordering-2022-nord-stream-sabotage"
+      },
+      {
+        "text": "",
+        "href": "https://www.theguardian.com/football/live/2026/jul/02/spain-v-austria-world-cup-2026-last-32-live"
+      },
+      {
+        "text": "EnglandStarmer vetoes Tuchel’s call to bunk off school after England’s 1am Mexico game",
+        "href": "https://www.theguardian.com/football/2026/jul/02/keir-starmer-vetoes-tuchel-day-off-school-proposal-1am-match-mexico"
+      },
+      {
+        "text": "UKStarmer to allow pubs to stay open until 5am for England v Mexico match",
+        "href": "https://www.theguardian.com/lifeandstyle/2026/jul/02/starmer-pubs-stay-open-england-mexico-match-world-cup"
+      },
+      {
+        "text": "Tell usMexico fans: what is the mood before your World Cup tie against England?",
+        "href": "https://www.theguardian.com/football/2026/jul/02/mexico-fans-last-16-tie-england-world-cup"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000001079",
+    "pageTitle": "Latest news, sport and opinion from the Guardian",
+    "submitStatus": "已提交：page_864f5495a73b2548",
+    "domSignalBlockCount": 120,
+    "domSignalLinkCount": 160,
+    "pageStateHints": [
+      "media_dom_limited"
+    ]
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_864f5495a73b2548",
+      "title": "Latest news, sport and opinion from the Guardian",
+      "url": "https://www.theguardian.com/international",
+      "domain": "www.theguardian.com"
+    },
+    "readiness": "pass",
+    "overallScore": 0.91,
+    "warnings": [
+      "MEDIA_DOM_LIMITED"
+    ],
+    "fatalIssues": [],
+    "highSignalBlocks": 104,
+    "digestItems": 18,
+    "sourceRefs": 123,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.154,
+        "numerator": 19,
+        "denominator": 123,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.605,
+        "numerator": 20608,
+        "denominator": 34039,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": false
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 104,
+        "denominator": 104,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 123,
+        "denominator": 123,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.042,
+        "numerator": 234,
+        "denominator": 5604,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.611,
+        "numerator": 11,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0108"
+        ],
+        "label": "He is more than repaying",
+        "excerpt": "He is more than repaying his coach’s faith 7h ago Bosnia and HerzegovinaUS performance stirs mixed emotions in St Louis community Folarin BalogunWhy the US forward's red card will not be be struck off Big interview Cape Verde’s Sidny Lopes"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0118",
+          "src_page_864f5495a73b2548_0108",
+          "src_page_864f5495a73b2548_0121",
+          "src_page_864f5495a73b2548_0029",
+          "src_page_864f5495a73b2548_0107",
+          "src_page_864f5495a73b2548_0111",
+          "src_page_864f5495a73b2548_0104",
+          "src_page_864f5495a73b2548_0090",
+          "src_page_864f5495a73b2548_0091",
+          "src_page_864f5495a73b2548_0034",
+          "src_page_864f5495a73b2548_0062",
+          "src_page_864f5495a73b2548_0106",
+          "src_page_864f5495a73b2548_0030",
+          "src_page_864f5495a73b2548_0103",
+          "src_page_864f5495a73b2548_0054",
+          "src_page_864f5495a73b2548_0014",
+          "src_page_864f5495a73b2548_0009",
+          "src_page_864f5495a73b2548_0011"
+        ],
+        "label": "核心要点",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0118"
+        ],
+        "label": "This film joins group of",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0121"
+        ],
+        "label": "It s Caroline Aherne s 10",
+        "excerpt": "It’s Caroline Aherne’s 10 best moments Ohio authorities rescue 16 children confined to one room for four years Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Harry Kane the one who saves Tuchel as Engla"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0029"
+        ],
+        "label": "News Ukraine At least 21",
+        "excerpt": "News Ukraine At least 21 dead as Russia launches massive drone and missile attack on Kyiv More than 70 missiles fired at Ukraine capital as Russia faces fuel shortages after strikes against its oil refineries 6h ago RussiaRussia ‘mounted dr"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0107"
+        ],
+        "label": "Trump is avoiding World",
+        "excerpt": "Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Barney Ronay For all its gloss and elitist governance, football will not bend to the will of a president so eager to demonise and exclude 6h ago Interactiv"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-root",
+        "nodeId": "root",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0001",
+          "src_page_864f5495a73b2548_0002",
+          "src_page_864f5495a73b2548_0003",
+          "src_page_864f5495a73b2548_0004"
+        ],
+        "label": "Latest news, sport and opinion from Guardian",
+        "excerpt": "World Cup live Spain v Austria"
+      }
+    ],
+    "evidenceCardCount": 5,
+    "evidenceCardLabels": [
+      "核心要点",
+      "This film joins group of",
+      "He is more than repaying",
+      "It s Caroline Aherne s 10",
+      "News Ukraine At least 21"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 6,
+    "readingMapDetailText": "Latest news, sport and opinion from GuardianreadyWorld Cup live Spain v Austria4 sourcedetail4 sourcesWorld Cup live Spain v Austria",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0108"
+        ],
+        "label": "He is more than repaying",
+        "excerpt": "He is more than repaying his coach’s faith 7h ago Bosnia and HerzegovinaUS performance stirs mixed emotions in St Louis community Folarin BalogunWhy the US forward's red card will not be be struck off Big interview Cape Verde’s Sidny Lopes"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0118",
+          "src_page_864f5495a73b2548_0108",
+          "src_page_864f5495a73b2548_0121",
+          "src_page_864f5495a73b2548_0029",
+          "src_page_864f5495a73b2548_0107",
+          "src_page_864f5495a73b2548_0111",
+          "src_page_864f5495a73b2548_0104",
+          "src_page_864f5495a73b2548_0090",
+          "src_page_864f5495a73b2548_0091",
+          "src_page_864f5495a73b2548_0034",
+          "src_page_864f5495a73b2548_0062",
+          "src_page_864f5495a73b2548_0106",
+          "src_page_864f5495a73b2548_0030",
+          "src_page_864f5495a73b2548_0103",
+          "src_page_864f5495a73b2548_0054",
+          "src_page_864f5495a73b2548_0014",
+          "src_page_864f5495a73b2548_0009",
+          "src_page_864f5495a73b2548_0011"
+        ],
+        "label": "核心要点",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0118"
+        ],
+        "label": "This film joins group of",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0121"
+        ],
+        "label": "It s Caroline Aherne s 10",
+        "excerpt": "It’s Caroline Aherne’s 10 best moments Ohio authorities rescue 16 children confined to one room for four years Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Harry Kane the one who saves Tuchel as Engla"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0029"
+        ],
+        "label": "News Ukraine At least 21",
+        "excerpt": "News Ukraine At least 21 dead as Russia launches massive drone and missile attack on Kyiv More than 70 missiles fired at Ukraine capital as Russia faces fuel shortages after strikes against its oil refineries 6h ago RussiaRussia ‘mounted dr"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0107"
+        ],
+        "label": "Trump is avoiding World",
+        "excerpt": "Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Barney Ronay For all its gloss and elitist governance, football will not bend to the will of a president so eager to demonise and exclude 6h ago Interactiv"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-root",
+        "nodeId": "root",
+        "sourceRefIds": [
+          "src_page_864f5495a73b2548_0001",
+          "src_page_864f5495a73b2548_0002",
+          "src_page_864f5495a73b2548_0003",
+          "src_page_864f5495a73b2548_0004"
+        ],
+        "label": "Latest news, sport and opinion from Guardian",
+        "excerpt": "World Cup live Spain v Austria"
+      }
+    ],
+    "evidenceText": "He is more than repayinglocatedHe is more than repaying his coach’s faith 7h ago Bosnia and HerzegovinaUS performance stirs mixed emotions in St Louis community Folarin BalogunWhy the US forward's red card will not be be struck off Big interview Cape Verde’s Sidny Lopes已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 16 for the-guardian; label=He is more than repaying",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 16 for the-guardian; label=He is more than repaying",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "He is more than repaying",
+        "excerpt": "He is more than repaying his coach’s faith 7h ago Bosnia and HerzegovinaUS performance stirs mixed emotions in St Louis community Folarin BalogunWhy the US forward's red card will not be be struck off Big interview Cape Verde’s Sidny Lopes",
+        "score": 16
+      },
+      {
+        "index": 2,
+        "label": "This film joins group of",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w",
+        "score": 16
+      },
+      {
+        "index": 3,
+        "label": "It s Caroline Aherne s 10",
+        "excerpt": "It’s Caroline Aherne’s 10 best moments Ohio authorities rescue 16 children confined to one room for four years Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Harry Kane the one who saves Tuchel as Engla",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "News Ukraine At least 21",
+        "excerpt": "News Ukraine At least 21 dead as Russia launches massive drone and missile attack on Kyiv More than 70 missiles fired at Ukraine capital as Russia faces fuel shortages after strikes against its oil refineries 6h ago RussiaRussia ‘mounted dr",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "Trump is avoiding World",
+        "excerpt": "Trump is avoiding the World Cup because it’s packed with good things he doesn’t like Barney Ronay For all its gloss and elitist governance, football will not bend to the will of a president so eager to demonise and exclude 6h ago Interactiv",
+        "score": 16
+      },
+      {
+        "index": 1,
+        "label": "核心要点",
+        "excerpt": "This film joins a group of caregivers in east London as they reclaim a few hours of their teenage lives You may have missed UFOs The Harvard astronomer dubbed Trump’s chief alien hunter starts by assuming UFOs human-made America at 250 ‘I w",
+        "score": -2
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 5,
+    "evidenceCardLabelCount": 5,
+    "sourceCardLabelCount": 7,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 20.2,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-02T20:46:10.959Z"
+}

@@ -1,0 +1,151 @@
+{
+  "action": "jumpback_source_card",
+  "index": 1,
+  "sourceCards": [
+    {
+      "index": 0,
+      "testId": "mindmap-source-card-node_11",
+      "nodeId": "node_11",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0008",
+        "src_page_33defb3ddfb84546_0015",
+        "src_page_33defb3ddfb84546_0002",
+        "src_page_33defb3ddfb84546_0006",
+        "src_page_33defb3ddfb84546_0024",
+        "src_page_33defb3ddfb84546_0037",
+        "src_page_33defb3ddfb84546_0022",
+        "src_page_33defb3ddfb84546_0031"
+      ],
+      "label": "article_title",
+      "excerpt": "JavaScript: Scripting language"
+    },
+    {
+      "index": 1,
+      "testId": "mindmap-source-card-node_7",
+      "nodeId": "node_7",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0072",
+        "src_page_33defb3ddfb84546_0071"
+      ],
+      "label": "article_body",
+      "excerpt": "This page was last modified on Jun 8, 2026 by MDN contributors."
+    },
+    {
+      "index": 2,
+      "testId": "mindmap-source-card-node_5",
+      "nodeId": "node_5",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0101",
+        "src_page_33defb3ddfb84546_0057",
+        "src_page_33defb3ddfb84546_0103",
+        "src_page_33defb3ddfb84546_0055",
+        "src_page_33defb3ddfb84546_0076"
+      ],
+      "label": "核心要点",
+      "excerpt": "It is a global method in both Window and Worker contexts. This makes it available in pretty much any context you might want to fetch resources in. The fetch() method takes one mandatory argument, the path to the resource you want to fetch."
+    },
+    {
+      "index": 3,
+      "testId": "mindmap-source-card-node_3",
+      "nodeId": "node_3",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0102",
+        "src_page_33defb3ddfb84546_0048"
+      ],
+      "label": "流程与操作",
+      "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+    },
+    {
+      "index": 4,
+      "testId": "mindmap-source-card-node_1",
+      "nodeId": "node_1",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0104"
+      ],
+      "label": "架构与接口",
+      "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+    },
+    {
+      "index": 5,
+      "testId": "mindmap-source-card-node_2",
+      "nodeId": "node_2",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0104"
+      ],
+      "label": "Specifications",
+      "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea"
+    },
+    {
+      "index": 6,
+      "testId": "mindmap-source-card-node_4",
+      "nodeId": "node_4",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0102"
+      ],
+      "label": "You can create request and",
+      "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res"
+    },
+    {
+      "index": 7,
+      "testId": "mindmap-source-card-node_6",
+      "nodeId": "node_6",
+      "sourceRefIds": [
+        "src_page_33defb3ddfb84546_0101"
+      ],
+      "label": "It is global method in",
+      "excerpt": "It is a global method in both Window and Worker contexts. This makes it available in pretty much any context you might want to fetch resources in. The fetch() method takes one mandatory argument, the path to the resource you want to fetch."
+    }
+  ],
+  "evidenceText": "article_bodylocatedThis page was last modified on Jun 8, 2026 by MDN contributors.已定位并高亮来源。",
+  "sourceEvidenceVisible": true,
+  "status": "highlighted",
+  "selectedSourceCardIndex": 1,
+  "selectedSourceCardReason": "candidate score 42 for mdn; label=article_body",
+  "sourceCardAttemptCount": 1,
+  "sourceCardAttempts": [
+    {
+      "index": 1,
+      "status": "highlighted",
+      "reason": "candidate score 42 for mdn; label=article_body",
+      "failureReason": null
+    }
+  ],
+  "sourceCardCandidates": [
+    {
+      "index": 1,
+      "label": "article_body",
+      "excerpt": "This page was last modified on Jun 8, 2026 by MDN contributors.",
+      "score": 42
+    },
+    {
+      "index": 0,
+      "label": "article_title",
+      "excerpt": "JavaScript: Scripting language",
+      "score": 40
+    },
+    {
+      "index": 3,
+      "label": "流程与操作",
+      "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res",
+      "score": 18
+    },
+    {
+      "index": 4,
+      "label": "架构与接口",
+      "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea",
+      "score": 16
+    },
+    {
+      "index": 5,
+      "label": "Specifications",
+      "excerpt": "Specifications Specification Fetch # fetch-method Fetch # deferred-fetch Browser compatibility api.fetch api.Window.fetchLater See also Using Fetch Service Worker API HTTP access control (CORS) HTTP Local network access Help improve MDN Lea",
+      "score": 16
+    },
+    {
+      "index": 6,
+      "label": "You can create request and",
+      "excerpt": "You can create a request and response directly using the Request() and Response() constructors, but it's uncommon to do this directly. Instead, these are more likely to be created as results of other API actions (for example, FetchEvent.res",
+      "score": 16
+    }
+  ]
+}

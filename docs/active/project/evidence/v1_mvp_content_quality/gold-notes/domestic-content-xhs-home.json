@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "v1-mvp-content-quality.gold-notes.1",
+  "pageId": "domestic-content-xhs-home",
+  "url": "https://www.xiaohongshu.com/explore",
+  "reviewStatus": "semi_auto_accepted",
+  "reviewedAt": "2026-07-02T20:54:02.856Z",
+  "expectedMainClaims": [
+    {
+      "id": "claim-1",
+      "text": "笔记卡片",
+      "mustAppear": true
+    },
+    {
+      "id": "claim-2",
+      "text": "标题",
+      "mustAppear": false
+    },
+    {
+      "id": "claim-3",
+      "text": "作者",
+      "mustAppear": false
+    }
+  ],
+  "expectedMindmapThemes": [
+    {
+      "id": "theme-1",
+      "text": "笔记卡片",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-2",
+      "text": "标题",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-3",
+      "text": "作者",
+      "mustAppear": false
+    }
+  ],
+  "prohibitedNoiseThemes": [
+    {
+      "id": "noise-1",
+      "text": "首页",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-2",
+      "text": "登录",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-3",
+      "text": "广告",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-4",
+      "text": "推荐",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-5",
+      "text": "评论",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-6",
+      "text": "版权",
+      "mustAppear": false
+    }
+  ],
+  "requiredEvidenceTargets": [
+    {
+      "targetId": "evidence-1",
+      "description": "核心要点",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-2",
+      "description": "Superpowers不再是最佳实践：2026下半年你",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-3",
+      "description": "德荷出局全给 C罗铺路？梅西赛程简直躺赢！",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    }
+  ],
+  "lowSignalPolicy": {
+    "mayPassWhenOnlyTitleAvailable": false,
+    "degradedReasonRequired": true
+  },
+  "finalStrictEligible": true,
+  "notes": "CQ 自动化 strict gold note。人工复核前不得升级为 full V1 complete；本文件用于防止标题、导航、推荐、评论或站点壳冒充正文理解。"
+}

@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "v1-mvp-content-quality.gold-notes.1",
+  "pageId": "domestic-article-cnblogs",
+  "url": "https://www.cnblogs.com/",
+  "reviewStatus": "semi_auto_accepted",
+  "reviewedAt": "2026-07-02T20:54:02.790Z",
+  "expectedMainClaims": [
+    {
+      "id": "claim-1",
+      "text": "文章标题",
+      "mustAppear": true
+    },
+    {
+      "id": "claim-2",
+      "text": "摘要",
+      "mustAppear": false
+    },
+    {
+      "id": "claim-3",
+      "text": "作者",
+      "mustAppear": false
+    }
+  ],
+  "expectedMindmapThemes": [
+    {
+      "id": "theme-1",
+      "text": "文章标题",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-2",
+      "text": "摘要",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-3",
+      "text": "作者",
+      "mustAppear": false
+    }
+  ],
+  "prohibitedNoiseThemes": [
+    {
+      "id": "noise-1",
+      "text": "推荐",
+      "mustAppear": false
+    }
+  ],
+  "requiredEvidenceTargets": [
+    {
+      "targetId": "evidence-1",
+      "description": "article_body",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-2",
+      "description": "IT老彭 2026-07-01 23 25 0 0 4 AI",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-3",
+      "description": "视频与内容",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    }
+  ],
+  "lowSignalPolicy": {
+    "mayPassWhenOnlyTitleAvailable": false,
+    "degradedReasonRequired": true
+  },
+  "finalStrictEligible": true,
+  "notes": "CQ 自动化 strict gold note。人工复核前不得升级为 full V1 complete；本文件用于防止标题、导航、推荐、评论或站点壳冒充正文理解。"
+}

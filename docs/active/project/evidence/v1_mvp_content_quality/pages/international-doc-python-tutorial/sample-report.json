@@ -1,0 +1,891 @@
+{
+  "sampleId": "international-doc-python-tutorial",
+  "siteId": "python-docs",
+  "siteName": "Python Docs",
+  "manifest": {
+    "pageId": "international-doc-python-tutorial",
+    "contentCategory": "international_knowledge_blog_doc",
+    "countryRegion": "international",
+    "pageType": "docs",
+    "loginStatePolicy": "public_no_login",
+    "expectedMainContentSignals": [],
+    "prohibitedNoiseSignals": [
+      "首页",
+      "登录",
+      "广告",
+      "推荐",
+      "评论",
+      "版权",
+      "导航",
+      "图1"
+    ]
+  },
+  "pageKind": "docs",
+  "url": "https://docs.python.org/3/tutorial/",
+  "startedAt": "2026-07-02T20:52:15.786Z",
+  "result": "pass",
+  "fatalIssues": [],
+  "majorIssues": [],
+  "finalUrl": "https://docs.python.org/3/tutorial/",
+  "dom": {
+    "title": "The Python Tutorial — Python 3.14.6 documentation",
+    "url": "https://docs.python.org/3/tutorial/",
+    "bodyTextLength": 7619,
+    "bodyTextSample": "index modules | next | previous | Python » Greek | Ελληνικά English Spanish | español French | français Italian | italiano Japanese | 日本語 Korean | 한국어 Polish | polski Brazilian Portuguese | Português brasileiro Romanian | Românește Turkish | Türkçe Simplified Chinese | 简体中文 Traditional Chinese | 繁體中文 dev (3.16) pre (3.15) 3.14.6 3.13 3.12 3.11 3.10 3.9 3.8 3.7 3.6 3.5 3.4 3.3 3.2 3.1 3.0 2.7 2.6 3.14.6 Documentation » The Python Tutorial | Theme Auto Light Dark | The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to ",
+    "anchorCount": 175,
+    "anchors": [
+      {
+        "text": "",
+        "href": "https://www.python.org/"
+      },
+      {
+        "text": "Changelog",
+        "href": "https://docs.python.org/3/whatsnew/changelog.html"
+      },
+      {
+        "text": "1. Whetting Your Appetite",
+        "href": "https://docs.python.org/3/tutorial/appetite.html"
+      },
+      {
+        "text": "Report a bug",
+        "href": "https://docs.python.org/3/bugs.html"
+      },
+      {
+        "text": "Improve this page",
+        "href": "https://docs.python.org/3/improve-page.html?pagetitle=The+Python+Tutorial&pageurl=https%3A%2F%2Fdocs.python.org%2F3%2Ftutorial%2F&pagesource=tutorial%2Findex.rst"
+      },
+      {
+        "text": "Show source",
+        "href": "https://github.com/python/cpython/blob/main/Doc/tutorial/index.rst?plain=1"
+      },
+      {
+        "text": "index",
+        "href": "https://docs.python.org/3/genindex.html"
+      },
+      {
+        "text": "modules",
+        "href": "https://docs.python.org/3/py-modindex.html"
+      },
+      {
+        "text": "next",
+        "href": "https://docs.python.org/3/tutorial/appetite.html"
+      },
+      {
+        "text": "previous",
+        "href": "https://docs.python.org/3/whatsnew/changelog.html"
+      },
+      {
+        "text": "Python",
+        "href": "https://www.python.org/"
+      },
+      {
+        "text": "3.14.6 Documentation",
+        "href": "https://docs.python.org/3/index.html"
+      },
+      {
+        "text": "The Python Tutorial",
+        "href": "https://docs.python.org/3/tutorial/"
+      },
+      {
+        "text": "¶",
+        "href": "https://docs.python.org/3/tutorial/#the-python-tutorial"
+      },
+      {
+        "text": "https://www.python.org/",
+        "href": "https://www.python.org/"
+      },
+      {
+        "text": "The Python Standard Library",
+        "href": "https://docs.python.org/3/library/index.html#library-index"
+      },
+      {
+        "text": "The Python Language Reference",
+        "href": "https://docs.python.org/3/reference/index.html#reference-index"
+      },
+      {
+        "text": "Extending and Embedding the Python Interpreter",
+        "href": "https://docs.python.org/3/extending/index.html#extending-index"
+      },
+      {
+        "text": "Python/C API reference manual",
+        "href": "https://docs.python.org/3/c-api/index.html#c-api-index"
+      },
+      {
+        "text": "The Python Standard Library",
+        "href": "https://docs.python.org/3/library/index.html#library-index"
+      },
+      {
+        "text": "Glossary",
+        "href": "https://docs.python.org/3/glossary.html#glossary"
+      },
+      {
+        "text": "1. Whetting Your Appetite",
+        "href": "https://docs.python.org/3/tutorial/appetite.html"
+      },
+      {
+        "text": "2. Using the Python Interpreter",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html"
+      },
+      {
+        "text": "2.1. Invoking the Interpreter",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html#invoking-the-interpreter"
+      },
+      {
+        "text": "2.1.1. Argument Passing",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html#argument-passing"
+      },
+      {
+        "text": "2.1.2. Interactive Mode",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html#interactive-mode"
+      },
+      {
+        "text": "2.2. The Interpreter and Its Environment",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html#the-interpreter-and-its-environment"
+      },
+      {
+        "text": "2.2.1. Source Code Encoding",
+        "href": "https://docs.python.org/3/tutorial/interpreter.html#source-code-encoding"
+      },
+      {
+        "text": "3. An Informal Introduction to Python",
+        "href": "https://docs.python.org/3/tutorial/introduction.html"
+      },
+      {
+        "text": "3.1. Using Python as a Calculator",
+        "href": "https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator"
+      },
+      {
+        "text": "3.1.1. Numbers",
+        "href": "https://docs.python.org/3/tutorial/introduction.html#numbers"
+      },
+      {
+        "text": "3.1.2. Text",
+        "href": "https://docs.python.org/3/tutorial/introduction.html#text"
+      },
+      {
+        "text": "3.1.3. Lists",
+        "href": "https://docs.python.org/3/tutorial/introduction.html#lists"
+      },
+      {
+        "text": "3.2. First Steps Towards Programming",
+        "href": "https://docs.python.org/3/tutorial/introduction.html#first-steps-towards-programming"
+      },
+      {
+        "text": "4. More Control Flow Tools",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html"
+      },
+      {
+        "text": "4.1. if Statements",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#if-statements"
+      },
+      {
+        "text": "4.2. for Statements",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#for-statements"
+      },
+      {
+        "text": "4.3. The range() Function",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#the-range-function"
+      },
+      {
+        "text": "4.4. break and continue Statements",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#break-and-continue-statements"
+      },
+      {
+        "text": "4.5. else Clauses on Loops",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#else-clauses-on-loops"
+      },
+      {
+        "text": "4.6. pass Statements",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#pass-statements"
+      },
+      {
+        "text": "4.7. match Statements",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#match-statements"
+      },
+      {
+        "text": "4.8. Defining Functions",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions"
+      },
+      {
+        "text": "4.9. More on Defining Functions",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions"
+      },
+      {
+        "text": "4.9.1. Default Argument Values",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#default-argument-values"
+      },
+      {
+        "text": "4.9.2. Keyword Arguments",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments"
+      },
+      {
+        "text": "4.9.3. Special parameters",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#special-parameters"
+      },
+      {
+        "text": "4.9.3.1. Positional-or-Keyword Arguments",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#positional-or-keyword-arguments"
+      },
+      {
+        "text": "4.9.3.2. Positional-Only Parameters",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#positional-only-parameters"
+      },
+      {
+        "text": "4.9.3.3. Keyword-Only Arguments",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#keyword-only-arguments"
+      },
+      {
+        "text": "4.9.3.4. Function Examples",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#function-examples"
+      },
+      {
+        "text": "4.9.3.5. Recap",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#recap"
+      },
+      {
+        "text": "4.9.4. Arbitrary Argument Lists",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists"
+      },
+      {
+        "text": "4.9.5. Unpacking Argument Lists",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists"
+      },
+      {
+        "text": "4.9.6. Lambda Expressions",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions"
+      },
+      {
+        "text": "4.9.7. Documentation Strings",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#documentation-strings"
+      },
+      {
+        "text": "4.9.8. Function Annotations",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#function-annotations"
+      },
+      {
+        "text": "4.10. Intermezzo: Coding Style",
+        "href": "https://docs.python.org/3/tutorial/controlflow.html#intermezzo-coding-style"
+      },
+      {
+        "text": "5. Data Structures",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html"
+      },
+      {
+        "text": "5.1. More on Lists",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#more-on-lists"
+      },
+      {
+        "text": "5.1.1. Using Lists as Stacks",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks"
+      },
+      {
+        "text": "5.1.2. Using Lists as Queues",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues"
+      },
+      {
+        "text": "5.1.3. List Comprehensions",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions"
+      },
+      {
+        "text": "5.1.4. Nested List Comprehensions",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#nested-list-comprehensions"
+      },
+      {
+        "text": "5.2. The del statement",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#the-del-statement"
+      },
+      {
+        "text": "5.3. Tuples and Sequences",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences"
+      },
+      {
+        "text": "5.4. Sets",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#sets"
+      },
+      {
+        "text": "5.5. Dictionaries",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#dictionaries"
+      },
+      {
+        "text": "5.6. Looping Techniques",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#looping-techniques"
+      },
+      {
+        "text": "5.7. More on Conditions",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#more-on-conditions"
+      },
+      {
+        "text": "5.8. Comparing Sequences and Other Types",
+        "href": "https://docs.python.org/3/tutorial/datastructures.html#comparing-sequences-and-other-types"
+      },
+      {
+        "text": "6. Modules",
+        "href": "https://docs.python.org/3/tutorial/modules.html"
+      },
+      {
+        "text": "6.1. More on Modules",
+        "href": "https://docs.python.org/3/tutorial/modules.html#more-on-modules"
+      },
+      {
+        "text": "6.1.1. Executing modules as scripts",
+        "href": "https://docs.python.org/3/tutorial/modules.html#executing-modules-as-scripts"
+      },
+      {
+        "text": "6.1.2. The Module Search Path",
+        "href": "https://docs.python.org/3/tutorial/modules.html#the-module-search-path"
+      },
+      {
+        "text": "6.1.3. “Compiled” Python files",
+        "href": "https://docs.python.org/3/tutorial/modules.html#compiled-python-files"
+      },
+      {
+        "text": "6.2. Standard Modules",
+        "href": "https://docs.python.org/3/tutorial/modules.html#standard-modules"
+      },
+      {
+        "text": "6.3. The dir() Function",
+        "href": "https://docs.python.org/3/tutorial/modules.html#the-dir-function"
+      },
+      {
+        "text": "6.4. Packages",
+        "href": "https://docs.python.org/3/tutorial/modules.html#packages"
+      },
+      {
+        "text": "6.4.1. Importing * From a Package",
+        "href": "https://docs.python.org/3/tutorial/modules.html#importing-from-a-package"
+      },
+      {
+        "text": "6.4.2. Intra-package References",
+        "href": "https://docs.python.org/3/tutorial/modules.html#intra-package-references"
+      },
+      {
+        "text": "6.4.3. Packages in Multiple Directories",
+        "href": "https://docs.python.org/3/tutorial/modules.html#packages-in-multiple-directories"
+      },
+      {
+        "text": "7. Input and Output",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html"
+      },
+      {
+        "text": "7.1. Fancier Output Formatting",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#fancier-output-formatting"
+      },
+      {
+        "text": "7.1.1. Formatted String Literals",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals"
+      },
+      {
+        "text": "7.1.2. The String format() Method",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#the-string-format-method"
+      },
+      {
+        "text": "7.1.3. Manual String Formatting",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#manual-string-formatting"
+      },
+      {
+        "text": "7.1.4. Old string formatting",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#old-string-formatting"
+      },
+      {
+        "text": "7.2. Reading and Writing Files",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files"
+      },
+      {
+        "text": "7.2.1. Methods of File Objects",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects"
+      },
+      {
+        "text": "7.2.2. Saving structured data with json",
+        "href": "https://docs.python.org/3/tutorial/inputoutput.html#saving-structured-data-with-json"
+      },
+      {
+        "text": "8. Errors and Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html"
+      },
+      {
+        "text": "8.1. Syntax Errors",
+        "href": "https://docs.python.org/3/tutorial/errors.html#syntax-errors"
+      },
+      {
+        "text": "8.2. Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#exceptions"
+      },
+      {
+        "text": "8.3. Handling Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#handling-exceptions"
+      },
+      {
+        "text": "8.4. Raising Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#raising-exceptions"
+      },
+      {
+        "text": "8.5. Exception Chaining",
+        "href": "https://docs.python.org/3/tutorial/errors.html#exception-chaining"
+      },
+      {
+        "text": "8.6. User-defined Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#user-defined-exceptions"
+      },
+      {
+        "text": "8.7. Defining Clean-up Actions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#defining-clean-up-actions"
+      },
+      {
+        "text": "8.8. Predefined Clean-up Actions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#predefined-clean-up-actions"
+      },
+      {
+        "text": "8.9. Raising and Handling Multiple Unrelated Exceptions",
+        "href": "https://docs.python.org/3/tutorial/errors.html#raising-and-handling-multiple-unrelated-exceptions"
+      },
+      {
+        "text": "8.10. Enriching Exceptions with Notes",
+        "href": "https://docs.python.org/3/tutorial/errors.html#enriching-exceptions-with-notes"
+      },
+      {
+        "text": "9. Classes",
+        "href": "https://docs.python.org/3/tutorial/classes.html"
+      },
+      {
+        "text": "9.1. A Word About Names and Objects",
+        "href": "https://docs.python.org/3/tutorial/classes.html#a-word-about-names-and-objects"
+      },
+      {
+        "text": "9.2. Python Scopes and Namespaces",
+        "href": "https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces"
+      },
+      {
+        "text": "9.2.1. Scopes and Namespaces Example",
+        "href": "https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example"
+      },
+      {
+        "text": "9.3. A First Look at Classes",
+        "href": "https://docs.python.org/3/tutorial/classes.html#a-first-look-at-classes"
+      },
+      {
+        "text": "9.3.1. Class Definition Syntax",
+        "href": "https://docs.python.org/3/tutorial/classes.html#class-definition-syntax"
+      },
+      {
+        "text": "9.3.2. Class Objects",
+        "href": "https://docs.python.org/3/tutorial/classes.html#class-objects"
+      },
+      {
+        "text": "9.3.3. Instance Objects",
+        "href": "https://docs.python.org/3/tutorial/classes.html#instance-objects"
+      },
+      {
+        "text": "9.3.4. Method Objects",
+        "href": "https://docs.python.org/3/tutorial/classes.html#method-objects"
+      },
+      {
+        "text": "9.3.5. Class and Instance Variables",
+        "href": "https://docs.python.org/3/tutorial/classes.html#class-and-instance-variables"
+      },
+      {
+        "text": "9.4. Random Remarks",
+        "href": "https://docs.python.org/3/tutorial/classes.html#random-remarks"
+      },
+      {
+        "text": "9.5. Inheritance",
+        "href": "https://docs.python.org/3/tutorial/classes.html#inheritance"
+      },
+      {
+        "text": "9.5.1. Multiple Inheritance",
+        "href": "https://docs.python.org/3/tutorial/classes.html#multiple-inheritance"
+      },
+      {
+        "text": "9.6. Private Variables",
+        "href": "https://docs.python.org/3/tutorial/classes.html#private-variables"
+      },
+      {
+        "text": "9.7. Odds and Ends",
+        "href": "https://docs.python.org/3/tutorial/classes.html#odds-and-ends"
+      },
+      {
+        "text": "9.8. Iterators",
+        "href": "https://docs.python.org/3/tutorial/classes.html#iterators"
+      },
+      {
+        "text": "9.9. Generators",
+        "href": "https://docs.python.org/3/tutorial/classes.html#generators"
+      },
+      {
+        "text": "9.10. Generator Expressions",
+        "href": "https://docs.python.org/3/tutorial/classes.html#generator-expressions"
+      }
+    ],
+    "loginHints": [],
+    "hasNaviaSidebar": true,
+    "hasNaviaLauncher": true
+  },
+  "routeValidation": {
+    "fatalIssues": []
+  },
+  "sidepanel": {
+    "runtimeStatus": "online",
+    "pageContextState": "captured",
+    "sessionId": "sess_00000000000000000000001511",
+    "pageTitle": "The Python Tutorial — Python 3.14.6 documentation",
+    "submitStatus": "已提交：page_a902352e0cfc44c9",
+    "domSignalBlockCount": 120,
+    "domSignalLinkCount": 159,
+    "pageStateHints": []
+  },
+  "perception": {
+    "activePage": {
+      "pageId": "page_a902352e0cfc44c9",
+      "title": "The Python Tutorial — Python 3.14.6 documentation",
+      "url": "https://docs.python.org/3/tutorial/",
+      "domain": "docs.python.org"
+    },
+    "readiness": "pass",
+    "overallScore": 0.976,
+    "warnings": [],
+    "fatalIssues": [],
+    "highSignalBlocks": 108,
+    "digestItems": 18,
+    "sourceRefs": 112,
+    "qualityMetrics": {
+      "noiseRatio": {
+        "value": 0.036,
+        "numerator": 4,
+        "denominator": 112,
+        "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+        "threshold": 0.25,
+        "passed": true
+      },
+      "contentCoverage": {
+        "value": 0.897,
+        "numerator": 15161,
+        "denominator": 16901,
+        "method": "highSignalContentChars / readableContentChars",
+        "threshold": 0.75,
+        "passed": true
+      },
+      "sourceCoverage": {
+        "value": 1,
+        "numerator": 108,
+        "denominator": 108,
+        "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "groundingCompleteness": {
+        "value": 1,
+        "numerator": 18,
+        "denominator": 18,
+        "method": "digestItemsWithSourceRefs / digestItemsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "jumpbackCoverage": {
+        "value": 1,
+        "numerator": 112,
+        "denominator": 112,
+        "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+        "threshold": 0.95,
+        "passed": true
+      },
+      "digestCompressionRatio": {
+        "value": 0.079,
+        "numerator": 245,
+        "denominator": 3098,
+        "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+        "threshold": 0.35,
+        "passed": true
+      },
+      "candidateFactDensity": {
+        "value": 0.889,
+        "numerator": 16,
+        "denominator": 18,
+        "method": "digestCandidateFactItems / digestItemCount",
+        "threshold": 0.5,
+        "passed": true
+      }
+    }
+  },
+  "cards": {
+    "action": "source_cards_snapshot",
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0011"
+        ],
+        "label": "article_meta",
+        "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0102",
+          "src_page_a902352e0cfc44c9_0112",
+          "src_page_a902352e0cfc44c9_0008",
+          "src_page_a902352e0cfc44c9_0103",
+          "src_page_a902352e0cfc44c9_0010",
+          "src_page_a902352e0cfc44c9_0101",
+          "src_page_a902352e0cfc44c9_0109",
+          "src_page_a902352e0cfc44c9_0104",
+          "src_page_a902352e0cfc44c9_0015",
+          "src_page_a902352e0cfc44c9_0013",
+          "src_page_a902352e0cfc44c9_0110",
+          "src_page_a902352e0cfc44c9_0105",
+          "src_page_a902352e0cfc44c9_0012",
+          "src_page_a902352e0cfc44c9_0004",
+          "src_page_a902352e0cfc44c9_0107",
+          "src_page_a902352e0cfc44c9_0014",
+          "src_page_a902352e0cfc44c9_0016"
+        ],
+        "label": "核心要点",
+        "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0102"
+        ],
+        "label": "It has efficient",
+        "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0112"
+        ],
+        "label": "Examples, recipes, and",
+        "excerpt": "Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Las"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0008"
+        ],
+        "label": "Python Tutorial Tip This",
+        "excerpt": "The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. It has efficient high-level data str"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0103"
+        ],
+        "label": "Python interpreter is",
+        "excerpt": "The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications. This tutorial introduc"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0010"
+        ],
+        "label": "Python is easy to learn",
+        "excerpt": "Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpr"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0011"
+        ],
+        "label": "Python interpreter and",
+        "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
+      }
+    ],
+    "evidenceCardCount": 6,
+    "evidenceCardLabels": [
+      "核心要点",
+      "It has efficient",
+      "Examples, recipes, and",
+      "Python Tutorial Tip This",
+      "article_meta",
+      "Python interpreter and"
+    ],
+    "containsEvidenceCardMindmap": true,
+    "containsReadingMap": true,
+    "readingMapNavCount": 7,
+    "readingMapDetailText": "Python Tutorial Python 3.14.6 documentationreadydev (3.16)pre (3.15)3.14.63.133.123.113.103.93.83.73.63.53.43.33.23.13.02.72.64 sourcedetail4 sourcesdev (3.16)pre (3.15)3.14.63.133.123.113.103.93.83.73.63.53.43.33.23.13.02.72.6",
+    "containsSourcePanel": true,
+    "sourceEvidenceVisible": false,
+    "sourceEvidenceText": ""
+  },
+  "jumpback": {
+    "action": "jumpback_source_card",
+    "index": 0,
+    "sourceCards": [
+      {
+        "index": 0,
+        "testId": "mindmap-source-card-node_7",
+        "nodeId": "node_7",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0011"
+        ],
+        "label": "article_meta",
+        "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_1",
+        "nodeId": "node_1",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0102",
+          "src_page_a902352e0cfc44c9_0112",
+          "src_page_a902352e0cfc44c9_0008",
+          "src_page_a902352e0cfc44c9_0103",
+          "src_page_a902352e0cfc44c9_0010",
+          "src_page_a902352e0cfc44c9_0101",
+          "src_page_a902352e0cfc44c9_0109",
+          "src_page_a902352e0cfc44c9_0104",
+          "src_page_a902352e0cfc44c9_0015",
+          "src_page_a902352e0cfc44c9_0013",
+          "src_page_a902352e0cfc44c9_0110",
+          "src_page_a902352e0cfc44c9_0105",
+          "src_page_a902352e0cfc44c9_0012",
+          "src_page_a902352e0cfc44c9_0004",
+          "src_page_a902352e0cfc44c9_0107",
+          "src_page_a902352e0cfc44c9_0014",
+          "src_page_a902352e0cfc44c9_0016"
+        ],
+        "label": "核心要点",
+        "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
+      },
+      {
+        "index": 2,
+        "testId": "mindmap-source-card-node_2",
+        "nodeId": "node_2",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0102"
+        ],
+        "label": "It has efficient",
+        "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
+      },
+      {
+        "index": 3,
+        "testId": "mindmap-source-card-node_3",
+        "nodeId": "node_3",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0112"
+        ],
+        "label": "Examples, recipes, and",
+        "excerpt": "Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Las"
+      },
+      {
+        "index": 4,
+        "testId": "mindmap-source-card-node_4",
+        "nodeId": "node_4",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0008"
+        ],
+        "label": "Python Tutorial Tip This",
+        "excerpt": "The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. It has efficient high-level data str"
+      },
+      {
+        "index": 5,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0103"
+        ],
+        "label": "Python interpreter is",
+        "excerpt": "The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications. This tutorial introduc"
+      },
+      {
+        "index": 6,
+        "testId": "mindmap-source-card-node_6",
+        "nodeId": "node_6",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0010"
+        ],
+        "label": "Python is easy to learn",
+        "excerpt": "Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpr"
+      },
+      {
+        "index": 7,
+        "testId": "mindmap-source-card-node_8",
+        "nodeId": "node_8",
+        "sourceRefIds": [
+          "src_page_a902352e0cfc44c9_0011"
+        ],
+        "label": "Python interpreter and",
+        "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
+      }
+    ],
+    "evidenceText": "article_metalocatedThe Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis已定位并高亮来源。",
+    "sourceEvidenceVisible": true,
+    "status": "highlighted",
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score 40 for python-docs; label=article_meta",
+    "sourceCardAttemptCount": 1,
+    "sourceCardAttempts": [
+      {
+        "index": 0,
+        "status": "highlighted",
+        "reason": "candidate score 40 for python-docs; label=article_meta",
+        "failureReason": null
+      }
+    ],
+    "sourceCardCandidates": [
+      {
+        "index": 0,
+        "label": "article_meta",
+        "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis",
+        "score": 40
+      },
+      {
+        "index": 2,
+        "label": "It has efficient",
+        "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra",
+        "score": 16
+      },
+      {
+        "index": 3,
+        "label": "Examples, recipes, and",
+        "excerpt": "Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Las",
+        "score": 16
+      },
+      {
+        "index": 4,
+        "label": "Python Tutorial Tip This",
+        "excerpt": "The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. It has efficient high-level data str",
+        "score": 16
+      },
+      {
+        "index": 5,
+        "label": "Python interpreter is",
+        "excerpt": "The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications. This tutorial introduc",
+        "score": 16
+      },
+      {
+        "index": 6,
+        "label": "Python is easy to learn",
+        "excerpt": "Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpr",
+        "score": 16
+      }
+    ]
+  },
+  "mindmapQuality": {
+    "labelCount": 6,
+    "evidenceCardLabelCount": 6,
+    "sourceCardLabelCount": 8,
+    "uniqueRatio": 1,
+    "noisyRatio": 0,
+    "averageLabelLength": 16.666666666666668,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "fallbackPolicy": "not_fallback",
+  "completedAt": "2026-07-02T20:52:45.504Z"
+}

@@ -1,0 +1,75 @@
+{
+  "activePage": {
+    "pageId": "page_864f5495a73b2548",
+    "title": "Latest news, sport and opinion from the Guardian",
+    "url": "https://www.theguardian.com/international",
+    "domain": "www.theguardian.com"
+  },
+  "readiness": "pass",
+  "overallScore": 0.91,
+  "warnings": [
+    "MEDIA_DOM_LIMITED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 104,
+  "digestItems": 18,
+  "sourceRefs": 123,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.154,
+      "numerator": 19,
+      "denominator": 123,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.605,
+      "numerator": 20608,
+      "denominator": 34039,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 104,
+      "denominator": 104,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 123,
+      "denominator": 123,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.042,
+      "numerator": 234,
+      "denominator": 5604,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.611,
+      "numerator": 11,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

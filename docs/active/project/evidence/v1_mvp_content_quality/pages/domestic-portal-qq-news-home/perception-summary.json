@@ -1,0 +1,75 @@
+{
+  "activePage": {
+    "pageId": "page_3b1e08e890187bd6",
+    "title": "腾讯网-要闻",
+    "url": "https://news.qq.com/",
+    "domain": "news.qq.com"
+  },
+  "readiness": "degraded",
+  "overallScore": 0.905,
+  "warnings": [
+    "NOT_FOUND_PAGE_FAILED"
+  ],
+  "fatalIssues": [],
+  "highSignalBlocks": 75,
+  "digestItems": 18,
+  "sourceRefs": 88,
+  "qualityMetrics": {
+    "noiseRatio": {
+      "value": 0.148,
+      "numerator": 13,
+      "denominator": 88,
+      "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
+      "threshold": 0.25,
+      "passed": true
+    },
+    "contentCoverage": {
+      "value": 0.516,
+      "numerator": 2904,
+      "denominator": 5625,
+      "method": "highSignalContentChars / readableContentChars",
+      "threshold": 0.75,
+      "passed": false
+    },
+    "sourceCoverage": {
+      "value": 1,
+      "numerator": 75,
+      "denominator": 75,
+      "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "groundingCompleteness": {
+      "value": 1,
+      "numerator": 18,
+      "denominator": 18,
+      "method": "digestItemsWithSourceRefs / digestItemsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "jumpbackCoverage": {
+      "value": 1,
+      "numerator": 88,
+      "denominator": 88,
+      "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
+      "threshold": 0.95,
+      "passed": true
+    },
+    "digestCompressionRatio": {
+      "value": 0.097,
+      "numerator": 88,
+      "denominator": 906,
+      "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
+      "threshold": 0.35,
+      "passed": true
+    },
+    "candidateFactDensity": {
+      "value": 0.722,
+      "numerator": 13,
+      "denominator": 18,
+      "method": "digestCandidateFactItems / digestItemCount",
+      "threshold": 0.5,
+      "passed": true
+    }
+  }
+}

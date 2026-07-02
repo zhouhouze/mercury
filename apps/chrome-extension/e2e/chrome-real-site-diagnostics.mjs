@@ -15,9 +15,12 @@ const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const dataRoot = path.join(evidenceRoot, "pages");
 const runtimeUrl = "http://127.0.0.1:17861";
 const acceptanceMode = process.env.NAVIA_REAL_SITE_ACCEPTANCE_MODE || (evidenceRootRelative.includes("v1_mvp_quality_hardening") ? "v1_mvp_quality_hardening" : "real_site_complex_pages");
+const isQualityHardeningMode = acceptanceMode === "v1_mvp_quality_hardening";
+const isContentQualityMode = acceptanceMode === "v1_mvp_content_quality";
+const isMatrixAcceptanceMode = isQualityHardeningMode || isContentQualityMode;
 const sampleManifestRelative =
   process.env.NAVIA_REAL_SITE_SAMPLE_MANIFEST ||
-  (acceptanceMode === "v1_mvp_quality_hardening" ? `${evidenceRootRelative}/sample-manifest.json` : "");
+  (isMatrixAcceptanceMode ? `${evidenceRootRelative}/sample-manifest.json` : "");
 const sampleManifestPath = sampleManifestRelative ? path.join(repoRoot, sampleManifestRelative) : "";
 const sampleLimit = Math.max(0, Number.parseInt(process.env.NAVIA_REAL_SITE_SAMPLE_LIMIT || "0", 10) || 0);
 const sampleIdsFilter = new Set(
@@ -1035,7 +1038,7 @@ function classifySample({ site, pageKind, routeValidation, dom, sidepanel, perce
     Boolean(jumpback?.sourceEvidenceVisible) &&
     normalizeText(jumpback?.evidenceText ?? "").includes("fallback_shown");
   const scopedHomepageFallbackAllowed =
-    acceptanceMode === "v1_mvp_quality_hardening" &&
+    isMatrixAcceptanceMode &&
     pageKind === "homepage" &&
     fallbackEvidenceVisible &&
     Array.isArray(cards?.sourceCards) &&
@@ -1204,7 +1207,7 @@ function buildReport(samples, browserMode, authCookies = []) {
   const majorIssues = [];
   const environmentNotes = [];
   const expandedSamples = samples.filter((sample) => sample.manifest?.contentCategory);
-  const expandedMode = acceptanceMode === "v1_mvp_quality_hardening" && expandedSamples.length > 0;
+  const expandedMode = isMatrixAcceptanceMode && expandedSamples.length > 0;
   const categoryResults = expandedMode
     ? [...new Set(expandedSamples.map((sample) => sample.manifest.contentCategory))]
         .sort()
@@ -1221,14 +1224,21 @@ function buildReport(samples, browserMode, authCookies = []) {
   if (expandedMode) {
     const domesticSamples = expandedSamples.filter((sample) => sample.manifest.countryRegion === "domestic").length;
     const internationalSamples = expandedSamples.filter((sample) => sample.manifest.countryRegion === "international").length;
-    if (expandedSamples.length < 48) fatalIssues.push(`Expected at least 48 expanded samples, collected ${expandedSamples.length}.`);
-    if (domesticSamples < 24) fatalIssues.push(`Expected at least 24 domestic samples, collected ${domesticSamples}.`);
-    if (internationalSamples < 24) fatalIssues.push(`Expected at least 24 international samples, collected ${internationalSamples}.`);
-    if (passedSamples < 44) fatalIssues.push(`Expected at least 44 passed samples, collected ${passedSamples}.`);
+    const minSamples = isContentQualityMode ? 36 : 48;
+    const minDomestic = isContentQualityMode ? 18 : 24;
+    const minInternational = isContentQualityMode ? 18 : 24;
+    const minPassed = isContentQualityMode ? 34 : 44;
+    const minCategorySamples = isContentQualityMode ? 6 : 8;
+    const minCategoryPassed = isContentQualityMode ? 5 : 7;
+    const minDistinctSites = isContentQualityMode ? 1 : 4;
+    if (expandedSamples.length < minSamples) fatalIssues.push(`Expected at least ${minSamples} expanded samples, collected ${expandedSamples.length}.`);
+    if (domesticSamples < minDomestic) fatalIssues.push(`Expected at least ${minDomestic} domestic samples, collected ${domesticSamples}.`);
+    if (internationalSamples < minInternational) fatalIssues.push(`Expected at least ${minInternational} international samples, collected ${internationalSamples}.`);
+    if (passedSamples < minPassed) fatalIssues.push(`Expected at least ${minPassed} passed samples, collected ${passedSamples}.`);
     for (const result of categoryResults) {
-      if (result.samples < 8) fatalIssues.push(`Category ${result.categoryId} has fewer than 8 samples.`);
-      if (result.passedSamples < 7) fatalIssues.push(`Category ${result.categoryId} has fewer than 7 passed samples.`);
-      if (result.distinctSites < 4) fatalIssues.push(`Category ${result.categoryId} has fewer than 4 distinct sites.`);
+      if (result.samples < minCategorySamples) fatalIssues.push(`Category ${result.categoryId} has fewer than ${minCategorySamples} samples.`);
+      if (result.passedSamples < minCategoryPassed) fatalIssues.push(`Category ${result.categoryId} has fewer than ${minCategoryPassed} passed samples.`);
+      if (result.distinctSites < minDistinctSites) fatalIssues.push(`Category ${result.categoryId} has fewer than ${minDistinctSites} distinct sites.`);
     }
     if (degradedSamples || blockedSamples) {
       environmentNotes.push(`${degradedSamples} sample(s) degraded and ${blockedSamples} sample(s) blocked were retained as honest evidence.`);
@@ -1252,13 +1262,17 @@ function buildReport(samples, browserMode, authCookies = []) {
     environmentNotes.push(`Auth cookies were injected for: ${authCookies.map((item) => `${item.siteId}(${item.count})`).join(", ")}. Cookie values are intentionally omitted from evidence.`);
   }
   const passed = expandedMode
-    ? fatalIssues.length === 0 && expandedSamples.length >= 48 && passedSamples >= 44
+    ? fatalIssues.length === 0 && expandedSamples.length >= (isContentQualityMode ? 36 : 48) && passedSamples >= (isContentQualityMode ? 34 : 44)
     : fatalIssues.length === 0 && majorIssues.length === 0 && samples.length === 6;
   return {
     schemaVersion: expandedMode
-      ? "v1-mvp-quality-hardening.raw-diagnostic.1"
-      : acceptanceMode === "v1_mvp_quality_hardening"
+      ? isContentQualityMode
+        ? "v1-mvp-content-quality.raw-diagnostic.1"
+        : "v1-mvp-quality-hardening.raw-diagnostic.1"
+      : isQualityHardeningMode
         ? "v1-mvp-quality-hardening.1"
+        : isContentQualityMode
+          ? "v1-mvp-content-quality.1"
         : "v1-real-site-complex-pages-diagnostic.1",
     generatedAt: new Date().toISOString(),
     acceptanceMode,
@@ -1317,12 +1331,18 @@ function buildReport(samples, browserMode, authCookies = []) {
     majorIssues,
     environmentNotes,
     claim: passed
-      ? acceptanceMode === "v1_mvp_quality_hardening"
+      ? isContentQualityMode
+        ? expandedMode
+          ? "V1 MVP content quality diagnostic collected strict real-site evidence. Run generate-v1-mvp-content-quality-report.mjs for the final schema report."
+          : "V1 MVP content quality passed scoped real-site acceptance."
+      : isQualityHardeningMode
         ? expandedMode
           ? "V1 MVP quality hardening diagnostic collected expanded real-site evidence. Run generate-v1-mvp-quality-hardening-report.mjs for the final schema report."
           : "V1 MVP quality hardening passed scoped real-site acceptance."
         : "Real-site complex page diagnostic passed for Bilibili, Xiaohongshu, and Guancha homepage/detail samples."
-      : acceptanceMode === "v1_mvp_quality_hardening"
+      : isContentQualityMode
+        ? "No completion claim. V1 MVP content quality remains degraded or blocked."
+      : isQualityHardeningMode
         ? "No completion claim. V1 MVP quality hardening remains degraded or blocked."
         : "No completion claim. Real-site complex page diagnostic found degraded or blocked samples."
   };
@@ -1369,7 +1389,7 @@ ${rows}
   );
   writeText(
     path.join(evidenceRoot, "prd-review.md"),
-    `# ${report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH PRD 规格检视" : "V1 Real-Site Complex Pages PRD Review"}
+    `# ${report.acceptanceMode === "v1_mvp_content_quality" ? "V1-MVP-CQ PRD 规格检视" : report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH PRD 规格检视" : "V1 Real-Site Complex Pages PRD Review"}
 
 Result: ${report.passed ? "PASS" : "FAIL"}
 
@@ -1377,7 +1397,7 @@ Covered:
 
 - B站、小红书、观察者网首页和详情页真实 Chrome 诊断。
 - 当前页读取、Debug / runtime perception、Mindmap、Reading Map、source evidence、jumpback / fallback。
-- V1-MVP-QH 重点：主内容抽取、Mindmap 去噪、source jumpback 三态和可视化证据。
+- V1-MVP-QH / CQ 重点：主内容抽取、Mindmap 去噪、source jumpback 三态和可视化证据。
 - 登录墙、反爬、JS 空壳、媒体主内容和低信号页面按 degraded / blocked 记录。
 
 Not claimed:
@@ -1389,7 +1409,7 @@ Not claimed:
   );
   writeText(
     path.join(evidenceRoot, "false-green-audit.md"),
-    `# ${report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH False-Green Audit" : "V1 Real-Site Complex Pages False-Green Audit"}
+    `# ${report.acceptanceMode === "v1_mvp_content_quality" ? "V1-MVP-CQ False-Green Audit" : report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH False-Green Audit" : "V1 Real-Site Complex Pages False-Green Audit"}
 
 Result: ${report.passed ? "PASS" : "FAIL"}
 
@@ -1398,7 +1418,7 @@ Checks:
 - 6 个样本必须全部 pass 才能声明真实复杂站点诊断通过。
 - fallback 不被记录为 DOM highlight success。
 - blocked 不被记录为 fallback 或 DOM highlight success。
-- V1-MVP-QH 允许动态首页 feed 出现少量 fallback evidence，但必须在 report.json 中保留 fallbackPolicy；详情页 fallback 仍为 major。
+- V1-MVP-QH / CQ 允许动态首页 feed 出现少量 fallback evidence，但必须在 report.json 中保留 fallbackPolicy；详情页 fallback 仍为 major。
 - 登录墙、验证码、反爬、空壳 DOM 和低信号信息流不被伪装为高质量提取。
 - B站 / 小红书媒体内容不通过 OCR、ASR、VLM 或 Web Research 补齐。
 
@@ -1457,7 +1477,7 @@ function writeHtmlReport(report) {
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <title>${escapeHtml(report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 验收报告" : "真实站点验收报告")}</title>
+  <title>${escapeHtml(report.acceptanceMode === "v1_mvp_content_quality" ? "V1-MVP-CQ 验收报告" : report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 验收报告" : "真实站点验收报告")}</title>
   <style>
     body { margin: 0; background: #f6f8f6; color: #14201e; font: 14px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     main { max-width: 1180px; margin: 0 auto; padding: 28px; }
@@ -1481,7 +1501,7 @@ function writeHtmlReport(report) {
 </head>
 <body>
 <main>
-  <h1>${escapeHtml(report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 质量硬化真实站点验收报告" : "V1 真实站点诊断验收报告")}</h1>
+  <h1>${escapeHtml(report.acceptanceMode === "v1_mvp_content_quality" ? "V1-MVP-CQ 内容理解质量真实站点验收报告" : report.acceptanceMode === "v1_mvp_quality_hardening" ? "V1-MVP-QH 质量硬化真实站点验收报告" : "V1 真实站点诊断验收报告")}</h1>
   <section class="summary">
     <p><strong>结论:</strong> ${escapeHtml(report.passed ? "PASS" : "FAIL")}</p>
     <p><strong>声明:</strong> <code>${escapeHtml(report.claim)}</code></p>
@@ -1499,7 +1519,7 @@ function writeHtmlReport(report) {
   <h2>目标架构与当前实现</h2>
   <section class="summary">
     <p>当前实现链路：contentBridge.ts 注入 launcher/sidebar 并读取当前页 DOM signals，sidepanel React App 调用 Runtime，A Page Reading 产出 PerceptionDigest / SourceRef，C Mindmap 产出 nodeSourceMap，B Renderer 展示 Evidence Card Mindmap 和 Source Evidence，用户触发 source jumpback 后 contentBridge 执行定位、高亮、fallback 或 blocked。</p>
-    <p>本报告只验收 V1-MVP-QH scoped quality hardening：主内容抽取、Mindmap 去噪、source jumpback 三态和真实站点截图证据。</p>
+    <p>本报告只验收 V1-MVP-QH / CQ scoped quality hardening：主内容抽取、Mindmap 去噪、source jumpback 三态和真实站点截图证据。</p>
   </section>
   <h2>用户场景截图证据</h2>
   ${cards}

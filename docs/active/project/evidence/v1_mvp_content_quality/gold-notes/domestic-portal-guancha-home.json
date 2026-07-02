@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "v1-mvp-content-quality.gold-notes.1",
+  "pageId": "domestic-portal-guancha-home",
+  "url": "https://www.guancha.cn/",
+  "reviewStatus": "semi_auto_accepted",
+  "reviewedAt": "2026-07-02T20:54:02.753Z",
+  "expectedMainClaims": [
+    {
+      "id": "claim-1",
+      "text": "要闻标题",
+      "mustAppear": true
+    },
+    {
+      "id": "claim-2",
+      "text": "栏目卡片",
+      "mustAppear": false
+    },
+    {
+      "id": "claim-3",
+      "text": "新闻列表",
+      "mustAppear": false
+    }
+  ],
+  "expectedMindmapThemes": [
+    {
+      "id": "theme-1",
+      "text": "要闻标题",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-2",
+      "text": "栏目卡片",
+      "mustAppear": true
+    },
+    {
+      "id": "theme-3",
+      "text": "新闻列表",
+      "mustAppear": false
+    }
+  ],
+  "prohibitedNoiseThemes": [
+    {
+      "id": "noise-1",
+      "text": "首页",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-2",
+      "text": "登录",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-3",
+      "text": "广告",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-4",
+      "text": "推荐",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-5",
+      "text": "评论",
+      "mustAppear": false
+    },
+    {
+      "id": "noise-6",
+      "text": "版权",
+      "mustAppear": false
+    }
+  ],
+  "requiredEvidenceTargets": [
+    {
+      "targetId": "evidence-1",
+      "description": "观察者网",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-2",
+      "description": "如果不直接切断乌克兰的无人机制造能力",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    },
+    {
+      "targetId": "evidence-3",
+      "description": "回望十五年前的那场辩论：两种知识体系的碰撞 张维为 国家高端智库理",
+      "acceptableEvidenceTypes": [
+        "body_text",
+        "lead",
+        "metadata",
+        "fallback_text"
+      ]
+    }
+  ],
+  "lowSignalPolicy": {
+    "mayPassWhenOnlyTitleAvailable": false,
+    "degradedReasonRequired": true
+  },
+  "finalStrictEligible": true,
+  "notes": "CQ 自动化 strict gold note。人工复核前不得升级为 full V1 complete；本文件用于防止标题、导航、推荐、评论或站点壳冒充正文理解。"
+}

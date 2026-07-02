@@ -23,6 +23,9 @@
     "e2e:chrome:real-site-diagnostics": "node e2e/chrome-real-site-diagnostics.mjs",
     "e2e:chrome:v1-mvp-quality-hardening": "npm run build:e2e && NAVIA_REAL_SITE_HEADLESS=1 NAVIA_REAL_SITE_EVIDENCE_ROOT=docs/active/project/evidence/v1_mvp_quality_hardening NAVIA_REAL_SITE_ACCEPTANCE_MODE=v1_mvp_quality_hardening NAVIA_REAL_SITE_SAMPLE_MANIFEST=docs/active/project/evidence/v1_mvp_quality_hardening/sample-manifest.json node e2e/chrome-real-site-diagnostics.mjs && node e2e/generate-v1-mvp-quality-hardening-report.mjs",
     "e2e:chrome:v1-mvp-quality-hardening:report": "node e2e/generate-v1-mvp-quality-hardening-report.mjs",
+    "e2e:chrome:v1-mvp-content-quality:prepare": "node e2e/generate-v1-mvp-content-quality-report.mjs --prepare-only",
+    "e2e:chrome:v1-mvp-content-quality": "npm run e2e:chrome:v1-mvp-content-quality:prepare && npm run build:e2e && NAVIA_REAL_SITE_HEADLESS=1 NAVIA_CHROME_MUTE_AUDIO=1 NAVIA_REAL_SITE_EVIDENCE_ROOT=docs/active/project/evidence/v1_mvp_content_quality NAVIA_REAL_SITE_ACCEPTANCE_MODE=v1_mvp_content_quality NAVIA_REAL_SITE_SAMPLE_MANIFEST=docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json node e2e/chrome-real-site-diagnostics.mjs && node e2e/generate-v1-mvp-content-quality-report.mjs",
+    "e2e:chrome:v1-mvp-content-quality:report": "node e2e/generate-v1-mvp-content-quality-report.mjs",
     "e2e:chrome:launcher-resize-closeout": "node e2e/chrome-launcher-resize-closeout.mjs",
     "e2e:chrome:v1-mainline-closeout": "npm run build:e2e && npm run e2e:chrome:launcher-resize-closeout && npm run e2e:chrome:external-visual-acceptance && node e2e/generate-v1-mainline-closeout-report.mjs",
     "e2e:chrome:visual": "node e2e/chrome-sidepanel-visual-e2e.mjs"
