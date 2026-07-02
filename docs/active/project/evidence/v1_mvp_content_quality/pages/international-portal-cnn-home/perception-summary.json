@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_7b193ea0672c24a0",
+    "pageId": "page_a8eb5634606696b6",
     "title": "World news - breaking news, video, headlines and opinion | CNN",
     "url": "https://edition.cnn.com/world",
     "domain": "edition.cnn.com"
   },
   "readiness": "pass",
-  "overallScore": 0.84,
+  "overallScore": 0.839,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
@@ -24,9 +24,9 @@
       "passed": false
     },
     "contentCoverage": {
-      "value": 0.548,
-      "numerator": 9788,
-      "denominator": 17873,
+      "value": 0.542,
+      "numerator": 9710,
+      "denominator": 17905,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
@@ -57,8 +57,8 @@
     },
     "digestCompressionRatio": {
       "value": 0.082,
-      "numerator": 246,
-      "denominator": 2990,
+      "numerator": 244,
+      "denominator": 2985,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true

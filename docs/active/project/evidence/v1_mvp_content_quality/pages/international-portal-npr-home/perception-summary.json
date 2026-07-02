@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_5aa031a23f322997",
+    "pageId": "page_1889c79dc9d3972c",
     "title": "News: U.S. and World News Headlines : NPR",
     "url": "https://www.npr.org/sections/news/",
     "domain": "www.npr.org"
   },
   "readiness": "pass",
-  "overallScore": 0.947,
+  "overallScore": 0.952,
   "warnings": [],
   "fatalIssues": [],
   "highSignalBlocks": 104,
@@ -23,8 +23,8 @@
     },
     "contentCoverage": {
       "value": 0.796,
-      "numerator": 20834,
-      "denominator": 26161,
+      "numerator": 21049,
+      "denominator": 26449,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
@@ -54,16 +54,16 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.056,
-      "numerator": 240,
-      "denominator": 4301,
+      "value": 0.054,
+      "numerator": 237,
+      "denominator": 4385,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.722,
-      "numerator": 13,
+      "value": 0.778,
+      "numerator": 14,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_8a3c38f1190cec57",
+    "pageId": "page_b51820bdd130a789",
     "title": "Tech | The Verge",
     "url": "https://www.theverge.com/tech",
     "domain": "www.theverge.com"
   },
   "readiness": "pass",
-  "overallScore": 0.95,
+  "overallScore": 0.954,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
@@ -24,9 +24,9 @@
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.818,
-      "numerator": 31633,
-      "denominator": 38661,
+      "value": 0.815,
+      "numerator": 31518,
+      "denominator": 38651,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
@@ -56,16 +56,16 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.04,
-      "numerator": 259,
-      "denominator": 6504,
+      "value": 0.038,
+      "numerator": 246,
+      "denominator": 6489,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.722,
-      "numerator": 13,
+      "value": 0.778,
+      "numerator": 14,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

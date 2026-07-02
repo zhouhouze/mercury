@@ -489,10 +489,11 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
       if (!isRecord(source)) return null;
       const fallbackText = compactSourcePanelText(firstString(source.fallbackText, source.textQuote, source.excerpt));
       const textQuote = compactSourcePanelText(firstString(source.textQuote, source.excerpt, source.fallbackText));
+      const displayLabel = displayLabelFromEvidence(binding.nodeLabel, fallbackText, textQuote, binding.nodeSourceMapKey);
       return {
         nodeId: binding.nodeId,
         nodeSourceMapKey: binding.nodeSourceMapKey,
-        nodeLabel: binding.nodeLabel,
+        nodeLabel: displayLabel,
         sourceRefIds: binding.sourceRefIds.length ? binding.sourceRefIds : toStringArray(source.sourceRefIds),
         paragraphIds: binding.paragraphIds.length ? binding.paragraphIds : toStringArray(source.paragraphIds),
         chunkIds: binding.chunkIds.length ? binding.chunkIds : toStringArray(source.chunkIds),
@@ -511,6 +512,33 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
       seen.add(key);
       return true;
     });
+}
+
+function displayLabelFromEvidence(label: string, fallbackText: string, textQuote: string, fallbackKey: string): string {
+  const normalizedLabel = compactSourcePanelText(label);
+  if (normalizedLabel && !isStructuralEvidenceLabel(normalizedLabel)) return truncate(normalizedLabel, 96);
+  const evidenceText = firstContentSentence(fallbackText || textQuote);
+  if (evidenceText) return truncate(evidenceText, 96);
+  return truncate(normalizedLabel || fallbackKey, 96);
+}
+
+function isStructuralEvidenceLabel(label: string): boolean {
+  const normalized = label.trim().toLowerCase();
+  if (!normalized) return true;
+  if (/^(article_title|article_body|article_meta|metadata|keywords|description|canonical|referrer|format-detection|og\s+(url|image|title|description))$/.test(normalized)) return true;
+  if (/^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body)$/.test(normalized)) return true;
+  if (/^node_\d+$|^root$/.test(normalized)) return true;
+  return false;
+}
+
+function firstContentSentence(value: string): string {
+  const normalized = compactSourcePanelText(value)
+    .replace(/^(article_title|article_body|article_meta|metadata|keywords|description|canonical|referrer|format-detection|og\s+(url|image|title|description))\s*[:：-]?\s*/i, "")
+    .replace(/^\d{1,2}月\d{1,2}日\s+\d{1,2}\s+\d{2}.*$/u, "")
+    .trim();
+  if (!normalized) return "";
+  const sentence = normalized.split(/[。；;!?！？]/, 1)[0]?.trim() || normalized;
+  return sentence || normalized;
 }
 
 function compactSourcePanelText(value: string): string {
@@ -576,12 +604,13 @@ function buildEvidenceCardNode(
   const sourceRefIds = binding.sourceRefIds.length ? binding.sourceRefIds : toStringArray(sourceRecord.sourceRefIds);
   const textQuote = firstString(card?.textQuote, sourceRecord.textQuote, sourceRecord.excerpt);
   const fallbackText = firstString(card?.fallbackText, sourceRecord.fallbackText, sourceRecord.textQuote, sourceRecord.excerpt);
+  const displayLabel = displayLabelFromEvidence(binding.nodeLabel || mermaidNode?.label || binding.nodeSourceMapKey, fallbackText, textQuote, binding.nodeSourceMapKey);
   const confidence = typeof sourceRecord.confidence === "number" && Number.isFinite(sourceRecord.confidence) ? clamp(sourceRecord.confidence, 0, 1) : null;
   const qualityState = sourceRefIds.length > 0 && (textQuote || fallbackText) ? "ready" : sourceRefIds.length > 0 || textQuote || fallbackText ? "degraded" : "missing_source";
   const degradedReason = qualityState === "ready" ? null : sourceRefIds.length === 0 ? "sourceRefIds missing" : "source quote unavailable";
   return {
     nodeId: binding.nodeId,
-    label: truncate(binding.nodeLabel || mermaidNode?.label || binding.nodeSourceMapKey, 96),
+    label: displayLabel,
     note: truncate(fallbackText || textQuote, 180) || undefined,
     depth: mermaidNode?.depth ?? (index === 0 ? 0 : 1),
     parentNodeId: null,

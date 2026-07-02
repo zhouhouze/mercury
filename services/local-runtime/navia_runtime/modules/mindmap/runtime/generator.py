@@ -43,8 +43,9 @@ NOISE_TEXT_PATTERNS = [
     r"游戏中心",
     r"不感兴趣将减少此类内容推荐",
     r"添加至稍后再看",
-    r"^(dom signals|metadata|keywords|feed_card|media_link|content_link|media_block|content_block|nav_block|link)$",
+    r"^(dom signals|metadata|keywords|feed_card|media_link|content_link|media_block|content_block|nav_block|link|article_title|article_body|article_meta)$",
     r"^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body)$",
+    r"^(canonical|referrer|format-detection).*$",
     r"^keywords[:：]",
     r"^description[:：]",
     r"^canonical[:：]",
@@ -106,6 +107,7 @@ NOISE_TEXT_PATTERNS = [
     r"^\d+(?:\.\d+)?万?$",
     r"^图\s*\d+$",
     r"^image\s*\d+$",
+    r"^\d{1,2}月\d{1,2}日\s+\d{1,2}\s+\d{2}",
     r"^\d{4}[-/]\d{1,2}[-/]\d{1,2}$",
     r"小红书\s+发布",
     r"当前小红书笔记详情页",
@@ -590,15 +592,17 @@ def normalize_label_text(value: str) -> str:
     normalized = re.sub(r"[()\[\]{}<>:\"'`|]", "", normalized)
     normalized = re.sub(r"\b(media|nav|header|footer|content|main)\b[_-]?\d*", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(
-        r"^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body|og\s+(url|image|title|description))\s*[:：-]*\s*",
+        r"^(article_title|article_body|article_meta|bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body|og\s+(url|image|title|description))\s*[:：-]*\s*",
         "",
         normalized,
         flags=re.IGNORECASE,
     )
+    normalized = re.sub(r"^(canonical|referrer|format-detection)\b.*$", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"^当前\s*(B站|小红书|观察者网).*(详情页|页面)\s*", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"(自动连播|订阅合集|相关推荐|按类型过滤|防挡字幕|智能防挡弹幕|弹幕随屏幕缩放|稿件投诉).*$", "", normalized)
     normalized = re.sub(r"\b(cookie policy|privacy policy|advertisement|sponsored|subscribe to|sign in|newsletter)\b.*$", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"^(图|image)\s*\d+[：:\s-]*", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^\d{1,2}月\d{1,2}日\s+\d{1,2}\s+\d{2}.*$", "", normalized)
     normalized = re.sub(r"\bhttps?\b", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"\s+", " ", normalized).strip(" ，。；：、,.")
     return normalized

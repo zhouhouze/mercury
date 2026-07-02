@@ -358,7 +358,7 @@ def build_quality_report(
         and metrics["jumpbackCoverage"]["passed"]
         and metrics["digestCompressionRatio"]["passed"]
         and len(filtered_blocks) >= 6
-        and {"auth_gated", "verification_gated", "not_found"}.isdisjoint(page_state_hints)
+        and "not_found" not in page_state_hints
     ):
         downstream = "pass"
     if low_signal and downstream == "pass":
