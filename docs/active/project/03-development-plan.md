@@ -1716,6 +1716,8 @@ V1-MVP-CQ-7：严格真实网页验收、人工 gold 对照、HTML 报告、PRD 
 证据路径：
 
 ```text
+docs/active/project/design/v1-mvp-content-quality-gap.md
+docs/active/project/design/v1-mvp-content-quality-gap.drawio
 docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json
 docs/active/project/evidence/v1_mvp_content_quality/gold-notes/
 docs/active/project/evidence/v1_mvp_content_quality/report.json
@@ -1729,6 +1731,7 @@ docs/active/project/evidence/v1_mvp_content_quality/screenshots/
 打回规则：
 
 - CQ-1 若没有 gold notes，不得进入实现。
+- CQ-0 若 drawio 超过 8 页、不是中文、缺少具体代码实体状态，或看不到当前架构与目标架构关系，打回文档门禁。
 - CQ-2 若主内容 signals 仍由导航、推荐、广告、cookie wall、版权提示或低价值重复文本主导，打回 A。
 - CQ-3 若总结 / 问答 / 解释选区不能追溯到 SourceRef 或 fallbackText，打回 grounding。
 - CQ-4 若 Mindmap 仍是标题堆叠、重复节点或无证据节点，打回 C。

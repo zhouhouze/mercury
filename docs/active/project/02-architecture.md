@@ -1686,6 +1686,12 @@ Host Page DOM / metadata / selection / visible media metadata
 - located / fallback_shown / blocked 在 UI、JSON、HTML 和截图中语义一致；located marker 必须说明证据支撑关系。
 - CQ 通过后只能声明 content quality prove-out passed，不能声明完整 V1 complete 或视频 / 图片 / 音频理解完成。
 
+Drawio 架构表达要求：
+
+- `v1-mvp-content-quality-gap.drawio` 的架构页必须展示宿主网页 DOM、`pageContext.ts`、A Page Reading、D Adapter / Agent Loop、C Mindmap、B Renderer、`contentBridge.ts` 和 CQ evidence 的强关联链路。
+- 每个实体必须标注状态：已实现、已实现需修改、待新增、保持边界或 No-Go。
+- 如果图中只出现“前端 / 后端 / AI”这类抽象节点，则 CQ-0 文档门禁不通过。
+
 ---
 
 ## 18. V1 架构结论

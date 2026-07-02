@@ -1357,6 +1357,8 @@ No-Go：
 必须通过：
 
 - [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion 使用同一阶段名：`V1-MVP-CQ 内容理解质量增强`。
+- [ ] `docs/active/project/design/v1-mvp-content-quality-gap.drawio` 不超过 8 页，中文书写，并包含目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- [ ] drawio 架构页必须出现具体代码实体和状态：`pageContext.ts`、A Page Reading、D Adapter / Agent Loop、C Mindmap、B Renderer、`contentBridge.ts`、CQ evidence；不得只写“前端 / 后端 / AI”。
 - [ ] 明确当前事实：QH 48 页 expanded acceptance 已通过，但内容理解质量仍不足；CQ 是新阶段，不覆盖或篡改 QH 证据。
 - [ ] `docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json` 至少包含 36 页 strict 样本，其中 24 页来自 QH 核心回归，12 页为高风险真实样本。
 - [ ] 每个类别至少 6 页，至少 5/6 strict pass；总计至少 34/36 strict pass。

@@ -1510,3 +1510,10 @@ docs/active/project/evidence/v1_mvp_content_quality/
 ```
 
 `v1_mainline_closeout` 只能在 CQ strict evidence 通过后重新聚合；不得用 QH passed 或 mainline candidate passed 替代 CQ 出门证据。
+
+本阶段 drawio 门禁：
+
+- `docs/active/project/design/v1-mvp-content-quality-gap.drawio` 固定不超过 8 页，中文书写。
+- 图中必须展示目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- 架构页必须使用具体实现实体并标注状态：`pageContext.ts`、A Page Reading、D Adapter / Agent Loop、C Mindmap、B Renderer、`contentBridge.ts`、CQ evidence。
+- 不得用抽象“前端 / 后端 / AI 模块”替代具体代码实体。

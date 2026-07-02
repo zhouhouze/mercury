@@ -128,6 +128,17 @@ docs/active/project/evidence/v1_mvp_content_quality/screenshots/
 
 `v1_mainline_closeout` may aggregate CQ only after independent CQ evidence passes. It must not replace CQ evidence.
 
+## 8.1 Drawio Requirements
+
+`docs/active/project/design/v1-mvp-content-quality-gap.drawio` must:
+
+- Use Chinese page titles and Chinese node text.
+- Contain exactly 8 pages, never more than 8.
+- Include target architecture vs current architecture differences.
+- Include detailed implementation entities and statuses: implemented, implemented-but-needs-change, not-yet-developed, boundary-preserved, no-go.
+- Show relationships among `pageContext.ts`, A Page Reading, D Adapter / Agent Loop, C Mindmap, B Renderer, `contentBridge.ts`, and CQ evidence.
+- Include development and acceptance plan, project milestones, acceptance thresholds, exit conditions, and false-green fallback routes.
+
 ## 9. Fixed Commands
 
 Target commands for implementation stage:
