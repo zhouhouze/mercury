@@ -3,7 +3,7 @@
   "stage": "v1-mvp-content-quality",
   "claim": "V1 MVP content quality prove-out passed strict real-site acceptance.",
   "passed": true,
-  "generatedAt": "2026-07-03T05:34:48.867Z",
+  "generatedAt": "2026-07-03T07:06:41.164Z",
   "summary": {
     "samplesTotal": 36,
     "qhCoreRegressionSamples": 24,
@@ -3733,6 +3733,41 @@
       "domestic-content-bilibili-video: degraded, jumpback=located, content=0.967, noise=0.167"
     ],
     "evidenceRoot": "docs/active/project/evidence/v1_mvp_content_quality",
+    "auditCompletenessVerdict": true,
+    "implementationChanges": [
+      {
+        "file": "apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts",
+        "purpose": "B Renderer: 缩短 Evidence Card / Source Evidence 可见标签，过滤 cookie consent / tracking 来源噪声，避免内部结构标签或同意弹窗文案冒充内容证据。"
+      },
+      {
+        "file": "apps/chrome-extension/e2e/generate-v1-mvp-content-quality-report.mjs",
+        "purpose": "CQ Reporter: 将 consent/cookie 噪声排除在 sourceCardOrder 外；生成最终 HTML/Markdown/JSON 报告、PRD 复检、false-green audit 和 schema validation。"
+      },
+      {
+        "file": "docs/active/project/evidence/v1_mvp_content_quality/**",
+        "purpose": "36 页真实网页 headless/mute 验收证据包：sample manifest、gold notes、逐页 runtime/session/source/jumpback/screenshot、最终 HTML/JSON/Markdown 报告。"
+      }
+    ],
+    "evidenceIntegrityChecks": [
+      {
+        "name": "敏感信息扫描",
+        "status": "pass",
+        "command": "node - <<'NODE'\nconst fs=require('fs');\nconst cp=require('child_process');\nconst files=cp.execSync('rg --files docs/active/project/evidence/v1_mvp_content_quality/pages docs/active/project/evidence/v1_mvp_content_quality/gold-notes docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.resolved.json', {encoding:'utf8'}).split('\\n').filter(Boolean);\nconst findings=[];\nfor (const file of files) {\n  if (!fs.existsSync(file) || fs.statSync(file).isDirectory()) continue;\n  let text;\n  try { text=fs.readFileSync(file,'utf8'); } catch { continue; }\n  const checks=[/SESSDATA=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s\"'&]+/gi,/bili_jct=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s\"'&]+/gi,/DedeUserID=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s\"'&]+/gi,/xsec_token=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s\"'&]+/gi,/web_session=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s\"'&]+/gi,/Cookie:\\s*[^\\n]+/gi];\n  for (const re of checks) {\n    const matches=text.match(re);\n    if (matches) findings.push([file, matches.slice(0,3)]);\n  }\n}\nif (findings.length) { console.log(JSON.stringify(findings.slice(0,20), null, 2)); process.exit(1); }\nconsole.log('no unredacted cookie/token findings');\nNODE",
+        "result": "no unredacted cookie/token findings"
+      },
+      {
+        "name": "自动化浏览器实例清理",
+        "status": "pass",
+        "command": "ps -ef | rg 'NAVIA_REAL_SITE|chrome-real-site-diagnostics|apps/chrome-extension/e2e|chrome-win64' | rg -v 'rg |generate-v1-mvp-content-quality-report' || true",
+        "result": "no matching Navia automation browser process"
+      },
+      {
+        "name": "Git / 远端口径",
+        "status": "info",
+        "command": "git branch --show-current && git rev-parse --short HEAD && git remote get-url origin",
+        "result": "branch=main, head=e8f9788, origin=https://github.com/zhouhouze/mercury; report 文件本身会由后续 Git 提交承载，最终提交哈希以 git log -1 为准。"
+      }
+    ],
     "sourceEvidencePolicy": "CQ 使用独立 evidence 根目录；QH 只用于 seed manifest/gold-notes，不替代本轮 strict page evidence。",
     "executionNotes": [
       "本轮使用 headless/mute 自动化采集真实网页证据；登录 profile CDP 被占用时按 public profile 降级并在逐页 evidence 中保留 degraded/blocked 结论。",

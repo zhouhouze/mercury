@@ -78,6 +78,16 @@ function readJson(filePath, fallback = null) {
   }
 }
 
+function runShell(command) {
+  const result = spawnSync(command, { cwd: repoRoot, encoding: "utf-8", shell: true });
+  return {
+    command,
+    status: result.status ?? 0,
+    stdout: normalizeText(result.stdout).slice(0, 8000),
+    stderr: normalizeText(result.stderr).slice(0, 2000)
+  };
+}
+
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   fs.writeFileSync(filePath, JSON.stringify(sanitizeEvidenceValue(value), null, 2));
@@ -452,6 +462,30 @@ function buildReport(manifest) {
     .filter((sample) => sample.reportConclusion !== "strict_pass")
     .map((sample) => `${sample.pageId}: ${sample.reportConclusion}, jumpback=${sample.jumpbackResult.status}, content=${sample.contentUnderstandingScore.value}, noise=${sample.noiseLeakageRate.value}`);
   const passed = thresholdIssues.length === 0;
+  const gitHead = runShell("git rev-parse --short HEAD");
+  const gitBranch = runShell("git branch --show-current");
+  const gitRemote = runShell("git remote get-url origin");
+  const browserCleanup = runShell(
+    "ps -ef | rg 'NAVIA_REAL_SITE|chrome-real-site-diagnostics|apps/chrome-extension/e2e|chrome-win64' | rg -v 'rg |generate-v1-mvp-content-quality-report' || true"
+  );
+  const sensitiveScan = runShell(`node - <<'NODE'
+const fs=require('fs');
+const cp=require('child_process');
+const files=cp.execSync('rg --files docs/active/project/evidence/v1_mvp_content_quality/pages docs/active/project/evidence/v1_mvp_content_quality/gold-notes docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.json docs/active/project/evidence/v1_mvp_content_quality/sample-manifest.resolved.json', {encoding:'utf8'}).split('\\n').filter(Boolean);
+const findings=[];
+for (const file of files) {
+  if (!fs.existsSync(file) || fs.statSync(file).isDirectory()) continue;
+  let text;
+  try { text=fs.readFileSync(file,'utf8'); } catch { continue; }
+  const checks=[/SESSDATA=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s"'&]+/gi,/bili_jct=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s"'&]+/gi,/DedeUserID=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s"'&]+/gi,/xsec_token=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s"'&]+/gi,/web_session=(?!\\[redacted\\]|%5Bredacted%5D)[^\\s"'&]+/gi,/Cookie:\\s*[^\\n]+/gi];
+  for (const re of checks) {
+    const matches=text.match(re);
+    if (matches) findings.push([file, matches.slice(0,3)]);
+  }
+}
+if (findings.length) { console.log(JSON.stringify(findings.slice(0,20), null, 2)); process.exit(1); }
+console.log('no unredacted cookie/token findings');
+NODE`);
   return {
     schemaVersion: "v1-mvp-content-quality.report.1",
     stage: "v1-mvp-content-quality",
@@ -475,6 +509,41 @@ function buildReport(manifest) {
       thresholdIssues,
       nonPassingSamples,
       evidenceRoot: evidenceRootRelative,
+      auditCompletenessVerdict: passed && sensitiveScan.status === 0 && !browserCleanup.stdout,
+      implementationChanges: [
+        {
+          file: "apps/chrome-extension/src/modules/mindmap_renderer/mindmapPresentation.ts",
+          purpose: "B Renderer: 缩短 Evidence Card / Source Evidence 可见标签，过滤 cookie consent / tracking 来源噪声，避免内部结构标签或同意弹窗文案冒充内容证据。"
+        },
+        {
+          file: "apps/chrome-extension/e2e/generate-v1-mvp-content-quality-report.mjs",
+          purpose: "CQ Reporter: 将 consent/cookie 噪声排除在 sourceCardOrder 外；生成最终 HTML/Markdown/JSON 报告、PRD 复检、false-green audit 和 schema validation。"
+        },
+        {
+          file: "docs/active/project/evidence/v1_mvp_content_quality/**",
+          purpose: "36 页真实网页 headless/mute 验收证据包：sample manifest、gold notes、逐页 runtime/session/source/jumpback/screenshot、最终 HTML/JSON/Markdown 报告。"
+        }
+      ],
+      evidenceIntegrityChecks: [
+        {
+          name: "敏感信息扫描",
+          status: sensitiveScan.status === 0 ? "pass" : "fail",
+          command: sensitiveScan.command,
+          result: sensitiveScan.stdout || sensitiveScan.stderr || "no output"
+        },
+        {
+          name: "自动化浏览器实例清理",
+          status: browserCleanup.stdout ? "fail" : "pass",
+          command: browserCleanup.command,
+          result: browserCleanup.stdout || "no matching Navia automation browser process"
+        },
+        {
+          name: "Git / 远端口径",
+          status: gitHead.status === 0 && gitRemote.status === 0 ? "info" : "fail",
+          command: "git branch --show-current && git rev-parse --short HEAD && git remote get-url origin",
+          result: `branch=${gitBranch.stdout || "unknown"}, head=${gitHead.stdout || "unknown"}, origin=${gitRemote.stdout || "unknown"}; report 文件本身会由后续 Git 提交承载，最终提交哈希以 git log -1 为准。`
+        }
+      ],
       sourceEvidencePolicy: "CQ 使用独立 evidence 根目录；QH 只用于 seed manifest/gold-notes，不替代本轮 strict page evidence。",
       executionNotes: [
         "本轮使用 headless/mute 自动化采集真实网页证据；登录 profile CDP 被占用时按 public profile 降级并在逐页 evidence 中保留 degraded/blocked 结论。",
@@ -563,6 +632,14 @@ ${report.auditDetails.nonPassingSamples.length ? report.auditDetails.nonPassingS
 - JSON: report.json
 - PRD review: prd-review.md
 - False-green audit: false-green-audit.md
+
+## 实现与证据完整性
+
+${report.auditDetails.implementationChanges.map((item) => `- ${item.file}: ${item.purpose}`).join("\n")}
+
+## 完整性复核
+
+${report.auditDetails.evidenceIntegrityChecks.map((item) => `- ${item.name}: ${item.status}. ${item.result}`).join("\n")}
 `
   );
   writeText(
@@ -652,6 +729,15 @@ function writeHtmlReport(report, manifest) {
       </section>`;
     })
     .join("\n");
+  const implementationRows = report.auditDetails.implementationChanges
+    .map((item) => `<tr><td><code>${escapeHtml(item.file)}</code></td><td>${escapeHtml(item.purpose)}</td></tr>`)
+    .join("");
+  const integrityRows = report.auditDetails.evidenceIntegrityChecks
+    .map(
+      (item) =>
+        `<tr><td>${escapeHtml(item.name)}</td><td><span class="badge ${item.status === "pass" ? "pass" : item.status === "fail" ? "fail" : ""}">${escapeHtml(item.status)}</span></td><td><code>${escapeHtml(item.command)}</code></td><td>${escapeHtml(item.result)}</td></tr>`
+    )
+    .join("");
   const html = `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -705,6 +791,8 @@ function writeHtmlReport(report, manifest) {
     <p><strong>目标链路:</strong> Host Page DOM / metadata / selection -> <code>pageContext.ts</code> -> A Page Reading -> D Adapter / Agent Loop -> C Mindmap -> B Evidence Card Mindmap / Reading Map -> <code>contentBridge.ts</code> 用户触发 jumpback -> CQ evidence。</p>
     <p><strong>当前实现:</strong> A 提供主内容和噪声过滤、SourceRef / Digest；C 做 digest-first 主题归并、节点压缩和 nodeSourceMap；B 展示 Evidence Card / Reading Map / Source Evidence；Content Script 区分 located / fallback_shown / blocked。</p>
   </section>
+  <h2>本阶段实现变更</h2>
+  <table><thead><tr><th>文件 / 证据目录</th><th>审计说明</th></tr></thead><tbody>${implementationRows}</tbody></table>
   <h2>固定验证命令</h2>
   <table><thead><tr><th>命令</th><th>状态</th><th>证据</th></tr></thead><tbody>${report.testCommands
     .map((item) => `<tr><td><code>${escapeHtml(item.command)}</code></td><td><span class="badge ${item.passed ? "pass" : "fail"}">${item.passed ? "通过" : "失败"}</span></td><td>${escapeHtml(item.logPath || "")}</td></tr>`)
@@ -715,6 +803,17 @@ function writeHtmlReport(report, manifest) {
   <table><thead><tr><th>样本</th><th>站点</th><th>类别</th><th>来源阶段</th><th>结论</th><th>反跳</th><th>截图</th><th>JSON</th></tr></thead><tbody>${sampleRows}</tbody></table>
   <h2>PRD / false-green 配套文档</h2>
   <section class="panel">${htmlEvidenceLink("prd-review.md")} ${htmlEvidenceLink("false-green-audit.md")} ${htmlEvidenceLink("sample-manifest.json")} ${htmlEvidenceLink("report.json")} ${htmlEvidenceLink("evidence-manifest.json")}</section>
+  <h2>证据完整性复核</h2>
+  <section class="panel">
+    <p><strong>可审计性结论:</strong> <span class="badge ${report.auditDetails.auditCompletenessVerdict ? "pass" : "fail"}">${report.auditDetails.auditCompletenessVerdict ? "PASS" : "NEEDS WORK"}</span></p>
+    <p>本节用于证明报告不仅有功能截图，还包含安全脱敏、自动化浏览器清理、Git/远端口径和已知边界。若本节任一关键项失败，本 HTML 不可作为本阶段唯一审查依据。</p>
+  </section>
+  <table><thead><tr><th>检查项</th><th>状态</th><th>命令</th><th>结果</th></tr></thead><tbody>${integrityRows}</tbody></table>
+  <h2>已知降级与未声明范围</h2>
+  <section class="panel">
+    <p><strong>未通过 strict 的样本:</strong> ${escapeHtml(report.auditDetails.nonPassingSamples.length ? report.auditDetails.nonPassingSamples.join(" | ") : "none")}</p>
+    <p><strong>未声明范围:</strong> 完整 V1 complete、最终 Monica-like UX complete、复杂站点全量高质量、媒体流 / 音频 / 图片像素理解、RAG / Memory / Web Research / PPT / Deep Research ready。</p>
+  </section>
   <h2>逐页截图证据</h2>
   ${sampleSections}
 </main>
