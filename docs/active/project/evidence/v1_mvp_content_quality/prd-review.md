@@ -13,7 +13,7 @@ Result: PASS
 - 总样本不少于 36：36
 - QH 核心回归不少于 24：24
 - 高风险样本不少于 12：12
-- strict pass 不少于 34：35
+- strict pass 不少于 34：34
 - 每类至少 6 页且至少 5 页 strict pass：满足
 
 ## 未覆盖

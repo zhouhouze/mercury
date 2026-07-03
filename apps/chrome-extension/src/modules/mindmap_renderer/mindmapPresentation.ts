@@ -228,7 +228,9 @@ export function toEvidenceCardViewModel(artifact: ArtifactRecord, options: { ren
     fallbacks.push({ reason: "missing_node_source_map", visibleToUser: true, detail: "Mindmap artifact metadata.nodeSourceMap is missing." });
   }
 
-  const nodes = nodeBindings.map((binding, index) => buildEvidenceCardNode(binding, index, nodeSourceMap, sourceCards, mermaidNodes));
+  const nodes = nodeBindings
+    .map((binding, index) => buildEvidenceCardNode(binding, index, nodeSourceMap, sourceCards, mermaidNodes))
+    .filter((node) => !isConsentNoiseEvidence(`${node.label} ${node.note ?? ""} ${node.textQuote ?? ""} ${node.fallbackText ?? ""}`));
   const nodesWithTree = applyEvidenceCardTree(nodes, mermaidNodes);
   const edges = nodesWithTree
     .filter((node) => node.parentNodeId)
@@ -489,6 +491,7 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
       if (!isRecord(source)) return null;
       const fallbackText = compactSourcePanelText(firstString(source.fallbackText, source.textQuote, source.excerpt));
       const textQuote = compactSourcePanelText(firstString(source.textQuote, source.excerpt, source.fallbackText));
+      if (isConsentNoiseEvidence(`${binding.nodeLabel} ${fallbackText} ${textQuote}`)) return null;
       const displayLabel = displayLabelFromEvidence(binding.nodeLabel, fallbackText, textQuote, binding.nodeSourceMapKey);
       return {
         nodeId: binding.nodeId,
@@ -516,10 +519,10 @@ function buildSourceEvidenceCards(bindings: MindmapNodeBinding[], nodeSourceMap:
 
 function displayLabelFromEvidence(label: string, fallbackText: string, textQuote: string, fallbackKey: string): string {
   const normalizedLabel = compactSourcePanelText(label);
-  if (normalizedLabel && !isStructuralEvidenceLabel(normalizedLabel)) return truncate(normalizedLabel, 96);
+  if (normalizedLabel && !isStructuralEvidenceLabel(normalizedLabel)) return truncate(normalizedLabel, 36);
   const evidenceText = firstContentSentence(fallbackText || textQuote);
-  if (evidenceText) return truncate(evidenceText, 96);
-  return truncate(normalizedLabel || fallbackKey, 96);
+  if (evidenceText) return truncate(evidenceText, 36);
+  return truncate(normalizedLabel || fallbackKey, 36);
 }
 
 function isStructuralEvidenceLabel(label: string): boolean {
@@ -527,6 +530,7 @@ function isStructuralEvidenceLabel(label: string): boolean {
   if (!normalized) return true;
   if (/^(article_title|article_body|article_meta|metadata|keywords|description|canonical|referrer|format-detection|og\s+(url|image|title|description))$/.test(normalized)) return true;
   if (/^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body)$/.test(normalized)) return true;
+  if (/^(来源与追踪|source tracking|tracking sources)$/.test(normalized)) return true;
   if (/^node_\d+$|^root$/.test(normalized)) return true;
   return false;
 }
@@ -536,9 +540,15 @@ function firstContentSentence(value: string): string {
     .replace(/^(article_title|article_body|article_meta|metadata|keywords|description|canonical|referrer|format-detection|og\s+(url|image|title|description))\s*[:：-]?\s*/i, "")
     .replace(/^\d{1,2}月\d{1,2}日\s+\d{1,2}\s+\d{2}.*$/u, "")
     .trim();
+  if (isConsentNoiseEvidence(normalized)) return "";
   if (!normalized) return "";
   const sentence = normalized.split(/[。；;!?！？]/, 1)[0]?.trim() || normalized;
   return sentence || normalized;
+}
+
+function isConsentNoiseEvidence(value: string): boolean {
+  const normalized = value.toLowerCase().replace(/\s+/g, " ").trim();
+  return /(?:these cookies are set|cookie consent preferences|manage all cookie|third party sources|embedded content originates|allow view and manage all|privacy choices|consent preferences)/.test(normalized);
 }
 
 function compactSourcePanelText(value: string): string {
@@ -567,6 +577,7 @@ function sourceEvidenceCardScore(card: SourceEvidenceCard): number {
   if (/bili_feed_card|bilibili\.com\/video|xiaohongshu\.com\/explore|guancha\.cn\/.+\.shtml/.test(text)) score += 14;
   if (/^root$|首页|推荐\s+穿搭\s+美食\s+彩妆|频道|动态|热门|消息|投稿/.test(text)) score -= 28;
   if (/^description\b|^keywords\b|^canonical\b|^referrer\b|^server_render\b|description:|keywords:|canonical:|referrer:|server_render:/.test(text)) score -= 38;
+  if (isConsentNoiseEvidence(text)) score -= 80;
   if (/评论|回复|热评|踩\d*|赞\d*|收藏|举报|分享|最新视频|查看全部|推荐列表|相关推荐|自动连播|订阅合集|侧栏|footer|沪icp|营业执照|隐私政策|活动横幅|qq群|微信|防挡字幕|弹幕设置|高级弹幕|稿件投诉/.test(text)) score -= 36;
   if ((normalized.match(/\d+(?:\.\d+)?万/g) || []).length >= 3) score -= 14;
   if ((normalized.match(/\b\d{1,2}:\d{2}\b/g) || []).length >= 2) score -= 14;

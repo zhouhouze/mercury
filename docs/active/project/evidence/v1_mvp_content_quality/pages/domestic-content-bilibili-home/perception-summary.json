@@ -1,72 +1,72 @@
 {
   "activePage": {
-    "pageId": "page_a495085982bc235c",
+    "pageId": "page_95d5dbc80c17d510",
     "title": "哔哩哔哩 (゜-゜)つロ 干杯~-bilibili",
     "url": "https://www.bilibili.com/",
     "domain": "www.bilibili.com"
   },
   "readiness": "pass",
-  "overallScore": 0.799,
+  "overallScore": 0.81,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 10,
-  "digestItems": 10,
-  "sourceRefs": 20,
+  "highSignalBlocks": 12,
+  "digestItems": 12,
+  "sourceRefs": 22,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.5,
+      "value": 0.455,
       "numerator": 10,
-      "denominator": 20,
+      "denominator": 22,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": false
     },
     "contentCoverage": {
-      "value": 0.323,
-      "numerator": 478,
-      "denominator": 1481,
+      "value": 0.367,
+      "numerator": 601,
+      "denominator": 1637,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 10,
-      "denominator": 10,
+      "numerator": 12,
+      "denominator": 12,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
     },
     "groundingCompleteness": {
       "value": 1,
-      "numerator": 10,
-      "denominator": 10,
+      "numerator": 12,
+      "denominator": 12,
       "method": "digestItemsWithSourceRefs / digestItemsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 20,
-      "denominator": 20,
+      "numerator": 22,
+      "denominator": 22,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.258,
-      "numerator": 58,
-      "denominator": 225,
+      "value": 0.281,
+      "numerator": 66,
+      "denominator": 235,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.7,
-      "numerator": 7,
-      "denominator": 10,
+      "value": 0.667,
+      "numerator": 8,
+      "denominator": 12,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,
       "passed": true

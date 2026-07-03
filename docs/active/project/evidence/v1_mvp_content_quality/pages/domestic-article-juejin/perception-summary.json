@@ -1,38 +1,41 @@
 {
   "activePage": {
-    "pageId": "page_393b001bae935dc3",
+    "pageId": "page_9d330c954a76871a",
     "title": "稀土掘金",
     "url": "https://juejin.cn/",
     "domain": "juejin.cn"
   },
-  "readiness": "pass",
-  "overallScore": 0.886,
-  "warnings": [],
+  "readiness": "degraded",
+  "overallScore": 0.882,
+  "warnings": [
+    "NOT_FOUND_PAGE_FAILED",
+    "MEDIA_DOM_LIMITED"
+  ],
   "fatalIssues": [],
-  "highSignalBlocks": 75,
+  "highSignalBlocks": 78,
   "digestItems": 18,
   "sourceRefs": 93,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.194,
-      "numerator": 18,
+      "value": 0.161,
+      "numerator": 15,
       "denominator": 93,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.622,
-      "numerator": 7245,
-      "denominator": 11641,
+      "value": 0.658,
+      "numerator": 7800,
+      "denominator": 11860,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 75,
-      "denominator": 75,
+      "numerator": 78,
+      "denominator": 78,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -54,16 +57,16 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.103,
-      "numerator": 183,
-      "denominator": 1776,
+      "value": 0.093,
+      "numerator": 170,
+      "denominator": 1823,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.278,
-      "numerator": 5,
+      "value": 0.167,
+      "numerator": 3,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

@@ -166,17 +166,24 @@ function noisyLabel(label) {
   return /^(首页|推荐|更多|热门|隐私政策|用户协议|sign in|advertisement)$/.test(text);
 }
 
+function consentNoiseEvidence(value) {
+  const text = normalizeText(value).toLowerCase();
+  return /(?:these cookies are set|cookie consent preferences|manage all cookie|third party sources|embedded content originates|allow view and manage all|privacy choices|consent preferences)/.test(text);
+}
+
 function structuralEvidenceLabel(label) {
   const text = normalizeText(label).toLowerCase();
   if (!text) return true;
   if (/^(article_title|article_meta|article_body|metadata|keywords|description)$/.test(text)) return true;
   if (/^(canonical|referrer|format-detection|og\s+(url|image|title|description))(?:\s|$)/.test(text)) return true;
   if (/^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body)$/.test(text)) return true;
+  if (/^(来源与追踪|source tracking|tracking sources)$/.test(text)) return true;
   if (/^node_\d+$|^root$/.test(text)) return true;
   return false;
 }
 
 function firstContentPhrase(value) {
+  if (consentNoiseEvidence(value)) return "";
   const text = normalizeText(value)
     .replace(/^(article_title|article_meta|article_body|metadata|keywords|description|canonical|referrer|format-detection|og\s+(url|image|title|description))\s*[:：-]?\s*/i, "")
     .replace(/(?:首页|动态|热门|频道|消息|投稿|直播|课堂|社区中心)\s+/g, "")
@@ -193,6 +200,7 @@ function firstContentPhrase(value) {
 
 function humanEvidenceLabel(card, visibleLabel) {
   const label = normalizeText(visibleLabel || card?.label || "");
+  if (consentNoiseEvidence(`${label} ${card?.excerpt || ""} ${card?.fallbackText || ""} ${card?.textQuote || ""}`)) return "";
   if (label && !structuralEvidenceLabel(label)) return label.length > 96 ? `${label.slice(0, 95).trim()}…` : label;
   return firstContentPhrase(card?.excerpt || card?.fallbackText || card?.textQuote || card?.nodeId || label);
 }
@@ -517,6 +525,46 @@ function validateContracts(reportPath) {
 }
 
 function writeMarkdownReports(report) {
+  writeText(
+    path.join(evidenceRoot, "acceptance-report.md"),
+    `# V1-MVP-CQ 内容理解质量增强自动化验收报告
+
+Date: ${report.generatedAt}
+Result: ${report.passed ? "PASS" : "FAIL"}
+
+## 结论
+
+- Claim: ${report.passed ? report.claim : "No completion claim. V1-MVP-CQ strict acceptance remains blocked or degraded."}
+- 证据路径：${evidenceRootRelative}
+- 审计边界：本报告只支持 CQ 内容理解质量增强 strict prove-out；不支持完整 V1 complete、最终 Monica-like UX complete、媒体流理解、RAG / Memory / Web Research / PPT / Deep Research ready。
+
+## Summary
+
+- 总样本：${report.summary.samplesTotal}
+- QH 核心回归样本：${report.summary.qhCoreRegressionSamples}
+- 高风险样本：${report.summary.highRiskSamples}
+- strict pass：${report.summary.strictPassedSamples}
+- degraded：${report.summary.degradedSamples}
+- blocked：${report.summary.blockedSamples}
+- fatalIssues：${report.summary.fatalIssues}
+- majorIssues：${report.summary.majorIssues}
+
+## 类别门槛
+
+${report.summary.categoryResults.map((item) => `- ${item.categoryId}: ${item.strictPassedSamples}/${item.samples} strict pass, ${item.passed ? "PASS" : "FAIL"}`).join("\n")}
+
+## 未通过 strict 的样本
+
+${report.auditDetails.nonPassingSamples.length ? report.auditDetails.nonPassingSamples.map((item) => `- ${item}`).join("\n") : "- none"}
+
+## 审计链接
+
+- HTML: acceptance-report.html
+- JSON: report.json
+- PRD review: prd-review.md
+- False-green audit: false-green-audit.md
+`
+  );
   writeText(
     path.join(evidenceRoot, "prd-review.md"),
     `# V1-MVP-CQ PRD 规格检视

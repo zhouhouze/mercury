@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_15cee3972338b968",
+    "pageId": "page_4dbc2c647a1dfb64",
     "title": "Breaking News, World News and Video from Al Jazeera",
     "url": "https://www.aljazeera.com/",
     "domain": "www.aljazeera.com"
   },
   "readiness": "pass",
-  "overallScore": 0.889,
+  "overallScore": 0.892,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
@@ -24,9 +24,9 @@
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.615,
-      "numerator": 6649,
-      "denominator": 10819,
+      "value": 0.637,
+      "numerator": 6460,
+      "denominator": 10137,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
@@ -56,9 +56,9 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.077,
-      "numerator": 148,
-      "denominator": 1910,
+      "value": 0.079,
+      "numerator": 143,
+      "denominator": 1800,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true

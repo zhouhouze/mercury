@@ -1,12 +1,12 @@
 {
   "activePage": {
-    "pageId": "page_623b79505c62471c",
+    "pageId": "page_0ea1fd4923338ab7",
     "title": "Latest news from around the world | The Guardian",
     "url": "https://www.theguardian.com/world",
     "domain": "www.theguardian.com"
   },
   "readiness": "pass",
-  "overallScore": 0.915,
+  "overallScore": 0.919,
   "warnings": [],
   "fatalIssues": [],
   "highSignalBlocks": 99,
@@ -22,9 +22,9 @@
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.845,
-      "numerator": 14306,
-      "denominator": 16931,
+      "value": 0.844,
+      "numerator": 14153,
+      "denominator": 16778,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
@@ -54,16 +54,16 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.087,
-      "numerator": 231,
-      "denominator": 2654,
+      "value": 0.084,
+      "numerator": 221,
+      "denominator": 2637,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.222,
-      "numerator": 4,
+      "value": 0.278,
+      "numerator": 5,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

@@ -1,40 +1,40 @@
 {
   "activePage": {
-    "pageId": "page_b14344426ccbfac3",
+    "pageId": "page_45b4931697931702",
     "title": "The Cloudflare Blog",
     "url": "https://blog.cloudflare.com/",
     "domain": "blog.cloudflare.com"
   },
   "readiness": "pass",
-  "overallScore": 0.971,
+  "overallScore": 0.974,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 107,
+  "highSignalBlocks": 106,
   "digestItems": 18,
   "sourceRefs": 116,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.078,
-      "numerator": 9,
+      "value": 0.086,
+      "numerator": 10,
       "denominator": 116,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.899,
-      "numerator": 22026,
-      "denominator": 24495,
+      "value": 0.915,
+      "numerator": 22005,
+      "denominator": 24060,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": true
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 107,
-      "denominator": 107,
+      "numerator": 106,
+      "denominator": 106,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -56,9 +56,9 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.068,
+      "value": 0.07,
       "numerator": 245,
-      "denominator": 3587,
+      "denominator": 3512,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true

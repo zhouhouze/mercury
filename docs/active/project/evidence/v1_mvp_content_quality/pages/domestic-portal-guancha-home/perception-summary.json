@@ -1,38 +1,38 @@
 {
   "activePage": {
-    "pageId": "page_7eeec7d6655263dc",
+    "pageId": "page_f13be3de9acef8cd",
     "title": "观察者网",
     "url": "https://www.guancha.cn/",
     "domain": "www.guancha.cn"
   },
   "readiness": "pass",
-  "overallScore": 0.774,
+  "overallScore": 0.78,
   "warnings": [],
   "fatalIssues": [],
-  "highSignalBlocks": 57,
+  "highSignalBlocks": 59,
   "digestItems": 18,
   "sourceRefs": 125,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.544,
-      "numerator": 68,
+      "value": 0.528,
+      "numerator": 66,
       "denominator": 125,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": false
     },
     "contentCoverage": {
-      "value": 0.154,
-      "numerator": 4233,
-      "denominator": 27483,
+      "value": 0.151,
+      "numerator": 4185,
+      "denominator": 27678,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 57,
-      "denominator": 57,
+      "numerator": 59,
+      "denominator": 59,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -55,15 +55,15 @@
     },
     "digestCompressionRatio": {
       "value": 0.035,
-      "numerator": 138,
-      "denominator": 3943,
+      "numerator": 137,
+      "denominator": 3876,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.778,
-      "numerator": 14,
+      "value": 0.833,
+      "numerator": 15,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

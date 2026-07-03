@@ -12,6 +12,7 @@ Result: PASS
 
 ## 未通过样本
 
+- domestic-article-juejin: degraded, jumpback=located, content=0.967, noise=0.167
 - domestic-content-bilibili-video: degraded, jumpback=located, content=0.967, noise=0.167
 
 ## Threshold Issues

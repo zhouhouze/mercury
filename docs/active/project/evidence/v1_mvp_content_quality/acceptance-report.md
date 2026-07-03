@@ -1,62 +1,42 @@
-# V1 Real-Site Complex Pages Diagnostic Acceptance Report
+# V1-MVP-CQ 内容理解质量增强自动化验收报告
 
-Date: 2026-07-02T21:20:22.776Z
+Date: 2026-07-03T05:34:48.867Z
 Result: PASS
+
+## 结论
+
+- Claim: V1 MVP content quality prove-out passed strict real-site acceptance.
+- 证据路径：docs/active/project/evidence/v1_mvp_content_quality
+- 审计边界：本报告只支持 CQ 内容理解质量增强 strict prove-out；不支持完整 V1 complete、最终 Monica-like UX complete、媒体流理解、RAG / Memory / Web Research / PPT / Deep Research ready。
 
 ## Summary
 
-- Samples: 36
-- Passed: 35
-- Degraded: 0
-- Blocked: 1
-- DOM highlighted: 35
-- Fallback shown: 0
-- Environment: 0 sample(s) degraded and 1 sample(s) blocked were retained as honest evidence. Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies. Auth cookies were injected for: bilibili(30). Cookie values are intentionally omitted from evidence.
+- 总样本：36
+- QH 核心回归样本：24
+- 高风险样本：12
+- strict pass：34
+- degraded：2
+- blocked：0
+- fatalIssues：0
+- majorIssues：0
 
-## Claim
+## 类别门槛
 
-```text
-V1 MVP content quality diagnostic collected strict real-site evidence. Run generate-v1-mvp-content-quality-report.mjs for the final schema report.
-```
+- domestic_portal_homepage: 6/6 strict pass, PASS
+- domestic_article_detail: 5/6 strict pass, PASS
+- domestic_content_platform: 5/6 strict pass, PASS
+- international_portal_homepage: 6/6 strict pass, PASS
+- international_article_detail: 6/6 strict pass, PASS
+- international_knowledge_blog_doc: 6/6 strict pass, PASS
 
-| Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Selected source card | Mindmap quality | Issues |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 网易新闻 | homepage | pass | pass | 5432 | 109 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| 央视网新闻 | homepage | pass | pass | 3478 | 90 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| 中国新闻网 | homepage | pass | pass | 6533 | 110 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
-| 观察者网 | homepage | pass | pass | 17595 | 125 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
-| 人民网 | homepage | pass | pass | 5781 | 109 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
-| 腾讯新闻 | homepage | pass | pass | 1779 | 88 | 18 | highlighted | 1 | 10 labels / noise 0.00 / unique 1.00 | none |
-| 36氪 | channel | pass | pass | 2593 | 102 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
-| 央视网新闻 | channel | pass | pass | 3555 | 91 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| 博客园 | homepage | pass | pass | 6153 | 109 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
-| 观察者网 | homepage | pass | pass | 17595 | 125 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
-| 稀土掘金 | feed | pass | pass | 3604 | 93 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
-| 少数派 | homepage | pass | pass | 1554 | 92 | 18 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
-| 百家号 | feed | pass | pass | 274 | 16 | 10 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
-| B站 | feed | pass | pass | 632 | 20 | 10 | highlighted | 1 | 10 labels / noise 0.00 / unique 1.00 | none |
-| B站 | detail | blocked | unknown | 0 | 0 | 0 | missing | n/a | n/a | page.goto: Timeout 60000ms exceeded.
-Call log:
-[2m  - navigating to "https://www.bilibili.com/video/BV18W7t6GEmc/", waiting until "domcontentloaded"[22m
- |
-| 豆瓣 | homepage | pass | pass | 4131 | 103 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
-| 微博热搜 | feed | pass | pass | 1310 | 65 | 18 | highlighted | 0 | 13 labels / noise 0.00 / unique 1.00 | none |
-| 小红书 | feed | pass | pass | 3247 | 96 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| Al Jazeera | homepage | pass | pass | 9430 | 110 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
-| AP News | homepage | pass | pass | 18225 | 126 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| BBC News | homepage | pass | pass | 8680 | 116 | 18 | highlighted | 0 | 7 labels / noise 0.00 / unique 1.00 | none |
-| CNN | channel | pass | pass | 10066 | 113 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
-| The Guardian | homepage | pass | pass | 19393 | 123 | 18 | highlighted | 0 | 5 labels / noise 0.00 / unique 1.00 | none |
-| NPR | channel | pass | pass | 9805 | 117 | 18 | highlighted | 0 | 7 labels / noise 0.00 / unique 1.00 | none |
-| AP News | channel | pass | pass | 10694 | 113 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
-| Ars Technica | homepage | pass | pass | 7761 | 114 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
-| BBC News | channel | pass | pass | 7302 | 114 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
-| The Guardian | channel | pass | pass | 7040 | 102 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
-| TechCrunch | homepage | pass | pass | 12082 | 113 | 18 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
-| The Verge | channel | pass | pass | 17069 | 129 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
-| Cloudflare Blog | blog | pass | pass | 9280 | 116 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| GitHub Blog | blog | pass | pass | 8547 | 115 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
-| Google Blog | blog | pass | pass | 2841 | 106 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
-| MDN | docs | pass | pass | 3670 | 105 | 18 | highlighted | 1 | 9 labels / noise 0.00 / unique 1.00 | none |
-| Python Docs | docs | pass | pass | 7619 | 112 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
-| React Docs | docs | pass | pass | 12387 | 121 | 18 | highlighted | 1 | 5 labels / noise 0.00 / unique 1.00 | none |
+## 未通过 strict 的样本
+
+- domestic-article-juejin: degraded, jumpback=located, content=0.967, noise=0.167
+- domestic-content-bilibili-video: degraded, jumpback=located, content=0.967, noise=0.167
+
+## 审计链接
+
+- HTML: acceptance-report.html
+- JSON: report.json
+- PRD review: prd-review.md
+- False-green audit: false-green-audit.md

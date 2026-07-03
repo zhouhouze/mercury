@@ -1,38 +1,38 @@
 {
   "activePage": {
-    "pageId": "page_eeb14954661ce728",
+    "pageId": "page_a1a3fe374ce7c9c7",
     "title": "豆瓣",
     "url": "https://www.douban.com/",
     "domain": "www.douban.com"
   },
   "readiness": "pass",
-  "overallScore": 0.935,
+  "overallScore": 0.878,
   "warnings": [],
   "fatalIssues": [],
-  "highSignalBlocks": 78,
+  "highSignalBlocks": 74,
   "digestItems": 18,
   "sourceRefs": 103,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.243,
-      "numerator": 25,
+      "value": 0.282,
+      "numerator": 29,
       "denominator": 103,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
-      "passed": true
+      "passed": false
     },
     "contentCoverage": {
-      "value": 0.658,
-      "numerator": 5005,
-      "denominator": 7608,
+      "value": 0.467,
+      "numerator": 3252,
+      "denominator": 6966,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 78,
-      "denominator": 78,
+      "numerator": 74,
+      "denominator": 74,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -54,16 +54,16 @@
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.099,
-      "numerator": 119,
-      "denominator": 1205,
+      "value": 0.064,
+      "numerator": 74,
+      "denominator": 1155,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.833,
-      "numerator": 15,
+      "value": 1,
+      "numerator": 18,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

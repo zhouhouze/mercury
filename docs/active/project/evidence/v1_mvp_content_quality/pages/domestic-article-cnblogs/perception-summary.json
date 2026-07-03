@@ -1,40 +1,40 @@
 {
   "activePage": {
-    "pageId": "page_e9dd2059a11a25f3",
+    "pageId": "page_e4c7a9f03bdb8b1d",
     "title": "博客园 - 开发者的网上家园",
     "url": "https://www.cnblogs.com/",
     "domain": "www.cnblogs.com"
   },
   "readiness": "pass",
-  "overallScore": 0.858,
+  "overallScore": 0.866,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 80,
+  "highSignalBlocks": 81,
   "digestItems": 18,
-  "sourceRefs": 109,
+  "sourceRefs": 110,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.266,
+      "value": 0.264,
       "numerator": 29,
-      "denominator": 109,
+      "denominator": 110,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": false
     },
     "contentCoverage": {
-      "value": 0.677,
-      "numerator": 10451,
-      "denominator": 15447,
+      "value": 0.727,
+      "numerator": 11299,
+      "denominator": 15541,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 80,
-      "denominator": 80,
+      "numerator": 81,
+      "denominator": 81,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -49,16 +49,16 @@
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 109,
-      "denominator": 109,
+      "numerator": 110,
+      "denominator": 110,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.07,
-      "numerator": 171,
-      "denominator": 2449,
+      "value": 0.073,
+      "numerator": 182,
+      "denominator": 2505,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true

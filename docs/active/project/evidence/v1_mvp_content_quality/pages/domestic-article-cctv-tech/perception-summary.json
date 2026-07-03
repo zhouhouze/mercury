@@ -1,38 +1,38 @@
 {
   "activePage": {
-    "pageId": "page_ee0891b295a43ead",
+    "pageId": "page_c764dda4037fb9c1",
     "title": "科技新闻_央视网(cctv.com)",
     "url": "https://news.cctv.com/tech/",
     "domain": "news.cctv.com"
   },
   "readiness": "pass",
-  "overallScore": 0.935,
+  "overallScore": 0.938,
   "warnings": [],
   "fatalIssues": [],
-  "highSignalBlocks": 74,
+  "highSignalBlocks": 73,
   "digestItems": 18,
-  "sourceRefs": 91,
+  "sourceRefs": 90,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.187,
+      "value": 0.189,
       "numerator": 17,
-      "denominator": 91,
+      "denominator": 90,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.712,
-      "numerator": 6768,
-      "denominator": 9504,
+      "value": 0.703,
+      "numerator": 6736,
+      "denominator": 9575,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
       "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 74,
-      "denominator": 74,
+      "numerator": 73,
+      "denominator": 73,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -47,23 +47,23 @@
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 91,
-      "denominator": 91,
+      "numerator": 90,
+      "denominator": 90,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.119,
-      "numerator": 141,
-      "denominator": 1183,
+      "value": 0.118,
+      "numerator": 144,
+      "denominator": 1223,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.722,
-      "numerator": 13,
+      "value": 0.778,
+      "numerator": 14,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

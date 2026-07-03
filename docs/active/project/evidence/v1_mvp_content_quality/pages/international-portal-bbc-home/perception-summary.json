@@ -1,40 +1,40 @@
 {
   "activePage": {
-    "pageId": "page_3f43ca3ee9e524a2",
+    "pageId": "page_503df954ae92b50e",
     "title": "BBC News - Breaking news, video and the latest top stories from the U.S. and around the world",
     "url": "https://www.bbc.com/news",
     "domain": "www.bbc.com"
   },
   "readiness": "pass",
-  "overallScore": 0.967,
+  "overallScore": 0.931,
   "warnings": [
     "MEDIA_DOM_LIMITED"
   ],
   "fatalIssues": [],
-  "highSignalBlocks": 105,
+  "highSignalBlocks": 99,
   "digestItems": 18,
-  "sourceRefs": 116,
+  "sourceRefs": 115,
   "qualityMetrics": {
     "noiseRatio": {
-      "value": 0.095,
-      "numerator": 11,
-      "denominator": 116,
+      "value": 0.139,
+      "numerator": 16,
+      "denominator": 115,
       "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
       "threshold": 0.25,
       "passed": true
     },
     "contentCoverage": {
-      "value": 0.837,
-      "numerator": 18204,
-      "denominator": 21747,
+      "value": 0.745,
+      "numerator": 16876,
+      "denominator": 22643,
       "method": "highSignalContentChars / readableContentChars",
       "threshold": 0.75,
-      "passed": true
+      "passed": false
     },
     "sourceCoverage": {
       "value": 1,
-      "numerator": 105,
-      "denominator": 105,
+      "numerator": 99,
+      "denominator": 99,
       "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
       "threshold": 0.95,
       "passed": true
@@ -49,23 +49,23 @@
     },
     "jumpbackCoverage": {
       "value": 1,
-      "numerator": 116,
-      "denominator": 116,
+      "numerator": 115,
+      "denominator": 115,
       "method": "sourceRefsWithTextQuoteOrFallbackText / sourceRefsTotal",
       "threshold": 0.95,
       "passed": true
     },
     "digestCompressionRatio": {
-      "value": 0.072,
-      "numerator": 268,
-      "denominator": 3704,
+      "value": 0.067,
+      "numerator": 261,
+      "denominator": 3923,
       "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
       "threshold": 0.35,
       "passed": true
     },
     "candidateFactDensity": {
-      "value": 0.889,
-      "numerator": 16,
+      "value": 0.611,
+      "numerator": 11,
       "denominator": 18,
       "method": "digestCandidateFactItems / digestItemCount",
       "threshold": 0.5,

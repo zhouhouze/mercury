@@ -22,7 +22,7 @@
   },
   "pageKind": "blog",
   "url": "https://blog.cloudflare.com/",
-  "startedAt": "2026-07-02T21:18:48.266Z",
+  "startedAt": "2026-07-03T05:17:13.741Z",
   "result": "pass",
   "fatalIssues": [],
   "majorIssues": [],
@@ -30,7 +30,7 @@
   "dom": {
     "title": "The Cloudflare Blog",
     "url": "https://blog.cloudflare.com/",
-    "bodyTextLength": 9280,
+    "bodyTextLength": 8833,
     "bodyTextSample": "Get Started Free | Contact Sales | ▼ The Cloudflare Blog Subscribe to receive notifications of new posts: Subscribe AI Developers Radar Product News Security Policy & Legal Zero Trust Speed & Reliability Life at Cloudflare Partners Announcing the Monetization Gateway: charge for any resource behind Cloudflare via x402 2026-07-01 We're opening the waitlist for our Monetization Gateway, which will allow you to charge for any web page, dataset, API, or MCP tool behind Cloudflare. The charges will settle in stablecoins over the x402 open protocol, with no payments stack of your own to build.... Co",
     "anchorCount": 297,
     "anchors": [
@@ -525,10 +525,10 @@
   "sidepanel": {
     "runtimeStatus": "online",
     "pageContextState": "captured",
-    "sessionId": "sess_00000000000000000000002045",
+    "sessionId": "sess_00000000000000000000003404",
     "pageTitle": "The Cloudflare Blog",
-    "submitStatus": "已提交：page_b14344426ccbfac3",
-    "domSignalBlockCount": 90,
+    "submitStatus": "已提交：page_45b4931697931702",
+    "domSignalBlockCount": 89,
     "domSignalLinkCount": 160,
     "pageStateHints": [
       "media_dom_limited"
@@ -536,41 +536,41 @@
   },
   "perception": {
     "activePage": {
-      "pageId": "page_b14344426ccbfac3",
+      "pageId": "page_45b4931697931702",
       "title": "The Cloudflare Blog",
       "url": "https://blog.cloudflare.com/",
       "domain": "blog.cloudflare.com"
     },
     "readiness": "pass",
-    "overallScore": 0.971,
+    "overallScore": 0.974,
     "warnings": [
       "MEDIA_DOM_LIMITED"
     ],
     "fatalIssues": [],
-    "highSignalBlocks": 107,
+    "highSignalBlocks": 106,
     "digestItems": 18,
     "sourceRefs": 116,
     "qualityMetrics": {
       "noiseRatio": {
-        "value": 0.078,
-        "numerator": 9,
+        "value": 0.086,
+        "numerator": 10,
         "denominator": 116,
         "method": "filteredOrDowngradedNoiseBlocks / allDetectedBlocks",
         "threshold": 0.25,
         "passed": true
       },
       "contentCoverage": {
-        "value": 0.899,
-        "numerator": 22026,
-        "denominator": 24495,
+        "value": 0.915,
+        "numerator": 22005,
+        "denominator": 24060,
         "method": "highSignalContentChars / readableContentChars",
         "threshold": 0.75,
         "passed": true
       },
       "sourceCoverage": {
         "value": 1,
-        "numerator": 107,
-        "denominator": 107,
+        "numerator": 106,
+        "denominator": 106,
         "method": "highSignalBlocksWithSourceRef / highSignalBlocksTotal",
         "threshold": 0.95,
         "passed": true
@@ -592,9 +592,9 @@
         "passed": true
       },
       "digestCompressionRatio": {
-        "value": 0.068,
+        "value": 0.07,
         "numerator": 245,
-        "denominator": 3587,
+        "denominator": 3512,
         "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
         "threshold": 0.35,
         "passed": true
@@ -614,44 +614,44 @@
     "sourceCards": [
       {
         "index": 0,
-        "testId": "mindmap-source-card-node_5",
-        "nodeId": "node_5",
-        "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0069",
-          "src_page_b14344426ccbfac3_0011",
-          "src_page_b14344426ccbfac3_0059",
-          "src_page_b14344426ccbfac3_0040",
-          "src_page_b14344426ccbfac3_0065",
-          "src_page_b14344426ccbfac3_0062",
-          "src_page_b14344426ccbfac3_0027",
-          "src_page_b14344426ccbfac3_0014",
-          "src_page_b14344426ccbfac3_0017"
-        ],
-        "label": "article_body",
-        "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
-      },
-      {
-        "index": 1,
         "testId": "mindmap-source-card-node_3",
         "nodeId": "node_3",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0104",
-          "src_page_b14344426ccbfac3_0102",
-          "src_page_b14344426ccbfac3_0114",
-          "src_page_b14344426ccbfac3_0110",
-          "src_page_b14344426ccbfac3_0111",
-          "src_page_b14344426ccbfac3_0107",
-          "src_page_b14344426ccbfac3_0113"
+          "src_page_45b4931697931702_0104",
+          "src_page_45b4931697931702_0102",
+          "src_page_45b4931697931702_0114",
+          "src_page_45b4931697931702_0110",
+          "src_page_45b4931697931702_0111",
+          "src_page_45b4931697931702_0107",
+          "src_page_45b4931697931702_0113"
         ],
         "label": "核心要点",
         "excerpt": "Instead of a one-size-fits-all block, all customers can now easily distinguish and manage Search, Agent, and Training bots, alongside the new ability to protect ad-monetized pages.... Jin-Hee Lee Bryan Becker Unmasking the crawls with Attri"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_45b4931697931702_0069",
+          "src_page_45b4931697931702_0011",
+          "src_page_45b4931697931702_0059",
+          "src_page_45b4931697931702_0040",
+          "src_page_45b4931697931702_0065",
+          "src_page_45b4931697931702_0062",
+          "src_page_45b4931697931702_0027",
+          "src_page_45b4931697931702_0014",
+          "src_page_45b4931697931702_0017"
+        ],
+        "label": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat In…",
+        "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
       },
       {
         "index": 2,
         "testId": "mindmap-source-card-node_1",
         "nodeId": "node_1",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0108"
+          "src_page_45b4931697931702_0108"
         ],
         "label": "流程与操作",
         "excerpt": "Any agent can now run wrangler deploy — temporary and get a live Worker in seconds.... Sid Chatterjee Celso Martinho Brendan Irvine-Broque Build your own vulnerability harness 2026-06-18 SecurityAIEngineeringResearchVulnerabilities We break"
@@ -661,7 +661,7 @@
         "testId": "mindmap-source-card-node_2",
         "nodeId": "node_2",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0108"
+          "src_page_45b4931697931702_0108"
         ],
         "label": "Any agent can now run",
         "excerpt": "Any agent can now run wrangler deploy — temporary and get a live Worker in seconds.... Sid Chatterjee Celso Martinho Brendan Irvine-Broque Build your own vulnerability harness 2026-06-18 SecurityAIEngineeringResearchVulnerabilities We break"
@@ -671,7 +671,7 @@
         "testId": "mindmap-source-card-node_4",
         "nodeId": "node_4",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0104"
+          "src_page_45b4931697931702_0104"
         ],
         "label": "Instead of",
         "excerpt": "Instead of a one-size-fits-all block, all customers can now easily distinguish and manage Search, Agent, and Training bots, alongside the new ability to protect ad-monetized pages.... Jin-Hee Lee Bryan Becker Unmasking the crawls with Attri"
@@ -681,7 +681,7 @@
         "testId": "mindmap-source-card-node_6",
         "nodeId": "node_6",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0069"
+          "src_page_45b4931697931702_0069"
         ],
         "label": "Turning Cloudflare s",
         "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
@@ -691,7 +691,7 @@
         "testId": "mindmap-source-card-node_7",
         "nodeId": "node_7",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0011"
+          "src_page_45b4931697931702_0011"
         ],
         "label": "Independence Day, one year",
         "excerpt": "Content Independence Day, one year on: building the business model for the agentic Internet 2026-07-01 Content Independence DayBotsBot ManagementRadarInternet TrafficAI One year after declaring Content Independence Day, a dynamic market for"
@@ -701,7 +701,7 @@
         "testId": "mindmap-source-card-node_8",
         "nodeId": "node_8",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0112"
+          "src_page_45b4931697931702_0112"
         ],
         "label": "架构与接口",
         "excerpt": "By optimizing Kafka consumers, Postgres queries, and our API, we scaled our throughput 10x without adding hardware.... Dave Baxter Route public traffic to private applications with Cloudflare 2026-06-10 Application ServicesPrivate NetworkDN"
@@ -713,7 +713,7 @@
       "Any agent can now run",
       "核心要点",
       "Instead of",
-      "article_body",
+      "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 Securi…",
       "Turning Cloudflare s",
       "Independence Day, one year",
       "架构与接口",
@@ -731,48 +731,48 @@
   },
   "jumpback": {
     "action": "jumpback_source_card",
-    "index": 0,
+    "index": 1,
     "sourceCards": [
       {
         "index": 0,
-        "testId": "mindmap-source-card-node_5",
-        "nodeId": "node_5",
-        "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0069",
-          "src_page_b14344426ccbfac3_0011",
-          "src_page_b14344426ccbfac3_0059",
-          "src_page_b14344426ccbfac3_0040",
-          "src_page_b14344426ccbfac3_0065",
-          "src_page_b14344426ccbfac3_0062",
-          "src_page_b14344426ccbfac3_0027",
-          "src_page_b14344426ccbfac3_0014",
-          "src_page_b14344426ccbfac3_0017"
-        ],
-        "label": "article_body",
-        "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
-      },
-      {
-        "index": 1,
         "testId": "mindmap-source-card-node_3",
         "nodeId": "node_3",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0104",
-          "src_page_b14344426ccbfac3_0102",
-          "src_page_b14344426ccbfac3_0114",
-          "src_page_b14344426ccbfac3_0110",
-          "src_page_b14344426ccbfac3_0111",
-          "src_page_b14344426ccbfac3_0107",
-          "src_page_b14344426ccbfac3_0113"
+          "src_page_45b4931697931702_0104",
+          "src_page_45b4931697931702_0102",
+          "src_page_45b4931697931702_0114",
+          "src_page_45b4931697931702_0110",
+          "src_page_45b4931697931702_0111",
+          "src_page_45b4931697931702_0107",
+          "src_page_45b4931697931702_0113"
         ],
         "label": "核心要点",
         "excerpt": "Instead of a one-size-fits-all block, all customers can now easily distinguish and manage Search, Agent, and Training bots, alongside the new ability to protect ad-monetized pages.... Jin-Hee Lee Bryan Becker Unmasking the crawls with Attri"
+      },
+      {
+        "index": 1,
+        "testId": "mindmap-source-card-node_5",
+        "nodeId": "node_5",
+        "sourceRefIds": [
+          "src_page_45b4931697931702_0069",
+          "src_page_45b4931697931702_0011",
+          "src_page_45b4931697931702_0059",
+          "src_page_45b4931697931702_0040",
+          "src_page_45b4931697931702_0065",
+          "src_page_45b4931697931702_0062",
+          "src_page_45b4931697931702_0027",
+          "src_page_45b4931697931702_0014",
+          "src_page_45b4931697931702_0017"
+        ],
+        "label": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat In…",
+        "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
       },
       {
         "index": 2,
         "testId": "mindmap-source-card-node_1",
         "nodeId": "node_1",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0108"
+          "src_page_45b4931697931702_0108"
         ],
         "label": "流程与操作",
         "excerpt": "Any agent can now run wrangler deploy — temporary and get a live Worker in seconds.... Sid Chatterjee Celso Martinho Brendan Irvine-Broque Build your own vulnerability harness 2026-06-18 SecurityAIEngineeringResearchVulnerabilities We break"
@@ -782,7 +782,7 @@
         "testId": "mindmap-source-card-node_2",
         "nodeId": "node_2",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0108"
+          "src_page_45b4931697931702_0108"
         ],
         "label": "Any agent can now run",
         "excerpt": "Any agent can now run wrangler deploy — temporary and get a live Worker in seconds.... Sid Chatterjee Celso Martinho Brendan Irvine-Broque Build your own vulnerability harness 2026-06-18 SecurityAIEngineeringResearchVulnerabilities We break"
@@ -792,7 +792,7 @@
         "testId": "mindmap-source-card-node_4",
         "nodeId": "node_4",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0104"
+          "src_page_45b4931697931702_0104"
         ],
         "label": "Instead of",
         "excerpt": "Instead of a one-size-fits-all block, all customers can now easily distinguish and manage Search, Agent, and Training bots, alongside the new ability to protect ad-monetized pages.... Jin-Hee Lee Bryan Becker Unmasking the crawls with Attri"
@@ -802,7 +802,7 @@
         "testId": "mindmap-source-card-node_6",
         "nodeId": "node_6",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0069"
+          "src_page_45b4931697931702_0069"
         ],
         "label": "Turning Cloudflare s",
         "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri"
@@ -812,7 +812,7 @@
         "testId": "mindmap-source-card-node_7",
         "nodeId": "node_7",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0011"
+          "src_page_45b4931697931702_0011"
         ],
         "label": "Independence Day, one year",
         "excerpt": "Content Independence Day, one year on: building the business model for the agentic Internet 2026-07-01 Content Independence DayBotsBot ManagementRadarInternet TrafficAI One year after declaring Content Independence Day, a dynamic market for"
@@ -822,32 +822,32 @@
         "testId": "mindmap-source-card-node_8",
         "nodeId": "node_8",
         "sourceRefIds": [
-          "src_page_b14344426ccbfac3_0112"
+          "src_page_45b4931697931702_0112"
         ],
         "label": "架构与接口",
         "excerpt": "By optimizing Kafka consumers, Postgres queries, and our API, we scaled our throughput 10x without adding hardware.... Dave Baxter Route public traffic to private applications with Cloudflare 2026-06-10 Application ServicesPrivate NetworkDN"
       }
     ],
-    "evidenceText": "article_bodylocatedTurning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri已定位并高亮来源。",
+    "evidenceText": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat In…locatedTurning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri已定位并高亮来源。",
     "sourceEvidenceVisible": true,
     "status": "highlighted",
-    "selectedSourceCardIndex": 0,
-    "selectedSourceCardReason": "candidate score 40 for cloudflare-blog; label=article_body",
+    "selectedSourceCardIndex": 1,
+    "selectedSourceCardReason": "candidate score 16 for cloudflare-blog; label=Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 Secur",
     "sourceCardAttemptCount": 1,
     "sourceCardAttempts": [
       {
-        "index": 0,
+        "index": 1,
         "status": "highlighted",
-        "reason": "candidate score 40 for cloudflare-blog; label=article_body",
+        "reason": "candidate score 16 for cloudflare-blog; label=Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 Secur",
         "failureReason": null
       }
     ],
     "sourceCardCandidates": [
       {
-        "index": 0,
-        "label": "article_body",
+        "index": 1,
+        "label": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat In…",
         "excerpt": "Turning Cloudflare’s threat indicators into real-time WAF rules 2026-06-08 SecurityWAFThreat IntelligenceCloudforce OneProduct News Cloudflare customers can now use Cloudforce One threat intelligence directly within the WAF to block high-ri",
-        "score": 40
+        "score": 16
       },
       {
         "index": 2,
@@ -887,10 +887,10 @@
     "sourceCardLabelCount": 8,
     "uniqueRatio": 1,
     "noisyRatio": 0,
-    "averageLabelLength": 15.363636363636363,
+    "averageLabelLength": 21.727272727272727,
     "fatalIssues": [],
     "majorIssues": []
   },
   "fallbackPolicy": "not_fallback",
-  "completedAt": "2026-07-02T21:19:19.570Z"
+  "completedAt": "2026-07-03T05:17:58.781Z"
 }

@@ -1,19 +1,9 @@
 {
   "action": "jumpback_source_card",
-  "index": 0,
+  "index": 1,
   "sourceCards": [
     {
       "index": 0,
-      "testId": "mindmap-source-card-node_7",
-      "nodeId": "node_7",
-      "sourceRefIds": [
-        "src_page_a902352e0cfc44c9_0011"
-      ],
-      "label": "article_meta",
-      "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
-    },
-    {
-      "index": 1,
       "testId": "mindmap-source-card-node_1",
       "nodeId": "node_1",
       "sourceRefIds": [
@@ -39,7 +29,7 @@
       "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
     },
     {
-      "index": 2,
+      "index": 1,
       "testId": "mindmap-source-card-node_2",
       "nodeId": "node_2",
       "sourceRefIds": [
@@ -49,7 +39,7 @@
       "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra"
     },
     {
-      "index": 3,
+      "index": 2,
       "testId": "mindmap-source-card-node_3",
       "nodeId": "node_3",
       "sourceRefIds": [
@@ -59,7 +49,7 @@
       "excerpt": "Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Las"
     },
     {
-      "index": 4,
+      "index": 3,
       "testId": "mindmap-source-card-node_4",
       "nodeId": "node_4",
       "sourceRefIds": [
@@ -69,7 +59,7 @@
       "excerpt": "The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. It has efficient high-level data str"
     },
     {
-      "index": 5,
+      "index": 4,
       "testId": "mindmap-source-card-node_5",
       "nodeId": "node_5",
       "sourceRefIds": [
@@ -79,7 +69,7 @@
       "excerpt": "The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications. This tutorial introduc"
     },
     {
-      "index": 6,
+      "index": 5,
       "testId": "mindmap-source-card-node_6",
       "nodeId": "node_6",
       "sourceRefIds": [
@@ -87,6 +77,16 @@
       ],
       "label": "Python is easy to learn",
       "excerpt": "Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpr"
+    },
+    {
+      "index": 6,
+      "testId": "mindmap-source-card-node_7",
+      "nodeId": "node_7",
+      "sourceRefIds": [
+        "src_page_a902352e0cfc44c9_0011"
+      ],
+      "label": "The Python interpreter and the exte…",
+      "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
     },
     {
       "index": 7,
@@ -99,55 +99,55 @@
       "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis"
     }
   ],
-  "evidenceText": "article_metalocatedThe Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis已定位并高亮来源。",
+  "evidenceText": "It has efficientlocatedIt has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra已定位并高亮来源。",
   "sourceEvidenceVisible": true,
   "status": "highlighted",
-  "selectedSourceCardIndex": 0,
-  "selectedSourceCardReason": "candidate score 40 for python-docs; label=article_meta",
+  "selectedSourceCardIndex": 1,
+  "selectedSourceCardReason": "candidate score 16 for python-docs; label=It has efficient",
   "sourceCardAttemptCount": 1,
   "sourceCardAttempts": [
     {
-      "index": 0,
+      "index": 1,
       "status": "highlighted",
-      "reason": "candidate score 40 for python-docs; label=article_meta",
+      "reason": "candidate score 16 for python-docs; label=It has efficient",
       "failureReason": null
     }
   ],
   "sourceCardCandidates": [
     {
-      "index": 0,
-      "label": "article_meta",
-      "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis",
-      "score": 40
-    },
-    {
-      "index": 2,
+      "index": 1,
       "label": "It has efficient",
       "excerpt": "It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpreted nature, make it an ideal language for scripting and ra",
       "score": 16
     },
     {
-      "index": 3,
+      "index": 2,
       "label": "Examples, recipes, and",
       "excerpt": "Examples, recipes, and other code in the documentation are additionally licensed under the Zero Clause BSD License. See History and License for more information. The Python Software Foundation is a non-profit corporation. Please donate. Las",
       "score": 16
     },
     {
-      "index": 4,
+      "index": 3,
       "label": "Python Tutorial Tip This",
       "excerpt": "The Python Tutorial Tip This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. It has efficient high-level data str",
       "score": 16
     },
     {
-      "index": 5,
+      "index": 4,
       "label": "Python interpreter is",
       "excerpt": "The Python interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C). Python is also suitable as an extension language for customizable applications. This tutorial introduc",
       "score": 16
     },
     {
-      "index": 6,
+      "index": 5,
       "label": "Python is easy to learn",
       "excerpt": "Python is an easy to learn, powerful programming language. It has efficient high-level data structures and a simple but effective approach to object-oriented programming. Python’s elegant syntax and dynamic typing, together with its interpr",
+      "score": 16
+    },
+    {
+      "index": 6,
+      "label": "The Python interpreter and the exte…",
+      "excerpt": "The Python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python website, https://www.python.org/, and may be freely distributed. The same site also contains dis",
       "score": 16
     }
   ]
