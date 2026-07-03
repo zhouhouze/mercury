@@ -16,9 +16,19 @@ Claim allowed:
 V1 mainline closeout candidate passed automated acceptance.
 ```
 
+Post-human-review addendum:
+
+```text
+V1 complete: Navia MVP companion-reading Chrome extension is complete for current-page text-grounded reading workflows.
+```
+
+This V1 complete claim is allowed only after the human product review recorded in
+`docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md`
+passed on 2026-07-03. The original automated report remains a machine-generated
+candidate snapshot and is not treated as human review by itself.
+
 Not claimed:
 
-- Full V1 complete.
 - Final Monica-like UX complete.
 - Logged-in high-quality B站 / 小红书 pass.
 - V2 Memory / RAG ready.

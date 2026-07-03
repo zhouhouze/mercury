@@ -225,12 +225,13 @@
     ]
   },
   "auditDecision": {
-    "humanAuditEntry": "docs/active/project/evidence/v1_mainline_closeout/acceptance-report.html",
+    "humanAuditEntry": "docs/active/project/evidence/v1_mainline_closeout/v1-complete-ux-product-review-2026-07-03.md",
     "machineAuditJson": "docs/active/project/evidence/v1_mainline_closeout/report.json",
-    "allowedClaim": "V1 mainline closeout candidate passed automated acceptance.",
-    "fullV1CompleteStatus": "No-Go：必须完成人工产品体验核查并重新执行 V1 complete candidate 审计后，才允许进入完整 V1 complete 候选。",
-    "humanReviewStatus": "pending",
-    "readinessForHumanReview": "可进入人工产品体验核查"
+    "machineOnlyAllowedClaim": "V1 mainline closeout candidate passed automated acceptance.",
+    "allowedClaim": "V1 complete: Navia MVP companion-reading Chrome extension is complete for current-page text-grounded reading workflows.",
+    "fullV1CompleteStatus": "Go：人工产品体验核查已在 2026-07-03 通过；该完成声明仅限 V1 MVP 当前页伴随阅读范围。",
+    "humanReviewStatus": "passed",
+    "readinessForHumanReview": "人工核查已通过"
   },
   "prdCoverage": [
     {
@@ -265,7 +266,10 @@
     }
   ],
   "humanReview": {
-    "reviewStatus": "pending",
+    "reviewStatus": "passed",
+    "reviewedAt": "2026-07-03T16:54:41+08:00",
+    "reviewer": "Human product owner, confirmed in Codex session",
+    "recordPath": "docs/active/project/evidence/v1_mainline_closeout/v1-complete-ux-product-review-2026-07-03.md",
     "requiredBeforeFullV1Complete": true,
     "checklistPath": "docs/active/project/evidence/v1_mainline_closeout/human-review-checklist.md",
     "tasks": [
@@ -4121,7 +4125,7 @@
     "当前 V1-MC real-site / external 样本均为 DOM highlight 成功；fallback 路径覆盖继承自 V1.3 / V1.4 上游证据，必须在报告中保持可见。",
     "Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies.",
     "Auth cookies were injected for: bilibili(30), xiaohongshu(16). Cookie values are intentionally omitted from evidence.",
-    "任何完整 V1 complete 候选声明前，仍必须完成人工产品体验核查。"
+    "人工产品体验核查已于 2026-07-03 通过，因此允许记录 V1 complete，但仅限 MVP 当前页伴随阅读范围；不得扩展为最终 Monica-like UX、全站高质量、媒体理解、RAG、Memory、Web Research、PPT 或 Deep Research ready。"
   ],
   "fatalIssues": [],
   "majorIssues": []
