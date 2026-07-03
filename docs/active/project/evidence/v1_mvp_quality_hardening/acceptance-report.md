@@ -1,72 +1,71 @@
-# V1-MVP-QH Expanded 自动化验收报告
+# V1-MVP-QH 质量硬化真实站点验收报告
 
+Date: 2026-07-03T14:35:55.819Z
 Result: PASS
-
-Claim boundary:
-
-```text
-V1 MVP quality hardening passed expanded real-site acceptance.
-```
 
 ## Summary
 
 - Samples: 48
-- Domestic: 24
-- International: 24
 - Passed: 44
-- Located: 45
-- Fresh fallback: 3
-- Referenced fallback: 0
-- Jumpback blocked: 0
-- Non-pass samples retained: 4
+- Degraded: 3
+- Blocked: 1
+- DOM highlighted: 45
+- Fallback shown: 3
+- Environment: 3 sample(s) degraded and 1 sample(s) blocked were retained as honest evidence. Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies. Auth cookies were injected for: xiaohongshu(16). Cookie values are intentionally omitted from evidence.
 
-| Page | Site | Category | Result | Grounded | Noise | Jumpback | Evidence |
-|---|---|---|---|---:|---:|---|---|
-| domestic-portal-thepaper-home | 澎湃新闻 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-thepaper-home-before.png<br>screenshots/domestic-portal-thepaper-home-after.png |
-| domestic-portal-guancha-home | 观察者网 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-guancha-home-before.png<br>screenshots/domestic-portal-guancha-home-after.png |
-| domestic-portal-cctv-home | 央视网新闻 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-cctv-home-before.png<br>screenshots/domestic-portal-cctv-home-after.png |
-| domestic-portal-chinanews-home | 中国新闻网 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-chinanews-home-before.png<br>screenshots/domestic-portal-chinanews-home-after.png |
-| domestic-portal-xinhua-home | 新华网 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-xinhua-home-before.png<br>screenshots/domestic-portal-xinhua-home-after.png |
-| domestic-portal-people-home | 人民网 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-people-home-before.png<br>screenshots/domestic-portal-people-home-after.png |
-| domestic-portal-qq-news-home | 腾讯新闻 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-qq-news-home-before.png<br>screenshots/domestic-portal-qq-news-home-after.png |
-| domestic-portal-163-news-home | 网易新闻 | domestic_portal_homepage | pass | 1 | 0 | located | screenshots/domestic-portal-163-news-home-before.png<br>screenshots/domestic-portal-163-news-home-after.png |
-| domestic-article-xinhua-tech | 新华网 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-xinhua-tech-before.png<br>screenshots/domestic-article-xinhua-tech-after.png |
-| domestic-article-cctv-tech | 央视网新闻 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-cctv-tech-before.png<br>screenshots/domestic-article-cctv-tech-after.png |
-| domestic-article-thepaper-tech | 澎湃新闻 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-thepaper-tech-before.png<br>screenshots/domestic-article-thepaper-tech-after.png |
-| domestic-article-guancha-detail | 观察者网 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-guancha-detail-before.png<br>screenshots/domestic-article-guancha-detail-after.png |
-| domestic-article-36kr-news | 36氪 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-36kr-news-before.png<br>screenshots/domestic-article-36kr-news-after.png |
-| domestic-article-sspai | 少数派 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-sspai-before.png<br>screenshots/domestic-article-sspai-after.png |
-| domestic-article-cnblogs | 博客园 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-cnblogs-before.png<br>screenshots/domestic-article-cnblogs-after.png |
-| domestic-article-juejin | 稀土掘金 | domestic_article_detail | pass | 1 | 0 | located | screenshots/domestic-article-juejin-before.png<br>screenshots/domestic-article-juejin-after.png |
-| domestic-content-bilibili-home | B站 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-bilibili-home-before.png<br>screenshots/domestic-content-bilibili-home-after.png |
-| domestic-content-bilibili-video | B站 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-bilibili-video-before.png<br>screenshots/domestic-content-bilibili-video-after.png |
-| domestic-content-xhs-home | 小红书 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-xhs-home-before.png<br>screenshots/domestic-content-xhs-home-after.png |
-| domestic-content-xhs-note | 小红书 | domestic_content_platform | blocked | 1 | 0 | fallback_shown | screenshots/domestic-content-xhs-note-before.png<br>screenshots/domestic-content-xhs-note-after.png |
-| domestic-content-zhihu-home | 知乎 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-zhihu-home-before.png<br>screenshots/domestic-content-zhihu-home-after.png |
-| domestic-content-douban-home | 豆瓣 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-douban-home-before.png<br>screenshots/domestic-content-douban-home-after.png |
-| domestic-content-weibo-hot | 微博热搜 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-weibo-hot-before.png<br>screenshots/domestic-content-weibo-hot-after.png |
-| domestic-content-baijiahao | 百家号 | domestic_content_platform | pass | 1 | 0 | located | screenshots/domestic-content-baijiahao-before.png<br>screenshots/domestic-content-baijiahao-after.png |
-| international-portal-bbc-home | BBC News | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-bbc-home-before.png<br>screenshots/international-portal-bbc-home-after.png |
-| international-portal-reuters-home | Reuters | international_portal_homepage | degraded | 1 | 0 | fallback_shown | screenshots/international-portal-reuters-home-before.png<br>screenshots/international-portal-reuters-home-after.png |
-| international-portal-ap-home | AP News | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-ap-home-before.png<br>screenshots/international-portal-ap-home-after.png |
-| international-portal-guardian-home | The Guardian | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-guardian-home-before.png<br>screenshots/international-portal-guardian-home-after.png |
-| international-portal-cnn-home | CNN | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-cnn-home-before.png<br>screenshots/international-portal-cnn-home-after.png |
-| international-portal-npr-home | NPR | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-npr-home-before.png<br>screenshots/international-portal-npr-home-after.png |
-| international-portal-aljazeera-home | Al Jazeera | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-aljazeera-home-before.png<br>screenshots/international-portal-aljazeera-home-after.png |
-| international-portal-yahoo-home | Yahoo News | international_portal_homepage | pass | 1 | 0 | located | screenshots/international-portal-yahoo-home-before.png<br>screenshots/international-portal-yahoo-home-after.png |
-| international-article-bbc-tech | BBC News | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-bbc-tech-before.png<br>screenshots/international-article-bbc-tech-after.png |
-| international-article-reuters-world | Reuters | international_article_detail | degraded | 1 | 0 | fallback_shown | screenshots/international-article-reuters-world-before.png<br>screenshots/international-article-reuters-world-after.png |
-| international-article-ap-world | AP News | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-ap-world-before.png<br>screenshots/international-article-ap-world-after.png |
-| international-article-guardian-world | The Guardian | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-guardian-world-before.png<br>screenshots/international-article-guardian-world-after.png |
-| international-article-theverge | The Verge | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-theverge-before.png<br>screenshots/international-article-theverge-after.png |
-| international-article-wired | Wired | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-wired-before.png<br>screenshots/international-article-wired-after.png |
-| international-article-arstechnica | Ars Technica | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-arstechnica-before.png<br>screenshots/international-article-arstechnica-after.png |
-| international-article-techcrunch | TechCrunch | international_article_detail | pass | 1 | 0 | located | screenshots/international-article-techcrunch-before.png<br>screenshots/international-article-techcrunch-after.png |
-| international-doc-wikipedia-ai | Wikipedia | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-wikipedia-ai-before.png<br>screenshots/international-doc-wikipedia-ai-after.png |
-| international-doc-mdn-fetch | MDN | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-mdn-fetch-before.png<br>screenshots/international-doc-mdn-fetch-after.png |
-| international-doc-python-tutorial | Python Docs | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-python-tutorial-before.png<br>screenshots/international-doc-python-tutorial-after.png |
-| international-doc-react-learn | React Docs | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-react-learn-before.png<br>screenshots/international-doc-react-learn-after.png |
-| international-doc-openai-docs | OpenAI Docs | international_knowledge_blog_doc | degraded | 1 | 0 | located | screenshots/international-doc-openai-docs-before.png<br>screenshots/international-doc-openai-docs-after.png |
-| international-doc-cloudflare-blog | Cloudflare Blog | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-cloudflare-blog-before.png<br>screenshots/international-doc-cloudflare-blog-after.png |
-| international-doc-google-ai-blog | Google Blog | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-google-ai-blog-before.png<br>screenshots/international-doc-google-ai-blog-after.png |
-| international-doc-github-blog | GitHub Blog | international_knowledge_blog_doc | pass | 1 | 0 | located | screenshots/international-doc-github-blog-before.png<br>screenshots/international-doc-github-blog-after.png |
+## Claim
+
+```text
+V1 MVP quality hardening diagnostic collected expanded real-site evidence. Run generate-v1-mvp-quality-hardening-report.mjs for the final schema report.
+```
+
+| Site | Page | Result | Readiness | Text length | SourceRefs | Digest | Jumpback | Selected source card | Mindmap quality | Issues |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| 澎湃新闻 | homepage | pass | pass | 1698 | 89 | 18 | highlighted | 1 | 10 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | homepage | pass | pass | 17710 | 122 | 18 | highlighted | 0 | 13 labels / noise 0.00 / unique 1.00 | none |
+| 央视网新闻 | homepage | pass | pass | 3642 | 91 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| 中国新闻网 | homepage | pass | pass | 6538 | 110 | 18 | highlighted | 1 | 9 labels / noise 0.00 / unique 1.00 | none |
+| 新华网 | homepage | pass | pass | 5060 | 108 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| 人民网 | homepage | pass | pass | 6337 | 111 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
+| 腾讯新闻 | homepage | pass | pass | 1832 | 89 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
+| 网易新闻 | homepage | pass | pass | 5438 | 108 | 18 | highlighted | 1 | 12 labels / noise 0.00 / unique 1.00 | none |
+| 新华网 | channel | pass | pass | 1341 | 40 | 18 | highlighted | 0 | 12 labels / noise 0.08 / unique 1.00 | none |
+| 央视网新闻 | channel | pass | pass | 3545 | 91 | 18 | highlighted | 0 | 15 labels / noise 0.00 / unique 1.00 | none |
+| 澎湃新闻 | channel | pass | pass | 2037 | 89 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| 观察者网 | homepage | pass | pass | 17710 | 122 | 18 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
+| 36氪 | channel | pass | pass | 2539 | 104 | 18 | highlighted | 1 | 11 labels / noise 0.00 / unique 0.91 | none |
+| 少数派 | homepage | pass | pass | 1350 | 91 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
+| 博客园 | homepage | pass | pass | 5816 | 109 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| 稀土掘金 | feed | pass | pass | 3569 | 94 | 18 | highlighted | 1 | 15 labels / noise 0.00 / unique 1.00 | none |
+| B站 | feed | pass | pass | 608 | 22 | 18 | highlighted | 5 | 10 labels / noise 0.00 / unique 1.00 | none |
+| B站 | detail | pass | pass | 2707 | 15 | 13 | highlighted | 4 | 11 labels / noise 0.00 / unique 1.00 | none |
+| 小红书 | feed | pass | pass | 1529 | 52 | 18 | highlighted | 1 | 8 labels / noise 0.00 / unique 1.00 | none |
+| 小红书 | detail | blocked | degraded | 765 | 23 | 8 | fallback_shown | 1 | 3 labels / noise 0.00 / unique 1.00 | Xiaohongshu detail sample did not reach /explore/ or /discovery/item/: https://www.xiaohongshu.com/404?source=/404/sec_izRhedDJ?redirectPath=https%3A%2F%2Fwww.xiaohongshu.com%2Fexplore%2F6a3283ce000000001602715a&error_code=300031&error_msg=%E5%BD%93%E5%89%8D%E7%AC%94%E8%AE%B0%E6%9A%82%E6%97%B6%E6%97%A0%E6%B3%95%E6%B5%8F%E8%A7%88&uuid=3bc9adef-162b-439d-a34a-a475e8c9ec3a&verifyMsg=.; Page perception readiness is degraded.; Source jumpback only showed fallback evidence. |
+| 知乎 | feed | pass | pass | 4795 | 76 | 18 | highlighted | 3 | 14 labels / noise 0.00 / unique 1.00 | none |
+| 豆瓣 | homepage | pass | pass | 4095 | 104 | 18 | highlighted | 1 | 11 labels / noise 0.00 / unique 1.00 | none |
+| 微博热搜 | feed | pass | pass | 164 | 18 | 17 | highlighted | 0 | 13 labels / noise 0.00 / unique 1.00 | none |
+| 百家号 | feed | pass | pass | 5983 | 109 | 18 | highlighted | 3 | 9 labels / noise 0.00 / unique 1.00 | none |
+| BBC News | homepage | pass | pass | 8521 | 114 | 18 | highlighted | 1 | 6 labels / noise 0.00 / unique 1.00 | none |
+| Reuters | homepage | degraded | degraded | 0 | 2 | 2 | fallback_shown | 0 | 2 labels / noise 0.00 / unique 1.00 | Visible page body text is very short; page may be login-gated, JS-empty, media-heavy, or anti-bot limited.; Page perception readiness is degraded.; SourceRef count below diagnostic threshold: 2.; Digest item count below diagnostic threshold: 2.; Source jumpback only showed fallback evidence.; Mindmap label sample is too small for quality assessment. |
+| AP News | homepage | pass | pass | 17432 | 121 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
+| The Guardian | homepage | pass | pass | 19507 | 123 | 18 | highlighted | 1 | 5 labels / noise 0.00 / unique 1.00 | none |
+| CNN | channel | pass | pass | 9089 | 112 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| NPR | channel | pass | pass | 7780 | 113 | 18 | highlighted | 0 | 13 labels / noise 0.00 / unique 1.00 | none |
+| Al Jazeera | homepage | pass | pass | 8503 | 108 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| Yahoo News | homepage | pass | pass | 3704 | 106 | 18 | highlighted | 0 | 7 labels / noise 0.00 / unique 1.00 | none |
+| BBC News | channel | pass | pass | 7574 | 114 | 18 | highlighted | 0 | 14 labels / noise 0.00 / unique 1.00 | none |
+| Reuters | channel | degraded | degraded | 0 | 2 | 2 | fallback_shown | 0 | 2 labels / noise 0.00 / unique 1.00 | Visible page body text is very short; page may be login-gated, JS-empty, media-heavy, or anti-bot limited.; Page perception readiness is degraded.; SourceRef count below diagnostic threshold: 2.; Digest item count below diagnostic threshold: 2.; Source jumpback only showed fallback evidence.; Mindmap label sample is too small for quality assessment. |
+| AP News | channel | pass | pass | 9471 | 110 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |
+| The Guardian | channel | pass | pass | 7407 | 104 | 18 | highlighted | 0 | 7 labels / noise 0.00 / unique 1.00 | none |
+| The Verge | channel | pass | pass | 14575 | 125 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
+| Wired | channel | pass | pass | 16739 | 126 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
+| Ars Technica | homepage | pass | pass | 7853 | 113 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
+| TechCrunch | homepage | pass | pass | 11453 | 112 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| Wikipedia | wiki | pass | pass | 187514 | 138 | 18 | highlighted | 0 | 8 labels / noise 0.00 / unique 1.00 | none |
+| MDN | docs | pass | pass | 3670 | 105 | 18 | highlighted | 0 | 10 labels / noise 0.00 / unique 1.00 | none |
+| Python Docs | docs | pass | pass | 7619 | 112 | 18 | highlighted | 0 | 6 labels / noise 0.00 / unique 1.00 | none |
+| React Docs | docs | pass | pass | 12387 | 121 | 18 | highlighted | 1 | 5 labels / noise 0.00 / unique 1.00 | none |
+| OpenAI Docs | docs | degraded | pass | 0 | 4 | 4 | highlighted | 1 | 4 labels / noise 0.00 / unique 1.00 | Visible page body text is very short; page may be login-gated, JS-empty, media-heavy, or anti-bot limited. |
+| Cloudflare Blog | blog | pass | pass | 8835 | 116 | 18 | highlighted | 0 | 9 labels / noise 0.00 / unique 1.00 | none |
+| Google Blog | blog | pass | pass | 2765 | 105 | 18 | highlighted | 0 | 11 labels / noise 0.00 / unique 1.00 | none |
+| GitHub Blog | blog | pass | pass | 8100 | 114 | 18 | highlighted | 0 | 12 labels / noise 0.00 / unique 1.00 | none |

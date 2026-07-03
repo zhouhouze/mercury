@@ -1720,3 +1720,65 @@ V3 再做伴随式直播/观影。
 V4 再做任务执行和个人秘书。
 V5 再做多端、云化和桌宠。
 ```
+
+## 19. V1.0.x Post-V1 Hardening 目标架构
+
+`V1.0.x Post-V1 Hardening` 不改变 V1 的分层架构。它在 V1 complete 之后强化已有链路的质量、可解释性和回归证据。
+
+目标链路：
+
+```text
+Host Page DOM / metadata / selection
+  -> apps/chrome-extension/src/pageContext.ts
+     -> visible block role hints / source candidate metadata
+  -> services/local-runtime/navia_runtime/modules/page_reading/
+     -> stronger SourceRef quality / low-value text filtering / degraded signals
+  -> services/local-runtime/navia_runtime/modules/agent_loop/ and adapters/
+     -> existing ToolResult / Artifact / Event / Trace boundary
+  -> services/local-runtime/navia_runtime/modules/mindmap/
+     -> semantic merge / short labels / duplicate suppression / nodeSourceMap
+  -> apps/chrome-extension/src/modules/chat_renderer/
+     -> source card explanation / degraded state / status card readability
+  -> apps/chrome-extension/src/modules/mindmap_renderer/
+     -> readable Evidence Card Mindmap / Reading Map / evidence relationship
+  -> apps/chrome-extension/src/contentBridge.ts
+     -> user-triggered located marker / fallback_shown / blocked
+  -> docs/active/project/evidence/v1_post_v1_hardening/
+     -> manifest / report / HTML / screenshots / PRD review / false-green audit
+  -> docs/active/project/contracts/
+     -> v1_post_v1_hardening_sample_manifest.schema.json
+     -> v1_post_v1_hardening_report.schema.json
+```
+
+当前架构与目标差异：
+
+| 状态 | 实体 | 当前实现 | Post-V1 hardening 目标 |
+|---|---|---|---|
+| 已实现需强化 | `apps/chrome-extension/src/pageContext.ts` | 可读取 DOM、metadata、selection 和可见文本 | 输出更稳定的 block role hints 和 source candidate metadata |
+| 已实现需强化 | `apps/chrome-extension/src/contentBridge.ts` | 支持用户触发 located / fallback / blocked | 强化语义匹配、marker 文案、fallback reason、blocked reason |
+| 已实现保持边界 | `apps/chrome-extension/src/runtimeClient.ts` | 连接 Local Runtime | 不新增 B 直连 A/C/D 能力；保持 runtime transport 和诊断边界 |
+| 已实现需强化 | B `chat_renderer` | 展示聊天、source card、状态 | 强化 source card 为什么支撑答案 / 节点的解释和 degraded 状态 |
+| 已实现需强化 | B `mindmap_renderer` | 展示 Evidence Card Mindmap / Reading Map | 强化短标签、布局防重叠、防截断、证据关系和 degraded node |
+| 已实现需强化 | A Page Reading | 生成 digest、SourceRef、QualityReport | 强化低价值文本过滤、SourceRef 质量、真实网页 degraded 判断 |
+| 已实现需强化 | C Mindmap | 生成主题树、Mermaid、nodeSourceMap | 强化语义归并、节点压缩、重复抑制、nodeSourceMap 质量 |
+| 已实现保持边界 | D Adapter / Agent Loop | 映射 ToolResult / Artifact / Event / Trace | 不新增 Runtime public contract，不改 AgentCore 边界 |
+| 待新增证据 | `v1_post_v1_hardening` evidence | 不存在独立证据包 | 新增 sample manifest、report、HTML、截图、PRD review、false-green audit |
+| 待新增合同 | `v1_post_v1_hardening` schemas | 当前不存在 Post-V1 schema | 新增 sample manifest schema 和 report schema，防止自动化验收字段漂移 |
+
+责任边界：
+
+- A 可以改善 SourceRef 和低价值文本过滤，但不得直接调用 C、B、content script 或外部研究能力。
+- C 可以改善 Mindmap 主题归并、节点压缩和 evidence binding，但不得输出 React / SVG 组件结构。
+- B 可以改善展示、source card 解释和窄侧栏可读性，但不得生成网页事实内容。
+- Content Script 只响应用户触发的 jumpback，不做自动浏览器任务。
+- D 继续作为 CoreProvider / Adapter 边界，不因 post-V1 hardening 新增公共 Runtime 合同。
+
+架构出门条件：
+
+- drawio 架构页必须用具体实体和状态色块表达当前架构、目标架构、交互方向和分层结构。
+- `sample-manifest.json` 与 `report.json` 必须分别通过 post-V1 hardening schema。
+- semantic validator 必须校验 schema 难以表达的跨字段关系，包括 `passed=true`、样本分布、截图证据、metric 阈值方向、fresh fallback / blocked replacement 和 located / fallback / blocked 一致性。
+- 后续实现必须提供固定验证入口：`npm --prefix apps/chrome-extension run validate:post-v1-hardening`，并由该入口验证 `sampleDistribution`、`fallbackPolicy`、截图证据、metric operator 和 located / fallback / blocked 语义一致性。
+- located / fallback_shown / blocked 必须在 UI、JSON、HTML、截图 metadata 中语义一致。
+- post-V1 evidence 必须独立，不得用 V1 complete、QH 或 CQ 旧报告直接冒充新阶段验收。
+- 本阶段不得引入 RAG、Memory、Web Research、PPT、Deep Research、OCR/VLM/ASR、媒体流理解、产品浏览器自动操作或默认本地文件读取。

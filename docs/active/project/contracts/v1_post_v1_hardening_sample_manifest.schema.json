@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v1_post_v1_hardening_sample_manifest.schema.json",
+  "title": "V1.0.x Post-V1 Hardening Sample Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "stage",
+    "candidateMatrixSize",
+    "acceptanceSubsetSize",
+    "categories",
+    "samples"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-post-v1-hardening.sample-manifest.1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "const": "V1.0.x Post-V1 Hardening"
+    },
+    "candidateMatrixSize": {
+      "type": "integer",
+      "minimum": 100
+    },
+    "acceptanceSubsetSize": {
+      "type": "integer",
+      "minimum": 36
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "string",
+        "enum": [
+          "domestic_portal",
+          "domestic_article",
+          "domestic_community",
+          "international_portal",
+          "international_article",
+          "technical_doc_blog",
+          "complex_dynamic",
+          "low_signal"
+        ]
+      }
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 100,
+      "items": {
+        "$ref": "#/$defs/sample"
+      }
+    }
+  },
+  "$defs": {
+    "sample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sampleId",
+        "url",
+        "site",
+        "category",
+        "role",
+        "requiresLogin",
+        "expectedJumpbackModes",
+        "acceptanceSubset",
+        "replacementAllowed"
+      ],
+      "properties": {
+        "sampleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "site": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "domestic_portal",
+            "domestic_article",
+            "domestic_community",
+            "international_portal",
+            "international_article",
+            "technical_doc_blog",
+            "complex_dynamic",
+            "low_signal"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "candidate",
+            "acceptance"
+          ]
+        },
+        "requiresLogin": {
+          "type": "boolean"
+        },
+        "expectedJumpbackModes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "located",
+              "fallback_shown",
+              "blocked"
+            ]
+          }
+        },
+        "acceptanceSubset": {
+          "type": "boolean"
+        },
+        "replacementAllowed": {
+          "type": "boolean"
+        },
+        "replacementReason": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

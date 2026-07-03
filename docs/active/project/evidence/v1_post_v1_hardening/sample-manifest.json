@@ -1,0 +1,1730 @@
+{
+  "schemaVersion": "v1-post-v1-hardening.sample-manifest.1",
+  "generatedAt": "2026-07-03T22:03:18.086Z",
+  "stage": "V1.0.x Post-V1 Hardening",
+  "candidateMatrixSize": 101,
+  "acceptanceSubsetSize": 36,
+  "categories": [
+    "domestic_portal",
+    "domestic_article",
+    "domestic_community",
+    "international_portal",
+    "international_article",
+    "technical_doc_blog",
+    "complex_dynamic",
+    "low_signal"
+  ],
+  "samples": [
+    {
+      "sampleId": "domestic-portal-163-news-home",
+      "url": "https://news.163.com/",
+      "site": "网易新闻",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-cctv-home",
+      "url": "https://news.cctv.com/",
+      "site": "央视网新闻",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-chinanews-home",
+      "url": "https://www.chinanews.com.cn/",
+      "site": "中国新闻网",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-guancha-home",
+      "url": "https://www.guancha.cn/",
+      "site": "观察者网",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-people-home",
+      "url": "http://www.people.com.cn/",
+      "site": "人民网",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-qq-news-home",
+      "url": "https://news.qq.com/",
+      "site": "腾讯新闻",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-article-36kr-news",
+      "url": "https://36kr.com/information/technology/",
+      "site": "36氪",
+      "category": "domestic_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-article-cctv-tech",
+      "url": "https://news.cctv.com/tech/",
+      "site": "央视网新闻",
+      "category": "domestic_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-article-cnblogs",
+      "url": "https://www.cnblogs.com/",
+      "site": "博客园",
+      "category": "domestic_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-article-juejin",
+      "url": "https://juejin.cn/",
+      "site": "稀土掘金",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-article-sspai",
+      "url": "https://sspai.com/",
+      "site": "少数派",
+      "category": "domestic_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-baijiahao",
+      "url": "https://baijiahao.baidu.com/",
+      "site": "百家号",
+      "category": "domestic_community",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-bilibili-home",
+      "url": "https://www.bilibili.com/",
+      "site": "B站",
+      "category": "domestic_community",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-bilibili-video",
+      "url": "https://www.bilibili.com/video/BV18W7t6GEmc/",
+      "site": "B站",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-douban-home",
+      "url": "https://www.douban.com/",
+      "site": "豆瓣",
+      "category": "domestic_community",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-weibo-hot",
+      "url": "https://s.weibo.com/top/summary",
+      "site": "微博热搜",
+      "category": "domestic_community",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-content-xhs-home",
+      "url": "https://www.xiaohongshu.com/explore",
+      "site": "小红书",
+      "category": "domestic_community",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-aljazeera-home",
+      "url": "https://www.aljazeera.com/",
+      "site": "Al Jazeera",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-ap-home",
+      "url": "https://apnews.com/",
+      "site": "AP News",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-bbc-home",
+      "url": "https://www.bbc.com/news",
+      "site": "BBC News",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-cnn-home",
+      "url": "https://edition.cnn.com/world",
+      "site": "CNN",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-guardian-home",
+      "url": "https://www.theguardian.com/international",
+      "site": "The Guardian",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-portal-npr-home",
+      "url": "https://www.npr.org/sections/news/",
+      "site": "NPR",
+      "category": "international_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-ap-world",
+      "url": "https://apnews.com/world-news",
+      "site": "AP News",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-arstechnica",
+      "url": "https://arstechnica.com/",
+      "site": "Ars Technica",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-bbc-tech",
+      "url": "https://www.bbc.com/news/technology",
+      "site": "BBC News",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-guardian-world",
+      "url": "https://www.theguardian.com/world",
+      "site": "The Guardian",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-techcrunch",
+      "url": "https://techcrunch.com/",
+      "site": "TechCrunch",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-article-theverge",
+      "url": "https://www.theverge.com/tech",
+      "site": "The Verge",
+      "category": "international_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-cloudflare-blog",
+      "url": "https://blog.cloudflare.com/",
+      "site": "Cloudflare Blog",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-github-blog",
+      "url": "https://github.blog/",
+      "site": "GitHub Blog",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-google-ai-blog",
+      "url": "https://blog.google/technology/ai/",
+      "site": "Google Blog",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-mdn-fetch",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+      "site": "MDN",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-python-tutorial",
+      "url": "https://docs.python.org/3/tutorial/",
+      "site": "Python Docs",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "international-doc-react-learn",
+      "url": "https://react.dev/learn",
+      "site": "React Docs",
+      "category": "technical_doc_blog",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from cq real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-thepaper-home",
+      "url": "https://www.thepaper.cn/",
+      "site": "澎湃新闻",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "domestic-portal-xinhua-home",
+      "url": "https://www.news.cn/",
+      "site": "新华网",
+      "category": "domestic_portal",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "domestic-article-xinhua-tech",
+      "url": "https://www.news.cn/tech/",
+      "site": "新华网",
+      "category": "domestic_article",
+      "role": "acceptance",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": true,
+      "replacementAllowed": true,
+      "replacementReason": "acceptance subset frozen from passing real-site evidence",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "domestic-article-thepaper-tech",
+      "url": "https://www.thepaper.cn/channel_25950",
+      "site": "澎湃新闻",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "domestic-content-xhs-note",
+      "url": "https://www.xiaohongshu.com/explore/6a3283ce000000001602715a",
+      "site": "小红书",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "fallback_shown"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "fresh fallback/blocked evidence retained from qh; not counted as acceptance pass unless replacement route is valid"
+    },
+    {
+      "sampleId": "domestic-content-zhihu-home",
+      "url": "https://www.zhihu.com/explore",
+      "site": "知乎",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "international-portal-reuters-home",
+      "url": "https://www.reuters.com/",
+      "site": "Reuters",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "fallback_shown"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "fresh fallback/blocked evidence retained from qh; not counted as acceptance pass unless replacement route is valid"
+    },
+    {
+      "sampleId": "international-portal-yahoo-home",
+      "url": "https://news.yahoo.com/",
+      "site": "Yahoo News",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "international-article-reuters-world",
+      "url": "https://www.reuters.com/world/",
+      "site": "Reuters",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "fallback_shown"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "fresh fallback/blocked evidence retained from qh; not counted as acceptance pass unless replacement route is valid"
+    },
+    {
+      "sampleId": "international-article-wired",
+      "url": "https://www.wired.com/category/business/",
+      "site": "Wired",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "international-doc-wikipedia-ai",
+      "url": "https://en.wikipedia.org/wiki/Artificial_intelligence",
+      "site": "Wikipedia",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "international-doc-openai-docs",
+      "url": "https://platform.openai.com/docs/overview",
+      "site": "OpenAI Docs",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from qh real evidence"
+    },
+    {
+      "sampleId": "xiaohongshu-detail",
+      "url": "https://www.xiaohongshu.com/explore/6a2aa1e9000000002202f747?xsec_token=[redacted]&xsec_source=pc_sfeed",
+      "site": "小红书",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from real real evidence"
+    },
+    {
+      "sampleId": "guancha-detail",
+      "url": "https://www.guancha.cn/internation/2026_06_29_822013.shtml",
+      "site": "观察者网",
+      "category": "complex_dynamic",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "seeded from real real evidence"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-sina",
+      "url": "https://news.sina.com.cn/",
+      "site": "新浪新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-ifeng",
+      "url": "https://news.ifeng.com/",
+      "site": "凤凰新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-sohu",
+      "url": "https://news.sohu.com/",
+      "site": "搜狐新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-people",
+      "url": "http://politics.people.com.cn/",
+      "site": "人民网时政",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-xinhua",
+      "url": "https://www.news.cn/politics/",
+      "site": "新华网时政",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-chinanews",
+      "url": "https://www.chinanews.com.cn/gn/",
+      "site": "中国新闻网国内",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-community-zhihu",
+      "url": "https://www.zhihu.com/hot",
+      "site": "知乎热榜",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-nyt-world",
+      "url": "https://www.nytimes.com/section/world",
+      "site": "NYTimes World",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-mdn",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Document",
+      "site": "MDN Document API",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-w3c",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/",
+      "site": "W3C ARIA",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-python",
+      "url": "https://docs.python.org/3/library/json.html",
+      "site": "Python json docs",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-login-bili",
+      "url": "https://passport.bilibili.com/login",
+      "site": "B站登录页",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-xhs-login",
+      "url": "https://www.xiaohongshu.com/login",
+      "site": "小红书登录页",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-people-world",
+      "url": "http://world.people.com.cn/",
+      "site": "人民网国际",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-gmw",
+      "url": "https://news.gmw.cn/",
+      "site": "光明网新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-china-com",
+      "url": "https://news.china.com/",
+      "site": "中华网新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-huanqiu",
+      "url": "https://world.huanqiu.com/",
+      "site": "环球网国际",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-portal-yicai",
+      "url": "https://www.yicai.com/news/",
+      "site": "第一财经新闻",
+      "category": "domestic_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-guanchazhe",
+      "url": "https://www.guancha.cn/internation",
+      "site": "观察者网国际",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-163-tech",
+      "url": "https://tech.163.com/",
+      "site": "网易科技",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-tencent-tech",
+      "url": "https://new.qq.com/ch/tech/",
+      "site": "腾讯科技",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-sina-finance",
+      "url": "https://finance.sina.com.cn/",
+      "site": "新浪财经",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-article-ifeng-tech",
+      "url": "https://tech.ifeng.com/",
+      "site": "凤凰科技",
+      "category": "domestic_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-community-douban-group",
+      "url": "https://www.douban.com/group/explore",
+      "site": "豆瓣小组发现",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-community-douban-movie",
+      "url": "https://movie.douban.com/",
+      "site": "豆瓣电影",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-community-bilibili-ranking",
+      "url": "https://www.bilibili.com/v/popular/rank/all",
+      "site": "B站排行榜",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-domestic-community-csdn",
+      "url": "https://www.csdn.net/",
+      "site": "CSDN 首页",
+      "category": "domestic_community",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-portal-cnbc",
+      "url": "https://www.cnbc.com/world/",
+      "site": "CNBC World",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-portal-pbs",
+      "url": "https://www.pbs.org/newshour/",
+      "site": "PBS NewsHour",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-portal-yahoo",
+      "url": "https://www.yahoo.com/news/",
+      "site": "Yahoo News",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-portal-washingtonpost",
+      "url": "https://www.washingtonpost.com/world/",
+      "site": "Washington Post World",
+      "category": "international_portal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-ap-world",
+      "url": "https://apnews.com/hub/world-news",
+      "site": "AP World News",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-bbc-world",
+      "url": "https://www.bbc.com/news/world",
+      "site": "BBC World",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-npr-world",
+      "url": "https://www.npr.org/sections/world/",
+      "site": "NPR World",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-aljazeera-world",
+      "url": "https://www.aljazeera.com/news/",
+      "site": "Al Jazeera News",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-international-article-techcrunch",
+      "url": "https://techcrunch.com/category/startups/",
+      "site": "TechCrunch Startups",
+      "category": "international_article",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-web-dev",
+      "url": "https://web.dev/learn",
+      "site": "web.dev Learn",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-typescript",
+      "url": "https://www.typescriptlang.org/docs/",
+      "site": "TypeScript Docs",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-node",
+      "url": "https://nodejs.org/en/learn",
+      "site": "Node.js Learn",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-kubernetes",
+      "url": "https://kubernetes.io/docs/home/",
+      "site": "Kubernetes Docs",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-postgresql",
+      "url": "https://www.postgresql.org/docs/current/",
+      "site": "PostgreSQL Docs",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-tech-doc-rust",
+      "url": "https://doc.rust-lang.org/book/",
+      "site": "Rust Book",
+      "category": "technical_doc_blog",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-complex-youtube",
+      "url": "https://www.youtube.com/",
+      "site": "YouTube 首页",
+      "category": "complex_dynamic",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-complex-reddit",
+      "url": "https://www.reddit.com/",
+      "site": "Reddit 首页",
+      "category": "complex_dynamic",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-complex-producthunt",
+      "url": "https://www.producthunt.com/",
+      "site": "Product Hunt",
+      "category": "complex_dynamic",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-complex-hackernews",
+      "url": "https://news.ycombinator.com/",
+      "site": "Hacker News",
+      "category": "complex_dynamic",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-cloudflare-check",
+      "url": "https://www.cloudflare.com/",
+      "site": "Cloudflare public page",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-twitter",
+      "url": "https://x.com/login",
+      "site": "X login",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-instagram",
+      "url": "https://www.instagram.com/accounts/login/",
+      "site": "Instagram login",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-facebook",
+      "url": "https://www.facebook.com/login/",
+      "site": "Facebook login",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-linkedin",
+      "url": "https://www.linkedin.com/login",
+      "site": "LinkedIn login",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    },
+    {
+      "sampleId": "postv1-low-signal-nytimes",
+      "url": "https://www.nytimes.com/",
+      "site": "NYTimes public/paywall",
+      "category": "low_signal",
+      "role": "candidate",
+      "requiresLogin": false,
+      "expectedJumpbackModes": [
+        "located",
+        "fallback_shown",
+        "blocked"
+      ],
+      "acceptanceSubset": false,
+      "replacementAllowed": true,
+      "replacementReason": "candidate pool item",
+      "notes": "post-V1 candidate matrix expansion"
+    }
+  ]
+}

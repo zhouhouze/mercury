@@ -46,10 +46,20 @@ NOISE_TEXT_PATTERNS = [
     r"^(dom signals|metadata|keywords|feed_card|media_link|content_link|media_block|content_block|nav_block|link|article_title|article_body|article_meta)$",
     r"^(bili_video_title|bili_video_description|bili_feed_card|xhs_note_title|xhs_note_body|xhs_feed_card|guancha_article_title|guancha_article_body)$",
     r"^(canonical|referrer|format-detection).*$",
+    r"^viewport\s+",
+    r"^format-detection\s+",
     r"^keywords[:：]",
     r"^description[:：]",
     r"^canonical[:：]",
     r"^og(?:\s+|[:：])(url|image|title|description)?",
+    r"site-verification",
+    r"shenma-site-verification",
+    r"google-site-verification",
+    r"360-site-verification",
+    r"picasso-static",
+    r"^var\s+dd\s+rt",
+    r"\bdd\s+rt\s+c\b",
+    r"^reuters\.com$",
     r"^当前\s*(B站|小红书|观察者网).*(详情页|页面)$",
     r"cookie policy",
     r"privacy policy",
@@ -598,6 +608,10 @@ def normalize_label_text(value: str) -> str:
         flags=re.IGNORECASE,
     )
     normalized = re.sub(r"^(canonical|referrer|format-detection)\b.*$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^(viewport|format-detection)\b.*$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^(baidu|google|shenma|360)-site-verification\b.*$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^var\s+dd\s+rt\b.*$", "", normalized, flags=re.IGNORECASE)
+    normalized = re.sub(r"^reuters\.com$", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"^当前\s*(B站|小红书|观察者网).*(详情页|页面)\s*", "", normalized, flags=re.IGNORECASE)
     normalized = re.sub(r"(自动连播|订阅合集|相关推荐|按类型过滤|防挡字幕|智能防挡弹幕|弹幕随屏幕缩放|稿件投诉).*$", "", normalized)
     normalized = re.sub(r"\b(cookie policy|privacy policy|advertisement|sponsored|subscribe to|sign in|newsletter)\b.*$", "", normalized, flags=re.IGNORECASE)

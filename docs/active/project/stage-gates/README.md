@@ -27,6 +27,7 @@ docs/history/
 | `v1-launcher-resize-interaction.md` | V1 interaction shell 门禁 | launcher、collapse、resize、drag、push / overlay 的 content script 交互壳 |
 | `v1-mainline-closeout.md` | 当前 V1 主线收口门禁 | 汇总 V1.3、V1.4、complex-site、Gemini style、launcher，进入人工产品核查和 V1 complete 候选审计 |
 | `v1-mvp-content-quality.md` | 当前 V1-MVP-CQ 门禁 | QH 通过之后的 strict 内容理解质量增强，验证总结、问答、解释选区、Mindmap 和 Source Evidence 是否真正基于主内容 |
+| `v1-post-v1-hardening.md` | 当前 Post-V1 hardening 文档门禁 | V1 complete 之后的 source jumpback 精度、Mindmap 质量、窄侧栏 UX 和真实网页回归基线硬化 |
 | `v1.2-b-chat-renderer.md` | V1.2 B 模块门禁 | 前端结构化渲染、流式输出、Debug 和 Mindmap 展示 |
 | `v1.2-c-mindmap.md` | V1.2 C 模块门禁 | Mermaid / Mindmap 生成、source map 和反跳来源 |
 | `v1.2-d-agentic-loop.md` | V1.2 D 模块门禁 | CoreProvider / Adapter Layer、治理桥和 ToolResult / Artifact / Event / Trace 映射 |

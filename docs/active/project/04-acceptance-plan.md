@@ -1607,3 +1607,75 @@ No-Go：
 - [ ] 视频 / 音频 / 图片内容被声明为已理解。
 - [ ] 用 mainline closeout 聚合报告替代独立 CQ evidence。
 - [ ] 借本阶段引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。
+
+### 8.17 V1.0.x Post-V1 Hardening 验收计划
+
+本阶段验收目标是证明 V1 complete 之后的质量硬化方向已经被完整定义，并在未来实现后可用真实网页、截图证据和人类可读 HTML 报告审计。它不重新判定 V1 complete，不引入 V2 能力。
+
+必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion 使用同一阶段名：`V1.0.x Post-V1 Hardening`。
+- [ ] `docs/active/project/design/v1-post-v1-hardening-gap.drawio` 不超过 8 页，中文书写，并包含目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- [ ] drawio 架构页必须出现具体代码实体和状态：`pageContext.ts`、`contentBridge.ts`、`runtimeClient.ts`、B `chat_renderer`、B `mindmap_renderer`、A Page Reading、C Mindmap、D Adapter / Agent Loop、post-V1 evidence。
+- [ ] drawio 使用状态色块：已实现、已实现需修改、待新增、保持边界、No-Go。
+- [ ] 文档明确 V1 complete 已记录，post-V1 hardening 不回滚 V1 complete，也不声明最终 Monica-like UX complete。
+- [ ] 真实网页回归矩阵规划包含至少 100 个 candidate，并定义实施前冻结的可重复自动化验收子集。
+- [ ] 样本规则必须覆盖国内外门户、新闻详情、图文社区、技术文档 / 博客、复杂动态页、低信号页。
+- [ ] 登录墙、cookie wall、地区限制、付费墙、反爬、虚拟列表和页面变更必须 degraded / blocked 或使用替代样本，并保留原失败原因。
+- [ ] Source jumpback 验收必须区分 `located`、`fallback_shown`、`blocked`；反跳不准不得计为 located pass。
+- [ ] located 成功时必须有可见 Navia source marker 或等价高亮样式，并说明证据支撑哪个节点或答案。
+- [ ] fallback 必须是本阶段 fresh fallback 样本或明确 blocked / replacement reason；不得只引用旧 fallback 后声明本轮覆盖。
+- [ ] Mindmap 高层节点必须短、准、可追溯；不得由导航、推荐、广告、版权提示、登录提示、时间戳、图片序号或重复卡片主导。
+- [ ] B Renderer 截图必须覆盖窄侧栏可读性：导图、source card、状态卡、聊天输入区无虚影、遮挡、重叠或截断。
+- [ ] 自动化验收优先 headless 和 `--mute-audio`；如必须打开可见 Chrome，必须提前告知并在测试后关闭实例。
+- [ ] HTML 报告必须列出目标架构、当前实现状态、真实截图、每页结果、质量指标、PRD review、false-green audit 和 No-Go 结论。
+- [ ] 人工 UX review checklist 必须作为出门证据之一，但自动化报告不得冒充人工核查。
+
+独立 post-V1 出门证据：
+
+```text
+docs/active/project/evidence/v1_post_v1_hardening/sample-manifest.json
+docs/active/project/evidence/v1_post_v1_hardening/report.json
+docs/active/project/evidence/v1_post_v1_hardening/acceptance-report.html
+docs/active/project/evidence/v1_post_v1_hardening/prd-review.md
+docs/active/project/evidence/v1_post_v1_hardening/false-green-audit.md
+docs/active/project/evidence/v1_post_v1_hardening/ux-review-checklist.md
+docs/active/project/evidence/v1_post_v1_hardening/screenshots/
+docs/active/project/contracts/v1_post_v1_hardening_sample_manifest.schema.json
+docs/active/project/contracts/v1_post_v1_hardening_report.schema.json
+```
+
+Schema 门禁：
+
+- [ ] `sample-manifest.json` 必须通过 `v1_post_v1_hardening_sample_manifest.schema.json`。
+- [ ] `report.json` 必须通过 `v1_post_v1_hardening_report.schema.json`。
+- [ ] 如果只生成 HTML 报告、只生成 mainline 聚合报告、或未执行 schema validation，本阶段不得出门。
+- [ ] 必须执行独立 semantic validator；JSON Schema 只验证字段形状，semantic validator 必须验证 `passed=true`、candidate / acceptance subset 数量关系、每类样本分布、截图数量、metric 阈值方向、fresh fallback 或 blocked replacement 口径、`located` / `fallback_shown` / `blocked` 与截图 metadata 一致性。
+- [ ] semantic validator 的固定命令必须是 `npm --prefix apps/chrome-extension run validate:post-v1-hardening`；实现时可由该 npm script 调用 `node apps/chrome-extension/e2e/validate-post-v1-hardening-report.mjs`。
+- [ ] `report.json` 必须包含 `sampleDistribution` 和 `fallbackPolicy`；`sampleDistribution` 记录各类别 candidate / acceptance / pass / blocked / replacement 数量，`fallbackPolicy` 记录 `freshFallbackSamples >= 3` 或 blocked replacement 例外原因。
+- [ ] semantic validator 未通过时，即使 schema validation 通过，也不得声明 post-V1 hardening passed。
+
+建议指标：
+
+- [ ] `jumpbackLocatedSemanticMatchRate >= 0.9`。
+- [ ] `freshFallbackSamples >= 3`，除非所有 fallback candidate 均被明确 blocked 并有替代样本记录。
+- [ ] `blockedReasonCompletenessRate = 1.0`。
+- [ ] `mindmapTopNodeNoiseRate <= 0.08`。
+- [ ] `mindmapDuplicateTopNodeRate <= 0.05`。
+- [ ] `mindmapOverlongTopNodeRate <= 0.12`。
+- [ ] `sidebarVisualPassRate >= 0.95`。
+
+允许声明：
+
+```text
+V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance.
+```
+
+No-Go：
+
+- [ ] 最终 Monica-like UX complete。
+- [ ] 复杂站点全量高质量通过。
+- [ ] 视频 / 音频 / 图片像素内容已被理解。
+- [ ] V2 Memory / RAG ready。
+- [ ] Web Research / PPT / Deep Research ready。
+- [ ] 借本阶段引入多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。

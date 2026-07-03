@@ -1,0 +1,449 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v1_post_v1_hardening_report.schema.json",
+  "title": "V1.0.x Post-V1 Hardening Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "stage",
+    "claim",
+    "passed",
+    "candidateMatrixSize",
+    "acceptanceSubsetSize",
+    "locatedSamples",
+    "freshFallbackSamples",
+    "blockedSamples",
+    "degradedSamples",
+    "jumpbackQualityMetrics",
+    "mindmapQualityMetrics",
+    "sidebarVisualMetrics",
+    "sampleDistribution",
+    "fallbackPolicy",
+    "samples",
+    "screenshots",
+    "testCommands",
+    "prdReview",
+    "falseGreenAudit",
+    "humanReviewChecklist",
+    "fatalIssues",
+    "majorIssues"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "v1-post-v1-hardening.report.1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "const": "V1.0.x Post-V1 Hardening"
+    },
+    "claim": {
+      "const": "V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance."
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "candidateMatrixSize": {
+      "type": "integer",
+      "minimum": 100
+    },
+    "acceptanceSubsetSize": {
+      "type": "integer",
+      "minimum": 36
+    },
+    "locatedSamples": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "freshFallbackSamples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "blockedSamples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "degradedSamples": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "jumpbackQualityMetrics": {
+      "$ref": "#/$defs/jumpbackQualityMetrics"
+    },
+    "mindmapQualityMetrics": {
+      "$ref": "#/$defs/mindmapQualityMetrics"
+    },
+    "sidebarVisualMetrics": {
+      "$ref": "#/$defs/sidebarVisualMetrics"
+    },
+    "sampleDistribution": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/categoryDistribution"
+      }
+    },
+    "fallbackPolicy": {
+      "$ref": "#/$defs/fallbackPolicy"
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 36,
+      "items": {
+        "$ref": "#/$defs/sampleResult"
+      }
+    },
+    "screenshots": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/screenshot"
+      }
+    },
+    "testCommands": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/testCommand"
+      }
+    },
+    "prdReview": {
+      "$ref": "#/$defs/review"
+    },
+    "falseGreenAudit": {
+      "$ref": "#/$defs/review"
+    },
+    "humanReviewChecklist": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fatalIssues": {
+      "type": "array",
+      "maxItems": 0
+    },
+    "majorIssues": {
+      "type": "array",
+      "maxItems": 0
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "operator",
+        "threshold",
+        "passed",
+        "numerator",
+        "denominator"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "number",
+            "boolean"
+          ]
+        },
+        "operator": {
+          "type": "string",
+          "enum": [
+            "gte",
+            "lte",
+            "eq"
+          ]
+        },
+        "threshold": {
+          "type": [
+            "number",
+            "boolean"
+          ]
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "numerator": {
+          "type": "number",
+          "minimum": 0
+        },
+        "denominator": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "jumpbackQualityMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "jumpbackLocatedSemanticMatchRate",
+        "freshFallbackSamples",
+        "blockedReasonCompletenessRate"
+      ],
+      "properties": {
+        "jumpbackLocatedSemanticMatchRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "freshFallbackSamples": {
+          "$ref": "#/$defs/metric"
+        },
+        "blockedReasonCompletenessRate": {
+          "$ref": "#/$defs/metric"
+        }
+      }
+    },
+    "mindmapQualityMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mindmapTopNodeNoiseRate",
+        "mindmapDuplicateTopNodeRate",
+        "mindmapOverlongTopNodeRate"
+      ],
+      "properties": {
+        "mindmapTopNodeNoiseRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "mindmapDuplicateTopNodeRate": {
+          "$ref": "#/$defs/metric"
+        },
+        "mindmapOverlongTopNodeRate": {
+          "$ref": "#/$defs/metric"
+        }
+      }
+    },
+    "sidebarVisualMetrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sidebarVisualPassRate"
+      ],
+      "properties": {
+        "sidebarVisualPassRate": {
+          "$ref": "#/$defs/metric"
+        }
+      }
+    },
+    "sampleResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sampleId",
+        "url",
+        "category",
+        "passed",
+        "jumpbackResult",
+        "mindmapResult",
+        "sidebarVisualResult",
+        "screenshotPaths"
+      ],
+      "properties": {
+        "sampleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "jumpbackResult": {
+          "type": "string",
+          "enum": [
+            "located",
+            "fallback_shown",
+            "blocked",
+            "degraded"
+          ]
+        },
+        "mindmapResult": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "degraded",
+            "fail"
+          ]
+        },
+        "sidebarVisualResult": {
+          "type": "string",
+          "enum": [
+            "pass",
+            "degraded",
+            "fail",
+            "not_sampled"
+          ]
+        },
+        "screenshotPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "categoryDistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "candidateSamples",
+        "acceptanceSamples",
+        "passedSamples",
+        "blockedSamples",
+        "replacementSamples",
+        "passed"
+      ],
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": [
+            "domestic_portal",
+            "domestic_article",
+            "domestic_community",
+            "international_portal",
+            "international_article",
+            "technical_doc_blog",
+            "complex_dynamic",
+            "low_signal"
+          ]
+        },
+        "candidateSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "acceptanceSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "passedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blockedSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "replacementSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "passed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "fallbackPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimumFreshFallbackSamples",
+        "freshFallbackSamples",
+        "exceptionUsed",
+        "blockedReplacementReason",
+        "passed"
+      ],
+      "properties": {
+        "minimumFreshFallbackSamples": {
+          "type": "integer",
+          "minimum": 3
+        },
+        "freshFallbackSamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "exceptionUsed": {
+          "type": "boolean"
+        },
+        "blockedReplacementReason": {
+          "type": "string"
+        },
+        "replacementSampleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "passed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "screenshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "description"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "testCommand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "command",
+        "passed"
+      ],
+      "properties": {
+        "command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "logPath": {
+          "type": "string"
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "passed",
+        "fatalIssues",
+        "majorIssues"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "fatalIssues": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "majorIssues": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    }
+  }
+}

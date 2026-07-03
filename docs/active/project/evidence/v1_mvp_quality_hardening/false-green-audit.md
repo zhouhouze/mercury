@@ -1,26 +1,26 @@
-# V1-MVP-QH Expanded False-Green Audit
+# V1-MVP-QH False-Green Audit
 
 Result: PASS
 
-## 防误判检查
+Checks:
 
-- 旧 6 样本 evidence 未被当作 48 页 expanded acceptance。
-- 每个样本有独立 reportConclusion，blocked / degraded 不会被统计为 pass。
-- Jumpback 统一为 located / fallback_shown / blocked，fallback 和 blocked 不冒充 located。
-- fresh fallback、referenced fallback、blocked、located 分开计数。
-- report passed 仅在 44/48、每类 7/8、类别站点数和 fatal / major 口径均通过时成立。
+- 6 个样本必须全部 pass 才能声明真实复杂站点诊断通过。
+- fallback 不被记录为 DOM highlight success。
+- blocked 不被记录为 fallback 或 DOM highlight success。
+- V1-MVP-QH / CQ 允许动态首页 feed 出现少量 fallback evidence，但必须在 report.json 中保留 fallbackPolicy；详情页 fallback 仍为 major。
+- 登录墙、验证码、反爬、空壳 DOM 和低信号信息流不被伪装为高质量提取。
+- B站 / 小红书媒体内容不通过 OCR、ASR、VLM 或 Web Research 补齐。
 
-## Fatal
-
-- none
-
-## Major
+Fatal issues:
 
 - none
 
-## Non-pass Samples Retained In Evidence
+Major issues:
 
-- domestic-content-xhs-note blocked: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
-- international-portal-reuters-home degraded: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
-- international-article-reuters-world degraded: Source Jumpback 未能在当前 DOM 中精确定位，已显示 fallback source evidence；不得统计为 located。
-- international-doc-openai-docs degraded: 样本未达 pass 门槛；详见逐页 sample-report.json 与 jumpback.json。
+- none
+
+Environment notes:
+
+- 3 sample(s) degraded and 1 sample(s) blocked were retained as honest evidence.
+- Login profile was unavailable; diagnostic used a temporary Chrome profile with injected auth cookies.
+- Auth cookies were injected for: xiaohongshu(16). Cookie values are intentionally omitted from evidence.

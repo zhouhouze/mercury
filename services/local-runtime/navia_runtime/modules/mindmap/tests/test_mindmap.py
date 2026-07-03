@@ -290,6 +290,53 @@ def test_social_homepage_dom_role_and_nav_shell_do_not_become_mindmap_labels() -
     assert any("腿真的会变直变细" in label for label in labels)
 
 
+def test_metadata_and_anti_bot_shell_do_not_become_mindmap_labels() -> None:
+    page = {
+        "pageId": "page_meta_noise",
+        "title": "Reuters",
+        "url": "https://www.reuters.com/world/",
+        "domain": "www.reuters.com",
+        "paragraphs": [
+            {"paragraphId": "p1", "chunkId": "c1", "text": "viewport width device-width, initial-scale 1.0"},
+            {"paragraphId": "p2", "chunkId": "c1", "text": "format-detection telephone no,address no,email no"},
+            {"paragraphId": "p3", "chunkId": "c1", "text": "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32"},
+            {"paragraphId": "p4", "chunkId": "c2", "text": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh"},
+            {"paragraphId": "p5", "chunkId": "c3", "text": "Global leaders agreed to continue negotiations after the summit, while markets watched energy supply risks."},
+        ],
+        "chunks": [{"chunkId": "c1"}, {"chunkId": "c2"}, {"chunkId": "c3"}],
+    }
+    source_map = {
+        "sourceRefs": [
+            {"sourceRefId": "src_viewport", "paragraphId": "p1", "chunkId": "c1", "fallbackText": "viewport width device-width, initial-scale 1.0"},
+            {"sourceRefId": "src_format", "paragraphId": "p2", "chunkId": "c1", "fallbackText": "format-detection telephone no,address no,email no"},
+            {"sourceRefId": "src_verify", "paragraphId": "p3", "chunkId": "c1", "fallbackText": "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32"},
+            {"sourceRefId": "src_dd", "paragraphId": "p4", "chunkId": "c2", "fallbackText": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh"},
+            {"sourceRefId": "src_article", "paragraphId": "p5", "chunkId": "c3", "fallbackText": "Global leaders agreed to continue negotiations after the summit, while markets watched energy supply risks.", "selector": "article p"},
+        ]
+    }
+    digest = {
+        "items": [
+            {"itemId": "viewport", "text": "viewport width device-width, initial-scale 1.0", "sourceRefs": [source_map["sourceRefs"][0]]},
+            {"itemId": "format", "text": "format-detection telephone no,address no,email no", "sourceRefs": [source_map["sourceRefs"][1]]},
+            {"itemId": "verify", "text": "google-site-verification -wdhMjIAPXapbEjwFVejIM-GCtl1fc9nUdOA32", "sourceRefs": [source_map["sourceRefs"][2]]},
+            {"itemId": "dd", "text": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh", "sourceRefs": [source_map["sourceRefs"][3]]},
+            {"itemId": "article", "text": "Global leaders agreed to continue negotiations after the summit, while markets watched energy supply risks.", "sourceRefs": [source_map["sourceRefs"][4]]},
+        ]
+    }
+
+    result = generate_mindmap_payload({"structuredPage": page, "perceptionDigest": digest, "sourceMap": source_map, "qualityReport": {"downstreamReadiness": "pass"}})
+
+    assert result["ok"] is True
+    rendered = result["mermaidSource"]
+    assert "Global leaders" in rendered
+    assert "viewport" not in rendered
+    assert "format-detection" not in rendered
+    assert "site-verification" not in rendered
+    assert "dd rt" not in rendered
+    assert "src_article" in result["metadata"]["nodeSourceMap"]["root"]["sourceRefIds"]
+    assert "src_viewport" not in result["metadata"]["nodeSourceMap"]["root"]["sourceRefIds"]
+
+
 def test_mermaid_node_limit_does_not_count_directive_line() -> None:
     source = "\n".join(["mindmap", "  root((当前页面))", *[f"    节点{i}" for i in range(1, 32)]])
 

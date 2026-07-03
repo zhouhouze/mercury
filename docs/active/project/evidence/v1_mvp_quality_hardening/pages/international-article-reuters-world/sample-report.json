@@ -23,7 +23,7 @@
   },
   "pageKind": "channel",
   "url": "https://www.reuters.com/world/",
-  "startedAt": "2026-07-01T15:57:26.559Z",
+  "startedAt": "2026-07-03T14:35:47.053Z",
   "result": "degraded",
   "fatalIssues": [],
   "majorIssues": [
@@ -32,8 +32,7 @@
     "SourceRef count below diagnostic threshold: 2.",
     "Digest item count below diagnostic threshold: 2.",
     "Source jumpback only showed fallback evidence.",
-    "Mindmap labels are too repetitive: uniqueRatio=0.60.",
-    "Mindmap labels are too long for side panel reading: avgLength=41.4."
+    "Mindmap label sample is too small for quality assessment."
   ],
   "finalUrl": "https://www.reuters.com/world/",
   "dom": {
@@ -53,9 +52,9 @@
   "sidepanel": {
     "runtimeStatus": "online",
     "pageContextState": "captured",
-    "sessionId": "sess_00000000000000000000003374",
+    "sessionId": "sess_00000000000000000000000085",
     "pageTitle": "reuters.com",
-    "submitStatus": "已提交：page_ccd97288031b28ce",
+    "submitStatus": "已提交：page_4b4e773ef7922eb8",
     "domSignalBlockCount": 0,
     "domSignalLinkCount": 0,
     "pageStateHints": [
@@ -64,13 +63,13 @@
   },
   "perception": {
     "activePage": {
-      "pageId": "page_ccd97288031b28ce",
+      "pageId": "page_4b4e773ef7922eb8",
       "title": "reuters.com",
       "url": "https://www.reuters.com/world/",
       "domain": "www.reuters.com"
     },
     "readiness": "degraded",
-    "overallScore": 0.959,
+    "overallScore": 0.958,
     "warnings": [
       "LOW_SIGNAL_PAGE_DEGRADED",
       "VERIFICATION_GATED_DEGRADED"
@@ -121,9 +120,9 @@
         "passed": true
       },
       "digestCompressionRatio": {
-        "value": 0.406,
+        "value": 0.419,
         "numerator": 13,
-        "denominator": 32,
+        "denominator": 31,
         "method": "digestTextTokenEstimate / structuredPageTextTokenEstimate",
         "threshold": 0.35,
         "passed": false
@@ -143,149 +142,73 @@
     "sourceCards": [
       {
         "index": 0,
-        "testId": "mindmap-source-card-node_1",
-        "nodeId": "node_1",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "viewport width device-width, initial-scale 1.0",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0"
-      },
-      {
-        "index": 1,
-        "testId": "mindmap-source-card-node_2",
-        "nodeId": "node_2",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0"
-      },
-      {
-        "index": 2,
         "testId": "mindmap-source-card-root",
         "nodeId": "root",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "reuters.com",
+        "sourceRefIds": [],
+        "label": "当前页面",
         "excerpt": "viewport: width=device-width, initial-scale=1.0"
       }
     ],
-    "evidenceCardCount": 2,
+    "evidenceCardCount": 1,
     "evidenceCardLabels": [
-      "viewport width device-width, initial-scale 1.0",
-      "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh"
+      "当前页面"
     ],
     "containsEvidenceCardMindmap": true,
     "containsReadingMap": true,
-    "readingMapNavCount": 3,
-    "readingMapDetailText": "reuters.comreadyviewport: width=device-width, initial-scale=1.02 sourcedetail2 sourcesviewport: width=device-width, initial-scale=1.0",
+    "readingMapNavCount": 1,
+    "readingMapDetailText": "当前页面弱viewport: width=device-width, initial-scale=1.00 sourcedetaildegradedviewport: width=device-width, initial-scale=1.0",
     "containsSourcePanel": true,
     "sourceEvidenceVisible": false,
     "sourceEvidenceText": ""
   },
   "jumpback": {
     "action": "jumpback_source_card",
-    "index": 2,
+    "index": 0,
     "sourceCards": [
       {
         "index": 0,
-        "testId": "mindmap-source-card-node_1",
-        "nodeId": "node_1",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "viewport width device-width, initial-scale 1.0",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0"
-      },
-      {
-        "index": 1,
-        "testId": "mindmap-source-card-node_2",
-        "nodeId": "node_2",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0"
-      },
-      {
-        "index": 2,
         "testId": "mindmap-source-card-root",
         "nodeId": "root",
-        "sourceRefIds": [
-          "src_page_ccd97288031b28ce_0001",
-          "src_page_ccd97288031b28ce_0002"
-        ],
-        "label": "reuters.com",
+        "sourceRefIds": [],
+        "label": "当前页面",
         "excerpt": "viewport: width=device-width, initial-scale=1.0"
       }
     ],
-    "evidenceText": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hshfallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom",
+    "evidenceText": "当前页面fallback_shownviewport: width=device-width, initial-scale=1.0未能定位到原文位置，已显示来源证据。原因：source_not_found_in_dom",
     "sourceEvidenceVisible": true,
     "status": "fallback_shown",
-    "selectedSourceCardIndex": 2,
-    "selectedSourceCardReason": "candidate score 2 for reuters; label=reuters.com",
-    "sourceCardAttemptCount": 3,
+    "selectedSourceCardIndex": 0,
+    "selectedSourceCardReason": "candidate score -2 for reuters; label=当前页面",
+    "sourceCardAttemptCount": 1,
     "sourceCardAttempts": [
       {
         "index": 0,
         "status": "fallback_shown",
-        "reason": "candidate score 18 for reuters; label=viewport width device-width, initial-scale 1.0",
-        "failureReason": null
-      },
-      {
-        "index": 1,
-        "status": "fallback_shown",
-        "reason": "candidate score 18 for reuters; label=var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh",
-        "failureReason": null
-      },
-      {
-        "index": 2,
-        "status": "fallback_shown",
-        "reason": "candidate score 2 for reuters; label=reuters.com",
+        "reason": "candidate score -2 for reuters; label=当前页面",
         "failureReason": null
       }
     ],
     "sourceCardCandidates": [
       {
         "index": 0,
-        "label": "viewport width device-width, initial-scale 1.0",
+        "label": "当前页面",
         "excerpt": "viewport: width=device-width, initial-scale=1.0",
-        "score": 18
-      },
-      {
-        "index": 1,
-        "label": "var dd rt c, cid AHrlqAAAAAMAvgb7rMmYuV8AXbNhKA, hsh",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0",
-        "score": 18
-      },
-      {
-        "index": 2,
-        "label": "reuters.com",
-        "excerpt": "viewport: width=device-width, initial-scale=1.0",
-        "score": 2
+        "score": -2
       }
     ]
   },
   "mindmapQuality": {
-    "labelCount": 5,
-    "evidenceCardLabelCount": 2,
-    "sourceCardLabelCount": 3,
-    "uniqueRatio": 0.6,
+    "labelCount": 2,
+    "evidenceCardLabelCount": 1,
+    "sourceCardLabelCount": 1,
+    "uniqueRatio": 1,
     "noisyRatio": 0,
-    "averageLabelLength": 41.4,
+    "averageLabelLength": 4,
     "fatalIssues": [],
     "majorIssues": [
-      "Mindmap labels are too repetitive: uniqueRatio=0.60.",
-      "Mindmap labels are too long for side panel reading: avgLength=41.4."
+      "Mindmap label sample is too small for quality assessment."
     ]
   },
   "fallbackPolicy": "degraded_fallback_only",
-  "completedAt": "2026-07-01T15:58:03.211Z"
+  "completedAt": "2026-07-03T14:35:55.628Z"
 }

@@ -1526,3 +1526,90 @@ docs/active/project/contracts/
 - 图中必须展示目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
 - 架构页必须使用具体实现实体并标注状态：`pageContext.ts`、A Page Reading、D Adapter / Agent Loop、C Mindmap、B Renderer、`contentBridge.ts`、CQ evidence。
 - 不得用抽象“前端 / 后端 / AI 模块”替代具体代码实体。
+
+## 15. V1.0.x Post-V1 Hardening 阶段目标
+
+V1 已经根据自动化验收和人工产品核查记录为 complete，范围限定为 MVP 当前页伴随阅读。`V1.0.x Post-V1 Hardening` 是 V1 complete 之后的质量硬化阶段，不回滚 V1 complete 结论，也不把 post-V1 hardening 扩大为 V2。
+
+本阶段聚焦用户已经感知到的后续质量问题：
+
+- Source jumpback 在复杂动态网页上仍可能定位不准、解释不清或 fallback 不新鲜。
+- Mindmap / Reading Map 在推荐流、导航、重复卡片、时间戳、图片序号、版权提示或低价值文本较多的页面上仍可能出现噪声节点、长节点和重复节点。
+- 窄侧栏里 source card、状态卡、导图节点和聊天输入区仍需要持续防虚影、防遮挡、防截断。
+- 真实网页验收需要从 V1-MVP-QH / V1-MVP-CQ 的阶段证据扩展为可长期回归的 post-V1 baseline。
+
+目标用户路径：
+
+```text
+用户打开普通网页或复杂真实网页
+-> Navia 以 V1 已完成的 launcher / sidebar 进入
+-> 读取当前页
+-> Summary / Q&A / Mindmap 继续优先表达主内容
+-> 用户点击 source card 或 Mindmap 节点
+-> 网页出现语义匹配的 Navia source marker，或显示 fallback / blocked reason
+-> HTML 报告记录截图、指标、PRD review 和 false-green audit
+```
+
+本阶段允许声明：
+
+```text
+V1.0.x post-V1 hardening ready for staged implementation.
+```
+
+本阶段完成后最多允许声明：
+
+```text
+V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance.
+```
+
+本阶段不得声明：
+
+```text
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片像素内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+固定开发顺序：
+
+```text
+1. V1.0.x-H-0：文档门禁，PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 一致。
+2. V1.0.x-H-1：真实网页回归矩阵冻结，定义 100+ candidate 和可重复验收子集。
+3. V1.0.x-H-2：Source Jumpback 精度规则冻结，覆盖 located / fallback_shown / blocked、marker 文案和选择理由。
+4. V1.0.x-H-3：Mindmap / Reading Map 质量规则冻结，覆盖语义节点、短标签、去重、噪声过滤和证据绑定。
+5. V1.0.x-H-4：窄侧栏 UX polish 规则冻结，覆盖 source card、状态卡、导图、输入区的遮挡和截断风险。
+6. V1.0.x-H-5：自动化验收报告规则冻结，优先 headless、mute audio、HTML 报告、截图、PRD review 和 false-green audit。
+7. V1.0.x-H-6：出门审计，无 fatal / major 后只允许 post-V1 hardening passed 声明。
+```
+
+最低验收门槛：
+
+- `v1-post-v1-hardening-gap.drawio` 不超过 8 页，中文书写，包含目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛及出门条件。
+- 架构图必须出现具体代码实体：`pageContext.ts`、`contentBridge.ts`、`runtimeClient.ts`、B `chat_renderer`、B `mindmap_renderer`、A Page Reading、C Mindmap、D Adapter / Agent Loop、post-V1 evidence。
+- 每个架构实体必须标注状态：已实现、已实现需修改、待新增、保持边界或 No-Go。
+- 真实网页矩阵规划必须包含 100+ candidate，并定义较小的可重复自动化验收子集。
+- Source jumpback 不准不得计为 located pass；fallback / blocked 必须有可见原因。
+- Mindmap 顶层节点不得由导航、推荐、广告、版权提示、登录提示、重复卡片或时间戳主导。
+- Fresh fallback 样本必须进入本阶段验收，除非明确 blocked 并记录替代路线。
+- 自动化优先 headless 和 `--mute-audio`；如需可见 Chrome 截图，必须提前告知并测试后关闭实例。
+- 独立 semantic validator 必须通过；它需要验证 schema 无法表达的跨字段关系，包括 `passed=true`、样本分布、截图证据、metric 阈值方向、fresh fallback / blocked replacement 和 located / fallback / blocked 一致性。
+- 后续实现必须提供固定 semantic validator 命令：`npm --prefix apps/chrome-extension run validate:post-v1-hardening`。该命令应调用独立验证入口，例如 `node apps/chrome-extension/e2e/validate-post-v1-hardening-report.mjs`，并验证 `sampleDistribution`、`fallbackPolicy`、截图证据和 located / fallback / blocked 一致性。
+
+本阶段证据目标路径：
+
+```text
+docs/active/project/evidence/v1_post_v1_hardening/
+  sample-manifest.json
+  report.json
+  acceptance-report.html
+  prd-review.md
+  false-green-audit.md
+  ux-review-checklist.md
+  screenshots/
+
+docs/active/project/contracts/
+  v1_post_v1_hardening_sample_manifest.schema.json
+  v1_post_v1_hardening_report.schema.json
+```

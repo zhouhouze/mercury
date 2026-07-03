@@ -1762,3 +1762,57 @@ V1 MVP content quality prove-out passed strict real-site acceptance.
 V2 Memory / RAG ready。
 Web Research / PPT / Deep Research ready。
 ```
+
+## 15. V1.0.x Post-V1 Hardening 开发计划
+
+本阶段发生在 V1 complete 之后，只做后续质量硬化。它不重新打开 V1 complete 结论，不把历史 QH/CQ 证据改写为新验收。
+
+阶段拆分：
+
+```text
+V1.0.x-H-0：文档门禁，冻结 PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio。
+V1.0.x-H-1：真实网页回归矩阵，冻结 100+ candidate 和自动化验收子集。
+V1.0.x-H-2：Source Jumpback 精度，冻结 source card 选择、marker 文案、fallback / blocked reason。
+V1.0.x-H-3：Mindmap / Reading Map 质量，冻结语义归并、短标签、去重、低价值文本过滤和 source binding。
+V1.0.x-H-4：窄侧栏 UX polish，冻结导图、source card、状态卡、聊天输入区的可读性验收。
+V1.0.x-H-5：自动化验收报告，冻结 HTML 报告、截图、JSON、PRD review、false-green audit。
+V1.0.x-H-6：出门审计，无 fatal / major 后仅声明 post-V1 hardening passed。
+```
+
+开发及验收计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.0.x-H-0` | 更新 active PRD、架构、开发计划、验收计划、stage gate、gap companion、drawio | 文档无 fatal / major；drawio 不超过 8 页；不改写 V1 complete 历史 |
+| `V1.0.x-H-1` | 定义 100+ candidate matrix 和可重复验收子集 | 覆盖国内外门户、详情、社区、文档、动态页、低信号页；登录边界和替代规则明确 |
+| `V1.0.x-H-2` | 规划 source card 排序、selection reason、located marker、fallback reason、blocked reason | located 不准不得计 pass；fallback / blocked 与 UI、JSON、HTML、截图一致 |
+| `V1.0.x-H-3` | 规划 Mindmap 语义节点、短标签、重复压缩、噪声过滤、nodeSourceMap 质量 | 顶层节点表达主题、论点、事实、步骤、结论；噪声节点被降级或抑制 |
+| `V1.0.x-H-4` | 规划 B 侧窄侧栏视觉和 source explanation | 截图证明无虚影、重叠、截断、状态卡遮挡或输入区遮挡 |
+| `V1.0.x-H-5` | 规划自动化验收工具、semantic validator 和 HTML 报告结构 | headless 优先、`--mute-audio`；`report.json` 包含 `sampleDistribution` / `fallbackPolicy`；固定命令 `npm --prefix apps/chrome-extension run validate:post-v1-hardening` |
+| `V1.0.x-H-6` | 汇总 PRD review、false-green audit、UX checklist | 无 fatal / major；只允许 post-V1 hardening passed |
+
+打回规则：
+
+- H-0 若 drawio 超过 8 页、不是中文、缺少具体代码实体状态，或看不到当前架构和目标架构关系，打回文档门禁。
+- H-1 若样本矩阵没有 100+ candidate、没有可重复验收子集、没有登录 / 替代 / low-signal 规则，打回矩阵计划。
+- H-2 若 located、fallback_shown、blocked 混淆，或 marker 不说明证据关系，打回 jumpback 计划。
+- H-3 若 Mindmap 规则允许导航、推荐、广告、重复卡片、时间戳或图片序号主导顶层节点，打回 Mindmap 计划。
+- H-4 若验收不覆盖窄侧栏虚影、截断、遮挡和状态卡层级，打回 UX polish 计划。
+- H-5 若报告不能作为人类唯一审查入口，或没有截图证据、PRD review、false-green audit、`sampleDistribution`、`fallbackPolicy`、semantic validator 固定命令，打回验收计划。
+- H-6 若出现 fatal / major，或声明被扩大为最终 Monica-like UX、V2 或媒体理解，打回对应阶段。
+
+允许声明：
+
+```text
+V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance.
+```
+
+不得声明：
+
+```text
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```

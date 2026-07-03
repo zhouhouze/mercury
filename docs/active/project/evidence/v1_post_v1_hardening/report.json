@@ -1,0 +1,1028 @@
+{
+  "schemaVersion": "v1-post-v1-hardening.report.1",
+  "generatedAt": "2026-07-03T22:03:21.556Z",
+  "stage": "V1.0.x Post-V1 Hardening",
+  "claim": "V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance.",
+  "passed": true,
+  "candidateMatrixSize": 101,
+  "acceptanceSubsetSize": 36,
+  "locatedSamples": 36,
+  "freshFallbackSamples": 3,
+  "blockedSamples": 0,
+  "degradedSamples": 0,
+  "jumpbackQualityMetrics": {
+    "jumpbackLocatedSemanticMatchRate": {
+      "value": 1,
+      "operator": "gte",
+      "threshold": 0.9,
+      "passed": true,
+      "numerator": 36,
+      "denominator": 36
+    },
+    "freshFallbackSamples": {
+      "value": 3,
+      "operator": "gte",
+      "threshold": 3,
+      "passed": true,
+      "numerator": 3,
+      "denominator": 3
+    },
+    "blockedReasonCompletenessRate": {
+      "value": 1,
+      "operator": "eq",
+      "threshold": 1,
+      "passed": true,
+      "numerator": 0,
+      "denominator": 0
+    }
+  },
+  "mindmapQualityMetrics": {
+    "mindmapTopNodeNoiseRate": {
+      "value": 0,
+      "operator": "lte",
+      "threshold": 0.08,
+      "passed": true,
+      "numerator": 0,
+      "denominator": 36
+    },
+    "mindmapDuplicateTopNodeRate": {
+      "value": 0,
+      "operator": "lte",
+      "threshold": 0.05,
+      "passed": true,
+      "numerator": 0,
+      "denominator": 36
+    },
+    "mindmapOverlongTopNodeRate": {
+      "value": 0,
+      "operator": "lte",
+      "threshold": 0.12,
+      "passed": true,
+      "numerator": 0,
+      "denominator": 36
+    }
+  },
+  "sidebarVisualMetrics": {
+    "sidebarVisualPassRate": {
+      "value": 1,
+      "operator": "gte",
+      "threshold": 0.95,
+      "passed": true,
+      "numerator": 36,
+      "denominator": 36
+    }
+  },
+  "sampleDistribution": [
+    {
+      "category": "domestic_portal",
+      "candidateSamples": 16,
+      "acceptanceSamples": 8,
+      "passedSamples": 8,
+      "blockedSamples": 0,
+      "replacementSamples": 16,
+      "passed": true
+    },
+    {
+      "category": "domestic_article",
+      "candidateSamples": 15,
+      "acceptanceSamples": 5,
+      "passedSamples": 5,
+      "blockedSamples": 0,
+      "replacementSamples": 15,
+      "passed": true
+    },
+    {
+      "category": "domestic_community",
+      "candidateSamples": 14,
+      "acceptanceSamples": 5,
+      "passedSamples": 5,
+      "blockedSamples": 0,
+      "replacementSamples": 14,
+      "passed": true
+    },
+    {
+      "category": "international_portal",
+      "candidateSamples": 12,
+      "acceptanceSamples": 6,
+      "passedSamples": 6,
+      "blockedSamples": 0,
+      "replacementSamples": 12,
+      "passed": true
+    },
+    {
+      "category": "international_article",
+      "candidateSamples": 14,
+      "acceptanceSamples": 6,
+      "passedSamples": 6,
+      "blockedSamples": 0,
+      "replacementSamples": 14,
+      "passed": true
+    },
+    {
+      "category": "technical_doc_blog",
+      "candidateSamples": 17,
+      "acceptanceSamples": 6,
+      "passedSamples": 6,
+      "blockedSamples": 0,
+      "replacementSamples": 17,
+      "passed": true
+    },
+    {
+      "category": "complex_dynamic",
+      "candidateSamples": 5,
+      "acceptanceSamples": 0,
+      "passedSamples": 0,
+      "blockedSamples": 0,
+      "replacementSamples": 5,
+      "passed": true
+    },
+    {
+      "category": "low_signal",
+      "candidateSamples": 8,
+      "acceptanceSamples": 0,
+      "passedSamples": 0,
+      "blockedSamples": 0,
+      "replacementSamples": 8,
+      "passed": true
+    }
+  ],
+  "fallbackPolicy": {
+    "minimumFreshFallbackSamples": 3,
+    "freshFallbackSamples": 3,
+    "exceptionUsed": true,
+    "blockedReplacementReason": "Fresh fallback samples are retained as fallback/blocked evidence; degraded or blocked originals are not counted as acceptance pass and are covered by replacement acceptance samples.",
+    "replacementSampleIds": [
+      "domestic-portal-163-news-home",
+      "domestic-portal-cctv-home",
+      "domestic-portal-chinanews-home"
+    ],
+    "passed": true
+  },
+  "samples": [
+    {
+      "sampleId": "domestic-portal-163-news-home",
+      "url": "https://news.163.com/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-163-news-home-before.png",
+        "screenshots/domestic-portal-163-news-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-163-news-home"
+    },
+    {
+      "sampleId": "domestic-portal-cctv-home",
+      "url": "https://news.cctv.com/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-cctv-home-before.png",
+        "screenshots/domestic-portal-cctv-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-cctv-home"
+    },
+    {
+      "sampleId": "domestic-portal-chinanews-home",
+      "url": "https://www.chinanews.com.cn/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-chinanews-home-before.png",
+        "screenshots/domestic-portal-chinanews-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-chinanews-home"
+    },
+    {
+      "sampleId": "domestic-portal-guancha-home",
+      "url": "https://www.guancha.cn/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-guancha-home-before.png",
+        "screenshots/domestic-portal-guancha-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-guancha-home"
+    },
+    {
+      "sampleId": "domestic-portal-people-home",
+      "url": "http://www.people.com.cn/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-people-home-before.png",
+        "screenshots/domestic-portal-people-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-people-home"
+    },
+    {
+      "sampleId": "domestic-portal-qq-news-home",
+      "url": "https://news.qq.com/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-qq-news-home-before.png",
+        "screenshots/domestic-portal-qq-news-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-qq-news-home"
+    },
+    {
+      "sampleId": "domestic-article-36kr-news",
+      "url": "https://36kr.com/information/technology/",
+      "category": "domestic_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-article-36kr-news-before.png",
+        "screenshots/domestic-article-36kr-news-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-article-36kr-news"
+    },
+    {
+      "sampleId": "domestic-article-cctv-tech",
+      "url": "https://news.cctv.com/tech/",
+      "category": "domestic_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-article-cctv-tech-before.png",
+        "screenshots/domestic-article-cctv-tech-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-article-cctv-tech"
+    },
+    {
+      "sampleId": "domestic-article-cnblogs",
+      "url": "https://www.cnblogs.com/",
+      "category": "domestic_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-article-cnblogs-before.png",
+        "screenshots/domestic-article-cnblogs-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-article-cnblogs"
+    },
+    {
+      "sampleId": "domestic-article-sspai",
+      "url": "https://sspai.com/",
+      "category": "domestic_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-article-sspai-before.png",
+        "screenshots/domestic-article-sspai-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-article-sspai"
+    },
+    {
+      "sampleId": "domestic-content-baijiahao",
+      "url": "https://baijiahao.baidu.com/",
+      "category": "domestic_community",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-content-baijiahao-before.png",
+        "screenshots/domestic-content-baijiahao-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-content-baijiahao"
+    },
+    {
+      "sampleId": "domestic-content-bilibili-home",
+      "url": "https://www.bilibili.com/",
+      "category": "domestic_community",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-content-bilibili-home-before.png",
+        "screenshots/domestic-content-bilibili-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-content-bilibili-home"
+    },
+    {
+      "sampleId": "domestic-content-douban-home",
+      "url": "https://www.douban.com/",
+      "category": "domestic_community",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-content-douban-home-before.png",
+        "screenshots/domestic-content-douban-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-content-douban-home"
+    },
+    {
+      "sampleId": "domestic-content-weibo-hot",
+      "url": "https://s.weibo.com/top/summary",
+      "category": "domestic_community",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-content-weibo-hot-before.png",
+        "screenshots/domestic-content-weibo-hot-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-content-weibo-hot"
+    },
+    {
+      "sampleId": "domestic-content-xhs-home",
+      "url": "https://www.xiaohongshu.com/explore",
+      "category": "domestic_community",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-content-xhs-home-before.png",
+        "screenshots/domestic-content-xhs-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-content-xhs-home"
+    },
+    {
+      "sampleId": "international-portal-aljazeera-home",
+      "url": "https://www.aljazeera.com/",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-aljazeera-home-before.png",
+        "screenshots/international-portal-aljazeera-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-aljazeera-home"
+    },
+    {
+      "sampleId": "international-portal-ap-home",
+      "url": "https://apnews.com/",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-ap-home-before.png",
+        "screenshots/international-portal-ap-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-ap-home"
+    },
+    {
+      "sampleId": "international-portal-bbc-home",
+      "url": "https://www.bbc.com/news",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-bbc-home-before.png",
+        "screenshots/international-portal-bbc-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-bbc-home"
+    },
+    {
+      "sampleId": "international-portal-cnn-home",
+      "url": "https://edition.cnn.com/world",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-cnn-home-before.png",
+        "screenshots/international-portal-cnn-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-cnn-home"
+    },
+    {
+      "sampleId": "international-portal-guardian-home",
+      "url": "https://www.theguardian.com/international",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-guardian-home-before.png",
+        "screenshots/international-portal-guardian-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-guardian-home"
+    },
+    {
+      "sampleId": "international-portal-npr-home",
+      "url": "https://www.npr.org/sections/news/",
+      "category": "international_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-portal-npr-home-before.png",
+        "screenshots/international-portal-npr-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-portal-npr-home"
+    },
+    {
+      "sampleId": "international-article-ap-world",
+      "url": "https://apnews.com/world-news",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-ap-world-before.png",
+        "screenshots/international-article-ap-world-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-ap-world"
+    },
+    {
+      "sampleId": "international-article-arstechnica",
+      "url": "https://arstechnica.com/",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-arstechnica-before.png",
+        "screenshots/international-article-arstechnica-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-arstechnica"
+    },
+    {
+      "sampleId": "international-article-bbc-tech",
+      "url": "https://www.bbc.com/news/technology",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-bbc-tech-before.png",
+        "screenshots/international-article-bbc-tech-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-bbc-tech"
+    },
+    {
+      "sampleId": "international-article-guardian-world",
+      "url": "https://www.theguardian.com/world",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-guardian-world-before.png",
+        "screenshots/international-article-guardian-world-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-guardian-world"
+    },
+    {
+      "sampleId": "international-article-techcrunch",
+      "url": "https://techcrunch.com/",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-techcrunch-before.png",
+        "screenshots/international-article-techcrunch-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-techcrunch"
+    },
+    {
+      "sampleId": "international-article-theverge",
+      "url": "https://www.theverge.com/tech",
+      "category": "international_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-article-theverge-before.png",
+        "screenshots/international-article-theverge-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-article-theverge"
+    },
+    {
+      "sampleId": "international-doc-cloudflare-blog",
+      "url": "https://blog.cloudflare.com/",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-cloudflare-blog-before.png",
+        "screenshots/international-doc-cloudflare-blog-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-cloudflare-blog"
+    },
+    {
+      "sampleId": "international-doc-github-blog",
+      "url": "https://github.blog/",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-github-blog-before.png",
+        "screenshots/international-doc-github-blog-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-github-blog"
+    },
+    {
+      "sampleId": "international-doc-google-ai-blog",
+      "url": "https://blog.google/technology/ai/",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-google-ai-blog-before.png",
+        "screenshots/international-doc-google-ai-blog-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-google-ai-blog"
+    },
+    {
+      "sampleId": "international-doc-mdn-fetch",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-mdn-fetch-before.png",
+        "screenshots/international-doc-mdn-fetch-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-mdn-fetch"
+    },
+    {
+      "sampleId": "international-doc-python-tutorial",
+      "url": "https://docs.python.org/3/tutorial/",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-python-tutorial-before.png",
+        "screenshots/international-doc-python-tutorial-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-python-tutorial"
+    },
+    {
+      "sampleId": "international-doc-react-learn",
+      "url": "https://react.dev/learn",
+      "category": "technical_doc_blog",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/international-doc-react-learn-before.png",
+        "screenshots/international-doc-react-learn-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=international-doc-react-learn"
+    },
+    {
+      "sampleId": "domestic-portal-thepaper-home",
+      "url": "https://www.thepaper.cn/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-thepaper-home-before.png",
+        "screenshots/domestic-portal-thepaper-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-thepaper-home"
+    },
+    {
+      "sampleId": "domestic-portal-xinhua-home",
+      "url": "https://www.news.cn/",
+      "category": "domestic_portal",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-portal-xinhua-home-before.png",
+        "screenshots/domestic-portal-xinhua-home-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-portal-xinhua-home"
+    },
+    {
+      "sampleId": "domestic-article-xinhua-tech",
+      "url": "https://www.news.cn/tech/",
+      "category": "domestic_article",
+      "passed": true,
+      "jumpbackResult": "located",
+      "mindmapResult": "pass",
+      "sidebarVisualResult": "pass",
+      "screenshotPaths": [
+        "screenshots/domestic-article-xinhua-tech-before.png",
+        "screenshots/domestic-article-xinhua-tech-after.png"
+      ],
+      "notes": "qh evidence; expected=located/fallback_shown/blocked; sourceSample=domestic-article-xinhua-tech"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "screenshots/domestic-portal-163-news-home-before.png",
+      "description": "domestic-portal-163-news-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-163-news-home-after.png",
+      "description": "domestic-portal-163-news-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-cctv-home-before.png",
+      "description": "domestic-portal-cctv-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-cctv-home-after.png",
+      "description": "domestic-portal-cctv-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-chinanews-home-before.png",
+      "description": "domestic-portal-chinanews-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-chinanews-home-after.png",
+      "description": "domestic-portal-chinanews-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-guancha-home-before.png",
+      "description": "domestic-portal-guancha-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-guancha-home-after.png",
+      "description": "domestic-portal-guancha-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-people-home-before.png",
+      "description": "domestic-portal-people-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-people-home-after.png",
+      "description": "domestic-portal-people-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-qq-news-home-before.png",
+      "description": "domestic-portal-qq-news-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-qq-news-home-after.png",
+      "description": "domestic-portal-qq-news-home located"
+    },
+    {
+      "path": "screenshots/domestic-article-36kr-news-before.png",
+      "description": "domestic-article-36kr-news located"
+    },
+    {
+      "path": "screenshots/domestic-article-36kr-news-after.png",
+      "description": "domestic-article-36kr-news located"
+    },
+    {
+      "path": "screenshots/domestic-article-cctv-tech-before.png",
+      "description": "domestic-article-cctv-tech located"
+    },
+    {
+      "path": "screenshots/domestic-article-cctv-tech-after.png",
+      "description": "domestic-article-cctv-tech located"
+    },
+    {
+      "path": "screenshots/domestic-article-cnblogs-before.png",
+      "description": "domestic-article-cnblogs located"
+    },
+    {
+      "path": "screenshots/domestic-article-cnblogs-after.png",
+      "description": "domestic-article-cnblogs located"
+    },
+    {
+      "path": "screenshots/domestic-article-sspai-before.png",
+      "description": "domestic-article-sspai located"
+    },
+    {
+      "path": "screenshots/domestic-article-sspai-after.png",
+      "description": "domestic-article-sspai located"
+    },
+    {
+      "path": "screenshots/domestic-content-baijiahao-before.png",
+      "description": "domestic-content-baijiahao located"
+    },
+    {
+      "path": "screenshots/domestic-content-baijiahao-after.png",
+      "description": "domestic-content-baijiahao located"
+    },
+    {
+      "path": "screenshots/domestic-content-bilibili-home-before.png",
+      "description": "domestic-content-bilibili-home located"
+    },
+    {
+      "path": "screenshots/domestic-content-bilibili-home-after.png",
+      "description": "domestic-content-bilibili-home located"
+    },
+    {
+      "path": "screenshots/domestic-content-douban-home-before.png",
+      "description": "domestic-content-douban-home located"
+    },
+    {
+      "path": "screenshots/domestic-content-douban-home-after.png",
+      "description": "domestic-content-douban-home located"
+    },
+    {
+      "path": "screenshots/domestic-content-weibo-hot-before.png",
+      "description": "domestic-content-weibo-hot located"
+    },
+    {
+      "path": "screenshots/domestic-content-weibo-hot-after.png",
+      "description": "domestic-content-weibo-hot located"
+    },
+    {
+      "path": "screenshots/domestic-content-xhs-home-before.png",
+      "description": "domestic-content-xhs-home located"
+    },
+    {
+      "path": "screenshots/domestic-content-xhs-home-after.png",
+      "description": "domestic-content-xhs-home located"
+    },
+    {
+      "path": "screenshots/international-portal-aljazeera-home-before.png",
+      "description": "international-portal-aljazeera-home located"
+    },
+    {
+      "path": "screenshots/international-portal-aljazeera-home-after.png",
+      "description": "international-portal-aljazeera-home located"
+    },
+    {
+      "path": "screenshots/international-portal-ap-home-before.png",
+      "description": "international-portal-ap-home located"
+    },
+    {
+      "path": "screenshots/international-portal-ap-home-after.png",
+      "description": "international-portal-ap-home located"
+    },
+    {
+      "path": "screenshots/international-portal-bbc-home-before.png",
+      "description": "international-portal-bbc-home located"
+    },
+    {
+      "path": "screenshots/international-portal-bbc-home-after.png",
+      "description": "international-portal-bbc-home located"
+    },
+    {
+      "path": "screenshots/international-portal-cnn-home-before.png",
+      "description": "international-portal-cnn-home located"
+    },
+    {
+      "path": "screenshots/international-portal-cnn-home-after.png",
+      "description": "international-portal-cnn-home located"
+    },
+    {
+      "path": "screenshots/international-portal-guardian-home-before.png",
+      "description": "international-portal-guardian-home located"
+    },
+    {
+      "path": "screenshots/international-portal-guardian-home-after.png",
+      "description": "international-portal-guardian-home located"
+    },
+    {
+      "path": "screenshots/international-portal-npr-home-before.png",
+      "description": "international-portal-npr-home located"
+    },
+    {
+      "path": "screenshots/international-portal-npr-home-after.png",
+      "description": "international-portal-npr-home located"
+    },
+    {
+      "path": "screenshots/international-article-ap-world-before.png",
+      "description": "international-article-ap-world located"
+    },
+    {
+      "path": "screenshots/international-article-ap-world-after.png",
+      "description": "international-article-ap-world located"
+    },
+    {
+      "path": "screenshots/international-article-arstechnica-before.png",
+      "description": "international-article-arstechnica located"
+    },
+    {
+      "path": "screenshots/international-article-arstechnica-after.png",
+      "description": "international-article-arstechnica located"
+    },
+    {
+      "path": "screenshots/international-article-bbc-tech-before.png",
+      "description": "international-article-bbc-tech located"
+    },
+    {
+      "path": "screenshots/international-article-bbc-tech-after.png",
+      "description": "international-article-bbc-tech located"
+    },
+    {
+      "path": "screenshots/international-article-guardian-world-before.png",
+      "description": "international-article-guardian-world located"
+    },
+    {
+      "path": "screenshots/international-article-guardian-world-after.png",
+      "description": "international-article-guardian-world located"
+    },
+    {
+      "path": "screenshots/international-article-techcrunch-before.png",
+      "description": "international-article-techcrunch located"
+    },
+    {
+      "path": "screenshots/international-article-techcrunch-after.png",
+      "description": "international-article-techcrunch located"
+    },
+    {
+      "path": "screenshots/international-article-theverge-before.png",
+      "description": "international-article-theverge located"
+    },
+    {
+      "path": "screenshots/international-article-theverge-after.png",
+      "description": "international-article-theverge located"
+    },
+    {
+      "path": "screenshots/international-doc-cloudflare-blog-before.png",
+      "description": "international-doc-cloudflare-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-cloudflare-blog-after.png",
+      "description": "international-doc-cloudflare-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-github-blog-before.png",
+      "description": "international-doc-github-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-github-blog-after.png",
+      "description": "international-doc-github-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-google-ai-blog-before.png",
+      "description": "international-doc-google-ai-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-google-ai-blog-after.png",
+      "description": "international-doc-google-ai-blog located"
+    },
+    {
+      "path": "screenshots/international-doc-mdn-fetch-before.png",
+      "description": "international-doc-mdn-fetch located"
+    },
+    {
+      "path": "screenshots/international-doc-mdn-fetch-after.png",
+      "description": "international-doc-mdn-fetch located"
+    },
+    {
+      "path": "screenshots/international-doc-python-tutorial-before.png",
+      "description": "international-doc-python-tutorial located"
+    },
+    {
+      "path": "screenshots/international-doc-python-tutorial-after.png",
+      "description": "international-doc-python-tutorial located"
+    },
+    {
+      "path": "screenshots/international-doc-react-learn-before.png",
+      "description": "international-doc-react-learn located"
+    },
+    {
+      "path": "screenshots/international-doc-react-learn-after.png",
+      "description": "international-doc-react-learn located"
+    },
+    {
+      "path": "screenshots/domestic-portal-thepaper-home-before.png",
+      "description": "domestic-portal-thepaper-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-thepaper-home-after.png",
+      "description": "domestic-portal-thepaper-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-xinhua-home-before.png",
+      "description": "domestic-portal-xinhua-home located"
+    },
+    {
+      "path": "screenshots/domestic-portal-xinhua-home-after.png",
+      "description": "domestic-portal-xinhua-home located"
+    },
+    {
+      "path": "screenshots/domestic-article-xinhua-tech-before.png",
+      "description": "domestic-article-xinhua-tech located"
+    },
+    {
+      "path": "screenshots/domestic-article-xinhua-tech-after.png",
+      "description": "domestic-article-xinhua-tech located"
+    },
+    {
+      "path": "screenshots/domestic-content-xhs-note-before.png",
+      "description": "domestic-content-xhs-note fresh fallback_shown"
+    },
+    {
+      "path": "screenshots/domestic-content-xhs-note-after.png",
+      "description": "domestic-content-xhs-note fresh fallback_shown"
+    },
+    {
+      "path": "screenshots/international-portal-reuters-home-before.png",
+      "description": "international-portal-reuters-home fresh fallback_shown"
+    },
+    {
+      "path": "screenshots/international-portal-reuters-home-after.png",
+      "description": "international-portal-reuters-home fresh fallback_shown"
+    },
+    {
+      "path": "screenshots/international-article-reuters-world-before.png",
+      "description": "international-article-reuters-world fresh fallback_shown"
+    },
+    {
+      "path": "screenshots/international-article-reuters-world-after.png",
+      "description": "international-article-reuters-world fresh fallback_shown"
+    }
+  ],
+  "testCommands": [
+    {
+      "command": "npm --prefix apps/chrome-extension run typecheck",
+      "passed": true,
+      "logPath": "local command output"
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension test -- contentBridge mindmap_renderer ArtifactInlineCard pageContext",
+      "passed": true,
+      "logPath": "local command output"
+    },
+    {
+      "command": "PYTHONPATH=services/local-runtime .venv/bin/pytest services/local-runtime/navia_runtime/modules/page_reading/tests/test_high_signal_page.py services/local-runtime/navia_runtime/modules/mindmap/tests/test_mindmap.py -q",
+      "passed": true,
+      "logPath": "local command output"
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run build:e2e",
+      "passed": true,
+      "logPath": "apps/chrome-extension/chrome-mv3-unpacked"
+    },
+    {
+      "command": "node apps/chrome-extension/e2e/generate-v1-post-v1-hardening-report.mjs",
+      "passed": true,
+      "logPath": "docs/active/project/evidence/v1_post_v1_hardening/report.json"
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run validate:post-v1-hardening",
+      "passed": true,
+      "logPath": "docs/active/project/evidence/v1_post_v1_hardening/report.json"
+    }
+  ],
+  "prdReview": {
+    "path": "docs/active/project/evidence/v1_post_v1_hardening/prd-review.md",
+    "passed": true,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "falseGreenAudit": {
+    "path": "docs/active/project/evidence/v1_post_v1_hardening/false-green-audit.md",
+    "passed": true,
+    "fatalIssues": [],
+    "majorIssues": []
+  },
+  "humanReviewChecklist": "docs/active/project/evidence/v1_post_v1_hardening/ux-review-checklist.md",
+  "fatalIssues": [],
+  "majorIssues": []
+}
