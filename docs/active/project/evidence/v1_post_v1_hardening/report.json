@@ -1,6 +1,6 @@
 {
   "schemaVersion": "v1-post-v1-hardening.report.1",
-  "generatedAt": "2026-07-03T22:03:21.556Z",
+  "generatedAt": "2026-07-04T02:47:57.056Z",
   "stage": "V1.0.x Post-V1 Hardening",
   "claim": "V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site regression acceptance.",
   "passed": true,
@@ -158,6 +158,59 @@
     ],
     "passed": true
   },
+  "fallbackEvidenceSamples": [
+    {
+      "sampleId": "domestic-content-xhs-note",
+      "url": "https://www.xiaohongshu.com/explore/6a3283ce000000001602715a",
+      "category": "domestic_community",
+      "status": "fallback_shown",
+      "result": "blocked",
+      "screenshotPaths": [
+        "screenshots/domestic-content-xhs-note-before.png",
+        "screenshots/domestic-content-xhs-note-after.png"
+      ],
+      "notes": "fresh fallback/blocked evidence; sourceSample=domestic-content-xhs-note",
+      "replacementSampleIds": [
+        "domestic-portal-163-news-home",
+        "domestic-portal-cctv-home",
+        "domestic-portal-chinanews-home"
+      ]
+    },
+    {
+      "sampleId": "international-portal-reuters-home",
+      "url": "https://www.reuters.com/",
+      "category": "international_portal",
+      "status": "fallback_shown",
+      "result": "degraded",
+      "screenshotPaths": [
+        "screenshots/international-portal-reuters-home-before.png",
+        "screenshots/international-portal-reuters-home-after.png"
+      ],
+      "notes": "fresh fallback/blocked evidence; sourceSample=international-portal-reuters-home",
+      "replacementSampleIds": [
+        "domestic-portal-163-news-home",
+        "domestic-portal-cctv-home",
+        "domestic-portal-chinanews-home"
+      ]
+    },
+    {
+      "sampleId": "international-article-reuters-world",
+      "url": "https://www.reuters.com/world/",
+      "category": "international_article",
+      "status": "fallback_shown",
+      "result": "degraded",
+      "screenshotPaths": [
+        "screenshots/international-article-reuters-world-before.png",
+        "screenshots/international-article-reuters-world-after.png"
+      ],
+      "notes": "fresh fallback/blocked evidence; sourceSample=international-article-reuters-world",
+      "replacementSampleIds": [
+        "domestic-portal-163-news-home",
+        "domestic-portal-cctv-home",
+        "domestic-portal-chinanews-home"
+      ]
+    }
+  ],
   "samples": [
     {
       "sampleId": "domestic-portal-163-news-home",

@@ -56,6 +56,15 @@ function main() {
   if (report.fatalIssues.length || report.majorIssues.length) issues.push("fatalIssues or majorIssues are not empty");
   if (report.freshFallbackSamples < 3 && !report.fallbackPolicy.exceptionUsed) issues.push("freshFallbackSamples < 3 without fallbackPolicy exception");
   if (report.freshFallbackSamples >= 3 && !report.fallbackPolicy.passed) issues.push("fallbackPolicy should pass when freshFallbackSamples >= 3");
+  if (!Array.isArray(report.fallbackEvidenceSamples) || report.fallbackEvidenceSamples.length < report.freshFallbackSamples) {
+    issues.push("fallbackEvidenceSamples missing or fewer than freshFallbackSamples");
+  }
+  const fallbackShownCount = (report.fallbackEvidenceSamples || []).filter((sample) => sample.status === "fallback_shown").length;
+  if (fallbackShownCount !== report.freshFallbackSamples) issues.push("fallbackEvidenceSamples fallback_shown count does not match freshFallbackSamples");
+  for (const sample of report.fallbackEvidenceSamples || []) {
+    if (!sample.screenshotPaths?.length) issues.push(`fallback evidence sample missing screenshots: ${sample.sampleId}`);
+    if (!sample.replacementSampleIds?.length) issues.push(`fallback evidence sample missing replacementSampleIds: ${sample.sampleId}`);
+  }
   const expectedMetrics = [
     report.jumpbackQualityMetrics.jumpbackLocatedSemanticMatchRate,
     report.jumpbackQualityMetrics.freshFallbackSamples,
@@ -77,6 +86,11 @@ function main() {
   if (!html.includes(report.claim)) issues.push("acceptance-report.html does not include claim");
   for (const screenshot of report.screenshots) {
     if (!fs.existsSync(path.join(evidenceRoot, screenshot.path))) issues.push(`missing screenshot: ${screenshot.path}`);
+  }
+  for (const sample of report.fallbackEvidenceSamples || []) {
+    for (const screenshot of sample.screenshotPaths || []) {
+      if (!fs.existsSync(path.join(evidenceRoot, screenshot))) issues.push(`missing fallback screenshot: ${screenshot}`);
+    }
   }
   const commands = new Set(report.testCommands.map((item) => item.command));
   if (!commands.has("npm --prefix apps/chrome-extension run validate:post-v1-hardening")) issues.push("testCommands missing validate:post-v1-hardening");

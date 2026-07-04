@@ -465,6 +465,10 @@ function buildReport(manifest) {
       .map((sample) => sample.sampleId),
     passed: freshFallbackSamples >= 3 && sampleResults.filter((sample) => sample.passed).length >= 36
   };
+  const fallbackEvidenceWithReplacements = fallbackEvidenceSamples.map((sample) => ({
+    ...sample,
+    replacementSampleIds: fallbackPolicy.replacementSampleIds
+  }));
 
   const report = {
     schemaVersion: "v1-post-v1-hardening.report.1",
@@ -493,10 +497,11 @@ function buildReport(manifest) {
     },
     sampleDistribution: categoryDistribution,
     fallbackPolicy,
+    fallbackEvidenceSamples: fallbackEvidenceWithReplacements,
     samples: sampleResults,
     screenshots: [
       ...sampleResults.flatMap((sample) => sample.screenshotPaths.map((shot) => ({ path: shot, description: `${sample.sampleId} ${sample.jumpbackResult}` }))),
-      ...fallbackEvidenceSamples.flatMap((sample) => sample.screenshotPaths.map((shot) => ({ path: shot, description: `${sample.sampleId} fresh ${sample.status}` })))
+      ...fallbackEvidenceWithReplacements.flatMap((sample) => sample.screenshotPaths.map((shot) => ({ path: shot, description: `${sample.sampleId} fresh ${sample.status}` })))
     ],
     testCommands: [
       { command: "npm --prefix apps/chrome-extension run typecheck", passed: true, logPath: "local command output" },
@@ -540,8 +545,8 @@ function writeMarkdownReports(report) {
   for (const stage of ["H-1", "H-2", "H-3", "H-4", "H-5", "H-6"]) {
     writeText(path.join(evidenceRoot, `${stage.toLowerCase()}-development-acceptance-audit.md`), `# V1.0.x-${stage} 开发及验收审计\n\nResult: ${report.passed ? "PASS" : "FAIL"}\n\n- 使用真实 QH/CQ evidence 作为 post-V1 hardening 数据来源。\n- 保留 located / fallback_shown / blocked 区分。\n- 不引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、OCR/VLM/ASR 或默认本地文件读取。\n`);
   }
-  writeText(path.join(evidenceRoot, "prd-review.md"), `# V1.0.x Post-V1 Hardening PRD 规格检视\n\nResult: ${report.passed ? "PASS" : "FAIL"}\n\nCovered:\n\n- 100+ candidate matrix and ${report.acceptanceSubsetSize}+ acceptance subset.\n- Source jumpback located / fallback_shown / blocked 三态。\n- Mindmap / Reading Map 噪声、重复、长节点指标。\n- 窄侧栏截图证据和 HTML 审计入口。\n\nNot claimed:\n\n- 最终 Monica-like UX complete。\n- 复杂站点全量高质量通过。\n- 媒体流、OCR/VLM/ASR、RAG、Memory、Web Research、PPT、Deep Research。\n`);
-  writeText(path.join(evidenceRoot, "false-green-audit.md"), `# V1.0.x Post-V1 Hardening False-Green Audit\n\nResult: ${report.passed ? "PASS" : "FAIL"}\n\nChecks:\n\n- fallback_shown / blocked 不计为 located。\n- fresh fallback 独立计数：${report.freshFallbackSamples}。\n- report.json 包含 sampleDistribution 和 fallbackPolicy。\n- 旧 QH/CQ/V1 complete evidence 只作为真实数据来源，不冒充本阶段独立报告。\n- semantic validator 为出门必跑命令。\n\nFatal issues:\n\n${report.fatalIssues.length ? report.fatalIssues.map((issue) => `- ${issue}`).join("\n") : "- none"}\n\nMajor issues:\n\n${report.majorIssues.length ? report.majorIssues.map((issue) => `- ${issue}`).join("\n") : "- none"}\n`);
+  writeText(path.join(evidenceRoot, "prd-review.md"), `# V1.0.x Post-V1 Hardening PRD 规格检视\n\nResult: ${report.passed ? "PASS" : "FAIL"}\n\nCovered:\n\n- 100+ candidate matrix and ${report.acceptanceSubsetSize}+ acceptance subset.\n- Source jumpback located / fallback_shown / blocked 三态。\n- Mindmap / Reading Map 噪声、重复、长节点指标。\n- 窄侧栏截图证据和 HTML 审计入口。\n- fresh fallback / blocked 证据样本单独保留，不计入 located acceptance pass。\n\nNot claimed:\n\n- 最终 Monica-like UX complete。\n- 复杂站点全量高质量通过。\n- 媒体流、OCR/VLM/ASR、RAG、Memory、Web Research、PPT、Deep Research。\n`);
+  writeText(path.join(evidenceRoot, "false-green-audit.md"), `# V1.0.x Post-V1 Hardening False-Green Audit\n\nResult: ${report.passed ? "PASS" : "FAIL"}\n\nChecks:\n\n- fallback_shown / blocked 不计为 located。\n- fresh fallback 独立计数：${report.freshFallbackSamples}。\n- report.json 包含 sampleDistribution、fallbackPolicy 和 fallbackEvidenceSamples。\n- fallback evidence 样本：${report.fallbackEvidenceSamples.map((sample) => `${sample.sampleId}(${sample.status}/${sample.result})`).join(", ")}。\n- 旧 QH/CQ/V1 complete evidence 只作为真实数据来源，不冒充本阶段独立报告。\n- semantic validator 为出门必跑命令。\n\nFatal issues:\n\n${report.fatalIssues.length ? report.fatalIssues.map((issue) => `- ${issue}`).join("\n") : "- none"}\n\nMajor issues:\n\n${report.majorIssues.length ? report.majorIssues.map((issue) => `- ${issue}`).join("\n") : "- none"}\n`);
   writeText(path.join(evidenceRoot, "ux-review-checklist.md"), `# V1.0.x Post-V1 Hardening UX Review Checklist\n\nStatus: automated package ready for human spot-check\n\n- [ ] 抽查 located 样本 source marker 是否语义匹配。\n- [ ] 抽查 fallback_shown 样本是否明确显示 fallback evidence，而非假高亮。\n- [ ] 抽查 Mindmap 顶层节点是否短、准、非重复。\n- [ ] 抽查窄侧栏截图是否无虚影、遮挡、重叠、截断。\n- [ ] 确认本阶段未声明最终 Monica-like UX 或 V2 能力。\n`);
 }
 
@@ -553,12 +558,22 @@ function writeHtmlReport(report) {
   const sampleRows = report.samples
     .map((sample) => `<tr><td>${escapeHtml(sample.sampleId)}</td><td>${escapeHtml(sample.category)}</td><td>${escapeHtml(sample.jumpbackResult)}</td><td>${escapeHtml(sample.mindmapResult)}</td><td>${escapeHtml(sample.sidebarVisualResult)}</td><td>${sample.screenshotPaths.map((shot) => `<a href="${escapeHtml(shot)}">${escapeHtml(path.basename(shot))}</a>`).join(" ")}</td></tr>`)
     .join("");
+  const fallbackRows = report.fallbackEvidenceSamples
+    .map((sample) => `<tr><td>${escapeHtml(sample.sampleId)}</td><td>${escapeHtml(sample.category)}</td><td>${escapeHtml(sample.status)}</td><td>${escapeHtml(sample.result)}</td><td>${sample.replacementSampleIds.map((id) => `<code>${escapeHtml(id)}</code>`).join(" ")}</td><td>${sample.screenshotPaths.map((shot) => `<a href="${escapeHtml(shot)}">${escapeHtml(path.basename(shot))}</a>`).join(" ")}</td><td>${escapeHtml(sample.notes)}</td></tr>`)
+    .join("");
   const distributionRows = report.sampleDistribution
     .map((item) => `<tr><td>${escapeHtml(item.category)}</td><td>${item.candidateSamples}</td><td>${item.acceptanceSamples}</td><td>${item.passedSamples}</td><td>${item.blockedSamples}</td><td>${item.replacementSamples}</td><td>${item.passed ? "PASS" : "FAIL"}</td></tr>`)
     .join("");
   const firstShots = report.screenshots
     .slice(0, 18)
     .map((shot) => `<figure><img src="${escapeHtml(shot.path)}" alt="${escapeHtml(shot.description)}"><figcaption>${escapeHtml(shot.description)}</figcaption></figure>`)
+    .join("");
+  const fallbackShots = report.fallbackEvidenceSamples
+    .flatMap((sample) => sample.screenshotPaths.map((shot) => ({ path: shot, description: `${sample.sampleId} ${sample.status}` })))
+    .map((shot) => `<figure><img src="${escapeHtml(shot.path)}" alt="${escapeHtml(shot.description)}"><figcaption>${escapeHtml(shot.description)}</figcaption></figure>`)
+    .join("");
+  const screenshotRows = report.screenshots
+    .map((shot, index) => `<tr><td>${index + 1}</td><td>${escapeHtml(shot.description)}</td><td><a href="${escapeHtml(shot.path)}">${escapeHtml(shot.path)}</a></td></tr>`)
     .join("");
   const exitChecks = [
     ["目标架构同步", "PASS", "drawio 8 页，当前架构与目标架构差异页已同步 post-V1 evidence、schema、validator 和实现状态。"],
@@ -614,7 +629,10 @@ function writeHtmlReport(report) {
   <h2>样本分布</h2><table><thead><tr><th>类别</th><th>candidate</th><th>acceptance</th><th>passed</th><th>blocked</th><th>replacement</th><th>结果</th></tr></thead><tbody>${distributionRows}</tbody></table>
   <h2>测试命令</h2><table><thead><tr><th>命令</th><th>结果</th><th>日志 / 证据</th></tr></thead><tbody>${commandRows}</tbody></table>
   <h2>验收样本</h2><table><thead><tr><th>样本</th><th>类别</th><th>反跳</th><th>Mindmap</th><th>Sidebar</th><th>截图</th></tr></thead><tbody>${sampleRows}</tbody></table>
+  <h2>Fresh Fallback / Blocked 证据样本</h2><section class="panel"><p>这些样本用于证明 fallback / blocked 路径是本阶段 fresh evidence。它们不计入 located acceptance pass；报告用同类真实通过样本作为替代验收样本，并保留原始失败原因。</p></section><table><thead><tr><th>样本</th><th>类别</th><th>状态</th><th>真实结果</th><th>替代样本</th><th>截图</th><th>说明</th></tr></thead><tbody>${fallbackRows}</tbody></table>
+  <h2>Fallback / Blocked 截图证据</h2><section class="panel shots">${fallbackShots}</section>
   <h2>截图证据抽样</h2><section class="panel shots">${firstShots}</section>
+  <h2>全部截图索引</h2><table><thead><tr><th>#</th><th>说明</th><th>路径</th></tr></thead><tbody>${screenshotRows}</tbody></table>
   <h2>配套审计</h2><section class="panel"><a href="prd-review.md">PRD review</a> <a href="false-green-audit.md">false-green audit</a> <a href="ux-review-checklist.md">UX checklist</a> <a href="sample-manifest.json">sample manifest</a> <a href="report.json">report.json</a></section>
 </main></body></html>`);
 }

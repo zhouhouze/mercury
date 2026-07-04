@@ -8,6 +8,7 @@ Covered:
 - Source jumpback located / fallback_shown / blocked 三态。
 - Mindmap / Reading Map 噪声、重复、长节点指标。
 - 窄侧栏截图证据和 HTML 审计入口。
+- fresh fallback / blocked 证据样本单独保留，不计入 located acceptance pass。
 
 Not claimed:
 

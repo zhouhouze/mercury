@@ -21,6 +21,7 @@
     "sidebarVisualMetrics",
     "sampleDistribution",
     "fallbackPolicy",
+    "fallbackEvidenceSamples",
     "samples",
     "screenshots",
     "testCommands",
@@ -95,6 +96,13 @@
       "minItems": 36,
       "items": {
         "$ref": "#/$defs/sampleResult"
+      }
+    },
+    "fallbackEvidenceSamples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/fallbackEvidenceSample"
       }
     },
     "screenshots": {
@@ -290,6 +298,64 @@
         },
         "notes": {
           "type": "string"
+        }
+      }
+    },
+    "fallbackEvidenceSample": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sampleId",
+        "url",
+        "category",
+        "status",
+        "result",
+        "screenshotPaths",
+        "replacementSampleIds",
+        "notes"
+      ],
+      "properties": {
+        "sampleId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "fallback_shown",
+            "blocked",
+            "degraded"
+          ]
+        },
+        "result": {
+          "type": "string",
+          "minLength": 1
+        },
+        "screenshotPaths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "replacementSampleIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1
         }
       }
     },
