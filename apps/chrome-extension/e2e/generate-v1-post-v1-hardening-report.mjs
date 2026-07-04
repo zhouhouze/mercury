@@ -646,7 +646,7 @@ function writeHtmlReport(report) {
     <p><span class="warn">边界说明：</span>小红书详情和 Reuters 在 headless / public 环境中出现 blocked 或 degraded 时，报告保留其真实 fallback / blocked 证据，并使用同类真实通过样本替代进入 acceptance subset；这些样本没有被伪装为 located pass。</p>
   </section>
   <h2>目标架构与当前实现</h2>
-  <section class="panel"><p>目标链路：Host Page DOM / metadata / selection -> <code>pageContext.ts</code> -> A Page Reading -> D Adapter / Agent Loop -> C Mindmap -> B Evidence Card Mindmap / Reading Map -> <code>contentBridge.ts</code> 用户触发 jumpback -> post-V1 evidence。</p><p>当前实现沿用 V1 complete 架构，本阶段只强化 Source Jumpback、Mindmap 质量、窄侧栏 UX 与真实网页回归证据，不新增 Runtime public contract。</p><p>架构图：<code>docs/active/project/design/v1-post-v1-hardening-gap.drawio</code>，共 8 页，已同步为本阶段验收态。</p></section>
+  <section class="panel"><p>目标链路：Host Page DOM / metadata / selection -> <code>pageContext.ts</code> -> A Page Reading -> D Adapter / Agent Loop -> C Mindmap -> B Evidence Card Mindmap / Reading Map -> <code>runtimeClient.ts</code> / background proxy -> <code>contentBridge.ts</code> 用户触发 jumpback -> post-V1 evidence。</p><p>当前实现沿用 V1 complete 架构，本阶段只强化 Source Jumpback、Mindmap 质量、窄侧栏 UX 与真实网页回归证据，不新增 Runtime public contract；<code>runtimeClient.ts</code> 保持 Runtime transport 与诊断边界，B 不直连 A/C/D。</p><p>架构图：<code>docs/active/project/design/v1-post-v1-hardening-gap.drawio</code>，共 8 页，已同步为本阶段验收态。</p></section>
   <h2>出门条件达成检查</h2><table><thead><tr><th>检查项</th><th>结果</th><th>证据说明</th></tr></thead><tbody>${exitChecks}</tbody></table>
   <h2>PRD / Stage Gate 映射</h2><table><thead><tr><th>要求</th><th>结果</th><th>本报告内证据</th></tr></thead><tbody>${prdMappingRows}</tbody></table>
   <h2>证据文件清单</h2><table><thead><tr><th>文件</th><th>路径</th><th>审计用途</th></tr></thead><tbody>${evidenceFileRows}</tbody></table>

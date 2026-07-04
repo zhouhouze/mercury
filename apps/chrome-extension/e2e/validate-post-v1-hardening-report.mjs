@@ -9,6 +9,7 @@ const evidenceRootRelative = "docs/active/project/evidence/v1_post_v1_hardening"
 const evidenceRoot = path.join(repoRoot, evidenceRootRelative);
 const manifestPath = path.join(evidenceRoot, "sample-manifest.json");
 const reportPath = path.join(evidenceRoot, "report.json");
+const drawioPath = path.join(repoRoot, "docs/active/project/design/v1-post-v1-hardening-gap.drawio");
 const manifestSchema = path.join(repoRoot, "docs/active/project/contracts/v1_post_v1_hardening_sample_manifest.schema.json");
 const reportSchema = path.join(repoRoot, "docs/active/project/contracts/v1_post_v1_hardening_report.schema.json");
 
@@ -118,6 +119,34 @@ function main() {
   const commands = new Set(report.testCommands.map((item) => item.command));
   if (!commands.has("npm --prefix apps/chrome-extension run validate:post-v1-hardening")) issues.push("testCommands missing validate:post-v1-hardening");
   if (!commands.has("node apps/chrome-extension/e2e/generate-v1-post-v1-hardening-report.mjs")) issues.push("testCommands missing post-v1 report generator");
+  const drawio = fs.readFileSync(drawioPath, "utf-8");
+  const drawioPages = [...drawio.matchAll(/<diagram[^>]*name="/g)].length;
+  if (drawioPages !== 8) issues.push(`drawio page count should be 8, got ${drawioPages}`);
+  const requiredDrawioTerms = [
+    "pageContext.ts",
+    "contentBridge.ts",
+    "runtimeClient.ts",
+    "chat_renderer",
+    "mindmap_renderer",
+    "A Page Reading",
+    "C Mindmap",
+    "D Adapter",
+    "post-V1 evidence",
+    "100+",
+    "36+",
+    "Source Jumpback",
+    "located",
+    "fallback_shown",
+    "blocked",
+    "semantic validator",
+    "sample-manifest.json",
+    "report.json",
+    "No-Go",
+    "Monica-like"
+  ];
+  for (const term of requiredDrawioTerms) {
+    if (!drawio.includes(term)) issues.push(`drawio missing required term: ${term}`);
+  }
   if (issues.length) {
     console.error(JSON.stringify({ passed: false, issues }, null, 2));
     process.exit(2);
