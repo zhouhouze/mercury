@@ -84,6 +84,29 @@ function main() {
   }
   const html = fs.readFileSync(path.join(evidenceRoot, "acceptance-report.html"), "utf-8");
   if (!html.includes(report.claim)) issues.push("acceptance-report.html does not include claim");
+  const requiredHtmlSections = [
+    "阶段性审计结论",
+    "目标架构与当前实现",
+    "出门条件达成检查",
+    "PRD / Stage Gate 映射",
+    "证据文件清单",
+    "配套审计摘要",
+    "真实性边界与剩余风险",
+    "关键指标",
+    "样本分布",
+    "测试命令",
+    "验收样本",
+    "Fresh Fallback / Blocked 证据样本",
+    "Fallback / Blocked 截图证据",
+    "截图证据抽样",
+    "全部截图索引",
+    "配套审计"
+  ];
+  for (const section of requiredHtmlSections) {
+    if (!html.includes(section)) issues.push(`acceptance-report.html missing required human-audit section: ${section}`);
+  }
+  if ((html.match(/<img /g) || []).length < 20) issues.push("acceptance-report.html has fewer than 20 inline screenshot images");
+  if ((html.match(/screenshots\//g) || []).length < report.screenshots.length) issues.push("acceptance-report.html does not link all report screenshots");
   for (const screenshot of report.screenshots) {
     if (!fs.existsSync(path.join(evidenceRoot, screenshot.path))) issues.push(`missing screenshot: ${screenshot.path}`);
   }

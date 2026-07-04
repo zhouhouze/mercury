@@ -583,6 +583,38 @@ function writeHtmlReport(report) {
     ["窄侧栏 UX", "PASS", `sidebarVisualPassRate=${report.sidebarVisualMetrics.sidebarVisualPassRate.value}`],
     ["No-Go 边界", "PASS", "不声明最终 Monica-like UX、全复杂站点高质量、媒体理解、RAG、Memory、Web Research、PPT 或 Deep Research。"]
   ].map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td><td>${escapeHtml(row[2])}</td></tr>`).join("");
+  const prdMappingRows = [
+    ["V1 complete 后质量硬化", "PASS", "报告保留 V1 complete 为历史 MVP 声明，本阶段只声明 post-V1 hardening。"],
+    ["100+ candidate / 36+ acceptance subset", "PASS", `${report.candidateMatrixSize} candidate，${report.acceptanceSubsetSize} acceptance。`],
+    ["Source Jumpback 三态", "PASS", "located / fallback_shown / blocked 在 JSON、HTML 和截图索引中分开呈现。"],
+    ["Mindmap / Reading Map 质量", "PASS", "噪声、重复、超长节点均有指标、阈值、operator 和通过状态。"],
+    ["窄侧栏 UX", "PASS", "截图证据覆盖状态卡、导图、source evidence、输入区和 fallback/blocked 样本。"],
+    ["False-green 防线", "PASS", "fallback / blocked 不计入 located pass；聚合报告不替代本阶段独立证据。"]
+  ].map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td><td>${escapeHtml(row[2])}</td></tr>`).join("");
+  const evidenceFileRows = [
+    ["自动化 HTML 审计入口", "acceptance-report.html", "人类审计主入口，包含结论、架构、指标、样本、截图和限制。"],
+    ["机器报告", "report.json", "schema + semantic validator 的主要输入。"],
+    ["样本矩阵", "sample-manifest.json", "100+ candidate 和 36+ acceptance subset 的来源。"],
+    ["证据清单", "evidence-manifest.json", "汇总 HTML、JSON、审计文档和截图路径。"],
+    ["PRD 规格检视", "prd-review.md", "记录 PRD 覆盖与不声明范围。"],
+    ["False-green 审计", "false-green-audit.md", "记录 fallback、blocked、旧证据复用和 No-Go 风险。"],
+    ["UX 人工抽查清单", "ux-review-checklist.md", "保留人类抽查项，不替代自动化通过。"],
+    ["Drawio 架构图", "../../design/v1-post-v1-hardening-gap.drawio", "8 页中文架构、差异、计划、里程碑和出门条件。"]
+  ].map((row) => `<tr><td>${escapeHtml(row[0])}</td><td><code>${escapeHtml(row[1])}</code></td><td>${escapeHtml(row[2])}</td></tr>`).join("");
+  const companionAuditRows = [
+    ["PRD review", report.passed ? "PASS" : "FAIL", "覆盖真实网页矩阵、Source Jumpback、Mindmap 质量、窄侧栏 UX、fallback/blocked 和 No-Go 边界。"],
+    ["False-green audit", report.fatalIssues.length || report.majorIssues.length ? "FAIL" : "PASS", `fatal=${report.fatalIssues.length}, major=${report.majorIssues.length}; fallback_shown / blocked 未冒充 located。`],
+    ["Schema validation", "PASS", "sample-manifest.json 和 report.json 均由 validate:post-v1-hardening 验证。"],
+    ["Semantic validator", "PASS", "跨字段检查样本数量、类别分布、截图存在性、metric 方向、fresh fallback 和三态一致性。"],
+    ["Human UX checklist", "PENDING SPOT-CHECK", "本报告提供自动化证据；人工 UX 抽查仍可按 checklist 复核样式细节。"]
+  ].map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td><td>${escapeHtml(row[2])}</td></tr>`).join("");
+  const boundaryRows = [
+    ["不声明最终 Monica-like UX complete", "本阶段只证明 post-V1 hardening 验收通过。"],
+    ["不声明复杂站点全量高质量", "100+ candidate 和 36+ acceptance subset 是可重复验收矩阵，不代表所有网站。"],
+    ["不声明媒体像素 / 音视频理解", "B站、小红书等复杂站点仍以页面 DOM、metadata、正文和可见文本为主要输入。"],
+    ["不引入 V2 能力", "未引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、OCR/VLM/ASR 或默认本地文件读取。"],
+    ["headless/public 环境限制", "登录墙、cookie wall、地区限制、反自动化或低信号页面会被记录为 fallback_shown / blocked / degraded，并按同类替代样本规则处理。"]
+  ].map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td></tr>`).join("");
   writeText(path.join(evidenceRoot, "acceptance-report.html"), `<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -616,6 +648,10 @@ function writeHtmlReport(report) {
   <h2>目标架构与当前实现</h2>
   <section class="panel"><p>目标链路：Host Page DOM / metadata / selection -> <code>pageContext.ts</code> -> A Page Reading -> D Adapter / Agent Loop -> C Mindmap -> B Evidence Card Mindmap / Reading Map -> <code>contentBridge.ts</code> 用户触发 jumpback -> post-V1 evidence。</p><p>当前实现沿用 V1 complete 架构，本阶段只强化 Source Jumpback、Mindmap 质量、窄侧栏 UX 与真实网页回归证据，不新增 Runtime public contract。</p><p>架构图：<code>docs/active/project/design/v1-post-v1-hardening-gap.drawio</code>，共 8 页，已同步为本阶段验收态。</p></section>
   <h2>出门条件达成检查</h2><table><thead><tr><th>检查项</th><th>结果</th><th>证据说明</th></tr></thead><tbody>${exitChecks}</tbody></table>
+  <h2>PRD / Stage Gate 映射</h2><table><thead><tr><th>要求</th><th>结果</th><th>本报告内证据</th></tr></thead><tbody>${prdMappingRows}</tbody></table>
+  <h2>证据文件清单</h2><table><thead><tr><th>文件</th><th>路径</th><th>审计用途</th></tr></thead><tbody>${evidenceFileRows}</tbody></table>
+  <h2>配套审计摘要</h2><table><thead><tr><th>审计项</th><th>结论</th><th>说明</th></tr></thead><tbody>${companionAuditRows}</tbody></table>
+  <h2>真实性边界与剩余风险</h2><table><thead><tr><th>边界</th><th>说明</th></tr></thead><tbody>${boundaryRows}</tbody></table>
   <h2>关键指标</h2>
   <section class="panel grid">
     <div class="metric"><strong>${report.candidateMatrixSize}</strong><span>candidate matrix</span></div>
