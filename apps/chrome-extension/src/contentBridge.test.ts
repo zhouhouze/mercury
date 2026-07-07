@@ -72,7 +72,10 @@ describe("content page context bridge", () => {
       expect(document.body.style.marginRight).toBe("");
       expect(launcher).not.toBeNull();
       expect(launcher?.dataset.naviaMode).toBe("collapsed");
-      expect(launcher?.style.getPropertyValue("--navia-launcher-transform")).toContain("translateX");
+      expect(launcher?.dataset.naviaSide).toBe("right");
+      expect(Number.parseFloat(launcher?.style.right || "0")).toBeLessThan(0);
+      expect(launcher?.style.getPropertyValue("--navia-launcher-transform")).toBe("scale(1)");
+      expect(launcher?.style.getPropertyValue("--navia-launcher-peek-transform")).toBe("translateX(-36px)");
       expect(document.querySelector("[data-testid='navia-inpage-sidebar-edge-toggle']")).toBeNull();
       expect(ensureInPageSidebar(document)).toBe(host);
     } finally {

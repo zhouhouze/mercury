@@ -1,0 +1,399 @@
+<mxfile host="Electron" agent="Codex" pages="8">
+  <diagram id="bmux-01" name="01 阶段目标与目标体验">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p1-title" value="V1.0.x Baseline Maintenance + UX Polish&#xa;阶段目标：维护冻结基线 + 打磨当前 V1 体验" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-base" value="灰色：上一阶段冻结基线&#xa;v1_post_v1_hardening 已人工确认&#xa;本阶段只读引用，不重写、不降级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf2f7;strokeColor=#718096;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-maint" value="绿色：Baseline Maintenance&#xa;build / Runtime health / validator / HTML report / sensitive scan 可重复验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="460" y="150" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-ux" value="黄色：V1 UX Polish&#xa;launcher / sidebar / Chat / Mindmap / Source Evidence / Debug / Settings scoped polish" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="870" y="150" width="390" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-ev" value="蓝色：新阶段证据&#xa;v1_baseline_maintenance_ux_polish&#xa;report / HTML / screenshots / PRD review / false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="80" y="370" width="390" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-path" value="目标体验路径&#xa;prototype review 作为设计输入 -&gt; 启动 Runtime 和扩展 -&gt; Navia 低打扰贴边 -&gt; 展开侧栏 -&gt; Chat / Mindmap / Source Evidence 可用 -&gt; Runtime 异常有诊断 -&gt; HTML 报告以真实截图审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="530" y="360" width="760" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-nogo" value="红色 No-Go&#xa;不声明最终 Monica-like UX complete&#xa;不引入 RAG / Memory / Web Research / PPT / Deep Research&#xa;不新增默认本地文件读取、产品浏览器自动操作、OCR/VLM/ASR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="80" y="610" width="1210" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-e1" edge="1" parent="1" source="p1-base" target="p1-maint" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-e2" edge="1" parent="1" source="p1-maint" target="p1-ux" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1-e3" edge="1" parent="1" source="p1-ux" target="p1-path" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#64748b;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-02" name="02 当前架构与目标架构差异">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2-title" value="当前架构与 BM / UX 目标架构差异&#xa;具体代码实体 + 状态 + 交互关系" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="50" y="30" width="1500" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-host" value="Host Page DOM&#xa;当前网页 / selection / metadata&#xa;状态：已实现保持边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="150" width="210" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-content" value="entrypoints/content/index.ts / contentBridge.ts&#xa;launcher / sidebar shell&#xa;状态：已实现已验证&#xa;证据：默认贴边、hover/focus、collapse、drag、resize 截图全绿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="330" y="130" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-sidepanel" value="entrypoints/sidepanel/main.tsx&#xa;React Side Panel 主入口&#xa;状态：已实现已验证&#xa;证据：Chat / Mindmap / Debug / Settings 映射到真实截图" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="700" y="130" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-style" value="entrypoints/sidepanel/style.css&#xa;视觉样式层&#xa;状态：已实现已验证&#xa;证据：按钮、卡片、输入区、窄屏截图回归通过" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="130" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-page" value="pageContext.ts&#xa;当前页 context 输入&#xa;状态：已实现保持边界&#xa;不扩展到 Web Research" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="250" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-runtime" value="runtimeClient.ts&#xa;Runtime health / offline / reconnect&#xa;状态：已实现保持边界&#xa;目标：诊断更清楚，不新增 public contract" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="370" y="350" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-chat" value="B chat_renderer&#xa;AssistantMessage / ArtifactInlineCard / InlineStatusRow&#xa;状态：已实现已验证&#xa;证据：source card、状态卡、输入区在报告截图中可审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="730" y="340" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-map" value="B mindmap_renderer&#xa;mindmapPresentation.ts&#xa;状态：已实现已验证&#xa;证据：Mindmap / Reading Map 目标映射到真实截图，无 fatal / major" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="340" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-debug" value="B debug_renderer&#xa;debugPresentation.ts&#xa;状态：已实现保持边界&#xa;目标：Debug JSON / diagnostics 入口可达" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="60" y="560" width="270" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-runtimeapp" value="Local Runtime app.py&#xa;/v1/health 与既有 routes&#xa;状态：已实现保持边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="390" y="560" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-acd" value="A Page Reading / C Mindmap / D Agent Loop + Adapter&#xa;状态：已实现保持边界&#xa;目标：作为回归依赖，不新增 Runtime 合同，不让 B 直连 A/C/D" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="710" y="560" width="390" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-ev" value="v1_baseline_maintenance_ux_polish evidence&#xa;状态：已新增已验证&#xa;report / HTML / 18 screenshots / PRD review / false-green audit&#xa;对照 prototype review；未用目标图冒充实现截图" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="560" width="330" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e1" edge="1" parent="1" source="p2-host" target="p2-content" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e2" edge="1" parent="1" source="p2-content" target="p2-sidepanel" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e3" edge="1" parent="1" source="p2-sidepanel" target="p2-style" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e4" edge="1" parent="1" source="p2-sidepanel" target="p2-runtime" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e5" edge="1" parent="1" source="p2-sidepanel" target="p2-chat" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e6" edge="1" parent="1" source="p2-sidepanel" target="p2-map" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e7" edge="1" parent="1" source="p2-runtime" target="p2-runtimeapp" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e8" edge="1" parent="1" source="p2-runtimeapp" target="p2-acd" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-e9" edge="1" parent="1" source="p2-chat" target="p2-ev" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-03" name="03 Baseline Maintenance 维护链路">
+    <mxGraphModel dx="1640" dy="829" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p3-title" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" value="Baseline Maintenance 维护链路&#xa;目标：冻结基线可复验，新证据独立，构建与 Runtime 不退化" vertex="1">
+          <mxGeometry height="70" width="1480" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-frozen" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#edf2f7;strokeColor=#718096;fontSize=16;" value="只读历史基线&#xa;docs/active/project/evidence/v1_post_v1_hardening/&#xa;report / HTML / screenshots / human freeze&#xa;禁止重写为本阶段证据" vertex="1">
+          <mxGeometry height="160" width="380" x="90" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-build" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" value="BM-1 构建回归&#xa;npm --prefix apps/chrome-extension run build&#xa;目标：Chrome extension 构建可复现" vertex="1">
+          <mxGeometry height="140" width="390" x="1070" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-validator" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" value="BM-1 基线 validator&#xa;npm --prefix apps/chrome-extension run validate:post-v1-hardening&#xa;目标：上一阶段基线未退化" vertex="1">
+          <mxGeometry height="140" width="410" x="600" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-health" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" value="BM-1 Runtime health&#xa;services/local-runtime/navia_runtime/app.py&#xa;/v1/health =&gt; status=ok" vertex="1">
+          <mxGeometry height="140" width="350" x="90" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-report" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=16;" value="BM-5 新阶段报告&#xa;v1_baseline_maintenance_ux_polish/&#xa;report.json / acceptance-report.html / screenshots / PRD review / false-green audit" vertex="1">
+          <mxGeometry height="160" width="470" x="540" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-security" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" value="敏感信息扫描&#xa;cookie / token / 本地路径泄露检查&#xa;目标：证据包可对外审查" vertex="1">
+          <mxGeometry height="140" width="350" x="1090" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-exit" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=18;" value="出门判断&#xa;buildPassed=true&#xa;postV1ValidatorPassed=true&#xa;runtimeHealthStatus=ok&#xa;fatalIssues=0 / majorIssues=0" vertex="1">
+          <mxGeometry height="150" width="950" x="280" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e1" edge="1" parent="1" source="p3-frozen" style="endArrow=block;html=1;rounded=1;strokeWidth=2;" target="p3-validator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e2" edge="1" parent="1" source="p3-build" style="endArrow=block;html=1;rounded=1;strokeWidth=2;" target="p3-report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e3" edge="1" parent="1" source="p3-validator" style="endArrow=block;html=1;rounded=1;strokeWidth=2;" target="p3-report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e4" edge="1" parent="1" source="p3-health" style="endArrow=block;html=1;rounded=1;strokeWidth=2;" target="p3-report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e5" edge="1" parent="1" source="p3-security" style="endArrow=block;html=1;rounded=1;strokeWidth=2;" target="p3-report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-e6" edge="1" parent="1" source="p3-report" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#0f766e;" target="p3-exit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-04" name="04 V1 UX Polish 交互链路">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p4-title" value="V1 UX Polish 交互链路&#xa;基于 prototype review 设计目标，只打磨当前 V1 体验，不新增顶级页面或新能力" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-launcher" value="Launcher&#xa;entrypoints/content/index.ts&#xa;默认贴边低打扰&#xa;hover / focus 弹出&#xa;click 展开 sidebar" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="90" y="150" width="270" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-shell" value="Sidebar Shell&#xa;collapse / restore&#xa;resize / drag&#xa;push 或 overlay 行为可恢复&#xa;不造成网页永久错位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="430" y="150" width="300" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-chat" value="Chat Surface&#xa;chat_renderer&#xa;按钮层级清楚&#xa;状态卡不遮挡&#xa;输入区可用" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="800" y="150" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-map" value="Mindmap / Reading Map&#xa;mindmap_renderer&#xa;节点层级可读&#xa;无重影、无严重截断&#xa;source evidence 关系清楚" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="150" width="310" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-source" value="Source Evidence&#xa;contentBridge.ts&#xa;located 显示 marker&#xa;fallback_shown 显示原因&#xa;blocked 显示阻塞" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="180" y="420" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-debug" value="Debug / Settings&#xa;debug_renderer + sidepanel entry&#xa;诊断入口可达&#xa;设置入口可达&#xa;不被 polish 移除" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="610" y="420" width="330" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-accept" value="视觉验收&#xa;launcherVisualPassRate &gt;= 0.95&#xa;sidebarVisualPassRate &gt;= 0.95&#xa;mindmapVisualPassRate &gt;= 0.95&#xa;sourceStateConsistencyRate = 1.0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="420" width="390" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-e1" edge="1" parent="1" source="p4-launcher" target="p4-shell" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-e2" edge="1" parent="1" source="p4-shell" target="p4-chat" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-e3" edge="1" parent="1" source="p4-chat" target="p4-map" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-e4" edge="1" parent="1" source="p4-map" target="p4-source" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-e5" edge="1" parent="1" source="p4-debug" target="p4-accept" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-05" name="05 启动与诊断链路">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p5-title" value="启动与诊断链路&#xa;目标：最小体验路径可复现，Runtime 异常可理解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-start" value="本地启动入口&#xa;README / scripts / dev server note&#xa;状态：已实现已验证&#xa;证据：Runtime health 在报告中返回 ok" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="110" y="160" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-runtime" value="Local Runtime&#xa;navia_runtime/app.py&#xa;/v1/health&#xa;状态：已实现保持边界" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="500" y="160" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-client" value="runtimeClient.ts&#xa;health / offline / reconnect&#xa;状态：已实现已验证&#xa;证据：health / offline diagnostics 在 PRD review 与报告中可审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="880" y="160" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-ui" value="Sidepanel UI&#xa;Runtime 离线提示&#xa;Debug JSON&#xa;Settings 入口&#xa;报告入口&#xa;状态：已实现已验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="160" width="230" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-report" value="验收报告&#xa;build result&#xa;runtime health result&#xa;validator result&#xa;screenshots&#xa;false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dbeafe;strokeColor=#2563eb;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="250" y="430" width="360" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-human" value="人工体验入口&#xa;最小体验步骤&#xa;具体用户场景&#xa;spot-check 记录&#xa;不替代自动化报告" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="760" y="430" width="370" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-nogo" value="打回条件&#xa;Runtime 离线空白 / reconnect 不清楚 / 报告入口不可达 / 可见 Chrome 未关闭 / 审查报告缺截图证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="350" y="720" width="840" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-e1" edge="1" parent="1" source="p5-start" target="p5-runtime" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-e2" edge="1" parent="1" source="p5-runtime" target="p5-client" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-e3" edge="1" parent="1" source="p5-client" target="p5-ui" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-e4" edge="1" parent="1" source="p5-ui" target="p5-report" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-e5" edge="1" parent="1" source="p5-report" target="p5-human" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-06" name="06 开发及验收计划">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p6-title" value="开发及验收计划&#xa;每个子阶段完成后做端到端验收、PRD 规格检视和 false-green audit" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm0" value="BM-0 文档门禁&#xa;PRD / 架构 / 开发计划 / 验收计划 / stage gate / gap / drawio / readiness audit&#xa;验收：已通过，无 fatal / major" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="150" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm1" value="BM-1 基线维护&#xa;build / Runtime health / post-V1 validator / 报告 / 敏感信息扫描&#xa;验收：命令全绿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="150" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm2" value="BM-2 启动诊断&#xa;启动说明 / offline / reconnect / report 入口 / Debug 可读性&#xa;验收：已通过，Runtime health=ok，报告入口可审计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="150" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm3" value="BM-3 V1 UX polish&#xa;launcher / sidebar / controls / status / Mindmap / source evidence&#xa;验收：已通过，9 个 prototype target 映射到证据" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="80" y="390" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm4" value="BM-4 视觉交互回归&#xa;headless 优先，必要 Chrome 截图&#xa;验收：已通过，18 张截图，0 fatal / 0 major" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="390" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-bm5" value="BM-5 出门审计&#xa;HTML 报告 / PRD review / false-green audit / 人工 spot-check&#xa;验收：已通过，无 fatal / major，仅允许 scoped 声明" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="860" y="390" width="330" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-commands" value="固定命令&#xa;npm --prefix apps/chrome-extension run build&#xa;npm --prefix apps/chrome-extension run validate:post-v1-hardening&#xa;curl --noproxy &#39;*&#39; http://127.0.0.1:17861/v1/health" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="180" width="300" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-e1" edge="1" parent="1" source="p6-bm0" target="p6-bm1" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-e2" edge="1" parent="1" source="p6-bm1" target="p6-bm2" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-e3" edge="1" parent="1" source="p6-bm2" target="p6-bm3" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-e4" edge="1" parent="1" source="p6-bm3" target="p6-bm4" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-e5" edge="1" parent="1" source="p6-bm4" target="p6-bm5" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-07" name="07 项目里程碑与出门条件">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p7-title" value="项目里程碑与出门条件&#xa;完成后只允许声明 scoped baseline maintenance / UX polish regression acceptance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-m1" value="里程碑 1&#xa;BM-0 文档基线完成&#xa;drawio &lt;= 8 页&#xa;readiness audit 无 fatal / major&#xa;状态：已验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-m2" value="里程碑 2&#xa;BM-1 / BM-2 完成&#xa;build / validator / Runtime health 通过&#xa;启动和诊断路径可理解" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="470" y="150" width="330" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-m3" value="里程碑 3&#xa;BM-3 / BM-4 完成&#xa;V1 UX polish 通过截图回归&#xa;无明显遮挡、截断、虚影、焦点抢占&#xa;状态：已验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="870" y="150" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-m4" value="里程碑 4&#xa;BM-5 出门审计完成&#xa;HTML 报告可读&#xa;PRD review / false-green audit 无 fatal / major&#xa;人工 spot-check 已记录&#xa;状态：已验证" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dcfce7;strokeColor=#15803d;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="100" y="420" width="420" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-exit" value="出门条件&#xa;buildPassed=true&#xa;postV1ValidatorPassed=true&#xa;runtimeHealthStatus=ok&#xa;sourceStateConsistencyRate=1.0&#xa;fatalIssues=0 / majorIssues=0&#xa;新 evidence 独立，旧 frozen baseline 不被重写" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="620" y="390" width="620" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-claim" value="允许完成声明&#xa;V1.0.x baseline maintenance and scoped UX polish passed regression acceptance." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ecfdf5;strokeColor=#047857;fontStyle=1;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="260" y="720" width="950" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-e1" edge="1" parent="1" source="p7-m1" target="p7-m2" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-e2" edge="1" parent="1" source="p7-m2" target="p7-m3" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-e3" edge="1" parent="1" source="p7-m3" target="p7-exit" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-e4" edge="1" parent="1" source="p7-m4" target="p7-exit" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-e5" edge="1" parent="1" source="p7-exit" target="p7-claim" style="endArrow=block;html=1;rounded=1;strokeWidth=2;strokeColor=#047857;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="bmux-08" name="08 风险路线与 No-Go 边界">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p8-title" value="风险路线与 No-Go 边界&#xa;任何越界或虚假验收风险都回到文档门禁或开发阶段" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0b5f54;strokeColor=#063b34;fontColor=#ffffff;fontStyle=1;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="1480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r1" value="风险 1：证据混用&#xa;把 v1_post_v1_hardening frozen baseline 当作 BM / UX 新证据&#xa;处理：打回 BM-1 / BM-5，要求独立 evidence package" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="100" y="150" width="390" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r2" value="风险 2：UX polish 越界&#xa;新增顶级页面、产品浏览器自动操作、默认本地文件读取或最终 Monica-like UX 声明&#xa;处理：停止开发，回到 BM-0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="570" y="150" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r3" value="风险 3：截图 false-green&#xa;只截图静态页面，没有覆盖 launcher / sidebar / Mindmap / source state / Debug / Settings&#xa;处理：打回 BM-4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fee2e2;strokeColor=#dc2626;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="150" width="390" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r4" value="风险 4：Runtime 诊断缺失&#xa;Runtime 离线空白、reconnect 不清楚、health 无记录&#xa;处理：打回 BM-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="180" y="390" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r5" value="风险 5：source 状态混淆&#xa;fallback_shown 或 blocked 被写成 located&#xa;处理：打回 BM-3 / BM-4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="630" y="390" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-r6" value="风险 6：可见 Chrome 打扰用户&#xa;未提前告知、未关闭实例、浏览器发声&#xa;处理：优先 headless + mute-audio，必要时重新验收" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fef3c7;strokeColor=#b45309;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="390" width="360" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-decision" value="最终判断规则&#xa;若 build / validator / Runtime health / 截图 / PRD review / false-green audit 任一出现 fatal 或 major：拒绝声明本阶段完成，回到对应子阶段。&#xa;若全部通过：仅允许 scoped baseline maintenance and UX polish passed regression acceptance." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#0f766e;strokeWidth=2;fontStyle=1;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="240" y="680" width="1060" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e1" edge="1" parent="1" source="p8-r1" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e2" edge="1" parent="1" source="p8-r2" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e3" edge="1" parent="1" source="p8-r3" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e4" edge="1" parent="1" source="p8-r4" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e5" edge="1" parent="1" source="p8-r5" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-e6" edge="1" parent="1" source="p8-r6" target="p8-decision" style="endArrow=block;html=1;rounded=1;strokeWidth=2;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

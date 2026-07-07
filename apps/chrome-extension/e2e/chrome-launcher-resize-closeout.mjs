@@ -12,6 +12,7 @@ const extensionRoot = path.resolve(__dirname, "../chrome-mv3-unpacked");
 const evidenceRoot = path.join(repoRoot, "docs/active/project/evidence/v1_launcher_resize_closeout");
 const screenshotRoot = path.join(evidenceRoot, "screenshots");
 const browserExecutable = process.env.NAVIA_BROWSER_EXECUTABLE || detectWindowsChromeExecutable();
+const forceHeadless = process.env.NAVIA_LAUNCHER_CLOSEOUT_HEADLESS === "1";
 
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -109,9 +110,10 @@ async function launchBrowser(userDataDir) {
       "--no-first-run",
       "--no-default-browser-check",
       "--mute-audio",
+      ...(forceHeadless ? ["--headless=new", "--hide-scrollbars"] : []),
       "--disable-popup-blocking",
       "--disable-sync",
-      "--window-position=40,40",
+      ...(forceHeadless ? [] : ["--window-position=40,40"]),
       "--window-size=1280,900",
       "--disable-features=DisableLoadExtensionCommandLineSwitch",
       "--enable-unsafe-extension-debugging",
@@ -139,9 +141,10 @@ async function launchBrowser(userDataDir) {
     };
   }
 
+  const executablePath = browserExecutable && !(forceHeadless && isWindowsExecutable(browserExecutable)) ? browserExecutable : "";
   const context = await chromium.launchPersistentContext(userDataDir, {
-    ...(browserExecutable ? { executablePath: browserExecutable } : {}),
-    headless: false,
+    ...(executablePath ? { executablePath } : {}),
+    headless: forceHeadless,
     viewport: { width: 1280, height: 900 },
     ignoreDefaultArgs: ["--disable-extensions"],
     args: [

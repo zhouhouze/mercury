@@ -1630,6 +1630,15 @@ docs/active/project/contracts/
    - 可优化 launcher 获焦反馈、折叠 / 展开状态、按钮层级、窄侧栏布局、source marker 可见性、Mindmap 可读性、状态卡和输入区遮挡风险。
    - 不新增顶级页面、不新增最终 Monica-like UX 声明、不新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR、媒体流理解或默认本地文件读取。
 
+本阶段设计输入：
+
+- 已冻结基线：`docs/active/project/evidence/v1_post_v1_hardening/`。
+- 本阶段原型审查页：`docs/active/project/design/v1-baseline-maintenance-ux-polish-prototype-review/index.html`。
+- 本阶段 drawio gap：`docs/active/project/design/v1-baseline-maintenance-ux-polish-gap.drawio`。
+- 当前 active PRD、目标架构、开发计划、验收计划和 stage gate。
+
+原型审查页只用于说明目标体验、模块视觉关系和用户操作路径，不得作为“已实现”或“验收通过”证据。真正的出门证据必须由本阶段独立 evidence package、命令结果、截图、PRD review、false-green audit 和人工 spot-check 共同组成。
+
 本阶段允许声明：
 
 ```text
@@ -1675,9 +1684,21 @@ Web Research / PPT / Deep Research ready。
 - 任何新视觉效果不得遮挡网页主内容到不可恢复状态；折叠 / 展开 / resize / drag 不得造成布局永久错位。
 - 自动化优先 headless 和 `--mute-audio`；如需可见 Chrome 截图，必须提前告知并测试后关闭实例。
 - PRD review 和 false-green audit 必须明确本阶段只做 baseline maintenance 和 scoped UX polish。
+- 原型审查页中的目标图必须被实现阶段截图逐项对照；若实际实现无法达到某个目标图效果，必须在 BM-5 report 中记录偏差、原因和是否阻塞出门。
 
 后续路线登记：
 
 - `V1 Content Quality Plus`：已由 `V1-MVP-CQ` 文档登记为内容理解质量增强方向；若再次启动，必须使用独立 stage gate、36+ strict 样本、gold notes 和独立 report，不得复用 post-V1 hardening 通过结论。
 - `V2 Memory / Personal Knowledge Base`：属于 V2 本地备忘、个人知识库、标签化总结和类 RAG 蒸馏方向；必须重新评估长期 Runtime 主栈、Memory Plane、权限治理、数据保留和删除策略。
 - `V4 Web Research / PPT / Deep Research`：属于 V4 个人秘书 / 深度研究 / PPT 生成 / Manus-like Agent 能力方向；必须重新设计任务图谱、审批、联网边界、引用证据和安全门禁。
+
+本阶段文档与证据入口：
+
+```text
+docs/active/project/stage-gates/v1-baseline-maintenance-ux-polish.md
+docs/active/project/design/v1-baseline-maintenance-ux-polish-gap.md
+docs/active/project/design/v1-baseline-maintenance-ux-polish-gap.drawio
+docs/active/project/design/v1-baseline-maintenance-ux-polish-development-acceptance-plan.md
+docs/active/project/design/v1-baseline-maintenance-ux-polish-readiness-audit.md
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/
+```

@@ -1679,3 +1679,68 @@ No-Go：
 - [ ] V2 Memory / RAG ready。
 - [ ] Web Research / PPT / Deep Research ready。
 - [ ] 借本阶段引入多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR 或默认本地文件读取。
+
+### 8.18 V1.0.x Baseline Maintenance + UX Polish 验收计划
+
+本阶段验收目标是证明已冻结的 post-V1 hardening 基线可以被稳定维护，并且当前 V1 范围内的 launcher / sidebar / Chat / Mindmap / Source Evidence / Debug / Settings 体验可以在不扩大产品能力的前提下继续打磨。它不重新判定 V1 complete，不重写上一阶段 frozen evidence，也不引入 V2 / V4 能力。
+
+必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 使用同一阶段名：`V1.0.x Baseline Maintenance + UX Polish`。
+- [ ] 原型审查页 `docs/active/project/design/v1-baseline-maintenance-ux-polish-prototype-review/index.html` 已作为设计输入被引用，且明确其目标图不是当前实现截图、不是验收通过证据。
+- [ ] `docs/active/project/design/v1-baseline-maintenance-ux-polish-gap.drawio` 不超过 8 页，中文书写，并包含目标架构与当前架构差异、开发及验收计划、项目里程碑、验收门槛和出门条件。
+- [ ] drawio 架构页必须出现具体代码实体和状态：`entrypoints/content/index.ts`、`entrypoints/sidepanel/main.tsx`、`entrypoints/sidepanel/style.css`、`pageContext.ts`、`contentBridge.ts`、`runtimeClient.ts`、B `chat_renderer`、B `mindmap_renderer`、B `debug_renderer`、Local Runtime `app.py`、A Page Reading、C Mindmap、D Agent Loop / Adapter、post-V1 frozen evidence、新 BM / UX evidence。
+- [ ] drawio 使用状态色块：已实现 / 冻结保持、已实现需修改、待新增、保持边界、No-Go。
+- [ ] 文档明确 post-V1 frozen baseline 只读引用，不得被重写为本阶段通过证据。
+- [ ] 新阶段必须使用独立 evidence package：`docs/active/project/evidence/v1_baseline_maintenance_ux_polish/`。
+- [ ] `npm --prefix apps/chrome-extension run build` 必须通过。
+- [ ] `npm --prefix apps/chrome-extension run validate:post-v1-hardening` 必须通过，证明上一阶段 frozen baseline 未退化。
+- [ ] Runtime 本地启动后 `/v1/health` 必须返回 `status=ok`；Runtime 离线时 UI 不得空白，必须给出可理解的离线 / reconnect 诊断。
+- [ ] UX polish 截图必须覆盖 launcher 默认贴边、hover / focus、展开 / 折叠、resize / drag、Chat、Mindmap、Source Evidence、Debug、Settings、状态卡和输入区。
+- [ ] 窄侧栏截图不得出现明显遮挡、截断、虚影、焦点抢占或输入区不可用。
+- [ ] Source Evidence 仍必须区分 `located`、`fallback_shown`、`blocked`；fallback 或 blocked 不得冒充 located。
+- [ ] 自动化验收优先 headless 和 `--mute-audio`；如必须打开可见 Chrome，必须提前告知并在测试后关闭实例。
+- [ ] HTML 报告必须列出目标架构、当前实现状态、构建 / Runtime / validator 结果、截图证据、PRD review、false-green audit 和 No-Go 结论。
+- [ ] HTML 报告必须把原型审查页中的目标总体设计、详细模块设计、用户操作路径逐项映射到真实实现截图或明确偏差记录。
+- [ ] 人工 spot-check 只能作为出门证据之一，自动化报告不得冒充人工核查。
+
+独立 BM / UX 出门证据：
+
+```text
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/report.json
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/acceptance-report.html
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/prd-review.md
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/false-green-audit.md
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/human-spot-check.md
+docs/active/project/evidence/v1_baseline_maintenance_ux_polish/screenshots/
+```
+
+建议指标：
+
+- [ ] `buildPassed = true`。
+- [ ] `postV1ValidatorPassed = true`。
+- [ ] `runtimeHealthStatus = ok`。
+- [ ] `launcherVisualPassRate >= 0.95`。
+- [ ] `sidebarVisualPassRate >= 0.95`。
+- [ ] `mindmapVisualPassRate >= 0.95`。
+- [ ] `sourceStateConsistencyRate = 1.0`。
+- [ ] `debugSettingsReachability = true`。
+- [ ] `fatalIssues = 0`。
+- [ ] `majorIssues = 0`。
+
+允许声明：
+
+```text
+V1.0.x baseline maintenance and scoped UX polish passed regression acceptance.
+```
+
+No-Go：
+
+- [ ] 重写或降级 `v1_post_v1_hardening` frozen baseline。
+- [ ] 用 post-V1 frozen evidence 冒充本阶段新 evidence。
+- [ ] 最终 Monica-like UX complete。
+- [ ] 复杂站点全量高质量通过。
+- [ ] 视频 / 音频 / 图片像素内容已被理解。
+- [ ] V2 Memory / RAG ready。
+- [ ] Web Research / PPT / Deep Research ready。
+- [ ] 新增顶级页面、默认本地文件读取、产品浏览器自动操作、多 Agent、语音、桌宠、OCR/VLM/ASR 或媒体流理解。

@@ -1782,3 +1782,85 @@ Host Page DOM / metadata / selection
 - located / fallback_shown / blocked 必须在 UI、JSON、HTML、截图 metadata 中语义一致。
 - post-V1 evidence 必须独立，不得用 V1 complete、QH 或 CQ 旧报告直接冒充新阶段验收。
 - 本阶段不得引入 RAG、Memory、Web Research、PPT、Deep Research、OCR/VLM/ASR、媒体流理解、产品浏览器自动操作或默认本地文件读取。
+
+## 20. V1.0.x Baseline Maintenance + UX Polish 目标架构
+
+`V1.0.x Baseline Maintenance + UX Polish` 承接已经冻结的 `V1.0.x Post-V1 Hardening` 基线。它不重开 V1 complete，不重写 post-V1 evidence，不扩大到 V2 / V4。目标是在保持现有 V1 分层和能力边界的前提下，让本地启动、诊断、回归证据和当前 V1 交互体验更稳定、更易审计、更少打扰用户。
+
+设计输入与证据边界：
+
+- `docs/active/project/design/v1-baseline-maintenance-ux-polish-prototype-review/index.html` 是本阶段前端体验目标说明，包含概念图、冻结基线截图、目标总体设计、详细模块设计和用户操作路线。
+- 原型审查页中的目标图属于设计规格，不是当前实现截图，也不是出门证据。
+- `docs/active/project/evidence/v1_post_v1_hardening/` 是只读 frozen baseline；本阶段只能引用它做 no-downgrade 和 regression 判断。
+- `docs/active/project/evidence/v1_baseline_maintenance_ux_polish/` 是后续实现阶段必须新增的独立证据包，承载本阶段 report、HTML、截图、PRD review、false-green audit 和人工 spot-check。
+
+目标链路：
+
+```text
+Frozen baseline evidence
+  -> docs/active/project/evidence/v1_post_v1_hardening/
+     -> read-only reference for regression and no-downgrade checks
+  -> apps/chrome-extension/entrypoints/content/index.ts
+     -> launcher / collapse / drag / resize shell within current V1 scope
+  -> apps/chrome-extension/entrypoints/sidepanel/main.tsx
+     -> existing React side panel app, tabs, chat flow, debug and settings entry
+  -> apps/chrome-extension/entrypoints/sidepanel/style.css
+     -> visual polish for current V1 layout, buttons, status card, input and narrow width
+  -> apps/chrome-extension/src/runtimeClient.ts
+     -> Runtime health / offline / reconnect diagnostics without public contract change
+  -> apps/chrome-extension/src/contentBridge.ts
+     -> user-triggered source marker / fallback / blocked state remains consistent
+  -> apps/chrome-extension/src/modules/chat_renderer/
+     -> Chat, status, source card and degraded message presentation polish
+  -> apps/chrome-extension/src/modules/mindmap_renderer/
+     -> Evidence Card Mindmap / Reading Map readability polish
+  -> apps/chrome-extension/src/modules/debug_renderer/
+     -> Debug evidence and diagnostics remain reachable
+  -> services/local-runtime/navia_runtime/app.py
+     -> /v1/health and existing runtime routes remain compatible
+  -> services/local-runtime/navia_runtime/modules/page_reading/
+  -> services/local-runtime/navia_runtime/modules/mindmap/
+  -> services/local-runtime/navia_runtime/modules/agent_loop/ and adapters/
+     -> existing A / C / D boundaries retained
+  -> docs/active/project/evidence/v1_baseline_maintenance_ux_polish/
+     -> independent report / screenshots / PRD review / false-green audit
+```
+
+当前架构与目标差异：
+
+| 状态 | 实体 | 当前实现 | BM / UX Polish 目标 |
+|---|---|---|---|
+| 已冻结保持 | `docs/active/project/evidence/v1_post_v1_hardening/` | 上一阶段人工确认并冻结 | 只读引用；用于 no-downgrade 和 regression，不被重写为新阶段证据 |
+| 已实现需修改 | `apps/chrome-extension/entrypoints/content/index.ts` | 提供 in-page launcher / sidebar shell | 优化默认贴边、获焦反馈、展开 / 折叠、拖拽 / resize 的稳定性和低打扰体验 |
+| 已实现需修改 | `apps/chrome-extension/entrypoints/sidepanel/main.tsx` | 承载 React 主体验 | 保持 Chat / Mindmap / Debug / Settings 可达，减少状态切换摩擦 |
+| 已实现需修改 | `apps/chrome-extension/entrypoints/sidepanel/style.css` | 已有 V1 视觉样式 | 优化按钮层级、卡片层叠、窄侧栏防遮挡、防截断、防虚影 |
+| 已实现保持边界 | `apps/chrome-extension/src/runtimeClient.ts` | 连接 Local Runtime | 优化 health / offline / reconnect 诊断，不新增 Runtime public contract |
+| 已实现保持边界 | `apps/chrome-extension/src/pageContext.ts` | 读取当前页 DOM / metadata / selection | 作为 V1 current-page context 输入继续复用；本阶段不扩大到 Web Research |
+| 已实现需修改 | `apps/chrome-extension/src/contentBridge.ts` | 支持 source marker / fallback / blocked | 保持 located / fallback_shown / blocked 语义一致，改善用户可见 marker 清晰度 |
+| 已实现需修改 | B `chat_renderer` | 展示消息、source card、状态 | 优化状态卡、source evidence、错误 / degraded 文案、输入区遮挡 |
+| 已实现需修改 | B `mindmap_renderer` | 展示 Evidence Card Mindmap / Reading Map | 优化窄屏节点可读性、节点层级、证据关系和折叠阅读体验 |
+| 已实现保持边界 | B `debug_renderer` | 展示 Debug JSON / handoff | 保持诊断入口可达，辅助人工审计和问题定位 |
+| 已实现保持边界 | A Page Reading | 生成 Digest / SourceRef / QualityReport | 不新增能力；只作为回归依赖验证不退化 |
+| 已实现保持边界 | C Mindmap | 生成 tree / nodeSourceMap / Artifact metadata | 不输出前端组件结构；只作为回归依赖验证不退化 |
+| 已实现保持边界 | D Agent Loop / Adapter | ToolResult / Artifact / Event / Trace 边界 | 不新增公共合同；不允许 B 直连 A/C/D |
+| 待新增证据 | `v1_baseline_maintenance_ux_polish` evidence | 尚未建立 | 新增独立 HTML report、screenshots、PRD review、false-green audit 和人工 spot-check 记录 |
+| 设计输入 | `v1-baseline-maintenance-ux-polish-prototype-review/index.html` | 已落盘为原型审查页 | 指导目标体验和模块视觉关系；实现阶段必须用真实截图对照，但不得把目标图当作验收通过证据 |
+
+责任边界：
+
+- BM 维护只允许修复构建、启动、诊断、报告和回归稳定性；不得改变产品能力声明。
+- UX polish 只允许作用于当前 V1 launcher / sidebar / Chat / Mindmap / Source Evidence / Debug / Settings；不得新增顶级页面或新产品能力。
+- B 前端仍不得直接调用 A / C / D 服务，也不得生成网页事实内容。
+- A / C / D 不因 BM / UX polish 新增 Runtime public contract、Artifact、Event、Trace 或 ViewModel 公共字段。
+- Content Script 只执行用户触发的 source marker / fallback / blocked，不做自动浏览器任务。
+- 后续 V1 Content Quality Plus、V2 Memory、V4 Web Research / PPT / Deep Research 只能作为路线登记，不属于本阶段。
+
+架构出门条件：
+
+- drawio 架构页必须出现上述具体代码实体、当前状态、目标状态、交互方向和分层结构。
+- `docs/active/project/evidence/v1_post_v1_hardening/` 必须保持只读基线语义；新阶段证据必须落在 `v1_baseline_maintenance_ux_polish/`。
+- `npm --prefix apps/chrome-extension run build` 和 `npm --prefix apps/chrome-extension run validate:post-v1-hardening` 必须通过，证明产品构建和 frozen baseline 未退化。
+- Runtime `/v1/health` 必须在本地启动后返回 `status=ok`。
+- 截图证据必须覆盖 launcher、sidebar、Mindmap、source evidence、状态卡、输入区、Debug 和 Settings。
+- located / fallback_shown / blocked 仍不得在 UI、JSON、HTML 或截图 metadata 中混淆。
+- 不得声明最终 Monica-like UX complete、复杂站点全量高质量、媒体内容理解、V2 Memory / RAG ready、Web Research / PPT / Deep Research ready。

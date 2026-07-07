@@ -29,6 +29,9 @@
     "e2e:chrome:v1-post-v1-hardening": "npm run build:e2e && node e2e/generate-v1-post-v1-hardening-report.mjs && npm run validate:post-v1-hardening",
     "e2e:chrome:v1-post-v1-hardening:report": "node e2e/generate-v1-post-v1-hardening-report.mjs",
     "validate:post-v1-hardening": "node e2e/validate-post-v1-hardening-report.mjs",
+    "e2e:chrome:v1-baseline-maintenance-ux-polish": "npm run build:e2e && NAVIA_LAUNCHER_CLOSEOUT_HEADLESS=1 NAVIA_CHROME_MUTE_AUDIO=1 npm run e2e:chrome:launcher-resize-closeout && node e2e/generate-v1-baseline-maintenance-ux-polish-report.mjs && npm run validate:v1-baseline-maintenance-ux-polish",
+    "e2e:chrome:v1-baseline-maintenance-ux-polish:report": "node e2e/generate-v1-baseline-maintenance-ux-polish-report.mjs",
+    "validate:v1-baseline-maintenance-ux-polish": "node e2e/validate-v1-baseline-maintenance-ux-polish-report.mjs",
     "e2e:chrome:launcher-resize-closeout": "node e2e/chrome-launcher-resize-closeout.mjs",
     "e2e:chrome:v1-mainline-closeout": "npm run build:e2e && npm run e2e:chrome:launcher-resize-closeout && npm run e2e:chrome:external-visual-acceptance && node e2e/generate-v1-mainline-closeout-report.mjs",
     "e2e:chrome:visual": "node e2e/chrome-sidepanel-visual-e2e.mjs"

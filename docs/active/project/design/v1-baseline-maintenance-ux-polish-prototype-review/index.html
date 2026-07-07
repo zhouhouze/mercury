@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia BM/UX 原型设计审查页</title>
+  <style>
+    :root {
+      --bg: #f4f7f5;
+      --paper: #ffffff;
+      --ink: #10231f;
+      --muted: #5d6d67;
+      --line: #cadbd6;
+      --brand: #005f56;
+      --brand-2: #0f766e;
+      --soft: #eaf4f1;
+      --soft-2: #f8fbfa;
+      --good: #166534;
+      --good-bg: #e8f7ee;
+      --warn: #8a6100;
+      --warn-bg: #fff3cf;
+      --bad: #b91c1c;
+      --bad-bg: #fee2e2;
+      --blue: #1d4ed8;
+      --blue-bg: #e6efff;
+      --gray-bg: #eef2f1;
+      --shadow: 0 18px 50px rgb(16 35 31 / 0.12);
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 24px 18px;
+      border-right: 1px solid var(--line);
+      background: rgb(255 255 255 / 0.88);
+      backdrop-filter: blur(10px);
+      overflow: auto;
+    }
+
+    main {
+      padding: 32px;
+      max-width: 1500px;
+      width: 100%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--brand);
+      font-size: 25px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      border: 1px solid #98c7bd;
+      background: #f7fcfa;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .nav {
+      display: grid;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .nav a {
+      color: var(--ink);
+      padding: 9px 10px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      font-size: 14px;
+    }
+
+    .nav a:hover {
+      background: var(--soft);
+      border-color: var(--line);
+      text-decoration: none;
+    }
+
+    h1, h2, h3, h4 { margin: 0; line-height: 1.18; letter-spacing: 0; }
+    h1 { font-size: 34px; max-width: 1040px; }
+    h2 { font-size: 24px; margin-bottom: 16px; }
+    h3 { font-size: 18px; margin-bottom: 10px; }
+    h4 { font-size: 15px; margin-bottom: 8px; }
+    p { margin: 8px 0; }
+
+    .hero {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff 0%, #edf7f4 100%);
+      box-shadow: var(--shadow);
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 1080px;
+      font-size: 16px;
+      margin-top: 14px;
+    }
+
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgb(16 35 31 / 0.06);
+      padding: 24px;
+      margin: 22px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .pill.good { background: var(--good-bg); border-color: #98d2ab; color: var(--good); }
+    .pill.warn { background: var(--warn-bg); border-color: #e6c46b; color: var(--warn); }
+    .pill.bad { background: var(--bad-bg); border-color: #ef9a9a; color: var(--bad); }
+    .pill.blue { background: var(--blue-bg); border-color: #acc5ff; color: var(--blue); }
+    .pill.gray { background: var(--gray-bg); border-color: #c3ceca; color: #45524e; }
+
+    .note, .warning, .risk {
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin: 12px 0;
+    }
+
+    .note { border-left: 4px solid var(--brand); background: var(--soft); color: #213f39; }
+    .warning { border-left: 4px solid var(--warn); background: var(--warn-bg); color: #5c4209; }
+    .risk { border-left: 4px solid var(--bad); background: var(--bad-bg); color: #6f1717; }
+
+    .figure {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .figure img {
+      width: 100%;
+      display: block;
+      background: #fff;
+    }
+
+    .caption {
+      padding: 10px 12px;
+      color: var(--muted);
+      font-size: 13px;
+      background: #fff;
+      border-top: 1px solid var(--line);
+    }
+
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      background:
+        linear-gradient(90deg, rgb(0 95 86 / 0.06) 1px, transparent 1px),
+        linear-gradient(0deg, rgb(0 95 86 / 0.05) 1px, transparent 1px),
+        #fbfdfb;
+      background-size: 26px 26px;
+      min-height: 330px;
+      overflow: hidden;
+    }
+
+    .diagram-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .diagram-body {
+      display: grid;
+      gap: 12px;
+    }
+
+    .lane {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      padding: 12px;
+      min-height: 100px;
+      position: relative;
+      font-size: 13px;
+    }
+
+    .box strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #15342f;
+      font-size: 14px;
+    }
+
+    .box.green { background: var(--good-bg); border-color: #9bd3ad; }
+    .box.yellow { background: var(--warn-bg); border-color: #e6c46b; }
+    .box.blue { background: var(--blue-bg); border-color: #adc5ff; }
+    .box.red { background: var(--bad-bg); border-color: #ef9a9a; }
+    .box.gray { background: var(--gray-bg); border-color: #c3ceca; }
+
+    .arrow {
+      text-align: center;
+      color: var(--muted);
+      font-weight: 800;
+      margin: 2px 0;
+    }
+
+    .browser {
+      border: 1px solid #c6d8d3;
+      border-radius: 13px;
+      overflow: hidden;
+      background: #fff;
+      min-height: 420px;
+      position: relative;
+      box-shadow: 0 12px 34px rgb(16 35 31 / 0.08);
+    }
+
+    .browser-bar {
+      height: 38px;
+      background: #eef5f2;
+      border-bottom: 1px solid #c6d8d3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #9eb8b2;
+    }
+
+    .viewport {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .host {
+      position: absolute;
+      inset: 0 392px 0 0;
+      padding: 30px 34px;
+    }
+
+    .host.wide { inset: 0 86px 0 0; }
+    .host h4 { font-size: 30px; margin-bottom: 18px; }
+
+    .article-line {
+      height: 12px;
+      border-radius: 999px;
+      background: #dbe5e1;
+      margin: 13px 0;
+    }
+
+    .article-line.long { width: 94%; }
+    .article-line.mid { width: 78%; }
+    .article-line.short { width: 58%; }
+
+    .source-marker {
+      border: 2px solid var(--brand);
+      background: #ebf8f5;
+      border-radius: 12px;
+      padding: 12px;
+      max-width: 560px;
+      box-shadow: 0 12px 32px rgb(0 95 86 / 0.12);
+      margin-top: 24px;
+    }
+
+    .launcher {
+      position: absolute;
+      right: 410px;
+      bottom: 34px;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #ffffff 0%, #edf5f2 100%);
+      border: 1px solid #9bc7bf;
+      box-shadow: 0 16px 36px rgb(0 95 86 / 0.22);
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-size: 27px;
+      font-weight: 900;
+    }
+
+    .launcher.edge {
+      right: -12px;
+      width: 48px;
+      border-radius: 16px 0 0 16px;
+    }
+
+    .launcher::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #2e7d57;
+      border: 4px solid #fff;
+    }
+
+    .sidebar {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 392px;
+      height: 100%;
+      background: #fbfdfb;
+      border-left: 1px solid #aacbc4;
+      box-shadow: -12px 0 34px rgb(0 95 86 / 0.12);
+      display: grid;
+      grid-template-columns: 1fr 52px;
+    }
+
+    .panel-main { padding: 16px; overflow: hidden; }
+    .rail {
+      border-left: 1px solid #cfe1dc;
+      background: #f2f8f6;
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 14px 8px;
+    }
+
+    .rail-item {
+      min-height: 42px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: #52645f;
+      font-weight: 800;
+      font-size: 12px;
+      border: 1px solid transparent;
+    }
+
+    .rail-item.active { background: var(--brand); color: #fff; }
+
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .panel-brand { color: var(--brand); font-weight: 900; font-size: 24px; }
+    .status {
+      border: 1px solid #a7d4b7;
+      background: #eaf8ee;
+      color: var(--good);
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .ui-card {
+      border: 1px solid #cadbd6;
+      background: #fff;
+      border-radius: 10px;
+      padding: 11px;
+      margin-bottom: 9px;
+      font-size: 13px;
+    }
+
+    .ui-card strong { display: block; margin-bottom: 4px; color: #14342f; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+      margin: 10px 0;
+    }
+
+    .btn {
+      min-height: 38px;
+      border: 1px solid #b8d0cb;
+      border-radius: 8px;
+      background: #fff;
+      color: #193a34;
+      font-weight: 850;
+      font-size: 12px;
+      display: grid;
+      place-items: center;
+    }
+
+    .btn.primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+    }
+
+    .mindmap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+      margin-top: 8px;
+    }
+
+    .node {
+      min-height: 58px;
+      border-radius: 10px;
+      border: 1px solid #9cc8c0;
+      background: #f7fcfa;
+      padding: 9px;
+      color: #173b35;
+      font-weight: 780;
+      font-size: 12px;
+    }
+
+    .node.selected {
+      border: 2px solid var(--brand);
+      background: #ebf8f5;
+    }
+
+    .states {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .state-card {
+      border-radius: 9px;
+      padding: 9px;
+      min-height: 78px;
+      font-size: 12px;
+      border: 1px solid var(--line);
+    }
+
+    .state-card.located { border-color: #87c99b; background: var(--good-bg); color: var(--good); }
+    .state-card.fallback { border-color: #e5c46a; background: var(--warn-bg); color: var(--warn); }
+    .state-card.blocked { border-color: #f2a0a0; background: var(--bad-bg); color: var(--bad); }
+
+    .module-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      min-height: 185px;
+    }
+
+    .mini-state {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 8px;
+      align-items: center;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+
+    .mini-state .box { min-height: 76px; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      background: #fff;
+      min-height: 170px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 850;
+      margin-bottom: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: #eff7f4; color: #183a34; }
+
+    code {
+      background: #eef4f2;
+      border: 1px solid #d4e2de;
+      padding: 1px 5px;
+      border-radius: 5px;
+      color: #123b35;
+    }
+
+    .small { color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 1180px) {
+      .layout { grid-template-columns: 1fr; }
+      aside {
+        position: relative;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      main { padding: 18px; }
+      .grid-2, .grid-3, .grid-4, .flow, .lane { grid-template-columns: 1fr; }
+      .host { inset: 0 250px 0 0; }
+      .host.wide { inset: 0 64px 0 0; }
+      .sidebar { width: 250px; }
+      .launcher { right: 270px; }
+      .mini-state { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <div class="brand"><span class="brand-mark">N</span>Navia</div>
+      <div class="subtitle">V1.0.x BM/UX 原型设计审查页<br />原型阶段，不代表产品代码已实现</div>
+      <div class="pill-row">
+        <span class="pill good">PRD 对齐</span>
+        <span class="pill blue">架构驱动</span>
+        <span class="pill warn">设计目标图</span>
+      </div>
+      <nav class="nav">
+        <a href="#purpose">01 审查目的</a>
+        <a href="#architecture">02 架构概念图组</a>
+        <a href="#baseline">03 当前基线截图组</a>
+        <a href="#overall">04 目标总体设计</a>
+        <a href="#modules">05 详细模块设计</a>
+        <a href="#journeys">06 用户路线图组</a>
+        <a href="#audit">07 图样自审</a>
+        <a href="#handoff">08 实现验收映射</a>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="hero" id="purpose">
+        <h1>Navia V1.0.x Baseline Maintenance + UX Polish 原型设计审查页</h1>
+        <p>
+          本页面用于给人类判断当前 Agent 是否完整理解前端页面优化诉求，并为后续自动化开发阶段提供实现方向和端到端验收参照。
+          它基于 active PRD、目标架构、BM/UX drawio 和 post-V1 frozen evidence 生成，不进入产品代码实现。
+        </p>
+        <div class="pill-row">
+          <span class="pill good">范围：launcher / sidebar / Chat / Mindmap / Source Evidence / Debug / Settings</span>
+          <span class="pill gray">Frozen baseline：v1_post_v1_hardening 只读引用</span>
+          <span class="pill bad">No-Go：最终 Monica-like UX complete</span>
+          <span class="pill bad">No-Go：RAG / Memory / Web Research / PPT / Deep Research</span>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>设计输入与图样生成说明</h2>
+        <div class="grid-2">
+          <div class="note">
+            <strong>输入基线</strong>
+            <p>本页以 active PRD 第 16 节、目标架构第 20 节、BM/UX stage gate、BM/UX drawio 八页结构和 post-V1 frozen evidence 为准。</p>
+          </div>
+          <div class="warning">
+            <strong>图像生成状态</strong>
+            <p>本机未发现 <code>imag2</code> / <code>image2</code> / <code>gpt-image-2</code> 终端命令。因此本页目标图样使用可复现 HTML/CSS 图形生成，不伪称 AI 文生图；真实截图只引用已有 evidence。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="architecture">
+        <h2>02 目标架构概念图组</h2>
+        <div class="grid-3">
+          <div class="diagram">
+            <div class="diagram-title">
+              <h3>架构图 A：当前页伴随阅读链路</h3>
+              <span class="pill blue">PRD + 架构 + drawio</span>
+            </div>
+            <div class="diagram-body">
+              <div class="lane">
+                <div class="box green"><strong>Host Page DOM</strong>正文、标题、selection、metadata</div>
+                <div class="box yellow"><strong>content/index.ts</strong>launcher / sidebar shell / collapse / resize / drag</div>
+                <div class="box yellow"><strong>sidepanel/main.tsx</strong>React Side Panel app / tabs / workspaces</div>
+                <div class="box green"><strong>runtimeClient.ts</strong>health / offline / reconnect</div>
+                <div class="box green"><strong>Runtime app.py</strong>/v1/health / existing routes</div>
+              </div>
+              <div class="arrow">-> A Page Reading -> C Mindmap -> D Adapter / Agent Loop -> B Renderer -> evidence</div>
+              <div class="note">设计判断：Navia 是 Chrome 当前页伴随阅读插件，不是独立网页应用或营销页。</div>
+            </div>
+          </div>
+
+          <div class="diagram">
+            <div class="diagram-title">
+              <h3>架构图 B：证据边界</h3>
+              <span class="pill gray">No false-green</span>
+            </div>
+            <div class="diagram-body">
+              <div class="lane" style="grid-template-columns: 1fr 1fr 1fr;">
+                <div class="box gray"><strong>v1_post_v1_hardening</strong>上一阶段 frozen baseline，只读引用，不重写</div>
+                <div class="box blue"><strong>v1_baseline_maintenance_ux_polish</strong>新阶段 report / HTML / screenshots / PRD review / false-green audit</div>
+                <div class="box red"><strong>No-Go</strong>不能把旧证据冒充新证据，不能声明最终 Monica-like UX</div>
+              </div>
+              <div class="note">设计判断：本页的真实截图用于 baseline 说明；目标图用于指导开发，不作为验收通过证据。</div>
+            </div>
+          </div>
+
+          <div class="diagram">
+            <div class="diagram-title">
+              <h3>架构图 C：B Renderer 边界</h3>
+              <span class="pill good">保持合同</span>
+            </div>
+            <div class="diagram-body">
+              <div class="lane" style="grid-template-columns: repeat(4, 1fr);">
+                <div class="box yellow"><strong>chat_renderer</strong>消息、source card、状态卡、degraded 文案</div>
+                <div class="box yellow"><strong>mindmap_renderer</strong>Evidence Card Mindmap、Reading Map、节点可读性</div>
+                <div class="box green"><strong>debug_renderer</strong>Debug JSON、diagnostics 入口</div>
+                <div class="box red"><strong>禁止</strong>B 不直连 A/C/D，不生成网页事实内容</div>
+              </div>
+              <div class="note">设计判断：UX polish 只改变现有体验表达，不改变 Runtime public API、Artifact/Event/Trace/ViewModel 公共合同。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="baseline">
+        <h2>03 当前实际实现的基线版本页面截图组</h2>
+        <p class="small">以下均为 post-V1 frozen evidence 中的真实截图。它们用于识别当前 UI 基线和问题，不作为 BM/UX 新阶段验收输出。</p>
+        <div class="grid-4">
+          <figure class="figure">
+            <img src="../../evidence/v1_post_v1_hardening/screenshots/domestic-content-bilibili-home-after.png" alt="B站首页 Navia source marker 基线截图" />
+            <figcaption class="caption">B站首页：复杂站点内容密度高，source marker 可见，但页面弹窗和卡片密集影响阅读。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_post_v1_hardening/screenshots/international-doc-mdn-fetch-after.png" alt="MDN Fetch API Navia source marker 基线截图" />
+            <figcaption class="caption">MDN 文档页：正文证据定位清楚，是 source marker 可读性的良好基线。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_post_v1_hardening/screenshots/domestic-article-sspai-after.png" alt="少数派文章页 Navia source marker 基线截图" />
+            <figcaption class="caption">少数派文章页：用于检视中文图文详情页的正文、段落和 source evidence 表达。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_post_v1_hardening/screenshots/domestic-portal-guancha-home-after.png" alt="观察者网首页 Navia source marker 基线截图" />
+            <figcaption class="caption">观察者网首页：用于检视门户页主卡片、推荐流和低价值文本干扰。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="overall">
+        <h2>04 目标总体设计图组</h2>
+        <p class="small">以下为设计目标图，不是当前实现截图。它们用于指导后续自动化开发，不得作为完成证据。</p>
+        <div class="grid-3">
+          <div>
+            <h3>总体图 A：默认贴边低打扰</h3>
+            <div class="browser">
+              <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>目标状态：默认不打开大面板</span></div>
+              <div class="viewport">
+                <div class="host wide">
+                  <h4>网页正文保持完整阅读</h4>
+                  <div class="article-line long"></div>
+                  <div class="article-line mid"></div>
+                  <div class="article-line long"></div>
+                  <div class="source-marker"><strong>无主动遮挡</strong><br /><span class="small">Navia 默认只提供贴边入口，不抢占正文。</span></div>
+                </div>
+                <div class="launcher edge">N</div>
+              </div>
+            </div>
+            <div class="caption">规格映射：PRD 要求默认低打扰贴边，用户获焦后再弹出完整入口。</div>
+          </div>
+          <div>
+            <h3>总体图 B：获焦 / hover 显露</h3>
+            <div class="browser">
+              <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>目标状态：hover / focus</span></div>
+              <div class="viewport">
+                <div class="host wide">
+                  <h4>用户准备唤起 Navia</h4>
+                  <div class="article-line long"></div>
+                  <div class="article-line mid"></div>
+                  <div class="article-line short"></div>
+                </div>
+                <div class="launcher">N</div>
+              </div>
+            </div>
+            <div class="caption">规格映射：launcher 使用 Navia 品牌形态和 runtime dot，不使用泛黑色悬浮条。</div>
+          </div>
+          <div>
+            <h3>总体图 C：展开右侧阅读工作台</h3>
+            <div class="browser">
+              <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>目标状态：sidebar open</span></div>
+              <div class="viewport">
+                <div class="host">
+                  <h4>网页正文</h4>
+                  <div class="article-line long"></div>
+                  <div class="article-line mid"></div>
+                  <div class="source-marker"><strong>Navia source marker</strong><br /><span class="small">用户触发后显示。</span></div>
+                </div>
+                <div class="sidebar">
+                  <div class="panel-main">
+                    <div class="panel-top"><span class="panel-brand">Navia</span><span class="status">Runtime 正常</span></div>
+                    <div class="ui-card"><strong>当前上下文</strong>已解析主内容、证据和阅读结构</div>
+                    <div class="actions"><div class="btn primary">读取</div><div class="btn">总结</div><div class="btn">问答</div></div>
+                    <div class="mindmap"><div class="node selected">核心论点</div><div class="node">证据段落</div><div class="node">背景信息</div><div class="node">结论</div></div>
+                    <div class="states"><div class="state-card located"><strong>located</strong><br />可高亮</div><div class="state-card fallback"><strong>fallback</strong><br />文本证据</div><div class="state-card blocked"><strong>blocked</strong><br />说明原因</div></div>
+                  </div>
+                  <div class="rail"><div class="rail-item active">Chat</div><div class="rail-item">Map</div><div class="rail-item">Src</div><div class="rail-item">Deb</div><div class="rail-item">Set</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="caption">规格映射：右侧 rail、Chat、Mindmap、Source Evidence、Debug、Settings 仍可达。</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="modules">
+        <h2>05 详细模块设计图组</h2>
+        <div class="grid-3">
+          <div class="module-card">
+            <h3>模块 A：Launcher 状态机</h3>
+            <div class="mini-state">
+              <div class="box gray"><strong>Docked</strong>贴边低打扰</div><div class="arrow">-></div>
+              <div class="box yellow"><strong>Focused</strong>hover / keyboard focus 显露</div><div class="arrow">-></div>
+              <div class="box green"><strong>Expanded</strong>点击展开 sidebar</div>
+            </div>
+            <p class="small">验收点：默认不遮挡正文，focus 可见，click 可恢复，drag 位置不造成永久错位。</p>
+          </div>
+          <div class="module-card">
+            <h3>模块 B：Sidebar Shell</h3>
+            <div class="mini-state">
+              <div class="box yellow"><strong>Open</strong>右侧工作台</div><div class="arrow">-></div>
+              <div class="box yellow"><strong>Resize</strong>左边界可调</div><div class="arrow">-></div>
+              <div class="box green"><strong>Collapse</strong>恢复网页宽度</div>
+            </div>
+            <p class="small">验收点：push/overlay 行为可解释；收起后主网页可继续阅读。</p>
+          </div>
+          <div class="module-card">
+            <h3>模块 C：Chat Workspace</h3>
+            <div class="ui-card"><strong>Page Context Card</strong>页面标题、域名、已解析状态</div>
+            <div class="actions"><div class="btn primary">读取</div><div class="btn">总结</div><div class="btn">问答</div></div>
+            <p class="small">验收点：按钮稳定、状态卡不截断、输入区不被遮挡。</p>
+          </div>
+          <div class="module-card">
+            <h3>模块 D：Mindmap / Reading Map</h3>
+            <div class="mindmap"><div class="node selected">主题节点</div><div class="node">论据节点</div><div class="node">事实节点</div><div class="node">结论节点</div></div>
+            <p class="small">验收点：节点短、准、可追溯；窄侧栏无明显重影、重叠、截断。</p>
+          </div>
+          <div class="module-card">
+            <h3>模块 E：Source Evidence</h3>
+            <div class="states"><div class="state-card located"><strong>located</strong><br />marker</div><div class="state-card fallback"><strong>fallback</strong><br />quote</div><div class="state-card blocked"><strong>blocked</strong><br />reason</div></div>
+            <p class="small">验收点：fallback 或 blocked 不得冒充 located。</p>
+          </div>
+          <div class="module-card">
+            <h3>模块 F：Runtime / Debug / Settings</h3>
+            <div class="ui-card"><strong>Runtime Health</strong>online / offline / reconnect</div>
+            <div class="ui-card"><strong>Debug JSON</strong>secondary diagnostic</div>
+            <p class="small">验收点：Runtime 离线不空白，Debug/Settings 可达但不抢占主流程。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="journeys">
+        <h2>06 用户操作 / 体验路线图组</h2>
+        <p class="small">以下路径严格来自 PRD 和 BM/UX 目标，不增加也不减少承诺范围。</p>
+        <div class="flow">
+          <div class="step"><strong>路径 1：启动与诊断</strong><p>用户启动 Local Runtime；若在线，显示 Runtime 正常；若离线，显示 offline / reconnect 说明，不出现空白面板。</p></div>
+          <div class="step"><strong>路径 2：默认贴边</strong><p>用户打开普通网页，Navia 只显示贴边 launcher，不默认展开 sidebar，不强行遮挡正文。</p></div>
+          <div class="step"><strong>路径 3：唤起面板</strong><p>用户 hover/focus launcher 后看到完整入口；点击后展开右侧 sidebar，右侧 rail 可进入 Chat/Map/Src/Deb/Set。</p></div>
+          <div class="step"><strong>路径 4：读取当前页</strong><p>用户点击读取，页面上下文卡显示已解析状态；随后可总结、问答、生成 Mindmap。</p></div>
+          <div class="step"><strong>路径 5：Mindmap 阅读</strong><p>用户查看 Evidence Card Mindmap / Reading Map，选择节点后看到节点详情与证据关系。</p></div>
+          <div class="step"><strong>路径 6：Source Jumpback</strong><p>用户触发 source evidence：可定位时显示 marker；不可定位时显示 fallback；不可用时显示 blocked reason。</p></div>
+          <div class="step"><strong>路径 7：布局恢复</strong><p>用户 collapse / resize / drag 后，网页阅读区域可恢复，不发生永久错位或输入区不可用。</p></div>
+          <div class="step"><strong>路径 8：Debug / Settings</strong><p>用户需要诊断时进入 Debug/Settings，查看 Runtime endpoint、Debug JSON 和诊断信息；该路径保持 secondary。</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="audit">
+        <h2>07 图样自审：概念一致性与事实错误检查</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>组图</th>
+              <th>来源</th>
+              <th>对应依据</th>
+              <th>事实性 / 越界检查</th>
+              <th>结论</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>架构概念图 A/B/C</td>
+              <td>HTML/CSS 可复现图形</td>
+              <td>PRD 第 16 节、架构第 20 节、BM/UX drawio 02 页</td>
+              <td>不声明代码已实现；不新增 Runtime public contract；不让 B 直连 A/C/D</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+            <tr>
+              <td>当前基线截图组</td>
+              <td>真实 post-V1 frozen evidence 截图</td>
+              <td>v1_post_v1_hardening screenshots</td>
+              <td>只读引用，不冒充 BM/UX 新证据</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+            <tr>
+              <td>目标总体设计图组</td>
+              <td>HTML/CSS 设计目标图</td>
+              <td>PRD launcher / sidebar / source evidence / Debug / Settings 路径</td>
+              <td>均标注为设计目标；未写成当前实现截图</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+            <tr>
+              <td>详细模块设计图组</td>
+              <td>HTML/CSS 设计目标图</td>
+              <td>stage gate 必须出现的具体代码实体和组件边界</td>
+              <td>未引入 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、OCR/VLM/ASR</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+            <tr>
+              <td>用户操作路线图组</td>
+              <td>HTML/CSS 流程图</td>
+              <td>BM-1 到 BM-5 验收路径</td>
+              <td>路径只覆盖 PRD 承诺范围，没有超出或缺少核心体验</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note">
+          <strong>AI 文生图判断</strong>
+          <p>本轮未生成 AI 文生图，因为本机没有可用 <code>imag2</code> 命令。所有目标图均为可复现 HTML/CSS 原型，因此不存在 AI 文生图事实性错误；页面仍按“文生图审查”标准逐图检查概念一致性和越界风险。</p>
+        </div>
+      </section>
+
+      <section class="section" id="handoff">
+        <h2>08 对自动化实现与端到端验收的映射</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>子阶段</th>
+              <th>原型设计交付要求</th>
+              <th>端到端验收证据</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BM-1 基线维护</td>
+              <td>冻结基线只读引用，新证据独立</td>
+              <td>build、post-V1 validator、Runtime health、敏感信息扫描</td>
+            </tr>
+            <tr>
+              <td>BM-2 启动诊断</td>
+              <td>Runtime offline / reconnect / Debug / report 入口清楚</td>
+              <td>Runtime online/offline 截图和 HTML 报告说明</td>
+            </tr>
+            <tr>
+              <td>BM-3 UX Polish</td>
+              <td>launcher、sidebar、Chat、Mindmap、source evidence 目标设计落地</td>
+              <td>真实 Chrome 或 headless 截图证明关键路径可操作</td>
+            </tr>
+            <tr>
+              <td>BM-4 视觉回归</td>
+              <td>无明显遮挡、截断、虚影、焦点抢占、source 状态混淆</td>
+              <td>截图证据、screenshot metadata、false-green audit</td>
+            </tr>
+            <tr>
+              <td>BM-5 出门审计</td>
+              <td>HTML 报告可作为人类审计入口</td>
+              <td>PRD review、false-green audit、human spot-check，无 fatal / major</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="risk">
+          <strong>出门边界</strong>
+          <p>本页只能支持“V1.0.x baseline maintenance and scoped UX polish”方向的实现与验收，不能支持最终 Monica-like UX complete、复杂站点全量高质量、V2 Memory/RAG 或 Web Research/PPT/Deep Research 声明。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

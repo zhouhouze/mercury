@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "v1-baseline-maintenance-ux-polish.report.1",
+  "generatedAt": "2026-07-07T14:20:56.046Z",
+  "stage": "V1.0.x Baseline Maintenance + UX Polish",
+  "claim": "V1.0.x baseline maintenance and scoped UX polish passed regression acceptance.",
+  "passed": true,
+  "frozenBaselineReference": "docs/active/project/evidence/v1_post_v1_hardening",
+  "prototypeReviewPath": "docs/active/project/design/v1-baseline-maintenance-ux-polish-prototype-review/index.html",
+  "summary": {
+    "buildPassed": true,
+    "postV1ValidatorPassed": true,
+    "runtimeHealthStatus": "ok",
+    "sensitiveInfoScanPassed": true,
+    "screenshotSamples": 18,
+    "prototypeTargets": 9,
+    "prototypeTargetsCovered": 9,
+    "fatalIssues": 0,
+    "majorIssues": 0
+  },
+  "prototypeMappings": [
+    {
+      "target": "default launcher",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-01-docked-default.png",
+      "notes": "Collapsed docked launcher state."
+    },
+    {
+      "target": "hover / focus",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-02-launcher-hover-peek.png",
+      "notes": "Launcher hover/focus visual feedback."
+    },
+    {
+      "target": "expanded sidebar",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "In-page sidebar expanded by launcher click."
+    },
+    {
+      "target": "Chat",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "Sidepanel shell keeps Chat reachable."
+    },
+    {
+      "target": "Mindmap",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "Mindmap / Reading Map visual regression sample."
+    },
+    {
+      "target": "Source Evidence",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "Source evidence state remains visually inspectable."
+    },
+    {
+      "target": "Debug",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "Debug entry remains part of sidepanel shell."
+    },
+    {
+      "target": "Settings",
+      "status": "covered",
+      "screenshotPath": "screenshots/launcher-03-expanded-after-click.png",
+      "notes": "Settings entry remains part of sidepanel shell."
+    },
+    {
+      "target": "offline diagnostics",
+      "status": "documented",
+      "screenshotPath": null,
+      "notes": "Runtime offline diagnostics must remain visible in UI; verified by report and PRD review, not claimed as visual sample if no offline screenshot is present."
+    }
+  ],
+  "screenshots": [
+    {
+      "label": "docked-default",
+      "path": "screenshots/launcher-01-docked-default.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "launcher-hover-peek",
+      "path": "screenshots/launcher-02-launcher-hover-peek.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "expanded-after-click",
+      "path": "screenshots/launcher-03-expanded-after-click.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "resized-overlay",
+      "path": "screenshots/launcher-04-resized-overlay.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "collapsed-after-use",
+      "path": "screenshots/launcher-05-collapsed-after-use.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "launcher-drag-left",
+      "path": "screenshots/launcher-06-launcher-drag-left.png",
+      "source": "launcher-resize-closeout"
+    },
+    {
+      "label": "B站 afterScreenshot",
+      "path": "screenshots/external-bilibili-homepage-bilibili-homepage-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "B站 beforeScreenshot",
+      "path": "screenshots/external-bilibili-homepage-bilibili-homepage-before.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "B站 afterScreenshot",
+      "path": "screenshots/external-bilibili-detail-bilibili-detail-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "B站 beforeScreenshot",
+      "path": "screenshots/external-bilibili-detail-bilibili-detail-before.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "小红书 afterScreenshot",
+      "path": "screenshots/external-xiaohongshu-homepage-xiaohongshu-homepage-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "小红书 beforeScreenshot",
+      "path": "screenshots/external-xiaohongshu-homepage-xiaohongshu-homepage-before.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "小红书 afterScreenshot",
+      "path": "screenshots/external-xiaohongshu-detail-xiaohongshu-detail-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "小红书 beforeScreenshot",
+      "path": "screenshots/external-xiaohongshu-detail-xiaohongshu-detail-before.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "观察者网 afterScreenshot",
+      "path": "screenshots/external-guancha-homepage-guancha-homepage-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "观察者网 beforeScreenshot",
+      "path": "screenshots/external-guancha-homepage-guancha-homepage-before.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "观察者网 afterScreenshot",
+      "path": "screenshots/external-guancha-detail-guancha-detail-after.png",
+      "source": "external-visual-acceptance"
+    },
+    {
+      "label": "观察者网 beforeScreenshot",
+      "path": "screenshots/external-guancha-detail-guancha-detail-before.png",
+      "source": "external-visual-acceptance"
+    }
+  ],
+  "testCommands": [
+    {
+      "command": "npm --prefix apps/chrome-extension run build",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "3HP47-IZicreAm.js              4.24 kB  \n  ├─ chrome-mv3-unpacked/chunks/diagram-OG6HWLK6-RnzZQQmd.js              15.52 kB \n  ├─ chrome-mv3-unpacked/chunks/dist-CFOOgrqc.js                          2.16 kB  \n  ├─ chrome-mv3-unpacked/chunks/erDiagram-TEJ5UH35-nWH7VmRd.js            26.81 kB \n  ├─ chrome-mv3-unpacked/chunks/eventmodeling-FCH6USID-B4WoQcBK.js        132 B    \n  ├─ chrome-mv3-unpacked/chunks/flowDiagram-I6XJVG4X-Cw67l2iw.js          60.18 kB \n  ├─ chrome-mv3-unpacked/chunks/ganttDiagram-6RSMTGT7-BsfSm9Ae.js         69.22 kB \n  ├─ chrome-mv3-unpacked/chunks/gitGraph-WXDBUCRP-CtH8JN17.js             127 B    \n  ├─ chrome-mv3-unpacked/chunks/gitGraphDiagram-PVQCEYII-C-YNN6jS.js      28.98 kB \n  ├─ chrome-mv3-unpacked/chunks/graphlib-B8gBHxth.js                      23.91 kB \n  ├─ chrome-mv3-unpacked/chunks/info-J43DQDTF-B9Lr2k5M.js                 123 B    \n  ├─ chrome-mv3-unpacked/chunks/infoDiagram-5YYISTIA-6qH01KPP.js          614 B    \n  ├─ chrome-mv3-unpacked/chunks/init-D6jRqBbL.js                          146 B    \n  ├─ chrome-mv3-unpacked/chunks/ishikawaDiagram-YF4QCWOH-D9DAkL5I.js      17.3 kB  \n  ├─ chrome-mv3-unpacked/chunks/journeyDiagram-JHISSGLW-CNWORS8c.js       23.16 kB \n  ├─ chrome-mv3-unpacked/chunks/kanban-definition-UN3LZRKU-ykPtnAIE.js    20.18 kB \n  ├─ chrome-mv3-unpacked/chunks/katex-Vhh-h91d.js                         258.88 kB\n  ├─ chrome-mv3-unpacked/chunks/line-DREvJIl7.js                          943 B    \n  ├─ chrome-mv3-unpacked/chunks/linear-CfMuM0B3.js                        5.53 kB  \n  ├─ chrome-mv3-unpacked/chunks/mermaid-parser.core-DrjgO0jJ.js           10.64 kB \n  ├─ chrome-mv3-unpacked/chunks/mermaid-renderer-DW21w3s3.js              1.42 kB  \n  ├─ chrome-mv3-unpacked/chunks/mermaid.core-DfoGpm87.js                  77.12 kB \n  ├─ chrome-mv3-unpacked/chunks/mindmap-definition-RKZ34NQL-BPDlCdG3.js   23.4 kB  \n  ├─ chrome-mv3-unpacked/chunks/ordinal-hYBb2elL.js                       1.17 kB  \n  ├─ chrome-mv3-unpacked/chunks/packet-YPE3B663-C51P0j4O.js               125 B    \n  ├─ chrome-mv3-unpacked/chunks/path-BWPyau1x.js                          2.31 kB  \n  ├─ chrome-mv3-unpacked/chunks/pie-LRSECV5Y-C-4DfVMz.js                  122 B    \n  ├─ chrome-mv3-unpacked/chunks/pieDiagram-4H26LBE5-wZPh-7sD.js           5.23 kB  \n  ├─ chrome-mv3-unpacked/chunks/quadrantDiagram-W4KKPZXB-BU37tHuM.js      33.52 kB \n  ├─ chrome-mv3-unpacked/chunks/radar-GUYGQ44K-B1knMcli.js                124 B    \n  ├─ chrome-mv3-unpacked/chunks/requirementDiagram-4Y6WPE33-fC-bjpBy.js   30.96 kB \n  ├─ chrome-mv3-unpacked/chunks/rough.esm-CSKSodPl.js                     27.1 kB  \n  ├─ chrome-mv3-unpacked/chunks/sankeyDiagram-5OEKKPKP-wlX4O6fX.js        22.78 kB \n  ├─ chrome-mv3-unpacked/chunks/sequenceDiagram-3UESZ5HK-CllXvVNH.js      115.73 kB\n  ├─ chrome-mv3-unpacked/chunks/sidepanel-DkD5J2GE.js                     280.42 kB\n  ├─ chrome-mv3-unpacked/chunks/src-CAMdANUp.js                           46.36 kB \n  ├─ chrome-mv3-unpacked/chunks/stateDiagram-AJRCARHV-DRrqR1-Z.js         10.52 kB \n  ├─ chrome-mv3-unpacked/chunks/stateDiagram-v2-BHNVJYJU-Bo76A-mM.js      670 B    \n  ├─ chrome-mv3-unpacked/chunks/timeline-definition-PNZ67QCA-BrJt7uOO.js  30.39 kB \n  ├─ chrome-mv3-unpacked/chunks/treemap-LRROVOQU-Br948WrS.js              126 B    \n  ├─ chrome-mv3-unpacked/chunks/treeView-BLDUP644-CQ2gKrH_.js             127 B    \n  ├─ chrome-mv3-unpacked/chunks/vennDiagram-CIIHVFJN-BsYrvVXk.js          40.63 kB \n  ├─ chrome-mv3-unpacked/chunks/wardley-L42UT6IY-uOXKjWoF.js              126 B    \n  ├─ chrome-mv3-unpacked/chunks/wardleyDiagram-YWT4CUSO-DyG6jxgZ.js       25.19 kB \n  ├─ chrome-mv3-unpacked/chunks/xychartDiagram-2RQKCTM6-BGzK1MWt.js       40.05 kB \n  ├─ chrome-mv3-unpacked/content-scripts/content.js                       44.07 kB \n  └─ chrome-mv3-unpacked/assets/sidepanel-CS_AqVeD.css                    44.07 kB \nΣ Total size: 3.49 MB                                                   \n✔ Finished in 3.616 s\n",
+      "stderr": "- Preparing...\n[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\n\u001b[1G"
+    },
+    {
+      "command": "npm --prefix apps/chrome-extension run validate:post-v1-hardening",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "\n> @navia/chrome-extension@0.1.0 validate:post-v1-hardening\n> node e2e/validate-post-v1-hardening-report.mjs\n\n{\n  \"passed\": true,\n  \"samples\": 36,\n  \"candidateMatrixSize\": 101,\n  \"freshFallbackSamples\": 3\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": "curl --noproxy '*' -sS http://127.0.0.1:17861/v1/health",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "BM/UX evidence sensitive information scan",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "{\"sensitiveFiles\":0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "git diff --check",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python3 -m xml.etree.ElementTree docs/active/project/design/v1-baseline-maintenance-ux-polish-gap.drawio",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "drawio page count <= 8",
+      "passed": true,
+      "exitCode": 0,
+      "stdout": "8\n",
+      "stderr": ""
+    }
+  ],
+  "fatalIssues": [],
+  "majorIssues": [],
+  "noGoNotes": [
+    "No final Monica-like UX complete claim.",
+    "No V2 Memory / RAG / Web Research / PPT / Deep Research ready claim.",
+    "No product browser automation, OCR/VLM/ASR, media-stream understanding, or default local file access."
+  ]
+}

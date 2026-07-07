@@ -15,6 +15,8 @@ const IN_PAGE_SIDEBAR_OVERLAY_RATIO = 0.52;
 const IN_PAGE_NARROW_OVERLAY_WIDTH = 900;
 const IN_PAGE_SIDEBAR_INSET = 12;
 const LAUNCHER_DEFAULT_TOP = 0.9;
+const LAUNCHER_VISIBLE_SIZE = 54;
+const LAUNCHER_COLLAPSED_PEEK = 18;
 const SIDEBAR_STATE_STORAGE_KEY = "navia.inpageSidebarState";
 const SIDEBAR_DEFAULT_MODE: SidebarMode = "collapsed";
 const CONTENT_BRIDGE_READY_ATTRIBUTE = "data-navia-content-bridge-ready";
@@ -193,12 +195,14 @@ function ensureInPageInteractionStyles(documentRef: Document): void {
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       transform: var(--navia-launcher-transform, scale(1));
       -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
     #${IN_PAGE_LAUNCHER_ID}:hover {
-      transform: var(--navia-launcher-transform, scale(1)) scale(1.08) translateY(-3px);
+      transform: var(--navia-launcher-peek-transform, var(--navia-launcher-transform, scale(1))) scale(1.06) translateY(-2px);
       border-color: #05544b !important;
-      background: rgba(255, 255, 255, 0.85) !important;
-      box-shadow: 0 24px 50px rgba(5, 84, 75, 0.2), 0 4px 12px rgba(0,0,0,0.08) !important;
+      background: rgba(255, 255, 255, 0.93) !important;
+      opacity: 1 !important;
+      box-shadow: 0 22px 48px rgba(5, 84, 75, 0.18), 0 4px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9) !important;
     }
     #${IN_PAGE_LAUNCHER_ID}:active {
       transform: var(--navia-launcher-transform, scale(1)) scale(0.95);
@@ -209,8 +213,10 @@ function ensureInPageInteractionStyles(documentRef: Document): void {
     }
     #${IN_PAGE_LAUNCHER_ID}:focus-visible {
       border-color: #05544b !important;
-      background: rgba(255, 255, 255, 0.85) !important;
-      box-shadow: 0 0 0 3px rgba(5, 84, 75, 0.12), 0 24px 50px rgba(5, 84, 75, 0.18), 0 4px 12px rgba(0,0,0,0.08) !important;
+      background: rgba(255, 255, 255, 0.96) !important;
+      opacity: 1 !important;
+      transform: var(--navia-launcher-peek-transform, var(--navia-launcher-transform, scale(1))) scale(1.05);
+      box-shadow: 0 0 0 4px rgba(5, 84, 75, 0.13), 0 22px 48px rgba(5, 84, 75, 0.18), 0 4px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.92) !important;
     }
     #${IN_PAGE_LAUNCHER_ID}:hover [data-navia-launcher-svg="true"] {
       transform: rotate(15deg) scale(1.05);
@@ -262,15 +268,15 @@ function ensureFloatingLauncher(documentRef: Document, host: HTMLElement): HTMLB
   `;
   Object.assign(launcher.style, {
     position: "fixed",
-    width: "48px",
-    height: "48px",
-    border: "1.5px solid rgba(255, 255, 255, 0.55)",
-    borderRadius: "15px",
-    background: "rgba(255, 255, 255, 0.45)",
+    width: `${LAUNCHER_VISIBLE_SIZE}px`,
+    height: `${LAUNCHER_VISIBLE_SIZE}px`,
+    border: "1.5px solid rgba(137, 184, 176, 0.78)",
+    borderRadius: "17px",
+    background: "linear-gradient(145deg, rgba(255,255,255,0.98), rgba(241,248,246,0.92))",
     color: "#013a33",
-    boxShadow: "0 16px 40px rgba(5, 84, 75, 0.15), 0 2px 6px rgba(0,0,0,0.05), inset 0 1px 0 rgba(255,255,255,0.5)",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
+    boxShadow: "0 18px 38px rgba(5, 84, 75, 0.13), 0 2px 8px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.92)",
+    backdropFilter: "blur(18px) saturate(150%)",
+    WebkitBackdropFilter: "blur(18px) saturate(150%)",
     cursor: "grab",
     zIndex: "2147483646",
     padding: "0",
@@ -279,19 +285,19 @@ function ensureFloatingLauncher(documentRef: Document, host: HTMLElement): HTMLB
     justifyContent: "center"
   });
   const svg = launcher.querySelector<SVGElement>("[data-navia-launcher-svg='true']");
-  if (svg) Object.assign(svg.style, { width: "24px", height: "24px", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)" });
+  if (svg) Object.assign(svg.style, { width: "25px", height: "25px", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)" });
   const dot = launcher.querySelector<HTMLElement>("[data-navia-launcher-dot='true']");
   if (dot) {
     Object.assign(dot.style, {
       position: "absolute",
-      right: "3px",
-      top: "3px",
-      width: "8px",
-      height: "8px",
+      right: "-3px",
+      top: "-3px",
+      width: "13px",
+      height: "13px",
       borderRadius: "999px",
-      background: "#1c5e37",
-      border: "2px solid #fff",
-      boxShadow: "0 0 6px rgba(28, 94, 55, 0.5)"
+      background: "#2f7b58",
+      border: "4px solid #fff",
+      boxShadow: "0 4px 12px rgba(28, 94, 55, 0.3)"
     });
   }
   launcher.addEventListener("click", () => {
@@ -405,18 +411,24 @@ function applyInPageSidebarLayout(documentRef: Document, host: HTMLElement, stat
     launcher.dataset.naviaMode = mode;
     launcher.dataset.naviaSide = nextState.launcherSide;
     if (nextState.launcherSide === "left") {
-      launcher.style.left = mode === "collapsed" ? "0px" : `${IN_PAGE_SIDEBAR_INSET + 12}px`;
+      launcher.style.left = mode === "collapsed" ? `-${LAUNCHER_VISIBLE_SIZE - LAUNCHER_COLLAPSED_PEEK}px` : `${IN_PAGE_SIDEBAR_INSET + 12}px`;
       launcher.style.right = "";
-      launcher.style.setProperty("--navia-launcher-transform", mode === "collapsed" ? "translateX(-28px) scale(0.84)" : "scale(1)");
-      launcher.style.setProperty("--navia-launcher-peek-transform", "translateX(0px)");
+      launcher.style.setProperty("--navia-launcher-transform", "scale(1)");
+      launcher.style.setProperty(
+        "--navia-launcher-peek-transform",
+        mode === "collapsed" ? `translateX(${LAUNCHER_VISIBLE_SIZE - LAUNCHER_COLLAPSED_PEEK}px)` : "translateX(0px)"
+      );
     } else {
       launcher.style.left = "";
-      const rightWhenExpanded = mode === "expanded" ? width + IN_PAGE_SIDEBAR_INSET + 34 : 0;
+      const rightWhenExpanded = mode === "expanded" ? width + IN_PAGE_SIDEBAR_INSET + 34 : -(LAUNCHER_VISIBLE_SIZE - LAUNCHER_COLLAPSED_PEEK);
       launcher.style.right = `${rightWhenExpanded}px`;
-      launcher.style.setProperty("--navia-launcher-transform", mode === "collapsed" ? "translateX(28px) scale(0.84)" : "scale(1)");
-      launcher.style.setProperty("--navia-launcher-peek-transform", "translateX(0px)");
+      launcher.style.setProperty("--navia-launcher-transform", "scale(1)");
+      launcher.style.setProperty(
+        "--navia-launcher-peek-transform",
+        mode === "collapsed" ? `translateX(-${LAUNCHER_VISIBLE_SIZE - LAUNCHER_COLLAPSED_PEEK}px)` : "translateX(0px)"
+      );
     }
-    launcher.style.opacity = mode === "expanded" ? "0.94" : "0.86";
+    launcher.style.opacity = mode === "expanded" ? "0.96" : "0.92";
     launcher.setAttribute("aria-label", mode === "expanded" ? "折叠 Navia 阅读助手" : "打开 Navia 阅读助手");
   }
   if (!documentRef.body.hasAttribute("data-navia-original-margin-right")) {
