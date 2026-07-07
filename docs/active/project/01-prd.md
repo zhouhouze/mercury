@@ -1613,3 +1613,71 @@ docs/active/project/contracts/
   v1_post_v1_hardening_sample_manifest.schema.json
   v1_post_v1_hardening_report.schema.json
 ```
+
+## 16. V1.0.x Baseline Maintenance + UX Polish 下一阶段目标
+
+`V1.0.x Baseline Maintenance + UX Polish` 承接已经冻结的 `V1.0.x Post-V1 Hardening` 基线。该阶段不重新打开 V1 complete，不改变已冻结的 post-V1 hardening 通过结论，也不扩大到 V2/V4 能力。阶段目标是让冻结基线可维护、可重复体验，并在当前已实现范围内继续降低用户可见摩擦。
+
+本阶段由两个并行但有边界的开发目标组成：
+
+1. `V1.0.x Baseline Maintenance`
+   - 维护已冻结 evidence package、schema、semantic validator、HTML 审查报告和构建产物。
+   - 确保每次回归能复现 Runtime health、Chrome extension build、post-V1 hardening validator 和人工基线冻结记录。
+   - 优化依赖、构建体积、测试稳定性、报告可读性和本地启动体验，但不得更改产品能力声明。
+
+2. `V1 UX Polish`
+   - 只在当前 V1 已实现的 launcher / sidebar / Chat / Mindmap / Source Evidence / Debug / Settings 范围内做体验打磨。
+   - 可优化 launcher 获焦反馈、折叠 / 展开状态、按钮层级、窄侧栏布局、source marker 可见性、Mindmap 可读性、状态卡和输入区遮挡风险。
+   - 不新增顶级页面、不新增最终 Monica-like UX 声明、不新增 RAG、Memory、Web Research、PPT、Deep Research、多 Agent、语音、桌宠、浏览器自动操作产品能力、OCR/VLM/ASR、媒体流理解或默认本地文件读取。
+
+本阶段允许声明：
+
+```text
+V1.0.x baseline maintenance and UX polish ready for staged implementation.
+```
+
+本阶段完成后最多允许声明：
+
+```text
+V1.0.x baseline maintenance and scoped UX polish passed regression acceptance.
+```
+
+本阶段不得声明：
+
+```text
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片像素内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
+
+固定开发顺序：
+
+```text
+1. V1.0.x-BM-0：文档门禁，冻结 PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 和证据边界。
+2. V1.0.x-BM-1：基线维护，复验 build、Runtime health、post-V1 validator、HTML 报告、人工冻结记录和敏感信息扫描。
+3. V1.0.x-BM-2：启动与诊断 polish，优化 README / 启动脚本 / Runtime 离线提示 / report 入口，不改变 Runtime public contract。
+4. V1.0.x-BM-3：V1 UX polish，优化当前范围内 launcher、sidebar、按钮、状态卡、Mindmap、source evidence 和窄屏布局。
+5. V1.0.x-BM-4：视觉与交互回归验收，使用真实 Chrome 或 headless 优先截图，验证没有遮挡、截断、虚影、焦点抢占和 false-green。
+6. V1.0.x-BM-5：出门审计，PRD review、false-green audit、HTML 报告、截图和人工 spot-check 无 fatal / major 后，冻结新的维护基线。
+```
+
+最低验收门槛：
+
+- `docs/active/project/evidence/v1_post_v1_hardening/` 仍作为上一阶段冻结基线，不得被重写为新阶段通过证据。
+- 新阶段必须建立独立 evidence package，避免把 post-V1 hardening frozen baseline 误当成本阶段验收输出。
+- `npm --prefix apps/chrome-extension run build` 必须通过。
+- `npm --prefix apps/chrome-extension run validate:post-v1-hardening` 必须仍然通过，证明旧基线未被破坏。
+- Runtime `/v1/health` 在本地启动后必须返回 `status=ok`。
+- UX polish 必须用截图证明 launcher、sidebar、Mindmap、source evidence、状态卡、输入区和 Debug / Settings 入口仍可用。
+- Source highlight、fallback_shown、blocked 仍不得混淆。
+- 任何新视觉效果不得遮挡网页主内容到不可恢复状态；折叠 / 展开 / resize / drag 不得造成布局永久错位。
+- 自动化优先 headless 和 `--mute-audio`；如需可见 Chrome 截图，必须提前告知并测试后关闭实例。
+- PRD review 和 false-green audit 必须明确本阶段只做 baseline maintenance 和 scoped UX polish。
+
+后续路线登记：
+
+- `V1 Content Quality Plus`：已由 `V1-MVP-CQ` 文档登记为内容理解质量增强方向；若再次启动，必须使用独立 stage gate、36+ strict 样本、gold notes 和独立 report，不得复用 post-V1 hardening 通过结论。
+- `V2 Memory / Personal Knowledge Base`：属于 V2 本地备忘、个人知识库、标签化总结和类 RAG 蒸馏方向；必须重新评估长期 Runtime 主栈、Memory Plane、权限治理、数据保留和删除策略。
+- `V4 Web Research / PPT / Deep Research`：属于 V4 个人秘书 / 深度研究 / PPT 生成 / Manus-like Agent 能力方向；必须重新设计任务图谱、审批、联网边界、引用证据和安全门禁。

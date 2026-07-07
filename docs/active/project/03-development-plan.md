@@ -1816,3 +1816,54 @@ V1.0.x post-V1 hardening passed source jumpback, Mindmap quality, and real-site 
 V2 Memory / RAG ready。
 Web Research / PPT / Deep Research ready。
 ```
+
+## 16. V1.0.x Baseline Maintenance + UX Polish 开发计划
+
+本阶段承接已冻结的 `V1.0.x Post-V1 Hardening` 基线，只做基线维护和当前 V1 范围内的体验打磨。它不重新打开 V1 complete，不把 post-V1 hardening 证据改写为新阶段通过证据，也不引入 V2/V4 能力。
+
+阶段拆分：
+
+```text
+V1.0.x-BM-0：文档门禁，冻结 PRD、架构、开发计划、验收计划、stage gate、drawio 和 evidence 边界。
+V1.0.x-BM-1：基线维护，复验 build、Runtime health、post-V1 validator、HTML 审查报告、人工冻结记录和敏感信息扫描。
+V1.0.x-BM-2：启动与诊断 polish，优化本地启动、Runtime 离线提示、报告入口和诊断可读性。
+V1.0.x-BM-3：V1 UX polish，优化 launcher、sidebar、按钮、状态卡、Mindmap、source evidence 和窄屏布局。
+V1.0.x-BM-4：视觉与交互回归验收，截图证明无遮挡、截断、虚影、焦点抢占和 false-green。
+V1.0.x-BM-5：出门审计，PRD review、false-green audit、HTML 报告、截图和人工 spot-check 无 fatal / major。
+```
+
+开发及验收计划：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V1.0.x-BM-0` | 同步 active PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio | 文档无 fatal / major；不改写 post-V1 frozen baseline |
+| `V1.0.x-BM-1` | 构建、Runtime、validator、报告、冻结记录的回归维护 | `build`、`validate:post-v1-hardening`、Runtime health、敏感信息扫描均通过 |
+| `V1.0.x-BM-2` | 启动脚本、README、Runtime offline / reconnect 诊断、报告入口 polish | 人工按最小路径可启动；Runtime 离线不空白；诊断信息可理解 |
+| `V1.0.x-BM-3` | 当前 V1 范围内 launcher / sidebar / controls / status / Mindmap / source evidence polish | 不新增页面或能力；截图证明关键路径仍可操作 |
+| `V1.0.x-BM-4` | Headless 优先视觉回归和必要 Chrome 截图 | 无遮挡、截断、虚影、焦点抢占；located / fallback / blocked 不混淆 |
+| `V1.0.x-BM-5` | HTML 报告、PRD review、false-green audit、人工 spot-check | 无 fatal / major；只允许 scoped baseline maintenance / UX polish 声明 |
+
+打回规则：
+
+- BM-0 若文档没有明确本阶段不引入 V2/V4，打回文档门禁。
+- BM-1 若 build、Runtime health、post-V1 validator 或敏感信息扫描失败，打回基线维护。
+- BM-2 若 Runtime 离线仍空白或启动说明不可复现，打回启动诊断 polish。
+- BM-3 若 UI polish 引入新顶级页面、默认本地文件读取、浏览器自动操作产品能力或最终 Monica-like UX 声明，打回。
+- BM-4 若截图出现明显遮挡、截断、虚影或 source 状态混淆，打回 UX polish。
+- BM-5 若报告不能作为人类审计入口，或 PRD review / false-green audit 出现 fatal / major，打回对应阶段。
+
+允许声明：
+
+```text
+V1.0.x baseline maintenance and scoped UX polish passed regression acceptance.
+```
+
+不得声明：
+
+```text
+最终 Monica-like UX complete。
+复杂站点全量高质量通过。
+视频 / 音频 / 图片像素内容已被理解。
+V2 Memory / RAG ready。
+Web Research / PPT / Deep Research ready。
+```
