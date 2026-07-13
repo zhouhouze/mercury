@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v2_memory_report.schema.json",
+  "title": "Navia V2 Memory Acceptance Report",
+  "type": "object",
+  "required": ["schemaVersion", "claim", "generatedAt", "passed", "summary", "sourceResults", "scenarioResults", "testCommands", "fatalIssues", "majorIssues"],
+  "properties": {
+    "schemaVersion": { "const": "v2-memory-report-draft-2026-07-10" },
+    "claim": { "const": "V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance." },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "passed": { "type": "boolean" },
+    "summary": {
+      "type": "object",
+      "required": ["totalSources", "webPageSources", "authorizedLocalDocumentSources", "noteOrOtherSources", "sourcePasses", "queryScenarios", "serviceStatusScenarios", "forgetScenarios"],
+      "properties": {
+        "totalSources": { "type": "integer", "minimum": 24 },
+        "webPageSources": { "type": "integer", "minimum": 12 },
+        "authorizedLocalDocumentSources": { "type": "integer", "minimum": 6 },
+        "noteOrOtherSources": { "type": "integer", "minimum": 6 },
+        "sourcePasses": { "type": "integer", "minimum": 20 },
+        "queryScenarios": { "type": "integer", "minimum": 18 },
+        "serviceStatusScenarios": { "type": "integer", "minimum": 4 },
+        "forgetScenarios": { "type": "integer", "minimum": 6 }
+      },
+      "additionalProperties": false
+    },
+    "sourceResults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sampleId", "sourceType", "passed", "buildStatus", "traceStatus", "screenshotPaths"],
+        "properties": {
+          "sampleId": { "type": "string" },
+          "sourceType": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "buildStatus": { "type": "string" },
+          "traceStatus": { "type": "string" },
+          "evidenceRefs": { "type": "array", "items": { "type": "string" } },
+          "degradedReason": { "type": "string" },
+          "screenshotPaths": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scenarioResults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scenarioId", "scenarioType", "passed", "numerator", "denominator", "operator", "threshold"],
+        "properties": {
+          "scenarioId": { "type": "string" },
+          "scenarioType": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "numerator": { "type": "number" },
+          "denominator": { "type": "number" },
+          "operator": { "type": "string", "enum": ["gte", "lte", "eq"] },
+          "threshold": { "type": "number" },
+          "evidencePaths": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "testCommands": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["command", "passed"],
+        "properties": {
+          "command": { "type": "string" },
+          "passed": { "type": "boolean" },
+          "logPath": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "fatalIssues": { "type": "array", "items": { "type": "string" }, "maxItems": 0 },
+    "majorIssues": { "type": "array", "items": { "type": "string" }, "maxItems": 0 },
+    "minorIssues": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": false
+}

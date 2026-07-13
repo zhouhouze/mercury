@@ -1690,6 +1690,7 @@ Web Research / PPT / Deep Research ready。
 
 - `V1 Content Quality Plus`：已由 `V1-MVP-CQ` 文档登记为内容理解质量增强方向；若再次启动，必须使用独立 stage gate、36+ strict 样本、gold notes 和独立 report，不得复用 post-V1 hardening 通过结论。
 - `V2 Memory / Personal Knowledge Base`：属于 V2 本地备忘、个人知识库、标签化总结和类 RAG 蒸馏方向；必须重新评估长期 Runtime 主栈、Memory Plane、权限治理、数据保留和删除策略。
+- `V3 Media Companion`：属于伴随式观赛 / 观影 / 看直播体验方向；必须重新设计视频页媒体上下文、字幕 / 转录 / 时间轴、截图证据、视频反跳、Media Mindmap、多模态 Adapter 和隐私治理，不得复用 V1 网页伴读验收结论声明视频理解 ready。
 - `V4 Web Research / PPT / Deep Research`：属于 V4 个人秘书 / 深度研究 / PPT 生成 / Manus-like Agent 能力方向；必须重新设计任务图谱、审批、联网边界、引用证据和安全门禁。
 
 本阶段文档与证据入口：
@@ -1702,3 +1703,206 @@ docs/active/project/design/v1-baseline-maintenance-ux-polish-development-accepta
 docs/active/project/design/v1-baseline-maintenance-ux-polish-readiness-audit.md
 docs/active/project/evidence/v1_baseline_maintenance_ux_polish/
 ```
+
+## 17. V2 Memory / Personal Knowledge Base 规划目标
+
+`V2 Memory / Personal Knowledge Base` 承接已经冻结的 V1 当前页伴读基线，目标是把用户主动保存的网页、显式授权导入的本地资料和后续结构化摘要，沉淀为可追踪、可删除、可授权的个人知识资产。本阶段不改写 V1 complete 或 post-V1 hardening 基线，也不声明 V2 ready。
+
+截至本轮文档同步，V2 状态必须按以下事实记录：
+
+```text
+V2-DOC / V2-0：文档门禁、合同草案、data_service spike、原型同步要求和生命周期 ADR 已形成基线。
+V2-1..V2-6：已经形成 mock-first / controlled-boundary 实现基线。
+V2-7：真实数据验收、截图证据、HTML 报告、PRD review、false-green audit 和最终 report.json 已通过。
+```
+
+因此当前最多允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+V2 目标体验以已落盘原型审查页为设计输入：
+
+```text
+docs/active/project/design/v2-memory-personal-knowledge-prototype-review/index.html
+```
+
+V2 目标用户路径：
+
+```text
+用户打开普通网页
+-> Navia 贴边 launcher / sidebar 保持 V1 当前页伴读能力
+-> 用户点击“保存到知识库”
+-> Navia 显示 workspace 选择、ingest / build / trace 状态
+-> V2 Adapter 将 PageContext / SourceRef 映射为 MemoryCandidate / KnowledgeSource
+-> 候选 Local Knowledge Governance Service 通过 HTTP / MCP / CLI 接收 source
+-> Knowledge Workspace 展示 source library、source detail、trace、graph 和 ask with sources
+-> 用户可跨来源问答、查看 evidence refs、打开 source trace
+-> 用户可撤销本地授权目录或删除 / 遗忘 source
+-> 系统用再次查询证明被删除 source 不再返回
+```
+
+V2 必须规划的用户可见能力：
+
+- 保存当前网页：用户主动保存当前页面，并看到 ingest、build、trace ready 或 degraded 状态。
+- 后端服务状态感知：V2 前端必须让用户清楚感知当前后端链路状态，至少区分 Navia Runtime 离线 / 在线、V2 Adapter / Governance 未就绪或降级、候选 data_service 未配置 / 鉴权失败 / 不可达 / 版本不兼容、单个 source 的 ingest / build / trace / forget 状态；不得只显示一个泛化的“后端正常”。
+- 知识空间：用户能在 Knowledge Workspace 中切换 workspace，查看 source 数量、构建状态和 trace 覆盖度。
+- Source Library：用户能筛选网页、本地显式授权资料、笔记和待处理 source，并打开 source detail。
+- Ask with Sources：跨来源问答必须展示 evidence refs；无证据回答不得显示为成功。
+- Evidence Trace：用户能看到 located、fallback_shown、blocked 的一致状态和来源解释。
+- Knowledge Graph：图谱节点必须来自服务侧 source / unit / relation 数据，不能由前端凭空生成事实。
+- Permission Root：默认不读取本地文件；只有用户显式授权的目录才能作为 source root。
+- Forget Source：删除 / 遗忘必须有二次确认，并通过 before / after query 证明删除生效。
+
+`/mnt/c/workspace/data_service` 可作为 V2 候选后端基线进行文档评估。它当前提供 workspace、source registry、distill、GraphRAG、Source Trace、quality、HTTP、MCP、CLI 和 Knowledge Console 等能力；但 Navia 不得直接读写它的内部 workspace，也不得把它的 console 当作 Navia 产品 UI。Navia 只能通过 V2 Adapter / Governance 层，以受控 HTTP / MCP / CLI 合同接入。
+
+V2 不得声明：
+
+```text
+V2 implemented。
+V2 Memory / RAG ready。
+完整个人知识库产品完成。
+默认本地文件读取。
+data_service console 已等同 Navia 产品 UI。
+Web Research / PPT / Deep Research ready。
+多 Agent、产品浏览器自动操作、语音、桌宠或媒体理解 ready。
+```
+
+V2 文档与实现基线同步出门条件：
+
+- PRD、目标架构、开发计划、验收计划、stage gate、gap companion 和 drawio 使用同一阶段名：`V2 Memory / Personal Knowledge Base`。
+- drawio 不超过 8 页，必须包含目标体验、当前架构与目标架构差异、分层代码实体、data_service 候选边界、前端组件、权限 / 删除 / 证据链、开发及验收计划、出门条件和 No-Go。
+- drawio 必须明确 P0-P7 架构平面：Browser Host、Extension Shell、Side Panel UI、Runtime Client、Local Runtime API、V2 Adapter / Governance、data_service Candidate、Evidence。
+- drawio 必须列出当前真实实现实体和剩余目标文件，至少包括 `contentBridge.ts`、`sidepanel/main.tsx`、`runtimeClient.ts` 的 V2 knowledge section、`knowledge_workspace/`、`app.py`、`modules/memory/`、V2 e2e / validator 和 V2 evidence package。
+- 文档必须明确 `data_service` 是候选 Local Knowledge Governance Service，不是当前 Navia 已集成能力。
+- 文档必须明确 V2 Adapter / Governance 是唯一跨项目接入层，禁止前端 B 直接调用 A/C/D 或直接读写 data_service workspace。
+- 文档必须明确前端页面在开发和未来实现阶段的服务状态 UX：Side Panel header、SaveToKnowledgeCard、Knowledge Workspace、Source detail、Debug / Settings 必须能展示 Runtime、V2 Adapter、data_service 和 source build / trace 的不同状态与用户下一步动作。
+- 文档必须明确本地文件导入默认关闭，只有显式授权 root 才能进入 source ingest。
+- 文档必须明确删除 / 遗忘的验收必须包含再次查询验证，不能只删除 UI 卡片。
+- 文档必须引用 V2-1..V2-6 子阶段 evidence，并引用 V2-7 独立证据包作为 planning-aligned local knowledge acceptance 通过依据；`v2-7-acceptance-blocked-audit.md` 仅作为过期阻塞记录保留。
+
+V2 当前门禁口径：
+
+```text
+Go for V2 Memory / Personal Knowledge Base documentation and implementation-baseline synchronization.
+V2-1..V2-6 mock-first / controlled-boundary baseline recorded.
+Go for V2 planning-aligned local knowledge acceptance claim after V2-7 evidence passes; No-Go for V2 ready / RAG ready claims.
+```
+
+V2-0 P0 产物当前作为实现基线输入，后续任何真实 data_service 产品化前仍必须重新复核：
+
+- 权威合同包：`v2_memory_contracts.schema.json`、`v2_knowledge_status.schema.json`、`v2_knowledge_api.openapi.yaml`、`v2_knowledge_error_codes.md`。
+- 验收合同包：`v2_memory_sample_manifest.schema.json`、`v2_memory_report.schema.json`、semantic validator 规格和未来固定验证命令。
+- data_service 锁定与 Adapter spike：仓库路径、commit / version、license、auth mode、API snapshot、capability matrix、Navia mapping、unsupported list、fallback route。
+- 原型同步：补齐 ServiceStatusBanner、DataServiceStatusCard、KnowledgeBuildStatus；保存流程改为单次点击后异步轮询 / 状态订阅；移除过期的“尚无 stage gate / drawio / 验收门槛”文案。
+- Workspace 承载形态：冻结 Side Panel 与独立 Knowledge Workspace 的职责边界和路由形态。
+- 生命周期 ADR：冻结 source revision、dedup / idempotency、operation_id、retry / cancel / resume、permission revoke、forget cascade、credential redaction、audit log。
+
+V2-7 真实数据验收必须补齐：
+
+```text
+docs/active/project/evidence/v2_memory_personal_knowledge_base/sample-manifest.json
+docs/active/project/evidence/v2_memory_personal_knowledge_base/report.json
+docs/active/project/evidence/v2_memory_personal_knowledge_base/acceptance-report.html
+docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/
+```
+
+V2-7 通过前不得声明；当前 V2-7 证据已允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+V2 Workspace 承载形态的当前规划：
+
+```text
+Side Panel:
+  SaveToKnowledgeCard
+  ServiceStatusBanner
+  当前 source build / trace 状态
+  Ask current workspace 快捷入口
+  Trace 快捷入口
+
+Extension Workspace Page:
+  WorkspaceSwitcher
+  SourceLibrary
+  SourceDetail
+  Ask with Sources
+  KnowledgeGraph
+  PermissionRoot
+  ForgetSource
+  DataServiceStatusCard
+```
+
+如果未来 V2-0 选择 localhost Web Workspace 或其他承载形态，必须更新 PRD、架构、drawio、原型和验收计划后才能进入 V2-1。
+
+## 18. V3 Media Companion 规划目标
+
+`V3 Media Companion` 是 V1 当前网页伴读和 V2 个人知识资产之后的媒体伴随体验阶段。它面向 YouTube、B站等视频网站，把 Navia 从“读网页正文”扩展到“陪用户看视频、理解字幕 / 转录 / 时间轴、生成视频概览和可反跳证据”。本阶段当前只做文档开发和目标体验规划，不进入实际代码开发，也不改写 V1 complete 或 post-V1 hardening 基线。
+
+V3 目标体验应接近 Monica 在 YouTube 的视频伴随体验，并参考 B站 AI 视频总结生态中用户已经熟悉的能力：视频省流总结、章节大纲、视频导图、字幕搜索、继续追问、时间戳跳转、截图证据和可复制 / 分享摘要。参考竞品包括 Monica Video Summarizer、AI课代表、BibiGPT、NoteGPT Bilibili Summarizer、Eightify、HARPA、YouTube conversational AI，以及 Gemini Video Understanding 的真实多模态能力路线。
+
+V3 分层规划：
+
+```text
+V3.0 Transcript-first Video Companion
+  基于标题、简介、字幕 / 转录、章节、评论、弹幕 / 互动文本、页面 metadata、当前播放时间和浏览器截图证据。
+
+V3.x Multimodal Media Understanding
+  规划 ASR、VLM、OCR、video frame sampling、Gemini Video / Live API、直播 rolling transcript 和多模态证据治理。
+```
+
+V3.0 目标用户路径：
+
+```text
+用户打开 YouTube 或 B站视频页
+-> Navia 贴边 launcher / sidebar 识别当前页为 video page
+-> 用户点击读取 / 总结视频
+-> Navia 读取标题、简介、作者、时长、字幕 / 转录、章节、评论 / 弹幕摘要、当前播放时间
+-> 生成视频概览：一句话结论、关键看点、章节时间轴、可疑低信号提示
+-> 生成 Media Mindmap / 视频概览图：主题、事件、论点、示例、结论按时间线组织
+-> 每个关键节点绑定 transcript segment、timestamp、source text、视频截图证据或 fallback reason
+-> 用户点击节点 / 证据卡
+-> 视频播放器跳转到对应时间点，或展示 timestamp fallback / blocked reason
+-> 用户可围绕“这个片段讲了什么 / 总结 10:30-15:00 / 提炼观点 / 找证据”继续追问
+```
+
+V3.0 必须规划的用户可见能力：
+
+- 视频概览卡：标题、作者 / 频道、时长、发布时间或页面可见 metadata、摘要、低信号状态。
+- 章节时间轴：按时间戳展示主题段落、关键事件、知识点、论点和结论。
+- Media Mindmap / 视频概览图：类似 B站 AI 视频总结账号提供的结构化概览，节点短、准、可追溯。
+- 截图证据卡：在目标时间点展示视频可见帧截图或截图占位，并说明它只证明“该时间点可见画面”，不等同于 VLM 已理解画面。
+- 视频反跳：点击节点或证据卡后 seek 到视频时间点；无法 seek、播放器被限制、字幕缺失或登录墙时必须显示 fallback / blocked。
+- 字幕 / 转录问答：答案必须 grounding 到 transcript segment、简介、评论 / 弹幕文本或明确 degraded。
+- B站 / YouTube 平台差异：B站可能依赖登录、字幕可用性、弹幕和评论；YouTube 可能依赖 transcript availability、章节和语言设置。
+
+V3.0 不得声明：
+
+```text
+完整 Monica-like YouTube parity complete。
+真实视频画面 / 音频已被理解。
+直播实时理解 ready。
+ASR / VLM / OCR / Gemini Video ready。
+跨视频知识库 / RAG ready。
+自动下载、提取或处理受版权保护的视频流。
+默认本地文件读取。
+```
+
+V3.x 多模态路线必须先冻结：
+
+- 用户授权和隐私边界：何时读取字幕、截图、音频、视频帧；是否上传到模型；如何提示用户。
+- 采样策略：截图 / frame sampling 的频率、触发条件、缓存、删除和脱敏。
+- 延迟和成本预算：短视频、长视频、直播的最大处理时长、token、模型调用和失败降级。
+- 证据模型：ASR transcript、VLM frame caption、OCR block、timeline event、confidence 和 source provenance。
+- EventStore / Trace：实时输出不能只存在 EventStream，必须可按时间轴和 session trace 回放。
+- 法务 / 平台风险：不得自动下载视频，不得绕过平台访问限制，不得把登录态自动化扩展为产品浏览器自动操作。
+
+V3 文档开发出门条件：
+
+- PRD、目标架构、开发计划、验收计划、stage gate、gap companion 和 drawio 使用同一阶段名：`V3 Media Companion`。
+- drawio 不超过 8 页，必须包含目标体验、当前架构与目标架构差异、YouTube/B站输入链路、视频概览图 / Media Mindmap、截图证据 / 视频反跳、多模态 V3.x 路线、开发及验收计划、出门条件和 No-Go。
+- 文档必须明确 V3.0 和 V3.x 的交付边界，避免把多模态未来路线写成本阶段承诺。
+- 文档必须明确视频截图证据在 V3.0 只表示时间点可见帧证据；理解截图内容必须进入 V3.x。
+- 文档必须明确无字幕 / 无转录 / 无可见文本的视频必须 degraded 或 blocked，不得伪装成内容理解成功。

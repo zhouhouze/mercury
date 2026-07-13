@@ -15,6 +15,7 @@ from navia_runtime.modules.adapters.runtime import AdapterRegistry, default_adap
 from navia_runtime.modules.agent_loop.runtime import run_agentic_turn, run_core_provider_turn_async
 from navia_runtime.modules.agent_loop.runtime.pi_sidecar_client import PiSidecarClient, PiSidecarError
 from navia_runtime.modules.mindmap.runtime import generate_mindmap_payload
+from navia_runtime.modules.memory.runtime import MockKnowledgeServiceAdapter
 from navia_runtime.modules.page_reading.runtime import build_high_signal_page_perception
 from navia_runtime.provider_settings import (
     DeepSeekProvider,
@@ -60,6 +61,7 @@ settings_store = SettingsStore(default_db_path())
 provider_registry = ProviderRegistry(settings_store)
 pi_sidecar_client = PiSidecarClient()
 v2_artifact_store = V2ArtifactStore(default_db_path())
+knowledge_adapter = MockKnowledgeServiceAdapter()
 runtime_projection = {"state": "waiting_user"}
 
 
@@ -614,6 +616,139 @@ def agent_state(request: Request):
 @app.get("/v1/agent/state-machine/mermaid")
 def state_machine_mermaid(request: Request):
     return success({"mermaid": mermaid_graph()}, request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/status")
+def knowledge_status(request: Request):
+    return success(knowledge_adapter.status(), request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/workspaces")
+def knowledge_workspaces(request: Request):
+    return success(knowledge_adapter.list_workspaces(), request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/sources")
+def knowledge_sources(request: Request, workspaceId: str):
+    return success(knowledge_adapter.list_sources(workspaceId), request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v1/knowledge/sources")
+async def knowledge_save_source(request: Request):
+    idempotency_key = request.headers.get("Idempotency-Key")
+    if not isinstance(idempotency_key, str) or len(idempotency_key) < 8:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.REQUEST_INVALID,
+                "Idempotency-Key header is required for V2 knowledge source save.",
+                request_id=request.headers.get("x-request-id"),
+                details={"header": "Idempotency-Key"},
+            ),
+        )
+    body = await request_json_or_empty(request)
+    missing = [field for field in ["candidateId", "workspaceId", "sourceType", "createdAt"] if not body.get(field)]
+    if missing:
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.REQUEST_INVALID,
+                "MemoryCandidate is missing required fields.",
+                request_id=request.headers.get("x-request-id"),
+                details={"missing": missing},
+            ),
+        )
+    result = knowledge_adapter.save_source(body, idempotency_key=idempotency_key)
+    return JSONResponse(
+        status_code=202,
+        content=success(result, request_id=request.headers.get("x-request-id")),
+    )
+
+
+@app.get("/v1/knowledge/sources/{sourceId}")
+def knowledge_source(sourceId: str, request: Request):
+    source = knowledge_adapter.get_source(sourceId)
+    if source is None:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "Knowledge source not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success({"source": source}, request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/operations/{operationId}")
+def knowledge_operation(operationId: str, request: Request):
+    operation = knowledge_adapter.get_operation(operationId)
+    if operation is None:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "Knowledge operation not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success({"operation": operation}, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v1/knowledge/query")
+async def knowledge_query(request: Request):
+    body = await request_json_or_empty(request)
+    workspace_id = body.get("workspaceId")
+    question = body.get("question")
+    if not isinstance(workspace_id, str) or not isinstance(question, str) or not question.strip():
+        return JSONResponse(
+            status_code=400,
+            content=failure(
+                ErrorCode.REQUEST_INVALID,
+                "workspaceId and question are required.",
+                request_id=request.headers.get("x-request-id"),
+            ),
+        )
+    source_ids = body.get("sourceIds") if isinstance(body.get("sourceIds"), list) else None
+    return success(knowledge_adapter.query(workspace_id, question, source_ids), request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/graph")
+def knowledge_graph(request: Request, workspaceId: str):
+    return success(knowledge_adapter.graph(workspaceId), request_id=request.headers.get("x-request-id"))
+
+
+@app.get("/v1/knowledge/source/{sourceId}/trace")
+def knowledge_source_trace(sourceId: str, request: Request):
+    trace = knowledge_adapter.trace(sourceId)
+    if trace is None:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "Knowledge source not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return success(trace, request_id=request.headers.get("x-request-id"))
+
+
+@app.post("/v1/knowledge/permissions")
+async def knowledge_grant_permission(request: Request):
+    return JSONResponse(
+        status_code=202,
+        content=success(knowledge_adapter.grant_permission(await request_json_or_empty(request)), request_id=request.headers.get("x-request-id")),
+    )
+
+
+@app.delete("/v1/knowledge/permissions/{permissionRootId}")
+def knowledge_revoke_permission(permissionRootId: str, request: Request):
+    result = knowledge_adapter.revoke_permission(permissionRootId)
+    if result is None:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "Permission root not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return JSONResponse(status_code=202, content=success(result, request_id=request.headers.get("x-request-id")))
+
+
+@app.post("/v1/knowledge/sources/{sourceId}/forget")
+async def knowledge_forget_source(sourceId: str, request: Request):
+    result = knowledge_adapter.forget_source(sourceId, await request_json_or_empty(request))
+    if result is None:
+        return JSONResponse(
+            status_code=404,
+            content=failure(ErrorCode.ARTIFACT_NOT_FOUND, "Knowledge source not found.", request_id=request.headers.get("x-request-id")),
+        )
+    return JSONResponse(status_code=202, content=success(result, request_id=request.headers.get("x-request-id")))
 
 
 @app.post("/v2/runtime/evidence")

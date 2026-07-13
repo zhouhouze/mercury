@@ -1,0 +1,147 @@
+openapi: 3.1.0
+info:
+  title: Navia V2 Knowledge API
+  version: v2-memory-draft-2026-07-10
+  description: |
+    Documentation-stage API draft for V2 Memory / Personal Knowledge Base.
+    Product stage is V2, but the planned local Runtime route family remains
+    `/v1/knowledge/*` to avoid collision with existing historical evidence
+    tooling under `navia_runtime/v2/`.
+
+    Runtime offline is not returned by this API because the API is unreachable
+    when Runtime is offline. Frontend must infer Runtime offline from transport
+    failure. Adapter and data_service states are returned when Runtime is online.
+servers:
+  - url: http://127.0.0.1:8765
+paths:
+  /v1/knowledge/status:
+    get:
+      summary: Read aggregated V2 knowledge backend status
+      operationId: getKnowledgeStatus
+      responses:
+        "200":
+          description: Aggregated Runtime, Adapter, data_service and source status.
+          content:
+            application/json:
+              schema:
+                $ref: "./v2_knowledge_status.schema.json"
+  /v1/knowledge/workspaces:
+    get:
+      summary: List Navia knowledge workspaces
+      operationId: listKnowledgeWorkspaces
+      parameters:
+        - name: cursor
+          in: query
+          schema: { type: string }
+      responses:
+        "200":
+          description: Workspace list in API envelope.
+  /v1/knowledge/sources:
+    post:
+      summary: Save a MemoryCandidate as a KnowledgeSource
+      operationId: saveKnowledgeSource
+      parameters:
+        - name: Idempotency-Key
+          in: header
+          required: true
+          schema: { type: string, minLength: 8, maxLength: 160 }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "./v2_memory_contracts.schema.json#/$defs/MemoryCandidate"
+      responses:
+        "202":
+          description: Save operation queued. Poll operation or status endpoint.
+        "409":
+          description: Idempotency or duplicate source conflict.
+  /v1/knowledge/operations/{operationId}:
+    get:
+      summary: Read a knowledge operation state
+      operationId: getKnowledgeOperation
+      parameters:
+        - name: operationId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Operation state.
+  /v1/knowledge/query:
+    post:
+      summary: Ask with sources in a workspace
+      operationId: askWithSources
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [workspaceId, question]
+              properties:
+                workspaceId: { type: string }
+                question: { type: string, minLength: 1 }
+                sourceIds:
+                  type: array
+                  items: { type: string }
+      responses:
+        "200":
+          description: Answer with evidence refs or degraded reason.
+  /v1/knowledge/graph:
+    get:
+      summary: Read graph view for a workspace
+      operationId: getKnowledgeGraph
+      parameters:
+        - name: workspaceId
+          in: query
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Graph nodes and edges from service-side source/unit/relation data.
+  /v1/knowledge/source/{sourceId}/trace:
+    get:
+      summary: Read source trace for one source
+      operationId: getSourceTrace
+      parameters:
+        - name: sourceId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: located / fallback_shown / blocked trace entries.
+  /v1/knowledge/permissions:
+    post:
+      summary: Grant a user-visible local source permission root
+      operationId: grantPermissionRoot
+      responses:
+        "202":
+          description: Permission operation queued or completed.
+  /v1/knowledge/permissions/{permissionRootId}:
+    delete:
+      summary: Revoke a permission root
+      operationId: revokePermissionRoot
+      parameters:
+        - name: permissionRootId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "202":
+          description: Revoke operation queued or completed.
+  /v1/knowledge/sources/{sourceId}/forget:
+    post:
+      summary: Forget one source and verify absence from Library, Ask, Graph and Trace
+      operationId: forgetKnowledgeSource
+      parameters:
+        - name: sourceId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "202":
+          description: Forget and verification operation queued.
+components:
+  securitySchemes: {}

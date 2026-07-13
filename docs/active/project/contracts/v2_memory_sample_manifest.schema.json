@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v2_memory_sample_manifest.schema.json",
+  "title": "Navia V2 Memory Acceptance Sample Manifest",
+  "type": "object",
+  "required": ["schemaVersion", "generatedAt", "sourceCorpus", "operationScenarios"],
+  "properties": {
+    "schemaVersion": { "const": "v2-memory-manifest-draft-2026-07-10" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "sourceCorpus": {
+      "type": "array",
+      "minItems": 24,
+      "items": {
+        "type": "object",
+        "required": ["sampleId", "sourceType", "category", "expectedEvidence"],
+        "properties": {
+          "sampleId": { "type": "string", "pattern": "^v2_src_[a-z0-9_-]+$" },
+          "sourceType": { "type": "string", "enum": ["web_page", "authorized_local_document", "note", "markdown", "pdf", "other_supported_source"] },
+          "category": { "type": "string", "enum": ["news_or_portal", "technical_doc", "product_research", "long_blog", "document_asset", "manual_note"] },
+          "url": { "type": "string" },
+          "redactedLocalPath": { "type": "string" },
+          "workspaceId": { "type": "string" },
+          "expectedEvidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "expectedDegradedReason": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "operationScenarios": {
+      "type": "array",
+      "minItems": 38,
+      "items": {
+        "type": "object",
+        "required": ["scenarioId", "scenarioType", "sampleRefs"],
+        "properties": {
+          "scenarioId": { "type": "string", "pattern": "^v2_scenario_[a-z0-9_-]+$" },
+          "scenarioType": { "type": "string", "enum": ["mixed_workspace_query", "ask_with_sources", "graph_trace", "permission_grant_revoke", "forget_before_after", "service_status"] },
+          "sampleRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "expectedStatus": { "type": "string" },
+          "expectedUserVisibleResult": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

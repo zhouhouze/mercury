@@ -13,6 +13,8 @@ import { canSubmitChatInput, shouldSubmitOnKeyDown } from "../../src/chatInputSh
 import { createChatProviderTestCollector, type ChatProviderTestStatus } from "../../src/settingsDiagnostics";
 import { chatStreamOptions, resolveChatProviderDraft } from "../../src/chatProviderSelection";
 import { TurnNavigatorView } from "../../src/TurnNavigatorView";
+import { KnowledgeWorkspaceShell } from "../../src/modules/knowledge_workspace/KnowledgeWorkspaceShell";
+import { SaveToKnowledgeCard } from "../../src/modules/knowledge_workspace/SaveToKnowledgeCard";
 import {
   getHistorySessions,
   getSessionDisplayTitle,
@@ -23,15 +25,25 @@ import { deriveConversationTurns, groupMessagesByTurn, shouldShowTurnNavigator }
 import {
   checkRuntimeHealth,
   checkPiSidecarHealth,
+  askKnowledgeSources,
   createChatSession,
   deleteProvider,
+  forgetKnowledgeSource,
+  getKnowledgeServiceStatus,
+  getKnowledgeGraph,
+  getKnowledgeSource,
   getChatSessionMessages,
   getLastSessionId,
   getSettings,
+  grantKnowledgePermission,
   importProvider,
   listChatSessions,
+  listKnowledgeSources,
+  listKnowledgeWorkspaces,
   patchSettings,
+  revokeKnowledgePermission,
   restoreChatSessionMessages,
+  saveCurrentPageToKnowledge,
   streamRuntimeChat,
   submitRuntimePageContext,
   testProvider,
@@ -39,6 +51,14 @@ import {
   type ChatIntent,
   type ChatProviderConfig,
   type CoreProviderId,
+  type KnowledgeOperation,
+  type KnowledgeGraph,
+  type KnowledgeQueryResult,
+  type KnowledgeWorkspace,
+  type KnowledgeServiceStatus,
+  type KnowledgeSource,
+  type PermissionRoot,
+  type ForgetSourceResult,
   type LLMProviderConfig,
   type MercurySettings,
   type PiSidecarHealth,
@@ -48,7 +68,7 @@ import {
 
 declare const __NAVIA_E2E_BRIDGE__: boolean;
 
-type SideView = "chat" | "agent" | "debug" | "settings";
+type SideView = "chat" | "knowledge" | "agent" | "debug" | "settings";
 type ModeState = "chat" | "agent_checking" | "agent_ready" | "agent_unavailable";
 type PageContextState = "unknown" | "capture_ready" | "capturing" | "captured" | "stale" | "unsupported" | "failed";
 type ChatTurnState =
@@ -87,6 +107,30 @@ function App() {
   const [sessionSwitchError, setSessionSwitchError] = useState<string | null>(null);
   const [pageContext, setPageContext] = useState<ExtractedPageContext | null>(null);
   const [pageContextState, setPageContextState] = useState<PageContextState>("unknown");
+  const [knowledgeStatus, setKnowledgeStatus] = useState<KnowledgeServiceStatus | null>(null);
+  const [knowledgeStatusLoading, setKnowledgeStatusLoading] = useState(false);
+  const [knowledgeStatusError, setKnowledgeStatusError] = useState<string | null>(null);
+  const [knowledgeSource, setKnowledgeSource] = useState<KnowledgeSource | null>(null);
+  const [knowledgeOperation, setKnowledgeOperation] = useState<KnowledgeOperation | null>(null);
+  const [knowledgeSaving, setKnowledgeSaving] = useState(false);
+  const [knowledgeSaveError, setKnowledgeSaveError] = useState<string | null>(null);
+  const [knowledgeWorkspaces, setKnowledgeWorkspaces] = useState<KnowledgeWorkspace[]>([]);
+  const [knowledgeSources, setKnowledgeSources] = useState<KnowledgeSource[]>([]);
+  const [selectedKnowledgeWorkspaceId, setSelectedKnowledgeWorkspaceId] = useState("ws_default");
+  const [selectedKnowledgeSource, setSelectedKnowledgeSource] = useState<KnowledgeSource | null>(null);
+  const [knowledgeWorkspaceLoading, setKnowledgeWorkspaceLoading] = useState(false);
+  const [knowledgeWorkspaceError, setKnowledgeWorkspaceError] = useState<string | null>(null);
+  const [knowledgeAskQuestion, setKnowledgeAskQuestion] = useState("");
+  const [knowledgeAskLoading, setKnowledgeAskLoading] = useState(false);
+  const [knowledgeAskError, setKnowledgeAskError] = useState<string | null>(null);
+  const [knowledgeQueryResult, setKnowledgeQueryResult] = useState<KnowledgeQueryResult | null>(null);
+  const [knowledgeGraph, setKnowledgeGraph] = useState<KnowledgeGraph | null>(null);
+  const [knowledgePermissions, setKnowledgePermissions] = useState<PermissionRoot[]>([]);
+  const [permissionName, setPermissionName] = useState("");
+  const [permissionPath, setPermissionPath] = useState("");
+  const [governanceLoading, setGovernanceLoading] = useState(false);
+  const [governanceError, setGovernanceError] = useState<string | null>(null);
+  const [forgetResult, setForgetResult] = useState<ForgetSourceResult | null>(null);
   const [chatTurnState, setChatTurnState] = useState<ChatTurnState>("idle");
   const [pageSubmitted, setPageSubmitted] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<string>("未提交页面上下文");
@@ -137,7 +181,7 @@ function App() {
   const messageGroups = useMemo(() => groupMessagesByTurn(chatView.messages), [chatView.messages]);
 
   function normalizeView(value: string | null | undefined): SideView {
-    if (value === "agent" || value === "debug" || value === "settings" || value === "chat") return value;
+    if (value === "agent" || value === "debug" || value === "settings" || value === "chat" || value === "knowledge") return value;
     return "chat";
   }
 
@@ -160,6 +204,180 @@ function App() {
     } catch {
       setRuntimeStatus("offline");
       return false;
+    }
+  }
+
+  async function refreshKnowledgeStatus() {
+    if (runtimeStatus === "offline") {
+      setKnowledgeStatus(null);
+      setKnowledgeStatusError("Runtime offline，无法读取 V2 knowledge status。");
+      return;
+    }
+    setKnowledgeStatusLoading(true);
+    setKnowledgeStatusError(null);
+    try {
+      const status = await getKnowledgeServiceStatus();
+      setKnowledgeStatus(status);
+    } catch (error) {
+      setKnowledgeStatus(null);
+      setKnowledgeStatusError(error instanceof Error ? error.message : "V2 knowledge status 读取失败。");
+    } finally {
+      setKnowledgeStatusLoading(false);
+    }
+  }
+
+  async function saveCurrentPageToKnowledgeBase() {
+    if (!pageContext) {
+      setKnowledgeSaveError("请先读取当前页面。");
+      return;
+    }
+    if (runtimeStatus !== "online") {
+      setKnowledgeSaveError("Runtime offline，无法保存到知识库。");
+      return;
+    }
+    setKnowledgeSaving(true);
+    setKnowledgeSaveError(null);
+    try {
+      const result = await saveCurrentPageToKnowledge(pageContext);
+      setKnowledgeSource(result.source);
+      setKnowledgeOperation(result.operation);
+      setSelectedKnowledgeSource(result.source);
+      setSelectedKnowledgeWorkspaceId(result.source.workspaceId);
+      setKnowledgeStatus((current) => current ? { ...current, sourceBuildStatus: result.source.status } : current);
+      void refreshKnowledgeWorkspace(result.source.workspaceId, result.source.sourceId);
+    } catch (error) {
+      setKnowledgeSaveError(error instanceof Error ? error.message : "保存到知识库失败。");
+    } finally {
+      setKnowledgeSaving(false);
+    }
+  }
+
+  async function refreshKnowledgeWorkspace(workspaceId = selectedKnowledgeWorkspaceId, preferredSourceId?: string) {
+    if (runtimeStatus !== "online") {
+      setKnowledgeWorkspaceError("Runtime offline，无法加载 Knowledge Workspace。");
+      return;
+    }
+    setKnowledgeWorkspaceLoading(true);
+    setKnowledgeWorkspaceError(null);
+    try {
+      const [workspaces, sources] = await Promise.all([
+        listKnowledgeWorkspaces(),
+        listKnowledgeSources(workspaceId)
+      ]);
+      setKnowledgeWorkspaces(workspaces);
+      setKnowledgeSources(sources);
+      const nextSelected = preferredSourceId
+        ? sources.find((source) => source.sourceId === preferredSourceId)
+        : sources.find((source) => source.sourceId === selectedKnowledgeSource?.sourceId) ?? sources[0] ?? null;
+      setSelectedKnowledgeSource(nextSelected ?? null);
+      setSelectedKnowledgeWorkspaceId(workspaceId);
+      setKnowledgeGraph(await getKnowledgeGraph(workspaceId));
+    } catch (error) {
+      setKnowledgeWorkspaceError(error instanceof Error ? error.message : "Knowledge Workspace 加载失败。");
+    } finally {
+      setKnowledgeWorkspaceLoading(false);
+    }
+  }
+
+  async function selectKnowledgeWorkspace(workspaceId: string) {
+    setSelectedKnowledgeWorkspaceId(workspaceId);
+    setSelectedKnowledgeSource(null);
+    await refreshKnowledgeWorkspace(workspaceId);
+  }
+
+  async function selectKnowledgeSource(sourceId: string) {
+    const cached = knowledgeSources.find((source) => source.sourceId === sourceId);
+    if (cached) setSelectedKnowledgeSource(cached);
+    try {
+      setSelectedKnowledgeSource(await getKnowledgeSource(sourceId));
+    } catch (error) {
+      setKnowledgeWorkspaceError(error instanceof Error ? error.message : "Source detail 加载失败。");
+    }
+  }
+
+  async function askKnowledgeWorkspace() {
+    const question = knowledgeAskQuestion.trim();
+    if (!question) {
+      setKnowledgeAskError("请输入问题。");
+      return;
+    }
+    if (runtimeStatus !== "online") {
+      setKnowledgeAskError("Runtime offline，无法执行 Ask with Sources。");
+      return;
+    }
+    setKnowledgeAskLoading(true);
+    setKnowledgeAskError(null);
+    try {
+      const result = await askKnowledgeSources({
+        workspaceId: selectedKnowledgeWorkspaceId,
+        question,
+        sourceIds: selectedKnowledgeSource ? [selectedKnowledgeSource.sourceId] : undefined
+      });
+      setKnowledgeQueryResult(result);
+    } catch (error) {
+      setKnowledgeAskError(error instanceof Error ? error.message : "Ask with Sources 失败。");
+    } finally {
+      setKnowledgeAskLoading(false);
+    }
+  }
+
+  async function refreshKnowledgeGraph() {
+    if (runtimeStatus !== "online") return;
+    try {
+      setKnowledgeGraph(await getKnowledgeGraph(selectedKnowledgeWorkspaceId));
+    } catch (error) {
+      setKnowledgeWorkspaceError(error instanceof Error ? error.message : "Knowledge Graph 加载失败。");
+    }
+  }
+
+  async function grantPermissionRoot() {
+    if (runtimeStatus !== "online") {
+      setGovernanceError("Runtime offline，无法授权。");
+      return;
+    }
+    setGovernanceLoading(true);
+    setGovernanceError(null);
+    try {
+      const result = await grantKnowledgePermission({
+        displayName: permissionName.trim() || "User selected source",
+        redactedPath: permissionPath.trim() || "user-authorized-path",
+        scope: "single_file"
+      });
+      setKnowledgePermissions((current) => [result.permissionRoot, ...current.filter((item) => item.permissionRootId !== result.permissionRoot.permissionRootId)]);
+      setPermissionName("");
+      setPermissionPath("");
+    } catch (error) {
+      setGovernanceError(error instanceof Error ? error.message : "PermissionRoot 授权失败。");
+    } finally {
+      setGovernanceLoading(false);
+    }
+  }
+
+  async function revokePermissionRoot(permissionRootId: string) {
+    setGovernanceLoading(true);
+    setGovernanceError(null);
+    try {
+      const result = await revokeKnowledgePermission(permissionRootId);
+      setKnowledgePermissions((current) => current.map((item) => item.permissionRootId === permissionRootId ? result.permissionRoot : item));
+    } catch (error) {
+      setGovernanceError(error instanceof Error ? error.message : "PermissionRoot 撤销失败。");
+    } finally {
+      setGovernanceLoading(false);
+    }
+  }
+
+  async function forgetSelectedKnowledgeSource() {
+    if (!selectedKnowledgeSource) return;
+    setGovernanceLoading(true);
+    setGovernanceError(null);
+    try {
+      const result = await forgetKnowledgeSource(selectedKnowledgeSource.sourceId, "forget");
+      setForgetResult(result);
+      await refreshKnowledgeWorkspace(selectedKnowledgeSource.workspaceId);
+    } catch (error) {
+      setGovernanceError(error instanceof Error ? error.message : "Forget Source 失败。");
+    } finally {
+      setGovernanceLoading(false);
     }
   }
 
@@ -877,6 +1095,23 @@ function App() {
     }
   }, [activeView, runtimeStatus]);
 
+  useEffect(() => {
+    if (runtimeStatus !== "online") {
+      setKnowledgeStatus(null);
+      setKnowledgeStatusError(runtimeStatus === "offline" ? "Runtime offline，V2 knowledge status 由前端本地推断。" : null);
+      setKnowledgeWorkspaces([]);
+      setKnowledgeSources([]);
+      setSelectedKnowledgeSource(null);
+      return;
+    }
+    void refreshKnowledgeStatus();
+  }, [runtimeStatus]);
+
+  useEffect(() => {
+    if (runtimeStatus !== "online" || activeView !== "knowledge") return;
+    void refreshKnowledgeWorkspace();
+  }, [activeView, runtimeStatus]);
+
   return (
     <main className="shell shell-layout" data-testid="navia-sidepanel-root">
       <section className="main-pane">
@@ -917,7 +1152,7 @@ function App() {
             </>
           ) : (
             <div className="topbar-view-copy">
-              <span className="topbar-view-title">{activeView === "agent" ? "Agent" : activeView === "debug" ? "Debug" : "设置"}</span>
+              <span className="topbar-view-title">{activeView === "agent" ? "Agent" : activeView === "knowledge" ? "Knowledge" : activeView === "debug" ? "Debug" : "设置"}</span>
               <p className="topbar-status" data-testid="runtime-status">
                 Runtime {runtimeStatus} · Page {pageContextState} · {chatTurnState}
               </p>
@@ -952,6 +1187,19 @@ function App() {
                 <span>{pageContext?.domain ?? "host page"}</span>
               </div>
             </section>
+            <SaveToKnowledgeCard
+              runtimeStatus={runtimeStatus}
+              pageContext={pageContext}
+              serviceStatus={knowledgeStatus}
+              serviceLoading={knowledgeStatusLoading}
+              serviceError={knowledgeStatusError}
+              source={knowledgeSource}
+              operation={knowledgeOperation}
+              saving={knowledgeSaving}
+              saveError={knowledgeSaveError}
+              onRefreshStatus={() => void refreshKnowledgeStatus()}
+              onSave={() => void saveCurrentPageToKnowledgeBase()}
+            />
             <div className="messages-frame">
               <div className="messages" aria-live="polite" ref={messagesRef}>
                 {messageGroups.map((group) => {
@@ -1052,6 +1300,51 @@ function App() {
               <p className="muted">暂未开放：天气查询、实时搜索、Deep Research、PPT 生成、Code Task、本地文件和命令工具。</p>
             </div>
           </section>
+        ) : null}
+
+        {activeView === "knowledge" ? (
+          <KnowledgeWorkspaceShell
+            runtimeStatus={runtimeStatus}
+            serviceStatus={knowledgeStatus}
+            serviceLoading={knowledgeStatusLoading}
+            serviceError={knowledgeStatusError}
+            workspaces={knowledgeWorkspaces.length ? knowledgeWorkspaces : [{
+              workspaceId: selectedKnowledgeWorkspaceId,
+              name: "Navia Knowledge",
+              sourceCount: knowledgeSources.length,
+              pendingBuildCount: 0,
+              traceCoverage: knowledgeSources.length ? 1 : 0,
+              createdAt: new Date(0).toISOString()
+            }]}
+            sources={knowledgeSources}
+            selectedWorkspaceId={selectedKnowledgeWorkspaceId}
+            selectedSource={selectedKnowledgeSource}
+            loading={knowledgeWorkspaceLoading}
+            error={knowledgeWorkspaceError}
+            askQuestion={knowledgeAskQuestion}
+            askLoading={knowledgeAskLoading}
+            askError={knowledgeAskError}
+            queryResult={knowledgeQueryResult}
+            graph={knowledgeGraph}
+            permissions={knowledgePermissions}
+            permissionName={permissionName}
+            permissionPath={permissionPath}
+            governanceLoading={governanceLoading}
+            governanceError={governanceError}
+            forgetResult={forgetResult}
+            onRefreshStatus={() => void refreshKnowledgeStatus()}
+            onRefreshWorkspace={() => void refreshKnowledgeWorkspace()}
+            onSelectWorkspace={(workspaceId) => void selectKnowledgeWorkspace(workspaceId)}
+            onSelectSource={(sourceId) => void selectKnowledgeSource(sourceId)}
+            onAskQuestionChange={setKnowledgeAskQuestion}
+            onAskSources={() => void askKnowledgeWorkspace()}
+            onRefreshGraph={() => void refreshKnowledgeGraph()}
+            onPermissionNameChange={setPermissionName}
+            onPermissionPathChange={setPermissionPath}
+            onGrantPermission={() => void grantPermissionRoot()}
+            onRevokePermission={(permissionRootId) => void revokePermissionRoot(permissionRootId)}
+            onForgetSelectedSource={() => void forgetSelectedKnowledgeSource()}
+          />
         ) : null}
 
         {activeView === "debug" ? (
@@ -1315,6 +1608,16 @@ function App() {
         >
           <span className="tool-glyph" aria-hidden="true">C</span>
           <span className="tool-label">Chat</span>
+        </button>
+        <button
+          className={`tool-button ${activeView === "knowledge" ? "active" : ""}`}
+          data-testid="nav-knowledge-tab"
+          type="button"
+          aria-current={activeView === "knowledge" ? "true" : undefined}
+          onClick={() => syncView("knowledge")}
+        >
+          <span className="tool-glyph" aria-hidden="true">K</span>
+          <span className="tool-label">Know</span>
         </button>
         <button
           className={`tool-button ${activeView === "agent" ? "active" : ""}`}

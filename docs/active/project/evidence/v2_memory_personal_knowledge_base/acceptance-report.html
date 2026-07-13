@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia V2-7 自动化验收报告</title>
+  <style>
+    :root{--ink:#102421;--muted:#526963;--brand:#005a4b;--line:#c9ded8;--bg:#f3f8f6;--card:#fff}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,"Microsoft YaHei",sans-serif}
+    header{padding:46px 54px;background:linear-gradient(135deg,#073f37,#0e6b58);color:#fff}
+    h1{font-size:38px;margin:0 0 12px} h2{font-size:26px;margin:0 0 16px;color:var(--brand)} h3{font-size:19px;margin:0 0 10px}
+    .sub{font-size:19px;line-height:1.55;max-width:1180px;opacity:.9}
+    main{max-width:1320px;margin:0 auto;padding:32px}
+    section{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:0 0 22px;padding:26px;box-shadow:0 18px 48px rgba(23,68,58,.08)}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .metric{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fbfffd}.metric b{display:block;font-size:30px;color:var(--brand)}.metric span{color:var(--muted);font-size:13px;font-weight:800}
+    .claim{display:inline-flex;border-radius:999px;padding:10px 14px;background:#e9f8f2;border:1px solid #9ccabc;color:#005a4b;font-weight:900}
+    table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px} th,td{border-bottom:1px solid #ddebe7;padding:12px;text-align:left;vertical-align:top} th{font-size:12px;text-transform:uppercase;color:#5c746e;background:#f7fbfa}
+    code{background:#edf6f3;border:1px solid #d3e6df;border-radius:8px;padding:2px 6px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.gallery figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}.gallery img{display:block;width:100%;height:230px;object-fit:cover}.gallery figcaption{font-size:12px;color:var(--muted);padding:10px;word-break:break-all}
+    .note{border-left:5px solid var(--brand);padding:12px 16px;background:#f1faf7;line-height:1.62}
+    .warn{border-left-color:#a66a00;background:#fff8e8}.fail{border-left-color:#b42318;background:#fff2f0}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Navia V2-7 自动化验收报告：通过</h1>
+    <div class="sub">本报告是 V2 Memory / Personal Knowledge Base 的规划对齐型本地知识验收。它验证 V2-1 到 V2-6 已实现基线在 V2-7 证据包中的表现，但不声明 V2 implemented、V2 ready、V2 Memory/RAG ready 或 data_service console 等同 Navia UI。</div>
+  </header>
+  <main>
+    <section>
+      <h2>验收结论</h2>
+      <p><span class="claim">V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.</span></p>
+      <div class="grid">
+        <div class="metric"><span>来源样本</span><b>24</b></div>
+        <div class="metric"><span>真实网页样本</span><b>12</b></div>
+        <div class="metric"><span>授权本地文档</span><b>6</b></div>
+        <div class="metric"><span>笔记/Markdown</span><b>6</b></div>
+        <div class="metric"><span>来源通过数</span><b>24</b></div>
+        <div class="metric"><span>查询场景</span><b>18</b></div>
+        <div class="metric"><span>服务状态场景</span><b>4</b></div>
+        <div class="metric"><span>删除场景</span><b>6</b></div>
+      </div>
+      <p class="note">真实数据口径：网页样本来自 V1 Post-V1 Hardening 的冻结真实网页验收矩阵；本地文档和笔记仅读取 <code>docs/active</code> 下的显式项目文档。截图由 headless Chromium 生成，没有打开可见浏览器窗口。</p>
+    </section>
+
+    <section>
+      <h2>目标架构与当前实现</h2>
+      <p>目标架构保持 V1 阅读能力，并新增 V2 Knowledge Plane：<code>KnowledgeWorkspaceShell</code>、<code>SaveToKnowledgeCard</code>、<code>ServiceStatusBanner</code>、<code>KnowledgeBuildStatus</code> 通过 <code>runtimeClient</code> 调用 Runtime 的 V2 knowledge API；Runtime 内部使用 <code>MockKnowledgeServiceAdapter</code> 作为确定性主路径，并用 <code>DataServiceClient</code> 记录 data_service 受控适配边界。</p>
+      <p>当前实现范围：支持工作区切换、保存到知识库状态、来源库/详情、Ask with Sources、Trace、Graph、Permission Root、Forget Source 与服务状态诊断。当前不直接接入 data_service 生产能力，不开启默认本地文件读取，不提供 RAG/Memory ready 完成声明。</p>
+    </section>
+
+    <section>
+      <h2>截图证据</h2>
+      <div class="gallery"><figure><img src="screenshots/source-v2_src_web_domestic_portal_163_news_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_163_news_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_163_news_home.png</figcaption></figure>
+<figure><img src="screenshots/source-v2_src_web_domestic_portal_cctv_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_cctv_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_cctv_home.png</figcaption></figure>
+<figure><img src="screenshots/source-v2_src_web_domestic_portal_chinanews_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_chinanews_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_chinanews_home.png</figcaption></figure>
+<figure><img src="screenshots/source-v2_src_web_domestic_portal_guancha_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_guancha_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_guancha_home.png</figcaption></figure>
+<figure><img src="screenshots/source-v2_src_web_domestic_portal_people_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_people_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_people_home.png</figcaption></figure>
+<figure><img src="screenshots/source-v2_src_web_domestic_portal_qq_news_home.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_qq_news_home.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/source-v2_src_web_domestic_portal_qq_news_home.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_1.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_1.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_1.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_2.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_2.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_2.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_3.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_3.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_3.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_4.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_4.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_4.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_5.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_5.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_5.png</figcaption></figure>
+<figure><img src="screenshots/scenario-v2_scenario_mixed_workspace_query_6.png" alt="docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_6.png"><figcaption>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/scenario-v2_scenario_mixed_workspace_query_6.png</figcaption></figure></div>
+    </section>
+
+    <section>
+      <h2>来源样本结果</h2>
+      <table><thead><tr><th>样本</th><th>类型</th><th>目标</th><th>状态</th><th>证据摘要</th><th>截图</th></tr></thead><tbody><tr>
+      <td><code>v2_src_web_domestic_portal_163_news_home</code></td>
+      <td>web_page</td>
+      <td>https://news.163.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 网易新闻<br>Source URL retained for V2 save/build/trace acceptance: https://news.163.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_163_news_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_portal_cctv_home</code></td>
+      <td>web_page</td>
+      <td>https://news.cctv.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 央视网新闻<br>Source URL retained for V2 save/build/trace acceptance: https://news.cctv.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_cctv_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_portal_chinanews_home</code></td>
+      <td>web_page</td>
+      <td>https://www.chinanews.com.cn/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 中国新闻网<br>Source URL retained for V2 save/build/trace acceptance: https://www.chinanews.com.cn/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_chinanews_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_portal_guancha_home</code></td>
+      <td>web_page</td>
+      <td>https://www.guancha.cn/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 观察者网<br>Source URL retained for V2 save/build/trace acceptance: https://www.guancha.cn/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_guancha_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_portal_people_home</code></td>
+      <td>web_page</td>
+      <td>http://www.people.com.cn/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 人民网<br>Source URL retained for V2 save/build/trace acceptance: http://www.people.com.cn/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_people_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_portal_qq_news_home</code></td>
+      <td>web_page</td>
+      <td>https://news.qq.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 腾讯新闻<br>Source URL retained for V2 save/build/trace acceptance: https://news.qq.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_portal_qq_news_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_article_36kr_news</code></td>
+      <td>web_page</td>
+      <td>https://36kr.com/information/technology/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 36氪<br>Source URL retained for V2 save/build/trace acceptance: https://36kr.com/information/technology/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_article_36kr_news.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_article_cctv_tech</code></td>
+      <td>web_page</td>
+      <td>https://news.cctv.com/tech/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 央视网新闻<br>Source URL retained for V2 save/build/trace acceptance: https://news.cctv.com/tech/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_article_cctv_tech.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_article_cnblogs</code></td>
+      <td>web_page</td>
+      <td>https://www.cnblogs.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 博客园<br>Source URL retained for V2 save/build/trace acceptance: https://www.cnblogs.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_article_cnblogs.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_article_sspai</code></td>
+      <td>web_page</td>
+      <td>https://sspai.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 少数派<br>Source URL retained for V2 save/build/trace acceptance: https://sspai.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_article_sspai.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_content_baijiahao</code></td>
+      <td>web_page</td>
+      <td>https://baijiahao.baidu.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: 百家号<br>Source URL retained for V2 save/build/trace acceptance: https://baijiahao.baidu.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_content_baijiahao.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_web_domestic_content_bilibili_home</code></td>
+      <td>web_page</td>
+      <td>https://www.bilibili.com/</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td>Frozen real-site sample from V1 post-V1 hardening: B站<br>Source URL retained for V2 save/build/trace acceptance: https://www.bilibili.com/</td>
+      <td><a href="screenshots/source-v2_src_web_domestic_content_bilibili_home.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_prd</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/01-prd.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># Navia / 伴航 V1 PRD 版本：V1.0 PRD Baseline 日期：2026-05-31 产品名：Navia / 伴航 角色名建议：小航 阶段目标：Chrome 插件页面内交互优先的 Headless 伴随式 AI MVP --- ## 1. 产品背景 用户在浏览网页、阅读文章、查看技术文档、调研产品、整理资料时，经常需要即时理解当前页面<br>Authorized active document path: docs/active/project/01-prd.md</td>
+      <td><a href="screenshots/source-v2_src_local_prd.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_architecture</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/02-architecture.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># Navia / 伴航 V1 架构设计文档 版本：V1.0 Architecture Baseline 日期：2026-05-31 --- ## 1. 架构目标 Navia V1 架构的目标是搭建一个可以长期演进的本地 Headless AI Runtime，而不是一次性网页插件。 V1 架构必须支持： - Chrome 插件通过 Content Scri<br>Authorized active document path: docs/active/project/02-architecture.md</td>
+      <td><a href="screenshots/source-v2_src_local_architecture.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_development_plan</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/03-development-plan.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># Navia / 伴航 V1 开发计划大纲 版本：V1.0 Development Plan Baseline 日期：2026-05-31 --- ## 1. 开发总原则 V1 开发必须坚持： ```text 先底座，后 PRD 页面内体验。 先可控，后智能。 先单 Session，后长期记忆。 先 Headless Runtime，后多端 UI。 先状态<br>Authorized active document path: docs/active/project/03-development-plan.md</td>
+      <td><a href="screenshots/source-v2_src_local_development_plan.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_acceptance_plan</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/04-acceptance-plan.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># Navia / 伴航 V1 目标验收文档 版本：V1.0 Acceptance Plan Baseline 日期：2026-05-31 --- ## 1. 验收原则 V1 验收不以“功能多”为标准，而以“核心链路稳定、状态可观测、行为可监督”为标准。 审计后新增原则： ```text Go, but contract-first. ``` 在进入 V1.<br>Authorized active document path: docs/active/project/04-acceptance-plan.md</td>
+      <td><a href="screenshots/source-v2_src_local_acceptance_plan.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_stage_gate</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/stage-gates/v2-memory-personal-knowledge-base.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 Memory / Personal Knowledge Base Stage Gate 本阶段是 `V2 Memory / Personal Knowledge Base` 的实现基线同步与 V2-7 真实数据验收门禁。它不修改 V1 complete 或 post-V1 hardening 基线，也不把 V2-1..V2-6 mock-first<br>Authorized active document path: docs/active/project/stage-gates/v2-memory-personal-knowledge-base.md</td>
+      <td><a href="screenshots/source-v2_src_local_stage_gate.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_local_gap_doc</code></td>
+      <td>authorized_local_document</td>
+      <td>docs/active/project/design/v2-memory-personal-knowledge-base-gap.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 Memory / Personal Knowledge Base Gap Companion 本 companion 解释 `v2-memory-personal-knowledge-base-gap.drawio` 的图纸口径。当前图纸用于同步 V2-1..V2-6 mock-first / controlled-boundary 实现基线，并明<br>Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-base-gap.md</td>
+      <td><a href="screenshots/source-v2_src_local_gap_doc.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_lifecycle_adr</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-memory-personal-knowledge-lifecycle-adr.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># ADR: V2 Memory Lifecycle, Idempotency, Permission Revoke and Forget Cascade ## Status Proposed for V2-0. Not approved for V2-1 implementation until reviewed. ## Context V2 adds p<br>Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-lifecycle-adr.md</td>
+      <td><a href="screenshots/source-v2_src_note_lifecycle_adr.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_semantic_validator</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-memory-personal-knowledge-semantic-validator.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 Memory Semantic Validator Specification ## Status Required V2-0 output. This is a documentation-stage validator specification; implementation belongs to the future V2 evidence<br>Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-semantic-validator.md</td>
+      <td><a href="screenshots/source-v2_src_note_semantic_validator.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_data_service_snapshot</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-data-service-api-snapshot.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 data_service API Snapshot ## Status V2-0 spike input captured from the local candidate repository on 2026-07-10. ```text repository: /mnt/c/workspace/data_service remote: http<br>Authorized active document path: docs/active/project/design/v2-data-service-api-snapshot.md</td>
+      <td><a href="screenshots/source-v2_src_note_data_service_snapshot.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_data_service_capability</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-data-service-capability-matrix.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 data_service Capability Matrix ## Status V2-0 spike output. This matrix maps the local data_service candidate to Navia V2 Memory requirements. | V2 capability | data_service e<br>Authorized active document path: docs/active/project/design/v2-data-service-capability-matrix.md</td>
+      <td><a href="screenshots/source-v2_src_note_data_service_capability.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_data_service_unsupported</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-data-service-unsupported-capabilities.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 data_service Unsupported And Risky Capabilities ## Unsupported For Direct V2 Use | Area | Reason | Required Navia action | |---|---|---| | Direct workspace file access | data_<br>Authorized active document path: docs/active/project/design/v2-data-service-unsupported-capabilities.md</td>
+      <td><a href="screenshots/source-v2_src_note_data_service_unsupported.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_src_note_data_service_spike</code></td>
+      <td>markdown</td>
+      <td>docs/active/project/design/v2-data-service-adapter-spike-report.md</td>
+      <td><strong>通过</strong><br>trace_ready / located</td>
+      <td># V2 data_service Adapter Spike Report ## Summary ```text date: 2026-07-10 repository: /mnt/c/workspace/data_service commit: fa8f8377b314510cc316640b625185d5f703841f version: local<br>Authorized active document path: docs/active/project/design/v2-data-service-adapter-spike-report.md</td>
+      <td><a href="screenshots/source-v2_src_note_data_service_spike.png">截图</a></td>
+    </tr></tbody></table>
+    </section>
+
+    <section>
+      <h2>用户场景路径结果</h2>
+      <table><thead><tr><th>场景</th><th>类型</th><th>指标</th><th>状态</th><th>证据</th></tr></thead><tbody><tr>
+      <td><code>v2_scenario_mixed_workspace_query_1</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_mixed_workspace_query_2</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_mixed_workspace_query_3</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_mixed_workspace_query_4</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_4.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_mixed_workspace_query_5</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_5.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_mixed_workspace_query_6</code></td>
+      <td>mixed_workspace_query</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_mixed_workspace_query_6.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_1</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_2</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_3</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_4</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_4.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_5</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_5.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_6</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_6.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_7</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_7.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_8</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_8.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_9</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_9.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_10</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_10.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_11</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_11.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_ask_with_sources_12</code></td>
+      <td>ask_with_sources</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_ask_with_sources_12.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_1</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_2</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_3</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_4</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_4.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_5</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_5.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_6</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_6.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_7</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_7.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_graph_trace_8</code></td>
+      <td>graph_trace</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_graph_trace_8.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_1</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_2</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_3</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_4</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_4.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_5</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_5.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_permission_grant_revoke_6</code></td>
+      <td>permission_grant_revoke</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_permission_grant_revoke_6.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_1</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_2</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_3</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_4</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_4.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_5</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_5.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_forget_before_after_6</code></td>
+      <td>forget_before_after</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_forget_before_after_6.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_service_status_1</code></td>
+      <td>service_status</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_service_status_1.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_service_status_2</code></td>
+      <td>service_status</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_service_status_2.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_service_status_3</code></td>
+      <td>service_status</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_service_status_3.png">截图</a></td>
+    </tr>
+<tr>
+      <td><code>v2_scenario_service_status_4</code></td>
+      <td>service_status</td>
+      <td>1/1 gte 1</td>
+      <td><strong>通过</strong></td>
+      <td><a href="screenshots/scenario-v2_scenario_service_status_4.png">截图</a></td>
+    </tr></tbody></table>
+    </section>
+
+    <section>
+      <h2>PRD / False-Green 审计</h2>
+      <p class="note">Fatal Issues: 0；Major Issues: 0。本报告必须与 <code>prd-review.md</code>、<code>false-green-audit.md</code>、<code>sample-manifest.json</code>、<code>report.json</code> 一起审阅。</p>
+      <p>关键防线：不把 V2-6 实现基线冒充 V2-7；不把 data_service console 作为 Navia UI；不把 fallback/blocked 算作 located；不把本地文件默认读取纳入验收；不声明最终 Monica-like UX、V2 ready 或 RAG ready。</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v2_memory_contracts.schema.json",
+  "title": "Navia V2 Memory Contract Definitions",
+  "description": "Authoritative draft schema bundle for V2 Memory / Personal Knowledge Base planning. This is a documentation-stage contract and must be promoted through V2-0 before implementation.",
+  "type": "object",
+  "$defs": {
+    "Id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_:-]{7,127}$"
+    },
+    "Timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ApiEnvelope": {
+      "type": "object",
+      "required": ["schemaVersion", "requestId", "ok"],
+      "properties": {
+        "schemaVersion": { "const": "v2-memory-draft-2026-07-10" },
+        "requestId": { "$ref": "#/$defs/Id" },
+        "operationId": { "$ref": "#/$defs/Id" },
+        "traceId": { "$ref": "#/$defs/Id" },
+        "ok": { "type": "boolean" },
+        "data": { "type": "object" },
+        "error": { "$ref": "#/$defs/KnowledgeError" }
+      },
+      "additionalProperties": false
+    },
+    "KnowledgeError": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "$ref": "#/$defs/ErrorCode" },
+        "message": { "type": "string", "minLength": 1 },
+        "retryable": { "type": "boolean" },
+        "userAction": { "type": "string" },
+        "details": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "ErrorCode": {
+      "type": "string",
+      "enum": [
+        "RUNTIME_OFFLINE",
+        "ADAPTER_NOT_CONFIGURED",
+        "ADAPTER_BLOCKED",
+        "DATA_SERVICE_UNREACHABLE",
+        "DATA_SERVICE_AUTH_REQUIRED",
+        "DATA_SERVICE_VERSION_MISMATCH",
+        "PERMISSION_REQUIRED",
+        "SOURCE_ALREADY_EXISTS",
+        "SOURCE_NOT_FOUND",
+        "SOURCE_BUILD_FAILED",
+        "TRACE_UNAVAILABLE",
+        "EVIDENCE_REQUIRED",
+        "FORGET_VERIFICATION_FAILED",
+        "UNSUPPORTED_CAPABILITY",
+        "VALIDATION_ERROR",
+        "TIMEOUT"
+      ]
+    },
+    "RuntimeStatus": {
+      "type": "string",
+      "enum": ["checking", "online", "offline"]
+    },
+    "AdapterStatus": {
+      "type": "string",
+      "enum": ["ready", "degraded", "blocked", "not_configured"]
+    },
+    "DataServiceStatus": {
+      "type": "string",
+      "enum": ["unchecked", "connected", "auth_required", "unreachable", "version_mismatch", "blocked_by_policy"]
+    },
+    "SourceBuildStatus": {
+      "type": "string",
+      "enum": ["not_saved", "queued", "ingesting", "building", "trace_ready", "degraded", "failed", "forgotten"]
+    },
+    "SourceType": {
+      "type": "string",
+      "enum": ["web_page", "authorized_local_document", "note", "markdown", "pdf", "other_supported_source"]
+    },
+    "Workspace": {
+      "type": "object",
+      "required": ["workspaceId", "name", "createdAt"],
+      "properties": {
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "description": { "type": "string", "maxLength": 500 },
+        "sourceCount": { "type": "integer", "minimum": 0 },
+        "pendingBuildCount": { "type": "integer", "minimum": 0 },
+        "traceCoverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "createdAt": { "$ref": "#/$defs/Timestamp" },
+        "updatedAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    },
+    "MemoryCandidate": {
+      "type": "object",
+      "required": ["candidateId", "sourceType", "workspaceId", "createdAt", "sourceRefs"],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/Id" },
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "sourceType": { "$ref": "#/$defs/SourceType" },
+        "title": { "type": "string", "maxLength": 240 },
+        "url": { "type": "string" },
+        "pageId": { "$ref": "#/$defs/Id" },
+        "artifactIds": { "type": "array", "items": { "$ref": "#/$defs/Id" }, "uniqueItems": true },
+        "sourceRefs": { "type": "array", "items": { "$ref": "#/$defs/EvidenceRef" }, "minItems": 1 },
+        "idempotencyKey": { "type": "string", "minLength": 8, "maxLength": 160 },
+        "createdAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    },
+    "KnowledgeSource": {
+      "type": "object",
+      "required": ["sourceId", "workspaceId", "sourceType", "status", "revision", "createdAt"],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/Id" },
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "sourceType": { "$ref": "#/$defs/SourceType" },
+        "title": { "type": "string", "maxLength": 240 },
+        "originUrl": { "type": "string" },
+        "status": { "$ref": "#/$defs/SourceBuildStatus" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "operationId": { "$ref": "#/$defs/Id" },
+        "evidenceRefs": { "type": "array", "items": { "$ref": "#/$defs/EvidenceRef" } },
+        "degradedReason": { "type": "string" },
+        "createdAt": { "$ref": "#/$defs/Timestamp" },
+        "updatedAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    },
+    "KnowledgeItem": {
+      "type": "object",
+      "required": ["itemId", "workspaceId", "sourceIds", "itemType", "text"],
+      "properties": {
+        "itemId": { "$ref": "#/$defs/Id" },
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "sourceIds": { "type": "array", "items": { "$ref": "#/$defs/Id" }, "minItems": 1, "uniqueItems": true },
+        "itemType": { "type": "string", "enum": ["claim", "summary", "note", "entity", "relation", "quote", "task"] },
+        "text": { "type": "string", "minLength": 1 },
+        "evidenceRefs": { "type": "array", "items": { "$ref": "#/$defs/EvidenceRef" } },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "EvidenceRef": {
+      "type": "object",
+      "required": ["evidenceRefId", "sourceId", "locatorType", "status"],
+      "properties": {
+        "evidenceRefId": { "$ref": "#/$defs/Id" },
+        "sourceId": { "$ref": "#/$defs/Id" },
+        "locatorType": { "type": "string", "enum": ["dom_text_quote", "dom_selector", "pdf_page", "markdown_line", "note_block", "fallback_text"] },
+        "textQuote": { "type": "string" },
+        "selector": { "type": "string" },
+        "pageNumber": { "type": "integer", "minimum": 1 },
+        "lineStart": { "type": "integer", "minimum": 1 },
+        "lineEnd": { "type": "integer", "minimum": 1 },
+        "status": { "type": "string", "enum": ["located", "fallback_shown", "blocked"] },
+        "fallbackText": { "type": "string" },
+        "redactionApplied": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "PermissionRoot": {
+      "type": "object",
+      "required": ["permissionRootId", "displayName", "state", "createdAt"],
+      "properties": {
+        "permissionRootId": { "$ref": "#/$defs/Id" },
+        "displayName": { "type": "string", "minLength": 1 },
+        "redactedPath": { "type": "string" },
+        "state": { "type": "string", "enum": ["not_granted", "granted", "revoked", "blocked"] },
+        "scope": { "type": "string", "enum": ["single_file", "directory", "workspace_export"] },
+        "createdAt": { "$ref": "#/$defs/Timestamp" },
+        "revokedAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    },
+    "ForgetRequest": {
+      "type": "object",
+      "required": ["forgetRequestId", "sourceId", "workspaceId", "requestedAt", "requestedByUser"],
+      "properties": {
+        "forgetRequestId": { "$ref": "#/$defs/Id" },
+        "sourceId": { "$ref": "#/$defs/Id" },
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "requestedAt": { "$ref": "#/$defs/Timestamp" },
+        "requestedByUser": { "const": true },
+        "confirmationText": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ForgetVerification": {
+      "type": "object",
+      "required": ["verificationId", "forgetRequestId", "sourceId", "libraryAbsent", "askAbsent", "graphAbsent", "traceAbsent", "verifiedAt"],
+      "properties": {
+        "verificationId": { "$ref": "#/$defs/Id" },
+        "forgetRequestId": { "$ref": "#/$defs/Id" },
+        "sourceId": { "$ref": "#/$defs/Id" },
+        "libraryAbsent": { "type": "boolean" },
+        "askAbsent": { "type": "boolean" },
+        "graphAbsent": { "type": "boolean" },
+        "traceAbsent": { "type": "boolean" },
+        "verifiedAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    },
+    "KnowledgeOperation": {
+      "type": "object",
+      "required": ["operationId", "operationType", "status", "createdAt"],
+      "properties": {
+        "operationId": { "$ref": "#/$defs/Id" },
+        "operationType": { "type": "string", "enum": ["save_source", "build_source", "grant_permission", "revoke_permission", "forget_source", "verify_forget"] },
+        "status": { "type": "string", "enum": ["queued", "running", "succeeded", "degraded", "failed", "cancelled"] },
+        "sourceId": { "$ref": "#/$defs/Id" },
+        "workspaceId": { "$ref": "#/$defs/Id" },
+        "idempotencyKey": { "type": "string" },
+        "error": { "$ref": "#/$defs/KnowledgeError" },
+        "createdAt": { "$ref": "#/$defs/Timestamp" },
+        "updatedAt": { "$ref": "#/$defs/Timestamp" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "workspace": { "$ref": "#/$defs/Workspace" },
+    "memoryCandidate": { "$ref": "#/$defs/MemoryCandidate" },
+    "knowledgeSource": { "$ref": "#/$defs/KnowledgeSource" },
+    "knowledgeItem": { "$ref": "#/$defs/KnowledgeItem" },
+    "evidenceRef": { "$ref": "#/$defs/EvidenceRef" },
+    "permissionRoot": { "$ref": "#/$defs/PermissionRoot" },
+    "forgetRequest": { "$ref": "#/$defs/ForgetRequest" },
+    "forgetVerification": { "$ref": "#/$defs/ForgetVerification" },
+    "knowledgeOperation": { "$ref": "#/$defs/KnowledgeOperation" }
+  },
+  "additionalProperties": false
+}

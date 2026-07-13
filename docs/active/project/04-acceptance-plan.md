@@ -1744,3 +1744,166 @@ No-Go：
 - [ ] V2 Memory / RAG ready。
 - [ ] Web Research / PPT / Deep Research ready。
 - [ ] 新增顶级页面、默认本地文件读取、产品浏览器自动操作、多 Agent、语音、桌宠、OCR/VLM/ASR 或媒体流理解。
+
+### 8.19 V2 Memory / Personal Knowledge Base 文档与未来验收计划
+
+当前验收目标是证明 V2 目标体验、目标架构、开发计划、验收计划、stage gate、原型审查页、drawio 与 V2-7 独立证据包已同步到最新实现事实：V2-1..V2-6 已形成 mock-first / controlled-boundary 实现基线，V2-7 planning-aligned local knowledge acceptance 已通过。验收计划不得把候选 data_service 能力、原型图、mock-first 实现或 V2-7 规划对齐验收误写成 V2 ready。
+
+当前门禁结论：
+
+```text
+Go for V2 Memory / Personal Knowledge Base implementation-baseline record through V2-6.
+Go for V2 planning-aligned local knowledge acceptance claim after V2-7 evidence passes; No-Go for V2 ready / RAG ready claims.
+```
+
+文档门禁必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 使用同一阶段名：`V2 Memory / Personal Knowledge Base`。
+- [ ] 文档明确 V2 是本地备忘、个人知识库、标签化总结和类 RAG 蒸馏方向；当前实现基线不声明 V2 implemented 或 V2 ready。
+- [ ] 文档引用原型审查页 `docs/active/project/design/v2-memory-personal-knowledge-prototype-review/index.html`，并明确它是设计输入，不是实现截图或通过证据。
+- [ ] 文档必须覆盖保存当前网页、Knowledge Workspace、Source Library、Ask with Sources、Evidence Trace、Knowledge Graph、Permission Root、Forget Source。
+- [ ] 文档必须覆盖前端后端服务状态感知：Side Panel / Knowledge Workspace / SaveToKnowledgeCard / Debug / Settings 中能够区分 Navia Runtime、V2 Adapter / Governance、data_service 候选服务和单个 source build / trace / forget 状态。
+- [ ] 文档必须明确 `/mnt/c/workspace/data_service` 只是候选 Local Knowledge Governance Service；Navia 只能通过 V2 Adapter / Governance 调用 HTTP / MCP / CLI 边界。
+- [ ] 文档必须明确不得直接读写 data_service 内部 workspace，不得把 data_service console 当作 Navia 产品 UI。
+- [ ] 文档必须明确默认不读取本地文件；本地文件 / 目录导入必须由用户显式授权。
+- [ ] 文档必须明确删除 / 遗忘必须有 before / after query 验证，不能只隐藏 UI 卡片。
+- [ ] drawio 不超过 8 页，中文书写，并包含目标体验、当前架构与目标架构差异、分层代码实体、data_service 边界、前端组件、权限 / 删除 / 证据链、开发及验收计划、出门条件和 No-Go。
+- [ ] drawio 架构页必须出现具体实体：`pageContext.ts`、`contentBridge.ts`、B `chat_renderer`、B `mindmap_renderer`、A Page Reading、C Mindmap、D Agent Loop / Adapter、V2 Adapter / Governance、Memory Plane contracts、Knowledge Workspace、data_service 和 V2 evidence package。
+- [ ] drawio 必须用架构平面展示 P0 Browser Host、P1 Extension Shell、P2 Side Panel UI、P3 Runtime Client、P4 Local Runtime API、P5 V2 Adapter / Governance、P6 data_service Candidate、P7 Evidence 的关系。
+- [ ] drawio 必须用代码实体修改地图说明哪些文件已实现保持、哪些已实现需验收、哪些待补齐、哪些属于外部候选且不在 Navia 仓直接修改。
+- [ ] drawio 必须展示服务状态链路：`ServiceStatusBanner` / `DataServiceStatusCard` / `KnowledgeBuildStatus` -> `runtimeClient.ts` V2 knowledge section -> `/v1/knowledge/status` -> V2 Adapter status aggregator -> data_service health probe。
+- [ ] 文档必须明确 Runtime offline 由前端 transport failure 推导；Runtime 离线时 `/v1/knowledge/status` 不可能返回成功响应。
+- [ ] 文档必须列出 V2-0 P0 产物：合同 schema、OpenAPI、错误码、sample manifest schema、report schema、semantic validator、data_service spike、生命周期 ADR、原型同步和 Workspace 承载形态决策。
+- [ ] 文档必须引用 V2-1..V2-6 子阶段 evidence 和 V2-7 独立证据包；`v2-7-acceptance-blocked-audit.md` 仅作为过期阻塞记录保留。
+
+当前已落盘的 V2 子阶段 evidence 和 V2-7 独立证据包必须作为事实输入：
+
+```text
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-1-development-acceptance-plan.md
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-1-prd-review.md
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-1-false-green-audit.md
+...
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-6-development-acceptance-plan.md
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-6-prd-review.md
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-6-false-green-audit.md
+docs/active/project/evidence/v2_memory_personal_knowledge_base/v2-7-acceptance-blocked-audit.md
+```
+
+V2-7 真实数据验收矩阵：
+
+- [ ] Source corpus 最少 24 个 source：12 个真实网页、6 个显式授权本地文档、6 个 notes / markdown / other supported sources。
+- [ ] Source corpus 覆盖新闻 / 门户、技术文档、产品调研、长文博客、PDF 或文档型资料、用户手动笔记。
+- [ ] Query and operation scenarios 与 source corpus 分开统计：至少 6 个 mixed-workspace queries、12 个 Ask with Sources、8 个 Graph / Trace、6 个 Permission grant / revoke、6 个 Forget before / after、4 个 service status scenarios。
+- [ ] 至少 20/24 source 完成 ingest / build / trace 或明确 degraded / blocked。
+- [ ] 至少覆盖 4 类服务状态样本：Runtime offline、Adapter degraded 或 blocked、data_service auth_required / unreachable / version_mismatch 之一、source build failed 或 degraded。
+- [ ] 至少 12 个样本完成 Ask with Sources，回答包含 evidence refs。
+- [ ] 至少 8 个样本展示 Knowledge Graph 节点和 source trace。
+- [ ] 至少 6 个样本覆盖 PermissionRoot 授权 / 撤销。
+- [ ] 至少 6 个样本覆盖 ForgetSource 删除 / 遗忘和再次查询验证。
+- [ ] 每个样本必须记录 `workspace_id`、`source_id`、`source_type`、`runtime_status`、`adapter_status`、`data_service_status`、`ingest_status`、`build_status`、`trace_status`、`evidence_refs`、`permission_state`、`forget_state`、`query_result`、`degraded_reason` 和截图路径。
+- [ ] `v2_memory_sample_manifest.schema.json`、`v2_memory_report.schema.json` 和 semantic validator 必须通过；不能只检查字段是否存在。
+- [ ] V2-7 必须生成 `sample-manifest.json`、`report.json`、`acceptance-report.html` 和 `screenshots/`；缺任一项不得声明通过。
+
+V2-7 每页 / 每 source pass 质量阈值：
+
+- [ ] 保存入口必须由用户主动触发，不得自动保存当前页或自动扫描本地目录。
+- [ ] 前端不得只显示“后端正常 / 异常”的泛化状态；Runtime offline、Adapter blocked、data_service unreachable、source build failed 必须有不同 UI 文案、状态色和下一步动作。
+- [ ] B 前端不得直接探测 data_service health；服务状态必须来自 Navia Runtime `/v1/knowledge/status` 或同等受控 Adapter 聚合响应。
+- [ ] Runtime offline 必须由 `runtimeClient.ts` V2 knowledge section 的 transport failure / timeout 本地推导，不得写成 Runtime 在线返回的 status 成功响应。
+- [ ] 跨来源回答必须引用 `EvidenceRef`、source trace 或明确 degraded。
+- [ ] evidence refs 必须语义支撑回答；只验证数组非空不得计为 pass。
+- [ ] Knowledge Graph 顶层节点必须来自服务侧 source / unit / relation 数据，不得由前端凭空生成事实。
+- [ ] Source Trace 必须区分 located、fallback_shown、blocked；UI、JSON、HTML 报告和截图 metadata 必须一致。
+- [ ] 本地授权 root 必须可撤销；撤销后不得继续扫描或新增 source。
+- [ ] 删除 / 遗忘成功后，被删除 source 不得继续出现在 Source Library、Ask with Sources、Knowledge Graph 或 Source Trace 中。
+
+允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+V2-7 已通过后最多允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+No-Go：
+
+- [ ] 当前实现基线声明 V2 implemented。
+- [ ] 用 V2-1..V2-6 mock-first 子阶段 evidence 替代 V2-7 真实数据验收。
+- [ ] V2 Memory / RAG ready。
+- [ ] 默认读取本地文件或默认扫描目录。
+- [ ] 把 data_service console 冒充 Navia 产品 UI。
+- [ ] B 前端直接读写 data_service workspace。
+- [ ] 无 evidence refs 的跨来源回答显示为成功。
+- [ ] 删除 / 遗忘只隐藏 UI 卡片但仍可被查询命中。
+- [ ] Web Research / PPT / Deep Research ready。
+- [ ] 多 Agent、产品浏览器自动操作、语音、桌宠或媒体理解 ready。
+
+### 8.20 V3 Media Companion 文档与未来验收计划
+
+当前验收目标是证明 V3 目标体验、目标架构、开发计划、验收计划、stage gate 和 drawio 已经被完整规划，且不会把未来多模态能力误写成本阶段或 V3.0 的交付承诺。本阶段不进入代码实现。
+
+文档门禁必须通过：
+
+- [ ] PRD、目标架构、开发计划、验收计划、stage gate、gap companion、drawio 使用同一阶段名：`V3 Media Companion`。
+- [ ] 文档明确 V3.0 是 `Transcript-first Video Companion`，V3.x 才是 `Multimodal Media Understanding`。
+- [ ] 文档明确 V3 目标体验参考 Monica YouTube 视频助手、B站 AI 视频总结账号 / 工具、AI课代表、BibiGPT、NoteGPT、Eightify、HARPA、YouTube conversational AI 和 Gemini Video Understanding。
+- [ ] 文档必须覆盖 YouTube 和 B站两类首批平台；直播平台只能作为 V3.x 或后续路线，不得作为 V3.0 必须交付。
+- [ ] 文档必须规划视频概览卡、章节时间轴、Media Mindmap / 视频概览图、字幕 / 转录问答、截图证据卡、timestamp jumpback、fallback / blocked。
+- [ ] 文档必须明确视频截图证据在 V3.0 中只证明某个时间点的可见帧；不得声称截图内容已被 VLM 理解。
+- [ ] 无字幕、无转录、无简介、无评论 / 弹幕、无可见 metadata 或平台限制的视频必须 degraded / blocked，不得计入 understood pass。
+- [ ] drawio 不超过 8 页，中文书写，并包含目标体验、当前架构与目标架构差异、YouTube/B站输入链路、视频概览图 / Media Mindmap、截图证据 / 视频反跳、多模态 V3.x 路线、开发及验收计划、里程碑和 No-Go。
+- [ ] drawio 架构页必须出现具体实体：Content Script Media Collector、MediaPageContext、A Media Page Perception、D Adapter / Governance / Trace、C Media Mindmap、B Media Companion Renderer、VideoFrameEvidenceRef、MediaJumpbackTarget 和 V3 evidence package。
+
+未来 V3.0 实现验收矩阵：
+
+- [ ] 最少 24 个真实视频页样本：YouTube 12 个，B站 12 个。
+- [ ] 覆盖课程 / 知识、新闻评论、影视解说、游戏 / 赛事、长视频、短视频、字幕可用、字幕不可用、评论丰富、评论贫乏。
+- [ ] 至少 20/24 页面可生成可审计视频概览或明确 degraded / blocked。
+- [ ] 至少 16/24 页面具备章节 / 时间轴或等价片段结构。
+- [ ] 至少 12 个样本包含视频截图证据卡。
+- [ ] 至少 12 个样本完成 timestamp jumpback 或清晰 fallback / blocked。
+- [ ] 每个样本必须记录 `platform`、`url`、`title`、`duration`、`transcriptAvailability`、`timelineSources`、`overviewQuality`、`mindmapTopNodes`、`screenshotEvidence`、`jumpbackResult`、`degradedReason` 和截图路径。
+
+未来 V3.0 每页 pass 质量阈值：
+
+- [ ] 视频概览必须基于 transcript / subtitle / description / chapter / visible comments / danmaku / metadata 至少一种真实来源。
+- [ ] Media Mindmap 顶层节点必须是章节、主题、事件、论点、例子或结论，不得只来自标题、推荐、广告、版权提示或评论噪声。
+- [ ] 每个关键节点必须绑定 timestamp、transcript segment、source text、截图证据或 degraded reason。
+- [ ] timestamp jumpback 成功时，视频播放器必须跳到目标时间点附近，并在 UI / JSON / HTML / screenshot metadata 中标记 `located`。
+- [ ] 无法 seek 或平台限制时，只能标记 `fallback_shown` 或 `blocked`，不得冒充 located。
+- [ ] Ask Video 回答必须引用 transcript segment、description、chapter、comment / danmaku text 或明确 degraded。
+
+V3.x 多模态规划验收：
+
+- [ ] ASR、VLM、OCR、Gemini Video / Live API、直播 rolling transcript 只能作为候选路线，不能写成 V3.0 实现项。
+- [ ] 每条多模态路线必须记录用户授权、隐私边界、采样策略、缓存 / 删除、延迟预算、成本预算、confidence、source provenance、EventStore / Trace 回放和 false-green 防线。
+- [ ] 未完成上述规划，不得声明真实视频画面 / 音频理解 ready。
+
+允许声明：
+
+```text
+V3 Media Companion planning baseline ready for review.
+```
+
+未来 V3.0 通过后最多允许声明：
+
+```text
+V3.0 transcript-first video companion passed YouTube and Bilibili planning-aligned acceptance.
+```
+
+No-Go：
+
+- [ ] 当前文档阶段声明 V3.0 implemented。
+- [ ] 完整 Monica-like YouTube parity complete。
+- [ ] 把 B站第三方 AI 总结账号内容或站外摘要冒充 Navia 自己理解。
+- [ ] 无字幕 / 无转录 / 无截图证据时声称理解视频内容。
+- [ ] timestamp fallback 冒充精准反跳。
+- [ ] ASR / VLM / OCR / Gemini Video ready。
+- [ ] 直播实时理解 ready。
+- [ ] 自动下载、提取或处理受版权保护的视频流。
+- [ ] 绕过平台访问限制或把登录态自动化作为产品浏览器自动操作。
+- [ ] 跨视频知识库 / RAG ready。

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Navia V2 阶段性审计总报告</title>
+<style>
+:root{--ink:#102421;--muted:#526963;--brand:#005a4b;--line:#c9ded8;--bg:#f3f8f6;--card:#fff;--ok:#0b7a48;--warn:#a66a00;--bad:#b42318}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,"Microsoft YaHei",sans-serif}
+header{padding:48px 56px;background:linear-gradient(135deg,#073f37,#0e6b58);color:#fff}
+h1{font-size:38px;margin:0 0 12px} h2{font-size:25px;margin:0 0 16px;color:var(--brand)} h3{font-size:18px;margin:0 0 10px}
+.sub{font-size:18px;line-height:1.55;max-width:1180px;opacity:.92}
+main{max-width:1360px;margin:0 auto;padding:30px}
+section{background:var(--card);border:1px solid var(--line);border-radius:22px;margin:0 0 22px;padding:26px;box-shadow:0 18px 48px rgba(23,68,58,.08)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.metric{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fbfffd}.metric b{display:block;font-size:30px;color:var(--brand)}.metric span{color:var(--muted);font-size:13px;font-weight:800}
+.badge{display:inline-flex;border-radius:999px;padding:7px 12px;font-weight:900;border:1px solid #9ccabc;background:#e9f8f2;color:#005a4b}.warn{border-color:#e2b866;background:#fff8e8;color:#764b00}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px} th,td{border-bottom:1px solid #ddebe7;padding:12px;text-align:left;vertical-align:top} th{font-size:12px;text-transform:uppercase;color:#5c746e;background:#f7fbfa}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} figure{margin:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff} img{display:block;width:100%;height:230px;object-fit:cover} figcaption{font-size:12px;color:var(--muted);padding:10px;word-break:break-all}
+.note{border-left:5px solid var(--brand);padding:12px 16px;background:#f1faf7;line-height:1.62} code{background:#edf6f3;border:1px solid #d3e6df;border-radius:8px;padding:2px 6px}
+ul{line-height:1.7}
+</style>
+</head>
+<body>
+<header>
+  <h1>Navia V2 阶段性审计总报告：通过</h1>
+  <div class="sub">生成时间：2026-07-13T19:09:51。本报告基于原始 PRD、目标架构、开发计划、验收计划、stage gate、drawio 与 V2-7 独立证据包复核。结论只支持 <strong>V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance</strong>，不支持 V2 ready / RAG ready / 默认本地文件读取。</div>
+</header>
+<main>
+<section>
+  <h2>1. 阶段结论</h2>
+  <p><span class="badge">V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.</span></p>
+  <div class="grid">
+    <div class="metric"><span>Source 总数</span><b>24</b></div>
+    <div class="metric"><span>真实网页</span><b>12</b></div>
+    <div class="metric"><span>授权本地文档</span><b>6</b></div>
+    <div class="metric"><span>Notes / Markdown</span><b>6</b></div>
+    <div class="metric"><span>Source Pass</span><b>24</b></div>
+    <div class="metric"><span>查询场景</span><b>18</b></div>
+    <div class="metric"><span>服务状态场景</span><b>4</b></div>
+    <div class="metric"><span>Forget 场景</span><b>6</b></div>
+  </div>
+  <p class="note">服务状态覆盖：runtime_offline, adapter_blocked, data_service_unreachable, source_build_failed。这轮修复后覆盖 Runtime offline、Adapter blocked、data_service unreachable、source build failed 四类验收要求。</p>
+</section>
+<section>
+  <h2>2. 目标架构与当前实现</h2>
+  <table><thead><tr><th>架构平面</th><th>审计观察</th><th>结论</th></tr></thead><tbody>
+  <tr><td>P2 Side Panel UI</td><td>Knowledge Workspace、SaveToKnowledgeCard、ServiceStatusBanner、KnowledgeBuildStatus 已实现并截图验收</td><td><span class="badge">PASS</span></td></tr><tr><td>P3 Runtime Client</td><td>runtimeClient V2 knowledge section 作为 B UI 唯一 Runtime 入口</td><td><span class="badge">PASS</span></td></tr><tr><td>P4 Local Runtime API</td><td>/v1/knowledge/* 与 /v1/knowledge/status 基线通过 pytest</td><td><span class="badge">PASS</span></td></tr><tr><td>P5 V2 Adapter / Governance</td><td>Mock-first / controlled-boundary adapter、权限、forget、trace 通过测试与报告</td><td><span class="badge">PASS</span></td></tr><tr><td>P6 data_service Candidate</td><td>仍为受控候选边界，未声明生产集成完成</td><td><span class="badge">PASS with boundary</span></td></tr><tr><td>P7 Evidence</td><td>sample-manifest、report、HTML、screenshots、PRD review、false-green audit 已存在并通过 validator</td><td><span class="badge">PASS</span></td></tr>
+  </tbody></table>
+  <p class="note">drawio 文件：<code>docs/active/project/design/v2-memory-personal-knowledge-base-gap.drawio</code>。解析结果：8 页；包含 V2-7、目标架构、当前架构、出门条件、data_service、ServiceStatusBanner、KnowledgeBuildStatus。当前已同步为 V2-7 已通过状态。</p>
+</section>
+<section>
+  <h2>3. 验收命令</h2>
+  <table><thead><tr><th>命令</th><th>结果</th><th>说明</th></tr></thead><tbody>
+  <tr><td><code>npm --prefix apps/chrome-extension run typecheck</code></td><td><span class="badge">PASS</span></td><td>TypeScript 类型检查通过</td></tr><tr><td><code>PYTHONPATH=services/local-runtime python3 -m pytest services/local-runtime/tests/test_v2_data_service_client.py services/local-runtime/tests/test_v2_memory_knowledge_api.py</code></td><td><span class="badge">PASS</span></td><td>8 个 V2 Runtime / data_service client 测试通过，5 个 deprecation warning，不影响结果</td></tr><tr><td><code>npm --prefix apps/chrome-extension run e2e:chrome:v2-memory-personal-knowledge</code></td><td><span class="badge">PASS</span></td><td>生成 24 source 截图、42 scenario 截图，并通过 V2 report validator</td></tr><tr><td><code>npm --prefix apps/chrome-extension run validate:v2-memory</code></td><td><span class="badge">PASS</span></td><td>schema + semantic validator 通过</td></tr><tr><td><code>npm --prefix apps/chrome-extension run build</code></td><td><span class="badge">PASS</span></td><td>WXT production build 通过；存在 chunk size warning</td></tr>
+  </tbody></table>
+</section>
+<section>
+  <h2>4. 用户场景截图证据</h2>
+  <div class="gallery"><figure><img src="screenshots/source-v2_src_local_acceptance_plan.png" alt="source-v2_src_local_acceptance_plan.png"><figcaption>source-v2_src_local_acceptance_plan.png</figcaption></figure><figure><img src="screenshots/source-v2_src_local_architecture.png" alt="source-v2_src_local_architecture.png"><figcaption>source-v2_src_local_architecture.png</figcaption></figure><figure><img src="screenshots/source-v2_src_local_development_plan.png" alt="source-v2_src_local_development_plan.png"><figcaption>source-v2_src_local_development_plan.png</figcaption></figure><figure><img src="screenshots/source-v2_src_local_gap_doc.png" alt="source-v2_src_local_gap_doc.png"><figcaption>source-v2_src_local_gap_doc.png</figcaption></figure><figure><img src="screenshots/source-v2_src_local_prd.png" alt="source-v2_src_local_prd.png"><figcaption>source-v2_src_local_prd.png</figcaption></figure><figure><img src="screenshots/source-v2_src_local_stage_gate.png" alt="source-v2_src_local_stage_gate.png"><figcaption>source-v2_src_local_stage_gate.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_1.png" alt="scenario-v2_scenario_ask_with_sources_1.png"><figcaption>scenario-v2_scenario_ask_with_sources_1.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_10.png" alt="scenario-v2_scenario_ask_with_sources_10.png"><figcaption>scenario-v2_scenario_ask_with_sources_10.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_11.png" alt="scenario-v2_scenario_ask_with_sources_11.png"><figcaption>scenario-v2_scenario_ask_with_sources_11.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_12.png" alt="scenario-v2_scenario_ask_with_sources_12.png"><figcaption>scenario-v2_scenario_ask_with_sources_12.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_2.png" alt="scenario-v2_scenario_ask_with_sources_2.png"><figcaption>scenario-v2_scenario_ask_with_sources_2.png</figcaption></figure><figure><img src="screenshots/scenario-v2_scenario_ask_with_sources_3.png" alt="scenario-v2_scenario_ask_with_sources_3.png"><figcaption>scenario-v2_scenario_ask_with_sources_3.png</figcaption></figure></div>
+  <p class="note">完整截图目录：<code>docs/active/project/evidence/v2_memory_personal_knowledge_base/screenshots/</code>，共 66 张 PNG。</p>
+</section>
+<section>
+  <h2>5. PRD 与 False-Green 审计</h2>
+  <ul>
+    <li>PRD review：<code>prd-review.md</code>，结论 PASS。</li>
+    <li>False-green audit：<code>false-green-audit.md</code>，结论 PASS。</li>
+    <li>Schema / semantic validator：<code>validate:v2-memory</code> PASS。</li>
+    <li>不把 V2-1..V2-6 mock-first evidence 替代 V2-7；当前 V2-7 有独立 manifest/report/HTML/screenshots。</li>
+    <li>不声明 V2 implemented、V2 ready、V2 Memory/RAG ready、默认本地文件读取、data_service console 等同 Navia UI。</li>
+  </ul>
+</section>
+<section>
+  <h2>6. 非阻塞残余风险</h2>
+  <table><thead><tr><th>风险</th><th>说明</th></tr></thead><tbody>
+  <tr><td>Playwright Chromium 依赖缺失</td><td>本机 WSL 缺 libnspr4.so，自动化已降级为 Windows Chrome CLI headless 截图；报告明确记录，不作为失败。</td></tr><tr><td>V2 不等于 V2 ready</td><td>本阶段只允许 planning-aligned local knowledge acceptance；真实 data_service 产品化、持久化一致性和删除级联仍需新阶段。</td></tr><tr><td>前端专项 vitest 缺口</td><td>当前前端覆盖依赖 typecheck、build 和可视化证据；尚无 Knowledge Workspace 组件级 vitest。</td></tr><tr><td>drawio 状态全绿但 No-Go 仍存在</td><td>drawio 已同步 V2-7 出门达成；No-Go 作为禁止声明边界保留。</td></tr>
+  </tbody></table>
+</section>
+<section>
+  <h2>7. 审计评价</h2>
+  <p class="note">可以声明本阶段自动化开发与阶段性验收通过，范围限定为 planning-aligned local knowledge acceptance。当前 drawio 目标架构、开发内容、出门条件与 V2-7 证据包一致；没有发现需要打回开发阶段的 fatal / major 阻塞。</p>
+</section>
+</main>
+</body>
+</html>

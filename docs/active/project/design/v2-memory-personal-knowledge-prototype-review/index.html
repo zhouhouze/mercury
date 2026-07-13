@@ -1,0 +1,1704 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navia V2 Personal Knowledge Base 原型审查页</title>
+  <style>
+    :root {
+      --bg: #f5f7f4;
+      --panel: #ffffff;
+      --panel-soft: #f8fbf8;
+      --ink: #092f2c;
+      --muted: #60716e;
+      --line: #cfe1dd;
+      --brand: #075f55;
+      --brand-2: #0f7b66;
+      --mint: #e7f3ef;
+      --blue: #e7effa;
+      --yellow: #fff5d8;
+      --red: #fde8e8;
+      --shadow: 0 18px 50px rgba(8, 62, 56, .12);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 16% 8%, rgba(15, 123, 102, .08), transparent 30%),
+        linear-gradient(180deg, #fbfcfa 0, var(--bg) 420px, #eef4f2 100%);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .page { width: min(1320px, calc(100% - 48px)); margin: 0 auto; padding: 28px 0 80px; }
+    .hero {
+      min-height: 380px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .eyebrow { color: var(--brand); font-weight: 800; letter-spacing: 0; margin: 0 0 10px; }
+    h1 { font-size: clamp(36px, 6vw, 68px); line-height: .98; margin: 0 0 18px; letter-spacing: 0; }
+    h2 { font-size: 30px; line-height: 1.18; margin: 0 0 18px; letter-spacing: 0; }
+    h3 { font-size: 20px; margin: 0 0 10px; letter-spacing: 0; }
+    p { margin: 0 0 12px; color: var(--muted); }
+    .hero p { max-width: 780px; font-size: 18px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: var(--panel);
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .pill.warn { background: var(--yellow); color: #775a00; border-color: #efd78a; }
+    .pill.bad { background: var(--red); color: #8a1f1f; border-color: #f4bbbb; }
+    .hero-card {
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #eef8f5);
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+    .mini-flow { display: grid; gap: 10px; }
+    .mini-flow .node {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-weight: 800;
+    }
+    .mini-flow .arrow { color: var(--brand); font-weight: 900; text-align: center; }
+    nav.toc {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      margin: 20px 0 30px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    nav.toc a {
+      text-decoration: none;
+      border-radius: 12px;
+      padding: 8px 10px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    nav.toc a:hover { background: var(--mint); color: var(--brand); }
+    section {
+      margin: 28px 0;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.86);
+      box-shadow: 0 10px 34px rgba(8,62,56,.07);
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .section-head p { max-width: 820px; }
+    .grid { display: grid; gap: 18px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      padding: 18px;
+      overflow: hidden;
+    }
+    .card.soft { background: var(--panel-soft); }
+    .card.green { background: var(--mint); }
+    .card.blue { background: var(--blue); }
+    .card.yellow { background: var(--yellow); }
+    .card.red { background: var(--red); }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #ecf7f2;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+    .mono {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: #31524e;
+      background: #eef7f4;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      white-space: pre-wrap;
+      overflow: auto;
+    }
+    .diagram {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background:
+        linear-gradient(#eef6f3 1px, transparent 1px),
+        linear-gradient(90deg, #eef6f3 1px, transparent 1px),
+        #fff;
+      background-size: 24px 24px;
+      min-height: 300px;
+    }
+    .arch-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 12px;
+      align-items: center;
+      margin: 18px 0;
+    }
+    .arch-box {
+      min-height: 96px;
+      display: grid;
+      align-content: center;
+      gap: 4px;
+      text-align: center;
+      border: 2px solid #b8d6cf;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 900;
+    }
+    .arch-box span { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .arch-box.current { background: #eef8f5; border-color: #68a99c; }
+    .arch-box.target { background: #eaf1ff; border-color: #7ea4da; }
+    .arch-box.guard { background: #fff6d9; border-color: #e3c25f; }
+    .arch-box.nogo { background: #fde8e8; border-color: #e58a8a; }
+    .line-label { text-align: center; color: var(--brand); font-weight: 900; }
+    .screenshot {
+      display: block;
+      width: 100%;
+      min-height: 220px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      object-fit: cover;
+      background: #edf3f1;
+    }
+    .caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .mock-window {
+      border: 1px solid #bfd7d1;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(8,62,56,.12);
+    }
+    .mock-toolbar {
+      height: 42px;
+      background: #eef5f2;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 999px; background: #8ab7ad; }
+    .mock-body { min-height: 420px; display: grid; grid-template-columns: 240px 1fr 340px; }
+    .mock-side { padding: 18px; border-right: 1px solid var(--line); background: #f7fbf9; }
+    .mock-main { padding: 18px; }
+    .mock-right { padding: 18px; border-left: 1px solid var(--line); background: #fbfdfc; }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 850;
+      margin-bottom: 8px;
+      border: 1px solid transparent;
+    }
+    .nav-item.active { background: var(--brand); color: #fff; }
+    .source-card {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .source-card.active { outline: 3px solid rgba(15,123,102,.22); border-color: var(--brand); }
+    .source-card strong { display: block; line-height: 1.25; }
+    .source-card small { color: var(--muted); }
+    .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+    button, .button {
+      border: 1px solid #b7d3cd;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 13px;
+      min-height: 42px;
+      padding: 8px 14px;
+      font-weight: 900;
+      cursor: pointer;
+      font-family: var(--sans);
+      box-shadow: 0 4px 12px rgba(8,62,56,.06);
+    }
+    button.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    button.ghost { background: #eef7f4; }
+    button.danger { background: #fff2f2; border-color: #efb4b4; color: #8b2424; }
+    button:focus-visible { outline: 3px solid rgba(15,123,102,.35); outline-offset: 3px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: #e7f5ee;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+    .status.blocked { background: #fff0d3; color: #7a5900; }
+    .chat-bubble {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 13px;
+      background: #fff;
+      margin: 10px 0;
+      max-width: 92%;
+    }
+    .chat-bubble.user { margin-left: auto; background: #eaf6f2; color: var(--ink); }
+    .evidence-card {
+      border: 1px solid #b8d7d0;
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      margin-top: 10px;
+    }
+    .graph {
+      position: relative;
+      height: 260px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: radial-gradient(circle, rgba(7,95,85,.08) 1px, transparent 1px) 0 0/18px 18px, #fff;
+      overflow: hidden;
+    }
+    .graph-node {
+      position: absolute;
+      border: 2px solid #77ada3;
+      background: #f6fffb;
+      border-radius: 18px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(8,62,56,.12);
+    }
+    .graph-node.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .graph svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; }
+    .tab { min-height: 36px; padding: 6px 12px; border-radius: 999px; }
+    .tab.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .route-panel { display: none; }
+    .route-panel.active { display: block; }
+    .component-spec {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fff;
+      margin: 14px 0;
+    }
+    .component-demo {
+      min-height: 150px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 12px;
+      border-radius: 14px;
+      background: #f4faf7;
+      border: 1px solid var(--line);
+      padding: 14px;
+    }
+    .launcher-demo {
+      width: 86px;
+      height: 86px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #ffffff, #e9f0ee);
+      border: 2px solid #99c2ba;
+      display: grid;
+      place-items: center;
+      color: var(--brand);
+      font-size: 32px;
+      font-weight: 950;
+      position: relative;
+      box-shadow: 0 14px 34px rgba(8,62,56,.18);
+    }
+    .launcher-demo::after {
+      content: "";
+      position: absolute;
+      right: -7px;
+      top: -7px;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #2f7b5d;
+      border: 5px solid #f7fbf9;
+    }
+    .timeline { display: grid; gap: 12px; }
+    .step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .step-num {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 950;
+    }
+    table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 14px; }
+    th, td { border: 1px solid var(--line); padding: 11px; text-align: left; vertical-align: top; }
+    th { background: #eef7f4; color: var(--brand); }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(4, 24, 22, .45);
+      z-index: 99;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal {
+      width: min(620px, 100%);
+      border-radius: 24px;
+      background: #fff;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+    .component-lab {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .lab-nav {
+      position: sticky;
+      top: 76px;
+      display: grid;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 12px 30px rgba(8,62,56,.08);
+    }
+    .lab-nav button {
+      justify-content: flex-start;
+      text-align: left;
+      box-shadow: none;
+      background: #f8fbf8;
+      min-height: 48px;
+    }
+    .lab-nav button.active {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #fff;
+    }
+    .lab-panel {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 18px 42px rgba(8,62,56,.09);
+    }
+    .lab-panel.active { display: block; }
+    .lab-panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      background: linear-gradient(180deg, #f9fdfb, #eff7f4);
+      border-bottom: 1px solid var(--line);
+    }
+    .lab-canvas {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: minmax(320px, .9fr) minmax(360px, 1.1fr);
+      gap: 18px;
+      align-items: start;
+    }
+    .component-note {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f8fbf8;
+      padding: 16px;
+    }
+    .component-note ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); }
+    .phone-frame {
+      width: min(100%, 370px);
+      margin: 0 auto;
+      border: 1px solid #bad5cf;
+      border-radius: 34px;
+      padding: 12px;
+      background: linear-gradient(180deg, #f7faf8, #edf4f1);
+      box-shadow: 0 22px 48px rgba(8,62,56,.16);
+    }
+    .sidepanel-prototype {
+      min-height: 620px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: #fff;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidepanel-header {
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfdfc;
+    }
+    .sidepanel-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .brand-mark { display: flex; align-items: center; gap: 10px; font-size: 28px; font-weight: 950; color: var(--brand); }
+    .brand-dot { width: 12px; height: 12px; border-radius: 999px; background: #2f7b5d; box-shadow: 0 0 0 5px #e5f2ed; }
+    .knowledge-save-card {
+      margin: 14px 18px;
+      border: 1px solid #b7d6cf;
+      border-left: 6px solid var(--brand);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fbfefd;
+      box-shadow: 0 12px 26px rgba(8,62,56,.08);
+    }
+    .save-state-line { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-top: 10px; }
+    .mini-meter {
+      height: 9px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #e4efeb;
+      margin-top: 12px;
+    }
+    .mini-meter > span { display: block; height: 100%; width: 0; background: var(--brand); transition: width .35s ease; }
+    .sidepanel-content { padding: 0 18px 18px; flex: 1; }
+    .workspace-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .workspace-tile {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      padding: 14px;
+      min-height: 130px;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .workspace-tile:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(8,62,56,.09); }
+    .workspace-tile.active { border-color: var(--brand); background: #eef8f5; }
+    .workspace-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .tiny-badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      min-height: 24px;
+      padding: 3px 8px;
+      background: #fff;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 850;
+    }
+    .library-layout {
+      display: grid;
+      grid-template-columns: 290px minmax(0,1fr);
+      gap: 14px;
+    }
+    .library-list {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #f8fbf8;
+      padding: 10px;
+      max-height: 520px;
+      overflow: auto;
+    }
+    .library-item {
+      border: 1px solid transparent;
+      border-radius: 14px;
+      background: #fff;
+      padding: 12px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .library-item.active { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(7,95,85,.11); }
+    .detail-sheet {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .detail-cover {
+      min-height: 150px;
+      padding: 18px;
+      background:
+        linear-gradient(135deg, rgba(7,95,85,.12), rgba(126,164,218,.18)),
+        linear-gradient(#eef6f3 1px, transparent 1px),
+        linear-gradient(90deg, #eef6f3 1px, transparent 1px);
+      background-size: auto, 22px 22px, 22px 22px;
+      display: grid;
+      align-content: end;
+    }
+    .unit-list { padding: 14px; display: grid; gap: 10px; }
+    .unit {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fbfdfc;
+    }
+    .ask-shell {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .ask-messages { padding: 18px; min-height: 380px; background: #fbfdfc; }
+    .query-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .query-box input {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      min-height: 44px;
+      padding: 0 12px;
+      font: inherit;
+    }
+    .trace-drawer {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .trace-preview {
+      padding: 18px;
+      background: #fbfdfc;
+      border-bottom: 1px solid var(--line);
+    }
+    .quote-highlight {
+      display: block;
+      margin-top: 12px;
+      border-radius: 14px;
+      background: #fff8d9;
+      border: 1px solid #ead178;
+      padding: 12px;
+      color: #5b4600;
+      font-weight: 750;
+    }
+    .trace-switcher { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px; }
+    .permission-board {
+      display: grid;
+      gap: 12px;
+    }
+    .root-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .danger-zone {
+      border: 1px solid #efb4b4;
+      border-radius: 18px;
+      background: #fff7f7;
+      padding: 14px;
+    }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%) translateY(20px);
+      opacity: 0;
+      z-index: 120;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand);
+      padding: 10px 16px;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      transition: opacity .2s ease, transform .2s ease;
+      pointer-events: none;
+    }
+    .toast.open { opacity: 1; transform: translateX(-50%) translateY(0); }
+    .footer-note { padding: 24px; color: var(--muted); text-align: center; }
+    @media (max-width: 980px) {
+      .hero, .grid.two, .grid.three, .mock-body, .component-spec, .component-lab, .lab-canvas, .library-layout, .workspace-card-grid { grid-template-columns: 1fr; }
+      .arch-row { grid-template-columns: 1fr; }
+      .page { width: min(100% - 24px, 1320px); }
+      section { padding: 20px; }
+      .lab-nav { position: static; }
+      .phone-frame { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Navia V2 原型开发阶段 / Prototype Review Only</p>
+        <h1>Personal Knowledge Base</h1>
+        <p>本页用于审查 Navia V2 个人知识库目标体验：从当前网页保存到本地知识空间，形成可追踪、可删除、可授权的长期知识资产，并通过跨来源问答、Source Trace 和 Knowledge Graph 支持后续实现验收。</p>
+        <div class="pills">
+          <span class="pill">范围：V2 Memory / Personal Knowledge Base</span>
+          <span class="pill">形态：插件采集 + Knowledge Workspace</span>
+          <span class="pill warn">本地文件：仅显式授权</span>
+          <span class="pill bad">不代表 V2 已实现</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>本页审查目的</h3>
+        <div class="mini-flow">
+          <div class="node">1. 判断 Agent 是否理解 V2 前端诉求</div>
+          <div class="arrow">↓</div>
+          <div class="node">2. 指导后续自动化开发阶段实现</div>
+          <div class="arrow">↓</div>
+          <div class="node">3. 给端到端验收提供目标图和路径映射</div>
+        </div>
+        <p>所有目标图均是设计规格，不是当前实现截图。真实验收必须在后续阶段用独立 evidence package、截图、报告和 PRD review 证明。</p>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="页面目录">
+      <a href="#baseline">基线与边界</a>
+      <a href="#architecture">目标架构图组</a>
+      <a href="#screenshots">当前截图</a>
+      <a href="#overall">目标总体设计</a>
+      <a href="#components">组件与路由</a>
+      <a href="#flows">用户路线图</a>
+      <a href="#selfcheck">图样自审</a>
+      <a href="#acceptance">验收映射</a>
+    </nav>
+
+    <section id="baseline">
+      <div class="section-head">
+        <div>
+          <span class="label">01 / PRD 基线</span>
+          <h2>V2 原型的事实边界</h2>
+          <p>active PRD 当前只把 V2 登记为“本地备忘 / 个人知识库 / 标签化总结 / 类 RAG 蒸馏”，并要求重新评估 Runtime 主栈、Memory Plane、权限治理、数据保留和删除策略。因此本页先做原型审查，不声明开发完成。</p>
+        </div>
+        <span class="pill warn">Conditional Prototype</span>
+      </div>
+      <div class="grid three">
+        <div class="card green">
+          <h3>采用的 V2 范围</h3>
+          <p>个人知识库：保存当前网页、管理来源、跨来源问答、source trace、知识图谱、删除/忘记、显式授权导入。</p>
+        </div>
+        <div class="card blue">
+          <h3>后端候选底座</h3>
+          <p>data_service 可作为后端候选：workspace、source registry、session ingest/query、GraphRAG、LLMWiki、source trace、quality governance。</p>
+        </div>
+        <div class="card red">
+          <h3>No-Go</h3>
+          <p>不默认读取本地文件；不把 data_service console 当作 Navia 产品 UI；不声明 V2 ready；不引入 Web Research / PPT 生成 / Deep Research。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="section-head">
+        <div>
+          <span class="label">02 / 架构概念图组</span>
+          <h2>从 V1 当前页伴读到 V2 Memory Plane</h2>
+          <p>架构图使用可审计 HTML/SVG 表达，避免 AI 图误写 API 或模块边界。目标是明确当前实现、待新增 V2 Adapter、data_service 候选服务与前端组件之间的关系。</p>
+        </div>
+      </div>
+      <div class="diagram">
+        <h3>架构图 A：V2 目标链路</h3>
+        <div class="arch-row">
+          <div class="arch-box current">Host Page<span>DOM / metadata / selection</span></div>
+          <div class="line-label">→</div>
+          <div class="arch-box current">Navia Extension<span>launcher / sidebar / save action</span></div>
+          <div class="line-label">→</div>
+          <div class="arch-box guard">V2 Adapter<span>permission / mapping / governance</span></div>
+        </div>
+        <div class="arch-row">
+          <div class="arch-box target">data_service<span>workspace / source / query / trace</span></div>
+          <div class="line-label">→</div>
+          <div class="arch-box target">Knowledge Workspace<span>source library / ask / graph</span></div>
+          <div class="line-label">→</div>
+          <div class="arch-box current">Evidence UI<span>source trace / fallback / delete</span></div>
+        </div>
+      </div>
+      <div class="grid two" style="margin-top:18px;">
+        <div class="diagram">
+          <h3>架构图 B：责任边界</h3>
+          <div class="arch-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="arch-box current">Navia 前端<span>采集、展示、用户确认、证据入口</span></div>
+            <div class="arch-box guard">Navia Runtime / Adapter<span>合同映射、权限门禁、SourceRef 绑定</span></div>
+            <div class="arch-box target">data_service<span>知识资产、检索、图谱、trace</span></div>
+            <div class="arch-box nogo">禁止<span>B 前端直连后端内部文件布局</span></div>
+          </div>
+        </div>
+        <div class="diagram">
+          <h3>架构图 C：证据与删除链路</h3>
+          <div class="arch-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="arch-box target">source_id / artifact_ref<span>稳定服务标识</span></div>
+            <div class="arch-box target">EvidenceSpan<span>unit_id / evidence_id / locator</span></div>
+            <div class="arch-box guard">Forget / Delete<span>不再检索，不再引用</span></div>
+            <div class="arch-box nogo">No default file read<span>仅显式授权 roots</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots">
+      <div class="section-head">
+        <div>
+          <span class="label">03 / 当前实际基线截图组</span>
+          <h2>V1 侧栏和 launcher 是 V2 的入口基线</h2>
+          <p>这些截图引用已有 evidence，仅说明当前插件入口和侧栏基线。V2 Knowledge Workspace 当前尚未在 Navia 实现，因此以目标设计图表达。</p>
+        </div>
+      </div>
+      <div class="grid three">
+        <div class="card">
+          <img class="screenshot" src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-01-docked-default.png" alt="V1 launcher 默认贴边截图" />
+          <div class="caption">真实基线：launcher 默认贴边，作为未来“保存到知识库”的低打扰入口基础。</div>
+        </div>
+        <div class="card">
+          <img class="screenshot" src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-03-expanded-after-click.png" alt="V1 sidebar 展开截图" />
+          <div class="caption">真实基线：sidebar 展开后承载 Chat / Mindmap / Source Evidence / Debug / Settings。</div>
+        </div>
+        <div class="card">
+          <img class="screenshot" src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/external-bilibili-detail-bilibili-detail-after.png" alt="复杂站点验收截图" />
+          <div class="caption">真实基线：复杂站点上已有 V1 当前页伴读证据，V2 不复用为知识库验收通过。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overall">
+      <div class="section-head">
+        <div>
+          <span class="label">04 / 目标总体设计图</span>
+          <h2>插件采集 + Knowledge Workspace 管理</h2>
+          <p>V2 不把长期知识库全部压进窄侧栏。侧栏负责快速保存、当前页追问和证据入口；独立工作台负责长期管理、跨来源问答、图谱和权限。</p>
+        </div>
+      </div>
+      <div class="mock-window" aria-label="V2 Knowledge Workspace mockup">
+        <div class="mock-toolbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span>Navia Knowledge Workspace / 本地个人知识库</span></div>
+        <div class="mock-body">
+          <aside class="mock-side">
+            <h3>Navia</h3>
+            <div class="nav-item active">知识空间 <span>⌘1</span></div>
+            <div class="nav-item">来源库 <span>⌘2</span></div>
+            <div class="nav-item">跨来源问答 <span>⌘3</span></div>
+            <div class="nav-item">知识图谱 <span>⌘4</span></div>
+            <div class="nav-item">权限与删除 <span>⌘5</span></div>
+            <div class="card yellow" style="margin-top:16px;">
+              <strong>授权状态</strong>
+              <p>本地目录导入需要用户显式授权，默认关闭。</p>
+            </div>
+          </aside>
+          <section class="mock-main" style="margin:0; border:0; box-shadow:none;">
+            <span class="status">当前 workspace：Research Inbox</span>
+            <h2 style="margin-top:14px;">网页与资料沉淀</h2>
+            <p>最近保存的网页、PDF、Markdown 和结构化文本会进入 Source Library，构建完成后可被 Ask、Trace 和 Graph 使用。</p>
+            <div class="action-row">
+              <button class="primary" id="savePageBtn">保存当前网页</button>
+              <button class="ghost" id="openConsentBtn">授权本地目录</button>
+              <button>查看 Source Trace</button>
+            </div>
+            <div id="saveState" class="card green">
+              <strong>当前页尚未保存</strong>
+              <p>点击“保存当前网页”后，页面会变成 source，并进入 build / trace 状态。</p>
+            </div>
+            <div class="grid two" style="margin-top:14px;">
+              <div class="source-card active" data-source="article">
+                <strong>AI 阅读产品设计哲学</strong>
+                <small>webpage · source://src_web_001 · trace ready</small>
+              </div>
+              <div class="source-card" data-source="pdf">
+                <strong>Local Knowledge Governance Service README</strong>
+                <small>markdown · source://src_doc_002 · build complete</small>
+              </div>
+            </div>
+          </section>
+          <aside class="mock-right">
+            <h3>Ask with Sources</h3>
+            <div class="chat-bubble user">这些资料里，V2 最关键的权限风险是什么？</div>
+            <div class="chat-bubble">
+              关键风险是默认读取本地文件和把内部路径暴露给前端。V2 必须通过显式授权、allowed roots、SourceRef / artifact_ref 映射和删除验证来控制。
+              <div class="evidence-card">
+                <strong>Evidence</strong>
+                <p>source_id: src_doc_002<br />unit_id: unit_permission_boundary<br />状态：trace ready</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="components">
+      <div class="section-head">
+        <div>
+          <span class="label">05 / 组件、路由与交互设计</span>
+          <h2>交付级组件实验台</h2>
+          <p>本节把 V2 前端模块逐个嵌入页面。每个组件都有真实样式、可操作控件、状态反馈和功能说明。组件名称是设计建议，不代表当前代码已存在。</p>
+        </div>
+      </div>
+      <div class="component-lab">
+        <aside class="lab-nav" aria-label="组件目录">
+          <button class="active" data-lab="lab-save">SaveToKnowledgeCard</button>
+          <button data-lab="lab-service">ServiceStatusBanner</button>
+          <button data-lab="lab-data-service">DataServiceStatusCard</button>
+          <button data-lab="lab-build-status">KnowledgeBuildStatus</button>
+          <button data-lab="lab-workspace">WorkspaceSwitcher</button>
+          <button data-lab="lab-library">SourceLibrary + Detail</button>
+          <button data-lab="lab-ask">AskWithSourcesPanel</button>
+          <button data-lab="lab-trace">EvidenceTraceDrawer</button>
+          <button data-lab="lab-graph">KnowledgeGraphCanvas</button>
+          <button data-lab="lab-permission">PermissionRootManager</button>
+          <button data-lab="lab-forget">ForgetSourceDialog</button>
+        </aside>
+
+        <div>
+          <article id="lab-save" class="lab-panel active">
+            <div class="lab-panel-head">
+              <div>
+                <h3>SaveToKnowledgeCard</h3>
+                <p>插件侧栏中的 V2 入口。用户可以把当前网页保存为知识 source，并看到 source ingest / build / trace 状态。</p>
+              </div>
+              <span class="pill">Chrome sidebar component</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="phone-frame">
+                <div class="sidepanel-prototype">
+                  <div class="sidepanel-header">
+                    <div class="sidepanel-title">
+                      <div class="brand-mark">Navia <span class="brand-dot"></span></div>
+                      <span class="status" id="labSaveRuntime">Runtime 正常</span>
+                    </div>
+                  </div>
+                  <div class="evidence-card">
+                    <strong>服务状态</strong>
+                    <div class="action-row">
+                      <span class="status">Runtime online</span>
+                      <span class="status">Adapter ready</span>
+                      <span class="status">data_service connected</span>
+                    </div>
+                    <small>Runtime offline 由前端 transport failure 推导；在线后才读取 Adapter / data_service 状态。</small>
+                  </div>
+                  <div class="knowledge-save-card" id="labSaveCard">
+                    <span class="tiny-badge">V2 Knowledge</span>
+                    <h3 id="labSaveTitle">当前页尚未保存</h3>
+                    <p id="labSaveText">点击按钮后，PageContext / SourceRef 会进入 V2 Adapter，再映射为 data_service source。</p>
+                    <div class="save-state-line">
+                      <span class="status blocked" id="labSaveStatus">unsaved</span>
+                      <small id="labSaveMeta">workspace: Research Inbox</small>
+                    </div>
+                    <div class="mini-meter"><span id="labSaveMeter"></span></div>
+                    <div class="action-row">
+                      <button class="primary" id="labSaveAdvance">保存当前页</button>
+                      <button id="labSaveReset">重置</button>
+                    </div>
+                  </div>
+                  <div class="sidepanel-content">
+                    <div class="chat-bubble">V1 当前页总结、问答和 Mindmap 仍保留。V2 只新增保存入口与 trace 状态，不替代 V1 主体验。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击“保存当前页”只触发一次保存操作，创建 operation_id 后自动推进 queued → ingesting → building → trace_ready / degraded / failed。</li>
+                  <li>状态条和文案必须告诉用户下一步，而不是只显示成功。</li>
+                  <li>失败时应进入 failed / retry；策略阻止时进入 blocked，不得假装已保存。</li>
+                </ul>
+                <div class="mono">route: extension sidebar
+input: PageContext + SourceRef + selected workspace_id
+output: operation_id + source_id + artifact_ref + build status
+No-Go: default local file read</div>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-service" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>ServiceStatusBanner</h3>
+                <p>Knowledge Workspace 和保存卡片附近的状态摘要。它告诉用户当前问题属于 Runtime、Adapter、data_service 还是单个 source。</p>
+              </div>
+              <span class="pill">/v1/knowledge/status</span>
+            </div>
+            <div class="grid two">
+              <div class="card green"><h3>可用态</h3><p><span class="status">Runtime online</span> <span class="status">Adapter ready</span> <span class="status">data_service connected</span></p><p>允许保存、查询、trace 和 graph。</p></div>
+              <div class="card yellow"><h3>降级态</h3><p><span class="status blocked">Adapter degraded</span> <span class="status blocked">source building</span></p><p>允许保存和查看来源，但跨来源问答可能显示 degraded。</p></div>
+              <div class="card red"><h3>Runtime offline</h3><p><span class="status blocked">frontend inferred offline</span></p><p>由前端请求超时或 transport failure 推导，提示启动 Runtime / 重试 / 打开 Debug。</p></div>
+              <div class="card red"><h3>data_service 不可用</h3><p><span class="status blocked">auth_required</span> <span class="status blocked">unreachable</span> <span class="status blocked">version_mismatch</span></p><p>提示配置凭据、重连或升级候选服务。</p></div>
+            </div>
+          </article>
+
+          <article id="lab-data-service" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>DataServiceStatusCard</h3>
+                <p>Debug / Settings 中的候选后端详情。它不能直接暴露 data_service 内部 workspace 或物理路径。</p>
+              </div>
+              <span class="pill warn">候选服务，不是 Navia UI</span>
+            </div>
+            <div class="card">
+              <table>
+                <tbody>
+                  <tr><th>字段</th><th>示例</th><th>用户动作</th></tr>
+                  <tr><td>dataServiceStatus</td><td>connected / auth_required / unreachable / version_mismatch</td><td>配置、重连、升级、查看策略原因</td></tr>
+                  <tr><td>capabilities</td><td>workspace、sourceImport、query、graph、sourceTrace、forgetVerification</td><td>缺失能力进入 degraded 或 fallback</td></tr>
+                  <tr><td>redactionApplied</td><td>true</td><td>隐藏物理路径、token 和内部 workspace 细节</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article id="lab-build-status" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>KnowledgeBuildStatus</h3>
+                <p>绑定单个 source detail 的构建状态。正常流程由后端异步推进，不需要用户手动点击“继续构建”。</p>
+              </div>
+              <span class="pill">Source detail component</span>
+            </div>
+            <div class="timeline">
+              <div class="step"><div class="step-num">1</div><p><strong>queued</strong>：保存请求已创建 operation_id，等待 ingest。</p></div>
+              <div class="step"><div class="step-num">2</div><p><strong>ingesting</strong>：V2 Adapter 正在把 PageContext / SourceRef 映射为 source。</p></div>
+              <div class="step"><div class="step-num">3</div><p><strong>building</strong>：候选服务生成 distill、trace、graph。</p></div>
+              <div class="step"><div class="step-num">4</div><p><strong>trace_ready / degraded / failed / forgotten</strong>：进入可查询、降级、失败或删除验证后的终态。</p></div>
+            </div>
+          </article>
+
+          <article id="lab-workspace" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>WorkspaceSwitcher</h3>
+                <p>Knowledge Workspace 的顶层导航。用户可以切换个人知识空间，并看到 sources、pending builds 和 trace coverage。</p>
+              </div>
+              <span class="pill">/knowledge/workspaces</span>
+            </div>
+            <div class="lab-canvas">
+              <div>
+                <div class="workspace-card-grid">
+                  <button class="workspace-tile active" data-workspace="Research Inbox" data-count="28" data-pending="3">
+                    <strong>Research Inbox</strong>
+                    <p>网页阅读、产品资料和日常摘录。</p>
+                    <div class="workspace-meta"><span class="tiny-badge">28 sources</span><span class="tiny-badge">3 pending</span></div>
+                  </button>
+                  <button class="workspace-tile" data-workspace="Product Notes" data-count="14" data-pending="0">
+                    <strong>Product Notes</strong>
+                    <p>PRD、架构、验收和竞品分析。</p>
+                    <div class="workspace-meta"><span class="tiny-badge">14 sources</span><span class="tiny-badge">trace ready</span></div>
+                  </button>
+                  <button class="workspace-tile" data-workspace="Reading Archive" data-count="92" data-pending="6">
+                    <strong>Reading Archive</strong>
+                    <p>长期网页归档，适合跨来源问答。</p>
+                    <div class="workspace-meta"><span class="tiny-badge">92 sources</span><span class="tiny-badge">6 pending</span></div>
+                  </button>
+                </div>
+                <div class="card green" style="margin-top:14px;">
+                  <strong id="workspaceSummaryTitle">Research Inbox</strong>
+                  <p id="workspaceSummaryText">28 个 sources，3 个 build pending。当前工作区可用于保存当前网页和跨来源问答。</p>
+                </div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击任意 workspace card 后，当前 workspace 状态即时切换。</li>
+                  <li>后续实现需要把 workspace_id 作为所有 source / query / trace 请求的稳定边界。</li>
+                  <li>不能把本地 path 当成 workspace 的公共身份。</li>
+                </ul>
+                <div class="mono">route: /knowledge/workspaces
+state: selectedWorkspaceId
+contract: workspace_id only
+blocked: backend unavailable / schema mismatch / capability missing</div>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-library" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>SourceLibraryPanel + SourceDetailReader</h3>
+                <p>来源库负责展示 source 列表、导入状态、预览和 trace 入口。点击列表项会切换右侧详情。</p>
+              </div>
+              <span class="pill">/knowledge/workspaces/:id/sources</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="library-layout" style="grid-column: 1 / -1;">
+                <div>
+                  <div class="action-row">
+                    <button class="tab active" data-source-filter="all">全部</button>
+                    <button class="tab" data-source-filter="webpage">网页</button>
+                    <button class="tab" data-source-filter="document">文档</button>
+                    <button class="tab" data-source-filter="folder">授权目录</button>
+                  </div>
+                  <div class="library-list">
+                    <div class="library-item active" data-kind="webpage" data-title="B站详情页内容理解复盘" data-status="trace ready" data-body="该 source 来自当前网页保存，包含 PageContext、SourceRef 与 EvidenceSpan。">
+                      <strong>B站详情页内容理解复盘</strong><br /><small>webpage · trace ready · 12 evidence spans</small>
+                    </div>
+                    <div class="library-item" data-kind="webpage" data-title="小红书详情页 source jumpback" data-status="fallback mixed" data-body="该 source 有部分 fallback，需要在 trace drawer 中明确展示 fallback reason。">
+                      <strong>小红书详情页 source jumpback</strong><br /><small>webpage · 2 located · 1 fallback</small>
+                    </div>
+                    <div class="library-item" data-kind="document" data-title="data_service README" data-status="build complete" data-body="该 source 来自用户导入文档，展示 source_id、unit_id 和 artifact_ref，不暴露物理路径。">
+                      <strong>data_service README</strong><br /><small>markdown · build complete</small>
+                    </div>
+                    <div class="library-item" data-kind="folder" data-title="Research 授权目录" data-status="explicit root" data-body="该 source 集合来自显式授权 root，可撤销，不代表默认读取本地文件。">
+                      <strong>Research 授权目录</strong><br /><small>folder · explicit consent · revoke available</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="detail-sheet">
+                  <div class="detail-cover">
+                    <span class="status" id="sourceDetailStatus">trace ready</span>
+                    <h2 id="sourceDetailTitle">B站详情页内容理解复盘</h2>
+                    <p id="sourceDetailBody">该 source 来自当前网页保存，包含 PageContext、SourceRef 与 EvidenceSpan。</p>
+                  </div>
+                  <div class="unit-list">
+                    <div class="unit"><strong>Document Unit 01</strong><p>主内容摘要片段，绑定 sourceRefIds。</p></div>
+                    <div class="unit"><strong>Evidence Span</strong><p>unit_id: unit_main_claim · evidence_id: ev_source_001</p></div>
+                    <div class="action-row"><button class="primary">打开 Trace</button><button class="danger" id="openForgetBtn">删除 source</button></div>
+                  </div>
+                </div>
+              </div>
+              <div class="component-note" style="grid-column:1/-1;">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>过滤按钮按 source 类型筛选列表。</li>
+                  <li>点击 source 后右侧详情切换标题、状态和说明。</li>
+                  <li>删除入口必须走二次确认，且后续验收要证明不再被检索。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-ask" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>AskWithSourcesPanel</h3>
+                <p>跨来源问答组件。用户选择 source 范围后提问，回答必须展示 evidence_refs 和 trace 入口。</p>
+              </div>
+              <span class="pill">/knowledge/workspaces/:id/ask</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="ask-shell">
+                <div class="ask-messages" id="askMessages">
+                  <div class="chat-bubble user">这些资料中，V2 最大的权限风险是什么？</div>
+                  <div class="chat-bubble">最大风险是默认读取本地文件和把内部路径泄漏到前端。必须通过显式授权、allowed roots、artifact_ref 和删除验证控制。<div class="evidence-card"><strong>Evidence refs</strong><p>src_doc_002 / unit_permission_boundary / ev_001</p></div></div>
+                </div>
+                <div class="query-box">
+                  <input id="askInput" value="保存网页后，用户如何确认证据来源？" aria-label="跨来源问答输入" />
+                  <button class="primary" id="askSubmit">提问</button>
+                </div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击“提问”会生成一条带 evidence_refs 的模拟回答。</li>
+                  <li>如果没有证据，后续实现必须显示 degraded，而不是成功回答。</li>
+                  <li>回答内证据入口应打开 EvidenceTraceDrawer。</li>
+                </ul>
+                <div class="mono">request: workspace_id + query + selected source scope
+response: answer + evidence_refs[] + evidence_state
+No-Go: ungrounded answer displayed as success</div>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-trace" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>EvidenceTraceDrawer</h3>
+                <p>证据抽屉展示 source、unit、evidence 和定位状态。located、fallback_shown、blocked 是三个不同用户体验。</p>
+              </div>
+              <span class="pill">source trace / evidence refs</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="trace-drawer">
+                <div class="trace-preview">
+                  <span class="status" id="traceStatePill">located</span>
+                  <h2 id="traceTitle">证据定位成功</h2>
+                  <p id="traceCopy">页面中找到了与 evidence span 语义一致的位置，用户可以看到 Navia source marker。</p>
+                  <span class="quote-highlight" id="traceQuote">“V2 必须通过显式授权、SourceRef / artifact_ref 映射和删除验证来控制。”</span>
+                </div>
+                <div class="trace-switcher">
+                  <button class="primary" data-trace-state="located">located</button>
+                  <button data-trace-state="fallback">fallback_shown</button>
+                  <button data-trace-state="blocked">blocked</button>
+                </div>
+                <div class="mono" style="margin:0 14px 14px;">source_id: src_doc_002
+unit_id: unit_permission_boundary
+evidence_id: ev_001
+artifact_ref: source://src_doc_002</div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击三个状态按钮，抽屉内容和状态色会变化。</li>
+                  <li>located 必须有可见 marker；fallback 必须说明替代证据；blocked 必须说明原因。</li>
+                  <li>后续验收中 UI、JSON、HTML 报告和截图 metadata 必须一致。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-graph" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>KnowledgeGraphCanvas</h3>
+                <p>知识图谱组件用于展示 source、主题、证据和权限边界之间的关系。点击节点后更新解释。</p>
+              </div>
+              <span class="pill">/knowledge/workspaces/:id/graph</span>
+            </div>
+            <div class="lab-canvas">
+              <div>
+                <div class="graph" id="knowledgeGraph">
+                  <svg viewBox="0 0 800 260" preserveAspectRatio="none">
+                    <line x1="120" y1="80" x2="360" y2="130" stroke="#7aaea4" stroke-width="3" />
+                    <line x1="360" y1="130" x2="620" y2="70" stroke="#7aaea4" stroke-width="3" />
+                    <line x1="360" y1="130" x2="610" y2="205" stroke="#7aaea4" stroke-width="3" />
+                  </svg>
+                  <button class="graph-node active" style="left:8%; top:20%;" data-graph="source">网页 Source</button>
+                  <button class="graph-node" style="left:42%; top:42%;" data-graph="theme">内容理解质量</button>
+                  <button class="graph-node" style="left:73%; top:18%;" data-graph="trace">Source Trace</button>
+                  <button class="graph-node" style="left:72%; top:70%;" data-graph="permission">权限治理</button>
+                </div>
+                <p id="graphHint" class="caption">当前选中：网页 Source。右侧应列出相关来源、证据和可反跳状态。</p>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击节点会高亮当前节点并更新解释文案。</li>
+                  <li>图谱是 source/evidence 辅助导航，不替代 source trace。</li>
+                  <li>图谱数据必须来自服务侧 graph/query 合同，不能由前端凭空生成事实。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-permission" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>PermissionRootManager</h3>
+                <p>本地文件/目录导入必须是显式授权流程。该组件展示授权、撤销和默认关闭状态。</p>
+              </div>
+              <span class="pill warn">explicit consent only</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="permission-board">
+                <div class="root-row">
+                  <div><strong>默认状态</strong><p>未授权任何本地目录，不扫描本地文件。</p></div>
+                  <span class="status blocked">disabled</span>
+                  <button id="permissionAddRoot">授权目录</button>
+                </div>
+                <div id="rootList">
+                  <div class="root-row">
+                    <div><strong>~/Documents/Research</strong><p>显式授权 root · 只读导入 · 可撤销</p></div>
+                    <span class="status">active</span>
+                    <button class="danger revoke-root">撤销</button>
+                  </div>
+                </div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>点击“授权目录”打开授权弹窗。</li>
+                  <li>点击“撤销”会从原型列表中移除 root。</li>
+                  <li>后续实现必须禁止绕过用户授权直接调用本地扫描。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article id="lab-forget" class="lab-panel">
+            <div class="lab-panel-head">
+              <div>
+                <h3>ForgetSourceDialog</h3>
+                <p>删除/忘记是 V2 的核心信任机制。用户需要清楚知道删除范围，并在后续查询中验证不再返回。</p>
+              </div>
+              <span class="pill bad">destructive confirmation</span>
+            </div>
+            <div class="lab-canvas">
+              <div class="danger-zone">
+                <h3>删除 source：B站详情页内容理解复盘</h3>
+                <p>删除后该 source 不再出现在 source library、Ask with Sources、Knowledge Graph 和 Source Trace 中。后续验收必须做 before/after query。</p>
+                <div class="action-row">
+                  <button class="danger" id="forgetInlineBtn">删除 / 忘记</button>
+                  <button id="forgetQueryCheck">再次查询验证</button>
+                </div>
+                <div class="card" id="forgetResult"><strong>当前状态</strong><p>source 仍可检索。等待用户确认删除。</p></div>
+              </div>
+              <div class="component-note">
+                <h3>交互方式与功能</h3>
+                <ul>
+                  <li>删除按钮打开二次确认。</li>
+                  <li>再次查询按钮模拟删除前后的检索结果变化。</li>
+                  <li>不能只从 UI 隐藏 source；必须让查询和图谱也不再返回。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="flows">
+      <div class="section-head">
+        <div>
+          <span class="label">06 / 用户操作与体验路线图</span>
+          <h2>不能超出也不能少于 V2 原型承诺</h2>
+          <p>路线图覆盖 V2 个人知识库最小完整体验，不包含 Web Research、PPT 生成、Deep Research、媒体理解和自动浏览器任务。</p>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>路径 A：保存当前网页</h3>
+          <div class="timeline">
+            <div class="step"><div class="step-num">1</div><p>用户在网页中打开 Navia launcher / sidebar。</p></div>
+            <div class="step"><div class="step-num">2</div><p>点击“保存到知识库”，选择目标 workspace。</p></div>
+            <div class="step"><div class="step-num">3</div><p>V2 Adapter 将 PageContext / SourceRef 映射为 data_service source。</p></div>
+            <div class="step"><div class="step-num">4</div><p>Build 完成后显示 trace ready，可进入 Knowledge Workspace。</p></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>路径 B：跨来源问答与证据</h3>
+          <div class="timeline">
+            <div class="step"><div class="step-num">1</div><p>用户进入 workspace ask 页面并选择 source 范围。</p></div>
+            <div class="step"><div class="step-num">2</div><p>提交问题，返回 answer + evidence_refs。</p></div>
+            <div class="step"><div class="step-num">3</div><p>点击引用打开 Trace Drawer，查看 source / unit / evidence。</p></div>
+            <div class="step"><div class="step-num">4</div><p>无法精确定位时显示 fallback 或 blocked，不写成 located。</p></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>路径 C：本地文件显式授权</h3>
+          <div class="timeline">
+            <div class="step"><div class="step-num">1</div><p>用户主动点击“授权本地目录”。</p></div>
+            <div class="step"><div class="step-num">2</div><p>确认导入范围、用途、风险和撤销方式。</p></div>
+            <div class="step"><div class="step-num">3</div><p>只扫描授权 roots，不读取未授权路径。</p></div>
+            <div class="step"><div class="step-num">4</div><p>用户可撤销 root 并删除对应 source。</p></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>路径 D：删除 / 忘记</h3>
+          <div class="timeline">
+            <div class="step"><div class="step-num">1</div><p>用户在 source detail 或 settings 中选择删除。</p></div>
+            <div class="step"><div class="step-num">2</div><p>确认删除后，该 source 不再出现在 ask / graph / trace。</p></div>
+            <div class="step"><div class="step-num">3</div><p>验收时必须再次查询，证明删除结果生效。</p></div>
+            <div class="step"><div class="step-num">4</div><p>失败时显示 blocked，并给出下一步。</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="selfcheck">
+      <div class="section-head">
+        <div>
+          <span class="label">07 / 图样自审</span>
+          <h2>概念一致性与事实错误检查</h2>
+          <p>本轮优先使用可审计 HTML/SVG 和真实截图。没有把 AI 文生图作为架构事实来源；如果后续替换为位图，必须重新执行同等自审。</p>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>检查项</th><th>结论</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>是否符合 active PRD 的 V2 路线</td><td>PASS</td><td>仅覆盖本地备忘、个人知识库、标签化总结、类 RAG 蒸馏方向。</td></tr>
+          <tr><td>是否误把 data_service console 当成 Navia UI</td><td>PASS</td><td>页面明确 data_service 是候选后端，Navia 需要 V2 Adapter / Governance Layer。</td></tr>
+          <tr><td>是否默认读取本地文件</td><td>PASS</td><td>本地导入只在显式授权流程中出现。</td></tr>
+          <tr><td>是否声明 V2 implemented / ready</td><td>PASS</td><td>所有目标图均标注为原型审查输入。</td></tr>
+          <tr><td>是否覆盖新版服务状态 UX</td><td>PASS</td><td>已补充 ServiceStatusBanner、DataServiceStatusCard、KnowledgeBuildStatus；Runtime offline 由前端推导。</td></tr>
+          <tr><td>保存流程是否符合单次主动保存</td><td>PASS</td><td>原型改为一次点击触发 operation，后续 queued / ingesting / building / trace_ready 由异步状态推进。</td></tr>
+          <tr><td>是否出现 AI 文生图事实错误</td><td>PASS</td><td>本页架构和模块图为 HTML/SVG/CSS 结构图，真实截图来自已有 evidence。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="acceptance">
+      <div class="section-head">
+        <div>
+          <span class="label">08 / 自动化实现与验收映射</span>
+          <h2>后续开发阶段的端到端验收目标</h2>
+          <p>本页只定义审查目标。V2 PRD、目标架构、stage gate、drawio 和验收门槛已建立；正式实现前仍需在 V2-0 冻结合同、data_service spike、Workspace 路由、验收 schema、semantic validator 和独立 evidence package。</p>
+        </div>
+      </div>
+      <table>
+        <thead><tr><th>未来验收场景</th><th>用户可见结果</th><th>验收证据</th></tr></thead>
+        <tbody>
+          <tr><td>保存当前网页</td><td>单次点击后侧栏显示 operation、queued / ingesting / building / trace 状态</td><td>截图、operation_id、source_id、artifact_ref、report.json</td></tr>
+          <tr><td>服务状态 UX</td><td>能区分 Runtime offline、Adapter blocked、data_service unreachable、source build failed</td><td>状态截图、status JSON、HTML 报告</td></tr>
+          <tr><td>跨来源问答</td><td>回答带引用和 Trace Drawer</td><td>answer、evidence_refs、source trace 截图</td></tr>
+          <tr><td>知识图谱</td><td>点击节点后看到关联来源和证据</td><td>graph screenshot、node metadata、source mapping</td></tr>
+          <tr><td>本地文件授权</td><td>授权弹窗、root 列表、撤销入口</td><td>consent screenshot、allowed roots、revoke result</td></tr>
+          <tr><td>删除 / 忘记</td><td>source 被移除且不再返回</td><td>before/after query、delete record、false-green audit</td></tr>
+          <tr><td>禁止越界能力</td><td>未出现 Web Research / PPT 生成 / Deep Research / 默认本地读取</td><td>PRD review、No-Go scan、人工审查</td></tr>
+        </tbody>
+      </table>
+      <div class="card yellow" style="margin-top:16px;">
+        <h3>开发前必须补齐</h3>
+        <p>当前只允许进入 V2-0 实现前审计。V2-1+ 自动化编码必须等待合同 schema、OpenAPI、错误码、data_service adapter spike、原型同步、Workspace 承载形态、验收 schema、semantic validator 和生命周期 ADR 全部闭环。</p>
+      </div>
+    </section>
+
+    <div class="footer-note">Navia V2 Personal Knowledge Base Prototype Review · 原型阶段 · 不代表实际代码已实现</div>
+  </main>
+
+  <div class="modal-backdrop" id="consentModal" role="dialog" aria-modal="true" aria-label="本地目录授权">
+    <div class="modal">
+      <h2>授权本地目录</h2>
+      <p>Navia V2 默认不读取本地文件。只有在你显式授权后，指定目录才会作为 source root 进入知识库。你可以随时撤销授权并删除相关 source。</p>
+      <div class="mono">授权 root: ~/Documents/Research
+能力: scan supported files only
+撤销: supported
+默认读取: disabled</div>
+      <div class="action-row"><button class="primary" id="grantConsent">确认授权</button><button id="closeConsent">取消</button></div>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="forgetModal" role="dialog" aria-modal="true" aria-label="删除或忘记 source">
+    <div class="modal">
+      <h2>删除 / 忘记 source</h2>
+      <p>删除后，该 source 不应继续出现在跨来源问答、图谱、trace 或推荐列表中。后续验收必须用再次查询证明删除生效。</p>
+      <div class="action-row"><button class="danger" id="confirmForget">确认删除</button><button id="closeForget">取消</button></div>
+    </div>
+  </div>
+  <div class="toast" id="prototypeToast" role="status" aria-live="polite"></div>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+    const toast = $("#prototypeToast");
+    let toastTimer = null;
+
+    function showToast(message) {
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add("open");
+      window.clearTimeout(toastTimer);
+      toastTimer = window.setTimeout(() => toast.classList.remove("open"), 2200);
+    }
+
+    $$("[data-route]").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        $$("[data-route]").forEach((item) => item.classList.remove("active"));
+        $$(".route-panel").forEach((item) => item.classList.remove("active"));
+        tab.classList.add("active");
+        const panel = $("#" + tab.dataset.route);
+        if (panel) panel.classList.add("active");
+      });
+    });
+
+    const saveBtn = $("#savePageBtn");
+    const componentSaveBtn = $("#componentSaveBtn");
+    const saveState = $("#saveState");
+    function markSaved() {
+      saveState.className = "card blue";
+      saveState.innerHTML = "<strong>保存操作已创建</strong><p>operation_id: op_save_current · source_id: src_web_current · status: queued / building · 前端自动轮询状态。</p>";
+      saveBtn.textContent = "已保存，查看知识库";
+      if (componentSaveBtn) componentSaveBtn.textContent = "已保存";
+      showToast("当前页已进入 V2 source ingest 原型状态");
+    }
+    saveBtn?.addEventListener("click", markSaved);
+    componentSaveBtn?.addEventListener("click", markSaved);
+
+    const consentModal = $("#consentModal");
+    const forgetModal = $("#forgetModal");
+    function openModal(modal) { modal.classList.add("open"); }
+    function closeModal(modal) { modal.classList.remove("open"); }
+    ["#openConsentBtn", "#openConsentBtn2", "#componentConsentBtn"].forEach((id) => $(id)?.addEventListener("click", () => openModal(consentModal)));
+    $("#closeConsent")?.addEventListener("click", () => closeModal(consentModal));
+    $("#grantConsent")?.addEventListener("click", () => {
+      closeModal(consentModal);
+      showToast("已记录授权 root 原型状态");
+    });
+    $("#openForgetBtn")?.addEventListener("click", () => openModal(forgetModal));
+    $("#closeForget")?.addEventListener("click", () => closeModal(forgetModal));
+    $("#confirmForget")?.addEventListener("click", () => {
+      closeModal(forgetModal);
+      const result = $("#forgetResult");
+      if (result) {
+        result.className = "card green";
+        result.innerHTML = "<strong>已删除</strong><p>source 已从原型检索集合中移除。后续真实验收必须用 before/after query 证明。</p>";
+      }
+      showToast("source 已标记为 forget");
+    });
+
+    const graphHints = {
+      source: "当前选中：网页 Source。右侧应列出相关来源、证据和可反跳状态。",
+      theme: "当前选中：内容理解质量。应展示跨 source 的主题聚合和噪声风险。",
+      trace: "当前选中：Source Trace。应展示 source_id / unit_id / evidence_id 和 located/fallback/blocked。",
+      permission: "当前选中：权限治理。应展示授权 root、撤销、删除和默认禁止读取。"
+    };
+    $$(".graph-node").forEach((node) => {
+      node.addEventListener("click", () => {
+        $$(".graph-node").forEach((item) => item.classList.remove("active"));
+        node.classList.add("active");
+        $("#graphHint").textContent = graphHints[node.dataset.graph] || graphHints.source;
+      });
+    });
+
+    $$(".source-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        $$(".source-card").forEach((item) => item.classList.remove("active"));
+        card.classList.add("active");
+      });
+    });
+
+    $$(".lab-nav button").forEach((button) => {
+      button.addEventListener("click", () => {
+        $$(".lab-nav button").forEach((item) => item.classList.remove("active"));
+        $$(".lab-panel").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        $("#" + button.dataset.lab)?.classList.add("active");
+      });
+    });
+
+    const saveFlow = [
+      {
+        key: "queued",
+        title: "保存请求已创建",
+        text: "operation_id: op_save_current。前端开始自动轮询 /v1/knowledge/operations/{operationId}。",
+        meter: "18%",
+        button: "处理中...",
+        statusClass: "status"
+      },
+      {
+        key: "ingesting",
+        title: "正在保存当前页",
+        text: "V2 Adapter 正在把 PageContext / SourceRef 映射为 source ingest 请求。",
+        meter: "34%",
+        button: "处理中...",
+        statusClass: "status"
+      },
+      {
+        key: "building",
+        title: "source 已创建，正在构建",
+        text: "source_id: src_web_current。等待 distill / graph / trace 构建完成。",
+        meter: "68%",
+        button: "处理中...",
+        statusClass: "status blocked"
+      },
+      {
+        key: "trace_ready",
+        title: "当前页已进入知识库",
+        text: "trace ready。用户可以进入 Knowledge Workspace 查看 source detail、ask 和 graph。",
+        meter: "100%",
+        button: "已完成，重新演示",
+        statusClass: "status"
+      }
+    ];
+    let labSaveIndex = -1;
+    function renderLabSave(reset = false) {
+      if (reset) labSaveIndex = -1;
+      const title = $("#labSaveTitle");
+      const text = $("#labSaveText");
+      const status = $("#labSaveStatus");
+      const meter = $("#labSaveMeter");
+      const button = $("#labSaveAdvance");
+      if (!title || !text || !status || !meter || !button) return;
+      if (labSaveIndex < 0) {
+        title.textContent = "当前页尚未保存";
+        text.textContent = "点击按钮后，PageContext / SourceRef 会进入 V2 Adapter，再映射为 data_service source。";
+        status.className = "status blocked";
+        status.textContent = "unsaved";
+        meter.style.width = "0";
+        button.textContent = "保存当前页";
+        return;
+      }
+      const state = saveFlow[labSaveIndex];
+      title.textContent = state.title;
+      text.textContent = state.text;
+      status.className = state.statusClass;
+      status.textContent = state.key;
+      meter.style.width = state.meter;
+      button.textContent = state.button;
+    }
+    function scheduleSaveAdvance() {
+      if (labSaveIndex < 0 || labSaveIndex >= saveFlow.length - 1) return;
+      setTimeout(() => {
+        if (labSaveIndex >= 0 && labSaveIndex < saveFlow.length - 1) {
+          labSaveIndex += 1;
+          renderLabSave();
+          showToast(`异步状态推进：${saveFlow[labSaveIndex].key}`);
+          scheduleSaveAdvance();
+        }
+      }, 650);
+    }
+    $("#labSaveAdvance")?.addEventListener("click", () => {
+      if (labSaveIndex >= saveFlow.length - 1) {
+        renderLabSave(true);
+        showToast("保存组件已重置");
+        return;
+      }
+      labSaveIndex = 0;
+      renderLabSave();
+      showToast(`保存流程状态：${saveFlow[labSaveIndex].key}`);
+      scheduleSaveAdvance();
+    });
+    $("#labSaveReset")?.addEventListener("click", () => {
+      renderLabSave(true);
+      showToast("保存组件已重置");
+    });
+
+    $$(".workspace-tile").forEach((tile) => {
+      tile.addEventListener("click", () => {
+        $$(".workspace-tile").forEach((item) => item.classList.remove("active"));
+        tile.classList.add("active");
+        $("#workspaceSummaryTitle").textContent = tile.dataset.workspace;
+        $("#workspaceSummaryText").textContent = `${tile.dataset.count} 个 sources，${tile.dataset.pending} 个 build pending。当前工作区可用于保存当前网页和跨来源问答。`;
+      });
+    });
+
+    $("[data-source-filter='all']")?.addEventListener("click", (event) => filterSources(event.currentTarget, "all"));
+    $("[data-source-filter='webpage']")?.addEventListener("click", (event) => filterSources(event.currentTarget, "webpage"));
+    $("[data-source-filter='document']")?.addEventListener("click", (event) => filterSources(event.currentTarget, "document"));
+    $("[data-source-filter='folder']")?.addEventListener("click", (event) => filterSources(event.currentTarget, "folder"));
+
+    function filterSources(button, kind) {
+      $$("[data-source-filter]").forEach((item) => item.classList.remove("active"));
+      button.classList.add("active");
+      $$(".library-item").forEach((item) => {
+        item.style.display = kind === "all" || item.dataset.kind === kind ? "block" : "none";
+      });
+    }
+
+    $$(".library-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        $$(".library-item").forEach((entry) => entry.classList.remove("active"));
+        item.classList.add("active");
+        $("#sourceDetailTitle").textContent = item.dataset.title;
+        $("#sourceDetailStatus").textContent = item.dataset.status;
+        $("#sourceDetailBody").textContent = item.dataset.body;
+      });
+    });
+
+    $("#askSubmit")?.addEventListener("click", () => {
+      const input = $("#askInput");
+      const messages = $("#askMessages");
+      if (!input || !messages) return;
+      const question = input.value.trim() || "保存网页后，用户如何确认证据来源？";
+      const user = document.createElement("div");
+      user.className = "chat-bubble user";
+      user.textContent = question;
+      const assistant = document.createElement("div");
+      assistant.className = "chat-bubble";
+      assistant.innerHTML = `用户应通过 Trace Drawer 查看 source_id、unit_id、evidence_id 和 located/fallback/blocked 状态。<div class="evidence-card"><strong>Evidence refs</strong><p>src_web_current / unit_main_claim / ev_trace_002</p></div>`;
+      messages.append(user, assistant);
+      messages.scrollTop = messages.scrollHeight;
+      showToast("已生成带 evidence_refs 的原型回答");
+    });
+
+    const traceStates = {
+      located: {
+        pill: "located",
+        title: "证据定位成功",
+        copy: "页面中找到了与 evidence span 语义一致的位置，用户可以看到 Navia source marker。",
+        quote: "“V2 必须通过显式授权、SourceRef / artifact_ref 映射和删除验证来控制。”",
+        className: "status"
+      },
+      fallback: {
+        pill: "fallback_shown",
+        title: "显示 fallback evidence",
+        copy: "当前页面无法精确定位原文，但可以展示 source-level 或 unit-level 证据，必须说明降级原因。",
+        quote: "fallbackText: 该 source 的 evidence span 存在，但页面 DOM 当前位置不可稳定匹配。",
+        className: "status blocked"
+      },
+      blocked: {
+        pill: "blocked",
+        title: "证据反跳被阻塞",
+        copy: "source 已不可访问、权限被撤销或 selector 已失效。UI 必须给出原因和下一步，而不是标记成功。",
+        quote: "blockedReason: source permission revoked or locator unavailable.",
+        className: "status blocked"
+      }
+    };
+    $$("[data-trace-state]").forEach((button) => {
+      button.addEventListener("click", () => {
+        $$("[data-trace-state]").forEach((item) => item.classList.remove("primary"));
+        button.classList.add("primary");
+        const state = traceStates[button.dataset.traceState];
+        $("#traceStatePill").className = state.className;
+        $("#traceStatePill").textContent = state.pill;
+        $("#traceTitle").textContent = state.title;
+        $("#traceCopy").textContent = state.copy;
+        $("#traceQuote").textContent = state.quote;
+      });
+    });
+
+    $("#permissionAddRoot")?.addEventListener("click", () => openModal(consentModal));
+    $("#rootList")?.addEventListener("click", (event) => {
+      const button = event.target.closest(".revoke-root");
+      if (!button) return;
+      button.closest(".root-row")?.remove();
+      showToast("授权 root 已撤销");
+    });
+
+    $("#forgetInlineBtn")?.addEventListener("click", () => openModal(forgetModal));
+    let forgetDeleted = false;
+    $("#forgetQueryCheck")?.addEventListener("click", () => {
+      const result = $("#forgetResult");
+      if (!result) return;
+      if (!forgetDeleted && result.textContent.includes("已删除")) forgetDeleted = true;
+      if (forgetDeleted) {
+        result.className = "card green";
+        result.innerHTML = "<strong>查询验证通过</strong><p>模拟 before/after query：该 source 不再被 Ask、Graph 或 Trace 返回。</p>";
+      } else {
+        result.className = "card yellow";
+        result.innerHTML = "<strong>仍可检索</strong><p>删除尚未执行，source 仍会出现在查询结果中。</p>";
+      }
+    });
+  </script>
+</body>
+</html>

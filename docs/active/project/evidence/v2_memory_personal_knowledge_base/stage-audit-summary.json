@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-07-13T19:09:51",
+  "passed": true,
+  "claim": "V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.",
+  "drawio": {
+    "path": "docs/active/project/design/v2-memory-personal-knowledge-base-gap.drawio",
+    "pages": 8,
+    "v2ReadyNoGoTerms": 3
+  },
+  "commands": [
+    [
+      "npm --prefix apps/chrome-extension run typecheck",
+      "PASS",
+      "TypeScript 类型检查通过"
+    ],
+    [
+      "PYTHONPATH=services/local-runtime python3 -m pytest services/local-runtime/tests/test_v2_data_service_client.py services/local-runtime/tests/test_v2_memory_knowledge_api.py",
+      "PASS",
+      "8 个 V2 Runtime / data_service client 测试通过，5 个 deprecation warning，不影响结果"
+    ],
+    [
+      "npm --prefix apps/chrome-extension run e2e:chrome:v2-memory-personal-knowledge",
+      "PASS",
+      "生成 24 source 截图、42 scenario 截图，并通过 V2 report validator"
+    ],
+    [
+      "npm --prefix apps/chrome-extension run validate:v2-memory",
+      "PASS",
+      "schema + semantic validator 通过"
+    ],
+    [
+      "npm --prefix apps/chrome-extension run build",
+      "PASS",
+      "WXT production build 通过；存在 chunk size warning"
+    ]
+  ],
+  "screenshots": 66,
+  "serviceStatuses": [
+    "runtime_offline",
+    "adapter_blocked",
+    "data_service_unreachable",
+    "source_build_failed"
+  ],
+  "residualRisks": [
+    [
+      "Playwright Chromium 依赖缺失",
+      "本机 WSL 缺 libnspr4.so，自动化已降级为 Windows Chrome CLI headless 截图；报告明确记录，不作为失败。"
+    ],
+    [
+      "V2 不等于 V2 ready",
+      "本阶段只允许 planning-aligned local knowledge acceptance；真实 data_service 产品化、持久化一致性和删除级联仍需新阶段。"
+    ],
+    [
+      "前端专项 vitest 缺口",
+      "当前前端覆盖依赖 typecheck、build 和可视化证据；尚无 Knowledge Workspace 组件级 vitest。"
+    ],
+    [
+      "drawio 状态全绿但 No-Go 仍存在",
+      "drawio 已同步 V2-7 出门达成；No-Go 作为禁止声明边界保留。"
+    ]
+  ]
+}

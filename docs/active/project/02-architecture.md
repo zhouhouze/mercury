@@ -1864,3 +1864,265 @@ Frozen baseline evidence
 - 截图证据必须覆盖 launcher、sidebar、Mindmap、source evidence、状态卡、输入区、Debug 和 Settings。
 - located / fallback_shown / blocked 仍不得在 UI、JSON、HTML 或截图 metadata 中混淆。
 - 不得声明最终 Monica-like UX complete、复杂站点全量高质量、媒体内容理解、V2 Memory / RAG ready、Web Research / PPT / Deep Research ready。
+
+## 21. V2 Memory / Personal Knowledge Base 目标架构
+
+`V2 Memory / Personal Knowledge Base` 在 V1 current-page companion reading 之后新增个人知识资产层。目标不是让 B 前端直接拥有长期记忆，也不是让 V1 Runtime 默认读取本地文件，而是通过显式用户动作、V2 Adapter / Governance 和可审计 service 边界，把当前页与授权资料沉淀为可追踪、可删除、可查询的知识 source。
+
+当前架构门禁口径：
+
+```text
+Go for V2 Memory / Personal Knowledge Base documentation and implementation-baseline synchronization.
+V2-0 P0 contract / spike / lifecycle inputs are present as baseline artifacts.
+V2-1..V2-6 mock-first / controlled-boundary implementation baseline is present.
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+Go for V2 planning-aligned local knowledge acceptance claim after V2-7 evidence passes; No-Go for V2 ready / RAG ready claims.
+```
+
+V2 分层目标：
+
+```text
+Host page / explicit local consent
+  -> V1 pageContext.ts / SourceRef / current-page artifacts
+  -> V2 Adapter / Governance
+  -> MemoryCandidate / KnowledgeSource contracts
+  -> Candidate Local Knowledge Governance Service
+  -> Knowledge Workspace frontend
+  -> Source Trace / Knowledge Graph / Ask with Sources
+  -> V2 evidence package
+```
+
+当前架构与 V2 目标差异：
+
+| 状态 | 实体 | 当前实现 | V2 目标 |
+|---|---|---|---|
+| 已实现保持 | `apps/chrome-extension/src/pageContext.ts` | 读取当前页 DOM、metadata、selection | 作为当前页保存的输入来源；不得扩展为默认本地文件读取 |
+| 已实现保持 | `apps/chrome-extension/src/contentBridge.ts` | launcher、sidebar、source marker、fallback、blocked | V2 当前不要求 content script 自动保存；source jumpback / marker 继续只响应用户触发 |
+| 已实现需验收 | B `chat_renderer` / sidepanel shell | 当前页聊天、状态卡、source card，已挂载 V2 Knowledge 入口 | 展示 SaveToKnowledgeCard、Ask with Sources 入口和服务状态；不得生成长期知识事实 |
+| 已实现保持 | B `mindmap_renderer` | Evidence Card Mindmap / Reading Map | 后续可从 Knowledge Workspace 跳转到 graph / trace，但图谱事实来自服务侧 |
+| 已实现需验收 | B `debug_renderer` / Settings 诊断入口 | 当前展示 Runtime、页面读取和调试信息 | V2 服务状态必须区分 Runtime、Adapter、data_service、source build / trace / forget |
+| 已实现保持 | A Page Reading | 生成 Digest / SourceRef / QualityReport | 输出 MemoryCandidate 输入材料；A 不写长期知识库 |
+| 已实现保持 | C Mindmap | 生成当前页 tree / nodeSourceMap | 可提供候选主题和 source binding；C 不写 Knowledge Graph |
+| 已实现保持 | D Agent Loop / Adapter | ToolResult / Artifact / Event / Trace 边界 | V2 Adapter 必须挂在 D / governance 边界后；CoreProvider 不直接写 UI 或 data_service |
+| 已实现需验收 | V2 Adapter / Governance | `services/local-runtime/navia_runtime/modules/memory/` mock-first / controlled boundary 基线 | 将 PageContext / SourceRef / Artifact 映射为 MemoryCandidate / KnowledgeSource；执行权限、删除、trace 和错误语义 |
+| 已实现需验收 | Memory Plane contracts | V2 schema、OpenAPI、错误码和 Runtime contracts 草案已落盘 | `MemoryCandidate`、`KnowledgeSource`、`KnowledgeItem`、`EvidenceRef`、`Workspace`、`PermissionRoot`、`ForgetRequest` 需继续由 V2-7 真实数据验收验证 |
+| 已实现需验收 | Knowledge Workspace | `apps/chrome-extension/src/modules/knowledge_workspace/` 已形成组件基线 | 展示 workspace、source library、source detail、ask with sources、trace、graph、permission、forget 和服务状态条 |
+| 外部候选 | `/mnt/c/workspace/data_service` | 独立 Local Knowledge Governance Service | 候选后端基线；只能通过 HTTP / MCP / CLI 接入，不能直接读写内部 workspace |
+| 已完成验收 | `v2_memory_personal_knowledge_base` evidence | V2-1..V2-6 子阶段计划、PRD review、false-green audit 已落盘；V2-7 独立证据包已通过 | `sample-manifest.json`、`report.json`、`acceptance-report.html`、screenshots、schema / semantic validation 均已生成并通过 |
+
+V2 Gap 闭环矩阵：
+
+| 层 | 当前具体实体 | 当前状态 | 缺口 | V2 目标实体 | 接入 / 边界规则 | 出门证据 |
+|---|---|---|---|---|---|---|
+| Chrome 入口 | `entrypoints/background/index.ts`、`contentBridge.ts` | 已能打开 sidepanel / in-page sidebar，并执行 source marker / fallback / blocked | V2 不新增自动保存；trace marker 仍需真实数据验收 | `SaveToKnowledgeCard`、`KnowledgeTraceEntryPoint` | 只由用户点击触发；不得自动保存当前页 | launcher / sidebar 截图、保存入口截图、交互日志 |
+| 当前页输入 | `pageContext.ts`、A Page Reading `SourceRef` | 已能生成当前页上下文、Digest、SourceRef、QualityReport | 没有长期知识候选合同；无法表达 workspace、permission、forget | `MemoryCandidate`、`KnowledgeSourceDraft` | A 只产出候选输入，不写长期知识库 | candidate fixture、SourceRef mapping report |
+| Runtime 客户端 | `runtimeClient.ts` | 已包含 V2 knowledge section 和 V1 API | 需 V2-7 用真实数据验证状态、trace/query/forget 调用 | `runtimeClient.ts` V2 knowledge section | B 不直连 data_service；所有调用经 V2 Adapter / Governance | typecheck、contract tests、network trace |
+| B 渲染层 | `chat_renderer`、`mindmap_renderer`、`debug_renderer`、`knowledge_workspace/` | 已渲染聊天、Artifact、Mindmap、Debug，并有 Knowledge Workspace 组件基线 | 需 V2-7 真实截图验证 Workspace、Source Library、Ask、Graph、Permission、Forget 和状态组件 | Knowledge Workspace 组件组、`ServiceStatusBanner`、`DataServiceStatusCard`、`KnowledgeBuildStatus` | B 只展示 view model，不生成知识事实，不直连 data_service 做健康检查 | 组件截图、交互录屏或 HTML report |
+| Runtime A/C/D | A Page Reading、C Mindmap、D Agent Loop / Adapter、`modules/memory/` | 已按 V1 分层生成当前页摘要、Mindmap、ToolResult / Artifact / Trace；V2 mock-first adapter 基线已存在 | 真实 data_service 产品化前仍需能力 diff 和删除语义复验 | V2 Adapter / Governance、Memory Plane contracts | A/C 不读写 Memory Plane；D / Governance 负责权限、错误、trace | adapter contract tests、PRD review |
+| 外部候选服务 | `/mnt/c/workspace/data_service` HTTP / MCP / CLI | 已作为候选基线完成 spike 文档；默认禁用 | 真实集成需再次锁定 commit/version/auth/API 和删除语义 | Local Knowledge Governance Service adapter | 只走 HTTP / MCP / CLI；不得直接读写内部 workspace；不复用 console 作为 Navia UI | adapter spike report、API mapping matrix |
+| 权限治理 | Navia Settings / Debug；`knowledge_workspace/` PermissionRoot；data_service allowed roots env | V2 mock governance UX 已形成基线 | 需 V2-7 用显式授权样本和截图证明撤销后不继续扫描 | `PermissionRoot`、`PermissionGrant`、`PermissionRevoke` | 默认关闭；显式授权；撤销后不得继续扫描 | permission screenshots、before/after scan report |
+| 删除 / 遗忘 | data_service `/sources/remove` 候选接口；`knowledge_workspace/` ForgetSource | V2 mock forget UX 已形成基线 | 需 V2-7 证明 query / graph / trace 不再命中 | `ForgetRequest`、`ForgetVerification` | 删除必须影响 Source Library、Ask、Graph、Trace | before/after query、graph、trace evidence |
+| Evidence | V1 evidence packages；V2-1..V2-6 子阶段 evidence；V2-7 独立证据包 | V2 子阶段实现证据和 V2-7 evidence 均已存在 | 后续产品化 data_service 仍需独立证据，不复用本阶段 claim | `docs/active/project/evidence/v2_memory_personal_knowledge_base/` | V2 证据独立，不复用 V1/V3 作为通过声明 | report.json、HTML、screenshots、false-green audit |
+
+V2 架构平面与未来修改位置：
+
+| 架构平面 | 当前实体 / 文件 | 当前状态 | 剩余目标或验收点 | 与相邻平面关系 |
+|---|---|---|---|---|
+| P0 Browser Host Plane | 普通网页 DOM、用户选区、用户显式授权动作 | 当前只作为 V1 当前页伴读输入 | 不新增默认本地读取；只在 UI 中触发保存或授权 | 只向 P1 Content Script / Side Panel 提供用户触发信号 |
+| P1 Extension Shell Plane | `entrypoints/background/index.ts`、`entrypoints/content/index.ts`、`src/contentBridge.ts` | 已实现 background 打开 sidepanel、content script 注入、launcher / sidebar / source marker | V2-7 验证不会自动保存当前页，不会自动浏览器操作 | 向 P2 提供 UI shell；向页面写 marker；不调用 data_service |
+| P2 Side Panel UI Plane | `entrypoints/sidepanel/main.tsx`、`src/modules/chat_renderer/`、`src/modules/mindmap_renderer/`、`src/modules/debug_renderer/`、`src/modules/knowledge_workspace/` | 已实现 Chat / Agent / Debug / Settings、Mindmap、source card 和 Knowledge Workspace 组件基线 | V2-7 截图验证 Save、Workspace、Source、Ask、Trace、Graph、Permission、Forget 和服务状态组件 | 只通过 P3 `runtimeClient.ts` V2 knowledge section 调用 Runtime；不直接调用 A/C/D 或 data_service |
+| P3 Runtime Client Plane | `src/runtimeClient.ts` | 已封装 V1 API 和 V2 knowledge section | V2-7 验证 `/v1/knowledge/*`、`/v1/knowledge/status`、transport failure 和错误路径 | P2 的唯一 Runtime 入口；负责请求 / 响应类型和轮询 / reconnect UI 状态 |
+| P4 Local Runtime API Plane | `services/local-runtime/navia_runtime/app.py` | 已提供 `/v1/*` V1 API 和 `/v1/knowledge/*` / `/v1/knowledge/status` 基线 | V2-7 验证真实 source、query、trace、permission、forget 的返回与 evidence 一致 | 接收 P3 请求，调用 P5 V2 Adapter / Governance，并聚合 Runtime / Adapter / data_service / source 状态 |
+| P5 V2 Adapter / Governance Plane | `services/local-runtime/navia_runtime/modules/memory/` | 已有 contracts、service、governance、status、mock adapter 和受控 data_service client 基线 | 真实 data_service 产品化前再次复核 commit/version/auth/API/delete semantics | 将 V1 SourceRef / Artifact 映射为受控 data_service 请求；输出 trace / degraded / error / service status |
+| P6 Candidate Service Plane | `/mnt/c/workspace/data_service/backend/app/api/v1/data_service.py`、`backend/data_service/service.py`、`query_contract.py`、`source_trace_contract.py`、`models.py` | 外部独立 Local Knowledge Governance Service，已有 workspace / source / query / graph / trace 能力 | 不在 Navia 仓内修改；只作为候选后端基线，经 HTTP / MCP / CLI 接入 | 只接受 P5 调用；内部 workspace 不暴露给 P2 |
+| P7 Evidence Plane | `apps/chrome-extension/e2e/*`、`docs/active/project/evidence/` | 已有 V1 evidence 和 report 生成器 | 新增 `e2e:chrome:v2-memory-personal-knowledge`、report generator、validator 和 `v2_memory_personal_knowledge_base/` evidence | 证明 P1-P6 的用户路径和边界未 false-green |
+
+V2 当前实现实体与剩余验收目标：
+
+| 类型 | 目标路径 | 目标职责 |
+|---|---|---|
+| 已实现需验收的前端 client | `apps/chrome-extension/src/runtimeClient.ts` V2 knowledge section | 封装 `/v1/knowledge/*`，隔离 B UI 和 Runtime API；V2-7 需验证真实状态和错误路径 |
+| 已实现需验收的前端组件目录 | `apps/chrome-extension/src/modules/knowledge_workspace/` | SaveToKnowledgeCard、SourceLibrary、AskWithSources、Trace、Graph、Permission、Forget、ServiceStatusBanner、DataServiceStatusCard、KnowledgeBuildStatus |
+| 已实现需验收的 sidepanel 入口 | `apps/chrome-extension/entrypoints/sidepanel/main.tsx` | 挂载 V2 Knowledge 入口、Workspace shell 和状态，不破坏 V1 Chat / Debug / Settings |
+| 已实现保持的 content bridge | `apps/chrome-extension/src/contentBridge.ts` | 保持 launcher、sidebar、source marker、fallback / blocked，不做自动保存或自动浏览器任务 |
+| 已实现需验收的 Runtime memory module | `services/local-runtime/navia_runtime/modules/memory/` | MemoryCandidate、KnowledgeSource、EvidenceRef、PermissionRoot、ForgetRequest、mock adapter 和受控 data_service client |
+| 已实现需验收的 Runtime API | `services/local-runtime/navia_runtime/app.py` | 提供 `/v1/knowledge/*` 与 `/v1/knowledge/status`；产品 V2 不等于 Runtime API 必须切 `/v2` |
+| 已完成的 V2-7 E2E / reporter | `apps/chrome-extension/e2e/chrome-v2-memory-personal-knowledge.mjs`、V2 report generator、validator | 真实网页、显式授权本地资料、notes / markdown、query、trace、graph、forget、截图和 HTML 报告证据 |
+
+`data_service` 候选 API 映射只允许作为 V2 Adapter 的输入参考：
+
+| data_service 候选边界 | Navia V2 目标动作 | 当前判断 |
+|---|---|---|
+| `/knowledge/workspaces/create`、`/workspaces/list`、`/workspaces/describe` | workspace 创建、切换、摘要 | 可作为候选，但需要 Navia workspace view model |
+| `/knowledge/sources/import`、`/sources/list`、`/sources/remove` | source 导入、列表、删除 | 可作为候选；remove 不能单独证明 forget，必须追加查询验证 |
+| `/knowledge/build/start`、`/build/status`、`/build/cancel` | ingest / build 状态 | 可作为候选；需要映射为用户可读状态 |
+| `/knowledge/query` | Ask with Sources | 可作为候选；必须强制 evidence refs 或 degraded |
+| `/knowledge/graph` | Knowledge Graph | 可作为候选；B 不能凭空生成 graph facts |
+| `/knowledge/source/trace` | Evidence Trace | 可作为候选；必须脱敏路径并保持 located / fallback / blocked 一致 |
+
+V2 Adapter 目标边界：
+
+```text
+V1 PageContext / SourceRef / ArtifactRecord
+  -> MemoryCandidate
+  -> V2 Adapter / Governance
+  -> data_service HTTP / MCP / CLI contract
+  -> KnowledgeSource / KnowledgeItem / EvidenceRef
+  -> B Knowledge Workspace view models
+```
+
+V2 前端服务状态感知链路：
+
+```text
+B Knowledge Workspace / Debug / Settings
+  -> runtimeClient.ts V2 knowledge status call
+  -> Local Runtime `/v1/knowledge/status`
+  -> V2 Adapter / Governance status aggregator
+  -> data_service HTTP / MCP / CLI health probe
+  -> BackendServiceStatus / DataServiceStatus / SourceBuildStatus view model
+```
+
+V2 状态模型规划：
+
+| 状态域 | 值 | 用户可见含义 | 允许的下一步 |
+|---|---|---|---|
+| `runtimeStatus` | `checking` / `online` / `offline` | Navia Runtime 是否可用 | 重试、打开 Debug、启动 Runtime |
+| `adapterStatus` | `ready` / `degraded` / `blocked` / `not_configured` | V2 Adapter / Governance 是否可处理知识请求 | 查看配置、降级为当前页伴读、打开 Settings |
+| `dataServiceStatus` | `unchecked` / `connected` / `auth_required` / `unreachable` / `version_mismatch` / `blocked_by_policy` | 候选 data_service 是否可作为本地知识服务 | 配置凭据、重连、升级服务、查看策略原因 |
+| `sourceBuildStatus` | `not_saved` / `queued` / `ingesting` / `building` / `trace_ready` / `degraded` / `failed` / `forgotten` | 单个 source 是否已进入可查询、可 trace、可删除状态 | 保存、等待、查看 trace、重试、删除验证 |
+
+Runtime offline 语义修正：
+
+- `runtimeStatus=offline` 不能由 `/v1/knowledge/status` 返回，因为 Runtime 离线时该接口不可达。
+- 前端必须在 `runtimeClient.ts` V2 knowledge section 中通过 transport failure / timeout 本地推导 `frontendInferredRuntimeStatus=offline`。
+- Runtime 在线后，`/v1/knowledge/status` 只能返回 Runtime 可达条件下的 Adapter、data_service、source build 和 capability 状态。
+
+前端展示规则：
+
+- `ServiceStatusBanner` 必须出现在 Knowledge Workspace 顶部和 SaveToKnowledgeCard 附近，让用户在保存前知道 Runtime / Adapter / data_service 是否可用。
+- `DataServiceStatusCard` 必须在 Debug / Settings 中解释候选服务状态，不能只显示“Runtime 连通正常”。
+- `KnowledgeBuildStatus` 必须绑定到单个 source detail，展示 ingest、build、trace、degraded、failed、forgotten 的真实状态。
+- B 前端不得直接探测或调用 data_service；所有状态来自 Navia Runtime 聚合后的 view model。
+- data_service 物理路径、授权 root 和错误详情必须经 Runtime 脱敏后展示。
+- Runtime 离线、data_service 不可达、Adapter blocked、source build failed 必须使用不同视觉状态和文案，不得合并为 generic error。
+
+V2-0 必须冻结的可执行合同：
+
+```text
+docs/active/project/contracts/v2_memory_contracts.schema.json
+docs/active/project/contracts/v2_knowledge_status.schema.json
+docs/active/project/contracts/v2_knowledge_api.openapi.yaml
+docs/active/project/contracts/v2_knowledge_error_codes.md
+docs/active/project/contracts/v2_memory_sample_manifest.schema.json
+docs/active/project/contracts/v2_memory_report.schema.json
+docs/active/project/design/v2-memory-personal-knowledge-semantic-validator.md
+docs/active/project/design/v2-memory-personal-knowledge-lifecycle-adr.md
+docs/active/project/design/v2-data-service-adapter-spike-plan.md
+```
+
+这些文件当前作为 V2-0 / V2-6 实现基线输入。真实 data_service 产品化或 V2-7 出门前仍必须复核字段、枚举、API envelope、pagination / cursor、idempotency key、operation_id、trace_id、error code、capability negotiation 和 semantic validator。
+
+V2 Workspace 承载形态规划：
+
+| 容器 | 职责 | 目标路径 | 验收重点 |
+|---|---|---|---|
+| Side Panel | 快速保存当前页、显示服务状态摘要、当前 source build / trace 状态、Ask current workspace 快捷入口、Trace 快捷入口 | `entrypoints/sidepanel/main.tsx`、`knowledge_workspace/SaveToKnowledgeCard.tsx`、`ServiceStatusBanner.tsx` | 不破坏 V1 Chat / Debug / Settings；窄侧栏不承载完整长期管理 |
+| Extension Workspace Page | 长期 source 管理、workspace switcher、source library/detail、Ask with Sources、Knowledge Graph、PermissionRoot、ForgetSource、DataServiceStatusCard | 未来 extension page 或等价 Navia Workspace route，V2-0 冻结具体入口 | 能承载宽布局、表格、图谱、权限和删除审计 |
+| Localhost Web Workspace | 备选路线，不是默认承诺 | 仅在 V2-0 决策后进入文档 | 需要额外启动、权限和验收路径 |
+
+V2-7 出门证据已满足：
+
+- `sample-manifest.json` 至少覆盖 24 source：12 web、6 explicit local docs、6 notes / markdown / other。
+- query / operation scenarios 与 source corpus 分开统计，至少覆盖 38 个操作场景。
+- HTML 报告、screenshots、`report.json` 和 semantic validator 均通过。
+- service status 样本覆盖 Runtime offline、Adapter degraded / blocked、data_service auth / unreachable / version mismatch、source build failed / degraded。
+- V2-7 PRD review 和 false-green audit 无 fatal / major。
+
+关键架构规则：
+
+- B 前端不得直接调用 A / C 服务，也不得直接读写 data_service workspace；所有长期知识写入必须经过 V2 Adapter / Governance。
+- A / C 只能提供当前页结构化输入和候选主题，不拥有长期 Memory Plane。
+- D / Adapter / Governance 负责权限、错误、trace、审计和外部候选服务接入；不得绕过 Event / Trace 语义。
+- data_service 的 `workspace_id` 可作为候选稳定标识；物理 `root_path` 只能在用户授权和脱敏后展示，不得作为 Navia 稳定 API。
+- 前端服务状态只作为用户可感知诊断和下一步引导，不得被写成长期知识事实或自动触发本地扫描。
+- 显式授权本地目录必须默认关闭，授权、撤销、扫描范围和删除结果都要进入 evidence。
+- 删除 / 遗忘不是只隐藏 UI 卡片；必须影响 Source Library、Ask with Sources、Knowledge Graph 和 Source Trace，并用再次查询证明。
+
+V2 架构出门条件：
+
+- PRD、架构、开发计划、验收计划、stage gate 和 drawio 必须都使用 `V2 Memory / Personal Knowledge Base`。
+- drawio 架构页必须展示具体实体：`pageContext.ts`、`contentBridge.ts`、B `chat_renderer`、B `mindmap_renderer`、A Page Reading、C Mindmap、D Agent Loop / Adapter、V2 Adapter / Governance、Memory Plane contracts、Knowledge Workspace、data_service、V2 evidence package。
+- drawio 和文档必须展示前端服务状态链路：`ServiceStatusBanner` / `DataServiceStatusCard` / `KnowledgeBuildStatus` -> `runtimeClient.ts` V2 knowledge section -> `/v1/knowledge/status` -> V2 Adapter status aggregator -> data_service health probe。
+- drawio 必须标注实体状态：已实现保持、已实现需验收、待补齐、外部候选、No-Go。
+- V2-7 证据通过后允许声明 `V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance`；仍不得声明 V2 implemented、V2 ready、默认本地文件读取或 RAG ready。
+- 不得声明 V2 implemented、V2 ready、默认本地文件读取、完整 RAG 产品、Web Research / PPT / Deep Research ready。
+
+## 22. V3 Media Companion 目标架构
+
+`V3 Media Companion` 在 V1 current-page companion reading 和 V2 knowledge asset 路线之后，把 Navia 扩展到视频页伴随体验。目标不是把 V1 的 DOM 抽取简单套到视频页，也不是立即接入真实多模态模型，而是先设计可审计、可反跳、可降级的视频页媒体上下文架构。
+
+V3 分层目标：
+
+```text
+Host video page
+  -> Content Script Media Collector
+  -> MediaPageContext
+  -> A Media Page Perception
+  -> D Adapter / Governance / Trace
+  -> C Media Mindmap
+  -> B Media Companion Renderer
+  -> Content Script media jumpback / timestamp seek / source marker
+  -> V3 evidence package
+```
+
+当前架构与 V3 目标差异：
+
+| 状态 | 实体 | 当前实现 | V3 目标 |
+|---|---|---|---|
+| 已实现保持 | `apps/chrome-extension/src/pageContext.ts` | 读取网页 DOM、metadata、selection | 作为普通网页感知基线；V3 需新增 media-specific collector，不把普通 DOM context 当作视频理解完成 |
+| 待新增 | Content Script Media Collector | 尚无独立媒体页采集层 | 读取 video URL、平台、标题、作者、简介、时长、当前播放时间、字幕 / 转录入口、章节、评论 / 弹幕可见文本 |
+| 待新增 | `MediaPageContext` | 尚无媒体上下文合同 | 规划 `platform`、`videoId`、`duration`、`currentTime`、`transcriptAvailability`、`timelineSources`、`degradedReason` |
+| 待新增 | A Media Page Perception | A 当前只做网页 page reading | 生成 transcript-first digest、timeline events、media source refs、quality report 和 low-signal degraded |
+| 保持边界 | D Adapter / Governance / Trace | ToolResult / Artifact / Event / Trace 边界 | 未来 ASR / VLM / Gemini Video 必须经 Adapter 和治理接入；B 不得直连模型 |
+| 待新增 | C Media Mindmap | 当前 C 生成网页 Mindmap / nodeSourceMap | 规划基于 transcript/timeline 的 Media Mindmap、章节图、主题图和证据绑定 |
+| 待新增 | B Media Companion Renderer | 当前 B 展示 Chat、Mindmap、Source Evidence | 规划视频概览卡、章节时间轴、Media Mindmap、截图证据卡、字幕问答和 timestamp jumpback controls |
+| 待新增 | Video frame evidence capture | 当前只有网页截图 / source marker 证据 | 规划目标时间点视频截图证据；V3.0 只证明可见帧和时间点，不声明 VLM 已理解画面 |
+| 待新增 | Media Jumpback | 当前 source jumpback 面向 DOM / textQuote / fallback | 规划 seek 到 timestamp、打开章节、定位 transcript segment、fallback / blocked 状态 |
+| 未来候选 | ASR / VLM / OCR / Gemini Video Adapter | V1 明确禁止媒体流理解 | V3.x 规划真实多模态能力，必须冻结用户授权、采样、隐私、成本、延迟和 EventStore 回放 |
+
+V3.0 Transcript-first 数据流：
+
+```text
+YouTube / Bilibili video page
+  -> metadata / title / description / chapter / transcript / visible comments / danmaku summary / current time
+  -> MediaPageContext
+  -> A: transcript segments + media digest + timeline source refs + quality report
+  -> D: ToolResult / Artifact / Event / Trace mapping
+  -> C: Media Mindmap tree + timeline node source map
+  -> B: video overview + timeline + evidence cards + ask-video chat
+  -> Content Script: timestamp seek or fallback / blocked
+```
+
+V3.x 多模态候选数据流：
+
+```text
+User-authorized media sample
+  -> ASR transcript / VLM frame caption / OCR block / sampled frame refs
+  -> D Adapter governance: permission, budget, privacy, trace
+  -> A Media Perception merges multimodal evidence with transcript-first context
+  -> C/B consume only governed source refs and confidence-aware artifacts
+```
+
+关键架构规则：
+
+- V3.0 不得把无字幕 / 无转录 / 无可见文本的视频标记为 understood；必须 degraded 或 blocked。
+- 视频截图证据只表示某个 timestamp 的可见帧；截图内容语义理解必须等待 V3.x 多模态合同。
+- Timestamp seek、transcript highlight、DOM source marker、fallback 和 blocked 必须在 UI、JSON、HTML 报告和截图 metadata 中一致。
+- 未来 ASR / VLM / OCR / Gemini Video / live input 只能作为 D Adapter Layer 后的受控能力，不允许 A 或 B 直接调用。
+- 不得自动下载视频流，不得绕过平台访问限制，不得把登录态自动化写成产品浏览器自动操作。
+
+V3 架构出门条件：
+
+- PRD、架构、开发计划、验收计划、stage gate 和 drawio 必须都区分 `V3.0 Transcript-first` 与 `V3.x Multimodal`。
+- drawio 架构页必须展示具体实体：Content Script Media Collector、MediaPageContext、A Media Page Perception、D Adapter/Governance、C Media Mindmap、B Media Companion Renderer、VideoFrameEvidenceRef、MediaJumpbackTarget 和 evidence package。
+- 任何声明 `ASR/VLM/Gemini Video ready` 的文档必须先定义用户授权、隐私、采样、延迟、成本、EventStore / Trace 和 false-green audit；否则 No-Go。

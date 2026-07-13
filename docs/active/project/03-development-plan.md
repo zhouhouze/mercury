@@ -1892,3 +1892,187 @@ docs/active/project/design/v1-baseline-maintenance-ux-polish-development-accepta
 docs/active/project/design/v1-baseline-maintenance-ux-polish-readiness-audit.md
 docs/active/project/evidence/v1_baseline_maintenance_ux_polish/
 ```
+
+## 17. V2 Memory / Personal Knowledge Base 文档与后续开发计划
+
+V2 的目标是把 Navia 从当前页伴读扩展为个人知识资产管理：用户主动保存当前网页、显式授权本地资料、进入 Knowledge Workspace、跨来源问答、查看 Source Trace / Knowledge Graph，并能撤销授权或删除 / 遗忘 source。
+
+当前开发状态：
+
+```text
+V2-DOC / V2-0：文档门禁、合同草案、data_service spike、生命周期 ADR、semantic validator 规格已形成基线。
+V2-1..V2-6：mock-first / controlled-boundary 自动化实现基线已完成并有子阶段 evidence。
+V2-7：真实数据验收、截图、HTML 报告、PRD review、false-green audit 和最终 report.json 已通过。
+```
+
+阶段拆分：
+
+```text
+V2-DOC-0：文档门禁，补齐 PRD、目标架构、开发计划、验收计划、stage gate、gap companion 和 drawio。
+V2-DOC-1：data_service 候选基线评估，明确可复用能力、不可直接复用能力、HTTP / MCP / CLI 接入边界和风险。
+V2-DOC-2：V2 Adapter / Governance 合同冻结，定义 MemoryCandidate、KnowledgeSource、KnowledgeItem、EvidenceRef、Workspace、PermissionRoot、ForgetRequest。
+V2-DOC-3：前端组件、服务状态和路由规格冻结，对齐原型审查页中的 SaveToKnowledgeCard、WorkspaceSwitcher、SourceLibrary、AskWithSources、EvidenceTrace、KnowledgeGraph、PermissionRoot、ForgetSource，并补充 ServiceStatusBanner、DataServiceStatusCard、KnowledgeBuildStatus。
+V2-DOC-4：验收矩阵和 false-green 防线冻结，定义当前页保存、显式本地授权、跨来源问答、trace、graph、delete / forget 和 HTML 报告。
+V2-DOC-5：文档审计，确认无 fatal / major 规格偏差后，才能进入未来 V2 实现规划。
+```
+
+当前放行口径：
+
+```text
+Go for V2 Memory / Personal Knowledge Base implementation-baseline record through V2-6.
+Go for V2 planning-aligned local knowledge acceptance claim after V2-7 evidence passes; No-Go for V2 ready / RAG ready claims.
+```
+
+V2 实现阶段状态：
+
+| 子阶段 | 状态 | 开发重点 | 验收重点 |
+|---|---|---|---|
+| `V2-0` | 已完成基线 | 复检 V2 文档门禁、合同、原型、data_service spike、Workspace 路由和验收 schema | 不把 prototype 或 data_service 能力写成 Navia 已实现 |
+| `V2-1` | 已完成基线 | V2 Adapter / Governance skeleton | Adapter 能接收当前页 MemoryCandidate；权限、错误、trace、No-Go 语义可审计 |
+| `V2-2` | 已完成基线 | SaveToKnowledgeCard、ServiceStatusBanner 和当前页保存入口 | 用户主动保存当前页，能在保存前看到 Runtime / Adapter / data_service 状态，并在保存后看到 ingest / build / trace 状态 |
+| `V2-3` | 已完成基线 | data_service HTTP / MCP / CLI 受控边界适配，默认禁用真实外部服务 | 只经受控边界写入 / 查询 source；不得直接读写内部 workspace |
+| `V2-4` | 已完成基线 | Knowledge Workspace shell | workspace switcher、source library、source detail、trace drawer 和服务状态条可用 |
+| `V2-5` | 已完成基线 | Ask with Sources / Knowledge Graph | 回答和图谱节点必须显示 evidence refs 或 degraded reason |
+| `V2-6` | 已完成基线 | PermissionRoot / ForgetSource | 显式授权、撤销、删除 / 遗忘和 before / after query 验证 |
+| `V2-7` | 已完成 | 真实数据验收 | 当前页样本、本地显式授权样本、跨来源问答、trace、graph、删除验证、HTML 报告无 fatal / major |
+
+用户目标体验：
+
+- 用户在网页上只需点击一次“保存到知识库”，即可把当前页作为可追溯 source 进入指定 workspace。
+- 用户在 Knowledge Workspace 中可以查看来源、摘要、证据、图谱、构建状态和后端服务状态，而不是只在聊天框里堆消息。
+- 用户能明确区分 Navia Runtime 离线、V2 Adapter 未配置或 blocked、data_service 不可达 / 鉴权失败、单个 source 构建失败，不会把不同后端问题误读成同一个 generic error。
+- 用户跨多个来源提问时，答案必须带 evidence refs 和 source trace，不允许无证据成功。
+- 用户授权本地目录前，系统不读取任何本地文件；撤销授权后不得继续扫描。
+- 用户删除 / 遗忘 source 后，可以通过再次查询确认该 source 不再参与回答、图谱或 trace。
+
+V2-7 已完成出门证据：
+
+| 任务 | 必须产物 | 目的 |
+|---|---|---|
+| 样本矩阵 | `sample-manifest.json` | 至少 24 source：12 web、6 explicit local docs、6 notes / markdown / other |
+| 操作场景 | operation scenarios metadata | 至少 38 个场景：mixed query、Ask、Graph / Trace、Permission、Forget、service status |
+| 自动化报告 | `report.json`、semantic validator log | 通过 `v2_memory_report.schema.json` 和跨字段语义校验 |
+| 可视化报告 | `acceptance-report.html`、`screenshots/` | 人类可审计，包含服务状态、保存、问答、图谱、权限、遗忘截图 |
+| 审计闭环 | `prd-review.md`、`false-green-audit.md` | 无 fatal / major；不把 mock-first 基线误声明为真实数据通过 |
+
+打回规则：
+
+- V2-DOC-0 若 active PRD、架构、开发计划、验收计划、stage gate、drawio 名称或范围不一致，打回文档门禁。
+- V2-DOC-1 若把 data_service console 写成 Navia 产品 UI，或把 data_service 内部 workspace 写成 Navia 直接依赖，打回候选基线评估。
+- V2-DOC-2 若未冻结权限、删除、trace、错误和跨服务边界，打回合同冻结。
+- V2-DOC-3 若前端组件只停留在概念图，没有对应用户操作、服务状态、失败和验收证据，或没有区分 Runtime / Adapter / data_service / source build 状态，打回组件规格。
+- V2-DOC-4 若验收不能证明删除 / 遗忘、显式授权和 evidence refs，打回验收计划。
+- V2-DOC-5 若仍存在 `V2 ready`、默认本地读取、Web Research、PPT、Deep Research 或多 Agent 过度声明，打回审计。
+- 后续若重新生成 V2-7 证据，仍必须包含真实数据 manifest、截图、HTML 报告、schema validation 和 semantic validator；缺任一项不得重新声明 planning-aligned local knowledge acceptance passed。
+
+允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+V2-7 已通过后最多允许声明：
+
+```text
+V2 Memory / Personal Knowledge Base passed planning-aligned local knowledge acceptance.
+```
+
+当前实现基线不得声明：
+
+```text
+V2 implemented。
+V2 Memory / RAG ready。
+完整个人知识库产品完成。
+默认本地文件读取。
+data_service console 已等同 Navia 产品 UI。
+Web Research / PPT / Deep Research ready。
+```
+
+文档入口：
+
+```text
+docs/active/project/stage-gates/v2-memory-personal-knowledge-base.md
+docs/active/project/design/v2-memory-personal-knowledge-base-gap.md
+docs/active/project/design/v2-memory-personal-knowledge-base-gap.drawio
+docs/active/project/design/v2-memory-personal-knowledge-base-development-acceptance-plan.md
+docs/active/project/design/v2-memory-personal-knowledge-base-readiness-audit.md
+docs/active/project/design/v2-memory-personal-knowledge-prototype-review/index.html
+```
+
+## 18. V3 Media Companion 文档与后续开发计划
+
+当前只执行 V3 文档开发，不进入实际代码开发。V3 的目标是把 Navia 从当前网页伴读扩展为视频页伴随理解，体验参考 Monica 在 YouTube 的视频总结 / Ask Video / Mindmap，以及 B站 AI 视频总结账号和工具中常见的视频省流总结、章节大纲、视频导图、字幕搜索、时间戳跳转和截图证据。
+
+阶段拆分：
+
+```text
+V3-DOC-0：文档门禁，补齐 PRD、目标架构、开发计划、验收计划、stage gate、gap companion 和 drawio。
+V3-DOC-1：竞品和目标体验冻结，明确 Monica-like YouTube 体验、B站 AI 视频总结体验、视频概览图、Media Mindmap、截图证据和视频反跳。
+V3-DOC-2：V3.0 Transcript-first 范围冻结，明确 YouTube+B站、字幕 / 转录 / 简介 / 评论 / 弹幕 / metadata / 时间戳 / 截图证据。
+V3-DOC-3：V3.x Multimodal 路线冻结，规划 ASR、VLM、OCR、Gemini Video、live input、采样、隐私、成本、延迟和治理。
+V3-DOC-4：验收矩阵和 false-green 防线冻结，定义真实样本、degraded / blocked、timestamp jumpback、截图证据和 HTML 报告。
+V3-DOC-5：文档审计，确认无 fatal / major 规格偏差后，才能进入未来 V3.0 实现规划。
+```
+
+未来 V3.0 实现阶段建议顺序：
+
+| 子阶段 | 开发重点 | 验收重点 |
+|---|---|---|
+| `V3.0-0` | 复检 V3 文档门禁和实现前 audit | 不把 V3.x 多模态写成 V3.0 交付；不复用 V1 验收声明视频理解 |
+| `V3.0-1` | Content Script Media Collector 和 `MediaPageContext` | YouTube / B站 metadata、标题、简介、时长、当前播放时间、字幕可用性和 degraded reason 可被真实页面采集 |
+| `V3.0-2` | Transcript / subtitle / chapter / visible comment ingestion | transcript segment、chapter、评论 / 弹幕可见文本有 source、timestamp 和 fallback |
+| `V3.0-3` | A Media Page Perception | 生成 media digest、timeline events、quality report；无字幕 / 无可见文本必须 degraded |
+| `V3.0-4` | C Media Mindmap | 生成章节图、主题图、事件 / 论点 / 结论节点，并绑定 timeline source refs |
+| `V3.0-5` | B Media Companion Renderer | 展示视频概览卡、章节时间轴、Media Mindmap、截图证据卡、Ask Video 问答 |
+| `V3.0-6` | Media Jumpback | 节点 / 证据卡点击后 seek 到时间点；失败时 fallback / blocked 可见 |
+| `V3.0-7` | 真实 YouTube+B站验收 | 24 页矩阵、HTML 报告、截图、PRD review、false-green audit 无 fatal / major |
+
+用户目标体验：
+
+- 用户能像使用 Monica YouTube 视频助手一样，在视频页侧栏里快速看到视频概览、章节、重点和可继续追问的问答入口。
+- 用户能像看 B站 AI 视频总结账号内容一样，看到结构化省流总结、时间线大纲、视频导图和可复制摘要。
+- 用户能点击视频导图节点或证据卡，跳到对应视频时间点，而不是只看到不可验证的文字总结。
+- 用户能看到目标时间点的视频截图证据，但 V3.0 不声称理解截图内容；真正画面理解归入 V3.x 多模态路线。
+- 无字幕、无转录、无简介、无评论或平台限制导致低信号时，系统明确 degraded / blocked，不伪装成功。
+
+打回规则：
+
+- V3-DOC-0 若 active PRD、架构、开发计划、验收计划、stage gate、drawio 名称或范围不一致，打回文档门禁。
+- V3-DOC-1 若竞品对标只写抽象口号，没有映射到 Monica-like YouTube 体验和 B站 AI 视频总结体验，打回目标体验。
+- V3-DOC-2 若 V3.0 混入 ASR/VLM/Gemini Video 真实交付承诺，打回范围冻结。
+- V3-DOC-3 若多模态路线缺少用户授权、隐私、采样、成本、延迟、EventStore / Trace 和 false-green 防线，打回架构规划。
+- V3-DOC-4 若验收无法区分 timestamp seek、screenshot evidence、fallback 和 blocked，打回验收计划。
+- V3-DOC-5 若仍存在“完整 Monica-like parity complete”“真实视频画面已理解”“直播理解 ready”等过度声明，打回审计。
+
+允许声明：
+
+```text
+V3 Media Companion planning baseline ready for review.
+```
+
+未来 V3.0 完成后最多允许声明：
+
+```text
+V3.0 transcript-first video companion passed YouTube and Bilibili planning-aligned acceptance.
+```
+
+当前实现基线不得声明：
+
+```text
+V3.0 implemented.
+完整 Monica-like YouTube parity complete。
+真实视频画面 / 音频已被理解。
+ASR / VLM / OCR / Gemini Video ready。
+直播实时理解 ready。
+跨视频知识库 / RAG ready。
+```
+
+文档入口：
+
+```text
+docs/active/project/stage-gates/v3-media-companion.md
+docs/active/project/design/v3-media-companion-gap.md
+docs/active/project/design/v3-media-companion-gap.drawio
+docs/active/project/design/v3-media-companion-development-acceptance-plan.md
+docs/active/project/design/v3-media-companion-readiness-audit.md
+```

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://navia.local/contracts/v2_knowledge_status.schema.json",
+  "title": "Navia V2 Knowledge Service Status",
+  "type": "object",
+  "required": ["schemaVersion", "observedAt", "runtimeStatus", "frontendInferredRuntimeStatus", "adapterStatus", "dataServiceStatus"],
+  "properties": {
+    "schemaVersion": { "const": "v2-knowledge-status-draft-2026-07-10" },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "frontendInferredRuntimeStatus": {
+      "description": "When Runtime transport fails, the frontend must infer runtime offline locally because /v1/knowledge/status is unreachable.",
+      "type": "string",
+      "enum": ["checking", "online", "offline"]
+    },
+    "runtimeStatus": {
+      "description": "Returned by Runtime only when Runtime is reachable; otherwise frontendInferredRuntimeStatus is authoritative.",
+      "type": "string",
+      "enum": ["checking", "online", "offline"]
+    },
+    "adapterStatus": {
+      "type": "string",
+      "enum": ["ready", "degraded", "blocked", "not_configured"]
+    },
+    "dataServiceStatus": {
+      "type": "string",
+      "enum": ["unchecked", "connected", "auth_required", "unreachable", "version_mismatch", "blocked_by_policy"]
+    },
+    "sourceBuildStatus": {
+      "type": "string",
+      "enum": ["not_saved", "queued", "ingesting", "building", "trace_ready", "degraded", "failed", "forgotten"]
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "workspace": { "type": "boolean" },
+        "sourceImport": { "type": "boolean" },
+        "buildStatus": { "type": "boolean" },
+        "query": { "type": "boolean" },
+        "graph": { "type": "boolean" },
+        "sourceTrace": { "type": "boolean" },
+        "forgetVerification": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "userAction": {
+      "type": "string",
+      "enum": ["none", "start_runtime", "configure_adapter", "configure_data_service", "reconnect", "upgrade_data_service", "retry_source_build", "open_debug"]
+    },
+    "message": { "type": "string" },
+    "redactionApplied": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "v2-memory-manifest-draft-2026-07-10",
+  "generatedAt": "2026-07-13T10:48:59.692Z",
+  "sourceCorpus": [
+    {
+      "sampleId": "v2_src_web_domestic_portal_163_news_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "https://news.163.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 网易新闻",
+        "Source URL retained for V2 save/build/trace acceptance: https://news.163.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_portal_cctv_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "https://news.cctv.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 央视网新闻",
+        "Source URL retained for V2 save/build/trace acceptance: https://news.cctv.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_portal_chinanews_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "https://www.chinanews.com.cn/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 中国新闻网",
+        "Source URL retained for V2 save/build/trace acceptance: https://www.chinanews.com.cn/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_portal_guancha_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "https://www.guancha.cn/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 观察者网",
+        "Source URL retained for V2 save/build/trace acceptance: https://www.guancha.cn/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_portal_people_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "http://www.people.com.cn/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 人民网",
+        "Source URL retained for V2 save/build/trace acceptance: http://www.people.com.cn/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_portal_qq_news_home",
+      "sourceType": "web_page",
+      "category": "news_or_portal",
+      "url": "https://news.qq.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 腾讯新闻",
+        "Source URL retained for V2 save/build/trace acceptance: https://news.qq.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_article_36kr_news",
+      "sourceType": "web_page",
+      "category": "long_blog",
+      "url": "https://36kr.com/information/technology/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 36氪",
+        "Source URL retained for V2 save/build/trace acceptance: https://36kr.com/information/technology/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_article_cctv_tech",
+      "sourceType": "web_page",
+      "category": "long_blog",
+      "url": "https://news.cctv.com/tech/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 央视网新闻",
+        "Source URL retained for V2 save/build/trace acceptance: https://news.cctv.com/tech/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_article_cnblogs",
+      "sourceType": "web_page",
+      "category": "long_blog",
+      "url": "https://www.cnblogs.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 博客园",
+        "Source URL retained for V2 save/build/trace acceptance: https://www.cnblogs.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_article_sspai",
+      "sourceType": "web_page",
+      "category": "long_blog",
+      "url": "https://sspai.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 少数派",
+        "Source URL retained for V2 save/build/trace acceptance: https://sspai.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_content_baijiahao",
+      "sourceType": "web_page",
+      "category": "product_research",
+      "url": "https://baijiahao.baidu.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: 百家号",
+        "Source URL retained for V2 save/build/trace acceptance: https://baijiahao.baidu.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_web_domestic_content_bilibili_home",
+      "sourceType": "web_page",
+      "category": "product_research",
+      "url": "https://www.bilibili.com/",
+      "workspaceId": "workspace_research_default",
+      "expectedEvidence": [
+        "Frozen real-site sample from V1 post-V1 hardening: B站",
+        "Source URL retained for V2 save/build/trace acceptance: https://www.bilibili.com/"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_prd",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/01-prd.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# Navia / 伴航 V1 PRD 版本：V1.0 PRD Baseline 日期：2026-05-31 产品名：Navia / 伴航 角色名建议：小航 阶段目标：Chrome 插件页面内交互优先的 Headless 伴随式 AI MVP --- ## 1. 产品背景 用户在浏览网页、阅读文章、查看技术文档、调研产品、整理资料时，经常需要即时理解当前页面",
+        "Authorized active document path: docs/active/project/01-prd.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_architecture",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/02-architecture.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# Navia / 伴航 V1 架构设计文档 版本：V1.0 Architecture Baseline 日期：2026-05-31 --- ## 1. 架构目标 Navia V1 架构的目标是搭建一个可以长期演进的本地 Headless AI Runtime，而不是一次性网页插件。 V1 架构必须支持： - Chrome 插件通过 Content Scri",
+        "Authorized active document path: docs/active/project/02-architecture.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_development_plan",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/03-development-plan.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# Navia / 伴航 V1 开发计划大纲 版本：V1.0 Development Plan Baseline 日期：2026-05-31 --- ## 1. 开发总原则 V1 开发必须坚持： ```text 先底座，后 PRD 页面内体验。 先可控，后智能。 先单 Session，后长期记忆。 先 Headless Runtime，后多端 UI。 先状态",
+        "Authorized active document path: docs/active/project/03-development-plan.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_acceptance_plan",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/04-acceptance-plan.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# Navia / 伴航 V1 目标验收文档 版本：V1.0 Acceptance Plan Baseline 日期：2026-05-31 --- ## 1. 验收原则 V1 验收不以“功能多”为标准，而以“核心链路稳定、状态可观测、行为可监督”为标准。 审计后新增原则： ```text Go, but contract-first. ``` 在进入 V1.",
+        "Authorized active document path: docs/active/project/04-acceptance-plan.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_stage_gate",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/stage-gates/v2-memory-personal-knowledge-base.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 Memory / Personal Knowledge Base Stage Gate 本阶段是 `V2 Memory / Personal Knowledge Base` 的实现基线同步与 V2-7 真实数据验收门禁。它不修改 V1 complete 或 post-V1 hardening 基线，也不把 V2-1..V2-6 mock-first",
+        "Authorized active document path: docs/active/project/stage-gates/v2-memory-personal-knowledge-base.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_local_gap_doc",
+      "sourceType": "authorized_local_document",
+      "category": "document_asset",
+      "redactedLocalPath": "docs/active/project/design/v2-memory-personal-knowledge-base-gap.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 Memory / Personal Knowledge Base Gap Companion 本 companion 解释 `v2-memory-personal-knowledge-base-gap.drawio` 的图纸口径。当前图纸用于同步 V2-1..V2-6 mock-first / controlled-boundary 实现基线，并明",
+        "Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-base-gap.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_lifecycle_adr",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-memory-personal-knowledge-lifecycle-adr.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# ADR: V2 Memory Lifecycle, Idempotency, Permission Revoke and Forget Cascade ## Status Proposed for V2-0. Not approved for V2-1 implementation until reviewed. ## Context V2 adds p",
+        "Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-lifecycle-adr.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_semantic_validator",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-memory-personal-knowledge-semantic-validator.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 Memory Semantic Validator Specification ## Status Required V2-0 output. This is a documentation-stage validator specification; implementation belongs to the future V2 evidence",
+        "Authorized active document path: docs/active/project/design/v2-memory-personal-knowledge-semantic-validator.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_data_service_snapshot",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-data-service-api-snapshot.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 data_service API Snapshot ## Status V2-0 spike input captured from the local candidate repository on 2026-07-10. ```text repository: /mnt/c/workspace/data_service remote: http",
+        "Authorized active document path: docs/active/project/design/v2-data-service-api-snapshot.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_data_service_capability",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-data-service-capability-matrix.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 data_service Capability Matrix ## Status V2-0 spike output. This matrix maps the local data_service candidate to Navia V2 Memory requirements. | V2 capability | data_service e",
+        "Authorized active document path: docs/active/project/design/v2-data-service-capability-matrix.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_data_service_unsupported",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-data-service-unsupported-capabilities.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 data_service Unsupported And Risky Capabilities ## Unsupported For Direct V2 Use | Area | Reason | Required Navia action | |---|---|---| | Direct workspace file access | data_",
+        "Authorized active document path: docs/active/project/design/v2-data-service-unsupported-capabilities.md"
+      ]
+    },
+    {
+      "sampleId": "v2_src_note_data_service_spike",
+      "sourceType": "markdown",
+      "category": "manual_note",
+      "redactedLocalPath": "docs/active/project/design/v2-data-service-adapter-spike-report.md",
+      "workspaceId": "workspace_product_planning",
+      "expectedEvidence": [
+        "# V2 data_service Adapter Spike Report ## Summary ```text date: 2026-07-10 repository: /mnt/c/workspace/data_service commit: fa8f8377b314510cc316640b625185d5f703841f version: local",
+        "Authorized active document path: docs/active/project/design/v2-data-service-adapter-spike-report.md"
+      ]
+    }
+  ],
+  "operationScenarios": [
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_1",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_163_news_home",
+        "v2_src_local_prd",
+        "v2_src_note_lifecycle_adr"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_2",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_cctv_home",
+        "v2_src_local_architecture",
+        "v2_src_note_semantic_validator"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_3",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_chinanews_home",
+        "v2_src_local_development_plan",
+        "v2_src_note_data_service_snapshot"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_4",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_guancha_home",
+        "v2_src_local_acceptance_plan",
+        "v2_src_note_data_service_capability"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_5",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_people_home",
+        "v2_src_local_stage_gate",
+        "v2_src_note_data_service_unsupported"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_mixed_workspace_query_6",
+      "scenarioType": "mixed_workspace_query",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_qq_news_home",
+        "v2_src_local_gap_doc",
+        "v2_src_note_data_service_spike"
+      ],
+      "expectedUserVisibleResult": "跨网页、文档和笔记返回带 evidence_refs 的回答。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_1",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_163_news_home",
+        "v2_src_web_domestic_article_36kr_news"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_2",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_cctv_home",
+        "v2_src_web_domestic_article_cctv_tech"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_3",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_chinanews_home",
+        "v2_src_web_domestic_article_cnblogs"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_4",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_guancha_home",
+        "v2_src_web_domestic_article_sspai"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_5",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_people_home",
+        "v2_src_web_domestic_content_baijiahao"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_6",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_qq_news_home",
+        "v2_src_web_domestic_content_bilibili_home"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_7",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_36kr_news",
+        "v2_src_local_prd"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_8",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_cctv_tech",
+        "v2_src_local_architecture"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_9",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_cnblogs",
+        "v2_src_local_development_plan"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_10",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_sspai",
+        "v2_src_local_acceptance_plan"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_11",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_content_baijiahao",
+        "v2_src_local_stage_gate"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_ask_with_sources_12",
+      "scenarioType": "ask_with_sources",
+      "sampleRefs": [
+        "v2_src_web_domestic_content_bilibili_home",
+        "v2_src_local_gap_doc"
+      ],
+      "expectedUserVisibleResult": "Ask with Sources 显示引用卡、Trace 入口和来源状态。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_1",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_163_news_home",
+        "v2_src_local_prd",
+        "v2_src_note_lifecycle_adr"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_2",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_cctv_home",
+        "v2_src_local_architecture",
+        "v2_src_note_semantic_validator"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_3",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_chinanews_home",
+        "v2_src_local_development_plan",
+        "v2_src_note_data_service_snapshot"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_4",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_guancha_home",
+        "v2_src_local_acceptance_plan",
+        "v2_src_note_data_service_capability"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_5",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_people_home",
+        "v2_src_local_stage_gate",
+        "v2_src_note_data_service_unsupported"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_6",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_qq_news_home",
+        "v2_src_local_gap_doc",
+        "v2_src_note_data_service_spike"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_7",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_36kr_news",
+        "v2_src_note_lifecycle_adr",
+        "v2_src_web_domestic_portal_163_news_home"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_graph_trace_8",
+      "scenarioType": "graph_trace",
+      "sampleRefs": [
+        "v2_src_web_domestic_article_cctv_tech",
+        "v2_src_note_semantic_validator",
+        "v2_src_web_domestic_portal_cctv_home"
+      ],
+      "expectedUserVisibleResult": "Graph 节点可追溯到 source trace。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_1",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_prd"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_2",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_architecture"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_3",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_development_plan"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_4",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_acceptance_plan"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_5",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_stage_gate"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_permission_grant_revoke_6",
+      "scenarioType": "permission_grant_revoke",
+      "sampleRefs": [
+        "v2_src_local_gap_doc"
+      ],
+      "expectedStatus": "trace_ready",
+      "expectedUserVisibleResult": "授权根可见，撤销后状态和操作记录可见。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_1",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_lifecycle_adr"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_2",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_semantic_validator"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_3",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_data_service_snapshot"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_4",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_data_service_capability"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_5",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_data_service_unsupported"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_forget_before_after_6",
+      "scenarioType": "forget_before_after",
+      "sampleRefs": [
+        "v2_src_note_data_service_spike"
+      ],
+      "expectedStatus": "forgotten",
+      "expectedUserVisibleResult": "删除前后查询、Library、Trace 均显示 forgotten 或不可引用。"
+    },
+    {
+      "scenarioId": "v2_scenario_service_status_1",
+      "scenarioType": "service_status",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_163_news_home"
+      ],
+      "expectedStatus": "runtime_offline",
+      "expectedUserVisibleResult": "ServiceStatusBanner / DataServiceStatusCard / KnowledgeBuildStatus 区分状态域。"
+    },
+    {
+      "scenarioId": "v2_scenario_service_status_2",
+      "scenarioType": "service_status",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_cctv_home"
+      ],
+      "expectedStatus": "adapter_blocked",
+      "expectedUserVisibleResult": "ServiceStatusBanner / DataServiceStatusCard / KnowledgeBuildStatus 区分状态域。"
+    },
+    {
+      "scenarioId": "v2_scenario_service_status_3",
+      "scenarioType": "service_status",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_chinanews_home"
+      ],
+      "expectedStatus": "data_service_unreachable",
+      "expectedUserVisibleResult": "ServiceStatusBanner / DataServiceStatusCard / KnowledgeBuildStatus 区分状态域。"
+    },
+    {
+      "scenarioId": "v2_scenario_service_status_4",
+      "scenarioType": "service_status",
+      "sampleRefs": [
+        "v2_src_web_domestic_portal_guancha_home"
+      ],
+      "expectedStatus": "source_build_failed",
+      "expectedUserVisibleResult": "ServiceStatusBanner / DataServiceStatusCard / KnowledgeBuildStatus 区分状态域。"
+    }
+  ]
+}

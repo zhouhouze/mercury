@@ -180,6 +180,108 @@ export type ChatSessionMessagesResponse = {
 
 export type StructuredPageDebug = Record<string, unknown>;
 
+export type KnowledgeServiceStatus = {
+  schemaVersion: string;
+  observedAt: string;
+  frontendInferredRuntimeStatus: RuntimeStatus;
+  runtimeStatus: RuntimeStatus;
+  adapterStatus: "ready" | "degraded" | "blocked" | "not_configured";
+  dataServiceStatus: "unchecked" | "connected" | "auth_required" | "unreachable" | "version_mismatch" | "blocked_by_policy";
+  sourceBuildStatus?: "not_saved" | "queued" | "ingesting" | "building" | "trace_ready" | "degraded" | "failed" | "forgotten";
+  capabilities?: Record<string, boolean>;
+  userAction?: string;
+  message?: string;
+  redactionApplied?: boolean;
+};
+
+export type KnowledgeSource = {
+  sourceId: string;
+  workspaceId: string;
+  sourceType: string;
+  title?: string;
+  originUrl?: string;
+  status: NonNullable<KnowledgeServiceStatus["sourceBuildStatus"]>;
+  revision: number;
+  operationId?: string;
+  evidenceRefs?: Array<Record<string, unknown>>;
+  createdAt: string;
+  updatedAt?: string;
+};
+
+export type KnowledgeOperation = {
+  operationId: string;
+  operationType: string;
+  status: "queued" | "running" | "succeeded" | "degraded" | "failed" | "cancelled";
+  sourceId?: string;
+  workspaceId?: string;
+  idempotencyKey?: string;
+  createdAt: string;
+  updatedAt?: string;
+};
+
+export type SaveKnowledgeSourceResult = {
+  source: KnowledgeSource;
+  operation: KnowledgeOperation;
+  idempotentReplay: boolean;
+};
+
+export type KnowledgeWorkspace = {
+  workspaceId: string;
+  name: string;
+  description?: string;
+  sourceCount: number;
+  pendingBuildCount: number;
+  traceCoverage: number;
+  createdAt: string;
+  updatedAt?: string;
+};
+
+export type KnowledgeQueryResult = {
+  workspaceId: string;
+  question: string;
+  answer: string;
+  status: "source_supported" | "degraded" | string;
+  degradedReason?: string;
+  evidenceRefs: Array<Record<string, unknown>>;
+};
+
+export type KnowledgeGraph = {
+  workspaceId: string;
+  nodes: Array<{ id: string; label: string; type: string }>;
+  edges: Array<{ id: string; from: string; to: string; type: string }>;
+  status: "ready" | "degraded" | string;
+};
+
+export type PermissionRoot = {
+  permissionRootId: string;
+  displayName: string;
+  redactedPath: string;
+  state: "granted" | "revoked" | string;
+  scope: "single_file" | "directory" | "workspace_export" | string;
+  createdAt: string;
+  revokedAt?: string;
+};
+
+export type PermissionResult = {
+  permissionRoot: PermissionRoot;
+  operation: KnowledgeOperation;
+};
+
+export type ForgetSourceResult = {
+  forgetRequest: Record<string, unknown>;
+  verification: {
+    verificationId: string;
+    forgetRequestId: string;
+    sourceId: string;
+    libraryAbsent: boolean;
+    askAbsent: boolean;
+    graphAbsent: boolean;
+    traceAbsent: boolean;
+    verifiedAt: string;
+  };
+  operation: KnowledgeOperation;
+};
+
 type ApiResponse<T> = {
   ok: boolean;
   data: T | null;
@@ -360,6 +462,93 @@ export async function submitRuntimePageContext(
   return { ok: true, pageId: data.page_id, structuredPage: data.structuredPage };
 }
 
+export async function getKnowledgeServiceStatus(): Promise<KnowledgeServiceStatus> {
+  return unwrapApiResponse(await runtimeJson<KnowledgeServiceStatus>({ path: "/v1/knowledge/status" }));
+}
+
+export async function listKnowledgeWorkspaces(): Promise<KnowledgeWorkspace[]> {
+  const body = unwrapApiResponse(await runtimeJson<{ workspaces: KnowledgeWorkspace[]; cursor: string | null }>({ path: "/v1/knowledge/workspaces" }));
+  return body.workspaces;
+}
+
+export async function listKnowledgeSources(workspaceId = "ws_default"): Promise<KnowledgeSource[]> {
+  const body = unwrapApiResponse(await runtimeJson<{ workspaceId: string; sources: KnowledgeSource[]; cursor: string | null }>({
+    path: `/v1/knowledge/sources?workspaceId=${encodeURIComponent(workspaceId)}`
+  }));
+  return body.sources;
+}
+
+export async function getKnowledgeSource(sourceId: string): Promise<KnowledgeSource> {
+  const body = unwrapApiResponse(await runtimeJson<{ source: KnowledgeSource }>({ path: `/v1/knowledge/sources/${encodeURIComponent(sourceId)}` }));
+  return body.source;
+}
+
+export async function askKnowledgeSources(input: { workspaceId: string; question: string; sourceIds?: string[] }): Promise<KnowledgeQueryResult> {
+  return unwrapApiResponse(await runtimeJson<KnowledgeQueryResult>({
+    path: "/v1/knowledge/query",
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: {
+      workspaceId: input.workspaceId,
+      question: input.question,
+      sourceIds: input.sourceIds
+    }
+  }));
+}
+
+export async function getKnowledgeGraph(workspaceId = "ws_default"): Promise<KnowledgeGraph> {
+  return unwrapApiResponse(await runtimeJson<KnowledgeGraph>({
+    path: `/v1/knowledge/graph?workspaceId=${encodeURIComponent(workspaceId)}`
+  }));
+}
+
+export async function grantKnowledgePermission(input: { displayName: string; redactedPath: string; scope: PermissionRoot["scope"] }): Promise<PermissionResult> {
+  return unwrapApiResponse(await runtimeJson<PermissionResult>({
+    path: "/v1/knowledge/permissions",
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: input
+  }));
+}
+
+export async function revokeKnowledgePermission(permissionRootId: string): Promise<PermissionResult> {
+  return unwrapApiResponse(await runtimeJson<PermissionResult>({
+    path: `/v1/knowledge/permissions/${encodeURIComponent(permissionRootId)}`,
+    method: "DELETE"
+  }));
+}
+
+export async function forgetKnowledgeSource(sourceId: string, confirmationText: string): Promise<ForgetSourceResult> {
+  return unwrapApiResponse(await runtimeJson<ForgetSourceResult>({
+    path: `/v1/knowledge/sources/${encodeURIComponent(sourceId)}/forget`,
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: { confirmationText }
+  }));
+}
+
+export async function saveCurrentPageToKnowledge(context: ExtractedPageContext): Promise<SaveKnowledgeSourceResult> {
+  const idempotencyKey = knowledgeIdempotencyKey(context);
+  const candidate = {
+    candidateId: `cand_${crypto.randomUUID().replace(/-/g, "")}`,
+    workspaceId: "ws_default",
+    sourceType: "web_page",
+    title: context.title,
+    url: context.url,
+    pageId: `page_${hashString(`${context.url}:${context.captured_at}`)}`,
+    createdAt: context.captured_at || new Date().toISOString(),
+    idempotencyKey,
+    artifactIds: [],
+    sourceRefs: knowledgeEvidenceRefs(context)
+  };
+  return unwrapApiResponse(await runtimeJson<SaveKnowledgeSourceResult>({
+    path: "/v1/knowledge/sources",
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Idempotency-Key": idempotencyKey },
+    body: candidate
+  }));
+}
+
 export async function streamRuntimeChat(
   sessionId: string | null,
   message: string,
@@ -483,6 +672,35 @@ async function runtimeJson<T>(request: RuntimeRequest): Promise<ApiResponse<T>> 
 
 function shouldUseRuntimeProxy(): boolean {
   return typeof chrome !== "undefined" && Boolean(chrome.runtime?.sendMessage) && window.location.protocol !== "chrome-extension:";
+}
+
+function knowledgeIdempotencyKey(context: ExtractedPageContext): string {
+  return `navia-v2-${hashString(`${context.url}:${context.title}:${context.captured_at}`)}`;
+}
+
+function knowledgeEvidenceRefs(context: ExtractedPageContext): Array<Record<string, unknown>> {
+  const firstBlock = context.dom_signals?.blocks?.find((block) => block.text?.trim());
+  const textQuote = (firstBlock?.text || context.cleaned_text || context.visible_text || context.title).slice(0, 500);
+  const ref: Record<string, unknown> = {
+    evidenceRefId: `ev_${hashString(`${context.url}:${textQuote}`)}`,
+    sourceId: "src_pending",
+    locatorType: firstBlock?.selector ? "dom_selector" : "fallback_text",
+    selector: firstBlock?.selector,
+    textQuote,
+    status: firstBlock?.selector ? "located" : "fallback_shown",
+    fallbackText: textQuote,
+    redactionApplied: true
+  };
+  return [Object.fromEntries(Object.entries(ref).filter(([, value]) => value !== undefined))];
+}
+
+function hashString(value: string): string {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash << 5) - hash + value.charCodeAt(index);
+    hash |= 0;
+  }
+  return Math.abs(hash).toString(36).padStart(8, "0");
 }
 
 async function streamRuntimeChatViaProxy(request: RuntimeRequest, onEvent: (event: AgentEvent) => void | Promise<void>): Promise<void> {

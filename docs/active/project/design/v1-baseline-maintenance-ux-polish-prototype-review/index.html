@@ -655,7 +655,7 @@
           </div>
           <div class="warning">
             <strong>图像生成状态</strong>
-            <p>本机未发现 <code>imag2</code> / <code>image2</code> / <code>gpt-image-2</code> 终端命令。因此本页目标图样使用可复现 HTML/CSS 图形生成，不伪称 AI 文生图；真实截图只引用已有 evidence。</p>
+            <p>本机未发现 <code>imag2</code> / <code>image2</code> / <code>gpt-image-2</code> 终端命令。本轮已用宿主图像工具辅助校验视觉方向，但因未返回可落盘稳定路径，正式 HTML 内目标图统一使用可复现 HTML/CSS 图形；真实截图只引用已有 evidence。</p>
           </div>
         </div>
       </section>
@@ -712,11 +712,85 @@
             </div>
           </div>
         </div>
+        <div class="diagram" style="margin-top: 18px;">
+          <div class="diagram-title">
+            <h3>架构图 D：实现实体状态与模块边界</h3>
+            <span class="pill blue">drawio 02 页展开</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>分层</th>
+                <th>具体实现实体</th>
+                <th>当前状态</th>
+                <th>原型设计对实现的约束</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>页面注入层</td>
+                <td><code>apps/chrome-extension/entrypoints/content/index.ts</code></td>
+                <td><span class="pill warn">已实现需 polish</span></td>
+                <td>只优化 launcher / sidebar shell / collapse / resize / drag，不新增产品浏览器自动操作。</td>
+              </tr>
+              <tr>
+                <td>前端承载层</td>
+                <td><code>sidepanel/main.tsx</code> + <code>sidepanel/style.css</code></td>
+                <td><span class="pill warn">已实现需 polish</span></td>
+                <td>保持 Chat / Mindmap / Debug / Settings 可达，解决遮挡、截断、虚影、按钮层级和输入区问题。</td>
+              </tr>
+              <tr>
+                <td>B Renderer</td>
+                <td><code>chat_renderer</code> / <code>mindmap_renderer</code> / <code>debug_renderer</code></td>
+                <td><span class="pill warn">已实现需 polish</span></td>
+                <td>只做展示和交互表达，不生成网页事实内容，不直连 A/C/D 服务。</td>
+              </tr>
+              <tr>
+                <td>Content Bridge</td>
+                <td><code>apps/chrome-extension/src/contentBridge.ts</code></td>
+                <td><span class="pill warn">已实现需 polish</span></td>
+                <td>清晰区分 <code>located</code>、<code>fallback_shown</code>、<code>blocked</code>；fallback 不冒充 marker 成功。</td>
+              </tr>
+              <tr>
+                <td>Runtime / A / C / D</td>
+                <td><code>runtimeClient.ts</code>、<code>app.py</code>、Page Reading、Mindmap、Agent Loop / Adapter</td>
+                <td><span class="pill good">已实现保持边界</span></td>
+                <td>只做回归依赖和诊断展示，不新增 Runtime public contract、Artifact/Event/Trace 公共字段。</td>
+              </tr>
+              <tr>
+                <td>证据层</td>
+                <td><code>v1_post_v1_hardening</code> / <code>v1_baseline_maintenance_ux_polish</code></td>
+                <td><span class="pill blue">冻结基线 + 新阶段证据</span></td>
+                <td>旧 evidence 只读引用，新阶段 evidence 独立；目标图不得冒充真实截图。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section class="section" id="baseline">
         <h2>03 当前实际实现的基线版本页面截图组</h2>
-        <p class="small">以下均为 post-V1 frozen evidence 中的真实截图。它们用于识别当前 UI 基线和问题，不作为 BM/UX 新阶段验收输出。</p>
+        <p class="small">以下均为真实 evidence 截图。BM/UX 截图代表当前最新实现基线，post-V1 截图代表上一阶段冻结基线；两者都不能被目标图替代。</p>
+        <h3>3.1 当前 BM/UX 实现基线截图</h3>
+        <div class="grid-4">
+          <figure class="figure">
+            <img src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-01-docked-default.png" alt="Navia launcher 默认贴边状态真实截图" />
+            <figcaption class="caption">Launcher 默认贴边：检视低打扰入口是否成立。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-02-launcher-hover-peek.png" alt="Navia launcher hover peek 真实截图" />
+            <figcaption class="caption">Hover / focus 显露：检视获焦反馈和 runtime dot。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-03-expanded-after-click.png" alt="Navia sidebar 点击展开真实截图" />
+            <figcaption class="caption">点击展开：检视 sidebar、Chat、rail、输入区和状态卡层级。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="../../evidence/v1_baseline_maintenance_ux_polish/screenshots/launcher-04-resized-overlay.png" alt="Navia sidebar resize overlay 真实截图" />
+            <figcaption class="caption">Resize / overlay：检视窄宽度下是否遮挡、截断或虚影。</figcaption>
+          </figure>
+        </div>
+        <h3 style="margin-top: 18px;">3.2 Post-V1 frozen baseline 截图</h3>
         <div class="grid-4">
           <figure class="figure">
             <img src="../../evidence/v1_post_v1_hardening/screenshots/domestic-content-bilibili-home-after.png" alt="B站首页 Navia source marker 基线截图" />
@@ -740,6 +814,10 @@
       <section class="section" id="overall">
         <h2>04 目标总体设计图组</h2>
         <p class="small">以下为设计目标图，不是当前实现截图。它们用于指导后续自动化开发，不得作为完成证据。</p>
+        <div class="note">
+          <strong>目标图与真实截图的关系</strong>
+          <p>目标图只回答“后续实现应该长什么样、组件如何组合、状态如何表达”。实现验收必须回到真实 Chrome / headless 截图，并逐项对照本页目标图记录偏差。</p>
+        </div>
         <div class="grid-3">
           <div>
             <h3>总体图 A：默认贴边低打扰</h3>
@@ -884,10 +962,17 @@
               <td><span class="pill good">通过</span></td>
             </tr>
             <tr>
+              <td>架构模块图 D</td>
+              <td>HTML 表格 + 状态标签</td>
+              <td>BM/UX stage gate 必须出现的代码实体、状态、分层和边界</td>
+              <td>具体到文件和模块层，不使用抽象空泛架构，不把待 polish 写成已完成</td>
+              <td><span class="pill good">通过</span></td>
+            </tr>
+            <tr>
               <td>当前基线截图组</td>
               <td>真实 post-V1 frozen evidence 截图</td>
               <td>v1_post_v1_hardening screenshots</td>
-              <td>只读引用，不冒充 BM/UX 新证据</td>
+              <td>只读引用，不冒充 BM/UX 新证据；另列 BM/UX 当前实现截图作为最新基线</td>
               <td><span class="pill good">通过</span></td>
             </tr>
             <tr>
@@ -915,7 +1000,7 @@
         </table>
         <div class="note">
           <strong>AI 文生图判断</strong>
-          <p>本轮未生成 AI 文生图，因为本机没有可用 <code>imag2</code> 命令。所有目标图均为可复现 HTML/CSS 原型，因此不存在 AI 文生图事实性错误；页面仍按“文生图审查”标准逐图检查概念一致性和越界风险。</p>
+          <p>本轮尝试使用宿主图像工具生成概念图用于视觉方向校验，但未获得可落盘稳定路径，因此正式审查 HTML 不依赖不可复验的 AI 图像。页面内正式目标图均为可复现 HTML/CSS 原型，并已按“文生图审查”标准逐图检查概念一致性和越界风险。</p>
         </div>
       </section>
 
